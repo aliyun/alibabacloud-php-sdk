@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckResponseBody\module\passengerChangedPriceInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class originalPrice extends Model
 {
     /**
-     * @example 9000
-     *
      * @var int
      */
     public $buildPrice;
 
     /**
-     * @example 5000
-     *
      * @var int
      */
     public $oilPrice;
 
     /**
-     * @example 12000
-     *
      * @var int
      */
     public $taxPrice;
 
     /**
-     * @example 80000
-     *
      * @var int
      */
     public $ticketPrice;
     protected $_name = [
-        'buildPrice'  => 'build_price',
-        'oilPrice'    => 'oil_price',
-        'taxPrice'    => 'tax_price',
+        'buildPrice' => 'build_price',
+        'oilPrice' => 'oil_price',
+        'taxPrice' => 'tax_price',
         'ticketPrice' => 'ticket_price',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildPrice) {
             $res['build_price'] = $this->buildPrice;
         }
+
         if (null !== $this->oilPrice) {
             $res['oil_price'] = $this->oilPrice;
         }
+
         if (null !== $this->taxPrice) {
             $res['tax_price'] = $this->taxPrice;
         }
+
         if (null !== $this->ticketPrice) {
             $res['ticket_price'] = $this->ticketPrice;
         }
@@ -65,23 +61,26 @@ class originalPrice extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return originalPrice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['build_price'])) {
             $model->buildPrice = $map['build_price'];
         }
+
         if (isset($map['oil_price'])) {
             $model->oilPrice = $map['oil_price'];
         }
+
         if (isset($map['tax_price'])) {
             $model->taxPrice = $map['tax_price'];
         }
+
         if (isset($map['ticket_price'])) {
             $model->ticketPrice = $map['ticket_price'];
         }

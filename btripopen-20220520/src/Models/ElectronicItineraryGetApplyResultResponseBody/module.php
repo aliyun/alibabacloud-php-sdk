@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryGetApplyResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryGetApplyResultResponseBody\module\applyTicketList;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -20,25 +20,30 @@ class module extends Model
     public $batchApplyNo;
     protected $_name = [
         'applyTicketList' => 'apply_ticket_list',
-        'batchApplyNo'    => 'batch_apply_no',
+        'batchApplyNo' => 'batch_apply_no',
     ];
 
     public function validate()
     {
+        if (\is_array($this->applyTicketList)) {
+            Model::validateArray($this->applyTicketList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyTicketList) {
-            $res['apply_ticket_list'] = [];
-            if (null !== $this->applyTicketList && \is_array($this->applyTicketList)) {
-                $n = 0;
-                foreach ($this->applyTicketList as $item) {
-                    $res['apply_ticket_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applyTicketList)) {
+                $res['apply_ticket_list'] = [];
+                $n1 = 0;
+                foreach ($this->applyTicketList as $item1) {
+                    $res['apply_ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->batchApplyNo) {
             $res['batch_apply_no'] = $this->batchApplyNo;
         }
@@ -46,23 +51,24 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apply_ticket_list'])) {
             if (!empty($map['apply_ticket_list'])) {
                 $model->applyTicketList = [];
-                $n                      = 0;
-                foreach ($map['apply_ticket_list'] as $item) {
-                    $model->applyTicketList[$n++] = null !== $item ? applyTicketList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['apply_ticket_list'] as $item1) {
+                    $model->applyTicketList[$n1++] = applyTicketList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['batch_apply_no'])) {
             $model->batchApplyNo = $map['batch_apply_no'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponseBody\module\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mainReserveRule extends Model
 {
@@ -14,8 +14,6 @@ class mainReserveRule extends Model
     public $openServiceTypeList;
 
     /**
-     * @example 2006516571
-     *
      * @var int
      */
     public $ruleCode;
@@ -26,8 +24,6 @@ class mainReserveRule extends Model
     public $ruleDesc;
 
     /**
-     * @example 6516571
-     *
      * @var int
      */
     public $ruleId;
@@ -38,31 +34,45 @@ class mainReserveRule extends Model
     public $ruleName;
     protected $_name = [
         'openServiceTypeList' => 'open_service_type_list',
-        'ruleCode'            => 'rule_code',
-        'ruleDesc'            => 'rule_desc',
-        'ruleId'              => 'rule_id',
-        'ruleName'            => 'rule_name',
+        'ruleCode' => 'rule_code',
+        'ruleDesc' => 'rule_desc',
+        'ruleId' => 'rule_id',
+        'ruleName' => 'rule_name',
     ];
 
     public function validate()
     {
+        if (\is_array($this->openServiceTypeList)) {
+            Model::validateArray($this->openServiceTypeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->openServiceTypeList) {
-            $res['open_service_type_list'] = $this->openServiceTypeList;
+            if (\is_array($this->openServiceTypeList)) {
+                $res['open_service_type_list'] = [];
+                $n1 = 0;
+                foreach ($this->openServiceTypeList as $item1) {
+                    $res['open_service_type_list'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ruleCode) {
             $res['rule_code'] = $this->ruleCode;
         }
+
         if (null !== $this->ruleDesc) {
             $res['rule_desc'] = $this->ruleDesc;
         }
+
         if (null !== $this->ruleId) {
             $res['rule_id'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['rule_name'] = $this->ruleName;
         }
@@ -70,28 +80,36 @@ class mainReserveRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mainReserveRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['open_service_type_list'])) {
             if (!empty($map['open_service_type_list'])) {
-                $model->openServiceTypeList = $map['open_service_type_list'];
+                $model->openServiceTypeList = [];
+                $n1 = 0;
+                foreach ($map['open_service_type_list'] as $item1) {
+                    $model->openServiceTypeList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['rule_code'])) {
             $model->ruleCode = $map['rule_code'];
         }
+
         if (isset($map['rule_desc'])) {
             $model->ruleDesc = $map['rule_desc'];
         }
+
         if (isset($map['rule_id'])) {
             $model->ruleId = $map['rule_id'];
         }
+
         if (isset($map['rule_name'])) {
             $model->ruleName = $map['rule_name'];
         }

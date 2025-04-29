@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SyncSingleUserResponseBody extends Model
 {
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $code;
@@ -21,63 +19,61 @@ class SyncSingleUserResponseBody extends Model
     public $message;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $module;
 
     /**
-     * @example A5009956-1077-52FB-B520-EA8C7E91D722
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 210f079e16603757182131635d866a
-     *
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'code'      => 'code',
-        'message'   => 'message',
-        'module'    => 'module',
+        'code' => 'code',
+        'message' => 'message',
+        'module' => 'module',
         'requestId' => 'requestId',
-        'success'   => 'success',
-        'traceId'   => 'traceId',
+        'success' => 'success',
+        'traceId' => 'traceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->module) {
             $res['module'] = $this->module;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
         }
@@ -85,29 +81,34 @@ class SyncSingleUserResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncSingleUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['module'])) {
             $model->module = $map['module'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
         }

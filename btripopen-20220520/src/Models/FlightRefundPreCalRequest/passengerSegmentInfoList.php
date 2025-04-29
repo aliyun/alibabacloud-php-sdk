@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passengerSegmentInfoList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example CA1982
-     *
      * @var string
      */
     public $flightNo;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $passengerName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 23112
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'flightNo'      => 'flight_no',
+        'flightNo' => 'flight_no',
         'passengerName' => 'passenger_name',
-        'userId'        => 'user_id',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
         }
+
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -58,20 +51,22 @@ class passengerSegmentInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerSegmentInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];
         }
+
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

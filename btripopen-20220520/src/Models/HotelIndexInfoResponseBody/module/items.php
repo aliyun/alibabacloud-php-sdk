@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelIndexInfoResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example 182873
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $hotelStatus;
     protected $_name = [
-        'hotelId'     => 'hotel_id',
+        'hotelId' => 'hotel_id',
         'hotelStatus' => 'hotel_status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['hotel_id'] = $this->hotelId;
         }
+
         if (null !== $this->hotelStatus) {
             $res['hotel_status'] = $this->hotelStatus;
         }
@@ -43,17 +41,18 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hotel_id'])) {
             $model->hotelId = $map['hotel_id'];
         }
+
         if (isset($map['hotel_status'])) {
             $model->hotelStatus = $map['hotel_status'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HotelOrderCancelRequest extends Model
 {
@@ -14,26 +14,26 @@ class HotelOrderCancelRequest extends Model
     public $btripOrderId;
 
     /**
-     * @example dis123
-     *
      * @var string
      */
     public $disOrderId;
     protected $_name = [
         'btripOrderId' => 'btrip_order_id',
-        'disOrderId'   => 'dis_order_id',
+        'disOrderId' => 'dis_order_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->btripOrderId) {
             $res['btrip_order_id'] = $this->btripOrderId;
         }
+
         if (null !== $this->disOrderId) {
             $res['dis_order_id'] = $this->disOrderId;
         }
@@ -41,17 +41,18 @@ class HotelOrderCancelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HotelOrderCancelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['btrip_order_id'])) {
             $model->btripOrderId = $map['btrip_order_id'];
         }
+
         if (isset($map['dis_order_id'])) {
             $model->disOrderId = $map['dis_order_id'];
         }

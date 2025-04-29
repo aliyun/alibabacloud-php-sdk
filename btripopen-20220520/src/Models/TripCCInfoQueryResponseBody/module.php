@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripCCInfoQueryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
     /**
-     * @example user_12138
-     *
      * @var string
      */
     public $notifier;
 
     /**
-     * @example 1525104000
-     *
      * @var int
      */
     public $notifyStartTime;
     protected $_name = [
-        'notifier'        => 'notifier',
+        'notifier' => 'notifier',
         'notifyStartTime' => 'notify_start_time',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notifier) {
             $res['notifier'] = $this->notifier;
         }
+
         if (null !== $this->notifyStartTime) {
             $res['notify_start_time'] = $this->notifyStartTime;
         }
@@ -43,17 +41,18 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['notifier'])) {
             $model->notifier = $map['notifier'];
         }
+
         if (isset($map['notify_start_time'])) {
             $model->notifyStartTime = $map['notify_start_time'];
         }

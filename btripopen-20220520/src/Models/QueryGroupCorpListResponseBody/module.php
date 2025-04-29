@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
     /**
-     * @example corp1
-     *
      * @var string
      */
     public $corpId;
@@ -20,20 +18,22 @@ class module extends Model
      */
     public $corpName;
     protected $_name = [
-        'corpId'   => 'corp_id',
+        'corpId' => 'corp_id',
         'corpName' => 'corp_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
         }
+
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
         }
@@ -41,17 +41,18 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
         }
+
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];
         }

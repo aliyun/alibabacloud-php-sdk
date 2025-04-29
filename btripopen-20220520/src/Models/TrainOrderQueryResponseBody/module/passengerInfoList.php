@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passengerInfoList extends Model
 {
     /**
-     * @example 11564
-     *
      * @var int
      */
     public $costCenterId;
@@ -21,22 +19,16 @@ class passengerInfoList extends Model
     public $costCenterName;
 
     /**
-     * @example 01
-     *
      * @var string
      */
     public $costCenterNumber;
 
     /**
-     * @example CSP-01
-     *
      * @var string
      */
     public $projectCode;
 
     /**
-     * @example 22562
-     *
      * @var int
      */
     public $projectId;
@@ -47,8 +39,6 @@ class passengerInfoList extends Model
     public $projectTitle;
 
     /**
-     * @example CS-22562
-     *
      * @var string
      */
     public $thirdpartProjectId;
@@ -64,58 +54,66 @@ class passengerInfoList extends Model
     public $userName;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $userType;
     protected $_name = [
-        'costCenterId'       => 'cost_center_id',
-        'costCenterName'     => 'cost_center_name',
-        'costCenterNumber'   => 'cost_center_number',
-        'projectCode'        => 'project_code',
-        'projectId'          => 'project_id',
-        'projectTitle'       => 'project_title',
+        'costCenterId' => 'cost_center_id',
+        'costCenterName' => 'cost_center_name',
+        'costCenterNumber' => 'cost_center_number',
+        'projectCode' => 'project_code',
+        'projectId' => 'project_id',
+        'projectTitle' => 'project_title',
         'thirdpartProjectId' => 'thirdpart_project_id',
-        'userId'             => 'user_id',
-        'userName'           => 'user_name',
-        'userType'           => 'user_type',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
+        'userType' => 'user_type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCenterId) {
             $res['cost_center_id'] = $this->costCenterId;
         }
+
         if (null !== $this->costCenterName) {
             $res['cost_center_name'] = $this->costCenterName;
         }
+
         if (null !== $this->costCenterNumber) {
             $res['cost_center_number'] = $this->costCenterNumber;
         }
+
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
         }
+
         if (null !== $this->projectId) {
             $res['project_id'] = $this->projectId;
         }
+
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
         }
+
         if (null !== $this->thirdpartProjectId) {
             $res['thirdpart_project_id'] = $this->thirdpartProjectId;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['user_name'] = $this->userName;
         }
+
         if (null !== $this->userType) {
             $res['user_type'] = $this->userType;
         }
@@ -123,41 +121,50 @@ class passengerInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cost_center_id'])) {
             $model->costCenterId = $map['cost_center_id'];
         }
+
         if (isset($map['cost_center_name'])) {
             $model->costCenterName = $map['cost_center_name'];
         }
+
         if (isset($map['cost_center_number'])) {
             $model->costCenterNumber = $map['cost_center_number'];
         }
+
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];
         }
+
         if (isset($map['project_id'])) {
             $model->projectId = $map['project_id'];
         }
+
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
         }
+
         if (isset($map['thirdpart_project_id'])) {
             $model->thirdpartProjectId = $map['thirdpart_project_id'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }
+
         if (isset($map['user_name'])) {
             $model->userName = $map['user_name'];
         }
+
         if (isset($map['user_type'])) {
             $model->userType = $map['user_type'];
         }

@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleAddRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class entities extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $entityId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $entityName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $entityType;
     protected $_name = [
-        'entityId'   => 'entity_id',
+        'entityId' => 'entity_id',
         'entityName' => 'entity_name',
         'entityType' => 'entity_type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityId) {
             $res['entity_id'] = $this->entityId;
         }
+
         if (null !== $this->entityName) {
             $res['entity_name'] = $this->entityName;
         }
+
         if (null !== $this->entityType) {
             $res['entity_type'] = $this->entityType;
         }
@@ -58,20 +51,22 @@ class entities extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entity_id'])) {
             $model->entityId = $map['entity_id'];
         }
+
         if (isset($map['entity_name'])) {
             $model->entityName = $map['entity_name'];
         }
+
         if (isset($map['entity_type'])) {
             $model->entityType = $map['entity_type'];
         }

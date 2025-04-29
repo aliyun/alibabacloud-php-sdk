@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
@@ -14,48 +14,46 @@ class items extends Model
     public $employeeNick;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $leaveStatus;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $thirdPartEmployeeId;
 
     /**
-     * @example 001
-     *
      * @var string
      */
     public $thirdPartJobNo;
     protected $_name = [
-        'employeeNick'        => 'employee_nick',
-        'leaveStatus'         => 'leave_status',
+        'employeeNick' => 'employee_nick',
+        'leaveStatus' => 'leave_status',
         'thirdPartEmployeeId' => 'third_part_employee_id',
-        'thirdPartJobNo'      => 'third_part_job_no',
+        'thirdPartJobNo' => 'third_part_job_no',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->employeeNick) {
             $res['employee_nick'] = $this->employeeNick;
         }
+
         if (null !== $this->leaveStatus) {
             $res['leave_status'] = $this->leaveStatus;
         }
+
         if (null !== $this->thirdPartEmployeeId) {
             $res['third_part_employee_id'] = $this->thirdPartEmployeeId;
         }
+
         if (null !== $this->thirdPartJobNo) {
             $res['third_part_job_no'] = $this->thirdPartJobNo;
         }
@@ -63,23 +61,26 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['employee_nick'])) {
             $model->employeeNick = $map['employee_nick'];
         }
+
         if (isset($map['leave_status'])) {
             $model->leaveStatus = $map['leave_status'];
         }
+
         if (isset($map['third_part_employee_id'])) {
             $model->thirdPartEmployeeId = $map['third_part_employee_id'];
         }
+
         if (isset($map['third_part_job_no'])) {
             $model->thirdPartJobNo = $map['third_part_job_no'];
         }

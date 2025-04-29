@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue\segmentPriceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchPrice extends Model
 {
     /**
-     * @example 120000
-     *
      * @var int
      */
     public $ticketPrice;
 
     /**
-     * @example 120000
-     *
      * @var int
      */
     public $sellPrice;
 
     /**
-     * @example 6000
-     *
      * @var int
      */
     public $tax;
     protected $_name = [
         'ticketPrice' => 'ticket_price',
-        'sellPrice'   => 'sell_price',
-        'tax'         => 'tax',
+        'sellPrice' => 'sell_price',
+        'tax' => 'tax',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ticketPrice) {
             $res['ticket_price'] = $this->ticketPrice;
         }
+
         if (null !== $this->sellPrice) {
             $res['sell_price'] = $this->sellPrice;
         }
+
         if (null !== $this->tax) {
             $res['tax'] = $this->tax;
         }
@@ -54,20 +51,22 @@ class searchPrice extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchPrice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ticket_price'])) {
             $model->ticketPrice = $map['ticket_price'];
         }
+
         if (isset($map['sell_price'])) {
             $model->sellPrice = $map['sell_price'];
         }
+
         if (isset($map['tax'])) {
             $model->tax = $map['tax'];
         }

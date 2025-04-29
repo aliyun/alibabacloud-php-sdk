@@ -4,32 +4,44 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TripTaskQueryHeaders extends Model
 {
+    /**
+     * @var string[]
+     */
     public $commonHeaders;
 
     /**
-     * @example feth00jqwls
-     *
      * @var string
      */
     public $xAcsBtripCorpToken;
     protected $_name = [
+        'commonHeaders' => 'commonHeaders',
         'xAcsBtripCorpToken' => 'x-acs-btrip-corp-token',
     ];
 
     public function validate()
     {
+        if (\is_array($this->commonHeaders)) {
+            Model::validateArray($this->commonHeaders);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commonHeaders) {
-            $res['commonHeaders'] = $this->commonHeaders;
+            if (\is_array($this->commonHeaders)) {
+                $res['commonHeaders'] = [];
+                foreach ($this->commonHeaders as $key1 => $value1) {
+                    $res['commonHeaders'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->xAcsBtripCorpToken) {
             $res['x-acs-btrip-corp-token'] = $this->xAcsBtripCorpToken;
         }
@@ -37,17 +49,23 @@ class TripTaskQueryHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TripTaskQueryHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
-            $model->commonHeaders = $map['commonHeaders'];
+            if (!empty($map['commonHeaders'])) {
+                $model->commonHeaders = [];
+                foreach ($map['commonHeaders'] as $key1 => $value1) {
+                    $model->commonHeaders[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['x-acs-btrip-corp-token'])) {
             $model->xAcsBtripCorpToken = $map['x-acs-btrip-corp-token'];
         }

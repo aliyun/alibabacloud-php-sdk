@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateRefundRequest\refundTrainInfos;
-use AlibabaCloud\Tea\Model;
 
 class TrainFeeCalculateRefundRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $distributeOrderId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1002145190081005400
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var refundTrainInfos[]
      */
     public $refundTrainInfos;
     protected $_name = [
         'distributeOrderId' => 'distribute_order_id',
-        'orderId'           => 'order_id',
-        'refundTrainInfos'  => 'refund_train_infos',
+        'orderId' => 'order_id',
+        'refundTrainInfos' => 'refund_train_infos',
     ];
 
     public function validate()
     {
+        if (\is_array($this->refundTrainInfos)) {
+            Model::validateArray($this->refundTrainInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->distributeOrderId) {
             $res['distribute_order_id'] = $this->distributeOrderId;
         }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
+
         if (null !== $this->refundTrainInfos) {
-            $res['refund_train_infos'] = [];
-            if (null !== $this->refundTrainInfos && \is_array($this->refundTrainInfos)) {
-                $n = 0;
-                foreach ($this->refundTrainInfos as $item) {
-                    $res['refund_train_infos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->refundTrainInfos)) {
+                $res['refund_train_infos'] = [];
+                $n1 = 0;
+                foreach ($this->refundTrainInfos as $item1) {
+                    $res['refund_train_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +61,28 @@ class TrainFeeCalculateRefundRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TrainFeeCalculateRefundRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['distribute_order_id'])) {
             $model->distributeOrderId = $map['distribute_order_id'];
         }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
+
         if (isset($map['refund_train_infos'])) {
             if (!empty($map['refund_train_infos'])) {
                 $model->refundTrainInfos = [];
-                $n                       = 0;
-                foreach ($map['refund_train_infos'] as $item) {
-                    $model->refundTrainInfos[$n++] = null !== $item ? refundTrainInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['refund_train_infos'] as $item1) {
+                    $model->refundTrainInfos[$n1++] = refundTrainInfos::fromMap($item1);
                 }
             }
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class insuranceInfoList extends Model
 {
     /**
-     * @example 100
-     *
      * @var float
      */
     public $amount;
 
     /**
-     * @example 345-987-098
-     *
      * @var string
      */
     public $insuranceNo;
@@ -28,8 +24,6 @@ class insuranceInfoList extends Model
     public $name;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -39,32 +33,37 @@ class insuranceInfoList extends Model
      */
     public $type;
     protected $_name = [
-        'amount'      => 'amount',
+        'amount' => 'amount',
         'insuranceNo' => 'insurance_no',
-        'name'        => 'name',
-        'status'      => 'status',
-        'type'        => 'type',
+        'name' => 'name',
+        'status' => 'status',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
+
         if (null !== $this->insuranceNo) {
             $res['insurance_no'] = $this->insuranceNo;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -72,26 +71,30 @@ class insuranceInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return insuranceInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
+
         if (isset($map['insurance_no'])) {
             $model->insuranceNo = $map['insurance_no'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

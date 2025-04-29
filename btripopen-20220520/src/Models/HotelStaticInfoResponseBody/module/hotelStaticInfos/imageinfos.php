@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageinfos extends Model
 {
@@ -19,30 +19,31 @@ class imageinfos extends Model
     public $tag;
 
     /**
-     * @example https://img.alicdn.com/imgextra/i3/6000000000003/O1CN01xkZQR41BtPxK1PQCb_!!6000000000003-0-hotel.jpg
-     *
      * @var string
      */
     public $url;
     protected $_name = [
         'desc' => 'desc',
-        'tag'  => 'tag',
-        'url'  => 'url',
+        'tag' => 'tag',
+        'url' => 'url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -50,20 +51,22 @@ class imageinfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageinfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

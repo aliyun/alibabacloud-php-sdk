@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryResponseBody\module\refundDetails;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
     /**
-     * @example 1017002195370467138
-     *
      * @var string
      */
     public $orderId;
@@ -22,36 +20,40 @@ class module extends Model
     public $refundDetails;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $totalAmount;
     protected $_name = [
-        'orderId'       => 'order_id',
+        'orderId' => 'order_id',
         'refundDetails' => 'refund_details',
-        'totalAmount'   => 'total_amount',
+        'totalAmount' => 'total_amount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->refundDetails)) {
+            Model::validateArray($this->refundDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
+
         if (null !== $this->refundDetails) {
-            $res['refund_details'] = [];
-            if (null !== $this->refundDetails && \is_array($this->refundDetails)) {
-                $n = 0;
-                foreach ($this->refundDetails as $item) {
-                    $res['refund_details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->refundDetails)) {
+                $res['refund_details'] = [];
+                $n1 = 0;
+                foreach ($this->refundDetails as $item1) {
+                    $res['refund_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalAmount) {
             $res['total_amount'] = $this->totalAmount;
         }
@@ -59,26 +61,28 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
+
         if (isset($map['refund_details'])) {
             if (!empty($map['refund_details'])) {
                 $model->refundDetails = [];
-                $n                    = 0;
-                foreach ($map['refund_details'] as $item) {
-                    $model->refundDetails[$n++] = null !== $item ? refundDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['refund_details'] as $item1) {
+                    $model->refundDetails[$n1++] = refundDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['total_amount'])) {
             $model->totalAmount = $map['total_amount'];
         }

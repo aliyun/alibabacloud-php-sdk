@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchResponseBody\module\items\discountDesc;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class discountDetail extends Model
 {
@@ -24,14 +24,25 @@ class discountDetail extends Model
 
     public function validate()
     {
+        if (\is_array($this->labelName)) {
+            Model::validateArray($this->labelName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelName) {
-            $res['label_name'] = $this->labelName;
+            if (\is_array($this->labelName)) {
+                $res['label_name'] = [];
+                $n1 = 0;
+                foreach ($this->labelName as $item1) {
+                    $res['label_name'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->moneyDesc) {
             $res['money_desc'] = $this->moneyDesc;
         }
@@ -39,19 +50,24 @@ class discountDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return discountDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['label_name'])) {
             if (!empty($map['label_name'])) {
-                $model->labelName = $map['label_name'];
+                $model->labelName = [];
+                $n1 = 0;
+                foreach ($map['label_name'] as $item1) {
+                    $model->labelName[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['money_desc'])) {
             $model->moneyDesc = $map['money_desc'];
         }

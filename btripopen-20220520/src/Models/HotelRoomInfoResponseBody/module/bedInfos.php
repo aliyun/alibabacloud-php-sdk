@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelRoomInfoResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bedInfos extends Model
 {
@@ -14,22 +14,16 @@ class bedInfos extends Model
     public $bedDesc;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $bedNum;
 
     /**
-     * @example 1.8*2.0m
-     *
      * @var string
      */
     public $bedSize;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bedType;
@@ -45,35 +39,41 @@ class bedInfos extends Model
     public $width;
     protected $_name = [
         'bedDesc' => 'bed_desc',
-        'bedNum'  => 'bed_num',
+        'bedNum' => 'bed_num',
         'bedSize' => 'bed_size',
         'bedType' => 'bed_type',
-        'length'  => 'length',
-        'width'   => 'width',
+        'length' => 'length',
+        'width' => 'width',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bedDesc) {
             $res['bed_desc'] = $this->bedDesc;
         }
+
         if (null !== $this->bedNum) {
             $res['bed_num'] = $this->bedNum;
         }
+
         if (null !== $this->bedSize) {
             $res['bed_size'] = $this->bedSize;
         }
+
         if (null !== $this->bedType) {
             $res['bed_type'] = $this->bedType;
         }
+
         if (null !== $this->length) {
             $res['length'] = $this->length;
         }
+
         if (null !== $this->width) {
             $res['width'] = $this->width;
         }
@@ -81,29 +81,34 @@ class bedInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bedInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bed_desc'])) {
             $model->bedDesc = $map['bed_desc'];
         }
+
         if (isset($map['bed_num'])) {
             $model->bedNum = $map['bed_num'];
         }
+
         if (isset($map['bed_size'])) {
             $model->bedSize = $map['bed_size'];
         }
+
         if (isset($map['bed_type'])) {
             $model->bedType = $map['bed_type'];
         }
+
         if (isset($map['length'])) {
             $model->length = $map['length'];
         }
+
         if (isset($map['width'])) {
             $model->width = $map['width'];
         }

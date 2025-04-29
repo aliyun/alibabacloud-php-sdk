@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TravelStandardQueryShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $fromGroup;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2006523763
-     *
      * @var int
      */
     public $ruleCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $serviceTypeListShrink;
     protected $_name = [
-        'fromGroup'             => 'from_group',
-        'ruleCode'              => 'rule_code',
+        'fromGroup' => 'from_group',
+        'ruleCode' => 'rule_code',
         'serviceTypeListShrink' => 'service_type_list',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromGroup) {
             $res['from_group'] = $this->fromGroup;
         }
+
         if (null !== $this->ruleCode) {
             $res['rule_code'] = $this->ruleCode;
         }
+
         if (null !== $this->serviceTypeListShrink) {
             $res['service_type_list'] = $this->serviceTypeListShrink;
         }
@@ -58,20 +51,22 @@ class TravelStandardQueryShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TravelStandardQueryShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['from_group'])) {
             $model->fromGroup = $map['from_group'];
         }
+
         if (isset($map['rule_code'])) {
             $model->ruleCode = $map['rule_code'];
         }
+
         if (isset($map['service_type_list'])) {
             $model->serviceTypeListShrink = $map['service_type_list'];
         }

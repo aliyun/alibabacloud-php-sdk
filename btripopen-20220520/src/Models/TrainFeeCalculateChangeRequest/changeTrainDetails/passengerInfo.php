@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateChangeRequest\changeTrainDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passengerInfo extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 949c9f34f677a0e5d249dfc94f5e62cc7
-     *
      * @var string
      */
     public $passengerCertNo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 170d9ac6f8807f9ec603c688f45f78a41
-     *
      * @var string
      */
     public $passengerCertType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-     *
      * @var string
      */
     public $passengerName;
     protected $_name = [
-        'passengerCertNo'   => 'passenger_cert_no',
+        'passengerCertNo' => 'passenger_cert_no',
         'passengerCertType' => 'passenger_cert_type',
-        'passengerName'     => 'passenger_name',
+        'passengerName' => 'passenger_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passengerCertNo) {
             $res['passenger_cert_no'] = $this->passengerCertNo;
         }
+
         if (null !== $this->passengerCertType) {
             $res['passenger_cert_type'] = $this->passengerCertType;
         }
+
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
         }
@@ -60,20 +51,22 @@ class passengerInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['passenger_cert_no'])) {
             $model->passengerCertNo = $map['passenger_cert_no'];
         }
+
         if (isset($map['passenger_cert_type'])) {
             $model->passengerCertType = $map['passenger_cert_type'];
         }
+
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];
         }

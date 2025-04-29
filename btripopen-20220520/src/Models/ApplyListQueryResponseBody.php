@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList;
-use AlibabaCloud\Tea\Model;
 
 class ApplyListQueryResponseBody extends Model
 {
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $code;
@@ -27,62 +25,65 @@ class ApplyListQueryResponseBody extends Model
     public $moduleList;
 
     /**
-     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 21041ce316577904808056433edbb2
-     *
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'code'       => 'code',
-        'message'    => 'message',
+        'code' => 'code',
+        'message' => 'message',
         'moduleList' => 'module_list',
-        'requestId'  => 'requestId',
-        'success'    => 'success',
-        'traceId'    => 'traceId',
+        'requestId' => 'requestId',
+        'success' => 'success',
+        'traceId' => 'traceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->moduleList)) {
+            Model::validateArray($this->moduleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->moduleList) {
-            $res['module_list'] = [];
-            if (null !== $this->moduleList && \is_array($this->moduleList)) {
-                $n = 0;
-                foreach ($this->moduleList as $item) {
-                    $res['module_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->moduleList)) {
+                $res['module_list'] = [];
+                $n1 = 0;
+                foreach ($this->moduleList as $item1) {
+                    $res['module_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
         }
@@ -90,35 +91,40 @@ class ApplyListQueryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyListQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['module_list'])) {
             if (!empty($map['module_list'])) {
                 $model->moduleList = [];
-                $n                 = 0;
-                foreach ($map['module_list'] as $item) {
-                    $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['module_list'] as $item1) {
+                    $model->moduleList[$n1++] = moduleList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
         }

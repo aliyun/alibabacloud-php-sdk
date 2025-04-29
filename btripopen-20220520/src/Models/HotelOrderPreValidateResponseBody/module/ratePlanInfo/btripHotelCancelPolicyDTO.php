@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateResponseBody\module\ratePlanInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateResponseBody\module\ratePlanInfo\btripHotelCancelPolicyDTO\btripHotelCancelPolicyInfoDTOList;
-use AlibabaCloud\Tea\Model;
 
 class btripHotelCancelPolicyDTO extends Model
 {
@@ -30,33 +30,40 @@ class btripHotelCancelPolicyDTO extends Model
     public $shortDesc;
     protected $_name = [
         'btripHotelCancelPolicyInfoDTOList' => 'btrip_hotel_cancel_policy_info_d_t_o_list',
-        'cancelPolicyType'                  => 'cancel_policy_type',
-        'content'                           => 'content',
-        'shortDesc'                         => 'short_desc',
+        'cancelPolicyType' => 'cancel_policy_type',
+        'content' => 'content',
+        'shortDesc' => 'short_desc',
     ];
 
     public function validate()
     {
+        if (\is_array($this->btripHotelCancelPolicyInfoDTOList)) {
+            Model::validateArray($this->btripHotelCancelPolicyInfoDTOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->btripHotelCancelPolicyInfoDTOList) {
-            $res['btrip_hotel_cancel_policy_info_d_t_o_list'] = [];
-            if (null !== $this->btripHotelCancelPolicyInfoDTOList && \is_array($this->btripHotelCancelPolicyInfoDTOList)) {
-                $n = 0;
-                foreach ($this->btripHotelCancelPolicyInfoDTOList as $item) {
-                    $res['btrip_hotel_cancel_policy_info_d_t_o_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->btripHotelCancelPolicyInfoDTOList)) {
+                $res['btrip_hotel_cancel_policy_info_d_t_o_list'] = [];
+                $n1 = 0;
+                foreach ($this->btripHotelCancelPolicyInfoDTOList as $item1) {
+                    $res['btrip_hotel_cancel_policy_info_d_t_o_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->cancelPolicyType) {
             $res['cancel_policy_type'] = $this->cancelPolicyType;
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->shortDesc) {
             $res['short_desc'] = $this->shortDesc;
         }
@@ -64,29 +71,32 @@ class btripHotelCancelPolicyDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return btripHotelCancelPolicyDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['btrip_hotel_cancel_policy_info_d_t_o_list'])) {
             if (!empty($map['btrip_hotel_cancel_policy_info_d_t_o_list'])) {
                 $model->btripHotelCancelPolicyInfoDTOList = [];
-                $n                                        = 0;
-                foreach ($map['btrip_hotel_cancel_policy_info_d_t_o_list'] as $item) {
-                    $model->btripHotelCancelPolicyInfoDTOList[$n++] = null !== $item ? btripHotelCancelPolicyInfoDTOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['btrip_hotel_cancel_policy_info_d_t_o_list'] as $item1) {
+                    $model->btripHotelCancelPolicyInfoDTOList[$n1++] = btripHotelCancelPolicyInfoDTOList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['cancel_policy_type'])) {
             $model->cancelPolicyType = $map['cancel_policy_type'];
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['short_desc'])) {
             $model->shortDesc = $map['short_desc'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundApplyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passengerSegmentInfoList extends Model
 {
@@ -19,30 +19,31 @@ class passengerSegmentInfoList extends Model
     public $passengerName;
 
     /**
-     * @example 1245
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'flightNo'      => 'flight_no',
+        'flightNo' => 'flight_no',
         'passengerName' => 'passenger_name',
-        'userId'        => 'user_id',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
         }
+
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -50,20 +51,22 @@ class passengerSegmentInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerSegmentInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];
         }
+
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

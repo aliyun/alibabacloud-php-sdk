@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderListQueryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealOrderListQueryResponseBody\module\orderList;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -19,17 +19,21 @@ class module extends Model
 
     public function validate()
     {
+        if (\is_array($this->orderList)) {
+            Model::validateArray($this->orderList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderList) {
-            $res['order_list'] = [];
-            if (null !== $this->orderList && \is_array($this->orderList)) {
-                $n = 0;
-                foreach ($this->orderList as $item) {
-                    $res['order_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orderList)) {
+                $res['order_list'] = [];
+                $n1 = 0;
+                foreach ($this->orderList as $item1) {
+                    $res['order_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_list'])) {
             if (!empty($map['order_list'])) {
                 $model->orderList = [];
-                $n                = 0;
-                foreach ($map['order_list'] as $item) {
-                    $model->orderList[$n++] = null !== $item ? orderList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['order_list'] as $item1) {
+                    $model->orderList[$n1++] = orderList::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ChannelCorpCreateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
@@ -14,15 +14,11 @@ class module extends Model
     public $administratorName;
 
     /**
-     * @example 18378889782
-     *
      * @var string
      */
     public $administratorPhone;
 
     /**
-     * @example dingaa15ca45cba9ee744a5
-     *
      * @var string
      */
     public $corpId;
@@ -33,8 +29,6 @@ class module extends Model
     public $corpName;
 
     /**
-     * @example open12mplkebufu8701012jq
-     *
      * @var string
      */
     public $openAgentId;
@@ -44,36 +38,42 @@ class module extends Model
      */
     public $userId;
     protected $_name = [
-        'administratorName'  => 'administrator_name',
+        'administratorName' => 'administrator_name',
         'administratorPhone' => 'administrator_phone',
-        'corpId'             => 'corp_id',
-        'corpName'           => 'corp_name',
-        'openAgentId'        => 'open_agent_id',
-        'userId'             => 'user_id',
+        'corpId' => 'corp_id',
+        'corpName' => 'corp_name',
+        'openAgentId' => 'open_agent_id',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->administratorName) {
             $res['administrator_name'] = $this->administratorName;
         }
+
         if (null !== $this->administratorPhone) {
             $res['administrator_phone'] = $this->administratorPhone;
         }
+
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
         }
+
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
         }
+
         if (null !== $this->openAgentId) {
             $res['open_agent_id'] = $this->openAgentId;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -81,29 +81,34 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['administrator_name'])) {
             $model->administratorName = $map['administrator_name'];
         }
+
         if (isset($map['administrator_phone'])) {
             $model->administratorPhone = $map['administrator_phone'];
         }
+
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
         }
+
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];
         }
+
         if (isset($map['open_agent_id'])) {
             $model->openAgentId = $map['open_agent_id'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -15,54 +15,55 @@ class module extends Model
     public $flightItemList;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $needContinue;
 
     /**
-     * @example ASDFASDFASDFASDFASDF
-     *
      * @var string
      */
     public $queryRecordId;
 
     /**
-     * @example ee229f2d-1835-4199-bfe6-fd14afe8645e
-     *
      * @var string
      */
     public $token;
     protected $_name = [
         'flightItemList' => 'flight_item_list',
-        'needContinue'   => 'need_continue',
-        'queryRecordId'  => 'query_record_id',
-        'token'          => 'token',
+        'needContinue' => 'need_continue',
+        'queryRecordId' => 'query_record_id',
+        'token' => 'token',
     ];
 
     public function validate()
     {
+        if (\is_array($this->flightItemList)) {
+            Model::validateArray($this->flightItemList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flightItemList) {
-            $res['flight_item_list'] = [];
-            if (null !== $this->flightItemList && \is_array($this->flightItemList)) {
-                $n = 0;
-                foreach ($this->flightItemList as $item) {
-                    $res['flight_item_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flightItemList)) {
+                $res['flight_item_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightItemList as $item1) {
+                    $res['flight_item_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->needContinue) {
             $res['need_continue'] = $this->needContinue;
         }
+
         if (null !== $this->queryRecordId) {
             $res['query_record_id'] = $this->queryRecordId;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
@@ -70,29 +71,32 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['flight_item_list'])) {
             if (!empty($map['flight_item_list'])) {
                 $model->flightItemList = [];
-                $n                     = 0;
-                foreach ($map['flight_item_list'] as $item) {
-                    $model->flightItemList[$n++] = null !== $item ? flightItemList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['flight_item_list'] as $item1) {
+                    $model->flightItemList[$n1++] = flightItemList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['need_continue'])) {
             $model->needContinue = $map['need_continue'];
         }
+
         if (isset($map['query_record_id'])) {
             $model->queryRecordId = $map['query_record_id'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }

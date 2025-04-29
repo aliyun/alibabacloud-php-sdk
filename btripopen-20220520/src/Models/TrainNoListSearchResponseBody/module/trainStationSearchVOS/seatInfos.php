@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainNoListSearchResponseBody\module\trainStationSearchVOS;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class seatInfos extends Model
 {
     /**
-     * @example 40900
-     *
      * @var int
      */
     public $price;
@@ -21,8 +19,6 @@ class seatInfos extends Model
     public $seatName;
 
     /**
-     * @example 14
-     *
      * @var string
      */
     public $seatType;
@@ -32,28 +28,32 @@ class seatInfos extends Model
      */
     public $stock;
     protected $_name = [
-        'price'    => 'price',
+        'price' => 'price',
         'seatName' => 'seat_name',
         'seatType' => 'seat_type',
-        'stock'    => 'stock',
+        'stock' => 'stock',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->price) {
             $res['price'] = $this->price;
         }
+
         if (null !== $this->seatName) {
             $res['seat_name'] = $this->seatName;
         }
+
         if (null !== $this->seatType) {
             $res['seat_type'] = $this->seatType;
         }
+
         if (null !== $this->stock) {
             $res['stock'] = $this->stock;
         }
@@ -61,23 +61,26 @@ class seatInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return seatInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['price'])) {
             $model->price = $map['price'];
         }
+
         if (isset($map['seat_name'])) {
             $model->seatName = $map['seat_name'];
         }
+
         if (isset($map['seat_type'])) {
             $model->seatType = $map['seat_type'];
         }
+
         if (isset($map['stock'])) {
             $model->stock = $map['stock'];
         }

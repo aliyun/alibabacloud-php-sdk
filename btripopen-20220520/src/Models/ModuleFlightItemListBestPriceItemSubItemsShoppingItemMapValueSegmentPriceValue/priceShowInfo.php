@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPriceValue;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class priceShowInfo extends Model
 {
@@ -14,37 +14,36 @@ class priceShowInfo extends Model
     public $discountInfo;
 
     /**
-     * @example 0.8
-     *
      * @var float
      */
     public $discountNum;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $showTicketPrice;
     protected $_name = [
-        'discountInfo'    => 'discount_info',
-        'discountNum'     => 'discount_num',
+        'discountInfo' => 'discount_info',
+        'discountNum' => 'discount_num',
         'showTicketPrice' => 'show_ticket_price',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->discountInfo) {
             $res['discount_info'] = $this->discountInfo;
         }
+
         if (null !== $this->discountNum) {
             $res['discount_num'] = $this->discountNum;
         }
+
         if (null !== $this->showTicketPrice) {
             $res['show_ticket_price'] = $this->showTicketPrice;
         }
@@ -52,20 +51,22 @@ class priceShowInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return priceShowInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['discount_info'])) {
             $model->discountInfo = $map['discount_info'];
         }
+
         if (isset($map['discount_num'])) {
             $model->discountNum = $map['discount_num'];
         }
+
         if (isset($map['show_ticket_price'])) {
             $model->showTicketPrice = $map['show_ticket_price'];
         }

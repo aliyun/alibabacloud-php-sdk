@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyChangeRequest\changeTrainInfoS;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyChangeRequest\changeTrainInfoS\changeTicketInfoS\passengerInfo;
-use AlibabaCloud\Tea\Model;
 
 class changeTicketInfoS extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var passengerInfo
      */
     public $passengerInfo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 14
-     *
      * @var string
      */
     public $seatType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $ticketPrice;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $ticketType;
     protected $_name = [
         'passengerInfo' => 'passenger_info',
-        'seatType'      => 'seat_type',
-        'ticketPrice'   => 'ticket_price',
-        'ticketType'    => 'ticket_type',
+        'seatType' => 'seat_type',
+        'ticketPrice' => 'ticket_price',
+        'ticketType' => 'ticket_type',
     ];
 
     public function validate()
     {
+        if (null !== $this->passengerInfo) {
+            $this->passengerInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passengerInfo) {
-            $res['passenger_info'] = null !== $this->passengerInfo ? $this->passengerInfo->toMap() : null;
+            $res['passenger_info'] = null !== $this->passengerInfo ? $this->passengerInfo->toArray($noStream) : $this->passengerInfo;
         }
+
         if (null !== $this->seatType) {
             $res['seat_type'] = $this->seatType;
         }
+
         if (null !== $this->ticketPrice) {
             $res['ticket_price'] = $this->ticketPrice;
         }
+
         if (null !== $this->ticketType) {
             $res['ticket_type'] = $this->ticketType;
         }
@@ -72,23 +65,26 @@ class changeTicketInfoS extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return changeTicketInfoS
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['passenger_info'])) {
             $model->passengerInfo = passengerInfo::fromMap($map['passenger_info']);
         }
+
         if (isset($map['seat_type'])) {
             $model->seatType = $map['seat_type'];
         }
+
         if (isset($map['ticket_price'])) {
             $model->ticketPrice = $map['ticket_price'];
         }
+
         if (isset($map['ticket_type'])) {
             $model->ticketType = $map['ticket_type'];
         }

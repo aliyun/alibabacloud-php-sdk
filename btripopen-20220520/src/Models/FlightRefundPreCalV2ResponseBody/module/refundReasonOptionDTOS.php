@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalV2ResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class refundReasonOptionDTOS extends Model
 {
@@ -14,37 +14,36 @@ class refundReasonOptionDTOS extends Model
     public $reason;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $reasonType;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $volunteer;
     protected $_name = [
-        'reason'     => 'reason',
+        'reason' => 'reason',
         'reasonType' => 'reason_type',
-        'volunteer'  => 'volunteer',
+        'volunteer' => 'volunteer',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reason) {
             $res['reason'] = $this->reason;
         }
+
         if (null !== $this->reasonType) {
             $res['reason_type'] = $this->reasonType;
         }
+
         if (null !== $this->volunteer) {
             $res['volunteer'] = $this->volunteer;
         }
@@ -52,20 +51,22 @@ class refundReasonOptionDTOS extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return refundReasonOptionDTOS
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['reason'])) {
             $model->reason = $map['reason'];
         }
+
         if (isset($map['reason_type'])) {
             $model->reasonType = $map['reason_type'];
         }
+
         if (isset($map['volunteer'])) {
             $model->volunteer = $map['volunteer'];
         }

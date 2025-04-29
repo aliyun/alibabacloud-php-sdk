@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponseBody\module\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponseBody\module\items\reserveRuleDesc\dataList;
-use AlibabaCloud\Tea\Model;
 
 class reserveRuleDesc extends Model
 {
@@ -20,36 +20,40 @@ class reserveRuleDesc extends Model
     public $title;
 
     /**
-     * @example flight
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'dataList' => 'data_list',
-        'title'    => 'title',
-        'type'     => 'type',
+        'title' => 'title',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dataList)) {
+            Model::validateArray($this->dataList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataList) {
-            $res['data_list'] = [];
-            if (null !== $this->dataList && \is_array($this->dataList)) {
-                $n = 0;
-                foreach ($this->dataList as $item) {
-                    $res['data_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataList)) {
+                $res['data_list'] = [];
+                $n1 = 0;
+                foreach ($this->dataList as $item1) {
+                    $res['data_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -57,26 +61,28 @@ class reserveRuleDesc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reserveRuleDesc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data_list'])) {
             if (!empty($map['data_list'])) {
                 $model->dataList = [];
-                $n               = 0;
-                foreach ($map['data_list'] as $item) {
-                    $model->dataList[$n++] = null !== $item ? dataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['data_list'] as $item1) {
+                    $model->dataList[$n1++] = dataList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,93 +4,86 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class departList extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $departId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $departName;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $departPid;
 
     /**
-     * @example 001|002|003
-     *
      * @var string
      */
     public $managerIds;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @example testdepartid001
-     *
      * @var string
      */
     public $thirdDepartId;
 
     /**
-     * @example testdepartpid001
-     *
      * @var string
      */
     public $thirdDepartPid;
     protected $_name = [
-        'departId'       => 'depart_id',
-        'departName'     => 'depart_name',
-        'departPid'      => 'depart_pid',
-        'managerIds'     => 'manager_ids',
-        'status'         => 'status',
-        'thirdDepartId'  => 'third_depart_id',
+        'departId' => 'depart_id',
+        'departName' => 'depart_name',
+        'departPid' => 'depart_pid',
+        'managerIds' => 'manager_ids',
+        'status' => 'status',
+        'thirdDepartId' => 'third_depart_id',
         'thirdDepartPid' => 'third_depart_pid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
         }
+
         if (null !== $this->departName) {
             $res['depart_name'] = $this->departName;
         }
+
         if (null !== $this->departPid) {
             $res['depart_pid'] = $this->departPid;
         }
+
         if (null !== $this->managerIds) {
             $res['manager_ids'] = $this->managerIds;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->thirdDepartId) {
             $res['third_depart_id'] = $this->thirdDepartId;
         }
+
         if (null !== $this->thirdDepartPid) {
             $res['third_depart_pid'] = $this->thirdDepartPid;
         }
@@ -98,32 +91,38 @@ class departList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return departList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];
         }
+
         if (isset($map['depart_name'])) {
             $model->departName = $map['depart_name'];
         }
+
         if (isset($map['depart_pid'])) {
             $model->departPid = $map['depart_pid'];
         }
+
         if (isset($map['manager_ids'])) {
             $model->managerIds = $map['manager_ids'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['third_depart_id'])) {
             $model->thirdDepartId = $map['third_depart_id'];
         }
+
         if (isset($map['third_depart_pid'])) {
             $model->thirdDepartPid = $map['third_depart_pid'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ResponseBody\module\flightReshopApplyList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ResponseBody\module\flightReshopApplyList\flightReshopApplyTicketList\flightList;
-use AlibabaCloud\Tea\Model;
 
 class flightReshopApplyTicketList extends Model
 {
@@ -25,40 +25,63 @@ class flightReshopApplyTicketList extends Model
     public $ticketNoList;
 
     /**
-     * @example alitrip123
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'flightList'         => 'flight_list',
+        'flightList' => 'flight_list',
         'relateTicketNoList' => 'relate_ticket_no_list',
-        'ticketNoList'       => 'ticket_no_list',
-        'userId'             => 'user_id',
+        'ticketNoList' => 'ticket_no_list',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->flightList)) {
+            Model::validateArray($this->flightList);
+        }
+        if (\is_array($this->relateTicketNoList)) {
+            Model::validateArray($this->relateTicketNoList);
+        }
+        if (\is_array($this->ticketNoList)) {
+            Model::validateArray($this->ticketNoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flightList) {
-            $res['flight_list'] = [];
-            if (null !== $this->flightList && \is_array($this->flightList)) {
-                $n = 0;
-                foreach ($this->flightList as $item) {
-                    $res['flight_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flightList)) {
+                $res['flight_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightList as $item1) {
+                    $res['flight_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->relateTicketNoList) {
-            $res['relate_ticket_no_list'] = $this->relateTicketNoList;
+            if (\is_array($this->relateTicketNoList)) {
+                $res['relate_ticket_no_list'] = [];
+                $n1 = 0;
+                foreach ($this->relateTicketNoList as $item1) {
+                    $res['relate_ticket_no_list'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ticketNoList) {
-            $res['ticket_no_list'] = $this->ticketNoList;
+            if (\is_array($this->ticketNoList)) {
+                $res['ticket_no_list'] = [];
+                $n1 = 0;
+                foreach ($this->ticketNoList as $item1) {
+                    $res['ticket_no_list'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -66,33 +89,44 @@ class flightReshopApplyTicketList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightReshopApplyTicketList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['flight_list'])) {
             if (!empty($map['flight_list'])) {
                 $model->flightList = [];
-                $n                 = 0;
-                foreach ($map['flight_list'] as $item) {
-                    $model->flightList[$n++] = null !== $item ? flightList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['flight_list'] as $item1) {
+                    $model->flightList[$n1++] = flightList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['relate_ticket_no_list'])) {
             if (!empty($map['relate_ticket_no_list'])) {
-                $model->relateTicketNoList = $map['relate_ticket_no_list'];
+                $model->relateTicketNoList = [];
+                $n1 = 0;
+                foreach ($map['relate_ticket_no_list'] as $item1) {
+                    $model->relateTicketNoList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ticket_no_list'])) {
             if (!empty($map['ticket_no_list'])) {
-                $model->ticketNoList = $map['ticket_no_list'];
+                $model->ticketNoList = [];
+                $n1 = 0;
+                foreach ($map['ticket_no_list'] as $item1) {
+                    $model->ticketNoList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

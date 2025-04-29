@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest\travelerStandard\carCitySet;
-use AlibabaCloud\Tea\Model;
 
 class travelerStandard extends Model
 {
@@ -15,32 +15,35 @@ class travelerStandard extends Model
     public $carCitySet;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
         'carCitySet' => 'car_city_set',
-        'userId'     => 'user_id',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->carCitySet)) {
+            Model::validateArray($this->carCitySet);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->carCitySet) {
-            $res['car_city_set'] = [];
-            if (null !== $this->carCitySet && \is_array($this->carCitySet)) {
-                $n = 0;
-                foreach ($this->carCitySet as $item) {
-                    $res['car_city_set'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->carCitySet)) {
+                $res['car_city_set'] = [];
+                $n1 = 0;
+                foreach ($this->carCitySet as $item1) {
+                    $res['car_city_set'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -48,23 +51,24 @@ class travelerStandard extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return travelerStandard
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['car_city_set'])) {
             if (!empty($map['car_city_set'])) {
                 $model->carCitySet = [];
-                $n                 = 0;
-                foreach ($map['car_city_set'] as $item) {
-                    $model->carCitySet[$n++] = null !== $item ? carCitySet::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['car_city_set'] as $item1) {
+                    $model->carCitySet[$n1++] = carCitySet::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

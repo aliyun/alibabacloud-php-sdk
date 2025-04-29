@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class invoiceInfo extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $title;
     protected $_name = [
-        'id'    => 'id',
+        'id' => 'id',
         'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -43,17 +41,18 @@ class invoiceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invoiceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

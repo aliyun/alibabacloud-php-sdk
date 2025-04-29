@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponseBody\module;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponseBody\module\items\mainReserveRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardListQueryResponseBody\module\items\reserveRuleDesc;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -21,36 +21,43 @@ class items extends Model
     public $reserveRuleDesc;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $scope;
     protected $_name = [
         'mainReserveRule' => 'main_reserve_rule',
         'reserveRuleDesc' => 'reserve_rule_desc',
-        'scope'           => 'scope',
+        'scope' => 'scope',
     ];
 
     public function validate()
     {
+        if (null !== $this->mainReserveRule) {
+            $this->mainReserveRule->validate();
+        }
+        if (\is_array($this->reserveRuleDesc)) {
+            Model::validateArray($this->reserveRuleDesc);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mainReserveRule) {
-            $res['main_reserve_rule'] = null !== $this->mainReserveRule ? $this->mainReserveRule->toMap() : null;
+            $res['main_reserve_rule'] = null !== $this->mainReserveRule ? $this->mainReserveRule->toArray($noStream) : $this->mainReserveRule;
         }
+
         if (null !== $this->reserveRuleDesc) {
-            $res['reserve_rule_desc'] = [];
-            if (null !== $this->reserveRuleDesc && \is_array($this->reserveRuleDesc)) {
-                $n = 0;
-                foreach ($this->reserveRuleDesc as $item) {
-                    $res['reserve_rule_desc'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reserveRuleDesc)) {
+                $res['reserve_rule_desc'] = [];
+                $n1 = 0;
+                foreach ($this->reserveRuleDesc as $item1) {
+                    $res['reserve_rule_desc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
@@ -58,26 +65,28 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['main_reserve_rule'])) {
             $model->mainReserveRule = mainReserveRule::fromMap($map['main_reserve_rule']);
         }
+
         if (isset($map['reserve_rule_desc'])) {
             if (!empty($map['reserve_rule_desc'])) {
                 $model->reserveRuleDesc = [];
-                $n                      = 0;
-                foreach ($map['reserve_rule_desc'] as $item) {
-                    $model->reserveRuleDesc[$n++] = null !== $item ? reserveRuleDesc::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['reserve_rule_desc'] as $item1) {
+                    $model->reserveRuleDesc[$n1++] = reserveRuleDesc::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }

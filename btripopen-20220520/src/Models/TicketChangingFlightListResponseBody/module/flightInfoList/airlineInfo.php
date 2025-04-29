@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingFlightListResponseBody\module\flightInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class airlineInfo extends Model
 {
     /**
-     * @example CA
-     *
      * @var string
      */
     public $airlineCode;
@@ -25,24 +23,27 @@ class airlineInfo extends Model
      */
     public $airlineSimpleName;
     protected $_name = [
-        'airlineCode'       => 'airline_code',
-        'airlineName'       => 'airline_name',
+        'airlineCode' => 'airline_code',
+        'airlineName' => 'airline_name',
         'airlineSimpleName' => 'airline_simple_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->airlineCode) {
             $res['airline_code'] = $this->airlineCode;
         }
+
         if (null !== $this->airlineName) {
             $res['airline_name'] = $this->airlineName;
         }
+
         if (null !== $this->airlineSimpleName) {
             $res['airline_simple_name'] = $this->airlineSimpleName;
         }
@@ -50,20 +51,22 @@ class airlineInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return airlineInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['airline_code'])) {
             $model->airlineCode = $map['airline_code'];
         }
+
         if (isset($map['airline_name'])) {
             $model->airlineName = $map['airline_name'];
         }
+
         if (isset($map['airline_simple_name'])) {
             $model->airlineSimpleName = $map['airline_simple_name'];
         }

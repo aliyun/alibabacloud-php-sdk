@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 70000
-     *
      * @var int
      */
     public $expire;
 
     /**
-     * @example 37j76df
-     *
      * @var string
      */
     public $token;
     protected $_name = [
         'expire' => 'expire',
-        'token'  => 'token',
+        'token' => 'token',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expire) {
             $res['expire'] = $this->expire;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
@@ -43,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expire'])) {
             $model->expire = $map['expire'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }

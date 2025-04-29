@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeDetailResponseBody\module;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderChangeDetailResponseBody\module\roomInfoList\roomDailyRefundInfos;
-use AlibabaCloud\Tea\Model;
 
 class roomInfoList extends Model
 {
@@ -20,36 +20,49 @@ class roomInfoList extends Model
     public $roomDailyRefundInfos;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $roomNo;
     protected $_name = [
-        'cancelDate'           => 'cancel_date',
+        'cancelDate' => 'cancel_date',
         'roomDailyRefundInfos' => 'room_daily_refund_infos',
-        'roomNo'               => 'room_no',
+        'roomNo' => 'room_no',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cancelDate)) {
+            Model::validateArray($this->cancelDate);
+        }
+        if (\is_array($this->roomDailyRefundInfos)) {
+            Model::validateArray($this->roomDailyRefundInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cancelDate) {
-            $res['cancel_date'] = $this->cancelDate;
-        }
-        if (null !== $this->roomDailyRefundInfos) {
-            $res['room_daily_refund_infos'] = [];
-            if (null !== $this->roomDailyRefundInfos && \is_array($this->roomDailyRefundInfos)) {
-                $n = 0;
-                foreach ($this->roomDailyRefundInfos as $item) {
-                    $res['room_daily_refund_infos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cancelDate)) {
+                $res['cancel_date'] = [];
+                $n1 = 0;
+                foreach ($this->cancelDate as $item1) {
+                    $res['cancel_date'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->roomDailyRefundInfos) {
+            if (\is_array($this->roomDailyRefundInfos)) {
+                $res['room_daily_refund_infos'] = [];
+                $n1 = 0;
+                foreach ($this->roomDailyRefundInfos as $item1) {
+                    $res['room_daily_refund_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->roomNo) {
             $res['room_no'] = $this->roomNo;
         }
@@ -57,28 +70,34 @@ class roomInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roomInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cancel_date'])) {
             if (!empty($map['cancel_date'])) {
-                $model->cancelDate = $map['cancel_date'];
-            }
-        }
-        if (isset($map['room_daily_refund_infos'])) {
-            if (!empty($map['room_daily_refund_infos'])) {
-                $model->roomDailyRefundInfos = [];
-                $n                           = 0;
-                foreach ($map['room_daily_refund_infos'] as $item) {
-                    $model->roomDailyRefundInfos[$n++] = null !== $item ? roomDailyRefundInfos::fromMap($item) : $item;
+                $model->cancelDate = [];
+                $n1 = 0;
+                foreach ($map['cancel_date'] as $item1) {
+                    $model->cancelDate[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['room_daily_refund_infos'])) {
+            if (!empty($map['room_daily_refund_infos'])) {
+                $model->roomDailyRefundInfos = [];
+                $n1 = 0;
+                foreach ($map['room_daily_refund_infos'] as $item1) {
+                    $model->roomDailyRefundInfos[$n1++] = roomDailyRefundInfos::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['room_no'])) {
             $model->roomNo = $map['room_no'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HotelOrderQueryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1002145190081005400
-     *
      * @var int
      */
     public $orderId;
@@ -22,9 +18,10 @@ class HotelOrderQueryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
@@ -34,11 +31,11 @@ class HotelOrderQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HotelOrderQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,55 +4,41 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class priceInfoList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $categoryCode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $categoryType;
 
     /**
-     * @example MU5354
-     *
      * @var string
      */
     public $changeFlightNo;
 
     /**
-     * @example 12%
-     *
      * @var string
      */
     public $discount;
 
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 00-7687
-     *
      * @var string
      */
     public $originalTicketNo;
@@ -63,109 +49,111 @@ class priceInfoList extends Model
     public $passengerName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $payType;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $price;
 
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example A-135767
-     *
      * @var string
      */
     public $ticketNo;
 
     /**
-     * @example f98236773
-     *
      * @var string
      */
     public $tradeId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
     protected $_name = [
-        'categoryCode'     => 'category_code',
-        'categoryType'     => 'category_type',
-        'changeFlightNo'   => 'change_flight_no',
-        'discount'         => 'discount',
-        'endTime'          => 'end_time',
-        'gmtCreate'        => 'gmt_create',
+        'categoryCode' => 'category_code',
+        'categoryType' => 'category_type',
+        'changeFlightNo' => 'change_flight_no',
+        'discount' => 'discount',
+        'endTime' => 'end_time',
+        'gmtCreate' => 'gmt_create',
         'originalTicketNo' => 'original_ticket_no',
-        'passengerName'    => 'passenger_name',
-        'payType'          => 'pay_type',
-        'price'            => 'price',
-        'startTime'        => 'start_time',
-        'ticketNo'         => 'ticket_no',
-        'tradeId'          => 'trade_id',
-        'type'             => 'type',
+        'passengerName' => 'passenger_name',
+        'payType' => 'pay_type',
+        'price' => 'price',
+        'startTime' => 'start_time',
+        'ticketNo' => 'ticket_no',
+        'tradeId' => 'trade_id',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryCode) {
             $res['category_code'] = $this->categoryCode;
         }
+
         if (null !== $this->categoryType) {
             $res['category_type'] = $this->categoryType;
         }
+
         if (null !== $this->changeFlightNo) {
             $res['change_flight_no'] = $this->changeFlightNo;
         }
+
         if (null !== $this->discount) {
             $res['discount'] = $this->discount;
         }
+
         if (null !== $this->endTime) {
             $res['end_time'] = $this->endTime;
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
         }
+
         if (null !== $this->originalTicketNo) {
             $res['original_ticket_no'] = $this->originalTicketNo;
         }
+
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
         }
+
         if (null !== $this->payType) {
             $res['pay_type'] = $this->payType;
         }
+
         if (null !== $this->price) {
             $res['price'] = $this->price;
         }
+
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
         }
+
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
         }
+
         if (null !== $this->tradeId) {
             $res['trade_id'] = $this->tradeId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -173,53 +161,66 @@ class priceInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return priceInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category_code'])) {
             $model->categoryCode = $map['category_code'];
         }
+
         if (isset($map['category_type'])) {
             $model->categoryType = $map['category_type'];
         }
+
         if (isset($map['change_flight_no'])) {
             $model->changeFlightNo = $map['change_flight_no'];
         }
+
         if (isset($map['discount'])) {
             $model->discount = $map['discount'];
         }
+
         if (isset($map['end_time'])) {
             $model->endTime = $map['end_time'];
         }
+
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
         }
+
         if (isset($map['original_ticket_no'])) {
             $model->originalTicketNo = $map['original_ticket_no'];
         }
+
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];
         }
+
         if (isset($map['pay_type'])) {
             $model->payType = $map['pay_type'];
         }
+
         if (isset($map['price'])) {
             $model->price = $map['price'];
         }
+
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
         }
+
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
         }
+
         if (isset($map['trade_id'])) {
             $model->tradeId = $map['trade_id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

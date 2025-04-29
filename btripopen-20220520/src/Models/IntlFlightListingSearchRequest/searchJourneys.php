@@ -4,34 +4,22 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchRequest\searchJourneys\selectedFlights;
-use AlibabaCloud\Tea\Model;
 
 class searchJourneys extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example MEL
-     *
      * @var string
      */
     public $arrCityCode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example HKG
-     *
      * @var string
      */
     public $depCityCode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2023-12-28
-     *
      * @var string
      */
     public $depDate;
@@ -41,34 +29,41 @@ class searchJourneys extends Model
      */
     public $selectedFlights;
     protected $_name = [
-        'arrCityCode'     => 'arr_city_code',
-        'depCityCode'     => 'dep_city_code',
-        'depDate'         => 'dep_date',
+        'arrCityCode' => 'arr_city_code',
+        'depCityCode' => 'dep_city_code',
+        'depDate' => 'dep_date',
         'selectedFlights' => 'selected_flights',
     ];
 
     public function validate()
     {
+        if (\is_array($this->selectedFlights)) {
+            Model::validateArray($this->selectedFlights);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrCityCode) {
             $res['arr_city_code'] = $this->arrCityCode;
         }
+
         if (null !== $this->depCityCode) {
             $res['dep_city_code'] = $this->depCityCode;
         }
+
         if (null !== $this->depDate) {
             $res['dep_date'] = $this->depDate;
         }
+
         if (null !== $this->selectedFlights) {
-            $res['selected_flights'] = [];
-            if (null !== $this->selectedFlights && \is_array($this->selectedFlights)) {
-                $n = 0;
-                foreach ($this->selectedFlights as $item) {
-                    $res['selected_flights'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->selectedFlights)) {
+                $res['selected_flights'] = [];
+                $n1 = 0;
+                foreach ($this->selectedFlights as $item1) {
+                    $res['selected_flights'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -76,29 +71,32 @@ class searchJourneys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchJourneys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arr_city_code'])) {
             $model->arrCityCode = $map['arr_city_code'];
         }
+
         if (isset($map['dep_city_code'])) {
             $model->depCityCode = $map['dep_city_code'];
         }
+
         if (isset($map['dep_date'])) {
             $model->depDate = $map['dep_date'];
         }
+
         if (isset($map['selected_flights'])) {
             if (!empty($map['selected_flights'])) {
                 $model->selectedFlights = [];
-                $n                      = 0;
-                foreach ($map['selected_flights'] as $item) {
-                    $model->selectedFlights[$n++] = null !== $item ? selectedFlights::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['selected_flights'] as $item1) {
+                    $model->selectedFlights[$n1++] = selectedFlights::fromMap($item1);
                 }
             }
         }

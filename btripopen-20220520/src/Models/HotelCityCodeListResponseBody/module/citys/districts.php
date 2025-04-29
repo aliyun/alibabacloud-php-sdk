@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelCityCodeListResponseBody\module\citys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class districts extends Model
 {
     /**
-     * @example 330000
-     *
      * @var string
      */
     public $districtCode;
@@ -26,14 +24,16 @@ class districts extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->districtCode) {
             $res['district_code'] = $this->districtCode;
         }
+
         if (null !== $this->districtName) {
             $res['district_name'] = $this->districtName;
         }
@@ -41,17 +41,18 @@ class districts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return districts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['district_code'])) {
             $model->districtCode = $map['district_code'];
         }
+
         if (isset($map['district_name'])) {
             $model->districtName = $map['district_name'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponseBody\module;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponseBody\module\reserveRule\mainReserveRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponseBody\module\reserveRule\moduleConfigList;
-use AlibabaCloud\Tea\Model;
 
 class reserveRule extends Model
 {
@@ -20,26 +20,34 @@ class reserveRule extends Model
      */
     public $moduleConfigList;
     protected $_name = [
-        'mainReserveRule'  => 'main_reserve_rule',
+        'mainReserveRule' => 'main_reserve_rule',
         'moduleConfigList' => 'module_config_list',
     ];
 
     public function validate()
     {
+        if (null !== $this->mainReserveRule) {
+            $this->mainReserveRule->validate();
+        }
+        if (\is_array($this->moduleConfigList)) {
+            Model::validateArray($this->moduleConfigList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mainReserveRule) {
-            $res['main_reserve_rule'] = null !== $this->mainReserveRule ? $this->mainReserveRule->toMap() : null;
+            $res['main_reserve_rule'] = null !== $this->mainReserveRule ? $this->mainReserveRule->toArray($noStream) : $this->mainReserveRule;
         }
+
         if (null !== $this->moduleConfigList) {
-            $res['module_config_list'] = [];
-            if (null !== $this->moduleConfigList && \is_array($this->moduleConfigList)) {
-                $n = 0;
-                foreach ($this->moduleConfigList as $item) {
-                    $res['module_config_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->moduleConfigList)) {
+                $res['module_config_list'] = [];
+                $n1 = 0;
+                foreach ($this->moduleConfigList as $item1) {
+                    $res['module_config_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -47,23 +55,24 @@ class reserveRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reserveRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['main_reserve_rule'])) {
             $model->mainReserveRule = mainReserveRule::fromMap($map['main_reserve_rule']);
         }
+
         if (isset($map['module_config_list'])) {
             if (!empty($map['module_config_list'])) {
                 $model->moduleConfigList = [];
-                $n                       = 0;
-                foreach ($map['module_config_list'] as $item) {
-                    $model->moduleConfigList[$n++] = null !== $item ? moduleConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['module_config_list'] as $item1) {
+                    $model->moduleConfigList[$n1++] = moduleConfigList::fromMap($item1);
                 }
             }
         }

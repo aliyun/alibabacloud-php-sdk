@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\travelerList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hotelIntlCitys extends Model
 {
@@ -25,22 +25,25 @@ class hotelIntlCitys extends Model
     protected $_name = [
         'cityCode' => 'city_code',
         'cityName' => 'city_name',
-        'fee'      => 'fee',
+        'fee' => 'fee',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['city_code'] = $this->cityCode;
         }
+
         if (null !== $this->cityName) {
             $res['city_name'] = $this->cityName;
         }
+
         if (null !== $this->fee) {
             $res['fee'] = $this->fee;
         }
@@ -48,20 +51,22 @@ class hotelIntlCitys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hotelIntlCitys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['city_code'])) {
             $model->cityCode = $map['city_code'];
         }
+
         if (isset($map['city_name'])) {
             $model->cityName = $map['city_name'];
         }
+
         if (isset($map['fee'])) {
             $model->fee = $map['fee'];
         }

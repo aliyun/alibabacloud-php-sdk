@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryResponseBody\module\applyIntentionInfoDo;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
     /**
-     * @example 27238197
-     *
      * @var int
      */
     public $applyId;
@@ -27,8 +25,6 @@ class module extends Model
     public $btripCause;
 
     /**
-     * @example corp1
-     *
      * @var string
      */
     public $corpId;
@@ -39,50 +35,36 @@ class module extends Model
     public $exceedReason;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $exceedType;
 
     /**
-     * @example 10000
-     *
      * @var string
      */
     public $originStandard;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @example 2022-02-11T16:25Z
-     *
      * @var string
      */
     public $submitTime;
 
     /**
-     * @example 0001A1100000007EX08O
-     *
      * @var string
      */
     public $thirdpartApplyId;
 
     /**
-     * @example test_corp
-     *
      * @var string
      */
     public $thirdpartCorpId;
 
     /**
-     * @example user1
-     *
      * @var string
      */
     public $userId;
@@ -92,64 +74,80 @@ class module extends Model
      */
     public $userName;
     protected $_name = [
-        'applyId'              => 'apply_id',
+        'applyId' => 'apply_id',
         'applyIntentionInfoDo' => 'apply_intention_info_do',
-        'btripCause'           => 'btrip_cause',
-        'corpId'               => 'corp_id',
-        'exceedReason'         => 'exceed_reason',
-        'exceedType'           => 'exceed_type',
-        'originStandard'       => 'origin_standard',
-        'status'               => 'status',
-        'submitTime'           => 'submit_time',
-        'thirdpartApplyId'     => 'thirdpart_apply_id',
-        'thirdpartCorpId'      => 'thirdpart_corp_id',
-        'userId'               => 'user_id',
-        'userName'             => 'user_name',
+        'btripCause' => 'btrip_cause',
+        'corpId' => 'corp_id',
+        'exceedReason' => 'exceed_reason',
+        'exceedType' => 'exceed_type',
+        'originStandard' => 'origin_standard',
+        'status' => 'status',
+        'submitTime' => 'submit_time',
+        'thirdpartApplyId' => 'thirdpart_apply_id',
+        'thirdpartCorpId' => 'thirdpart_corp_id',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
     ];
 
     public function validate()
     {
+        if (null !== $this->applyIntentionInfoDo) {
+            $this->applyIntentionInfoDo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
         }
+
         if (null !== $this->applyIntentionInfoDo) {
-            $res['apply_intention_info_do'] = null !== $this->applyIntentionInfoDo ? $this->applyIntentionInfoDo->toMap() : null;
+            $res['apply_intention_info_do'] = null !== $this->applyIntentionInfoDo ? $this->applyIntentionInfoDo->toArray($noStream) : $this->applyIntentionInfoDo;
         }
+
         if (null !== $this->btripCause) {
             $res['btrip_cause'] = $this->btripCause;
         }
+
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
         }
+
         if (null !== $this->exceedReason) {
             $res['exceed_reason'] = $this->exceedReason;
         }
+
         if (null !== $this->exceedType) {
             $res['exceed_type'] = $this->exceedType;
         }
+
         if (null !== $this->originStandard) {
             $res['origin_standard'] = $this->originStandard;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->submitTime) {
             $res['submit_time'] = $this->submitTime;
         }
+
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
         }
+
         if (null !== $this->thirdpartCorpId) {
             $res['thirdpart_corp_id'] = $this->thirdpartCorpId;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['user_name'] = $this->userName;
         }
@@ -157,50 +155,62 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
         }
+
         if (isset($map['apply_intention_info_do'])) {
             $model->applyIntentionInfoDo = applyIntentionInfoDo::fromMap($map['apply_intention_info_do']);
         }
+
         if (isset($map['btrip_cause'])) {
             $model->btripCause = $map['btrip_cause'];
         }
+
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
         }
+
         if (isset($map['exceed_reason'])) {
             $model->exceedReason = $map['exceed_reason'];
         }
+
         if (isset($map['exceed_type'])) {
             $model->exceedType = $map['exceed_type'];
         }
+
         if (isset($map['origin_standard'])) {
             $model->originStandard = $map['origin_standard'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['submit_time'])) {
             $model->submitTime = $map['submit_time'];
         }
+
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];
         }
+
         if (isset($map['thirdpart_corp_id'])) {
             $model->thirdpartCorpId = $map['thirdpart_corp_id'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }
+
         if (isset($map['user_name'])) {
             $model->userName = $map['user_name'];
         }

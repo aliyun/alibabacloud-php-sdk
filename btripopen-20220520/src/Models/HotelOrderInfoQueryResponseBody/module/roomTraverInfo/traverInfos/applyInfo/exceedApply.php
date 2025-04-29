@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderInfoQueryResponseBody\module\roomTraverInfo\traverInfos\applyInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exceedApply extends Model
 {
@@ -14,48 +14,46 @@ class exceedApply extends Model
     public $exceedReason;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $exceedType;
 
     /**
-     * @example 3321
-     *
      * @var int
      */
     public $flowNo;
 
     /**
-     * @example 60853
-     *
      * @var int
      */
     public $id;
     protected $_name = [
         'exceedReason' => 'exceed_reason',
-        'exceedType'   => 'exceed_type',
-        'flowNo'       => 'flow_no',
-        'id'           => 'id',
+        'exceedType' => 'exceed_type',
+        'flowNo' => 'flow_no',
+        'id' => 'id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exceedReason) {
             $res['exceed_reason'] = $this->exceedReason;
         }
+
         if (null !== $this->exceedType) {
             $res['exceed_type'] = $this->exceedType;
         }
+
         if (null !== $this->flowNo) {
             $res['flow_no'] = $this->flowNo;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -63,23 +61,26 @@ class exceedApply extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exceedApply
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['exceed_reason'])) {
             $model->exceedReason = $map['exceed_reason'];
         }
+
         if (isset($map['exceed_type'])) {
             $model->exceedType = $map['exceed_type'];
         }
+
         if (isset($map['flow_no'])) {
             $model->flowNo = $map['flow_no'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class insureInfoList extends Model
 {
     /**
-     * @example KJ-879657
-     *
      * @var string
      */
     public $insureNo;
@@ -21,30 +19,31 @@ class insureInfoList extends Model
     public $name;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
     protected $_name = [
         'insureNo' => 'insure_no',
-        'name'     => 'name',
-        'status'   => 'status',
+        'name' => 'name',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->insureNo) {
             $res['insure_no'] = $this->insureNo;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -52,20 +51,22 @@ class insureInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return insureInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['insure_no'])) {
             $model->insureNo = $map['insure_no'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderDetailQueryResponseBody\module\flightSaleOrder;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bookerInfo extends Model
 {
     /**
-     * @example 01323
-     *
      * @var string
      */
     public $userId;
@@ -20,20 +18,22 @@ class bookerInfo extends Model
      */
     public $userName;
     protected $_name = [
-        'userId'   => 'user_id',
+        'userId' => 'user_id',
         'userName' => 'user_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['user_name'] = $this->userName;
         }
@@ -41,17 +41,18 @@ class bookerInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bookerInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }
+
         if (isset($map['user_name'])) {
             $model->userName = $map['user_name'];
         }

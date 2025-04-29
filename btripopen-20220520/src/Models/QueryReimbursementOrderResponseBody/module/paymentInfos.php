@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class paymentInfos extends Model
 {
     /**
-     * @example 20.00
-     *
      * @var string
      */
     public $amount;
 
     /**
-     * @example userId
-     *
      * @var string
      */
     public $payeeUserId;
     protected $_name = [
-        'amount'      => 'amount',
+        'amount' => 'amount',
         'payeeUserId' => 'payee_user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
+
         if (null !== $this->payeeUserId) {
             $res['payee_user_id'] = $this->payeeUserId;
         }
@@ -43,17 +41,18 @@ class paymentInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paymentInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
+
         if (isset($map['payee_user_id'])) {
             $model->payeeUserId = $map['payee_user_id'];
         }

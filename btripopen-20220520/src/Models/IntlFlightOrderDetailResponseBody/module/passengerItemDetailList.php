@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderDetailResponseBody\module;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderDetailResponseBody\module\passengerItemDetailList\ticketList;
-use AlibabaCloud\Tea\Model;
 
 class passengerItemDetailList extends Model
 {
     /**
-     * @example 8432002
-     *
      * @var int
      */
     public $passengerId;
@@ -22,25 +20,30 @@ class passengerItemDetailList extends Model
     public $ticketList;
     protected $_name = [
         'passengerId' => 'passenger_id',
-        'ticketList'  => 'ticket_list',
+        'ticketList' => 'ticket_list',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ticketList)) {
+            Model::validateArray($this->ticketList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passengerId) {
             $res['passenger_id'] = $this->passengerId;
         }
+
         if (null !== $this->ticketList) {
-            $res['ticket_list'] = [];
-            if (null !== $this->ticketList && \is_array($this->ticketList)) {
-                $n = 0;
-                foreach ($this->ticketList as $item) {
-                    $res['ticket_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ticketList)) {
+                $res['ticket_list'] = [];
+                $n1 = 0;
+                foreach ($this->ticketList as $item1) {
+                    $res['ticket_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class passengerItemDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerItemDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['passenger_id'])) {
             $model->passengerId = $map['passenger_id'];
         }
+
         if (isset($map['ticket_list'])) {
             if (!empty($map['ticket_list'])) {
                 $model->ticketList = [];
-                $n                 = 0;
-                foreach ($map['ticket_list'] as $item) {
-                    $model->ticketList[$n++] = null !== $item ? ticketList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ticket_list'] as $item1) {
+                    $model->ticketList[$n1++] = ticketList::fromMap($item1);
                 }
             }
         }

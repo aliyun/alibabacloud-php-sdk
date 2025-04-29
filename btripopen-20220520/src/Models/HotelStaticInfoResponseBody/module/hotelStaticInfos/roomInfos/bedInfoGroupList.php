@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos\roomInfos;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos\roomInfos\bedInfoGroupList\bedInfos;
-use AlibabaCloud\Tea\Model;
 
 class bedInfoGroupList extends Model
 {
@@ -19,17 +19,21 @@ class bedInfoGroupList extends Model
 
     public function validate()
     {
+        if (\is_array($this->bedInfos)) {
+            Model::validateArray($this->bedInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bedInfos) {
-            $res['bed_Infos'] = [];
-            if (null !== $this->bedInfos && \is_array($this->bedInfos)) {
-                $n = 0;
-                foreach ($this->bedInfos as $item) {
-                    $res['bed_Infos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bedInfos)) {
+                $res['bed_Infos'] = [];
+                $n1 = 0;
+                foreach ($this->bedInfos as $item1) {
+                    $res['bed_Infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class bedInfoGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bedInfoGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bed_Infos'])) {
             if (!empty($map['bed_Infos'])) {
                 $model->bedInfos = [];
-                $n               = 0;
-                foreach ($map['bed_Infos'] as $item) {
-                    $model->bedInfos[$n++] = null !== $item ? bedInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['bed_Infos'] as $item1) {
+                    $model->bedInfos[$n1++] = bedInfos::fromMap($item1);
                 }
             }
         }

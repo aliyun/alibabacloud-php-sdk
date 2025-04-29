@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailResponseBody\module\groupItem\flightRuleInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class segmentPosition extends Model
 {
@@ -24,14 +24,16 @@ class segmentPosition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->journeyIndex) {
             $res['journey_index'] = $this->journeyIndex;
         }
+
         if (null !== $this->segmentIndex) {
             $res['segment_index'] = $this->segmentIndex;
         }
@@ -39,17 +41,18 @@ class segmentPosition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return segmentPosition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['journey_index'])) {
             $model->journeyIndex = $map['journey_index'];
         }
+
         if (isset($map['segment_index'])) {
             $model->segmentIndex = $map['segment_index'];
         }

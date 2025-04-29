@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaItemDetailResponseBody\module\changeRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extraContents extends Model
 {
@@ -19,19 +19,21 @@ class extraContents extends Model
     public $title;
     protected $_name = [
         'content' => 'content',
-        'title'   => 'title',
+        'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -39,17 +41,18 @@ class extraContents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extraContents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

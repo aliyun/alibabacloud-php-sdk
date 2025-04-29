@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\travelerInfoDTOS;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class changeFee extends Model
 {
@@ -23,24 +23,27 @@ class changeFee extends Model
      */
     public $upgradePrice;
     protected $_name = [
-        'changeFee'    => 'change_fee',
-        'serviceFee'   => 'service_fee',
+        'changeFee' => 'change_fee',
+        'serviceFee' => 'service_fee',
         'upgradePrice' => 'upgrade_price',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
         }
+
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
         }
+
         if (null !== $this->upgradePrice) {
             $res['upgrade_price'] = $this->upgradePrice;
         }
@@ -48,20 +51,22 @@ class changeFee extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return changeFee
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
         }
+
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
         }
+
         if (isset($map['upgrade_price'])) {
             $model->upgradePrice = $map['upgrade_price'];
         }

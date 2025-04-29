@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightListingSearchResponseBody\module\flightItemList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleFlightItemListBestPriceItemShoppingItemMapValue;
-use AlibabaCloud\Tea\Model;
 
 class bestPriceItem extends Model
 {
@@ -25,28 +25,43 @@ class bestPriceItem extends Model
     public $shoppingItemMap;
     protected $_name = [
         'agreementPriceCodes' => 'agreement_price_codes',
-        'itemType'            => 'item_type',
-        'shoppingItemMap'     => 'shopping_item_map',
+        'itemType' => 'item_type',
+        'shoppingItemMap' => 'shopping_item_map',
     ];
 
     public function validate()
     {
+        if (\is_array($this->agreementPriceCodes)) {
+            Model::validateArray($this->agreementPriceCodes);
+        }
+        if (\is_array($this->shoppingItemMap)) {
+            Model::validateArray($this->shoppingItemMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agreementPriceCodes) {
-            $res['agreement_price_codes'] = $this->agreementPriceCodes;
+            if (\is_array($this->agreementPriceCodes)) {
+                $res['agreement_price_codes'] = [];
+                $n1 = 0;
+                foreach ($this->agreementPriceCodes as $item1) {
+                    $res['agreement_price_codes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->itemType) {
             $res['item_type'] = $this->itemType;
         }
+
         if (null !== $this->shoppingItemMap) {
-            $res['shopping_item_map'] = [];
-            if (null !== $this->shoppingItemMap && \is_array($this->shoppingItemMap)) {
-                foreach ($this->shoppingItemMap as $key => $val) {
-                    $res['shopping_item_map'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->shoppingItemMap)) {
+                $res['shopping_item_map'] = [];
+                foreach ($this->shoppingItemMap as $key1 => $value1) {
+                    $res['shopping_item_map'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -54,24 +69,35 @@ class bestPriceItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bestPriceItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agreement_price_codes'])) {
             if (!empty($map['agreement_price_codes'])) {
-                $model->agreementPriceCodes = $map['agreement_price_codes'];
+                $model->agreementPriceCodes = [];
+                $n1 = 0;
+                foreach ($map['agreement_price_codes'] as $item1) {
+                    $model->agreementPriceCodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['item_type'])) {
             $model->itemType = $map['item_type'];
         }
+
         if (isset($map['shopping_item_map'])) {
-            $model->shoppingItemMap = $map['shopping_item_map'];
+            if (!empty($map['shopping_item_map'])) {
+                $model->shoppingItemMap = [];
+                foreach ($map['shopping_item_map'] as $key1 => $value1) {
+                    $model->shoppingItemMap[$key1] = ModuleFlightItemListBestPriceItemShoppingItemMapValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class btripHotelCancelDesc extends Model
 {
@@ -18,20 +18,22 @@ class btripHotelCancelDesc extends Model
      */
     public $title;
     protected $_name = [
-        'desc'  => 'desc',
+        'desc' => 'desc',
         'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -39,17 +41,18 @@ class btripHotelCancelDesc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return btripHotelCancelDesc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

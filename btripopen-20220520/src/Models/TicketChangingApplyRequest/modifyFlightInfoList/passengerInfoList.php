@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TicketChangingApplyRequest\modifyFlightInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passengerInfoList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example CA1703
-     *
      * @var string
      */
     public $originFlightNo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $outUserId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $passengerName;
     protected $_name = [
         'originFlightNo' => 'origin_flight_no',
-        'outUserId'      => 'out_user_id',
-        'passengerName'  => 'passenger_name',
+        'outUserId' => 'out_user_id',
+        'passengerName' => 'passenger_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->originFlightNo) {
             $res['origin_flight_no'] = $this->originFlightNo;
         }
+
         if (null !== $this->outUserId) {
             $res['out_user_id'] = $this->outUserId;
         }
+
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
         }
@@ -58,20 +51,22 @@ class passengerInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passengerInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['origin_flight_no'])) {
             $model->originFlightNo = $map['origin_flight_no'];
         }
+
         if (isset($map['out_user_id'])) {
             $model->outUserId = $map['out_user_id'];
         }
+
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];
         }

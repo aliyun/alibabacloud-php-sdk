@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponseBody\applyList\travelerStandard;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class carCitySet extends Model
 {
@@ -24,14 +24,16 @@ class carCitySet extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['city_code'] = $this->cityCode;
         }
+
         if (null !== $this->cityName) {
             $res['city_name'] = $this->cityName;
         }
@@ -39,17 +41,18 @@ class carCitySet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return carCitySet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['city_code'])) {
             $model->cityCode = $map['city_code'];
         }
+
         if (isset($map['city_name'])) {
             $model->cityName = $map['city_name'];
         }

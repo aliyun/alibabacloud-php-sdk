@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOrderDetailResponseBody\module\journeyList\segmentList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class segmentVisaRemark extends Model
 {
@@ -14,8 +14,6 @@ class segmentVisaRemark extends Model
     public $depCityVisaRemark;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $depCityVisaType;
@@ -30,57 +28,90 @@ class segmentVisaRemark extends Model
      */
     public $stopCityVisaTypes;
     protected $_name = [
-        'depCityVisaRemark'   => 'dep_city_visa_remark',
-        'depCityVisaType'     => 'dep_city_visa_type',
+        'depCityVisaRemark' => 'dep_city_visa_remark',
+        'depCityVisaType' => 'dep_city_visa_type',
         'stopCityVisaRemarks' => 'stop_city_visa_remarks',
-        'stopCityVisaTypes'   => 'stop_city_visa_types',
+        'stopCityVisaTypes' => 'stop_city_visa_types',
     ];
 
     public function validate()
     {
+        if (\is_array($this->stopCityVisaRemarks)) {
+            Model::validateArray($this->stopCityVisaRemarks);
+        }
+        if (\is_array($this->stopCityVisaTypes)) {
+            Model::validateArray($this->stopCityVisaTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->depCityVisaRemark) {
             $res['dep_city_visa_remark'] = $this->depCityVisaRemark;
         }
+
         if (null !== $this->depCityVisaType) {
             $res['dep_city_visa_type'] = $this->depCityVisaType;
         }
+
         if (null !== $this->stopCityVisaRemarks) {
-            $res['stop_city_visa_remarks'] = $this->stopCityVisaRemarks;
+            if (\is_array($this->stopCityVisaRemarks)) {
+                $res['stop_city_visa_remarks'] = [];
+                $n1 = 0;
+                foreach ($this->stopCityVisaRemarks as $item1) {
+                    $res['stop_city_visa_remarks'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stopCityVisaTypes) {
-            $res['stop_city_visa_types'] = $this->stopCityVisaTypes;
+            if (\is_array($this->stopCityVisaTypes)) {
+                $res['stop_city_visa_types'] = [];
+                $n1 = 0;
+                foreach ($this->stopCityVisaTypes as $item1) {
+                    $res['stop_city_visa_types'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return segmentVisaRemark
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dep_city_visa_remark'])) {
             $model->depCityVisaRemark = $map['dep_city_visa_remark'];
         }
+
         if (isset($map['dep_city_visa_type'])) {
             $model->depCityVisaType = $map['dep_city_visa_type'];
         }
+
         if (isset($map['stop_city_visa_remarks'])) {
             if (!empty($map['stop_city_visa_remarks'])) {
-                $model->stopCityVisaRemarks = $map['stop_city_visa_remarks'];
+                $model->stopCityVisaRemarks = [];
+                $n1 = 0;
+                foreach ($map['stop_city_visa_remarks'] as $item1) {
+                    $model->stopCityVisaRemarks[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['stop_city_visa_types'])) {
             if (!empty($map['stop_city_visa_types'])) {
-                $model->stopCityVisaTypes = $map['stop_city_visa_types'];
+                $model->stopCityVisaTypes = [];
+                $n1 = 0;
+                foreach ($map['stop_city_visa_types'] as $item1) {
+                    $model->stopCityVisaTypes[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module\flightChangeTicketInfoList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module\flightInfoList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module\flightRefundTicketInfoList;
@@ -13,7 +14,6 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\mod
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module\orderBaseInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module\passengerInfoList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponseBody\module\priceInfoList;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -63,89 +63,125 @@ class module extends Model
     public $priceInfoList;
     protected $_name = [
         'flightChangeTicketInfoList' => 'flight_change_ticket_info_list',
-        'flightInfoList'             => 'flight_info_list',
+        'flightInfoList' => 'flight_info_list',
         'flightRefundTicketInfoList' => 'flight_refund_ticket_info_list',
-        'flightTicketInfoList'       => 'flight_ticket_info_list',
-        'insuranceInfoList'          => 'insurance_info_list',
-        'invoiceInfo'                => 'invoice_info',
-        'orderBaseInfo'              => 'order_base_info',
-        'passengerInfoList'          => 'passenger_info_list',
-        'priceInfoList'              => 'price_info_list',
+        'flightTicketInfoList' => 'flight_ticket_info_list',
+        'insuranceInfoList' => 'insurance_info_list',
+        'invoiceInfo' => 'invoice_info',
+        'orderBaseInfo' => 'order_base_info',
+        'passengerInfoList' => 'passenger_info_list',
+        'priceInfoList' => 'price_info_list',
     ];
 
     public function validate()
     {
+        if (\is_array($this->flightChangeTicketInfoList)) {
+            Model::validateArray($this->flightChangeTicketInfoList);
+        }
+        if (\is_array($this->flightInfoList)) {
+            Model::validateArray($this->flightInfoList);
+        }
+        if (\is_array($this->flightRefundTicketInfoList)) {
+            Model::validateArray($this->flightRefundTicketInfoList);
+        }
+        if (\is_array($this->flightTicketInfoList)) {
+            Model::validateArray($this->flightTicketInfoList);
+        }
+        if (\is_array($this->insuranceInfoList)) {
+            Model::validateArray($this->insuranceInfoList);
+        }
+        if (null !== $this->invoiceInfo) {
+            $this->invoiceInfo->validate();
+        }
+        if (null !== $this->orderBaseInfo) {
+            $this->orderBaseInfo->validate();
+        }
+        if (\is_array($this->passengerInfoList)) {
+            Model::validateArray($this->passengerInfoList);
+        }
+        if (\is_array($this->priceInfoList)) {
+            Model::validateArray($this->priceInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flightChangeTicketInfoList) {
-            $res['flight_change_ticket_info_list'] = [];
-            if (null !== $this->flightChangeTicketInfoList && \is_array($this->flightChangeTicketInfoList)) {
-                $n = 0;
-                foreach ($this->flightChangeTicketInfoList as $item) {
-                    $res['flight_change_ticket_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flightChangeTicketInfoList)) {
+                $res['flight_change_ticket_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightChangeTicketInfoList as $item1) {
+                    $res['flight_change_ticket_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->flightInfoList) {
-            $res['flight_info_list'] = [];
-            if (null !== $this->flightInfoList && \is_array($this->flightInfoList)) {
-                $n = 0;
-                foreach ($this->flightInfoList as $item) {
-                    $res['flight_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flightInfoList)) {
+                $res['flight_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightInfoList as $item1) {
+                    $res['flight_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->flightRefundTicketInfoList) {
-            $res['flight_refund_ticket_info_list'] = [];
-            if (null !== $this->flightRefundTicketInfoList && \is_array($this->flightRefundTicketInfoList)) {
-                $n = 0;
-                foreach ($this->flightRefundTicketInfoList as $item) {
-                    $res['flight_refund_ticket_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flightRefundTicketInfoList)) {
+                $res['flight_refund_ticket_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightRefundTicketInfoList as $item1) {
+                    $res['flight_refund_ticket_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->flightTicketInfoList) {
-            $res['flight_ticket_info_list'] = [];
-            if (null !== $this->flightTicketInfoList && \is_array($this->flightTicketInfoList)) {
-                $n = 0;
-                foreach ($this->flightTicketInfoList as $item) {
-                    $res['flight_ticket_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flightTicketInfoList)) {
+                $res['flight_ticket_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->flightTicketInfoList as $item1) {
+                    $res['flight_ticket_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->insuranceInfoList) {
-            $res['insurance_info_list'] = [];
-            if (null !== $this->insuranceInfoList && \is_array($this->insuranceInfoList)) {
-                $n = 0;
-                foreach ($this->insuranceInfoList as $item) {
-                    $res['insurance_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->insuranceInfoList)) {
+                $res['insurance_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->insuranceInfoList as $item1) {
+                    $res['insurance_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->invoiceInfo) {
-            $res['invoice_info'] = null !== $this->invoiceInfo ? $this->invoiceInfo->toMap() : null;
+            $res['invoice_info'] = null !== $this->invoiceInfo ? $this->invoiceInfo->toArray($noStream) : $this->invoiceInfo;
         }
+
         if (null !== $this->orderBaseInfo) {
-            $res['order_base_info'] = null !== $this->orderBaseInfo ? $this->orderBaseInfo->toMap() : null;
+            $res['order_base_info'] = null !== $this->orderBaseInfo ? $this->orderBaseInfo->toArray($noStream) : $this->orderBaseInfo;
         }
+
         if (null !== $this->passengerInfoList) {
-            $res['passenger_info_list'] = [];
-            if (null !== $this->passengerInfoList && \is_array($this->passengerInfoList)) {
-                $n = 0;
-                foreach ($this->passengerInfoList as $item) {
-                    $res['passenger_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->passengerInfoList)) {
+                $res['passenger_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->passengerInfoList as $item1) {
+                    $res['passenger_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->priceInfoList) {
-            $res['price_info_list'] = [];
-            if (null !== $this->priceInfoList && \is_array($this->priceInfoList)) {
-                $n = 0;
-                foreach ($this->priceInfoList as $item) {
-                    $res['price_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->priceInfoList)) {
+                $res['price_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->priceInfoList as $item1) {
+                    $res['price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -153,80 +189,88 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['flight_change_ticket_info_list'])) {
             if (!empty($map['flight_change_ticket_info_list'])) {
                 $model->flightChangeTicketInfoList = [];
-                $n                                 = 0;
-                foreach ($map['flight_change_ticket_info_list'] as $item) {
-                    $model->flightChangeTicketInfoList[$n++] = null !== $item ? flightChangeTicketInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['flight_change_ticket_info_list'] as $item1) {
+                    $model->flightChangeTicketInfoList[$n1++] = flightChangeTicketInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['flight_info_list'])) {
             if (!empty($map['flight_info_list'])) {
                 $model->flightInfoList = [];
-                $n                     = 0;
-                foreach ($map['flight_info_list'] as $item) {
-                    $model->flightInfoList[$n++] = null !== $item ? flightInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['flight_info_list'] as $item1) {
+                    $model->flightInfoList[$n1++] = flightInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['flight_refund_ticket_info_list'])) {
             if (!empty($map['flight_refund_ticket_info_list'])) {
                 $model->flightRefundTicketInfoList = [];
-                $n                                 = 0;
-                foreach ($map['flight_refund_ticket_info_list'] as $item) {
-                    $model->flightRefundTicketInfoList[$n++] = null !== $item ? flightRefundTicketInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['flight_refund_ticket_info_list'] as $item1) {
+                    $model->flightRefundTicketInfoList[$n1++] = flightRefundTicketInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['flight_ticket_info_list'])) {
             if (!empty($map['flight_ticket_info_list'])) {
                 $model->flightTicketInfoList = [];
-                $n                           = 0;
-                foreach ($map['flight_ticket_info_list'] as $item) {
-                    $model->flightTicketInfoList[$n++] = null !== $item ? flightTicketInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['flight_ticket_info_list'] as $item1) {
+                    $model->flightTicketInfoList[$n1++] = flightTicketInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['insurance_info_list'])) {
             if (!empty($map['insurance_info_list'])) {
                 $model->insuranceInfoList = [];
-                $n                        = 0;
-                foreach ($map['insurance_info_list'] as $item) {
-                    $model->insuranceInfoList[$n++] = null !== $item ? insuranceInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['insurance_info_list'] as $item1) {
+                    $model->insuranceInfoList[$n1++] = insuranceInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['invoice_info'])) {
             $model->invoiceInfo = invoiceInfo::fromMap($map['invoice_info']);
         }
+
         if (isset($map['order_base_info'])) {
             $model->orderBaseInfo = orderBaseInfo::fromMap($map['order_base_info']);
         }
+
         if (isset($map['passenger_info_list'])) {
             if (!empty($map['passenger_info_list'])) {
                 $model->passengerInfoList = [];
-                $n                        = 0;
-                foreach ($map['passenger_info_list'] as $item) {
-                    $model->passengerInfoList[$n++] = null !== $item ? passengerInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['passenger_info_list'] as $item1) {
+                    $model->passengerInfoList[$n1++] = passengerInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['price_info_list'])) {
             if (!empty($map['price_info_list'])) {
                 $model->priceInfoList = [];
-                $n                    = 0;
-                foreach ($map['price_info_list'] as $item) {
-                    $model->priceInfoList[$n++] = null !== $item ? priceInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['price_info_list'] as $item1) {
+                    $model->priceInfoList[$n1++] = priceInfoList::fromMap($item1);
                 }
             }
         }

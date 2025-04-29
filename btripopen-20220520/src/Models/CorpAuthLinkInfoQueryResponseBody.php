@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpAuthLinkInfoQueryResponseBody\module;
-use AlibabaCloud\Tea\Model;
 
 class CorpAuthLinkInfoQueryResponseBody extends Model
 {
@@ -34,32 +34,40 @@ class CorpAuthLinkInfoQueryResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'code'      => 'code',
-        'message'   => 'message',
-        'module'    => 'module',
+        'code' => 'code',
+        'message' => 'message',
+        'module' => 'module',
         'requestId' => 'requestId',
-        'traceId'   => 'traceId',
+        'traceId' => 'traceId',
     ];
 
     public function validate()
     {
+        if (null !== $this->module) {
+            $this->module->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->module) {
-            $res['module'] = null !== $this->module ? $this->module->toMap() : null;
+            $res['module'] = null !== $this->module ? $this->module->toArray($noStream) : $this->module;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
         }
@@ -67,26 +75,30 @@ class CorpAuthLinkInfoQueryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CorpAuthLinkInfoQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
         }

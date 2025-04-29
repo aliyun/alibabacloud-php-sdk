@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaItemDetailResponseBody\module\groupItem\subItems;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemSubItemsRefundChangeRuleOfferPenaltyInfoMapValue;
-use AlibabaCloud\Tea\Model;
 
 class refundChangeRule extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $cancelFeeInd;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $changeFeeInd;
@@ -34,38 +30,55 @@ class refundChangeRule extends Model
     public $refundChangeDigest;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $structuredRefund;
     protected $_name = [
-        'cancelFeeInd'        => 'cancel_fee_ind',
-        'changeFeeInd'        => 'change_fee_ind',
+        'cancelFeeInd' => 'cancel_fee_ind',
+        'changeFeeInd' => 'change_fee_ind',
         'offerPenaltyInfoMap' => 'offer_penalty_info_map',
-        'refundChangeDigest'  => 'refund_change_digest',
-        'structuredRefund'    => 'structured_refund',
+        'refundChangeDigest' => 'refund_change_digest',
+        'structuredRefund' => 'structured_refund',
     ];
 
     public function validate()
     {
+        if (\is_array($this->offerPenaltyInfoMap)) {
+            Model::validateArray($this->offerPenaltyInfoMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cancelFeeInd) {
             $res['cancel_fee_ind'] = $this->cancelFeeInd;
         }
+
         if (null !== $this->changeFeeInd) {
             $res['change_fee_ind'] = $this->changeFeeInd;
         }
+
         if (null !== $this->offerPenaltyInfoMap) {
-            $res['offer_penalty_info_map'] = $this->offerPenaltyInfoMap;
+            if (\is_array($this->offerPenaltyInfoMap)) {
+                $res['offer_penalty_info_map'] = [];
+                foreach ($this->offerPenaltyInfoMap as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['offer_penalty_info_map'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['offer_penalty_info_map'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->refundChangeDigest) {
             $res['refund_change_digest'] = $this->refundChangeDigest;
         }
+
         if (null !== $this->structuredRefund) {
             $res['structured_refund'] = $this->structuredRefund;
         }
@@ -73,26 +86,41 @@ class refundChangeRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return refundChangeRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cancel_fee_ind'])) {
             $model->cancelFeeInd = $map['cancel_fee_ind'];
         }
+
         if (isset($map['change_fee_ind'])) {
             $model->changeFeeInd = $map['change_fee_ind'];
         }
+
         if (isset($map['offer_penalty_info_map'])) {
-            $model->offerPenaltyInfoMap = $map['offer_penalty_info_map'];
+            if (!empty($map['offer_penalty_info_map'])) {
+                $model->offerPenaltyInfoMap = [];
+                foreach ($map['offer_penalty_info_map'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->offerPenaltyInfoMap[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->offerPenaltyInfoMap[$key1][$n2++] = ModuleGroupItemSubItemsRefundChangeRuleOfferPenaltyInfoMapValue::fromMap($item2);
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['refund_change_digest'])) {
             $model->refundChangeDigest = $map['refund_change_digest'];
         }
+
         if (isset($map['structured_refund'])) {
             $model->structuredRefund = $map['structured_refund'];
         }

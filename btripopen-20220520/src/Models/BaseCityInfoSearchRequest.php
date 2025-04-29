@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BaseCityInfoSearchRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $region;
     protected $_name = [
         'keyword' => 'keyword',
-        'region'  => 'region',
+        'region' => 'region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
         }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
@@ -45,17 +41,18 @@ class BaseCityInfoSearchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BaseCityInfoSearchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
         }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }

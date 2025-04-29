@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CarOrderQueryRequest extends Model
 {
     /**
-     * @example 1012000000000000
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @example 1000000
-     *
      * @var int
      */
     public $subOrderId;
     protected $_name = [
-        'orderId'    => 'order_id',
+        'orderId' => 'order_id',
         'subOrderId' => 'sub_order_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
+
         if (null !== $this->subOrderId) {
             $res['sub_order_id'] = $this->subOrderId;
         }
@@ -43,17 +41,18 @@ class CarOrderQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CarOrderQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
+
         if (isset($map['sub_order_id'])) {
             $model->subOrderId = $map['sub_order_id'];
         }

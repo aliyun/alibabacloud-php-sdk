@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExceedApplySyncRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 823744
-     *
      * @var int
      */
     public $applyId;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $bizCategory;
@@ -30,60 +24,56 @@ class ExceedApplySyncRequest extends Model
     public $remark;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @example 123421
-     *
      * @var string
      */
     public $thirdpartyFlowId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example open5145141
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'applyId'          => 'apply_id',
-        'bizCategory'      => 'biz_category',
-        'remark'           => 'remark',
-        'status'           => 'status',
+        'applyId' => 'apply_id',
+        'bizCategory' => 'biz_category',
+        'remark' => 'remark',
+        'status' => 'status',
         'thirdpartyFlowId' => 'thirdparty_flow_id',
-        'userId'           => 'user_id',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
         }
+
         if (null !== $this->bizCategory) {
             $res['biz_category'] = $this->bizCategory;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->thirdpartyFlowId) {
             $res['thirdparty_flow_id'] = $this->thirdpartyFlowId;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -91,29 +81,34 @@ class ExceedApplySyncRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExceedApplySyncRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
         }
+
         if (isset($map['biz_category'])) {
             $model->bizCategory = $map['biz_category'];
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['thirdparty_flow_id'])) {
             $model->thirdpartyFlowId = $map['thirdparty_flow_id'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponseBody\module\expenses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class invoiceInfos extends Model
 {
@@ -38,36 +38,42 @@ class invoiceInfos extends Model
      */
     public $invoiceType;
     protected $_name = [
-        'amount'        => 'amount',
-        'invoiceCode'   => 'invoice_code',
-        'invoiceData'   => 'invoice_data',
-        'invoiceDate'   => 'invoice_date',
+        'amount' => 'amount',
+        'invoiceCode' => 'invoice_code',
+        'invoiceData' => 'invoice_data',
+        'invoiceDate' => 'invoice_date',
         'invoiceNumber' => 'invoice_number',
-        'invoiceType'   => 'invoice_type',
+        'invoiceType' => 'invoice_type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
+
         if (null !== $this->invoiceCode) {
             $res['invoice_code'] = $this->invoiceCode;
         }
+
         if (null !== $this->invoiceData) {
             $res['invoice_data'] = $this->invoiceData;
         }
+
         if (null !== $this->invoiceDate) {
             $res['invoice_date'] = $this->invoiceDate;
         }
+
         if (null !== $this->invoiceNumber) {
             $res['invoice_number'] = $this->invoiceNumber;
         }
+
         if (null !== $this->invoiceType) {
             $res['invoice_type'] = $this->invoiceType;
         }
@@ -75,29 +81,34 @@ class invoiceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invoiceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
+
         if (isset($map['invoice_code'])) {
             $model->invoiceCode = $map['invoice_code'];
         }
+
         if (isset($map['invoice_data'])) {
             $model->invoiceData = $map['invoice_data'];
         }
+
         if (isset($map['invoice_date'])) {
             $model->invoiceDate = $map['invoice_date'];
         }
+
         if (isset($map['invoice_number'])) {
             $model->invoiceNumber = $map['invoice_number'];
         }
+
         if (isset($map['invoice_type'])) {
             $model->invoiceType = $map['invoice_type'];
         }

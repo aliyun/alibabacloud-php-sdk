@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightInventoryPriceCheckResponseBody\module\passengerChangedPriceInfoList;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $checkSuccess;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $failType;
@@ -29,40 +25,45 @@ class module extends Model
     public $passengerChangedPriceInfoList;
 
     /**
-     * @example fcoid_deb6372db8194f1c94c23bc4fadc508d
-     *
      * @var string
      */
     public $renderKey;
     protected $_name = [
-        'checkSuccess'                  => 'check_success',
-        'failType'                      => 'fail_type',
+        'checkSuccess' => 'check_success',
+        'failType' => 'fail_type',
         'passengerChangedPriceInfoList' => 'passenger_changed_price_info_list',
-        'renderKey'                     => 'render_key',
+        'renderKey' => 'render_key',
     ];
 
     public function validate()
     {
+        if (\is_array($this->passengerChangedPriceInfoList)) {
+            Model::validateArray($this->passengerChangedPriceInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkSuccess) {
             $res['check_success'] = $this->checkSuccess;
         }
+
         if (null !== $this->failType) {
             $res['fail_type'] = $this->failType;
         }
+
         if (null !== $this->passengerChangedPriceInfoList) {
-            $res['passenger_changed_price_info_list'] = [];
-            if (null !== $this->passengerChangedPriceInfoList && \is_array($this->passengerChangedPriceInfoList)) {
-                $n = 0;
-                foreach ($this->passengerChangedPriceInfoList as $item) {
-                    $res['passenger_changed_price_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->passengerChangedPriceInfoList)) {
+                $res['passenger_changed_price_info_list'] = [];
+                $n1 = 0;
+                foreach ($this->passengerChangedPriceInfoList as $item1) {
+                    $res['passenger_changed_price_info_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->renderKey) {
             $res['render_key'] = $this->renderKey;
         }
@@ -70,29 +71,32 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['check_success'])) {
             $model->checkSuccess = $map['check_success'];
         }
+
         if (isset($map['fail_type'])) {
             $model->failType = $map['fail_type'];
         }
+
         if (isset($map['passenger_changed_price_info_list'])) {
             if (!empty($map['passenger_changed_price_info_list'])) {
                 $model->passengerChangedPriceInfoList = [];
-                $n                                    = 0;
-                foreach ($map['passenger_changed_price_info_list'] as $item) {
-                    $model->passengerChangedPriceInfoList[$n++] = null !== $item ? passengerChangedPriceInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['passenger_changed_price_info_list'] as $item1) {
+                    $model->passengerChangedPriceInfoList[$n1++] = passengerChangedPriceInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['render_key'])) {
             $model->renderKey = $map['render_key'];
         }

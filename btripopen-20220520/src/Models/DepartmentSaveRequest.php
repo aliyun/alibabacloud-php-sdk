@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveRequest\departList;
-use AlibabaCloud\Tea\Model;
 
 class DepartmentSaveRequest extends Model
 {
@@ -19,17 +19,21 @@ class DepartmentSaveRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->departList)) {
+            Model::validateArray($this->departList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departList) {
-            $res['depart_list'] = [];
-            if (null !== $this->departList && \is_array($this->departList)) {
-                $n = 0;
-                foreach ($this->departList as $item) {
-                    $res['depart_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->departList)) {
+                $res['depart_list'] = [];
+                $n1 = 0;
+                foreach ($this->departList as $item1) {
+                    $res['depart_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class DepartmentSaveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DepartmentSaveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['depart_list'])) {
             if (!empty($map['depart_list'])) {
                 $model->departList = [];
-                $n                 = 0;
-                foreach ($map['depart_list'] as $item) {
-                    $model->departList[$n++] = null !== $item ? departList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['depart_list'] as $item1) {
+                    $model->departList[$n1++] = departList::fromMap($item1);
                 }
             }
         }

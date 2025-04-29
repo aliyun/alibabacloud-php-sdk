@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainFeeCalculateChangeRequest\changeTrainDetails;
-use AlibabaCloud\Tea\Model;
 
 class TrainFeeCalculateChangeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var changeTrainDetails[]
      */
     public $changeTrainDetails;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $distributeOrderId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2627694109810885616
-     *
      * @var string
      */
     public $orderId;
     protected $_name = [
         'changeTrainDetails' => 'change_train_details',
-        'distributeOrderId'  => 'distribute_order_id',
-        'orderId'            => 'order_id',
+        'distributeOrderId' => 'distribute_order_id',
+        'orderId' => 'order_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->changeTrainDetails)) {
+            Model::validateArray($this->changeTrainDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeTrainDetails) {
-            $res['change_train_details'] = [];
-            if (null !== $this->changeTrainDetails && \is_array($this->changeTrainDetails)) {
-                $n = 0;
-                foreach ($this->changeTrainDetails as $item) {
-                    $res['change_train_details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->changeTrainDetails)) {
+                $res['change_train_details'] = [];
+                $n1 = 0;
+                foreach ($this->changeTrainDetails as $item1) {
+                    $res['change_train_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->distributeOrderId) {
             $res['distribute_order_id'] = $this->distributeOrderId;
         }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
@@ -65,26 +61,28 @@ class TrainFeeCalculateChangeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TrainFeeCalculateChangeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_train_details'])) {
             if (!empty($map['change_train_details'])) {
                 $model->changeTrainDetails = [];
-                $n                         = 0;
-                foreach ($map['change_train_details'] as $item) {
-                    $model->changeTrainDetails[$n++] = null !== $item ? changeTrainDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['change_train_details'] as $item1) {
+                    $model->changeTrainDetails[$n1++] = changeTrainDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['distribute_order_id'])) {
             $model->distributeOrderId = $map['distribute_order_id'];
         }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }

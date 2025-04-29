@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2ResponseBody\module\popularSuggestInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class popularInfos extends Model
 {
@@ -18,9 +18,10 @@ class popularInfos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
@@ -30,11 +31,11 @@ class popularInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return popularInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

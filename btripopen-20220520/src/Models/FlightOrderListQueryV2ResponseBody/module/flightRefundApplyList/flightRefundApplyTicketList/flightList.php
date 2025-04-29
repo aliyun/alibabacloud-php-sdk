@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ResponseBody\module\flightRefundApplyList\flightRefundApplyTicketList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flightList extends Model
 {
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $arrTime;
 
     /**
-     * @example V
-     *
      * @var string
      */
     public $cabin;
 
     /**
-     * @example Y
-     *
      * @var string
      */
     public $cabinClass;
@@ -35,49 +29,51 @@ class flightList extends Model
     public $cabinClassName;
 
     /**
-     * @example 2022-07-20T10:40Z
-     *
      * @var string
      */
     public $depTime;
 
     /**
-     * @example HU7052
-     *
      * @var string
      */
     public $flightNo;
     protected $_name = [
-        'arrTime'        => 'arr_time',
-        'cabin'          => 'cabin',
-        'cabinClass'     => 'cabin_class',
+        'arrTime' => 'arr_time',
+        'cabin' => 'cabin',
+        'cabinClass' => 'cabin_class',
         'cabinClassName' => 'cabin_class_name',
-        'depTime'        => 'dep_time',
-        'flightNo'       => 'flight_no',
+        'depTime' => 'dep_time',
+        'flightNo' => 'flight_no',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
         }
+
         if (null !== $this->cabin) {
             $res['cabin'] = $this->cabin;
         }
+
         if (null !== $this->cabinClass) {
             $res['cabin_class'] = $this->cabinClass;
         }
+
         if (null !== $this->cabinClassName) {
             $res['cabin_class_name'] = $this->cabinClassName;
         }
+
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
         }
+
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
         }
@@ -85,29 +81,34 @@ class flightList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
         }
+
         if (isset($map['cabin'])) {
             $model->cabin = $map['cabin'];
         }
+
         if (isset($map['cabin_class'])) {
             $model->cabinClass = $map['cabin_class'];
         }
+
         if (isset($map['cabin_class_name'])) {
             $model->cabinClassName = $map['cabin_class_name'];
         }
+
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];
         }
+
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];
         }

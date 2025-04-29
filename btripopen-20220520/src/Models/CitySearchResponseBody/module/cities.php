@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cities extends Model
 {
     /**
-     * @example 330100
-     *
      * @var string
      */
     public $code;
@@ -21,30 +19,31 @@ class cities extends Model
     public $name;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $region;
     protected $_name = [
-        'code'   => 'code',
-        'name'   => 'name',
+        'code' => 'code',
+        'name' => 'name',
         'region' => 'region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
@@ -52,20 +51,22 @@ class cities extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }

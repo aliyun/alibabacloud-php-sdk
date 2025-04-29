@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelCityCodeListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelCityCodeListResponseBody\module\citys;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -15,8 +15,6 @@ class module extends Model
     public $citys;
 
     /**
-     * @example 108800
-     *
      * @var string
      */
     public $proviceCode;
@@ -26,30 +24,36 @@ class module extends Model
      */
     public $provinceName;
     protected $_name = [
-        'citys'        => 'citys',
-        'proviceCode'  => 'provice_code',
+        'citys' => 'citys',
+        'proviceCode' => 'provice_code',
         'provinceName' => 'province_name',
     ];
 
     public function validate()
     {
+        if (\is_array($this->citys)) {
+            Model::validateArray($this->citys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->citys) {
-            $res['citys'] = [];
-            if (null !== $this->citys && \is_array($this->citys)) {
-                $n = 0;
-                foreach ($this->citys as $item) {
-                    $res['citys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->citys)) {
+                $res['citys'] = [];
+                $n1 = 0;
+                foreach ($this->citys as $item1) {
+                    $res['citys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->proviceCode) {
             $res['provice_code'] = $this->proviceCode;
         }
+
         if (null !== $this->provinceName) {
             $res['province_name'] = $this->provinceName;
         }
@@ -57,26 +61,28 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['citys'])) {
             if (!empty($map['citys'])) {
                 $model->citys = [];
-                $n            = 0;
-                foreach ($map['citys'] as $item) {
-                    $model->citys[$n++] = null !== $item ? citys::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['citys'] as $item1) {
+                    $model->citys[$n1++] = citys::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['provice_code'])) {
             $model->proviceCode = $map['provice_code'];
         }
+
         if (isset($map['province_name'])) {
             $model->provinceName = $map['province_name'];
         }

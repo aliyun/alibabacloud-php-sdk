@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainApplyRefundResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
     /**
-     * @example 116019444
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @example 1017002195370467200
-     *
      * @var string
      */
     public $outOrderId;
     protected $_name = [
-        'orderId'    => 'order_id',
+        'orderId' => 'order_id',
         'outOrderId' => 'out_order_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
+
         if (null !== $this->outOrderId) {
             $res['out_order_id'] = $this->outOrderId;
         }
@@ -43,17 +41,18 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
+
         if (isset($map['out_order_id'])) {
             $model->outOrderId = $map['out_order_id'];
         }

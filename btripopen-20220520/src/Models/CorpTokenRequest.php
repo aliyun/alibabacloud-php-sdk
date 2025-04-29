@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CorpTokenRequest extends Model
 {
     /**
-     * @example Z2FyYmE1YTZjMDAwTixJU1M5LnZlLXtMO3FKbiYqJSM
-     *
      * @var string
      */
     public $appSecret;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example open324dfsdafsgcxvxv
-     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $type;
     protected $_name = [
         'appSecret' => 'app_secret',
-        'corpId'    => 'corp_id',
-        'type'      => 'type',
+        'corpId' => 'corp_id',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appSecret) {
             $res['app_secret'] = $this->appSecret;
         }
+
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -58,20 +51,22 @@ class CorpTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CorpTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['app_secret'])) {
             $model->appSecret = $map['app_secret'];
         }
+
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

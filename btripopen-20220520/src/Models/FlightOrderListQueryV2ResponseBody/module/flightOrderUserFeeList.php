@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flightOrderUserFeeList extends Model
 {
@@ -38,36 +38,42 @@ class flightOrderUserFeeList extends Model
      */
     public $userId;
     protected $_name = [
-        'buildFee'        => 'build_fee',
-        'corpPayAmount'   => 'corp_pay_amount',
-        'oilFee'          => 'oil_fee',
+        'buildFee' => 'build_fee',
+        'corpPayAmount' => 'corp_pay_amount',
+        'oilFee' => 'oil_fee',
         'personPayAmount' => 'person_pay_amount',
-        'ticketPrice'     => 'ticket_price',
-        'userId'          => 'user_id',
+        'ticketPrice' => 'ticket_price',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildFee) {
             $res['build_fee'] = $this->buildFee;
         }
+
         if (null !== $this->corpPayAmount) {
             $res['corp_pay_amount'] = $this->corpPayAmount;
         }
+
         if (null !== $this->oilFee) {
             $res['oil_fee'] = $this->oilFee;
         }
+
         if (null !== $this->personPayAmount) {
             $res['person_pay_amount'] = $this->personPayAmount;
         }
+
         if (null !== $this->ticketPrice) {
             $res['ticket_price'] = $this->ticketPrice;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -75,29 +81,34 @@ class flightOrderUserFeeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightOrderUserFeeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['build_fee'])) {
             $model->buildFee = $map['build_fee'];
         }
+
         if (isset($map['corp_pay_amount'])) {
             $model->corpPayAmount = $map['corp_pay_amount'];
         }
+
         if (isset($map['oil_fee'])) {
             $model->oilFee = $map['oil_fee'];
         }
+
         if (isset($map['person_pay_amount'])) {
             $model->personPayAmount = $map['person_pay_amount'];
         }
+
         if (isset($map['ticket_price'])) {
             $model->ticketPrice = $map['ticket_price'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

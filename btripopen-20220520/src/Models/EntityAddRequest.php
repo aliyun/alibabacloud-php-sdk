@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddRequest\entityDOList;
-use AlibabaCloud\Tea\Model;
 
 class EntityAddRequest extends Model
 {
@@ -15,34 +15,35 @@ class EntityAddRequest extends Model
     public $entityDOList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 340049
-     *
      * @var string
      */
     public $thirdpartId;
     protected $_name = [
         'entityDOList' => 'entity_d_o_list',
-        'thirdpartId'  => 'thirdpart_id',
+        'thirdpartId' => 'thirdpart_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->entityDOList)) {
+            Model::validateArray($this->entityDOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityDOList) {
-            $res['entity_d_o_list'] = [];
-            if (null !== $this->entityDOList && \is_array($this->entityDOList)) {
-                $n = 0;
-                foreach ($this->entityDOList as $item) {
-                    $res['entity_d_o_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entityDOList)) {
+                $res['entity_d_o_list'] = [];
+                $n1 = 0;
+                foreach ($this->entityDOList as $item1) {
+                    $res['entity_d_o_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->thirdpartId) {
             $res['thirdpart_id'] = $this->thirdpartId;
         }
@@ -50,23 +51,24 @@ class EntityAddRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EntityAddRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entity_d_o_list'])) {
             if (!empty($map['entity_d_o_list'])) {
                 $model->entityDOList = [];
-                $n                   = 0;
-                foreach ($map['entity_d_o_list'] as $item) {
-                    $model->entityDOList[$n++] = null !== $item ? entityDOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['entity_d_o_list'] as $item1) {
+                    $model->entityDOList[$n1++] = entityDOList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['thirdpart_id'])) {
             $model->thirdpartId = $map['thirdpart_id'];
         }

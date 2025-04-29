@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsureRefundDetailResponseBody\module\insureOrder;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicant extends Model
 {
@@ -14,48 +14,46 @@ class applicant extends Model
     public $certName;
 
     /**
-     * @example 300000000000000001
-     *
      * @var string
      */
     public $certNo;
 
     /**
-     * @example 102
-     *
      * @var string
      */
     public $certType;
 
     /**
-     * @example 10000000
-     *
      * @var string
      */
     public $phone;
     protected $_name = [
         'certName' => 'cert_name',
-        'certNo'   => 'cert_no',
+        'certNo' => 'cert_no',
         'certType' => 'cert_type',
-        'phone'    => 'phone',
+        'phone' => 'phone',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certName) {
             $res['cert_name'] = $this->certName;
         }
+
         if (null !== $this->certNo) {
             $res['cert_no'] = $this->certNo;
         }
+
         if (null !== $this->certType) {
             $res['cert_type'] = $this->certType;
         }
+
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
@@ -63,23 +61,26 @@ class applicant extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicant
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cert_name'])) {
             $model->certName = $map['cert_name'];
         }
+
         if (isset($map['cert_no'])) {
             $model->certNo = $map['cert_no'];
         }
+
         if (isset($map['cert_type'])) {
             $model->certType = $map['cert_type'];
         }
+
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }

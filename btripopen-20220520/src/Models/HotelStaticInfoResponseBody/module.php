@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoResponseBody\module\hotelStaticInfos;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -19,17 +19,21 @@ class module extends Model
 
     public function validate()
     {
+        if (\is_array($this->hotelStaticInfos)) {
+            Model::validateArray($this->hotelStaticInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelStaticInfos) {
-            $res['hotel_static_infos'] = [];
-            if (null !== $this->hotelStaticInfos && \is_array($this->hotelStaticInfos)) {
-                $n = 0;
-                foreach ($this->hotelStaticInfos as $item) {
-                    $res['hotel_static_infos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hotelStaticInfos)) {
+                $res['hotel_static_infos'] = [];
+                $n1 = 0;
+                foreach ($this->hotelStaticInfos as $item1) {
+                    $res['hotel_static_infos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hotel_static_infos'])) {
             if (!empty($map['hotel_static_infos'])) {
                 $model->hotelStaticInfos = [];
-                $n                       = 0;
-                foreach ($map['hotel_static_infos'] as $item) {
-                    $model->hotelStaticInfos[$n++] = null !== $item ? hotelStaticInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['hotel_static_infos'] as $item1) {
+                    $model->hotelStaticInfos[$n1++] = hotelStaticInfos::fromMap($item1);
                 }
             }
         }

@@ -4,64 +4,56 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TrainStopoverSearchRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $arrStation;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $depStation;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2024-05-08
-     *
      * @var string
      */
     public $trainDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example k2345
-     *
      * @var string
      */
     public $trainNo;
     protected $_name = [
         'arrStation' => 'arr_station',
         'depStation' => 'dep_station',
-        'trainDate'  => 'train_date',
-        'trainNo'    => 'train_no',
+        'trainDate' => 'train_date',
+        'trainNo' => 'train_no',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrStation) {
             $res['arr_station'] = $this->arrStation;
         }
+
         if (null !== $this->depStation) {
             $res['dep_station'] = $this->depStation;
         }
+
         if (null !== $this->trainDate) {
             $res['train_date'] = $this->trainDate;
         }
+
         if (null !== $this->trainNo) {
             $res['train_no'] = $this->trainNo;
         }
@@ -69,23 +61,26 @@ class TrainStopoverSearchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TrainStopoverSearchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arr_station'])) {
             $model->arrStation = $map['arr_station'];
         }
+
         if (isset($map['dep_station'])) {
             $model->depStation = $map['dep_station'];
         }
+
         if (isset($map['train_date'])) {
             $model->trainDate = $map['train_date'];
         }
+
         if (isset($map['train_no'])) {
             $model->trainNo = $map['train_no'];
         }

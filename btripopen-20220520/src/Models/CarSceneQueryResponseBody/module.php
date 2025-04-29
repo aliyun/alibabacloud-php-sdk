@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarSceneQueryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
     /**
-     * @example travel
-     *
      * @var string
      */
     public $scenarioTemplateId;
@@ -21,30 +19,31 @@ class module extends Model
     public $scenarioTemplateName;
 
     /**
-     * @example ACTIVATE
-     *
      * @var string
      */
     public $state;
     protected $_name = [
-        'scenarioTemplateId'   => 'scenarioTemplateId',
+        'scenarioTemplateId' => 'scenarioTemplateId',
         'scenarioTemplateName' => 'scenarioTemplateName',
-        'state'                => 'state',
+        'state' => 'state',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scenarioTemplateId) {
             $res['scenarioTemplateId'] = $this->scenarioTemplateId;
         }
+
         if (null !== $this->scenarioTemplateName) {
             $res['scenarioTemplateName'] = $this->scenarioTemplateName;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
@@ -52,20 +51,22 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['scenarioTemplateId'])) {
             $model->scenarioTemplateId = $map['scenarioTemplateId'];
         }
+
         if (isset($map['scenarioTemplateName'])) {
             $model->scenarioTemplateName = $map['scenarioTemplateName'];
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }

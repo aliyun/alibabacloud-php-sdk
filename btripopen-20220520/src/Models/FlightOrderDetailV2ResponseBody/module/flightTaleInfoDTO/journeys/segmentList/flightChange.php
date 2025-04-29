@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailV2ResponseBody\module\flightTaleInfoDTO\journeys\segmentList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flightChange extends Model
 {
@@ -33,62 +33,84 @@ class flightChange extends Model
      */
     public $passengerNames;
     protected $_name = [
-        'changeDesc'       => 'change_desc',
-        'changeStatus'     => 'change_status',
+        'changeDesc' => 'change_desc',
+        'changeStatus' => 'change_status',
         'changeStatusCode' => 'change_status_code',
-        'newSegment'       => 'new_segment',
-        'passengerNames'   => 'passenger_names',
+        'newSegment' => 'new_segment',
+        'passengerNames' => 'passenger_names',
     ];
 
     public function validate()
     {
+        if (\is_array($this->passengerNames)) {
+            Model::validateArray($this->passengerNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeDesc) {
             $res['change_desc'] = $this->changeDesc;
         }
+
         if (null !== $this->changeStatus) {
             $res['change_status'] = $this->changeStatus;
         }
+
         if (null !== $this->changeStatusCode) {
             $res['change_status_code'] = $this->changeStatusCode;
         }
+
         if (null !== $this->newSegment) {
             $res['new_segment'] = $this->newSegment;
         }
+
         if (null !== $this->passengerNames) {
-            $res['passenger_names'] = $this->passengerNames;
+            if (\is_array($this->passengerNames)) {
+                $res['passenger_names'] = [];
+                $n1 = 0;
+                foreach ($this->passengerNames as $item1) {
+                    $res['passenger_names'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightChange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_desc'])) {
             $model->changeDesc = $map['change_desc'];
         }
+
         if (isset($map['change_status'])) {
             $model->changeStatus = $map['change_status'];
         }
+
         if (isset($map['change_status_code'])) {
             $model->changeStatusCode = $map['change_status_code'];
         }
+
         if (isset($map['new_segment'])) {
             $model->newSegment = $map['new_segment'];
         }
+
         if (isset($map['passenger_names'])) {
             if (!empty($map['passenger_names'])) {
-                $model->passengerNames = $map['passenger_names'];
+                $model->passengerNames = [];
+                $n1 = 0;
+                foreach ($map['passenger_names'] as $item1) {
+                    $model->passengerNames[$n1++] = $item1;
+                }
             }
         }
 

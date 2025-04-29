@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\itemList\flightRuleInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flightRuleInfo extends Model
 {
@@ -18,20 +18,22 @@ class flightRuleInfo extends Model
      */
     public $refundChangeRuleDesc;
     protected $_name = [
-        'baggageDesc'          => 'baggage_desc',
+        'baggageDesc' => 'baggage_desc',
         'refundChangeRuleDesc' => 'refund_change_rule_desc',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baggageDesc) {
             $res['baggage_desc'] = $this->baggageDesc;
         }
+
         if (null !== $this->refundChangeRuleDesc) {
             $res['refund_change_rule_desc'] = $this->refundChangeRuleDesc;
         }
@@ -39,17 +41,18 @@ class flightRuleInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightRuleInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['baggage_desc'])) {
             $model->baggageDesc = $map['baggage_desc'];
         }
+
         if (isset($map['refund_change_rule_desc'])) {
             $model->refundChangeRuleDesc = $map['refund_change_rule_desc'];
         }

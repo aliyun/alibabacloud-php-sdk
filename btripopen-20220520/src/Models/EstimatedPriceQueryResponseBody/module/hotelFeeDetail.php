@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hotelFeeDetail extends Model
 {
@@ -14,59 +14,56 @@ class hotelFeeDetail extends Model
     public $city;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $criterion;
 
     /**
-     * @example 1245
-     *
      * @var string
      */
     public $itineraryId;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $total;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $tripDays;
     protected $_name = [
-        'city'        => 'city',
-        'criterion'   => 'criterion',
+        'city' => 'city',
+        'criterion' => 'criterion',
         'itineraryId' => 'itinerary_id',
-        'total'       => 'total',
-        'tripDays'    => 'trip_days',
+        'total' => 'total',
+        'tripDays' => 'trip_days',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->city) {
             $res['city'] = $this->city;
         }
+
         if (null !== $this->criterion) {
             $res['criterion'] = $this->criterion;
         }
+
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
+
         if (null !== $this->tripDays) {
             $res['trip_days'] = $this->tripDays;
         }
@@ -74,26 +71,30 @@ class hotelFeeDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hotelFeeDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['city'])) {
             $model->city = $map['city'];
         }
+
         if (isset($map['criterion'])) {
             $model->criterion = $map['criterion'];
         }
+
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }
+
         if (isset($map['trip_days'])) {
             $model->tripDays = $map['trip_days'];
         }

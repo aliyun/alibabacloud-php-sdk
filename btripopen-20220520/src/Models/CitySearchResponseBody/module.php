@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponseBody\module\cities;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -19,17 +19,21 @@ class module extends Model
 
     public function validate()
     {
+        if (\is_array($this->cities)) {
+            Model::validateArray($this->cities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cities) {
-            $res['cities'] = [];
-            if (null !== $this->cities && \is_array($this->cities)) {
-                $n = 0;
-                foreach ($this->cities as $item) {
-                    $res['cities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cities)) {
+                $res['cities'] = [];
+                $n1 = 0;
+                foreach ($this->cities as $item1) {
+                    $res['cities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cities'])) {
             if (!empty($map['cities'])) {
                 $model->cities = [];
-                $n             = 0;
-                foreach ($map['cities'] as $item) {
-                    $model->cities[$n++] = null !== $item ? cities::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['cities'] as $item1) {
+                    $model->cities[$n1++] = cities::fromMap($item1);
                 }
             }
         }

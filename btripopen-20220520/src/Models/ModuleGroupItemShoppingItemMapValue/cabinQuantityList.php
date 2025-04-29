@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue\cabinQuantityList\cabin;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemShoppingItemMapValue\cabinQuantityList\segmentPosition;
-use AlibabaCloud\Tea\Model;
 
 class cabinQuantityList extends Model
 {
@@ -21,37 +21,46 @@ class cabinQuantityList extends Model
     public $cabin;
     protected $_name = [
         'segmentPosition' => 'segment_position',
-        'cabin'           => 'cabin',
+        'cabin' => 'cabin',
     ];
 
     public function validate()
     {
+        if (null !== $this->segmentPosition) {
+            $this->segmentPosition->validate();
+        }
+        if (null !== $this->cabin) {
+            $this->cabin->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->segmentPosition) {
-            $res['segment_position'] = null !== $this->segmentPosition ? $this->segmentPosition->toMap() : null;
+            $res['segment_position'] = null !== $this->segmentPosition ? $this->segmentPosition->toArray($noStream) : $this->segmentPosition;
         }
+
         if (null !== $this->cabin) {
-            $res['cabin'] = null !== $this->cabin ? $this->cabin->toMap() : null;
+            $res['cabin'] = null !== $this->cabin ? $this->cabin->toArray($noStream) : $this->cabin;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cabinQuantityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['segment_position'])) {
             $model->segmentPosition = segmentPosition::fromMap($map['segment_position']);
         }
+
         if (isset($map['cabin'])) {
             $model->cabin = cabin::fromMap($map['cabin']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TripBusinessInstanceQueryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
@@ -14,48 +14,46 @@ class module extends Model
     public $creator;
 
     /**
-     * @example 1525104000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 1525104000
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'creator'     => 'creator',
-        'gmtCreate'   => 'gmt_create',
+        'creator' => 'creator',
+        'gmtCreate' => 'gmt_create',
         'gmtModified' => 'gmt_modified',
-        'status'      => 'status',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['gmt_modified'] = $this->gmtModified;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -63,23 +61,26 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
         }
+
         if (isset($map['gmt_modified'])) {
             $model->gmtModified = $map['gmt_modified'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInvoiceEntityShrinkRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $delAll;
@@ -21,32 +19,31 @@ class DeleteInvoiceEntityShrinkRequest extends Model
     public $entitiesShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 340049
-     *
      * @var string
      */
     public $thirdPartId;
     protected $_name = [
-        'delAll'         => 'del_all',
+        'delAll' => 'del_all',
         'entitiesShrink' => 'entities',
-        'thirdPartId'    => 'third_part_id',
+        'thirdPartId' => 'third_part_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delAll) {
             $res['del_all'] = $this->delAll;
         }
+
         if (null !== $this->entitiesShrink) {
             $res['entities'] = $this->entitiesShrink;
         }
+
         if (null !== $this->thirdPartId) {
             $res['third_part_id'] = $this->thirdPartId;
         }
@@ -54,20 +51,22 @@ class DeleteInvoiceEntityShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInvoiceEntityShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['del_all'])) {
             $model->delAll = $map['del_all'];
         }
+
         if (isset($map['entities'])) {
             $model->entitiesShrink = $map['entities'];
         }
+
         if (isset($map['third_part_id'])) {
             $model->thirdPartId = $map['third_part_id'];
         }

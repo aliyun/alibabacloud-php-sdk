@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderCreateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class businessInfo extends Model
 {
     /**
-     * @example 4321
-     *
      * @var string
      */
     public $customerApplyId;
 
     /**
-     * @example 1234
-     *
      * @var string
      */
     public $customerItineraryId;
     protected $_name = [
-        'customerApplyId'     => 'customer_apply_id',
+        'customerApplyId' => 'customer_apply_id',
         'customerItineraryId' => 'customer_itinerary_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerApplyId) {
             $res['customer_apply_id'] = $this->customerApplyId;
         }
+
         if (null !== $this->customerItineraryId) {
             $res['customer_itinerary_id'] = $this->customerItineraryId;
         }
@@ -43,17 +41,18 @@ class businessInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return businessInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['customer_apply_id'])) {
             $model->customerApplyId = $map['customer_apply_id'];
         }
+
         if (isset($map['customer_itinerary_id'])) {
             $model->customerItineraryId = $map['customer_itinerary_id'];
         }

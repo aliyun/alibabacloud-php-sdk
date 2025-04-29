@@ -4,64 +4,56 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TrainOrderCancelRequest extends Model
 {
     /**
-     * @example 1234223
-     *
      * @var string
      */
     public $changeOrderId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1002145190081005400
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @example 123321245534
-     *
      * @var string
      */
     public $outChangeOrderId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $outOrderId;
     protected $_name = [
-        'changeOrderId'    => 'change_order_id',
-        'orderId'          => 'order_id',
+        'changeOrderId' => 'change_order_id',
+        'orderId' => 'order_id',
         'outChangeOrderId' => 'out_change_order_id',
-        'outOrderId'       => 'out_order_id',
+        'outOrderId' => 'out_order_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
             $res['change_order_id'] = $this->changeOrderId;
         }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
+
         if (null !== $this->outChangeOrderId) {
             $res['out_change_order_id'] = $this->outChangeOrderId;
         }
+
         if (null !== $this->outOrderId) {
             $res['out_order_id'] = $this->outOrderId;
         }
@@ -69,23 +61,26 @@ class TrainOrderCancelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TrainOrderCancelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_order_id'])) {
             $model->changeOrderId = $map['change_order_id'];
         }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
+
         if (isset($map['out_change_order_id'])) {
             $model->outChangeOrderId = $map['out_change_order_id'];
         }
+
         if (isset($map['out_order_id'])) {
             $model->outOrderId = $map['out_order_id'];
         }

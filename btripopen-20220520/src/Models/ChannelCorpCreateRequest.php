@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChannelCorpCreateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $administratorName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 18378889782
-     *
      * @var string
      */
     public $administratorPhone;
@@ -30,8 +24,6 @@ class ChannelCorpCreateRequest extends Model
     public $city;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $corpName;
@@ -42,17 +34,11 @@ class ChannelCorpCreateRequest extends Model
     public $province;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $scope;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 00001
-     *
      * @var string
      */
     public $thirdCorpId;
@@ -62,44 +48,52 @@ class ChannelCorpCreateRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'administratorName'  => 'administrator_name',
+        'administratorName' => 'administrator_name',
         'administratorPhone' => 'administrator_phone',
-        'city'               => 'city',
-        'corpName'           => 'corp_name',
-        'province'           => 'province',
-        'scope'              => 'scope',
-        'thirdCorpId'        => 'third_corp_id',
-        'userId'             => 'user_id',
+        'city' => 'city',
+        'corpName' => 'corp_name',
+        'province' => 'province',
+        'scope' => 'scope',
+        'thirdCorpId' => 'third_corp_id',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->administratorName) {
             $res['administrator_name'] = $this->administratorName;
         }
+
         if (null !== $this->administratorPhone) {
             $res['administrator_phone'] = $this->administratorPhone;
         }
+
         if (null !== $this->city) {
             $res['city'] = $this->city;
         }
+
         if (null !== $this->corpName) {
             $res['corp_name'] = $this->corpName;
         }
+
         if (null !== $this->province) {
             $res['province'] = $this->province;
         }
+
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
+
         if (null !== $this->thirdCorpId) {
             $res['third_corp_id'] = $this->thirdCorpId;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -107,35 +101,42 @@ class ChannelCorpCreateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChannelCorpCreateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['administrator_name'])) {
             $model->administratorName = $map['administrator_name'];
         }
+
         if (isset($map['administrator_phone'])) {
             $model->administratorPhone = $map['administrator_phone'];
         }
+
         if (isset($map['city'])) {
             $model->city = $map['city'];
         }
+
         if (isset($map['corp_name'])) {
             $model->corpName = $map['corp_name'];
         }
+
         if (isset($map['province'])) {
             $model->province = $map['province'];
         }
+
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }
+
         if (isset($map['third_corp_id'])) {
             $model->thirdCorpId = $map['third_corp_id'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

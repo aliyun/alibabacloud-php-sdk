@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOtaSearchV2ResponseBody\module\flightSegmentInfos\flightSharedInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operatingAirlineInfo extends Model
 {
@@ -29,38 +29,41 @@ class operatingAirlineInfo extends Model
     public $airlineIcon;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $cheapFlight;
     protected $_name = [
-        'airlineCode'             => 'airline_code',
-        'airlineChineseName'      => 'airline_chinese_name',
+        'airlineCode' => 'airline_code',
+        'airlineChineseName' => 'airline_chinese_name',
         'airlineChineseShortName' => 'airline_chinese_short_name',
-        'airlineIcon'             => 'airline_icon',
-        'cheapFlight'             => 'cheap_flight',
+        'airlineIcon' => 'airline_icon',
+        'cheapFlight' => 'cheap_flight',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->airlineCode) {
             $res['airline_code'] = $this->airlineCode;
         }
+
         if (null !== $this->airlineChineseName) {
             $res['airline_chinese_name'] = $this->airlineChineseName;
         }
+
         if (null !== $this->airlineChineseShortName) {
             $res['airline_chinese_short_name'] = $this->airlineChineseShortName;
         }
+
         if (null !== $this->airlineIcon) {
             $res['airline_icon'] = $this->airlineIcon;
         }
+
         if (null !== $this->cheapFlight) {
             $res['cheap_flight'] = $this->cheapFlight;
         }
@@ -68,26 +71,30 @@ class operatingAirlineInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operatingAirlineInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['airline_code'])) {
             $model->airlineCode = $map['airline_code'];
         }
+
         if (isset($map['airline_chinese_name'])) {
             $model->airlineChineseName = $map['airline_chinese_name'];
         }
+
         if (isset($map['airline_chinese_short_name'])) {
             $model->airlineChineseShortName = $map['airline_chinese_short_name'];
         }
+
         if (isset($map['airline_icon'])) {
             $model->airlineIcon = $map['airline_icon'];
         }
+
         if (isset($map['cheap_flight'])) {
             $model->cheapFlight = $map['cheap_flight'];
         }

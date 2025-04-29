@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FuPointBillSettlementQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example 123aaa
-     *
      * @var string
      */
     public $alipayId;
 
     /**
-     * @example 124
-     *
      * @var string
      */
     public $alipayTradeNo;
 
     /**
-     * @example CD
-     *
      * @var string
      */
     public $applyArrCityCode;
@@ -35,8 +29,6 @@ class items extends Model
     public $applyArrCityName;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $applyDepCityCode;
@@ -52,22 +44,16 @@ class items extends Model
     public $applyExtendField;
 
     /**
-     * @example 1424041616244499302
-     *
      * @var string
      */
     public $applyId;
 
     /**
-     * @example 123@qq.com
-     *
      * @var string
      */
     public $approverEmail;
 
     /**
-     * @example 11
-     *
      * @var string
      */
     public $approverId;
@@ -78,22 +64,16 @@ class items extends Model
     public $approverName;
 
     /**
-     * @example 10.5
-     *
      * @var float
      */
     public $awardNum;
 
     /**
-     * @example 100.12
-     *
      * @var string
      */
     public $basisAmount;
 
     /**
-     * @example 2023-01-01 00:00:00
-     *
      * @var string
      */
     public $billRecordTime;
@@ -109,22 +89,16 @@ class items extends Model
     public $bookMode;
 
     /**
-     * @example 2023-01-01 00:00:00
-     *
      * @var string
      */
     public $bookTime;
 
     /**
-     * @example 1234
-     *
      * @var string
      */
     public $bookerId;
 
     /**
-     * @example zs123
-     *
      * @var string
      */
     public $bookerJobNo;
@@ -150,8 +124,6 @@ class items extends Model
     public $categoryDesc;
 
     /**
-     * @example 100.32
-     *
      * @var string
      */
     public $categoryOrderSettlePrice;
@@ -162,15 +134,11 @@ class items extends Model
     public $costCenter;
 
     /**
-     * @example cs1
-     *
      * @var string
      */
     public $costCenterNumber;
 
     /**
-     * @example 0.11
-     *
      * @var float
      */
     public $deductibleTax;
@@ -181,8 +149,6 @@ class items extends Model
     public $department;
 
     /**
-     * @example 1112
-     *
      * @var string
      */
     public $departmentId;
@@ -203,15 +169,11 @@ class items extends Model
     public $foreignersTag;
 
     /**
-     * @example 10
-     *
      * @var float
      */
     public $grantNum;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $index;
@@ -222,8 +184,6 @@ class items extends Model
     public $invoiceTitle;
 
     /**
-     * @description Location
-     *
      * @var string
      */
     public $location;
@@ -234,8 +194,6 @@ class items extends Model
     public $makeInvoice;
 
     /**
-     * @example 4801105714092
-     *
      * @var string
      */
     public $orderId;
@@ -251,22 +209,16 @@ class items extends Model
     public $originCategory;
 
     /**
-     * @example 111234
-     *
      * @var string
      */
     public $originOrderId;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $overApplyId;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $paymentDepartmentId;
@@ -277,15 +229,11 @@ class items extends Model
     public $paymentDepartmentName;
 
     /**
-     * @example 93746933
-     *
      * @var int
      */
     public $primaryId;
 
     /**
-     * @example acs
-     *
      * @var string
      */
     public $projectCode;
@@ -296,8 +244,6 @@ class items extends Model
     public $projectName;
 
     /**
-     * @example 111224324
-     *
      * @var string
      */
     public $purchaseOrderId;
@@ -308,15 +254,11 @@ class items extends Model
     public $remark;
 
     /**
-     * @example 10.45
-     *
      * @var float
      */
     public $saveAmount;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $sceneId;
@@ -332,22 +274,16 @@ class items extends Model
     public $settleTypeDesc;
 
     /**
-     * @example 110.0
-     *
      * @var float
      */
     public $settlementFee;
 
     /**
-     * @example 0.0
-     *
      * @var float
      */
     public $settlementGrantFee;
 
     /**
-     * @example 2023-01-01 00:00:00
-     *
      * @var string
      */
     public $settlementTime;
@@ -358,24 +294,16 @@ class items extends Model
     public $settlementType;
 
     /**
-     * @example 166564408
-     *
      * @var string
      */
     public $showSubOrderId;
 
     /**
-     * @description SIO
-     *
-     * @example SIO
-     *
      * @var string
      */
     public $sio;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $status;
@@ -386,29 +314,21 @@ class items extends Model
     public $statusDesc;
 
     /**
-     * @example 1019199938284381
-     *
      * @var string
      */
     public $subOrderId;
 
     /**
-     * @example 9%
-     *
      * @var string
      */
     public $taxRate;
 
     /**
-     * @example cs2
-     *
      * @var string
      */
     public $thirdInvoiceId;
 
     /**
-     * @example 11
-     *
      * @var string
      */
     public $thirdItineraryId;
@@ -424,22 +344,16 @@ class items extends Model
     public $tradeReason;
 
     /**
-     * @example 123@qq.com
-     *
      * @var string
      */
     public $travelerEmail;
 
     /**
-     * @example 1234
-     *
      * @var string
      */
     public $travelerId;
 
     /**
-     * @example A1234
-     *
      * @var string
      */
     public $travelerJobNo;
@@ -460,8 +374,6 @@ class items extends Model
     public $travelerName;
 
     /**
-     * @example 11
-     *
      * @var int
      */
     public $voucherType;
@@ -471,312 +383,387 @@ class items extends Model
      */
     public $voucherTypeDesc;
     protected $_name = [
-        'alipayId'                 => 'alipay_id',
-        'alipayTradeNo'            => 'alipay_trade_no',
-        'applyArrCityCode'         => 'apply_arr_city_code',
-        'applyArrCityName'         => 'apply_arr_city_name',
-        'applyDepCityCode'         => 'apply_dep_city_code',
-        'applyDepCityName'         => 'apply_dep_city_name',
-        'applyExtendField'         => 'apply_extend_field',
-        'applyId'                  => 'apply_id',
-        'approverEmail'            => 'approver_email',
-        'approverId'               => 'approver_id',
-        'approverName'             => 'approver_name',
-        'awardNum'                 => 'award_num',
-        'basisAmount'              => 'basis_amount',
-        'billRecordTime'           => 'bill_record_time',
-        'billingEntity'            => 'billing_entity',
-        'bookMode'                 => 'book_mode',
-        'bookTime'                 => 'book_time',
-        'bookerId'                 => 'booker_id',
-        'bookerJobNo'              => 'booker_job_no',
-        'bookerName'               => 'booker_name',
-        'capitalDirection'         => 'capital_direction',
-        'cascadeDepartment'        => 'cascade_department',
-        'categoryDesc'             => 'category_desc',
+        'alipayId' => 'alipay_id',
+        'alipayTradeNo' => 'alipay_trade_no',
+        'applyArrCityCode' => 'apply_arr_city_code',
+        'applyArrCityName' => 'apply_arr_city_name',
+        'applyDepCityCode' => 'apply_dep_city_code',
+        'applyDepCityName' => 'apply_dep_city_name',
+        'applyExtendField' => 'apply_extend_field',
+        'applyId' => 'apply_id',
+        'approverEmail' => 'approver_email',
+        'approverId' => 'approver_id',
+        'approverName' => 'approver_name',
+        'awardNum' => 'award_num',
+        'basisAmount' => 'basis_amount',
+        'billRecordTime' => 'bill_record_time',
+        'billingEntity' => 'billing_entity',
+        'bookMode' => 'book_mode',
+        'bookTime' => 'book_time',
+        'bookerId' => 'booker_id',
+        'bookerJobNo' => 'booker_job_no',
+        'bookerName' => 'booker_name',
+        'capitalDirection' => 'capital_direction',
+        'cascadeDepartment' => 'cascade_department',
+        'categoryDesc' => 'category_desc',
         'categoryOrderSettlePrice' => 'category_order_settle_price',
-        'costCenter'               => 'cost_center',
-        'costCenterNumber'         => 'cost_center_number',
-        'deductibleTax'            => 'deductible_tax',
-        'department'               => 'department',
-        'departmentId'             => 'department_id',
-        'feeType'                  => 'fee_type',
-        'feeTypeDesc'              => 'fee_type_desc',
-        'foreignersTag'            => 'foreigners_tag',
-        'grantNum'                 => 'grant_num',
-        'index'                    => 'index',
-        'invoiceTitle'             => 'invoice_title',
-        'location'                 => 'location',
-        'makeInvoice'              => 'make_invoice',
-        'orderId'                  => 'order_id',
-        'orderStatusDesc'          => 'order_status_desc',
-        'originCategory'           => 'origin_category',
-        'originOrderId'            => 'origin_order_id',
-        'overApplyId'              => 'over_apply_id',
-        'paymentDepartmentId'      => 'payment_department_id',
-        'paymentDepartmentName'    => 'payment_department_name',
-        'primaryId'                => 'primary_id',
-        'projectCode'              => 'project_code',
-        'projectName'              => 'project_name',
-        'purchaseOrderId'          => 'purchase_order_id',
-        'remark'                   => 'remark',
-        'saveAmount'               => 'save_amount',
-        'sceneId'                  => 'scene_id',
-        'sceneName'                => 'scene_name',
-        'settleTypeDesc'           => 'settle_type_desc',
-        'settlementFee'            => 'settlement_fee',
-        'settlementGrantFee'       => 'settlement_grant_fee',
-        'settlementTime'           => 'settlement_time',
-        'settlementType'           => 'settlement_type',
-        'showSubOrderId'           => 'show_sub_order_id',
-        'sio'                      => 'sio',
-        'status'                   => 'status',
-        'statusDesc'               => 'status_desc',
-        'subOrderId'               => 'sub_order_id',
-        'taxRate'                  => 'tax_rate',
-        'thirdInvoiceId'           => 'third_invoice_id',
-        'thirdItineraryId'         => 'third_itinerary_id',
-        'tradeActionDesc'          => 'trade_action_desc',
-        'tradeReason'              => 'trade_reason',
-        'travelerEmail'            => 'traveler_email',
-        'travelerId'               => 'traveler_id',
-        'travelerJobNo'            => 'traveler_job_no',
-        'travelerMemberType'       => 'traveler_member_type',
-        'travelerMemberTypeName'   => 'traveler_member_type_name',
-        'travelerName'             => 'traveler_name',
-        'voucherType'              => 'voucher_type',
-        'voucherTypeDesc'          => 'voucher_type_desc',
+        'costCenter' => 'cost_center',
+        'costCenterNumber' => 'cost_center_number',
+        'deductibleTax' => 'deductible_tax',
+        'department' => 'department',
+        'departmentId' => 'department_id',
+        'feeType' => 'fee_type',
+        'feeTypeDesc' => 'fee_type_desc',
+        'foreignersTag' => 'foreigners_tag',
+        'grantNum' => 'grant_num',
+        'index' => 'index',
+        'invoiceTitle' => 'invoice_title',
+        'location' => 'location',
+        'makeInvoice' => 'make_invoice',
+        'orderId' => 'order_id',
+        'orderStatusDesc' => 'order_status_desc',
+        'originCategory' => 'origin_category',
+        'originOrderId' => 'origin_order_id',
+        'overApplyId' => 'over_apply_id',
+        'paymentDepartmentId' => 'payment_department_id',
+        'paymentDepartmentName' => 'payment_department_name',
+        'primaryId' => 'primary_id',
+        'projectCode' => 'project_code',
+        'projectName' => 'project_name',
+        'purchaseOrderId' => 'purchase_order_id',
+        'remark' => 'remark',
+        'saveAmount' => 'save_amount',
+        'sceneId' => 'scene_id',
+        'sceneName' => 'scene_name',
+        'settleTypeDesc' => 'settle_type_desc',
+        'settlementFee' => 'settlement_fee',
+        'settlementGrantFee' => 'settlement_grant_fee',
+        'settlementTime' => 'settlement_time',
+        'settlementType' => 'settlement_type',
+        'showSubOrderId' => 'show_sub_order_id',
+        'sio' => 'sio',
+        'status' => 'status',
+        'statusDesc' => 'status_desc',
+        'subOrderId' => 'sub_order_id',
+        'taxRate' => 'tax_rate',
+        'thirdInvoiceId' => 'third_invoice_id',
+        'thirdItineraryId' => 'third_itinerary_id',
+        'tradeActionDesc' => 'trade_action_desc',
+        'tradeReason' => 'trade_reason',
+        'travelerEmail' => 'traveler_email',
+        'travelerId' => 'traveler_id',
+        'travelerJobNo' => 'traveler_job_no',
+        'travelerMemberType' => 'traveler_member_type',
+        'travelerMemberTypeName' => 'traveler_member_type_name',
+        'travelerName' => 'traveler_name',
+        'voucherType' => 'voucher_type',
+        'voucherTypeDesc' => 'voucher_type_desc',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alipayId) {
             $res['alipay_id'] = $this->alipayId;
         }
+
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
         }
+
         if (null !== $this->applyArrCityCode) {
             $res['apply_arr_city_code'] = $this->applyArrCityCode;
         }
+
         if (null !== $this->applyArrCityName) {
             $res['apply_arr_city_name'] = $this->applyArrCityName;
         }
+
         if (null !== $this->applyDepCityCode) {
             $res['apply_dep_city_code'] = $this->applyDepCityCode;
         }
+
         if (null !== $this->applyDepCityName) {
             $res['apply_dep_city_name'] = $this->applyDepCityName;
         }
+
         if (null !== $this->applyExtendField) {
             $res['apply_extend_field'] = $this->applyExtendField;
         }
+
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
         }
+
         if (null !== $this->approverEmail) {
             $res['approver_email'] = $this->approverEmail;
         }
+
         if (null !== $this->approverId) {
             $res['approver_id'] = $this->approverId;
         }
+
         if (null !== $this->approverName) {
             $res['approver_name'] = $this->approverName;
         }
+
         if (null !== $this->awardNum) {
             $res['award_num'] = $this->awardNum;
         }
+
         if (null !== $this->basisAmount) {
             $res['basis_amount'] = $this->basisAmount;
         }
+
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
         }
+
         if (null !== $this->billingEntity) {
             $res['billing_entity'] = $this->billingEntity;
         }
+
         if (null !== $this->bookMode) {
             $res['book_mode'] = $this->bookMode;
         }
+
         if (null !== $this->bookTime) {
             $res['book_time'] = $this->bookTime;
         }
+
         if (null !== $this->bookerId) {
             $res['booker_id'] = $this->bookerId;
         }
+
         if (null !== $this->bookerJobNo) {
             $res['booker_job_no'] = $this->bookerJobNo;
         }
+
         if (null !== $this->bookerName) {
             $res['booker_name'] = $this->bookerName;
         }
+
         if (null !== $this->capitalDirection) {
             $res['capital_direction'] = $this->capitalDirection;
         }
+
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
         }
+
         if (null !== $this->categoryDesc) {
             $res['category_desc'] = $this->categoryDesc;
         }
+
         if (null !== $this->categoryOrderSettlePrice) {
             $res['category_order_settle_price'] = $this->categoryOrderSettlePrice;
         }
+
         if (null !== $this->costCenter) {
             $res['cost_center'] = $this->costCenter;
         }
+
         if (null !== $this->costCenterNumber) {
             $res['cost_center_number'] = $this->costCenterNumber;
         }
+
         if (null !== $this->deductibleTax) {
             $res['deductible_tax'] = $this->deductibleTax;
         }
+
         if (null !== $this->department) {
             $res['department'] = $this->department;
         }
+
         if (null !== $this->departmentId) {
             $res['department_id'] = $this->departmentId;
         }
+
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
         }
+
         if (null !== $this->feeTypeDesc) {
             $res['fee_type_desc'] = $this->feeTypeDesc;
         }
+
         if (null !== $this->foreignersTag) {
             $res['foreigners_tag'] = $this->foreignersTag;
         }
+
         if (null !== $this->grantNum) {
             $res['grant_num'] = $this->grantNum;
         }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
         }
+
         if (null !== $this->location) {
             $res['location'] = $this->location;
         }
+
         if (null !== $this->makeInvoice) {
             $res['make_invoice'] = $this->makeInvoice;
         }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
+
         if (null !== $this->orderStatusDesc) {
             $res['order_status_desc'] = $this->orderStatusDesc;
         }
+
         if (null !== $this->originCategory) {
             $res['origin_category'] = $this->originCategory;
         }
+
         if (null !== $this->originOrderId) {
             $res['origin_order_id'] = $this->originOrderId;
         }
+
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
         }
+
         if (null !== $this->paymentDepartmentId) {
             $res['payment_department_id'] = $this->paymentDepartmentId;
         }
+
         if (null !== $this->paymentDepartmentName) {
             $res['payment_department_name'] = $this->paymentDepartmentName;
         }
+
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
         }
+
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
         }
+
         if (null !== $this->projectName) {
             $res['project_name'] = $this->projectName;
         }
+
         if (null !== $this->purchaseOrderId) {
             $res['purchase_order_id'] = $this->purchaseOrderId;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
+
         if (null !== $this->saveAmount) {
             $res['save_amount'] = $this->saveAmount;
         }
+
         if (null !== $this->sceneId) {
             $res['scene_id'] = $this->sceneId;
         }
+
         if (null !== $this->sceneName) {
             $res['scene_name'] = $this->sceneName;
         }
+
         if (null !== $this->settleTypeDesc) {
             $res['settle_type_desc'] = $this->settleTypeDesc;
         }
+
         if (null !== $this->settlementFee) {
             $res['settlement_fee'] = $this->settlementFee;
         }
+
         if (null !== $this->settlementGrantFee) {
             $res['settlement_grant_fee'] = $this->settlementGrantFee;
         }
+
         if (null !== $this->settlementTime) {
             $res['settlement_time'] = $this->settlementTime;
         }
+
         if (null !== $this->settlementType) {
             $res['settlement_type'] = $this->settlementType;
         }
+
         if (null !== $this->showSubOrderId) {
             $res['show_sub_order_id'] = $this->showSubOrderId;
         }
+
         if (null !== $this->sio) {
             $res['sio'] = $this->sio;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->statusDesc) {
             $res['status_desc'] = $this->statusDesc;
         }
+
         if (null !== $this->subOrderId) {
             $res['sub_order_id'] = $this->subOrderId;
         }
+
         if (null !== $this->taxRate) {
             $res['tax_rate'] = $this->taxRate;
         }
+
         if (null !== $this->thirdInvoiceId) {
             $res['third_invoice_id'] = $this->thirdInvoiceId;
         }
+
         if (null !== $this->thirdItineraryId) {
             $res['third_itinerary_id'] = $this->thirdItineraryId;
         }
+
         if (null !== $this->tradeActionDesc) {
             $res['trade_action_desc'] = $this->tradeActionDesc;
         }
+
         if (null !== $this->tradeReason) {
             $res['trade_reason'] = $this->tradeReason;
         }
+
         if (null !== $this->travelerEmail) {
             $res['traveler_email'] = $this->travelerEmail;
         }
+
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
         }
+
         if (null !== $this->travelerJobNo) {
             $res['traveler_job_no'] = $this->travelerJobNo;
         }
+
         if (null !== $this->travelerMemberType) {
             $res['traveler_member_type'] = $this->travelerMemberType;
         }
+
         if (null !== $this->travelerMemberTypeName) {
             $res['traveler_member_type_name'] = $this->travelerMemberTypeName;
         }
+
         if (null !== $this->travelerName) {
             $res['traveler_name'] = $this->travelerName;
         }
+
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
         }
+
         if (null !== $this->voucherTypeDesc) {
             $res['voucher_type_desc'] = $this->voucherTypeDesc;
         }
@@ -784,236 +771,310 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alipay_id'])) {
             $model->alipayId = $map['alipay_id'];
         }
+
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
         }
+
         if (isset($map['apply_arr_city_code'])) {
             $model->applyArrCityCode = $map['apply_arr_city_code'];
         }
+
         if (isset($map['apply_arr_city_name'])) {
             $model->applyArrCityName = $map['apply_arr_city_name'];
         }
+
         if (isset($map['apply_dep_city_code'])) {
             $model->applyDepCityCode = $map['apply_dep_city_code'];
         }
+
         if (isset($map['apply_dep_city_name'])) {
             $model->applyDepCityName = $map['apply_dep_city_name'];
         }
+
         if (isset($map['apply_extend_field'])) {
             $model->applyExtendField = $map['apply_extend_field'];
         }
+
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
         }
+
         if (isset($map['approver_email'])) {
             $model->approverEmail = $map['approver_email'];
         }
+
         if (isset($map['approver_id'])) {
             $model->approverId = $map['approver_id'];
         }
+
         if (isset($map['approver_name'])) {
             $model->approverName = $map['approver_name'];
         }
+
         if (isset($map['award_num'])) {
             $model->awardNum = $map['award_num'];
         }
+
         if (isset($map['basis_amount'])) {
             $model->basisAmount = $map['basis_amount'];
         }
+
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
         }
+
         if (isset($map['billing_entity'])) {
             $model->billingEntity = $map['billing_entity'];
         }
+
         if (isset($map['book_mode'])) {
             $model->bookMode = $map['book_mode'];
         }
+
         if (isset($map['book_time'])) {
             $model->bookTime = $map['book_time'];
         }
+
         if (isset($map['booker_id'])) {
             $model->bookerId = $map['booker_id'];
         }
+
         if (isset($map['booker_job_no'])) {
             $model->bookerJobNo = $map['booker_job_no'];
         }
+
         if (isset($map['booker_name'])) {
             $model->bookerName = $map['booker_name'];
         }
+
         if (isset($map['capital_direction'])) {
             $model->capitalDirection = $map['capital_direction'];
         }
+
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
         }
+
         if (isset($map['category_desc'])) {
             $model->categoryDesc = $map['category_desc'];
         }
+
         if (isset($map['category_order_settle_price'])) {
             $model->categoryOrderSettlePrice = $map['category_order_settle_price'];
         }
+
         if (isset($map['cost_center'])) {
             $model->costCenter = $map['cost_center'];
         }
+
         if (isset($map['cost_center_number'])) {
             $model->costCenterNumber = $map['cost_center_number'];
         }
+
         if (isset($map['deductible_tax'])) {
             $model->deductibleTax = $map['deductible_tax'];
         }
+
         if (isset($map['department'])) {
             $model->department = $map['department'];
         }
+
         if (isset($map['department_id'])) {
             $model->departmentId = $map['department_id'];
         }
+
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
         }
+
         if (isset($map['fee_type_desc'])) {
             $model->feeTypeDesc = $map['fee_type_desc'];
         }
+
         if (isset($map['foreigners_tag'])) {
             $model->foreignersTag = $map['foreigners_tag'];
         }
+
         if (isset($map['grant_num'])) {
             $model->grantNum = $map['grant_num'];
         }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
         }
+
         if (isset($map['location'])) {
             $model->location = $map['location'];
         }
+
         if (isset($map['make_invoice'])) {
             $model->makeInvoice = $map['make_invoice'];
         }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
+
         if (isset($map['order_status_desc'])) {
             $model->orderStatusDesc = $map['order_status_desc'];
         }
+
         if (isset($map['origin_category'])) {
             $model->originCategory = $map['origin_category'];
         }
+
         if (isset($map['origin_order_id'])) {
             $model->originOrderId = $map['origin_order_id'];
         }
+
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
         }
+
         if (isset($map['payment_department_id'])) {
             $model->paymentDepartmentId = $map['payment_department_id'];
         }
+
         if (isset($map['payment_department_name'])) {
             $model->paymentDepartmentName = $map['payment_department_name'];
         }
+
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
         }
+
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];
         }
+
         if (isset($map['project_name'])) {
             $model->projectName = $map['project_name'];
         }
+
         if (isset($map['purchase_order_id'])) {
             $model->purchaseOrderId = $map['purchase_order_id'];
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
+
         if (isset($map['save_amount'])) {
             $model->saveAmount = $map['save_amount'];
         }
+
         if (isset($map['scene_id'])) {
             $model->sceneId = $map['scene_id'];
         }
+
         if (isset($map['scene_name'])) {
             $model->sceneName = $map['scene_name'];
         }
+
         if (isset($map['settle_type_desc'])) {
             $model->settleTypeDesc = $map['settle_type_desc'];
         }
+
         if (isset($map['settlement_fee'])) {
             $model->settlementFee = $map['settlement_fee'];
         }
+
         if (isset($map['settlement_grant_fee'])) {
             $model->settlementGrantFee = $map['settlement_grant_fee'];
         }
+
         if (isset($map['settlement_time'])) {
             $model->settlementTime = $map['settlement_time'];
         }
+
         if (isset($map['settlement_type'])) {
             $model->settlementType = $map['settlement_type'];
         }
+
         if (isset($map['show_sub_order_id'])) {
             $model->showSubOrderId = $map['show_sub_order_id'];
         }
+
         if (isset($map['sio'])) {
             $model->sio = $map['sio'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['status_desc'])) {
             $model->statusDesc = $map['status_desc'];
         }
+
         if (isset($map['sub_order_id'])) {
             $model->subOrderId = $map['sub_order_id'];
         }
+
         if (isset($map['tax_rate'])) {
             $model->taxRate = $map['tax_rate'];
         }
+
         if (isset($map['third_invoice_id'])) {
             $model->thirdInvoiceId = $map['third_invoice_id'];
         }
+
         if (isset($map['third_itinerary_id'])) {
             $model->thirdItineraryId = $map['third_itinerary_id'];
         }
+
         if (isset($map['trade_action_desc'])) {
             $model->tradeActionDesc = $map['trade_action_desc'];
         }
+
         if (isset($map['trade_reason'])) {
             $model->tradeReason = $map['trade_reason'];
         }
+
         if (isset($map['traveler_email'])) {
             $model->travelerEmail = $map['traveler_email'];
         }
+
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];
         }
+
         if (isset($map['traveler_job_no'])) {
             $model->travelerJobNo = $map['traveler_job_no'];
         }
+
         if (isset($map['traveler_member_type'])) {
             $model->travelerMemberType = $map['traveler_member_type'];
         }
+
         if (isset($map['traveler_member_type_name'])) {
             $model->travelerMemberTypeName = $map['traveler_member_type_name'];
         }
+
         if (isset($map['traveler_name'])) {
             $model->travelerName = $map['traveler_name'];
         }
+
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
         }
+
         if (isset($map['voucher_type_desc'])) {
             $model->voucherTypeDesc = $map['voucher_type_desc'];
         }

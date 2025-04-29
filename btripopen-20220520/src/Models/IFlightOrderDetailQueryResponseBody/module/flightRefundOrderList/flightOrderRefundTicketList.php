@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderDetailQueryResponseBody\module\flightRefundOrderList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderDetailQueryResponseBody\module\flightRefundOrderList\flightOrderRefundTicketList\cabinClass;
-use AlibabaCloud\Tea\Model;
 
 class flightOrderRefundTicketList extends Model
 {
@@ -15,54 +15,55 @@ class flightOrderRefundTicketList extends Model
     public $cabinClass;
 
     /**
-     * @example MU5236
-     *
      * @var string
      */
     public $flightNo;
 
     /**
-     * @example 018-6605785754
-     *
      * @var string
      */
     public $ticketNo;
 
     /**
-     * @example 0132
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
         'cabinClass' => 'cabin_class',
-        'flightNo'   => 'flight_no',
-        'ticketNo'   => 'ticket_no',
-        'userId'     => 'user_id',
+        'flightNo' => 'flight_no',
+        'ticketNo' => 'ticket_no',
+        'userId' => 'user_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cabinClass)) {
+            Model::validateArray($this->cabinClass);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cabinClass) {
-            $res['cabin_class'] = [];
-            if (null !== $this->cabinClass && \is_array($this->cabinClass)) {
-                $n = 0;
-                foreach ($this->cabinClass as $item) {
-                    $res['cabin_class'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cabinClass)) {
+                $res['cabin_class'] = [];
+                $n1 = 0;
+                foreach ($this->cabinClass as $item1) {
+                    $res['cabin_class'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
         }
+
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -70,29 +71,32 @@ class flightOrderRefundTicketList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flightOrderRefundTicketList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cabin_class'])) {
             if (!empty($map['cabin_class'])) {
                 $model->cabinClass = [];
-                $n                 = 0;
-                foreach ($map['cabin_class'] as $item) {
-                    $model->cabinClass[$n++] = null !== $item ? cabinClass::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['cabin_class'] as $item1) {
+                    $model->cabinClass[$n1++] = cabinClass::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];
         }
+
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

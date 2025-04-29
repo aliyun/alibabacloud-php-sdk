@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleAddRequest\entities;
-use AlibabaCloud\Tea\Model;
 
 class InvoiceRuleAddRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var entities[]
      */
     public $entities;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 4854821
-     *
      * @var string
      */
     public $thirdPartId;
     protected $_name = [
-        'entities'    => 'entities',
+        'entities' => 'entities',
         'thirdPartId' => 'third_part_id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->entities)) {
+            Model::validateArray($this->entities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entities) {
-            $res['entities'] = [];
-            if (null !== $this->entities && \is_array($this->entities)) {
-                $n = 0;
-                foreach ($this->entities as $item) {
-                    $res['entities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entities)) {
+                $res['entities'] = [];
+                $n1 = 0;
+                foreach ($this->entities as $item1) {
+                    $res['entities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->thirdPartId) {
             $res['third_part_id'] = $this->thirdPartId;
         }
@@ -52,23 +51,24 @@ class InvoiceRuleAddRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvoiceRuleAddRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entities'])) {
             if (!empty($map['entities'])) {
                 $model->entities = [];
-                $n               = 0;
-                foreach ($map['entities'] as $item) {
-                    $model->entities[$n++] = null !== $item ? entities::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['entities'] as $item1) {
+                    $model->entities[$n1++] = entities::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['third_part_id'])) {
             $model->thirdPartId = $map['third_part_id'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddDepartmentHeaders;
@@ -490,6 +490,16 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyAddHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyAddRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyAddShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyApproveHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyApproveRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyApproveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealApplyQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MealBillSettlementQueryResponse;
@@ -663,11 +673,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\VatInvoiceScanQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\WaitApplyInvoiceTaskDetailQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\WaitApplyInvoiceTaskDetailQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\WaitApplyInvoiceTaskDetailQueryResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class BtripOpen extends OpenApiClient
 {
@@ -692,57 +701,69 @@ class BtripOpen extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 换取accessToken接口
-     *  *
-     * @param AccessTokenRequest $request AccessTokenRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 换取accessToken接口.
      *
-     * @return AccessTokenResponse AccessTokenResponse
+     * @param request - AccessTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AccessTokenResponse
+     *
+     * @param AccessTokenRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AccessTokenResponse
      */
     public function accessTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appSecret)) {
-            $query['app_secret'] = $request->appSecret;
+        if (null !== $request->appSecret) {
+            @$query['app_secret'] = $request->appSecret;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AccessToken',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/btrip-open-auth/v1/access-token/action/take',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AccessToken',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/btrip-open-auth/v1/access-token/action/take',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 换取accessToken接口
-     *  *
-     * @param AccessTokenRequest $request AccessTokenRequest
+     * 换取accessToken接口.
      *
-     * @return AccessTokenResponse AccessTokenResponse
+     * @param request - AccessTokenRequest
+     *
+     * @returns AccessTokenResponse
+     *
+     * @param AccessTokenRequest $request
+     *
+     * @return AccessTokenResponse
      */
     public function accessToken($request)
     {
@@ -753,67 +774,84 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 创建企业部门
-     *  *
-     * @param AddDepartmentRequest $tmpReq  AddDepartmentRequest
-     * @param AddDepartmentHeaders $headers AddDepartmentHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建企业部门.
      *
-     * @return AddDepartmentResponse AddDepartmentResponse
+     * @param tmpReq - AddDepartmentRequest
+     * @param headers - AddDepartmentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDepartmentResponse
+     *
+     * @param AddDepartmentRequest $tmpReq
+     * @param AddDepartmentHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddDepartmentResponse
      */
     public function addDepartmentWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddDepartmentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->managerEmployeeIdList)) {
-            $request->managerEmployeeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managerEmployeeIdList, 'manager_employee_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->managerEmployeeIdList) {
+            $request->managerEmployeeIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->managerEmployeeIdList, 'manager_employee_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deptName)) {
-            $body['dept_name'] = $request->deptName;
+        if (null !== $request->deptName) {
+            @$body['dept_name'] = $request->deptName;
         }
-        if (!Utils::isUnset($request->managerEmployeeIdListShrink)) {
-            $body['manager_employee_id_list'] = $request->managerEmployeeIdListShrink;
+
+        if (null !== $request->managerEmployeeIdListShrink) {
+            @$body['manager_employee_id_list'] = $request->managerEmployeeIdListShrink;
         }
-        if (!Utils::isUnset($request->outDeptId)) {
-            $body['out_dept_id'] = $request->outDeptId;
+
+        if (null !== $request->outDeptId) {
+            @$body['out_dept_id'] = $request->outDeptId;
         }
-        if (!Utils::isUnset($request->outDeptPid)) {
-            $body['out_dept_pid'] = $request->outDeptPid;
+
+        if (null !== $request->outDeptPid) {
+            @$body['out_dept_pid'] = $request->outDeptPid;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDepartment',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/department/v2/add',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddDepartment',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/department/v2/add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建企业部门
-     *  *
-     * @param AddDepartmentRequest $request AddDepartmentRequest
+     * 创建企业部门.
      *
-     * @return AddDepartmentResponse AddDepartmentResponse
+     * @param request - AddDepartmentRequest
+     *
+     * @returns AddDepartmentResponse
+     *
+     * @param AddDepartmentRequest $request
+     *
+     * @return AddDepartmentResponse
      */
     public function addDepartment($request)
     {
@@ -824,127 +862,172 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 添加员工
-     *  *
-     * @param AddEmployeeRequest $tmpReq  AddEmployeeRequest
-     * @param AddEmployeeHeaders $headers AddEmployeeHeaders
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 添加员工.
      *
-     * @return AddEmployeeResponse AddEmployeeResponse
+     * @param tmpReq - AddEmployeeRequest
+     * @param headers - AddEmployeeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddEmployeeResponse
+     *
+     * @param AddEmployeeRequest $tmpReq
+     * @param AddEmployeeHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddEmployeeResponse
      */
     public function addEmployeeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddEmployeeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->baseCityCodeList)) {
-            $request->baseCityCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->baseCityCodeList, 'base_city_code_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->baseCityCodeList) {
+            $request->baseCityCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseCityCodeList, 'base_city_code_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->certList)) {
-            $request->certListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
+
+        if (null !== $tmpReq->baseLocationList) {
+            $request->baseLocationListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseLocationList, 'base_location_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customRoleCodeList)) {
-            $request->customRoleCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customRoleCodeList, 'custom_role_code_list', 'json');
+
+        if (null !== $tmpReq->certList) {
+            $request->certListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->outDeptIdList)) {
-            $request->outDeptIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
+
+        if (null !== $tmpReq->customRoleCodeList) {
+            $request->customRoleCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customRoleCodeList, 'custom_role_code_list', 'json');
         }
+
+        if (null !== $tmpReq->outDeptIdList) {
+            $request->outDeptIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->attribute)) {
-            $body['attribute'] = $request->attribute;
+        if (null !== $request->attribute) {
+            @$body['attribute'] = $request->attribute;
         }
-        if (!Utils::isUnset($request->avatar)) {
-            $body['avatar'] = $request->avatar;
+
+        if (null !== $request->avatar) {
+            @$body['avatar'] = $request->avatar;
         }
-        if (!Utils::isUnset($request->baseCityCodeListShrink)) {
-            $body['base_city_code_list'] = $request->baseCityCodeListShrink;
+
+        if (null !== $request->baseCityCodeListShrink) {
+            @$body['base_city_code_list'] = $request->baseCityCodeListShrink;
         }
-        if (!Utils::isUnset($request->birthday)) {
-            $body['birthday'] = $request->birthday;
+
+        if (null !== $request->baseLocationListShrink) {
+            @$body['base_location_list'] = $request->baseLocationListShrink;
         }
-        if (!Utils::isUnset($request->certListShrink)) {
-            $body['cert_list'] = $request->certListShrink;
+
+        if (null !== $request->birthday) {
+            @$body['birthday'] = $request->birthday;
         }
-        if (!Utils::isUnset($request->customRoleCodeListShrink)) {
-            $body['custom_role_code_list'] = $request->customRoleCodeListShrink;
+
+        if (null !== $request->certListShrink) {
+            @$body['cert_list'] = $request->certListShrink;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+
+        if (null !== $request->customRoleCodeListShrink) {
+            @$body['custom_role_code_list'] = $request->customRoleCodeListShrink;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $body['gender'] = $request->gender;
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->isAdmin)) {
-            $body['is_admin'] = $request->isAdmin;
+
+        if (null !== $request->gender) {
+            @$body['gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->isBoss)) {
-            $body['is_boss'] = $request->isBoss;
+
+        if (null !== $request->isAdmin) {
+            @$body['is_admin'] = $request->isAdmin;
         }
-        if (!Utils::isUnset($request->isDeptLeader)) {
-            $body['is_dept_leader'] = $request->isDeptLeader;
+
+        if (null !== $request->isBoss) {
+            @$body['is_boss'] = $request->isBoss;
         }
-        if (!Utils::isUnset($request->jobNo)) {
-            $body['job_no'] = $request->jobNo;
+
+        if (null !== $request->isDeptLeader) {
+            @$body['is_dept_leader'] = $request->isDeptLeader;
         }
-        if (!Utils::isUnset($request->managerUserId)) {
-            $body['manager_user_id'] = $request->managerUserId;
+
+        if (null !== $request->jobNo) {
+            @$body['job_no'] = $request->jobNo;
         }
-        if (!Utils::isUnset($request->outDeptIdListShrink)) {
-            $body['out_dept_id_list'] = $request->outDeptIdListShrink;
+
+        if (null !== $request->managerUserId) {
+            @$body['manager_user_id'] = $request->managerUserId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->outDeptIdListShrink) {
+            @$body['out_dept_id_list'] = $request->outDeptIdListShrink;
         }
-        if (!Utils::isUnset($request->positionLevel)) {
-            $body['position_level'] = $request->positionLevel;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->realName)) {
-            $body['real_name'] = $request->realName;
+
+        if (null !== $request->positionLevel) {
+            @$body['position_level'] = $request->positionLevel;
         }
-        if (!Utils::isUnset($request->realNameEn)) {
-            $body['real_name_en'] = $request->realNameEn;
+
+        if (null !== $request->realName) {
+            @$body['real_name'] = $request->realName;
         }
-        if (!Utils::isUnset($request->unionId)) {
-            $body['union_id'] = $request->unionId;
+
+        if (null !== $request->realNameEn) {
+            @$body['real_name_en'] = $request->realNameEn;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->unionId) {
+            @$body['union_id'] = $request->unionId;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $body['user_nick'] = $request->userNick;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
+        if (null !== $request->userNick) {
+            @$body['user_nick'] = $request->userNick;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddEmployee',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/employee/v2/add',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddEmployee',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/employee/v2/add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加员工
-     *  *
-     * @param AddEmployeeRequest $request AddEmployeeRequest
+     * 添加员工.
      *
-     * @return AddEmployeeResponse AddEmployeeResponse
+     * @param request - AddEmployeeRequest
+     *
+     * @returns AddEmployeeResponse
+     *
+     * @param AddEmployeeRequest $request
+     *
+     * @return AddEmployeeResponse
      */
     public function addEmployee($request)
     {
@@ -955,61 +1038,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 批量新增企业自定义角色下人员
-     *  *
-     * @param AddEmployeesToCustomRoleRequest $tmpReq  AddEmployeesToCustomRoleRequest
-     * @param AddEmployeesToCustomRoleHeaders $headers AddEmployeesToCustomRoleHeaders
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 批量新增企业自定义角色下人员.
      *
-     * @return AddEmployeesToCustomRoleResponse AddEmployeesToCustomRoleResponse
+     * @param tmpReq - AddEmployeesToCustomRoleRequest
+     * @param headers - AddEmployeesToCustomRoleHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddEmployeesToCustomRoleResponse
+     *
+     * @param AddEmployeesToCustomRoleRequest $tmpReq
+     * @param AddEmployeesToCustomRoleHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddEmployeesToCustomRoleResponse
      */
     public function addEmployeesToCustomRoleWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddEmployeesToCustomRoleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userIdList)) {
-            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'user_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userIdList) {
+            $request->userIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'user_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
-        if (!Utils::isUnset($request->userIdListShrink)) {
-            $body['user_id_list'] = $request->userIdListShrink;
+
+        if (null !== $request->userIdListShrink) {
+            @$body['user_id_list'] = $request->userIdListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddEmployeesToCustomRole',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/role/v1/customRoleEmployees/add',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddEmployeesToCustomRole',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/role/v1/customRoleEmployees/add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddEmployeesToCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量新增企业自定义角色下人员
-     *  *
-     * @param AddEmployeesToCustomRoleRequest $request AddEmployeesToCustomRoleRequest
+     * 批量新增企业自定义角色下人员.
      *
-     * @return AddEmployeesToCustomRoleResponse AddEmployeesToCustomRoleResponse
+     * @param request - AddEmployeesToCustomRoleRequest
+     *
+     * @returns AddEmployeesToCustomRoleResponse
+     *
+     * @param AddEmployeesToCustomRoleRequest $request
+     *
+     * @return AddEmployeesToCustomRoleResponse
      */
     public function addEmployeesToCustomRole($request)
     {
@@ -1020,61 +1118,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 新增发票抬头适用人员
-     *  *
-     * @param AddInvoiceEntityRequest $tmpReq  AddInvoiceEntityRequest
-     * @param AddInvoiceEntityHeaders $headers AddInvoiceEntityHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新增发票抬头适用人员.
      *
-     * @return AddInvoiceEntityResponse AddInvoiceEntityResponse
+     * @param tmpReq - AddInvoiceEntityRequest
+     * @param headers - AddInvoiceEntityHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddInvoiceEntityResponse
+     *
+     * @param AddInvoiceEntityRequest $tmpReq
+     * @param AddInvoiceEntityHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddInvoiceEntityResponse
      */
     public function addInvoiceEntityWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddInvoiceEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entities)) {
-            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entities) {
+            $request->entitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entitiesShrink)) {
-            $body['entities'] = $request->entitiesShrink;
+        if (null !== $request->entitiesShrink) {
+            @$body['entities'] = $request->entitiesShrink;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddInvoiceEntity',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/entities',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddInvoiceEntity',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/entities',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddInvoiceEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增发票抬头适用人员
-     *  *
-     * @param AddInvoiceEntityRequest $request AddInvoiceEntityRequest
+     * 新增发票抬头适用人员.
      *
-     * @return AddInvoiceEntityResponse AddInvoiceEntityResponse
+     * @param request - AddInvoiceEntityRequest
+     *
+     * @returns AddInvoiceEntityResponse
+     *
+     * @param AddInvoiceEntityRequest $request
+     *
+     * @return AddInvoiceEntityResponse
      */
     public function addInvoiceEntity($request)
     {
@@ -1085,104 +1198,138 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 商旅功能页跳转
-     *  *
-     * @param AddressGetRequest $request AddressGetRequest
-     * @param AddressGetHeaders $headers AddressGetHeaders
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 商旅功能页跳转.
      *
-     * @return AddressGetResponse AddressGetResponse
+     * @param request - AddressGetRequest
+     * @param headers - AddressGetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddressGetResponse
+     *
+     * @param AddressGetRequest $request
+     * @param AddressGetHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AddressGetResponse
      */
     public function addressGetWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionType)) {
-            $query['action_type'] = $request->actionType;
+        if (null !== $request->actionType) {
+            @$query['action_type'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->arrCityCode)) {
-            $query['arr_city_code'] = $request->arrCityCode;
+
+        if (null !== $request->arrCityCode) {
+            @$query['arr_city_code'] = $request->arrCityCode;
         }
-        if (!Utils::isUnset($request->arrCityName)) {
-            $query['arr_city_name'] = $request->arrCityName;
+
+        if (null !== $request->arrCityName) {
+            @$query['arr_city_name'] = $request->arrCityName;
         }
-        if (!Utils::isUnset($request->carScenesCode)) {
-            $query['car_scenes_code'] = $request->carScenesCode;
+
+        if (null !== $request->carScenesCode) {
+            @$query['car_scenes_code'] = $request->carScenesCode;
         }
-        if (!Utils::isUnset($request->depCityCode)) {
-            $query['dep_city_code'] = $request->depCityCode;
+
+        if (null !== $request->depCityCode) {
+            @$query['dep_city_code'] = $request->depCityCode;
         }
-        if (!Utils::isUnset($request->depCityName)) {
-            $query['dep_city_name'] = $request->depCityName;
+
+        if (null !== $request->depCityName) {
+            @$query['dep_city_name'] = $request->depCityName;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $query['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$query['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->itineraryId)) {
-            $query['itinerary_id'] = $request->itineraryId;
+
+        if (null !== $request->itineraryId) {
+            @$query['itinerary_id'] = $request->itineraryId;
         }
-        if (!Utils::isUnset($request->middlePage)) {
-            $query['middle_page'] = $request->middlePage;
+
+        if (null !== $request->middlePage) {
+            @$query['middle_page'] = $request->middlePage;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_Id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_Id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $query['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->sessionParameters) {
+            @$query['session_parameters'] = $request->sessionParameters;
         }
-        if (!Utils::isUnset($request->taobaoCallbackUrl)) {
-            $query['taobao_callback_url'] = $request->taobaoCallbackUrl;
+
+        if (null !== $request->subCorpId) {
+            @$query['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->taobaoCallbackUrl) {
+            @$query['taobao_callback_url'] = $request->taobaoCallbackUrl;
         }
-        if (!Utils::isUnset($request->travelerId)) {
-            $query['traveler_id'] = $request->travelerId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->travelerId) {
+            @$query['traveler_id'] = $request->travelerId;
         }
-        if (!Utils::isUnset($request->useBookingProxy)) {
-            $query['use_booking_proxy'] = $request->useBookingProxy;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->useBookingProxy) {
+            @$query['use_booking_proxy'] = $request->useBookingProxy;
         }
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddressGet',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/open/v1/address',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddressGet',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v1/address',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddressGetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 商旅功能页跳转
-     *  *
-     * @param AddressGetRequest $request AddressGetRequest
+     * 商旅功能页跳转.
      *
-     * @return AddressGetResponse AddressGetResponse
+     * @param request - AddressGetRequest
+     *
+     * @returns AddressGetResponse
+     *
+     * @param AddressGetRequest $request
+     *
+     * @return AddressGetResponse
      */
     public function addressGet($request)
     {
@@ -1193,56 +1340,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询机场数据
-     *  *
-     * @param AirportSearchRequest $request AirportSearchRequest
-     * @param AirportSearchHeaders $headers AirportSearchHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询机场数据.
      *
-     * @return AirportSearchResponse AirportSearchResponse
+     * @param request - AirportSearchRequest
+     * @param headers - AirportSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AirportSearchResponse
+     *
+     * @param AirportSearchRequest $request
+     * @param AirportSearchHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AirportSearchResponse
      */
     public function airportSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AirportSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/city/v1/airport',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AirportSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/city/v1/airport',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AirportSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机场数据
-     *  *
-     * @param AirportSearchRequest $request AirportSearchRequest
+     * 查询机场数据.
      *
-     * @return AirportSearchResponse AirportSearchResponse
+     * @param request - AirportSearchRequest
+     *
+     * @returns AirportSearchResponse
+     *
+     * @param AirportSearchRequest $request
+     *
+     * @return AirportSearchResponse
      */
     public function airportSearch($request)
     {
@@ -1253,44 +1414,53 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 全量查询商旅城市行政区划编码信息
-     *  *
-     * @param AllBaseCityInfoQueryHeaders $headers AllBaseCityInfoQueryHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 全量查询商旅城市行政区划编码信息.
      *
-     * @return AllBaseCityInfoQueryResponse AllBaseCityInfoQueryResponse
+     * @param headers - AllBaseCityInfoQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllBaseCityInfoQueryResponse
+     *
+     * @param AllBaseCityInfoQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AllBaseCityInfoQueryResponse
      */
     public function allBaseCityInfoQueryWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
-            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+
+        if (null !== $headers->xAcsBtripAccessToken) {
+            @$realHeaders['x-acs-btrip-access-token'] = '' . $headers->xAcsBtripAccessToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'AllBaseCityInfoQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/city/v1/code',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AllBaseCityInfoQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/city/v1/code',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AllBaseCityInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 全量查询商旅城市行政区划编码信息
-     *  *
-     * @return AllBaseCityInfoQueryResponse AllBaseCityInfoQueryResponse
+     * 全量查询商旅城市行政区划编码信息.
+     *
+     * @returns AllBaseCityInfoQueryResponse
+     *
+     * @return AllBaseCityInfoQueryResponse
      */
     public function allBaseCityInfoQuery()
     {
@@ -1301,196 +1471,260 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 新建出差审批单
-     *  *
-     * @param ApplyAddRequest $tmpReq  ApplyAddRequest
-     * @param ApplyAddHeaders $headers ApplyAddHeaders
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 新建出差审批单.
      *
-     * @return ApplyAddResponse ApplyAddResponse
+     * @param tmpReq - ApplyAddRequest
+     * @param headers - ApplyAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyAddResponse
+     *
+     * @param ApplyAddRequest $tmpReq
+     * @param ApplyAddHeaders $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ApplyAddResponse
      */
     public function applyAddWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyAddShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->carRule)) {
-            $request->carRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->carRule) {
+            $request->carRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
         }
-        if (!Utils::isUnset($tmpReq->defaultStandard)) {
-            $request->defaultStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultStandard, 'default_standard', 'json');
+
+        if (null !== $tmpReq->defaultStandard) {
+            $request->defaultStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultStandard, 'default_standard', 'json');
         }
-        if (!Utils::isUnset($tmpReq->externalTravelerList)) {
-            $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
+
+        if (null !== $tmpReq->externalTravelerList) {
+            $request->externalTravelerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->externalTravelerStandard)) {
-            $request->externalTravelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerStandard, 'external_traveler_standard', 'json');
+
+        if (null !== $tmpReq->externalTravelerStandard) {
+            $request->externalTravelerStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerStandard, 'external_traveler_standard', 'json');
         }
-        if (!Utils::isUnset($tmpReq->hotelShare)) {
-            $request->hotelShareShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelShare, 'hotel_share', 'json');
+
+        if (null !== $tmpReq->hotelShare) {
+            $request->hotelShareShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelShare, 'hotel_share', 'json');
         }
-        if (!Utils::isUnset($tmpReq->itineraryList)) {
-            $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
+
+        if (null !== $tmpReq->itineraryList) {
+            $request->itineraryListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->itinerarySetList)) {
-            $request->itinerarySetListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
+
+        if (null !== $tmpReq->itinerarySetList) {
+            $request->itinerarySetListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->travelerList)) {
-            $request->travelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
+
+        if (null !== $tmpReq->travelerList) {
+            $request->travelerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->travelerStandard)) {
-            $request->travelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
+
+        if (null !== $tmpReq->travelerStandard) {
+            $request->travelerStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->budget)) {
-            $body['budget'] = $request->budget;
+        if (null !== $request->budget) {
+            @$body['budget'] = $request->budget;
         }
-        if (!Utils::isUnset($request->budgetMerge)) {
-            $body['budget_merge'] = $request->budgetMerge;
+
+        if (null !== $request->budgetMerge) {
+            @$body['budget_merge'] = $request->budgetMerge;
         }
-        if (!Utils::isUnset($request->carRuleShrink)) {
-            $body['car_rule'] = $request->carRuleShrink;
+
+        if (null !== $request->carRuleShrink) {
+            @$body['car_rule'] = $request->carRuleShrink;
         }
-        if (!Utils::isUnset($request->corpName)) {
-            $body['corp_name'] = $request->corpName;
+
+        if (null !== $request->corpName) {
+            @$body['corp_name'] = $request->corpName;
         }
-        if (!Utils::isUnset($request->defaultStandardShrink)) {
-            $body['default_standard'] = $request->defaultStandardShrink;
+
+        if (null !== $request->defaultStandardShrink) {
+            @$body['default_standard'] = $request->defaultStandardShrink;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $body['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$body['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->departName)) {
-            $body['depart_name'] = $request->departName;
+
+        if (null !== $request->departName) {
+            @$body['depart_name'] = $request->departName;
         }
-        if (!Utils::isUnset($request->extendField)) {
-            $body['extend_field'] = $request->extendField;
+
+        if (null !== $request->extendField) {
+            @$body['extend_field'] = $request->extendField;
         }
-        if (!Utils::isUnset($request->externalTravelerListShrink)) {
-            $body['external_traveler_list'] = $request->externalTravelerListShrink;
+
+        if (null !== $request->externalTravelerListShrink) {
+            @$body['external_traveler_list'] = $request->externalTravelerListShrink;
         }
-        if (!Utils::isUnset($request->externalTravelerStandardShrink)) {
-            $body['external_traveler_standard'] = $request->externalTravelerStandardShrink;
+
+        if (null !== $request->externalTravelerStandardShrink) {
+            @$body['external_traveler_standard'] = $request->externalTravelerStandardShrink;
         }
-        if (!Utils::isUnset($request->flightBudget)) {
-            $body['flight_budget'] = $request->flightBudget;
+
+        if (null !== $request->flightBudget) {
+            @$body['flight_budget'] = $request->flightBudget;
         }
-        if (!Utils::isUnset($request->hotelBudget)) {
-            $body['hotel_budget'] = $request->hotelBudget;
+
+        if (null !== $request->hotelBudget) {
+            @$body['hotel_budget'] = $request->hotelBudget;
         }
-        if (!Utils::isUnset($request->hotelShareShrink)) {
-            $body['hotel_share'] = $request->hotelShareShrink;
+
+        if (null !== $request->hotelShareShrink) {
+            @$body['hotel_share'] = $request->hotelShareShrink;
         }
-        if (!Utils::isUnset($request->internationalFlightCabins)) {
-            $body['international_flight_cabins'] = $request->internationalFlightCabins;
+
+        if (null !== $request->internationalFlightCabins) {
+            @$body['international_flight_cabins'] = $request->internationalFlightCabins;
         }
-        if (!Utils::isUnset($request->intlFlightBudget)) {
-            $body['intl_flight_budget'] = $request->intlFlightBudget;
+
+        if (null !== $request->intlFlightBudget) {
+            @$body['intl_flight_budget'] = $request->intlFlightBudget;
         }
-        if (!Utils::isUnset($request->intlHotelBudget)) {
-            $body['intl_hotel_budget'] = $request->intlHotelBudget;
+
+        if (null !== $request->intlHotelBudget) {
+            @$body['intl_hotel_budget'] = $request->intlHotelBudget;
         }
-        if (!Utils::isUnset($request->itineraryListShrink)) {
-            $body['itinerary_list'] = $request->itineraryListShrink;
+
+        if (null !== $request->itineraryListShrink) {
+            @$body['itinerary_list'] = $request->itineraryListShrink;
         }
-        if (!Utils::isUnset($request->itineraryRule)) {
-            $body['itinerary_rule'] = $request->itineraryRule;
+
+        if (null !== $request->itineraryRule) {
+            @$body['itinerary_rule'] = $request->itineraryRule;
         }
-        if (!Utils::isUnset($request->itinerarySetListShrink)) {
-            $body['itinerary_set_list'] = $request->itinerarySetListShrink;
+
+        if (null !== $request->itinerarySetListShrink) {
+            @$body['itinerary_set_list'] = $request->itinerarySetListShrink;
         }
-        if (!Utils::isUnset($request->limitTraveler)) {
-            $body['limit_traveler'] = $request->limitTraveler;
+
+        if (null !== $request->limitTraveler) {
+            @$body['limit_traveler'] = $request->limitTraveler;
         }
-        if (!Utils::isUnset($request->paymentDepartmentId)) {
-            $body['payment_department_id'] = $request->paymentDepartmentId;
+
+        if (null !== $request->mealBudget) {
+            @$body['meal_budget'] = $request->mealBudget;
         }
-        if (!Utils::isUnset($request->paymentDepartmentName)) {
-            $body['payment_department_name'] = $request->paymentDepartmentName;
+
+        if (null !== $request->paymentDepartmentId) {
+            @$body['payment_department_id'] = $request->paymentDepartmentId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->paymentDepartmentName) {
+            @$body['payment_department_name'] = $request->paymentDepartmentName;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $body['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $body['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->subCorpId) {
+            @$body['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->thirdpartBusinessId)) {
-            $body['thirdpart_business_id'] = $request->thirdpartBusinessId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$body['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->thirdpartDepartId)) {
-            $body['thirdpart_depart_id'] = $request->thirdpartDepartId;
+
+        if (null !== $request->thirdpartBusinessId) {
+            @$body['thirdpart_business_id'] = $request->thirdpartBusinessId;
         }
-        if (!Utils::isUnset($request->togetherBookRule)) {
-            $body['together_book_rule'] = $request->togetherBookRule;
+
+        if (null !== $request->thirdpartDepartId) {
+            @$body['thirdpart_depart_id'] = $request->thirdpartDepartId;
         }
-        if (!Utils::isUnset($request->trainBudget)) {
-            $body['train_budget'] = $request->trainBudget;
+
+        if (null !== $request->togetherBookRule) {
+            @$body['together_book_rule'] = $request->togetherBookRule;
         }
-        if (!Utils::isUnset($request->travelerListShrink)) {
-            $body['traveler_list'] = $request->travelerListShrink;
+
+        if (null !== $request->trainBudget) {
+            @$body['train_budget'] = $request->trainBudget;
         }
-        if (!Utils::isUnset($request->travelerStandardShrink)) {
-            $body['traveler_standard'] = $request->travelerStandardShrink;
+
+        if (null !== $request->travelerListShrink) {
+            @$body['traveler_list'] = $request->travelerListShrink;
         }
-        if (!Utils::isUnset($request->tripCause)) {
-            $body['trip_cause'] = $request->tripCause;
+
+        if (null !== $request->travelerStandardShrink) {
+            @$body['traveler_standard'] = $request->travelerStandardShrink;
         }
-        if (!Utils::isUnset($request->tripDay)) {
-            $body['trip_day'] = $request->tripDay;
+
+        if (null !== $request->tripCause) {
+            @$body['trip_cause'] = $request->tripCause;
         }
-        if (!Utils::isUnset($request->tripTitle)) {
-            $body['trip_title'] = $request->tripTitle;
+
+        if (null !== $request->tripDay) {
+            @$body['trip_day'] = $request->tripDay;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->tripTitle) {
+            @$body['trip_title'] = $request->tripTitle;
         }
-        if (!Utils::isUnset($request->unionNo)) {
-            $body['union_no'] = $request->unionNo;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->unionNo) {
+            @$body['union_no'] = $request->unionNo;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->vehicleBudget)) {
-            $body['vehicle_budget'] = $request->vehicleBudget;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
+        if (null !== $request->vehicleBudget) {
+            @$body['vehicle_budget'] = $request->vehicleBudget;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/biz-trip',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/biz-trip',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建出差审批单
-     *  *
-     * @param ApplyAddRequest $request ApplyAddRequest
+     * 新建出差审批单.
      *
-     * @return ApplyAddResponse ApplyAddResponse
+     * @param request - ApplyAddRequest
+     *
+     * @returns ApplyAddResponse
+     *
+     * @param ApplyAddRequest $request
+     *
+     * @return ApplyAddResponse
      */
     public function applyAdd($request)
     {
@@ -1501,71 +1735,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 更新出差审批单（状态）
-     *  *
-     * @param ApplyApproveRequest $request ApplyApproveRequest
-     * @param ApplyApproveHeaders $headers ApplyApproveHeaders
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 更新出差审批单（状态）.
      *
-     * @return ApplyApproveResponse ApplyApproveResponse
+     * @param request - ApplyApproveRequest
+     * @param headers - ApplyApproveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyApproveResponse
+     *
+     * @param ApplyApproveRequest $request
+     * @param ApplyApproveHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApplyApproveResponse
      */
     public function applyApproveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $body['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$body['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->note)) {
-            $body['note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$body['note'] = $request->note;
         }
-        if (!Utils::isUnset($request->operateTime)) {
-            $body['operate_time'] = $request->operateTime;
+
+        if (null !== $request->operateTime) {
+            @$body['operate_time'] = $request->operateTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $body['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->subCorpId) {
+            @$body['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyApprove',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/biz-trip/action/approve',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyApprove',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/biz-trip/action/approve',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyApproveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新出差审批单（状态）
-     *  *
-     * @param ApplyApproveRequest $request ApplyApproveRequest
+     * 更新出差审批单（状态）.
      *
-     * @return ApplyApproveResponse ApplyApproveResponse
+     * @param request - ApplyApproveRequest
+     *
+     * @returns ApplyApproveResponse
+     *
+     * @param ApplyApproveRequest $request
+     *
+     * @return ApplyApproveResponse
      */
     public function applyApprove($request)
     {
@@ -1576,64 +1829,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 外部审批节点状态同步
-     *  *
-     * @param ApplyExternalNodeStatusUpdateRequest $tmpReq  ApplyExternalNodeStatusUpdateRequest
-     * @param ApplyExternalNodeStatusUpdateHeaders $headers ApplyExternalNodeStatusUpdateHeaders
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 外部审批节点状态同步.
      *
-     * @return ApplyExternalNodeStatusUpdateResponse ApplyExternalNodeStatusUpdateResponse
+     * @param tmpReq - ApplyExternalNodeStatusUpdateRequest
+     * @param headers - ApplyExternalNodeStatusUpdateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyExternalNodeStatusUpdateResponse
+     *
+     * @param ApplyExternalNodeStatusUpdateRequest $tmpReq
+     * @param ApplyExternalNodeStatusUpdateHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ApplyExternalNodeStatusUpdateResponse
      */
     public function applyExternalNodeStatusUpdateWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyExternalNodeStatusUpdateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->operationRecords)) {
-            $request->operationRecordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationRecords, 'operation_records', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operationRecords) {
+            $request->operationRecordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationRecords, 'operation_records', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['node_id'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$body['node_id'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->operationRecordsShrink)) {
-            $body['operation_records'] = $request->operationRecordsShrink;
+
+        if (null !== $request->operationRecordsShrink) {
+            @$body['operation_records'] = $request->operationRecordsShrink;
         }
-        if (!Utils::isUnset($request->processActionResult)) {
-            $body['process_action_result'] = $request->processActionResult;
+
+        if (null !== $request->processActionResult) {
+            @$body['process_action_result'] = $request->processActionResult;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyExternalNodeStatusUpdate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/external-nodes/action/status-update',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyExternalNodeStatusUpdate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/external-nodes/action/status-update',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyExternalNodeStatusUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 外部审批节点状态同步
-     *  *
-     * @param ApplyExternalNodeStatusUpdateRequest $request ApplyExternalNodeStatusUpdateRequest
+     * 外部审批节点状态同步.
      *
-     * @return ApplyExternalNodeStatusUpdateResponse ApplyExternalNodeStatusUpdateResponse
+     * @param request - ApplyExternalNodeStatusUpdateRequest
+     *
+     * @returns ApplyExternalNodeStatusUpdateResponse
+     *
+     * @param ApplyExternalNodeStatusUpdateRequest $request
+     *
+     * @return ApplyExternalNodeStatusUpdateResponse
      */
     public function applyExternalNodeStatusUpdate($request)
     {
@@ -1644,61 +1913,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 申请发票
-     *  *
-     * @param ApplyInvoiceTaskRequest $tmpReq  ApplyInvoiceTaskRequest
-     * @param ApplyInvoiceTaskHeaders $headers ApplyInvoiceTaskHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 申请发票.
      *
-     * @return ApplyInvoiceTaskResponse ApplyInvoiceTaskResponse
+     * @param tmpReq - ApplyInvoiceTaskRequest
+     * @param headers - ApplyInvoiceTaskHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyInvoiceTaskResponse
+     *
+     * @param ApplyInvoiceTaskRequest $tmpReq
+     * @param ApplyInvoiceTaskHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApplyInvoiceTaskResponse
      */
     public function applyInvoiceTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyInvoiceTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->invoiceTaskList)) {
-            $request->invoiceTaskListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->invoiceTaskList, 'invoice_task_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->invoiceTaskList) {
+            $request->invoiceTaskListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->invoiceTaskList, 'invoice_task_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->billDate)) {
-            $body['bill_date'] = $request->billDate;
+        if (null !== $request->billDate) {
+            @$body['bill_date'] = $request->billDate;
         }
-        if (!Utils::isUnset($request->invoiceTaskListShrink)) {
-            $body['invoice_task_list'] = $request->invoiceTaskListShrink;
+
+        if (null !== $request->invoiceTaskListShrink) {
+            @$body['invoice_task_list'] = $request->invoiceTaskListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyInvoiceTask',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/apply-invoice-task',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyInvoiceTask',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/apply-invoice-task',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyInvoiceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 申请发票
-     *  *
-     * @param ApplyInvoiceTaskRequest $request ApplyInvoiceTaskRequest
+     * 申请发票.
      *
-     * @return ApplyInvoiceTaskResponse ApplyInvoiceTaskResponse
+     * @param request - ApplyInvoiceTaskRequest
+     *
+     * @returns ApplyInvoiceTaskResponse
+     *
+     * @param ApplyInvoiceTaskRequest $request
+     *
+     * @return ApplyInvoiceTaskResponse
      */
     public function applyInvoiceTask($request)
     {
@@ -1709,86 +1993,110 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询出差审批单列表
-     *  *
-     * @param ApplyListQueryRequest $request ApplyListQueryRequest
-     * @param ApplyListQueryHeaders $headers ApplyListQueryHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询出差审批单列表.
      *
-     * @return ApplyListQueryResponse ApplyListQueryResponse
+     * @param request - ApplyListQueryRequest
+     * @param headers - ApplyListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyListQueryResponse
+     *
+     * @param ApplyListQueryRequest $request
+     * @param ApplyListQueryHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ApplyListQueryResponse
      */
     public function applyListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allApply)) {
-            $query['all_apply'] = $request->allApply;
+        if (null !== $request->allApply) {
+            @$query['all_apply'] = $request->allApply;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $query['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$query['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['end_time'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['end_time'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->gmtModified)) {
-            $query['gmt_modified'] = $request->gmtModified;
+
+        if (null !== $request->gmtModified) {
+            @$query['gmt_modified'] = $request->gmtModified;
         }
-        if (!Utils::isUnset($request->onlyShangLvApply)) {
-            $query['only_shang_lv_apply'] = $request->onlyShangLvApply;
+
+        if (null !== $request->onlyShangLvApply) {
+            @$query['only_shang_lv_apply'] = $request->onlyShangLvApply;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['start_time'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['start_time'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $query['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->subCorpId) {
+            @$query['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->unionNo)) {
-            $query['union_no'] = $request->unionNo;
+
+        if (null !== $request->unionNo) {
+            @$query['union_no'] = $request->unionNo;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/biz-trips',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/biz-trips',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询出差审批单列表
-     *  *
-     * @param ApplyListQueryRequest $request ApplyListQueryRequest
+     * 查询出差审批单列表.
      *
-     * @return ApplyListQueryResponse ApplyListQueryResponse
+     * @param request - ApplyListQueryRequest
+     *
+     * @returns ApplyListQueryResponse
+     *
+     * @param ApplyListQueryRequest $request
+     *
+     * @return ApplyListQueryResponse
      */
     public function applyListQuery($request)
     {
@@ -1799,190 +2107,252 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 更新出差审批单
-     *  *
-     * @param ApplyModifyRequest $tmpReq  ApplyModifyRequest
-     * @param ApplyModifyHeaders $headers ApplyModifyHeaders
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 更新出差审批单.
      *
-     * @return ApplyModifyResponse ApplyModifyResponse
+     * @param tmpReq - ApplyModifyRequest
+     * @param headers - ApplyModifyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyModifyResponse
+     *
+     * @param ApplyModifyRequest $tmpReq
+     * @param ApplyModifyHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ApplyModifyResponse
      */
     public function applyModifyWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyModifyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->carRule)) {
-            $request->carRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->carRule) {
+            $request->carRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->carRule, 'car_rule', 'json');
         }
-        if (!Utils::isUnset($tmpReq->defaultStandard)) {
-            $request->defaultStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultStandard, 'default_standard', 'json');
+
+        if (null !== $tmpReq->defaultStandard) {
+            $request->defaultStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultStandard, 'default_standard', 'json');
         }
-        if (!Utils::isUnset($tmpReq->externalTravelerList)) {
-            $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
+
+        if (null !== $tmpReq->externalTravelerList) {
+            $request->externalTravelerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->externalTravelerStandard)) {
-            $request->externalTravelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerStandard, 'external_traveler_standard', 'json');
+
+        if (null !== $tmpReq->externalTravelerStandard) {
+            $request->externalTravelerStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerStandard, 'external_traveler_standard', 'json');
         }
-        if (!Utils::isUnset($tmpReq->hotelShare)) {
-            $request->hotelShareShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelShare, 'hotel_share', 'json');
+
+        if (null !== $tmpReq->hotelShare) {
+            $request->hotelShareShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelShare, 'hotel_share', 'json');
         }
-        if (!Utils::isUnset($tmpReq->itineraryList)) {
-            $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
+
+        if (null !== $tmpReq->itineraryList) {
+            $request->itineraryListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->itinerarySetList)) {
-            $request->itinerarySetListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
+
+        if (null !== $tmpReq->itinerarySetList) {
+            $request->itinerarySetListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->travelerList)) {
-            $request->travelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
+
+        if (null !== $tmpReq->travelerList) {
+            $request->travelerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->travelerStandard)) {
-            $request->travelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
+
+        if (null !== $tmpReq->travelerStandard) {
+            $request->travelerStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->budget)) {
-            $body['budget'] = $request->budget;
+        if (null !== $request->budget) {
+            @$body['budget'] = $request->budget;
         }
-        if (!Utils::isUnset($request->budgetMerge)) {
-            $body['budget_merge'] = $request->budgetMerge;
+
+        if (null !== $request->budgetMerge) {
+            @$body['budget_merge'] = $request->budgetMerge;
         }
-        if (!Utils::isUnset($request->carRuleShrink)) {
-            $body['car_rule'] = $request->carRuleShrink;
+
+        if (null !== $request->carRuleShrink) {
+            @$body['car_rule'] = $request->carRuleShrink;
         }
-        if (!Utils::isUnset($request->corpName)) {
-            $body['corp_name'] = $request->corpName;
+
+        if (null !== $request->corpName) {
+            @$body['corp_name'] = $request->corpName;
         }
-        if (!Utils::isUnset($request->defaultStandardShrink)) {
-            $body['default_standard'] = $request->defaultStandardShrink;
+
+        if (null !== $request->defaultStandardShrink) {
+            @$body['default_standard'] = $request->defaultStandardShrink;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $body['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$body['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->departName)) {
-            $body['depart_name'] = $request->departName;
+
+        if (null !== $request->departName) {
+            @$body['depart_name'] = $request->departName;
         }
-        if (!Utils::isUnset($request->extendField)) {
-            $body['extend_field'] = $request->extendField;
+
+        if (null !== $request->extendField) {
+            @$body['extend_field'] = $request->extendField;
         }
-        if (!Utils::isUnset($request->externalTravelerListShrink)) {
-            $body['external_traveler_list'] = $request->externalTravelerListShrink;
+
+        if (null !== $request->externalTravelerListShrink) {
+            @$body['external_traveler_list'] = $request->externalTravelerListShrink;
         }
-        if (!Utils::isUnset($request->externalTravelerStandardShrink)) {
-            $body['external_traveler_standard'] = $request->externalTravelerStandardShrink;
+
+        if (null !== $request->externalTravelerStandardShrink) {
+            @$body['external_traveler_standard'] = $request->externalTravelerStandardShrink;
         }
-        if (!Utils::isUnset($request->flightBudget)) {
-            $body['flight_budget'] = $request->flightBudget;
+
+        if (null !== $request->flightBudget) {
+            @$body['flight_budget'] = $request->flightBudget;
         }
-        if (!Utils::isUnset($request->hotelBudget)) {
-            $body['hotel_budget'] = $request->hotelBudget;
+
+        if (null !== $request->hotelBudget) {
+            @$body['hotel_budget'] = $request->hotelBudget;
         }
-        if (!Utils::isUnset($request->hotelShareShrink)) {
-            $body['hotel_share'] = $request->hotelShareShrink;
+
+        if (null !== $request->hotelShareShrink) {
+            @$body['hotel_share'] = $request->hotelShareShrink;
         }
-        if (!Utils::isUnset($request->intlFlightBudget)) {
-            $body['intl_flight_budget'] = $request->intlFlightBudget;
+
+        if (null !== $request->intlFlightBudget) {
+            @$body['intl_flight_budget'] = $request->intlFlightBudget;
         }
-        if (!Utils::isUnset($request->intlHotelBudget)) {
-            $body['intl_hotel_budget'] = $request->intlHotelBudget;
+
+        if (null !== $request->intlHotelBudget) {
+            @$body['intl_hotel_budget'] = $request->intlHotelBudget;
         }
-        if (!Utils::isUnset($request->itineraryListShrink)) {
-            $body['itinerary_list'] = $request->itineraryListShrink;
+
+        if (null !== $request->itineraryListShrink) {
+            @$body['itinerary_list'] = $request->itineraryListShrink;
         }
-        if (!Utils::isUnset($request->itineraryRule)) {
-            $body['itinerary_rule'] = $request->itineraryRule;
+
+        if (null !== $request->itineraryRule) {
+            @$body['itinerary_rule'] = $request->itineraryRule;
         }
-        if (!Utils::isUnset($request->itinerarySetListShrink)) {
-            $body['itinerary_set_list'] = $request->itinerarySetListShrink;
+
+        if (null !== $request->itinerarySetListShrink) {
+            @$body['itinerary_set_list'] = $request->itinerarySetListShrink;
         }
-        if (!Utils::isUnset($request->limitTraveler)) {
-            $body['limit_traveler'] = $request->limitTraveler;
+
+        if (null !== $request->limitTraveler) {
+            @$body['limit_traveler'] = $request->limitTraveler;
         }
-        if (!Utils::isUnset($request->paymentDepartmentId)) {
-            $body['payment_department_id'] = $request->paymentDepartmentId;
+
+        if (null !== $request->mealBudget) {
+            @$body['meal_budget'] = $request->mealBudget;
         }
-        if (!Utils::isUnset($request->paymentDepartmentName)) {
-            $body['payment_department_name'] = $request->paymentDepartmentName;
+
+        if (null !== $request->paymentDepartmentId) {
+            @$body['payment_department_id'] = $request->paymentDepartmentId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->paymentDepartmentName) {
+            @$body['payment_department_name'] = $request->paymentDepartmentName;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $body['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $body['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->subCorpId) {
+            @$body['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->thirdpartBusinessId)) {
-            $body['thirdpart_business_id'] = $request->thirdpartBusinessId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$body['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->thirdpartDepartId)) {
-            $body['thirdpart_depart_id'] = $request->thirdpartDepartId;
+
+        if (null !== $request->thirdpartBusinessId) {
+            @$body['thirdpart_business_id'] = $request->thirdpartBusinessId;
         }
-        if (!Utils::isUnset($request->togetherBookRule)) {
-            $body['together_book_rule'] = $request->togetherBookRule;
+
+        if (null !== $request->thirdpartDepartId) {
+            @$body['thirdpart_depart_id'] = $request->thirdpartDepartId;
         }
-        if (!Utils::isUnset($request->trainBudget)) {
-            $body['train_budget'] = $request->trainBudget;
+
+        if (null !== $request->togetherBookRule) {
+            @$body['together_book_rule'] = $request->togetherBookRule;
         }
-        if (!Utils::isUnset($request->travelerListShrink)) {
-            $body['traveler_list'] = $request->travelerListShrink;
+
+        if (null !== $request->trainBudget) {
+            @$body['train_budget'] = $request->trainBudget;
         }
-        if (!Utils::isUnset($request->travelerStandardShrink)) {
-            $body['traveler_standard'] = $request->travelerStandardShrink;
+
+        if (null !== $request->travelerListShrink) {
+            @$body['traveler_list'] = $request->travelerListShrink;
         }
-        if (!Utils::isUnset($request->tripCause)) {
-            $body['trip_cause'] = $request->tripCause;
+
+        if (null !== $request->travelerStandardShrink) {
+            @$body['traveler_standard'] = $request->travelerStandardShrink;
         }
-        if (!Utils::isUnset($request->tripDay)) {
-            $body['trip_day'] = $request->tripDay;
+
+        if (null !== $request->tripCause) {
+            @$body['trip_cause'] = $request->tripCause;
         }
-        if (!Utils::isUnset($request->tripTitle)) {
-            $body['trip_title'] = $request->tripTitle;
+
+        if (null !== $request->tripDay) {
+            @$body['trip_day'] = $request->tripDay;
         }
-        if (!Utils::isUnset($request->unionNo)) {
-            $body['union_no'] = $request->unionNo;
+
+        if (null !== $request->tripTitle) {
+            @$body['trip_title'] = $request->tripTitle;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->unionNo) {
+            @$body['union_no'] = $request->unionNo;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->vehicleBudget)) {
-            $body['vehicle_budget'] = $request->vehicleBudget;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
+        if (null !== $request->vehicleBudget) {
+            @$body['vehicle_budget'] = $request->vehicleBudget;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyModify',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/biz-trip',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyModify',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/biz-trip',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新出差审批单
-     *  *
-     * @param ApplyModifyRequest $request ApplyModifyRequest
+     * 更新出差审批单.
      *
-     * @return ApplyModifyResponse ApplyModifyResponse
+     * @param request - ApplyModifyRequest
+     *
+     * @returns ApplyModifyResponse
+     *
+     * @param ApplyModifyRequest $request
+     *
+     * @return ApplyModifyResponse
      */
     public function applyModify($request)
     {
@@ -1993,65 +2363,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询出差审批单详情
-     *  *
-     * @param ApplyQueryRequest $request ApplyQueryRequest
-     * @param ApplyQueryHeaders $headers ApplyQueryHeaders
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 查询出差审批单详情.
      *
-     * @return ApplyQueryResponse ApplyQueryResponse
+     * @param request - ApplyQueryRequest
+     * @param headers - ApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyQueryResponse
+     *
+     * @param ApplyQueryRequest $request
+     * @param ApplyQueryHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ApplyQueryResponse
      */
     public function applyQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->applyShowId)) {
-            $query['apply_show_id'] = $request->applyShowId;
+
+        if (null !== $request->applyShowId) {
+            @$query['apply_show_id'] = $request->applyShowId;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $query['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->subCorpId) {
+            @$query['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/biz-trip',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/biz-trip',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询出差审批单详情
-     *  *
-     * @param ApplyQueryRequest $request ApplyQueryRequest
+     * 查询出差审批单详情.
      *
-     * @return ApplyQueryResponse ApplyQueryResponse
+     * @param request - ApplyQueryRequest
+     *
+     * @returns ApplyQueryResponse
+     *
+     * @param ApplyQueryRequest $request
+     *
+     * @return ApplyQueryResponse
      */
     public function applyQuery($request)
     {
@@ -2062,68 +2449,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 执行审批任务
-     *  *
-     * @param ApplyTripTaskExecuteRequest $request ApplyTripTaskExecuteRequest
-     * @param ApplyTripTaskExecuteHeaders $headers ApplyTripTaskExecuteHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 执行审批任务
      *
-     * @return ApplyTripTaskExecuteResponse ApplyTripTaskExecuteResponse
+     * @param request - ApplyTripTaskExecuteRequest
+     * @param headers - ApplyTripTaskExecuteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyTripTaskExecuteResponse
+     *
+     * @param ApplyTripTaskExecuteRequest $request
+     * @param ApplyTripTaskExecuteHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ApplyTripTaskExecuteResponse
      */
     public function applyTripTaskExecuteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->actionFrom)) {
-            $body['action_from'] = $request->actionFrom;
+        if (null !== $request->actionFrom) {
+            @$body['action_from'] = $request->actionFrom;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $body['comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$body['comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->taskAction)) {
-            $body['task_action'] = $request->taskAction;
+
+        if (null !== $request->taskAction) {
+            @$body['task_action'] = $request->taskAction;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['task_id'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['task_id'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyTripTaskExecute',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/trip-task/action/execute',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyTripTaskExecute',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/trip-task/action/execute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyTripTaskExecuteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行审批任务
-     *  *
-     * @param ApplyTripTaskExecuteRequest $request ApplyTripTaskExecuteRequest
+     * 执行审批任务
      *
-     * @return ApplyTripTaskExecuteResponse ApplyTripTaskExecuteResponse
+     * @param request - ApplyTripTaskExecuteRequest
+     *
+     * @returns ApplyTripTaskExecuteResponse
+     *
+     * @param ApplyTripTaskExecuteRequest $request
+     *
+     * @return ApplyTripTaskExecuteResponse
      */
     public function applyTripTaskExecute($request)
     {
@@ -2134,56 +2539,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
-     *  *
-     * @param BaseCityInfoSearchRequest $request BaseCityInfoSearchRequest
-     * @param BaseCityInfoSearchHeaders $headers BaseCityInfoSearchHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 搜索国内/国际（港澳台）城市基础行政区划数据.
      *
-     * @return BaseCityInfoSearchResponse BaseCityInfoSearchResponse
+     * @param request - BaseCityInfoSearchRequest
+     * @param headers - BaseCityInfoSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BaseCityInfoSearchResponse
+     *
+     * @param BaseCityInfoSearchRequest $request
+     * @param BaseCityInfoSearchHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BaseCityInfoSearchResponse
      */
     public function baseCityInfoSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
-            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+
+        if (null !== $headers->xAcsBtripAccessToken) {
+            @$realHeaders['x-acs-btrip-access-token'] = '' . $headers->xAcsBtripAccessToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BaseCityInfoSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/city/v1/cities/action/search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BaseCityInfoSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/city/v1/cities/action/search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BaseCityInfoSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
-     *  *
-     * @param BaseCityInfoSearchRequest $request BaseCityInfoSearchRequest
+     * 搜索国内/国际（港澳台）城市基础行政区划数据.
      *
-     * @return BaseCityInfoSearchResponse BaseCityInfoSearchResponse
+     * @param request - BaseCityInfoSearchRequest
+     *
+     * @returns BaseCityInfoSearchResponse
+     *
+     * @param BaseCityInfoSearchRequest $request
+     *
+     * @return BaseCityInfoSearchResponse
      */
     public function baseCityInfoSearch($request)
     {
@@ -2194,68 +2613,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 商旅账单内容修改
-     *  *
-     * @param BtripBillInfoAdjustRequest $request BtripBillInfoAdjustRequest
-     * @param BtripBillInfoAdjustHeaders $headers BtripBillInfoAdjustHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 商旅账单内容修改.
      *
-     * @return BtripBillInfoAdjustResponse BtripBillInfoAdjustResponse
+     * @param request - BtripBillInfoAdjustRequest
+     * @param headers - BtripBillInfoAdjustHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BtripBillInfoAdjustResponse
+     *
+     * @param BtripBillInfoAdjustRequest $request
+     * @param BtripBillInfoAdjustHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BtripBillInfoAdjustResponse
      */
     public function btripBillInfoAdjustWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->primaryId)) {
-            $body['primary_id'] = $request->primaryId;
+        if (null !== $request->primaryId) {
+            @$body['primary_id'] = $request->primaryId;
         }
-        if (!Utils::isUnset($request->thirdPartCostCenterId)) {
-            $body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
+
+        if (null !== $request->thirdPartCostCenterId) {
+            @$body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
         }
-        if (!Utils::isUnset($request->thirdPartDepartmentId)) {
-            $body['third_part_department_id'] = $request->thirdPartDepartmentId;
+
+        if (null !== $request->thirdPartDepartmentId) {
+            @$body['third_part_department_id'] = $request->thirdPartDepartmentId;
         }
-        if (!Utils::isUnset($request->thirdPartInvoiceId)) {
-            $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
+
+        if (null !== $request->thirdPartInvoiceId) {
+            @$body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
         }
-        if (!Utils::isUnset($request->thirdPartProjectId)) {
-            $body['third_part_project_id'] = $request->thirdPartProjectId;
+
+        if (null !== $request->thirdPartProjectId) {
+            @$body['third_part_project_id'] = $request->thirdPartProjectId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BtripBillInfoAdjust',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/bill/v1/info/action/adjust',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BtripBillInfoAdjust',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bill/v1/info/action/adjust',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BtripBillInfoAdjustResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 商旅账单内容修改
-     *  *
-     * @param BtripBillInfoAdjustRequest $request BtripBillInfoAdjustRequest
+     * 商旅账单内容修改.
      *
-     * @return BtripBillInfoAdjustResponse BtripBillInfoAdjustResponse
+     * @param request - BtripBillInfoAdjustRequest
+     *
+     * @returns BtripBillInfoAdjustResponse
+     *
+     * @param BtripBillInfoAdjustRequest $request
+     *
+     * @return BtripBillInfoAdjustResponse
      */
     public function btripBillInfoAdjust($request)
     {
@@ -2266,106 +2703,136 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 同步市内用车审批单
-     *  *
-     * @param CarApplyAddRequest $tmpReq  CarApplyAddRequest
-     * @param CarApplyAddHeaders $headers CarApplyAddHeaders
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 同步市内用车审批单.
      *
-     * @return CarApplyAddResponse CarApplyAddResponse
+     * @param tmpReq - CarApplyAddRequest
+     * @param headers - CarApplyAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarApplyAddResponse
+     *
+     * @param CarApplyAddRequest $tmpReq
+     * @param CarApplyAddHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CarApplyAddResponse
      */
     public function carApplyAddWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CarApplyAddShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->travelerStandard)) {
-            $request->travelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->travelerStandard) {
+            $request->travelerStandardShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cause)) {
-            $body['cause'] = $request->cause;
+        if (null !== $request->cause) {
+            @$body['cause'] = $request->cause;
         }
-        if (!Utils::isUnset($request->city)) {
-            $body['city'] = $request->city;
+
+        if (null !== $request->city) {
+            @$body['city'] = $request->city;
         }
-        if (!Utils::isUnset($request->cityCodeSet)) {
-            $body['city_code_set'] = $request->cityCodeSet;
+
+        if (null !== $request->cityCodeSet) {
+            @$body['city_code_set'] = $request->cityCodeSet;
         }
-        if (!Utils::isUnset($request->date)) {
-            $body['date'] = $request->date;
+
+        if (null !== $request->date) {
+            @$body['date'] = $request->date;
         }
-        if (!Utils::isUnset($request->finishedDate)) {
-            $body['finished_date'] = $request->finishedDate;
+
+        if (null !== $request->finishedDate) {
+            @$body['finished_date'] = $request->finishedDate;
         }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['project_code'] = $request->projectCode;
+
+        if (null !== $request->projectCode) {
+            @$body['project_code'] = $request->projectCode;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['project_name'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['project_name'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdPartApplyId)) {
-            $body['third_part_apply_id'] = $request->thirdPartApplyId;
+
+        if (null !== $request->thirdPartApplyId) {
+            @$body['third_part_apply_id'] = $request->thirdPartApplyId;
         }
-        if (!Utils::isUnset($request->thirdPartCostCenterId)) {
-            $body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
+
+        if (null !== $request->thirdPartCostCenterId) {
+            @$body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
         }
-        if (!Utils::isUnset($request->thirdPartInvoiceId)) {
-            $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
+
+        if (null !== $request->thirdPartInvoiceId) {
+            @$body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
         }
-        if (!Utils::isUnset($request->timesTotal)) {
-            $body['times_total'] = $request->timesTotal;
+
+        if (null !== $request->timesTotal) {
+            @$body['times_total'] = $request->timesTotal;
         }
-        if (!Utils::isUnset($request->timesType)) {
-            $body['times_type'] = $request->timesType;
+
+        if (null !== $request->timesType) {
+            @$body['times_type'] = $request->timesType;
         }
-        if (!Utils::isUnset($request->timesUsed)) {
-            $body['times_used'] = $request->timesUsed;
+
+        if (null !== $request->timesUsed) {
+            @$body['times_used'] = $request->timesUsed;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->travelerStandardShrink)) {
-            $body['traveler_standard'] = $request->travelerStandardShrink;
+
+        if (null !== $request->travelerStandardShrink) {
+            @$body['traveler_standard'] = $request->travelerStandardShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CarApplyAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/car',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarApplyAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/car',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarApplyAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 同步市内用车审批单
-     *  *
-     * @param CarApplyAddRequest $request CarApplyAddRequest
+     * 同步市内用车审批单.
      *
-     * @return CarApplyAddResponse CarApplyAddResponse
+     * @param request - CarApplyAddRequest
+     *
+     * @returns CarApplyAddResponse
+     *
+     * @param CarApplyAddRequest $request
+     *
+     * @return CarApplyAddResponse
      */
     public function carApplyAdd($request)
     {
@@ -2376,65 +2843,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 更新市内用车审批单
-     *  *
-     * @param CarApplyModifyRequest $request CarApplyModifyRequest
-     * @param CarApplyModifyHeaders $headers CarApplyModifyHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 更新市内用车审批单.
      *
-     * @return CarApplyModifyResponse CarApplyModifyResponse
+     * @param request - CarApplyModifyRequest
+     * @param headers - CarApplyModifyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarApplyModifyResponse
+     *
+     * @param CarApplyModifyRequest $request
+     * @param CarApplyModifyHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CarApplyModifyResponse
      */
     public function carApplyModifyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->operateTime)) {
-            $body['operate_time'] = $request->operateTime;
+        if (null !== $request->operateTime) {
+            @$body['operate_time'] = $request->operateTime;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdPartApplyId)) {
-            $body['third_part_apply_id'] = $request->thirdPartApplyId;
+
+        if (null !== $request->thirdPartApplyId) {
+            @$body['third_part_apply_id'] = $request->thirdPartApplyId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CarApplyModify',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/car',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarApplyModify',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/car',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarApplyModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新市内用车审批单
-     *  *
-     * @param CarApplyModifyRequest $request CarApplyModifyRequest
+     * 更新市内用车审批单.
      *
-     * @return CarApplyModifyResponse CarApplyModifyResponse
+     * @param request - CarApplyModifyRequest
+     *
+     * @returns CarApplyModifyResponse
+     *
+     * @param CarApplyModifyRequest $request
+     *
+     * @return CarApplyModifyResponse
      */
     public function carApplyModify($request)
     {
@@ -2445,68 +2929,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询市内用车审批单
-     *  *
-     * @param CarApplyQueryRequest $request CarApplyQueryRequest
-     * @param CarApplyQueryHeaders $headers CarApplyQueryHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询市内用车审批单.
      *
-     * @return CarApplyQueryResponse CarApplyQueryResponse
+     * @param request - CarApplyQueryRequest
+     * @param headers - CarApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarApplyQueryResponse
+     *
+     * @param CarApplyQueryRequest $request
+     * @param CarApplyQueryHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CarApplyQueryResponse
      */
     public function carApplyQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createdEndAt)) {
-            $query['created_end_at'] = $request->createdEndAt;
+        if (null !== $request->createdEndAt) {
+            @$query['created_end_at'] = $request->createdEndAt;
         }
-        if (!Utils::isUnset($request->createdStartAt)) {
-            $query['created_start_at'] = $request->createdStartAt;
+
+        if (null !== $request->createdStartAt) {
+            @$query['created_start_at'] = $request->createdStartAt;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['page_number'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['page_number'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->thirdPartApplyId)) {
-            $query['third_part_apply_id'] = $request->thirdPartApplyId;
+
+        if (null !== $request->thirdPartApplyId) {
+            @$query['third_part_apply_id'] = $request->thirdPartApplyId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CarApplyQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/car',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/car',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询市内用车审批单
-     *  *
-     * @param CarApplyQueryRequest $request CarApplyQueryRequest
+     * 查询市内用车审批单.
      *
-     * @return CarApplyQueryResponse CarApplyQueryResponse
+     * @param request - CarApplyQueryRequest
+     *
+     * @returns CarApplyQueryResponse
+     *
+     * @param CarApplyQueryRequest $request
+     *
+     * @return CarApplyQueryResponse
      */
     public function carApplyQuery($request)
     {
@@ -2517,71 +3019,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询用车记账数据
-     *  *
-     * @param CarBillSettlementQueryRequest $request CarBillSettlementQueryRequest
-     * @param CarBillSettlementQueryHeaders $headers CarBillSettlementQueryHeaders
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询用车记账数据.
      *
-     * @return CarBillSettlementQueryResponse CarBillSettlementQueryResponse
+     * @param request - CarBillSettlementQueryRequest
+     * @param headers - CarBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarBillSettlementQueryResponse
+     *
+     * @param CarBillSettlementQueryRequest $request
+     * @param CarBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CarBillSettlementQueryResponse
      */
     public function carBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CarBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/car/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/car/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用车记账数据
-     *  *
-     * @param CarBillSettlementQueryRequest $request CarBillSettlementQueryRequest
+     * 查询用车记账数据.
      *
-     * @return CarBillSettlementQueryResponse CarBillSettlementQueryResponse
+     * @param request - CarBillSettlementQueryRequest
+     *
+     * @returns CarBillSettlementQueryResponse
+     *
+     * @param CarBillSettlementQueryRequest $request
+     *
+     * @return CarBillSettlementQueryResponse
      */
     public function carBillSettlementQuery($request)
     {
@@ -2592,83 +3113,106 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询用车订单列表
-     *  *
-     * @param CarOrderListQueryRequest $request CarOrderListQueryRequest
-     * @param CarOrderListQueryHeaders $headers CarOrderListQueryHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询用车订单列表.
      *
-     * @return CarOrderListQueryResponse CarOrderListQueryResponse
+     * @param request - CarOrderListQueryRequest
+     * @param headers - CarOrderListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarOrderListQueryResponse
+     *
+     * @param CarOrderListQueryRequest $request
+     * @param CarOrderListQueryHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CarOrderListQueryResponse
      */
     public function carOrderListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allApply)) {
-            $query['all_apply'] = $request->allApply;
+        if (null !== $request->allApply) {
+            @$query['all_apply'] = $request->allApply;
         }
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $query['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$query['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['end_time'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['end_time'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['start_time'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['start_time'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $query['update_end_time'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$query['update_end_time'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->updateStartTime)) {
-            $query['update_start_time'] = $request->updateStartTime;
+
+        if (null !== $request->updateStartTime) {
+            @$query['update_start_time'] = $request->updateStartTime;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CarOrderListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/car/v1/order-list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarOrderListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/car/v1/order-list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用车订单列表
-     *  *
-     * @param CarOrderListQueryRequest $request CarOrderListQueryRequest
+     * 查询用车订单列表.
      *
-     * @return CarOrderListQueryResponse CarOrderListQueryResponse
+     * @param request - CarOrderListQueryRequest
+     *
+     * @returns CarOrderListQueryResponse
+     *
+     * @param CarOrderListQueryRequest $request
+     *
+     * @return CarOrderListQueryResponse
      */
     public function carOrderListQuery($request)
     {
@@ -2679,56 +3223,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 用车订单查询
-     *  *
-     * @param CarOrderQueryRequest $request CarOrderQueryRequest
-     * @param CarOrderQueryHeaders $headers CarOrderQueryHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 用车订单查询.
      *
-     * @return CarOrderQueryResponse CarOrderQueryResponse
+     * @param request - CarOrderQueryRequest
+     * @param headers - CarOrderQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarOrderQueryResponse
+     *
+     * @param CarOrderQueryRequest $request
+     * @param CarOrderQueryHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CarOrderQueryResponse
      */
     public function carOrderQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->subOrderId)) {
-            $query['sub_order_id'] = $request->subOrderId;
+
+        if (null !== $request->subOrderId) {
+            @$query['sub_order_id'] = $request->subOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CarOrderQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/car/v1/order',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarOrderQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/car/v1/order',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 用车订单查询
-     *  *
-     * @param CarOrderQueryRequest $request CarOrderQueryRequest
+     * 用车订单查询.
      *
-     * @return CarOrderQueryResponse CarOrderQueryResponse
+     * @param request - CarOrderQueryRequest
+     *
+     * @returns CarOrderQueryResponse
+     *
+     * @param CarOrderQueryRequest $request
+     *
+     * @return CarOrderQueryResponse
      */
     public function carOrderQuery($request)
     {
@@ -2739,44 +3297,53 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询企业用车场景
-     *  *
-     * @param CarSceneQueryHeaders $headers CarSceneQueryHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询企业用车场景.
      *
-     * @return CarSceneQueryResponse CarSceneQueryResponse
+     * @param headers - CarSceneQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CarSceneQueryResponse
+     *
+     * @param CarSceneQueryHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CarSceneQueryResponse
      */
     public function carSceneQueryWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'CarSceneQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/car/v1/scenes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CarSceneQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/car/v1/scenes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CarSceneQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询企业用车场景
-     *  *
-     * @return CarSceneQueryResponse CarSceneQueryResponse
+     * 查询企业用车场景.
+     *
+     * @returns CarSceneQueryResponse
+     *
+     * @return CarSceneQueryResponse
      */
     public function carSceneQuery()
     {
@@ -2787,74 +3354,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 渠道商创建企业
-     *  *
-     * @param ChannelCorpCreateRequest $request ChannelCorpCreateRequest
-     * @param ChannelCorpCreateHeaders $headers ChannelCorpCreateHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 渠道商创建企业.
      *
-     * @return ChannelCorpCreateResponse ChannelCorpCreateResponse
+     * @param request - ChannelCorpCreateRequest
+     * @param headers - ChannelCorpCreateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChannelCorpCreateResponse
+     *
+     * @param ChannelCorpCreateRequest $request
+     * @param ChannelCorpCreateHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ChannelCorpCreateResponse
      */
     public function channelCorpCreateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->administratorName)) {
-            $body['administrator_name'] = $request->administratorName;
+        if (null !== $request->administratorName) {
+            @$body['administrator_name'] = $request->administratorName;
         }
-        if (!Utils::isUnset($request->administratorPhone)) {
-            $body['administrator_phone'] = $request->administratorPhone;
+
+        if (null !== $request->administratorPhone) {
+            @$body['administrator_phone'] = $request->administratorPhone;
         }
-        if (!Utils::isUnset($request->city)) {
-            $body['city'] = $request->city;
+
+        if (null !== $request->city) {
+            @$body['city'] = $request->city;
         }
-        if (!Utils::isUnset($request->corpName)) {
-            $body['corp_name'] = $request->corpName;
+
+        if (null !== $request->corpName) {
+            @$body['corp_name'] = $request->corpName;
         }
-        if (!Utils::isUnset($request->province)) {
-            $body['province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$body['province'] = $request->province;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->thirdCorpId)) {
-            $body['third_corp_id'] = $request->thirdCorpId;
+
+        if (null !== $request->thirdCorpId) {
+            @$body['third_corp_id'] = $request->thirdCorpId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChannelCorpCreate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/corp/v1/channelCorps',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChannelCorpCreate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/corp/v1/channelCorps',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChannelCorpCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 渠道商创建企业
-     *  *
-     * @param ChannelCorpCreateRequest $request ChannelCorpCreateRequest
+     * 渠道商创建企业.
      *
-     * @return ChannelCorpCreateResponse ChannelCorpCreateResponse
+     * @param request - ChannelCorpCreateRequest
+     *
+     * @returns ChannelCorpCreateResponse
+     *
+     * @param ChannelCorpCreateRequest $request
+     *
+     * @return ChannelCorpCreateResponse
      */
     public function channelCorpCreate($request)
     {
@@ -2865,53 +3452,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询行政区划（市，区）基础数据
-     *  *
-     * @param CitySearchRequest $request CitySearchRequest
-     * @param CitySearchHeaders $headers CitySearchHeaders
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 查询行政区划（市，区）基础数据.
      *
-     * @return CitySearchResponse CitySearchResponse
+     * @param request - CitySearchRequest
+     * @param headers - CitySearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CitySearchResponse
+     *
+     * @param CitySearchRequest $request
+     * @param CitySearchHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CitySearchResponse
      */
     public function citySearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CitySearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/city/v1/city',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CitySearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/city/v1/city',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CitySearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询行政区划（市，区）基础数据
-     *  *
-     * @param CitySearchRequest $request CitySearchRequest
+     * 查询行政区划（市，区）基础数据.
      *
-     * @return CitySearchResponse CitySearchResponse
+     * @param request - CitySearchRequest
+     *
+     * @returns CitySearchResponse
+     *
+     * @param CitySearchRequest $request
+     *
+     * @return CitySearchResponse
      */
     public function citySearch($request)
     {
@@ -2922,62 +3522,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询退改审批信息
-     *  *
-     * @param CommonApplyQueryRequest $request CommonApplyQueryRequest
-     * @param CommonApplyQueryHeaders $headers CommonApplyQueryHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询退改审批信息.
      *
-     * @return CommonApplyQueryResponse CommonApplyQueryResponse
+     * @param request - CommonApplyQueryRequest
+     * @param headers - CommonApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommonApplyQueryResponse
+     *
+     * @param CommonApplyQueryRequest $request
+     * @param CommonApplyQueryHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CommonApplyQueryResponse
      */
     public function commonApplyQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->bizCategory)) {
-            $query['biz_category'] = $request->bizCategory;
+
+        if (null !== $request->bizCategory) {
+            @$query['biz_category'] = $request->bizCategory;
         }
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CommonApplyQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/common',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CommonApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/common',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CommonApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询退改审批信息
-     *  *
-     * @param CommonApplyQueryRequest $request CommonApplyQueryRequest
+     * 查询退改审批信息.
      *
-     * @return CommonApplyQueryResponse CommonApplyQueryResponse
+     * @param request - CommonApplyQueryRequest
+     *
+     * @returns CommonApplyQueryResponse
+     *
+     * @param CommonApplyQueryRequest $request
+     *
+     * @return CommonApplyQueryResponse
      */
     public function commonApplyQuery($request)
     {
@@ -2988,68 +3604,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 退改审批结果同步
-     *  *
-     * @param CommonApplySyncRequest $request CommonApplySyncRequest
-     * @param CommonApplySyncHeaders $headers CommonApplySyncHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 退改审批结果同步.
      *
-     * @return CommonApplySyncResponse CommonApplySyncResponse
+     * @param request - CommonApplySyncRequest
+     * @param headers - CommonApplySyncHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommonApplySyncResponse
+     *
+     * @param CommonApplySyncRequest $request
+     * @param CommonApplySyncHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CommonApplySyncResponse
      */
     public function commonApplySyncWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->bizCategory)) {
-            $query['biz_category'] = $request->bizCategory;
+
+        if (null !== $request->bizCategory) {
+            @$query['biz_category'] = $request->bizCategory;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdpartyFlowId)) {
-            $query['thirdparty_flow_id'] = $request->thirdpartyFlowId;
+
+        if (null !== $request->thirdpartyFlowId) {
+            @$query['thirdparty_flow_id'] = $request->thirdpartyFlowId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CommonApplySync',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/syn-common',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CommonApplySync',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/syn-common',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CommonApplySyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 退改审批结果同步
-     *  *
-     * @param CommonApplySyncRequest $request CommonApplySyncRequest
+     * 退改审批结果同步.
      *
-     * @return CommonApplySyncResponse CommonApplySyncResponse
+     * @param request - CommonApplySyncRequest
+     *
+     * @returns CommonApplySyncResponse
+     *
+     * @param CommonApplySyncRequest $request
+     *
+     * @return CommonApplySyncResponse
      */
     public function commonApplySync($request)
     {
@@ -3060,74 +3694,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询服务商机票记账数据
-     *  *
-     * @param CooperatorFlightBillSettlementQueryRequest $request CooperatorFlightBillSettlementQueryRequest
-     * @param CooperatorFlightBillSettlementQueryHeaders $headers CooperatorFlightBillSettlementQueryHeaders
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 查询服务商机票记账数据.
      *
-     * @return CooperatorFlightBillSettlementQueryResponse CooperatorFlightBillSettlementQueryResponse
+     * @param request - CooperatorFlightBillSettlementQueryRequest
+     * @param headers - CooperatorFlightBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CooperatorFlightBillSettlementQueryResponse
+     *
+     * @param CooperatorFlightBillSettlementQueryRequest $request
+     * @param CooperatorFlightBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CooperatorFlightBillSettlementQueryResponse
      */
     public function cooperatorFlightBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->cooperatorId)) {
-            $query['cooperator_id'] = $request->cooperatorId;
+
+        if (null !== $request->cooperatorId) {
+            @$query['cooperator_id'] = $request->cooperatorId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CooperatorFlightBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/cooperator-flight/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CooperatorFlightBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cooperator-flight/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CooperatorFlightBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询服务商机票记账数据
-     *  *
-     * @param CooperatorFlightBillSettlementQueryRequest $request CooperatorFlightBillSettlementQueryRequest
+     * 查询服务商机票记账数据.
      *
-     * @return CooperatorFlightBillSettlementQueryResponse CooperatorFlightBillSettlementQueryResponse
+     * @param request - CooperatorFlightBillSettlementQueryRequest
+     *
+     * @returns CooperatorFlightBillSettlementQueryResponse
+     *
+     * @param CooperatorFlightBillSettlementQueryRequest $request
+     *
+     * @return CooperatorFlightBillSettlementQueryResponse
      */
     public function cooperatorFlightBillSettlementQuery($request)
     {
@@ -3138,74 +3792,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询服务商酒店记账数据
-     *  *
-     * @param CooperatorHotelBillSettlementQueryRequest $request CooperatorHotelBillSettlementQueryRequest
-     * @param CooperatorHotelBillSettlementQueryHeaders $headers CooperatorHotelBillSettlementQueryHeaders
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 查询服务商酒店记账数据.
      *
-     * @return CooperatorHotelBillSettlementQueryResponse CooperatorHotelBillSettlementQueryResponse
+     * @param request - CooperatorHotelBillSettlementQueryRequest
+     * @param headers - CooperatorHotelBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CooperatorHotelBillSettlementQueryResponse
+     *
+     * @param CooperatorHotelBillSettlementQueryRequest $request
+     * @param CooperatorHotelBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CooperatorHotelBillSettlementQueryResponse
      */
     public function cooperatorHotelBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->cooperatorId)) {
-            $query['cooperator_id'] = $request->cooperatorId;
+
+        if (null !== $request->cooperatorId) {
+            @$query['cooperator_id'] = $request->cooperatorId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CooperatorHotelBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/cooperator-hotel/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CooperatorHotelBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cooperator-hotel/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CooperatorHotelBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询服务商酒店记账数据
-     *  *
-     * @param CooperatorHotelBillSettlementQueryRequest $request CooperatorHotelBillSettlementQueryRequest
+     * 查询服务商酒店记账数据.
      *
-     * @return CooperatorHotelBillSettlementQueryResponse CooperatorHotelBillSettlementQueryResponse
+     * @param request - CooperatorHotelBillSettlementQueryRequest
+     *
+     * @returns CooperatorHotelBillSettlementQueryResponse
+     *
+     * @param CooperatorHotelBillSettlementQueryRequest $request
+     *
+     * @return CooperatorHotelBillSettlementQueryResponse
      */
     public function cooperatorHotelBillSettlementQuery($request)
     {
@@ -3216,71 +3890,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单事件推送
-     *  *
-     * @param CooperatorHotelEventPushRequest $request CooperatorHotelEventPushRequest
-     * @param CooperatorHotelEventPushHeaders $headers CooperatorHotelEventPushHeaders
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 酒店订单事件推送
      *
-     * @return CooperatorHotelEventPushResponse CooperatorHotelEventPushResponse
+     * @param request - CooperatorHotelEventPushRequest
+     * @param headers - CooperatorHotelEventPushHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CooperatorHotelEventPushResponse
+     *
+     * @param CooperatorHotelEventPushRequest $request
+     * @param CooperatorHotelEventPushHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CooperatorHotelEventPushResponse
      */
     public function cooperatorHotelEventPushWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->changeOrderStatus)) {
-            $body['change_order_status'] = $request->changeOrderStatus;
+        if (null !== $request->changeOrderStatus) {
+            @$body['change_order_status'] = $request->changeOrderStatus;
         }
-        if (!Utils::isUnset($request->changeOrderStatusDesc)) {
-            $body['change_order_status_desc'] = $request->changeOrderStatusDesc;
+
+        if (null !== $request->changeOrderStatusDesc) {
+            @$body['change_order_status_desc'] = $request->changeOrderStatusDesc;
         }
-        if (!Utils::isUnset($request->cooperatorOrderId)) {
-            $body['cooperator_order_id'] = $request->cooperatorOrderId;
+
+        if (null !== $request->cooperatorOrderId) {
+            @$body['cooperator_order_id'] = $request->cooperatorOrderId;
         }
-        if (!Utils::isUnset($request->event)) {
-            $body['event'] = $request->event;
+
+        if (null !== $request->event) {
+            @$body['event'] = $request->event;
         }
-        if (!Utils::isUnset($request->eventDesc)) {
-            $body['event_desc'] = $request->eventDesc;
+
+        if (null !== $request->eventDesc) {
+            @$body['event_desc'] = $request->eventDesc;
         }
-        if (!Utils::isUnset($request->eventTime)) {
-            $body['event_time'] = $request->eventTime;
+
+        if (null !== $request->eventTime) {
+            @$body['event_time'] = $request->eventTime;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CooperatorHotelEventPush',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/coop-hotel/v1/orders/events',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CooperatorHotelEventPush',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/coop-hotel/v1/orders/events',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CooperatorHotelEventPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单事件推送
-     *  *
-     * @param CooperatorHotelEventPushRequest $request CooperatorHotelEventPushRequest
+     * 酒店订单事件推送
      *
-     * @return CooperatorHotelEventPushResponse CooperatorHotelEventPushResponse
+     * @param request - CooperatorHotelEventPushRequest
+     *
+     * @returns CooperatorHotelEventPushResponse
+     *
+     * @param CooperatorHotelEventPushRequest $request
+     *
+     * @return CooperatorHotelEventPushResponse
      */
     public function cooperatorHotelEventPush($request)
     {
@@ -3291,65 +3984,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 个人支付结果推送
-     *  *
-     * @param CooperatorSyncPayStatusRequest $request CooperatorSyncPayStatusRequest
-     * @param CooperatorSyncPayStatusHeaders $headers CooperatorSyncPayStatusHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 个人支付结果推送
      *
-     * @return CooperatorSyncPayStatusResponse CooperatorSyncPayStatusResponse
+     * @param request - CooperatorSyncPayStatusRequest
+     * @param headers - CooperatorSyncPayStatusHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CooperatorSyncPayStatusResponse
+     *
+     * @param CooperatorSyncPayStatusRequest $request
+     * @param CooperatorSyncPayStatusHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CooperatorSyncPayStatusResponse
      */
     public function cooperatorSyncPayStatusWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cooperatorOrderId)) {
-            $body['cooperator_order_id'] = $request->cooperatorOrderId;
+        if (null !== $request->cooperatorOrderId) {
+            @$body['cooperator_order_id'] = $request->cooperatorOrderId;
         }
-        if (!Utils::isUnset($request->cooperatorPayNo)) {
-            $body['cooperator_pay_no'] = $request->cooperatorPayNo;
+
+        if (null !== $request->cooperatorPayNo) {
+            @$body['cooperator_pay_no'] = $request->cooperatorPayNo;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->payStatus)) {
-            $body['pay_status'] = $request->payStatus;
+
+        if (null !== $request->payStatus) {
+            @$body['pay_status'] = $request->payStatus;
         }
-        if (!Utils::isUnset($request->payTime)) {
-            $body['pay_time'] = $request->payTime;
+
+        if (null !== $request->payTime) {
+            @$body['pay_time'] = $request->payTime;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CooperatorSyncPayStatus',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/coop-pay/v1/cashiers/status',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CooperatorSyncPayStatus',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/coop-pay/v1/cashiers/status',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CooperatorSyncPayStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 个人支付结果推送
-     *  *
-     * @param CooperatorSyncPayStatusRequest $request CooperatorSyncPayStatusRequest
+     * 个人支付结果推送
      *
-     * @return CooperatorSyncPayStatusResponse CooperatorSyncPayStatusResponse
+     * @param request - CooperatorSyncPayStatusRequest
+     *
+     * @returns CooperatorSyncPayStatusResponse
+     *
+     * @param CooperatorSyncPayStatusRequest $request
+     *
+     * @return CooperatorSyncPayStatusResponse
      */
     public function cooperatorSyncPayStatus($request)
     {
@@ -3360,12 +4070,17 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取关联可调用企业接口
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取关联可调用企业接口.
      *
-     * @return CorpAuthLinkInfoQueryResponse CorpAuthLinkInfoQueryResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CorpAuthLinkInfoQueryResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CorpAuthLinkInfoQueryResponse
      */
     public function corpAuthLinkInfoQueryWithOptions($headers, $runtime)
     {
@@ -3373,24 +4088,26 @@ class BtripOpen extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CorpAuthLinkInfoQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/corp-authority-link/v1/info',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CorpAuthLinkInfoQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/corp-authority-link/v1/info',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CorpAuthLinkInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取关联可调用企业接口
-     *  *
-     * @return CorpAuthLinkInfoQueryResponse CorpAuthLinkInfoQueryResponse
+     * 获取关联可调用企业接口.
+     *
+     * @returns CorpAuthLinkInfoQueryResponse
+     *
+     * @return CorpAuthLinkInfoQueryResponse
      */
     public function corpAuthLinkInfoQuery()
     {
@@ -3401,59 +4118,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 换取CorpToken接口
-     *  *
-     * @param CorpTokenRequest $request CorpTokenRequest
-     * @param CorpTokenHeaders $headers CorpTokenHeaders
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 换取CorpToken接口.
      *
-     * @return CorpTokenResponse CorpTokenResponse
+     * @param request - CorpTokenRequest
+     * @param headers - CorpTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CorpTokenResponse
+     *
+     * @param CorpTokenRequest $request
+     * @param CorpTokenHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CorpTokenResponse
      */
     public function corpTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appSecret)) {
-            $query['app_secret'] = $request->appSecret;
+        if (null !== $request->appSecret) {
+            @$query['app_secret'] = $request->appSecret;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
+
+        if (null !== $request->corpId) {
+            @$query['corp_id'] = $request->corpId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
-            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+
+        if (null !== $headers->xAcsBtripAccessToken) {
+            @$realHeaders['x-acs-btrip-access-token'] = '' . $headers->xAcsBtripAccessToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CorpToken',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/btrip-open-auth/v1/corp-token/action/take',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CorpToken',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/btrip-open-auth/v1/corp-token/action/take',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CorpTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 换取CorpToken接口
-     *  *
-     * @param CorpTokenRequest $request CorpTokenRequest
+     * 换取CorpToken接口.
      *
-     * @return CorpTokenResponse CorpTokenResponse
+     * @param request - CorpTokenRequest
+     *
+     * @returns CorpTokenResponse
+     *
+     * @param CorpTokenRequest $request
+     *
+     * @return CorpTokenResponse
      */
     public function corpToken($request)
     {
@@ -3464,53 +4196,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除成本中心
-     *  *
-     * @param CostCenterDeleteRequest $request CostCenterDeleteRequest
-     * @param CostCenterDeleteHeaders $headers CostCenterDeleteHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除成本中心.
      *
-     * @return CostCenterDeleteResponse CostCenterDeleteResponse
+     * @param request - CostCenterDeleteRequest
+     * @param headers - CostCenterDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CostCenterDeleteResponse
+     *
+     * @param CostCenterDeleteRequest $request
+     * @param CostCenterDeleteHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CostCenterDeleteResponse
      */
     public function costCenterDeleteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $query['thirdpart_id'] = $request->thirdpartId;
+        if (null !== $request->thirdpartId) {
+            @$query['thirdpart_id'] = $request->thirdpartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CostCenterDelete',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/delete-costcenter',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CostCenterDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/delete-costcenter',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CostCenterDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除成本中心
-     *  *
-     * @param CostCenterDeleteRequest $request CostCenterDeleteRequest
+     * 删除成本中心.
      *
-     * @return CostCenterDeleteResponse CostCenterDeleteResponse
+     * @param request - CostCenterDeleteRequest
+     *
+     * @returns CostCenterDeleteResponse
+     *
+     * @param CostCenterDeleteRequest $request
+     *
+     * @return CostCenterDeleteResponse
      */
     public function costCenterDelete($request)
     {
@@ -3521,68 +4266,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 修改成本中心
-     *  *
-     * @param CostCenterModifyRequest $request CostCenterModifyRequest
-     * @param CostCenterModifyHeaders $headers CostCenterModifyHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 修改成本中心.
      *
-     * @return CostCenterModifyResponse CostCenterModifyResponse
+     * @param request - CostCenterModifyRequest
+     * @param headers - CostCenterModifyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CostCenterModifyResponse
+     *
+     * @param CostCenterModifyRequest $request
+     * @param CostCenterModifyHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CostCenterModifyResponse
      */
     public function costCenterModifyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alipayNo)) {
-            $body['alipay_no'] = $request->alipayNo;
+        if (null !== $request->alipayNo) {
+            @$body['alipay_no'] = $request->alipayNo;
         }
-        if (!Utils::isUnset($request->disable)) {
-            $body['disable'] = $request->disable;
+
+        if (null !== $request->disable) {
+            @$body['disable'] = $request->disable;
         }
-        if (!Utils::isUnset($request->number)) {
-            $body['number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$body['number'] = $request->number;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $body['thirdpart_id'] = $request->thirdpartId;
+
+        if (null !== $request->thirdpartId) {
+            @$body['thirdpart_id'] = $request->thirdpartId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CostCenterModify',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/modify-costcenter',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CostCenterModify',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/modify-costcenter',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CostCenterModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改成本中心
-     *  *
-     * @param CostCenterModifyRequest $request CostCenterModifyRequest
+     * 修改成本中心.
      *
-     * @return CostCenterModifyResponse CostCenterModifyResponse
+     * @param request - CostCenterModifyRequest
+     *
+     * @returns CostCenterModifyResponse
+     *
+     * @param CostCenterModifyRequest $request
+     *
+     * @return CostCenterModifyResponse
      */
     public function costCenterModify($request)
     {
@@ -3593,65 +4356,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查看成本中心
-     *  *
-     * @param CostCenterQueryRequest $request CostCenterQueryRequest
-     * @param CostCenterQueryHeaders $headers CostCenterQueryHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查看成本中心.
      *
-     * @return CostCenterQueryResponse CostCenterQueryResponse
+     * @param request - CostCenterQueryRequest
+     * @param headers - CostCenterQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CostCenterQueryResponse
+     *
+     * @param CostCenterQueryRequest $request
+     * @param CostCenterQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CostCenterQueryResponse
      */
     public function costCenterQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->disable)) {
-            $query['disable'] = $request->disable;
+        if (null !== $request->disable) {
+            @$query['disable'] = $request->disable;
         }
-        if (!Utils::isUnset($request->needOrgEntity)) {
-            $query['need_org_entity'] = $request->needOrgEntity;
+
+        if (null !== $request->needOrgEntity) {
+            @$query['need_org_entity'] = $request->needOrgEntity;
         }
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $query['thirdpart_id'] = $request->thirdpartId;
+
+        if (null !== $request->thirdpartId) {
+            @$query['thirdpart_id'] = $request->thirdpartId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CostCenterQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/costcenter',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CostCenterQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/costcenter',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CostCenterQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看成本中心
-     *  *
-     * @param CostCenterQueryRequest $request CostCenterQueryRequest
+     * 查看成本中心.
      *
-     * @return CostCenterQueryResponse CostCenterQueryResponse
+     * @param request - CostCenterQueryRequest
+     *
+     * @returns CostCenterQueryResponse
+     *
+     * @param CostCenterQueryRequest $request
+     *
+     * @return CostCenterQueryResponse
      */
     public function costCenterQuery($request)
     {
@@ -3662,68 +4442,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保存成本中心
-     *  *
-     * @param CostCenterSaveRequest $request CostCenterSaveRequest
-     * @param CostCenterSaveHeaders $headers CostCenterSaveHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 保存成本中心.
      *
-     * @return CostCenterSaveResponse CostCenterSaveResponse
+     * @param request - CostCenterSaveRequest
+     * @param headers - CostCenterSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CostCenterSaveResponse
+     *
+     * @param CostCenterSaveRequest $request
+     * @param CostCenterSaveHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CostCenterSaveResponse
      */
     public function costCenterSaveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alipayNo)) {
-            $body['alipay_no'] = $request->alipayNo;
+        if (null !== $request->alipayNo) {
+            @$body['alipay_no'] = $request->alipayNo;
         }
-        if (!Utils::isUnset($request->disable)) {
-            $body['disable'] = $request->disable;
+
+        if (null !== $request->disable) {
+            @$body['disable'] = $request->disable;
         }
-        if (!Utils::isUnset($request->number)) {
-            $body['number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$body['number'] = $request->number;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $body['thirdpart_id'] = $request->thirdpartId;
+
+        if (null !== $request->thirdpartId) {
+            @$body['thirdpart_id'] = $request->thirdpartId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CostCenterSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/save-costcenter',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CostCenterSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/save-costcenter',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CostCenterSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存成本中心
-     *  *
-     * @param CostCenterSaveRequest $request CostCenterSaveRequest
+     * 保存成本中心.
      *
-     * @return CostCenterSaveResponse CostCenterSaveResponse
+     * @param request - CostCenterSaveRequest
+     *
+     * @returns CostCenterSaveResponse
+     *
+     * @param CostCenterSaveRequest $request
+     *
+     * @return CostCenterSaveResponse
      */
     public function costCenterSave($request)
     {
@@ -3734,56 +4532,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 创建企业自定义角色
-     *  *
-     * @param CreateCustomRoleRequest $request CreateCustomRoleRequest
-     * @param CreateCustomRoleHeaders $headers CreateCustomRoleHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建企业自定义角色.
      *
-     * @return CreateCustomRoleResponse CreateCustomRoleResponse
+     * @param request - CreateCustomRoleRequest
+     * @param headers - CreateCustomRoleHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomRoleResponse
+     *
+     * @param CreateCustomRoleRequest $request
+     * @param CreateCustomRoleHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCustomRoleResponse
      */
     public function createCustomRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $body['role_name'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$body['role_name'] = $request->roleName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustomRole',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/role/v1/customRoles/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateCustomRole',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/role/v1/customRoles/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建企业自定义角色
-     *  *
-     * @param CreateCustomRoleRequest $request CreateCustomRoleRequest
+     * 创建企业自定义角色.
      *
-     * @return CreateCustomRoleResponse CreateCustomRoleResponse
+     * @param request - CreateCustomRoleRequest
+     *
+     * @returns CreateCustomRoleResponse
+     *
+     * @param CreateCustomRoleRequest $request
+     *
+     * @return CreateCustomRoleResponse
      */
     public function createCustomRole($request)
     {
@@ -3794,59 +4606,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 创建子企业
-     *  *
-     * @param CreateSubCorpRequest $request CreateSubCorpRequest
-     * @param CreateSubCorpHeaders $headers CreateSubCorpHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建子企业.
      *
-     * @return CreateSubCorpResponse CreateSubCorpResponse
+     * @param request - CreateSubCorpRequest
+     * @param headers - CreateSubCorpHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSubCorpResponse
+     *
+     * @param CreateSubCorpRequest $request
+     * @param CreateSubCorpHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSubCorpResponse
      */
     public function createSubCorpWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->outerCorpId)) {
-            $body['outer_corp_id'] = $request->outerCorpId;
+        if (null !== $request->outerCorpId) {
+            @$body['outer_corp_id'] = $request->outerCorpId;
         }
-        if (!Utils::isUnset($request->outerCorpName)) {
-            $body['outer_corp_name'] = $request->outerCorpName;
+
+        if (null !== $request->outerCorpName) {
+            @$body['outer_corp_name'] = $request->outerCorpName;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSubCorp',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sub_corps/v1/corps',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSubCorp',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sub_corps/v1/corps',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSubCorpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建子企业
-     *  *
-     * @param CreateSubCorpRequest $request CreateSubCorpRequest
+     * 创建子企业.
      *
-     * @return CreateSubCorpResponse CreateSubCorpResponse
+     * @param request - CreateSubCorpRequest
+     *
+     * @returns CreateSubCorpResponse
+     *
+     * @param CreateSubCorpRequest $request
+     *
+     * @return CreateSubCorpResponse
      */
     public function createSubCorp($request)
     {
@@ -3857,53 +4684,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除企业自定义角色
-     *  *
-     * @param DeleteCustomRoleRequest $request DeleteCustomRoleRequest
-     * @param DeleteCustomRoleHeaders $headers DeleteCustomRoleHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除企业自定义角色.
      *
-     * @return DeleteCustomRoleResponse DeleteCustomRoleResponse
+     * @param request - DeleteCustomRoleRequest
+     * @param headers - DeleteCustomRoleHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomRoleResponse
+     *
+     * @param DeleteCustomRoleRequest $request
+     * @param DeleteCustomRoleHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCustomRoleResponse
      */
     public function deleteCustomRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomRole',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/role/v1/customRoles/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCustomRole',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/role/v1/customRoles/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除企业自定义角色
-     *  *
-     * @param DeleteCustomRoleRequest $request DeleteCustomRoleRequest
+     * 删除企业自定义角色.
      *
-     * @return DeleteCustomRoleResponse DeleteCustomRoleResponse
+     * @param request - DeleteCustomRoleRequest
+     *
+     * @returns DeleteCustomRoleResponse
+     *
+     * @param DeleteCustomRoleRequest $request
+     *
+     * @return DeleteCustomRoleResponse
      */
     public function deleteCustomRole($request)
     {
@@ -3914,53 +4754,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除企业部门
-     *  *
-     * @param DeleteDepartmentRequest $request DeleteDepartmentRequest
-     * @param DeleteDepartmentHeaders $headers DeleteDepartmentHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除企业部门.
      *
-     * @return DeleteDepartmentResponse DeleteDepartmentResponse
+     * @param request - DeleteDepartmentRequest
+     * @param headers - DeleteDepartmentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDepartmentResponse
+     *
+     * @param DeleteDepartmentRequest $request
+     * @param DeleteDepartmentHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDepartmentResponse
      */
     public function deleteDepartmentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->outDeptId)) {
-            $body['out_dept_id'] = $request->outDeptId;
+        if (null !== $request->outDeptId) {
+            @$body['out_dept_id'] = $request->outDeptId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDepartment',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/department/v2/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDepartment',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/department/v2/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除企业部门
-     *  *
-     * @param DeleteDepartmentRequest $request DeleteDepartmentRequest
+     * 删除企业部门.
      *
-     * @return DeleteDepartmentResponse DeleteDepartmentResponse
+     * @param request - DeleteDepartmentRequest
+     *
+     * @returns DeleteDepartmentResponse
+     *
+     * @param DeleteDepartmentRequest $request
+     *
+     * @return DeleteDepartmentResponse
      */
     public function deleteDepartment($request)
     {
@@ -3971,61 +4824,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除企业自定义角色下人员
-     *  *
-     * @param DeleteEmployeesFromCustomRoleRequest $tmpReq  DeleteEmployeesFromCustomRoleRequest
-     * @param DeleteEmployeesFromCustomRoleHeaders $headers DeleteEmployeesFromCustomRoleHeaders
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 批量删除企业自定义角色下人员.
      *
-     * @return DeleteEmployeesFromCustomRoleResponse DeleteEmployeesFromCustomRoleResponse
+     * @param tmpReq - DeleteEmployeesFromCustomRoleRequest
+     * @param headers - DeleteEmployeesFromCustomRoleHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEmployeesFromCustomRoleResponse
+     *
+     * @param DeleteEmployeesFromCustomRoleRequest $tmpReq
+     * @param DeleteEmployeesFromCustomRoleHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteEmployeesFromCustomRoleResponse
      */
     public function deleteEmployeesFromCustomRoleWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteEmployeesFromCustomRoleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userIdList)) {
-            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'user_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userIdList) {
+            $request->userIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'user_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
-        if (!Utils::isUnset($request->userIdListShrink)) {
-            $body['user_id_list'] = $request->userIdListShrink;
+
+        if (null !== $request->userIdListShrink) {
+            @$body['user_id_list'] = $request->userIdListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEmployeesFromCustomRole',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/role/v1/customRoleEmployees/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteEmployeesFromCustomRole',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/role/v1/customRoleEmployees/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteEmployeesFromCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量删除企业自定义角色下人员
-     *  *
-     * @param DeleteEmployeesFromCustomRoleRequest $request DeleteEmployeesFromCustomRoleRequest
+     * 批量删除企业自定义角色下人员.
      *
-     * @return DeleteEmployeesFromCustomRoleResponse DeleteEmployeesFromCustomRoleResponse
+     * @param request - DeleteEmployeesFromCustomRoleRequest
+     *
+     * @returns DeleteEmployeesFromCustomRoleResponse
+     *
+     * @param DeleteEmployeesFromCustomRoleRequest $request
+     *
+     * @return DeleteEmployeesFromCustomRoleResponse
      */
     public function deleteEmployeesFromCustomRole($request)
     {
@@ -4036,64 +4904,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除发票抬头适用人员
-     *  *
-     * @param DeleteInvoiceEntityRequest $tmpReq  DeleteInvoiceEntityRequest
-     * @param DeleteInvoiceEntityHeaders $headers DeleteInvoiceEntityHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除发票抬头适用人员.
      *
-     * @return DeleteInvoiceEntityResponse DeleteInvoiceEntityResponse
+     * @param tmpReq - DeleteInvoiceEntityRequest
+     * @param headers - DeleteInvoiceEntityHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInvoiceEntityResponse
+     *
+     * @param DeleteInvoiceEntityRequest $tmpReq
+     * @param DeleteInvoiceEntityHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteInvoiceEntityResponse
      */
     public function deleteInvoiceEntityWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteInvoiceEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entities)) {
-            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entities) {
+            $request->entitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->delAll)) {
-            $query['del_all'] = $request->delAll;
+        if (null !== $request->delAll) {
+            @$query['del_all'] = $request->delAll;
         }
-        if (!Utils::isUnset($request->entitiesShrink)) {
-            $query['entities'] = $request->entitiesShrink;
+
+        if (null !== $request->entitiesShrink) {
+            @$query['entities'] = $request->entitiesShrink;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $query['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$query['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInvoiceEntity',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/entities',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInvoiceEntity',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/entities',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteInvoiceEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除发票抬头适用人员
-     *  *
-     * @param DeleteInvoiceEntityRequest $request DeleteInvoiceEntityRequest
+     * 删除发票抬头适用人员.
      *
-     * @return DeleteInvoiceEntityResponse DeleteInvoiceEntityResponse
+     * @param request - DeleteInvoiceEntityRequest
+     *
+     * @returns DeleteInvoiceEntityResponse
+     *
+     * @param DeleteInvoiceEntityRequest $request
+     *
+     * @return DeleteInvoiceEntityResponse
      */
     public function deleteInvoiceEntity($request)
     {
@@ -4104,58 +4988,72 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 同步外部平台部门信息至商旅内部
-     *  *
-     * @param DepartmentSaveRequest $tmpReq  DepartmentSaveRequest
-     * @param DepartmentSaveHeaders $headers DepartmentSaveHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 同步外部平台部门信息至商旅内部.
      *
-     * @return DepartmentSaveResponse DepartmentSaveResponse
+     * @param tmpReq - DepartmentSaveRequest
+     * @param headers - DepartmentSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DepartmentSaveResponse
+     *
+     * @param DepartmentSaveRequest $tmpReq
+     * @param DepartmentSaveHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DepartmentSaveResponse
      */
     public function departmentSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DepartmentSaveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->departList)) {
-            $request->departListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->departList, 'depart_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->departList) {
+            $request->departListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->departList, 'depart_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->departListShrink)) {
-            $body['depart_list'] = $request->departListShrink;
+        if (null !== $request->departListShrink) {
+            @$body['depart_list'] = $request->departListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DepartmentSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/department/v1/department',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DepartmentSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/department/v1/department',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DepartmentSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 同步外部平台部门信息至商旅内部
-     *  *
-     * @param DepartmentSaveRequest $request DepartmentSaveRequest
+     * 同步外部平台部门信息至商旅内部.
      *
-     * @return DepartmentSaveResponse DepartmentSaveResponse
+     * @param request - DepartmentSaveRequest
+     *
+     * @returns DepartmentSaveResponse
+     *
+     * @param DepartmentSaveRequest $request
+     *
+     * @return DepartmentSaveResponse
      */
     public function departmentSave($request)
     {
@@ -4166,61 +5064,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 批量申请电子行程单
-     *  *
-     * @param ElectronicItineraryBatchApplyRequest $tmpReq  ElectronicItineraryBatchApplyRequest
-     * @param ElectronicItineraryBatchApplyHeaders $headers ElectronicItineraryBatchApplyHeaders
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 批量申请电子行程单.
      *
-     * @return ElectronicItineraryBatchApplyResponse ElectronicItineraryBatchApplyResponse
+     * @param tmpReq - ElectronicItineraryBatchApplyRequest
+     * @param headers - ElectronicItineraryBatchApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ElectronicItineraryBatchApplyResponse
+     *
+     * @param ElectronicItineraryBatchApplyRequest $tmpReq
+     * @param ElectronicItineraryBatchApplyHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ElectronicItineraryBatchApplyResponse
      */
     public function electronicItineraryBatchApplyWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ElectronicItineraryBatchApplyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applyItineraryList)) {
-            $request->applyItineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applyItineraryList, 'apply_itinerary_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyItineraryList) {
+            $request->applyItineraryListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyItineraryList, 'apply_itinerary_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applyItineraryListShrink)) {
-            $body['apply_itinerary_list'] = $request->applyItineraryListShrink;
+        if (null !== $request->applyItineraryListShrink) {
+            @$body['apply_itinerary_list'] = $request->applyItineraryListShrink;
         }
-        if (!Utils::isUnset($request->canReprint)) {
-            $body['can_reprint'] = $request->canReprint;
+
+        if (null !== $request->canReprint) {
+            @$body['can_reprint'] = $request->canReprint;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ElectronicItineraryBatchApply',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/apply-itinerary-batch-task',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ElectronicItineraryBatchApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/apply-itinerary-batch-task',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ElectronicItineraryBatchApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量申请电子行程单
-     *  *
-     * @param ElectronicItineraryBatchApplyRequest $request ElectronicItineraryBatchApplyRequest
+     * 批量申请电子行程单.
      *
-     * @return ElectronicItineraryBatchApplyResponse ElectronicItineraryBatchApplyResponse
+     * @param request - ElectronicItineraryBatchApplyRequest
+     *
+     * @returns ElectronicItineraryBatchApplyResponse
+     *
+     * @param ElectronicItineraryBatchApplyRequest $request
+     *
+     * @return ElectronicItineraryBatchApplyResponse
      */
     public function electronicItineraryBatchApply($request)
     {
@@ -4231,53 +5144,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取电子行程单申请结果
-     *  *
-     * @param ElectronicItineraryGetApplyResultRequest $request ElectronicItineraryGetApplyResultRequest
-     * @param ElectronicItineraryGetApplyResultHeaders $headers ElectronicItineraryGetApplyResultHeaders
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 获取电子行程单申请结果.
      *
-     * @return ElectronicItineraryGetApplyResultResponse ElectronicItineraryGetApplyResultResponse
+     * @param request - ElectronicItineraryGetApplyResultRequest
+     * @param headers - ElectronicItineraryGetApplyResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ElectronicItineraryGetApplyResultResponse
+     *
+     * @param ElectronicItineraryGetApplyResultRequest $request
+     * @param ElectronicItineraryGetApplyResultHeaders $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ElectronicItineraryGetApplyResultResponse
      */
     public function electronicItineraryGetApplyResultWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->batchApplyNo)) {
-            $query['batch_apply_no'] = $request->batchApplyNo;
+        if (null !== $request->batchApplyNo) {
+            @$query['batch_apply_no'] = $request->batchApplyNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ElectronicItineraryGetApplyResult',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/get-itinerary-batch-task',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ElectronicItineraryGetApplyResult',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/get-itinerary-batch-task',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ElectronicItineraryGetApplyResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取电子行程单申请结果
-     *  *
-     * @param ElectronicItineraryGetApplyResultRequest $request ElectronicItineraryGetApplyResultRequest
+     * 获取电子行程单申请结果.
      *
-     * @return ElectronicItineraryGetApplyResultResponse ElectronicItineraryGetApplyResultResponse
+     * @param request - ElectronicItineraryGetApplyResultRequest
+     *
+     * @returns ElectronicItineraryGetApplyResultResponse
+     *
+     * @param ElectronicItineraryGetApplyResultRequest $request
+     *
+     * @return ElectronicItineraryGetApplyResultResponse
      */
     public function electronicItineraryGetApplyResult($request)
     {
@@ -4288,61 +5214,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 增加成本中心人员信息
-     *  *
-     * @param EntityAddRequest $tmpReq  EntityAddRequest
-     * @param EntityAddHeaders $headers EntityAddHeaders
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 增加成本中心人员信息.
      *
-     * @return EntityAddResponse EntityAddResponse
+     * @param tmpReq - EntityAddRequest
+     * @param headers - EntityAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntityAddResponse
+     *
+     * @param EntityAddRequest $tmpReq
+     * @param EntityAddHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return EntityAddResponse
      */
     public function entityAddWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EntityAddShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entityDOList)) {
-            $request->entityDOListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityDOList, 'entity_d_o_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityDOList) {
+            $request->entityDOListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityDOList, 'entity_d_o_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entityDOListShrink)) {
-            $body['entity_d_o_list'] = $request->entityDOListShrink;
+        if (null !== $request->entityDOListShrink) {
+            @$body['entity_d_o_list'] = $request->entityDOListShrink;
         }
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $body['thirdpart_id'] = $request->thirdpartId;
+
+        if (null !== $request->thirdpartId) {
+            @$body['thirdpart_id'] = $request->thirdpartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EntityAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/add-entity',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EntityAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/add-entity',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EntityAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 增加成本中心人员信息
-     *  *
-     * @param EntityAddRequest $request EntityAddRequest
+     * 增加成本中心人员信息.
      *
-     * @return EntityAddResponse EntityAddResponse
+     * @param request - EntityAddRequest
+     *
+     * @returns EntityAddResponse
+     *
+     * @param EntityAddRequest $request
+     *
+     * @return EntityAddResponse
      */
     public function entityAdd($request)
     {
@@ -4353,66 +5294,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除成本中心人员信息
-     *  *
-     * @param EntityDeleteRequest $tmpReq  EntityDeleteRequest
-     * @param EntityDeleteHeaders $headers EntityDeleteHeaders
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 删除成本中心人员信息.
      *
-     * @return EntityDeleteResponse EntityDeleteResponse
+     * @param tmpReq - EntityDeleteRequest
+     * @param headers - EntityDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntityDeleteResponse
+     *
+     * @param EntityDeleteRequest $tmpReq
+     * @param EntityDeleteHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EntityDeleteResponse
      */
     public function entityDeleteWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EntityDeleteShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entityDOList)) {
-            $request->entityDOListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityDOList, 'entity_d_o_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityDOList) {
+            $request->entityDOListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityDOList, 'entity_d_o_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->delAll)) {
-            $query['del_all'] = $request->delAll;
+        if (null !== $request->delAll) {
+            @$query['del_all'] = $request->delAll;
         }
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $query['thirdpart_id'] = $request->thirdpartId;
+
+        if (null !== $request->thirdpartId) {
+            @$query['thirdpart_id'] = $request->thirdpartId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entityDOListShrink)) {
-            $body['entity_d_o_list'] = $request->entityDOListShrink;
+        if (null !== $request->entityDOListShrink) {
+            @$body['entity_d_o_list'] = $request->entityDOListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EntityDelete',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/entity/action/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EntityDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/entity/action/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EntityDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除成本中心人员信息
-     *  *
-     * @param EntityDeleteRequest $request EntityDeleteRequest
+     * 删除成本中心人员信息.
      *
-     * @return EntityDeleteResponse EntityDeleteResponse
+     * @param request - EntityDeleteRequest
+     *
+     * @returns EntityDeleteResponse
+     *
+     * @param EntityDeleteRequest $request
+     *
+     * @return EntityDeleteResponse
      */
     public function entityDelete($request)
     {
@@ -4423,61 +5380,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 设置成本中心人员信息
-     *  *
-     * @param EntitySetRequest $tmpReq  EntitySetRequest
-     * @param EntitySetHeaders $headers EntitySetHeaders
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 设置成本中心人员信息.
      *
-     * @return EntitySetResponse EntitySetResponse
+     * @param tmpReq - EntitySetRequest
+     * @param headers - EntitySetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntitySetResponse
+     *
+     * @param EntitySetRequest $tmpReq
+     * @param EntitySetHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return EntitySetResponse
      */
     public function entitySetWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EntitySetShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entityDOList)) {
-            $request->entityDOListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityDOList, 'entity_d_o_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityDOList) {
+            $request->entityDOListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityDOList, 'entity_d_o_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entityDOListShrink)) {
-            $body['entity_d_o_list'] = $request->entityDOListShrink;
+        if (null !== $request->entityDOListShrink) {
+            @$body['entity_d_o_list'] = $request->entityDOListShrink;
         }
-        if (!Utils::isUnset($request->thirdpartId)) {
-            $body['thirdpart_id'] = $request->thirdpartId;
+
+        if (null !== $request->thirdpartId) {
+            @$body['thirdpart_id'] = $request->thirdpartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EntitySet',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/set-entity',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EntitySet',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/set-entity',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EntitySetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置成本中心人员信息
-     *  *
-     * @param EntitySetRequest $request EntitySetRequest
+     * 设置成本中心人员信息.
      *
-     * @return EntitySetResponse EntitySetResponse
+     * @param request - EntitySetRequest
+     *
+     * @returns EntitySetResponse
+     *
+     * @param EntitySetRequest $request
+     *
+     * @return EntitySetResponse
      */
     public function entitySet($request)
     {
@@ -4488,74 +5460,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 预估价格查询
-     *  *
-     * @param EstimatedPriceQueryRequest $request EstimatedPriceQueryRequest
-     * @param EstimatedPriceQueryHeaders $headers EstimatedPriceQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 预估价格查询.
      *
-     * @return EstimatedPriceQueryResponse EstimatedPriceQueryResponse
+     * @param request - EstimatedPriceQueryRequest
+     * @param headers - EstimatedPriceQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EstimatedPriceQueryResponse
+     *
+     * @param EstimatedPriceQueryRequest $request
+     * @param EstimatedPriceQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EstimatedPriceQueryResponse
      */
     public function estimatedPriceQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->arrCity)) {
-            $query['arr_city'] = $request->arrCity;
+        if (null !== $request->arrCity) {
+            @$query['arr_city'] = $request->arrCity;
         }
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->depCity)) {
-            $query['dep_city'] = $request->depCity;
+
+        if (null !== $request->depCity) {
+            @$query['dep_city'] = $request->depCity;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['end_time'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['end_time'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->itineraryId)) {
-            $query['itinerary_id'] = $request->itineraryId;
+
+        if (null !== $request->itineraryId) {
+            @$query['itinerary_id'] = $request->itineraryId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['start_time'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['start_time'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $query['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->subCorpId) {
+            @$query['sub_corp_id'] = $request->subCorpId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EstimatedPriceQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/estimated-price',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EstimatedPriceQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v1/estimated-price',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EstimatedPriceQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 预估价格查询
-     *  *
-     * @param EstimatedPriceQueryRequest $request EstimatedPriceQueryRequest
+     * 预估价格查询.
      *
-     * @return EstimatedPriceQueryResponse EstimatedPriceQueryResponse
+     * @param request - EstimatedPriceQueryRequest
+     *
+     * @returns EstimatedPriceQueryResponse
+     *
+     * @param EstimatedPriceQueryRequest $request
+     *
+     * @return EstimatedPriceQueryResponse
      */
     public function estimatedPriceQuery($request)
     {
@@ -4566,68 +5558,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 超标审批结果同步
-     *  *
-     * @param ExceedApplySyncRequest $request ExceedApplySyncRequest
-     * @param ExceedApplySyncHeaders $headers ExceedApplySyncHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 超标审批结果同步.
      *
-     * @return ExceedApplySyncResponse ExceedApplySyncResponse
+     * @param request - ExceedApplySyncRequest
+     * @param headers - ExceedApplySyncHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExceedApplySyncResponse
+     *
+     * @param ExceedApplySyncRequest $request
+     * @param ExceedApplySyncHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExceedApplySyncResponse
      */
     public function exceedApplySyncWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->bizCategory)) {
-            $query['biz_category'] = $request->bizCategory;
+
+        if (null !== $request->bizCategory) {
+            @$query['biz_category'] = $request->bizCategory;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdpartyFlowId)) {
-            $query['thirdparty_flow_id'] = $request->thirdpartyFlowId;
+
+        if (null !== $request->thirdpartyFlowId) {
+            @$query['thirdparty_flow_id'] = $request->thirdpartyFlowId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExceedApplySync',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/syn-exceed',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExceedApplySync',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/syn-exceed',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExceedApplySyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 超标审批结果同步
-     *  *
-     * @param ExceedApplySyncRequest $request ExceedApplySyncRequest
+     * 超标审批结果同步.
      *
-     * @return ExceedApplySyncResponse ExceedApplySyncResponse
+     * @param request - ExceedApplySyncRequest
+     *
+     * @returns ExceedApplySyncResponse
+     *
+     * @param ExceedApplySyncRequest $request
+     *
+     * @return ExceedApplySyncResponse
      */
     public function exceedApplySync($request)
     {
@@ -4638,79 +5648,100 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 添加外部出行人与证件信息
-     *  *
-     * @param ExternalUserAddRequest $tmpReq  ExternalUserAddRequest
-     * @param ExternalUserAddHeaders $headers ExternalUserAddHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 添加外部出行人与证件信息.
      *
-     * @return ExternalUserAddResponse ExternalUserAddResponse
+     * @param tmpReq - ExternalUserAddRequest
+     * @param headers - ExternalUserAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExternalUserAddResponse
+     *
+     * @param ExternalUserAddRequest $tmpReq
+     * @param ExternalUserAddHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExternalUserAddResponse
      */
     public function externalUserAddWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExternalUserAddShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->certRequestList)) {
-            $request->certRequestListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certRequestList, 'cert_request_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->certRequestList) {
+            $request->certRequestListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->certRequestList, 'cert_request_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->birthday)) {
-            $body['birthday'] = $request->birthday;
+        if (null !== $request->birthday) {
+            @$body['birthday'] = $request->birthday;
         }
-        if (!Utils::isUnset($request->certRequestListShrink)) {
-            $body['cert_request_list'] = $request->certRequestListShrink;
+
+        if (null !== $request->certRequestListShrink) {
+            @$body['cert_request_list'] = $request->certRequestListShrink;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->externalUserId)) {
-            $body['external_user_id'] = $request->externalUserId;
+
+        if (null !== $request->externalUserId) {
+            @$body['external_user_id'] = $request->externalUserId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->realName)) {
-            $body['real_name'] = $request->realName;
+
+        if (null !== $request->realName) {
+            @$body['real_name'] = $request->realName;
         }
-        if (!Utils::isUnset($request->realNameEn)) {
-            $body['real_name_en'] = $request->realNameEn;
+
+        if (null !== $request->realNameEn) {
+            @$body['real_name_en'] = $request->realNameEn;
         }
-        if (!Utils::isUnset($request->userType)) {
-            $body['user_type'] = $request->userType;
+
+        if (null !== $request->userType) {
+            @$body['user_type'] = $request->userType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExternalUserAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/externalUsers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExternalUserAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/externalUsers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExternalUserAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加外部出行人与证件信息
-     *  *
-     * @param ExternalUserAddRequest $request ExternalUserAddRequest
+     * 添加外部出行人与证件信息.
      *
-     * @return ExternalUserAddResponse ExternalUserAddResponse
+     * @param request - ExternalUserAddRequest
+     *
+     * @returns ExternalUserAddResponse
+     *
+     * @param ExternalUserAddRequest $request
+     *
+     * @return ExternalUserAddResponse
      */
     public function externalUserAdd($request)
     {
@@ -4721,47 +5752,56 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除外部出行人
-     *  *
-     * @param string                    $externalUserId
-     * @param ExternalUserDeleteHeaders $headers        ExternalUserDeleteHeaders
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 删除外部出行人.
      *
-     * @return ExternalUserDeleteResponse ExternalUserDeleteResponse
+     * @param headers - ExternalUserDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExternalUserDeleteResponse
+     *
+     * @param string                    $externalUserId
+     * @param ExternalUserDeleteHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExternalUserDeleteResponse
      */
     public function externalUserDeleteWithOptions($externalUserId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ExternalUserDelete',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/externalUsers/' . OpenApiUtilClient::getEncodeParam($externalUserId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExternalUserDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/externalUsers/' . Url::percentEncode($externalUserId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExternalUserDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除外部出行人
-     *  *
+     * 删除外部出行人.
+     *
+     * @returns ExternalUserDeleteResponse
+     *
      * @param string $externalUserId
      *
-     * @return ExternalUserDeleteResponse ExternalUserDeleteResponse
+     * @return ExternalUserDeleteResponse
      */
     public function externalUserDelete($externalUserId)
     {
@@ -4772,47 +5812,56 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询外部出行人
-     *  *
-     * @param string                   $externalUserId
-     * @param ExternalUserQueryHeaders $headers        ExternalUserQueryHeaders
-     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     * 查询外部出行人.
      *
-     * @return ExternalUserQueryResponse ExternalUserQueryResponse
+     * @param headers - ExternalUserQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExternalUserQueryResponse
+     *
+     * @param string                   $externalUserId
+     * @param ExternalUserQueryHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExternalUserQueryResponse
      */
     public function externalUserQueryWithOptions($externalUserId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ExternalUserQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/externalUsers/' . OpenApiUtilClient::getEncodeParam($externalUserId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExternalUserQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/externalUsers/' . Url::percentEncode($externalUserId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExternalUserQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询外部出行人
-     *  *
+     * 查询外部出行人.
+     *
+     * @returns ExternalUserQueryResponse
+     *
      * @param string $externalUserId
      *
-     * @return ExternalUserQueryResponse ExternalUserQueryResponse
+     * @return ExternalUserQueryResponse
      */
     public function externalUserQuery($externalUserId)
     {
@@ -4823,75 +5872,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 修改外部出行人与证件信息
-     *  *
-     * @param string                    $externalUserId
-     * @param ExternalUserUpdateRequest $tmpReq         ExternalUserUpdateRequest
-     * @param ExternalUserUpdateHeaders $headers        ExternalUserUpdateHeaders
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 修改外部出行人与证件信息.
      *
-     * @return ExternalUserUpdateResponse ExternalUserUpdateResponse
+     * @param tmpReq - ExternalUserUpdateRequest
+     * @param headers - ExternalUserUpdateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExternalUserUpdateResponse
+     *
+     * @param string                    $externalUserId
+     * @param ExternalUserUpdateRequest $tmpReq
+     * @param ExternalUserUpdateHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExternalUserUpdateResponse
      */
     public function externalUserUpdateWithOptions($externalUserId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExternalUserUpdateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->certRequestList)) {
-            $request->certRequestListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certRequestList, 'cert_request_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->certRequestList) {
+            $request->certRequestListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->certRequestList, 'cert_request_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->birthday)) {
-            $body['birthday'] = $request->birthday;
+        if (null !== $request->birthday) {
+            @$body['birthday'] = $request->birthday;
         }
-        if (!Utils::isUnset($request->certRequestListShrink)) {
-            $body['cert_request_list'] = $request->certRequestListShrink;
+
+        if (null !== $request->certRequestListShrink) {
+            @$body['cert_request_list'] = $request->certRequestListShrink;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->realName)) {
-            $body['real_name'] = $request->realName;
+
+        if (null !== $request->realName) {
+            @$body['real_name'] = $request->realName;
         }
-        if (!Utils::isUnset($request->realNameEn)) {
-            $body['real_name_en'] = $request->realNameEn;
+
+        if (null !== $request->realNameEn) {
+            @$body['real_name_en'] = $request->realNameEn;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExternalUserUpdate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/externalUsers/' . OpenApiUtilClient::getEncodeParam($externalUserId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExternalUserUpdate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/externalUsers/' . Url::percentEncode($externalUserId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExternalUserUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改外部出行人与证件信息
-     *  *
-     * @param string                    $externalUserId
-     * @param ExternalUserUpdateRequest $request        ExternalUserUpdateRequest
+     * 修改外部出行人与证件信息.
      *
-     * @return ExternalUserUpdateResponse ExternalUserUpdateResponse
+     * @param request - ExternalUserUpdateRequest
+     *
+     * @returns ExternalUserUpdateResponse
+     *
+     * @param string                    $externalUserId
+     * @param ExternalUserUpdateRequest $request
+     *
+     * @return ExternalUserUpdateResponse
      */
     public function externalUserUpdate($externalUserId, $request)
     {
@@ -4902,71 +5970,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询机票记账数据
-     *  *
-     * @param FlightBillSettlementQueryRequest $request FlightBillSettlementQueryRequest
-     * @param FlightBillSettlementQueryHeaders $headers FlightBillSettlementQueryHeaders
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询机票记账数据.
      *
-     * @return FlightBillSettlementQueryResponse FlightBillSettlementQueryResponse
+     * @param request - FlightBillSettlementQueryRequest
+     * @param headers - FlightBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightBillSettlementQueryResponse
+     *
+     * @param FlightBillSettlementQueryRequest $request
+     * @param FlightBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return FlightBillSettlementQueryResponse
      */
     public function flightBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/flight/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/flight/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机票记账数据
-     *  *
-     * @param FlightBillSettlementQueryRequest $request FlightBillSettlementQueryRequest
+     * 查询机票记账数据.
      *
-     * @return FlightBillSettlementQueryResponse FlightBillSettlementQueryResponse
+     * @param request - FlightBillSettlementQueryRequest
+     *
+     * @returns FlightBillSettlementQueryResponse
+     *
+     * @param FlightBillSettlementQueryRequest $request
+     *
+     * @return FlightBillSettlementQueryResponse
      */
     public function flightBillSettlementQuery($request)
     {
@@ -4977,53 +6064,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班订单取消
-     *  *
-     * @param FlightCancelOrderRequest $request FlightCancelOrderRequest
-     * @param FlightCancelOrderHeaders $headers FlightCancelOrderHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 航班订单取消.
      *
-     * @return FlightCancelOrderResponse FlightCancelOrderResponse
+     * @param request - FlightCancelOrderRequest
+     * @param headers - FlightCancelOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightCancelOrderResponse
+     *
+     * @param FlightCancelOrderRequest $request
+     * @param FlightCancelOrderHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightCancelOrderResponse
      */
     public function flightCancelOrderWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightCancelOrder',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/order/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightCancelOrder',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/order/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightCancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班订单取消
-     *  *
-     * @param FlightCancelOrderRequest $request FlightCancelOrderRequest
+     * 航班订单取消.
      *
-     * @return FlightCancelOrderResponse FlightCancelOrderResponse
+     * @param request - FlightCancelOrderRequest
+     *
+     * @returns FlightCancelOrderResponse
+     *
+     * @param FlightCancelOrderRequest $request
+     *
+     * @return FlightCancelOrderResponse
      */
     public function flightCancelOrder($request)
     {
@@ -5034,59 +6134,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票订单取消
-     *  *
-     * @param FlightCancelOrderV2Request $request FlightCancelOrderV2Request
-     * @param FlightCancelOrderV2Headers $headers FlightCancelOrderV2Headers
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机票订单取消.
      *
-     * @return FlightCancelOrderV2Response FlightCancelOrderV2Response
+     * @param request - FlightCancelOrderV2Request
+     * @param headers - FlightCancelOrderV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightCancelOrderV2Response
+     *
+     * @param FlightCancelOrderV2Request $request
+     * @param FlightCancelOrderV2Headers $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightCancelOrderV2Response
      */
     public function flightCancelOrderV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightCancelOrderV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/order/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightCancelOrderV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/order/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightCancelOrderV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票订单取消
-     *  *
-     * @param FlightCancelOrderV2Request $request FlightCancelOrderV2Request
+     * 机票订单取消.
      *
-     * @return FlightCancelOrderV2Response FlightCancelOrderV2Response
+     * @param request - FlightCancelOrderV2Request
+     *
+     * @returns FlightCancelOrderV2Response
+     *
+     * @param FlightCancelOrderV2Request $request
+     *
+     * @return FlightCancelOrderV2Response
      */
     public function flightCancelOrderV2($request)
     {
@@ -5097,118 +6212,152 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班订单创建
-     *  *
-     * @param FlightCreateOrderRequest $tmpReq  FlightCreateOrderRequest
-     * @param FlightCreateOrderHeaders $headers FlightCreateOrderHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 航班订单创建.
      *
-     * @return FlightCreateOrderResponse FlightCreateOrderResponse
+     * @param tmpReq - FlightCreateOrderRequest
+     * @param headers - FlightCreateOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightCreateOrderResponse
+     *
+     * @param FlightCreateOrderRequest $tmpReq
+     * @param FlightCreateOrderHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightCreateOrderResponse
      */
     public function flightCreateOrderWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightCreateOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contactInfo)) {
-            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactInfo) {
+            $request->contactInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->orderAttr)) {
-            $request->orderAttrShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderAttr, 'order_attr', 'json');
+
+        if (null !== $tmpReq->orderAttr) {
+            $request->orderAttrShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderAttr, 'order_attr', 'json');
         }
-        if (!Utils::isUnset($tmpReq->travelerInfoList)) {
-            $request->travelerInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerInfoList, 'traveler_info_list', 'json');
+
+        if (null !== $tmpReq->travelerInfoList) {
+            $request->travelerInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerInfoList, 'traveler_info_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->arrAirportCode)) {
-            $body['arr_airport_code'] = $request->arrAirportCode;
+        if (null !== $request->arrAirportCode) {
+            @$body['arr_airport_code'] = $request->arrAirportCode;
         }
-        if (!Utils::isUnset($request->arrCityCode)) {
-            $body['arr_city_code'] = $request->arrCityCode;
+
+        if (null !== $request->arrCityCode) {
+            @$body['arr_city_code'] = $request->arrCityCode;
         }
-        if (!Utils::isUnset($request->autoPay)) {
-            $body['auto_pay'] = $request->autoPay;
+
+        if (null !== $request->autoPay) {
+            @$body['auto_pay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $body['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->buyerUniqueKey)) {
-            $body['buyer_unique_key'] = $request->buyerUniqueKey;
+
+        if (null !== $request->buyerUniqueKey) {
+            @$body['buyer_unique_key'] = $request->buyerUniqueKey;
         }
-        if (!Utils::isUnset($request->contactInfoShrink)) {
-            $body['contact_info'] = $request->contactInfoShrink;
+
+        if (null !== $request->contactInfoShrink) {
+            @$body['contact_info'] = $request->contactInfoShrink;
         }
-        if (!Utils::isUnset($request->depAirportCode)) {
-            $body['dep_airport_code'] = $request->depAirportCode;
+
+        if (null !== $request->depAirportCode) {
+            @$body['dep_airport_code'] = $request->depAirportCode;
         }
-        if (!Utils::isUnset($request->depCityCode)) {
-            $body['dep_city_code'] = $request->depCityCode;
+
+        if (null !== $request->depCityCode) {
+            @$body['dep_city_code'] = $request->depCityCode;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $body['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$body['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->orderAttrShrink)) {
-            $body['order_attr'] = $request->orderAttrShrink;
+
+        if (null !== $request->orderAttrShrink) {
+            @$body['order_attr'] = $request->orderAttrShrink;
         }
-        if (!Utils::isUnset($request->orderParams)) {
-            $body['order_params'] = $request->orderParams;
+
+        if (null !== $request->orderParams) {
+            @$body['order_params'] = $request->orderParams;
         }
-        if (!Utils::isUnset($request->otaItemId)) {
-            $body['ota_item_id'] = $request->otaItemId;
+
+        if (null !== $request->otaItemId) {
+            @$body['ota_item_id'] = $request->otaItemId;
         }
-        if (!Utils::isUnset($request->price)) {
-            $body['price'] = $request->price;
+
+        if (null !== $request->price) {
+            @$body['price'] = $request->price;
         }
-        if (!Utils::isUnset($request->receiptAddress)) {
-            $body['receipt_address'] = $request->receiptAddress;
+
+        if (null !== $request->receiptAddress) {
+            @$body['receipt_address'] = $request->receiptAddress;
         }
-        if (!Utils::isUnset($request->receiptTarget)) {
-            $body['receipt_target'] = $request->receiptTarget;
+
+        if (null !== $request->receiptTarget) {
+            @$body['receipt_target'] = $request->receiptTarget;
         }
-        if (!Utils::isUnset($request->receiptTitle)) {
-            $body['receipt_title'] = $request->receiptTitle;
+
+        if (null !== $request->receiptTitle) {
+            @$body['receipt_title'] = $request->receiptTitle;
         }
-        if (!Utils::isUnset($request->travelerInfoListShrink)) {
-            $body['traveler_info_list'] = $request->travelerInfoListShrink;
+
+        if (null !== $request->travelerInfoListShrink) {
+            @$body['traveler_info_list'] = $request->travelerInfoListShrink;
         }
-        if (!Utils::isUnset($request->tripType)) {
-            $body['trip_type'] = $request->tripType;
+
+        if (null !== $request->tripType) {
+            @$body['trip_type'] = $request->tripType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightCreateOrder',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/order/action/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightCreateOrder',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/order/action/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightCreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班订单创建
-     *  *
-     * @param FlightCreateOrderRequest $request FlightCreateOrderRequest
+     * 航班订单创建.
      *
-     * @return FlightCreateOrderResponse FlightCreateOrderResponse
+     * @param request - FlightCreateOrderRequest
+     *
+     * @returns FlightCreateOrderResponse
+     *
+     * @param FlightCreateOrderRequest $request
+     *
+     * @return FlightCreateOrderResponse
      */
     public function flightCreateOrder($request)
     {
@@ -5219,88 +6368,112 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票订单创建
-     *  *
-     * @param FlightCreateOrderV2Request $tmpReq  FlightCreateOrderV2Request
-     * @param FlightCreateOrderV2Headers $headers FlightCreateOrderV2Headers
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机票订单创建.
      *
-     * @return FlightCreateOrderV2Response FlightCreateOrderV2Response
+     * @param tmpReq - FlightCreateOrderV2Request
+     * @param headers - FlightCreateOrderV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightCreateOrderV2Response
+     *
+     * @param FlightCreateOrderV2Request $tmpReq
+     * @param FlightCreateOrderV2Headers $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightCreateOrderV2Response
      */
     public function flightCreateOrderV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightCreateOrderV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contactInfo)) {
-            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactInfo) {
+            $request->contactInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->travelers)) {
-            $request->travelersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelers, 'travelers', 'json');
+
+        if (null !== $tmpReq->travelers) {
+            $request->travelersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelers, 'travelers', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->asyncCreateOrderKey)) {
-            $body['async_create_order_key'] = $request->asyncCreateOrderKey;
+        if (null !== $request->asyncCreateOrderKey) {
+            @$body['async_create_order_key'] = $request->asyncCreateOrderKey;
         }
-        if (!Utils::isUnset($request->asyncCreateOrderMode)) {
-            $body['async_create_order_mode'] = $request->asyncCreateOrderMode;
+
+        if (null !== $request->asyncCreateOrderMode) {
+            @$body['async_create_order_mode'] = $request->asyncCreateOrderMode;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $body['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->contactInfoShrink)) {
-            $body['contact_info'] = $request->contactInfoShrink;
+
+        if (null !== $request->contactInfoShrink) {
+            @$body['contact_info'] = $request->contactInfoShrink;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->otaItemId)) {
-            $body['ota_item_id'] = $request->otaItemId;
+
+        if (null !== $request->otaItemId) {
+            @$body['ota_item_id'] = $request->otaItemId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->totalPriceCent)) {
-            $body['total_price_cent'] = $request->totalPriceCent;
+
+        if (null !== $request->totalPriceCent) {
+            @$body['total_price_cent'] = $request->totalPriceCent;
         }
-        if (!Utils::isUnset($request->travelersShrink)) {
-            $body['travelers'] = $request->travelersShrink;
+
+        if (null !== $request->travelersShrink) {
+            @$body['travelers'] = $request->travelersShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightCreateOrderV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/order/action/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightCreateOrderV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/order/action/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightCreateOrderV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票订单创建
-     *  *
-     * @param FlightCreateOrderV2Request $request FlightCreateOrderV2Request
+     * 机票订单创建.
      *
-     * @return FlightCreateOrderV2Response FlightCreateOrderV2Response
+     * @param request - FlightCreateOrderV2Request
+     *
+     * @returns FlightCreateOrderV2Response
+     *
+     * @param FlightCreateOrderV2Request $request
+     *
+     * @return FlightCreateOrderV2Response
      */
     public function flightCreateOrderV2($request)
     {
@@ -5311,56 +6484,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询飞机超标审批详情
-     *  *
-     * @param FlightExceedApplyQueryRequest $request FlightExceedApplyQueryRequest
-     * @param FlightExceedApplyQueryHeaders $headers FlightExceedApplyQueryHeaders
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询飞机超标审批详情.
      *
-     * @return FlightExceedApplyQueryResponse FlightExceedApplyQueryResponse
+     * @param request - FlightExceedApplyQueryRequest
+     * @param headers - FlightExceedApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightExceedApplyQueryResponse
+     *
+     * @param FlightExceedApplyQueryRequest $request
+     * @param FlightExceedApplyQueryHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return FlightExceedApplyQueryResponse
      */
     public function flightExceedApplyQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightExceedApplyQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/flight-exceed',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightExceedApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/flight-exceed',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightExceedApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询飞机超标审批详情
-     *  *
-     * @param FlightExceedApplyQueryRequest $request FlightExceedApplyQueryRequest
+     * 查询飞机超标审批详情.
      *
-     * @return FlightExceedApplyQueryResponse FlightExceedApplyQueryResponse
+     * @param request - FlightExceedApplyQueryRequest
+     *
+     * @returns FlightExceedApplyQueryResponse
+     *
+     * @param FlightExceedApplyQueryRequest $request
+     *
+     * @return FlightExceedApplyQueryResponse
      */
     public function flightExceedApplyQuery($request)
     {
@@ -5371,71 +6558,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询机票行程单扫描件
-     *  *
-     * @param FlightItineraryScanQueryRequest $request FlightItineraryScanQueryRequest
-     * @param FlightItineraryScanQueryHeaders $headers FlightItineraryScanQueryHeaders
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询机票行程单扫描件.
      *
-     * @return FlightItineraryScanQueryResponse FlightItineraryScanQueryResponse
+     * @param request - FlightItineraryScanQueryRequest
+     * @param headers - FlightItineraryScanQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightItineraryScanQueryResponse
+     *
+     * @param FlightItineraryScanQueryRequest $request
+     * @param FlightItineraryScanQueryHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FlightItineraryScanQueryResponse
      */
     public function flightItineraryScanQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billDate)) {
-            $query['bill_date'] = $request->billDate;
+        if (null !== $request->billDate) {
+            @$query['bill_date'] = $request->billDate;
         }
-        if (!Utils::isUnset($request->billId)) {
-            $query['bill_id'] = $request->billId;
+
+        if (null !== $request->billId) {
+            @$query['bill_id'] = $request->billId;
         }
-        if (!Utils::isUnset($request->invoiceSubTaskId)) {
-            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+
+        if (null !== $request->invoiceSubTaskId) {
+            @$query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
         }
-        if (!Utils::isUnset($request->itineraryNum)) {
-            $query['itinerary_num'] = $request->itineraryNum;
+
+        if (null !== $request->itineraryNum) {
+            @$query['itinerary_num'] = $request->itineraryNum;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ticketNo)) {
-            $query['ticket_no'] = $request->ticketNo;
+
+        if (null !== $request->ticketNo) {
+            @$query['ticket_no'] = $request->ticketNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightItineraryScanQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scan/v1/flight-itinerary',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightItineraryScanQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scan/v1/flight-itinerary',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightItineraryScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机票行程单扫描件
-     *  *
-     * @param FlightItineraryScanQueryRequest $request FlightItineraryScanQueryRequest
+     * 查询机票行程单扫描件.
      *
-     * @return FlightItineraryScanQueryResponse FlightItineraryScanQueryResponse
+     * @param request - FlightItineraryScanQueryRequest
+     *
+     * @returns FlightItineraryScanQueryResponse
+     *
+     * @param FlightItineraryScanQueryRequest $request
+     *
+     * @return FlightItineraryScanQueryResponse
      */
     public function flightItineraryScanQuery($request)
     {
@@ -5446,65 +6652,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班列表搜索
-     *  *
-     * @param FlightListingSearchRequest $request FlightListingSearchRequest
-     * @param FlightListingSearchHeaders $headers FlightListingSearchHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 航班列表搜索.
      *
-     * @return FlightListingSearchResponse FlightListingSearchResponse
+     * @param request - FlightListingSearchRequest
+     * @param headers - FlightListingSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightListingSearchResponse
+     *
+     * @param FlightListingSearchRequest $request
+     * @param FlightListingSearchHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightListingSearchResponse
      */
     public function flightListingSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->airlineCode)) {
-            $query['airline_code'] = $request->airlineCode;
+        if (null !== $request->airlineCode) {
+            @$query['airline_code'] = $request->airlineCode;
         }
-        if (!Utils::isUnset($request->arrCityCode)) {
-            $query['arr_city_code'] = $request->arrCityCode;
+
+        if (null !== $request->arrCityCode) {
+            @$query['arr_city_code'] = $request->arrCityCode;
         }
-        if (!Utils::isUnset($request->cabinClass)) {
-            $query['cabin_class'] = $request->cabinClass;
+
+        if (null !== $request->cabinClass) {
+            @$query['cabin_class'] = $request->cabinClass;
         }
-        if (!Utils::isUnset($request->depCityCode)) {
-            $query['dep_city_code'] = $request->depCityCode;
+
+        if (null !== $request->depCityCode) {
+            @$query['dep_city_code'] = $request->depCityCode;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $query['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$query['dep_date'] = $request->depDate;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightListingSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/flight/action/listing-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightListingSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/flight/action/listing-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightListingSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班列表搜索
-     *  *
-     * @param FlightListingSearchRequest $request FlightListingSearchRequest
+     * 航班列表搜索.
      *
-     * @return FlightListingSearchResponse FlightListingSearchResponse
+     * @param request - FlightListingSearchRequest
+     *
+     * @returns FlightListingSearchResponse
+     *
+     * @param FlightListingSearchRequest $request
+     *
+     * @return FlightListingSearchResponse
      */
     public function flightListingSearch($request)
     {
@@ -5515,91 +6738,116 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班列表搜索
-     *  *
-     * @param FlightListingSearchV2Request $tmpReq  FlightListingSearchV2Request
-     * @param FlightListingSearchV2Headers $headers FlightListingSearchV2Headers
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 航班列表搜索.
      *
-     * @return FlightListingSearchV2Response FlightListingSearchV2Response
+     * @param tmpReq - FlightListingSearchV2Request
+     * @param headers - FlightListingSearchV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightListingSearchV2Response
+     *
+     * @param FlightListingSearchV2Request $tmpReq
+     * @param FlightListingSearchV2Headers $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FlightListingSearchV2Response
      */
     public function flightListingSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightListingSearchV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cabinTypeList)) {
-            $request->cabinTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cabinTypeList, 'cabin_type_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cabinTypeList) {
+            $request->cabinTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cabinTypeList, 'cabin_type_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->searchJourneys)) {
-            $request->searchJourneysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+
+        if (null !== $tmpReq->searchJourneys) {
+            $request->searchJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->airlineCode)) {
-            $query['airline_code'] = $request->airlineCode;
+        if (null !== $request->airlineCode) {
+            @$query['airline_code'] = $request->airlineCode;
         }
-        if (!Utils::isUnset($request->cabinTypeListShrink)) {
-            $query['cabin_type_list'] = $request->cabinTypeListShrink;
+
+        if (null !== $request->cabinTypeListShrink) {
+            @$query['cabin_type_list'] = $request->cabinTypeListShrink;
         }
-        if (!Utils::isUnset($request->directOnly)) {
-            $query['direct_only'] = $request->directOnly;
+
+        if (null !== $request->directOnly) {
+            @$query['direct_only'] = $request->directOnly;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->needMultiClassPrice)) {
-            $query['need_multi_class_price'] = $request->needMultiClassPrice;
+
+        if (null !== $request->needMultiClassPrice) {
+            @$query['need_multi_class_price'] = $request->needMultiClassPrice;
         }
-        if (!Utils::isUnset($request->needQueryServiceFee)) {
-            $query['need_query_service_fee'] = $request->needQueryServiceFee;
+
+        if (null !== $request->needQueryServiceFee) {
+            @$query['need_query_service_fee'] = $request->needQueryServiceFee;
         }
-        if (!Utils::isUnset($request->needShareFlight)) {
-            $query['need_share_flight'] = $request->needShareFlight;
+
+        if (null !== $request->needShareFlight) {
+            @$query['need_share_flight'] = $request->needShareFlight;
         }
-        if (!Utils::isUnset($request->needYCBestPrice)) {
-            $query['need_y_c_best_price'] = $request->needYCBestPrice;
+
+        if (null !== $request->needYCBestPrice) {
+            @$query['need_y_c_best_price'] = $request->needYCBestPrice;
         }
-        if (!Utils::isUnset($request->searchJourneysShrink)) {
-            $query['search_journeys'] = $request->searchJourneysShrink;
+
+        if (null !== $request->searchJourneysShrink) {
+            @$query['search_journeys'] = $request->searchJourneysShrink;
         }
-        if (!Utils::isUnset($request->searchMode)) {
-            $query['search_mode'] = $request->searchMode;
+
+        if (null !== $request->searchMode) {
+            @$query['search_mode'] = $request->searchMode;
         }
-        if (!Utils::isUnset($request->tripType)) {
-            $query['trip_type'] = $request->tripType;
+
+        if (null !== $request->tripType) {
+            @$query['trip_type'] = $request->tripType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightListingSearchV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/flight/action/listing-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightListingSearchV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/flight/action/listing-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightListingSearchV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班列表搜索
-     *  *
-     * @param FlightListingSearchV2Request $request FlightListingSearchV2Request
+     * 航班列表搜索.
      *
-     * @return FlightListingSearchV2Response FlightListingSearchV2Response
+     * @param request - FlightListingSearchV2Request
+     *
+     * @returns FlightListingSearchV2Response
+     *
+     * @param FlightListingSearchV2Request $request
+     *
+     * @return FlightListingSearchV2Response
      */
     public function flightListingSearchV2($request)
     {
@@ -5610,88 +6858,112 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签申请
-     *  *
-     * @param FlightModifyApplyV2Request $tmpReq  FlightModifyApplyV2Request
-     * @param FlightModifyApplyV2Headers $headers FlightModifyApplyV2Headers
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机票改签申请.
      *
-     * @return FlightModifyApplyV2Response FlightModifyApplyV2Response
+     * @param tmpReq - FlightModifyApplyV2Request
+     * @param headers - FlightModifyApplyV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightModifyApplyV2Response
+     *
+     * @param FlightModifyApplyV2Request $tmpReq
+     * @param FlightModifyApplyV2Headers $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightModifyApplyV2Response
      */
     public function flightModifyApplyV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightModifyApplyV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->passengerSegmentRelations)) {
-            $request->passengerSegmentRelationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->passengerSegmentRelations) {
+            $request->passengerSegmentRelationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cacheKey)) {
-            $body['cache_key'] = $request->cacheKey;
+        if (null !== $request->cacheKey) {
+            @$body['cache_key'] = $request->cacheKey;
         }
-        if (!Utils::isUnset($request->contactPhone)) {
-            $body['contact_phone'] = $request->contactPhone;
+
+        if (null !== $request->contactPhone) {
+            @$body['contact_phone'] = $request->contactPhone;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->itemId)) {
-            $body['item_id'] = $request->itemId;
+
+        if (null !== $request->itemId) {
+            @$body['item_id'] = $request->itemId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$body['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->passengerSegmentRelationsShrink)) {
-            $body['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
+
+        if (null !== $request->passengerSegmentRelationsShrink) {
+            @$body['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['session_id'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['session_id'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->voluntary)) {
-            $body['voluntary'] = $request->voluntary;
+
+        if (null !== $request->voluntary) {
+            @$body['voluntary'] = $request->voluntary;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightModifyApplyV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/modify/action/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightModifyApplyV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/modify/action/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightModifyApplyV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签申请
-     *  *
-     * @param FlightModifyApplyV2Request $request FlightModifyApplyV2Request
+     * 机票改签申请.
      *
-     * @return FlightModifyApplyV2Response FlightModifyApplyV2Response
+     * @param request - FlightModifyApplyV2Request
+     *
+     * @returns FlightModifyApplyV2Response
+     *
+     * @param FlightModifyApplyV2Request $request
+     *
+     * @return FlightModifyApplyV2Response
      */
     public function flightModifyApplyV2($request)
     {
@@ -5702,65 +6974,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签取消
-     *  *
-     * @param FlightModifyCancelV2Request $request FlightModifyCancelV2Request
-     * @param FlightModifyCancelV2Headers $headers FlightModifyCancelV2Headers
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 机票改签取消.
      *
-     * @return FlightModifyCancelV2Response FlightModifyCancelV2Response
+     * @param request - FlightModifyCancelV2Request
+     * @param headers - FlightModifyCancelV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightModifyCancelV2Response
+     *
+     * @param FlightModifyCancelV2Request $request
+     * @param FlightModifyCancelV2Headers $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FlightModifyCancelV2Response
      */
     public function flightModifyCancelV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $query['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$query['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->subOrderId)) {
-            $query['sub_order_id'] = $request->subOrderId;
+
+        if (null !== $request->subOrderId) {
+            @$query['sub_order_id'] = $request->subOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightModifyCancelV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/modify/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightModifyCancelV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/modify/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightModifyCancelV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签取消
-     *  *
-     * @param FlightModifyCancelV2Request $request FlightModifyCancelV2Request
+     * 机票改签取消.
      *
-     * @return FlightModifyCancelV2Response FlightModifyCancelV2Response
+     * @param request - FlightModifyCancelV2Request
+     *
+     * @returns FlightModifyCancelV2Response
+     *
+     * @param FlightModifyCancelV2Request $request
+     *
+     * @return FlightModifyCancelV2Response
      */
     public function flightModifyCancelV2($request)
     {
@@ -5771,100 +7060,128 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签列表搜索
-     *  *
-     * @param FlightModifyListingSearchV2Request $tmpReq  FlightModifyListingSearchV2Request
-     * @param FlightModifyListingSearchV2Headers $headers FlightModifyListingSearchV2Headers
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 机票改签列表搜索.
      *
-     * @return FlightModifyListingSearchV2Response FlightModifyListingSearchV2Response
+     * @param tmpReq - FlightModifyListingSearchV2Request
+     * @param headers - FlightModifyListingSearchV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightModifyListingSearchV2Response
+     *
+     * @param FlightModifyListingSearchV2Request $tmpReq
+     * @param FlightModifyListingSearchV2Headers $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return FlightModifyListingSearchV2Response
      */
     public function flightModifyListingSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightModifyListingSearchV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cabinClass)) {
-            $request->cabinClassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cabinClass, 'cabin_class', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cabinClass) {
+            $request->cabinClassShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cabinClass, 'cabin_class', 'json');
         }
-        if (!Utils::isUnset($tmpReq->depDate)) {
-            $request->depDateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depDate, 'dep_date', 'json');
+
+        if (null !== $tmpReq->depDate) {
+            $request->depDateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depDate, 'dep_date', 'json');
         }
-        if (!Utils::isUnset($tmpReq->passengerSegmentRelations)) {
-            $request->passengerSegmentRelationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
+
+        if (null !== $tmpReq->passengerSegmentRelations) {
+            $request->passengerSegmentRelationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
         }
-        if (!Utils::isUnset($tmpReq->selectedSegments)) {
-            $request->selectedSegmentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->selectedSegments, 'selected_segments', 'json');
+
+        if (null !== $tmpReq->selectedSegments) {
+            $request->selectedSegmentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedSegments, 'selected_segments', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cabinClassShrink)) {
-            $query['cabin_class'] = $request->cabinClassShrink;
+        if (null !== $request->cabinClassShrink) {
+            @$query['cabin_class'] = $request->cabinClassShrink;
         }
-        if (!Utils::isUnset($request->depDateShrink)) {
-            $query['dep_date'] = $request->depDateShrink;
+
+        if (null !== $request->depDateShrink) {
+            @$query['dep_date'] = $request->depDateShrink;
         }
-        if (!Utils::isUnset($request->interfaceCallerIsSupportRetry)) {
-            $query['interface_caller_is_support_retry'] = $request->interfaceCallerIsSupportRetry;
+
+        if (null !== $request->interfaceCallerIsSupportRetry) {
+            @$query['interface_caller_is_support_retry'] = $request->interfaceCallerIsSupportRetry;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->passengerSegmentRelationsShrink)) {
-            $query['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
+
+        if (null !== $request->passengerSegmentRelationsShrink) {
+            @$query['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
         }
-        if (!Utils::isUnset($request->searchMode)) {
-            $query['search_mode'] = $request->searchMode;
+
+        if (null !== $request->searchMode) {
+            @$query['search_mode'] = $request->searchMode;
         }
-        if (!Utils::isUnset($request->searchRetryToken)) {
-            $query['search_retry_token'] = $request->searchRetryToken;
+
+        if (null !== $request->searchRetryToken) {
+            @$query['search_retry_token'] = $request->searchRetryToken;
         }
-        if (!Utils::isUnset($request->selectedSegmentsShrink)) {
-            $query['selected_segments'] = $request->selectedSegmentsShrink;
+
+        if (null !== $request->selectedSegmentsShrink) {
+            @$query['selected_segments'] = $request->selectedSegmentsShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['session_id'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['session_id'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->voluntary)) {
-            $query['voluntary'] = $request->voluntary;
+
+        if (null !== $request->voluntary) {
+            @$query['voluntary'] = $request->voluntary;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightModifyListingSearchV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/modify/action/listing-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightModifyListingSearchV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/modify/action/listing-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightModifyListingSearchV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签列表搜索
-     *  *
-     * @param FlightModifyListingSearchV2Request $request FlightModifyListingSearchV2Request
+     * 机票改签列表搜索.
      *
-     * @return FlightModifyListingSearchV2Response FlightModifyListingSearchV2Response
+     * @param request - FlightModifyListingSearchV2Request
+     *
+     * @returns FlightModifyListingSearchV2Response
+     *
+     * @param FlightModifyListingSearchV2Request $request
+     *
+     * @return FlightModifyListingSearchV2Response
      */
     public function flightModifyListingSearchV2($request)
     {
@@ -5875,68 +7192,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签详情
-     *  *
-     * @param FlightModifyOrderDetailV2Request $request FlightModifyOrderDetailV2Request
-     * @param FlightModifyOrderDetailV2Headers $headers FlightModifyOrderDetailV2Headers
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 机票改签详情.
      *
-     * @return FlightModifyOrderDetailV2Response FlightModifyOrderDetailV2Response
+     * @param request - FlightModifyOrderDetailV2Request
+     * @param headers - FlightModifyOrderDetailV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightModifyOrderDetailV2Response
+     *
+     * @param FlightModifyOrderDetailV2Request $request
+     * @param FlightModifyOrderDetailV2Headers $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return FlightModifyOrderDetailV2Response
      */
     public function flightModifyOrderDetailV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->modifyApplyId)) {
-            $query['modify_apply_id'] = $request->modifyApplyId;
+
+        if (null !== $request->modifyApplyId) {
+            @$query['modify_apply_id'] = $request->modifyApplyId;
         }
-        if (!Utils::isUnset($request->needQueryServiceFee)) {
-            $query['need_query_service_fee'] = $request->needQueryServiceFee;
+
+        if (null !== $request->needQueryServiceFee) {
+            @$query['need_query_service_fee'] = $request->needQueryServiceFee;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outModifyApplyId)) {
-            $query['out_modify_apply_id'] = $request->outModifyApplyId;
+
+        if (null !== $request->outModifyApplyId) {
+            @$query['out_modify_apply_id'] = $request->outModifyApplyId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightModifyOrderDetailV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/modify/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightModifyOrderDetailV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/modify/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightModifyOrderDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签详情
-     *  *
-     * @param FlightModifyOrderDetailV2Request $request FlightModifyOrderDetailV2Request
+     * 机票改签详情.
      *
-     * @return FlightModifyOrderDetailV2Response FlightModifyOrderDetailV2Response
+     * @param request - FlightModifyOrderDetailV2Request
+     *
+     * @returns FlightModifyOrderDetailV2Response
+     *
+     * @param FlightModifyOrderDetailV2Request $request
+     *
+     * @return FlightModifyOrderDetailV2Response
      */
     public function flightModifyOrderDetailV2($request)
     {
@@ -5947,91 +7282,116 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签报价搜索
-     *  *
-     * @param FlightModifyOtaSearchV2Request $tmpReq  FlightModifyOtaSearchV2Request
-     * @param FlightModifyOtaSearchV2Headers $headers FlightModifyOtaSearchV2Headers
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 机票改签报价搜索.
      *
-     * @return FlightModifyOtaSearchV2Response FlightModifyOtaSearchV2Response
+     * @param tmpReq - FlightModifyOtaSearchV2Request
+     * @param headers - FlightModifyOtaSearchV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightModifyOtaSearchV2Response
+     *
+     * @param FlightModifyOtaSearchV2Request $tmpReq
+     * @param FlightModifyOtaSearchV2Headers $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return FlightModifyOtaSearchV2Response
      */
     public function flightModifyOtaSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightModifyOtaSearchV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cabinClass)) {
-            $request->cabinClassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cabinClass, 'cabin_class', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cabinClass) {
+            $request->cabinClassShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cabinClass, 'cabin_class', 'json');
         }
-        if (!Utils::isUnset($tmpReq->depDate)) {
-            $request->depDateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depDate, 'dep_date', 'json');
+
+        if (null !== $tmpReq->depDate) {
+            $request->depDateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depDate, 'dep_date', 'json');
         }
-        if (!Utils::isUnset($tmpReq->passengerSegmentRelations)) {
-            $request->passengerSegmentRelationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
+
+        if (null !== $tmpReq->passengerSegmentRelations) {
+            $request->passengerSegmentRelationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
         }
-        if (!Utils::isUnset($tmpReq->selectedSegments)) {
-            $request->selectedSegmentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->selectedSegments, 'selected_segments', 'json');
+
+        if (null !== $tmpReq->selectedSegments) {
+            $request->selectedSegmentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedSegments, 'selected_segments', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cabinClassShrink)) {
-            $query['cabin_class'] = $request->cabinClassShrink;
+        if (null !== $request->cabinClassShrink) {
+            @$query['cabin_class'] = $request->cabinClassShrink;
         }
-        if (!Utils::isUnset($request->depDateShrink)) {
-            $query['dep_date'] = $request->depDateShrink;
+
+        if (null !== $request->depDateShrink) {
+            @$query['dep_date'] = $request->depDateShrink;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->passengerSegmentRelationsShrink)) {
-            $query['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
+
+        if (null !== $request->passengerSegmentRelationsShrink) {
+            @$query['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
         }
-        if (!Utils::isUnset($request->selectedSegmentsShrink)) {
-            $query['selected_segments'] = $request->selectedSegmentsShrink;
+
+        if (null !== $request->selectedSegmentsShrink) {
+            @$query['selected_segments'] = $request->selectedSegmentsShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['session_id'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['session_id'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->voluntary)) {
-            $query['voluntary'] = $request->voluntary;
+
+        if (null !== $request->voluntary) {
+            @$query['voluntary'] = $request->voluntary;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightModifyOtaSearchV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/modify/action/ota-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightModifyOtaSearchV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/modify/action/ota-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightModifyOtaSearchV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签报价搜索
-     *  *
-     * @param FlightModifyOtaSearchV2Request $request FlightModifyOtaSearchV2Request
+     * 机票改签报价搜索.
      *
-     * @return FlightModifyOtaSearchV2Response FlightModifyOtaSearchV2Response
+     * @param request - FlightModifyOtaSearchV2Request
+     *
+     * @returns FlightModifyOtaSearchV2Response
+     *
+     * @param FlightModifyOtaSearchV2Request $request
+     *
+     * @return FlightModifyOtaSearchV2Response
      */
     public function flightModifyOtaSearchV2($request)
     {
@@ -6042,76 +7402,96 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签支付
-     *  *
-     * @param FlightModifyPayV2Request $tmpReq  FlightModifyPayV2Request
-     * @param FlightModifyPayV2Headers $headers FlightModifyPayV2Headers
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 机票改签支付.
      *
-     * @return FlightModifyPayV2Response FlightModifyPayV2Response
+     * @param tmpReq - FlightModifyPayV2Request
+     * @param headers - FlightModifyPayV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightModifyPayV2Response
+     *
+     * @param FlightModifyPayV2Request $tmpReq
+     * @param FlightModifyPayV2Headers $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightModifyPayV2Response
      */
     public function flightModifyPayV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightModifyPayV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extParams)) {
-            $request->extParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extParams, 'ext_params', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extParams) {
+            $request->extParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extParams, 'ext_params', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->extParamsShrink)) {
-            $body['ext_params'] = $request->extParamsShrink;
+        if (null !== $request->extParamsShrink) {
+            @$body['ext_params'] = $request->extParamsShrink;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->modifyPayAmount)) {
-            $body['modify_pay_amount'] = $request->modifyPayAmount;
+
+        if (null !== $request->modifyPayAmount) {
+            @$body['modify_pay_amount'] = $request->modifyPayAmount;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$body['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->subOrderId)) {
-            $body['sub_order_id'] = $request->subOrderId;
+
+        if (null !== $request->subOrderId) {
+            @$body['sub_order_id'] = $request->subOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightModifyPayV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/modify/action/pay',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightModifyPayV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/modify/action/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightModifyPayV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签支付
-     *  *
-     * @param FlightModifyPayV2Request $request FlightModifyPayV2Request
+     * 机票改签支付.
      *
-     * @return FlightModifyPayV2Response FlightModifyPayV2Response
+     * @param request - FlightModifyPayV2Request
+     *
+     * @returns FlightModifyPayV2Response
+     *
+     * @param FlightModifyPayV2Request $request
+     *
+     * @return FlightModifyPayV2Response
      */
     public function flightModifyPayV2($request)
     {
@@ -6122,53 +7502,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班订单明细信息
-     *  *
-     * @param FlightOrderDetailInfoRequest $request FlightOrderDetailInfoRequest
-     * @param FlightOrderDetailInfoHeaders $headers FlightOrderDetailInfoHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 航班订单明细信息.
      *
-     * @return FlightOrderDetailInfoResponse FlightOrderDetailInfoResponse
+     * @param request - FlightOrderDetailInfoRequest
+     * @param headers - FlightOrderDetailInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOrderDetailInfoResponse
+     *
+     * @param FlightOrderDetailInfoRequest $request
+     * @param FlightOrderDetailInfoHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FlightOrderDetailInfoResponse
      */
     public function flightOrderDetailInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOrderDetailInfo',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/order/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOrderDetailInfo',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/order/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOrderDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班订单明细信息
-     *  *
-     * @param FlightOrderDetailInfoRequest $request FlightOrderDetailInfoRequest
+     * 航班订单明细信息.
      *
-     * @return FlightOrderDetailInfoResponse FlightOrderDetailInfoResponse
+     * @param request - FlightOrderDetailInfoRequest
+     *
+     * @returns FlightOrderDetailInfoResponse
+     *
+     * @param FlightOrderDetailInfoRequest $request
+     *
+     * @return FlightOrderDetailInfoResponse
      */
     public function flightOrderDetailInfo($request)
     {
@@ -6179,59 +7572,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票订单详情
-     *  *
-     * @param FlightOrderDetailV2Request $request FlightOrderDetailV2Request
-     * @param FlightOrderDetailV2Headers $headers FlightOrderDetailV2Headers
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机票订单详情.
      *
-     * @return FlightOrderDetailV2Response FlightOrderDetailV2Response
+     * @param request - FlightOrderDetailV2Request
+     * @param headers - FlightOrderDetailV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOrderDetailV2Response
+     *
+     * @param FlightOrderDetailV2Request $request
+     * @param FlightOrderDetailV2Headers $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightOrderDetailV2Response
      */
     public function flightOrderDetailV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOrderDetailV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/order/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOrderDetailV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/order/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOrderDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票订单详情
-     *  *
-     * @param FlightOrderDetailV2Request $request FlightOrderDetailV2Request
+     * 机票订单详情.
      *
-     * @return FlightOrderDetailV2Response FlightOrderDetailV2Response
+     * @param request - FlightOrderDetailV2Request
+     *
+     * @returns FlightOrderDetailV2Response
+     *
+     * @param FlightOrderDetailV2Request $request
+     *
+     * @return FlightOrderDetailV2Response
      */
     public function flightOrderDetailV2($request)
     {
@@ -6242,83 +7650,106 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询机票订单列表
-     *  *
-     * @param FlightOrderListQueryRequest $request FlightOrderListQueryRequest
-     * @param FlightOrderListQueryHeaders $headers FlightOrderListQueryHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询机票订单列表.
      *
-     * @return FlightOrderListQueryResponse FlightOrderListQueryResponse
+     * @param request - FlightOrderListQueryRequest
+     * @param headers - FlightOrderListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOrderListQueryResponse
+     *
+     * @param FlightOrderListQueryRequest $request
+     * @param FlightOrderListQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FlightOrderListQueryResponse
      */
     public function flightOrderListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allApply)) {
-            $query['all_apply'] = $request->allApply;
+        if (null !== $request->allApply) {
+            @$query['all_apply'] = $request->allApply;
         }
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $query['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$query['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['end_time'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['end_time'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['start_time'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['start_time'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $query['update_end_time'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$query['update_end_time'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->updateStartTime)) {
-            $query['update_start_time'] = $request->updateStartTime;
+
+        if (null !== $request->updateStartTime) {
+            @$query['update_start_time'] = $request->updateStartTime;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOrderListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/flight/v1/order-list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOrderListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/flight/v1/order-list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机票订单列表
-     *  *
-     * @param FlightOrderListQueryRequest $request FlightOrderListQueryRequest
+     * 查询机票订单列表.
      *
-     * @return FlightOrderListQueryResponse FlightOrderListQueryResponse
+     * @param request - FlightOrderListQueryRequest
+     *
+     * @returns FlightOrderListQueryResponse
+     *
+     * @param FlightOrderListQueryRequest $request
+     *
+     * @return FlightOrderListQueryResponse
      */
     public function flightOrderListQuery($request)
     {
@@ -6329,100 +7760,128 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票订单列表查询
-     *  *
-     * @param FlightOrderListQueryV2Request $tmpReq  FlightOrderListQueryV2Request
-     * @param FlightOrderListQueryV2Headers $headers FlightOrderListQueryV2Headers
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 机票订单列表查询.
      *
-     * @return FlightOrderListQueryV2Response FlightOrderListQueryV2Response
+     * @param tmpReq - FlightOrderListQueryV2Request
+     * @param headers - FlightOrderListQueryV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOrderListQueryV2Response
+     *
+     * @param FlightOrderListQueryV2Request $tmpReq
+     * @param FlightOrderListQueryV2Headers $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return FlightOrderListQueryV2Response
      */
     public function flightOrderListQueryV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightOrderListQueryV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->approveId)) {
-            $request->approveIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->approveId, 'approve_id', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->approveId) {
+            $request->approveIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->approveId, 'approve_id', 'json');
         }
-        if (!Utils::isUnset($tmpReq->bookerId)) {
-            $request->bookerIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookerId, 'booker_id', 'json');
+
+        if (null !== $tmpReq->bookerId) {
+            $request->bookerIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bookerId, 'booker_id', 'json');
         }
-        if (!Utils::isUnset($tmpReq->departId)) {
-            $request->departIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->departId, 'depart_id', 'json');
+
+        if (null !== $tmpReq->departId) {
+            $request->departIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->departId, 'depart_id', 'json');
         }
-        if (!Utils::isUnset($tmpReq->supplier)) {
-            $request->supplierShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->supplier, 'supplier', 'json');
+
+        if (null !== $tmpReq->supplier) {
+            $request->supplierShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supplier, 'supplier', 'json');
         }
-        if (!Utils::isUnset($tmpReq->thirdpartApproveId)) {
-            $request->thirdpartApproveIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdpartApproveId, 'thirdpart_approve_id', 'json');
+
+        if (null !== $tmpReq->thirdpartApproveId) {
+            $request->thirdpartApproveIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdpartApproveId, 'thirdpart_approve_id', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->approveIdShrink)) {
-            $query['approve_id'] = $request->approveIdShrink;
+        if (null !== $request->approveIdShrink) {
+            @$query['approve_id'] = $request->approveIdShrink;
         }
-        if (!Utils::isUnset($request->bookerIdShrink)) {
-            $query['booker_id'] = $request->bookerIdShrink;
+
+        if (null !== $request->bookerIdShrink) {
+            @$query['booker_id'] = $request->bookerIdShrink;
         }
-        if (!Utils::isUnset($request->departIdShrink)) {
-            $query['depart_id'] = $request->departIdShrink;
+
+        if (null !== $request->departIdShrink) {
+            @$query['depart_id'] = $request->departIdShrink;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['end_date'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['end_date'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_Size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_Size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['start_date'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['start_date'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->supplierShrink)) {
-            $query['supplier'] = $request->supplierShrink;
+
+        if (null !== $request->supplierShrink) {
+            @$query['supplier'] = $request->supplierShrink;
         }
-        if (!Utils::isUnset($request->thirdpartApproveIdShrink)) {
-            $query['thirdpart_approve_id'] = $request->thirdpartApproveIdShrink;
+
+        if (null !== $request->thirdpartApproveIdShrink) {
+            @$query['thirdpart_approve_id'] = $request->thirdpartApproveIdShrink;
         }
-        if (!Utils::isUnset($request->updateEndDate)) {
-            $query['update_end_date'] = $request->updateEndDate;
+
+        if (null !== $request->updateEndDate) {
+            @$query['update_end_date'] = $request->updateEndDate;
         }
-        if (!Utils::isUnset($request->updateStartDate)) {
-            $query['update_start_date'] = $request->updateStartDate;
+
+        if (null !== $request->updateStartDate) {
+            @$query['update_start_date'] = $request->updateStartDate;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOrderListQueryV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/open/v2/Flight-order-list-query',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOrderListQueryV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v2/Flight-order-list-query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOrderListQueryV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票订单列表查询
-     *  *
-     * @param FlightOrderListQueryV2Request $request FlightOrderListQueryV2Request
+     * 机票订单列表查询.
      *
-     * @return FlightOrderListQueryV2Response FlightOrderListQueryV2Response
+     * @param request - FlightOrderListQueryV2Request
+     *
+     * @returns FlightOrderListQueryV2Response
+     *
+     * @param FlightOrderListQueryV2Request $request
+     *
+     * @return FlightOrderListQueryV2Response
      */
     public function flightOrderListQueryV2($request)
     {
@@ -6433,56 +7892,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询机票订单详情（含票信息）
-     *  *
-     * @param FlightOrderQueryRequest $request FlightOrderQueryRequest
-     * @param FlightOrderQueryHeaders $headers FlightOrderQueryHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询机票订单详情（含票信息）.
      *
-     * @return FlightOrderQueryResponse FlightOrderQueryResponse
+     * @param request - FlightOrderQueryRequest
+     * @param headers - FlightOrderQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOrderQueryResponse
+     *
+     * @param FlightOrderQueryRequest $request
+     * @param FlightOrderQueryHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return FlightOrderQueryResponse
      */
     public function flightOrderQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOrderQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/flight/v1/order',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOrderQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/flight/v1/order',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机票订单详情（含票信息）
-     *  *
-     * @param FlightOrderQueryRequest $request FlightOrderQueryRequest
+     * 查询机票订单详情（含票信息）.
      *
-     * @return FlightOrderQueryResponse FlightOrderQueryResponse
+     * @param request - FlightOrderQueryRequest
+     *
+     * @returns FlightOrderQueryResponse
+     *
+     * @param FlightOrderQueryRequest $request
+     *
+     * @return FlightOrderQueryResponse
      */
     public function flightOrderQuery($request)
     {
@@ -6493,56 +7966,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询退改规则行李额
-     *  *
-     * @param FlightOtaItemDetailRequest $request FlightOtaItemDetailRequest
-     * @param FlightOtaItemDetailHeaders $headers FlightOtaItemDetailHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询退改规则行李额.
      *
-     * @return FlightOtaItemDetailResponse FlightOtaItemDetailResponse
+     * @param request - FlightOtaItemDetailRequest
+     * @param headers - FlightOtaItemDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOtaItemDetailResponse
+     *
+     * @param FlightOtaItemDetailRequest $request
+     * @param FlightOtaItemDetailHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightOtaItemDetailResponse
      */
     public function flightOtaItemDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->otaItemId)) {
-            $query['ota_item_id'] = $request->otaItemId;
+
+        if (null !== $request->otaItemId) {
+            @$query['ota_item_id'] = $request->otaItemId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOtaItemDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/flight/action/ota-item-detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOtaItemDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/flight/action/ota-item-detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOtaItemDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询退改规则行李额
-     *  *
-     * @param FlightOtaItemDetailRequest $request FlightOtaItemDetailRequest
+     * 查询退改规则行李额.
      *
-     * @return FlightOtaItemDetailResponse FlightOtaItemDetailResponse
+     * @param request - FlightOtaItemDetailRequest
+     *
+     * @returns FlightOtaItemDetailResponse
+     *
+     * @param FlightOtaItemDetailRequest $request
+     *
+     * @return FlightOtaItemDetailResponse
      */
     public function flightOtaItemDetail($request)
     {
@@ -6553,71 +8040,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班最低价搜索
-     *  *
-     * @param FlightOtaSearchRequest $request FlightOtaSearchRequest
-     * @param FlightOtaSearchHeaders $headers FlightOtaSearchHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 航班最低价搜索.
      *
-     * @return FlightOtaSearchResponse FlightOtaSearchResponse
+     * @param request - FlightOtaSearchRequest
+     * @param headers - FlightOtaSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOtaSearchResponse
+     *
+     * @param FlightOtaSearchRequest $request
+     * @param FlightOtaSearchHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FlightOtaSearchResponse
      */
     public function flightOtaSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->airlineCode)) {
-            $query['airline_code'] = $request->airlineCode;
+        if (null !== $request->airlineCode) {
+            @$query['airline_code'] = $request->airlineCode;
         }
-        if (!Utils::isUnset($request->arrCityCode)) {
-            $query['arr_city_code'] = $request->arrCityCode;
+
+        if (null !== $request->arrCityCode) {
+            @$query['arr_city_code'] = $request->arrCityCode;
         }
-        if (!Utils::isUnset($request->cabinClass)) {
-            $query['cabin_class'] = $request->cabinClass;
+
+        if (null !== $request->cabinClass) {
+            @$query['cabin_class'] = $request->cabinClass;
         }
-        if (!Utils::isUnset($request->carrierFlightNo)) {
-            $query['carrier_flight_no'] = $request->carrierFlightNo;
+
+        if (null !== $request->carrierFlightNo) {
+            @$query['carrier_flight_no'] = $request->carrierFlightNo;
         }
-        if (!Utils::isUnset($request->depCityCode)) {
-            $query['dep_city_code'] = $request->depCityCode;
+
+        if (null !== $request->depCityCode) {
+            @$query['dep_city_code'] = $request->depCityCode;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $query['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$query['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->flightNo)) {
-            $query['flight_no'] = $request->flightNo;
+
+        if (null !== $request->flightNo) {
+            @$query['flight_no'] = $request->flightNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOtaSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/flight/action/ota-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOtaSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/flight/action/ota-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOtaSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班最低价搜索
-     *  *
-     * @param FlightOtaSearchRequest $request FlightOtaSearchRequest
+     * 航班最低价搜索.
      *
-     * @return FlightOtaSearchResponse FlightOtaSearchResponse
+     * @param request - FlightOtaSearchRequest
+     *
+     * @returns FlightOtaSearchResponse
+     *
+     * @param FlightOtaSearchRequest $request
+     *
+     * @return FlightOtaSearchResponse
      */
     public function flightOtaSearch($request)
     {
@@ -6628,79 +8134,100 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 单航班报价搜索
-     *  *
-     * @param FlightOtaSearchV2Request $tmpReq  FlightOtaSearchV2Request
-     * @param FlightOtaSearchV2Headers $headers FlightOtaSearchV2Headers
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 单航班报价搜索.
      *
-     * @return FlightOtaSearchV2Response FlightOtaSearchV2Response
+     * @param tmpReq - FlightOtaSearchV2Request
+     * @param headers - FlightOtaSearchV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightOtaSearchV2Response
+     *
+     * @param FlightOtaSearchV2Request $tmpReq
+     * @param FlightOtaSearchV2Headers $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightOtaSearchV2Response
      */
     public function flightOtaSearchV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightOtaSearchV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cabinTypeList)) {
-            $request->cabinTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cabinTypeList, 'cabin_type_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cabinTypeList) {
+            $request->cabinTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cabinTypeList, 'cabin_type_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->searchJourneys)) {
-            $request->searchJourneysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+
+        if (null !== $tmpReq->searchJourneys) {
+            $request->searchJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cabinTypeListShrink)) {
-            $query['cabin_type_list'] = $request->cabinTypeListShrink;
+        if (null !== $request->cabinTypeListShrink) {
+            @$query['cabin_type_list'] = $request->cabinTypeListShrink;
         }
-        if (!Utils::isUnset($request->directOnly)) {
-            $query['direct_only'] = $request->directOnly;
+
+        if (null !== $request->directOnly) {
+            @$query['direct_only'] = $request->directOnly;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->needShareFlight)) {
-            $query['need_share_flight'] = $request->needShareFlight;
+
+        if (null !== $request->needShareFlight) {
+            @$query['need_share_flight'] = $request->needShareFlight;
         }
-        if (!Utils::isUnset($request->searchJourneysShrink)) {
-            $query['search_journeys'] = $request->searchJourneysShrink;
+
+        if (null !== $request->searchJourneysShrink) {
+            @$query['search_journeys'] = $request->searchJourneysShrink;
         }
-        if (!Utils::isUnset($request->searchMode)) {
-            $query['search_mode'] = $request->searchMode;
+
+        if (null !== $request->searchMode) {
+            @$query['search_mode'] = $request->searchMode;
         }
-        if (!Utils::isUnset($request->tripType)) {
-            $query['trip_type'] = $request->tripType;
+
+        if (null !== $request->tripType) {
+            @$query['trip_type'] = $request->tripType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightOtaSearchV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/flight/action/ota-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightOtaSearchV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/flight/action/ota-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightOtaSearchV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 单航班报价搜索
-     *  *
-     * @param FlightOtaSearchV2Request $request FlightOtaSearchV2Request
+     * 单航班报价搜索.
      *
-     * @return FlightOtaSearchV2Response FlightOtaSearchV2Response
+     * @param request - FlightOtaSearchV2Request
+     *
+     * @returns FlightOtaSearchV2Response
+     *
+     * @param FlightOtaSearchV2Request $request
+     *
+     * @return FlightOtaSearchV2Response
      */
     public function flightOtaSearchV2($request)
     {
@@ -6711,70 +8238,88 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班订单支付
-     *  *
-     * @param FlightPayOrderRequest $tmpReq  FlightPayOrderRequest
-     * @param FlightPayOrderHeaders $headers FlightPayOrderHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 航班订单支付.
      *
-     * @return FlightPayOrderResponse FlightPayOrderResponse
+     * @param tmpReq - FlightPayOrderRequest
+     * @param headers - FlightPayOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightPayOrderResponse
+     *
+     * @param FlightPayOrderRequest $tmpReq
+     * @param FlightPayOrderHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return FlightPayOrderResponse
      */
     public function flightPayOrderWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightPayOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extra)) {
-            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->corpPayPrice)) {
-            $body['corp_pay_price'] = $request->corpPayPrice;
+        if (null !== $request->corpPayPrice) {
+            @$body['corp_pay_price'] = $request->corpPayPrice;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->extraShrink)) {
-            $body['extra'] = $request->extraShrink;
+
+        if (null !== $request->extraShrink) {
+            @$body['extra'] = $request->extraShrink;
         }
-        if (!Utils::isUnset($request->personalPayPrice)) {
-            $body['personal_pay_price'] = $request->personalPayPrice;
+
+        if (null !== $request->personalPayPrice) {
+            @$body['personal_pay_price'] = $request->personalPayPrice;
         }
-        if (!Utils::isUnset($request->totalPayPrice)) {
-            $body['total_pay_price'] = $request->totalPayPrice;
+
+        if (null !== $request->totalPayPrice) {
+            @$body['total_pay_price'] = $request->totalPayPrice;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightPayOrder',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/order/action/pay',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightPayOrder',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/order/action/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班订单支付
-     *  *
-     * @param FlightPayOrderRequest $request FlightPayOrderRequest
+     * 航班订单支付.
      *
-     * @return FlightPayOrderResponse FlightPayOrderResponse
+     * @param request - FlightPayOrderRequest
+     *
+     * @returns FlightPayOrderResponse
+     *
+     * @param FlightPayOrderRequest $request
+     *
+     * @return FlightPayOrderResponse
      */
     public function flightPayOrder($request)
     {
@@ -6785,65 +8330,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票订单支付
-     *  *
-     * @param FlightPayOrderV2Request $request FlightPayOrderV2Request
-     * @param FlightPayOrderV2Headers $headers FlightPayOrderV2Headers
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 机票订单支付.
      *
-     * @return FlightPayOrderV2Response FlightPayOrderV2Response
+     * @param request - FlightPayOrderV2Request
+     * @param headers - FlightPayOrderV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightPayOrderV2Response
+     *
+     * @param FlightPayOrderV2Request $request
+     * @param FlightPayOrderV2Headers $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return FlightPayOrderV2Response
      */
     public function flightPayOrderV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->totalPrice)) {
-            $body['total_price'] = $request->totalPrice;
+
+        if (null !== $request->totalPrice) {
+            @$body['total_price'] = $request->totalPrice;
         }
-        if (!Utils::isUnset($request->totalServiceFeePrice)) {
-            $body['total_service_fee_price'] = $request->totalServiceFeePrice;
+
+        if (null !== $request->totalServiceFeePrice) {
+            @$body['total_service_fee_price'] = $request->totalServiceFeePrice;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightPayOrderV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/order/action/pay',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightPayOrderV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/order/action/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightPayOrderV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票订单支付
-     *  *
-     * @param FlightPayOrderV2Request $request FlightPayOrderV2Request
+     * 机票订单支付.
      *
-     * @return FlightPayOrderV2Response FlightPayOrderV2Response
+     * @param request - FlightPayOrderV2Request
+     *
+     * @returns FlightPayOrderV2Response
+     *
+     * @param FlightPayOrderV2Request $request
+     *
+     * @return FlightPayOrderV2Response
      */
     public function flightPayOrderV2($request)
     {
@@ -6854,103 +8416,132 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班退票申请
-     *  *
-     * @param FlightRefundApplyRequest $tmpReq  FlightRefundApplyRequest
-     * @param FlightRefundApplyHeaders $headers FlightRefundApplyHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 航班退票申请.
      *
-     * @return FlightRefundApplyResponse FlightRefundApplyResponse
+     * @param tmpReq - FlightRefundApplyRequest
+     * @param headers - FlightRefundApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightRefundApplyResponse
+     *
+     * @param FlightRefundApplyRequest $tmpReq
+     * @param FlightRefundApplyHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightRefundApplyResponse
      */
     public function flightRefundApplyWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightRefundApplyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extra)) {
-            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
         }
-        if (!Utils::isUnset($tmpReq->passengerSegmentInfoList)) {
-            $request->passengerSegmentInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentInfoList, 'passenger_segment_info_list', 'json');
+
+        if (null !== $tmpReq->passengerSegmentInfoList) {
+            $request->passengerSegmentInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentInfoList, 'passenger_segment_info_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->refundVoucherInfo)) {
-            $request->refundVoucherInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->refundVoucherInfo, 'refund_voucher_info', 'json');
+
+        if (null !== $tmpReq->refundVoucherInfo) {
+            $request->refundVoucherInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->refundVoucherInfo, 'refund_voucher_info', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->corpRefundPrice)) {
-            $body['corp_refund_price'] = $request->corpRefundPrice;
+        if (null !== $request->corpRefundPrice) {
+            @$body['corp_refund_price'] = $request->corpRefundPrice;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->disSubOrderId)) {
-            $body['dis_sub_order_id'] = $request->disSubOrderId;
+
+        if (null !== $request->disSubOrderId) {
+            @$body['dis_sub_order_id'] = $request->disSubOrderId;
         }
-        if (!Utils::isUnset($request->displayRefundMoney)) {
-            $body['display_refund_money'] = $request->displayRefundMoney;
+
+        if (null !== $request->displayRefundMoney) {
+            @$body['display_refund_money'] = $request->displayRefundMoney;
         }
-        if (!Utils::isUnset($request->extraShrink)) {
-            $body['extra'] = $request->extraShrink;
+
+        if (null !== $request->extraShrink) {
+            @$body['extra'] = $request->extraShrink;
         }
-        if (!Utils::isUnset($request->isVoluntary)) {
-            $body['is_voluntary'] = $request->isVoluntary;
+
+        if (null !== $request->isVoluntary) {
+            @$body['is_voluntary'] = $request->isVoluntary;
         }
-        if (!Utils::isUnset($request->itemUnitIds)) {
-            $body['item_unit_ids'] = $request->itemUnitIds;
+
+        if (null !== $request->itemUnitIds) {
+            @$body['item_unit_ids'] = $request->itemUnitIds;
         }
-        if (!Utils::isUnset($request->passengerSegmentInfoListShrink)) {
-            $body['passenger_segment_info_list'] = $request->passengerSegmentInfoListShrink;
+
+        if (null !== $request->passengerSegmentInfoListShrink) {
+            @$body['passenger_segment_info_list'] = $request->passengerSegmentInfoListShrink;
         }
-        if (!Utils::isUnset($request->personalRefundPrice)) {
-            $body['personal_refund_price'] = $request->personalRefundPrice;
+
+        if (null !== $request->personalRefundPrice) {
+            @$body['personal_refund_price'] = $request->personalRefundPrice;
         }
-        if (!Utils::isUnset($request->reasonDetail)) {
-            $body['reason_detail'] = $request->reasonDetail;
+
+        if (null !== $request->reasonDetail) {
+            @$body['reason_detail'] = $request->reasonDetail;
         }
-        if (!Utils::isUnset($request->reasonType)) {
-            $body['reason_type'] = $request->reasonType;
+
+        if (null !== $request->reasonType) {
+            @$body['reason_type'] = $request->reasonType;
         }
-        if (!Utils::isUnset($request->refundVoucherInfoShrink)) {
-            $body['refund_voucher_info'] = $request->refundVoucherInfoShrink;
+
+        if (null !== $request->refundVoucherInfoShrink) {
+            @$body['refund_voucher_info'] = $request->refundVoucherInfoShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['session_id'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['session_id'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->totalRefundPrice)) {
-            $body['total_refund_price'] = $request->totalRefundPrice;
+
+        if (null !== $request->totalRefundPrice) {
+            @$body['total_refund_price'] = $request->totalRefundPrice;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightRefundApply',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/refund/action/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightRefundApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/refund/action/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightRefundApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班退票申请
-     *  *
-     * @param FlightRefundApplyRequest $request FlightRefundApplyRequest
+     * 航班退票申请.
      *
-     * @return FlightRefundApplyResponse FlightRefundApplyResponse
+     * @param request - FlightRefundApplyRequest
+     *
+     * @returns FlightRefundApplyResponse
+     *
+     * @param FlightRefundApplyRequest $request
+     *
+     * @return FlightRefundApplyResponse
      */
     public function flightRefundApply($request)
     {
@@ -6961,94 +8552,120 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票退票申请
-     *  *
-     * @param FlightRefundApplyV2Request $tmpReq  FlightRefundApplyV2Request
-     * @param FlightRefundApplyV2Headers $headers FlightRefundApplyV2Headers
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机票退票申请.
      *
-     * @return FlightRefundApplyV2Response FlightRefundApplyV2Response
+     * @param tmpReq - FlightRefundApplyV2Request
+     * @param headers - FlightRefundApplyV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightRefundApplyV2Response
+     *
+     * @param FlightRefundApplyV2Request $tmpReq
+     * @param FlightRefundApplyV2Headers $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightRefundApplyV2Response
      */
     public function flightRefundApplyV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightRefundApplyV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->passengerSegmentRelations)) {
-            $request->passengerSegmentRelationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->passengerSegmentRelations) {
+            $request->passengerSegmentRelationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ticketNos)) {
-            $request->ticketNosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketNos, 'ticket_nos', 'json');
+
+        if (null !== $tmpReq->ticketNos) {
+            $request->ticketNosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ticketNos, 'ticket_nos', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$body['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->passengerSegmentRelationsShrink)) {
-            $body['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
+
+        if (null !== $request->passengerSegmentRelationsShrink) {
+            @$body['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
         }
-        if (!Utils::isUnset($request->preCalType)) {
-            $body['pre_cal_type'] = $request->preCalType;
+
+        if (null !== $request->preCalType) {
+            @$body['pre_cal_type'] = $request->preCalType;
         }
-        if (!Utils::isUnset($request->refundReason)) {
-            $body['refund_reason'] = $request->refundReason;
+
+        if (null !== $request->refundReason) {
+            @$body['refund_reason'] = $request->refundReason;
         }
-        if (!Utils::isUnset($request->refundReasonType)) {
-            $body['refund_reason_type'] = $request->refundReasonType;
+
+        if (null !== $request->refundReasonType) {
+            @$body['refund_reason_type'] = $request->refundReasonType;
         }
-        if (!Utils::isUnset($request->ticketNosShrink)) {
-            $body['ticket_nos'] = $request->ticketNosShrink;
+
+        if (null !== $request->ticketNosShrink) {
+            @$body['ticket_nos'] = $request->ticketNosShrink;
         }
-        if (!Utils::isUnset($request->totalRefundPrice)) {
-            $body['total_refund_price'] = $request->totalRefundPrice;
+
+        if (null !== $request->totalRefundPrice) {
+            @$body['total_refund_price'] = $request->totalRefundPrice;
         }
-        if (!Utils::isUnset($request->uploadPictUrls)) {
-            $body['upload_pict_urls'] = $request->uploadPictUrls;
+
+        if (null !== $request->uploadPictUrls) {
+            @$body['upload_pict_urls'] = $request->uploadPictUrls;
         }
-        if (!Utils::isUnset($request->voluntary)) {
-            $body['voluntary'] = $request->voluntary;
+
+        if (null !== $request->voluntary) {
+            @$body['voluntary'] = $request->voluntary;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FlightRefundApplyV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/refund/action/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightRefundApplyV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/refund/action/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightRefundApplyV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票退票申请
-     *  *
-     * @param FlightRefundApplyV2Request $request FlightRefundApplyV2Request
+     * 机票退票申请.
      *
-     * @return FlightRefundApplyV2Response FlightRefundApplyV2Response
+     * @param request - FlightRefundApplyV2Request
+     *
+     * @returns FlightRefundApplyV2Response
+     *
+     * @param FlightRefundApplyV2Request $request
+     *
+     * @return FlightRefundApplyV2Response
      */
     public function flightRefundApplyV2($request)
     {
@@ -7059,56 +8676,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班退票详情
-     *  *
-     * @param FlightRefundDetailRequest $request FlightRefundDetailRequest
-     * @param FlightRefundDetailHeaders $headers FlightRefundDetailHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 航班退票详情.
      *
-     * @return FlightRefundDetailResponse FlightRefundDetailResponse
+     * @param request - FlightRefundDetailRequest
+     * @param headers - FlightRefundDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightRefundDetailResponse
+     *
+     * @param FlightRefundDetailRequest $request
+     * @param FlightRefundDetailHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FlightRefundDetailResponse
      */
     public function flightRefundDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->disSubOrderId)) {
-            $query['dis_sub_order_id'] = $request->disSubOrderId;
+
+        if (null !== $request->disSubOrderId) {
+            @$query['dis_sub_order_id'] = $request->disSubOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightRefundDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/refund/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightRefundDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/refund/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightRefundDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班退票详情
-     *  *
-     * @param FlightRefundDetailRequest $request FlightRefundDetailRequest
+     * 航班退票详情.
      *
-     * @return FlightRefundDetailResponse FlightRefundDetailResponse
+     * @param request - FlightRefundDetailRequest
+     *
+     * @returns FlightRefundDetailResponse
+     *
+     * @param FlightRefundDetailRequest $request
+     *
+     * @return FlightRefundDetailResponse
      */
     public function flightRefundDetail($request)
     {
@@ -7119,65 +8750,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票退票详情
-     *  *
-     * @param FlightRefundDetailV2Request $request FlightRefundDetailV2Request
-     * @param FlightRefundDetailV2Headers $headers FlightRefundDetailV2Headers
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 机票退票详情.
      *
-     * @return FlightRefundDetailV2Response FlightRefundDetailV2Response
+     * @param request - FlightRefundDetailV2Request
+     * @param headers - FlightRefundDetailV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightRefundDetailV2Response
+     *
+     * @param FlightRefundDetailV2Request $request
+     * @param FlightRefundDetailV2Headers $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FlightRefundDetailV2Response
      */
     public function flightRefundDetailV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outRefundApplyId)) {
-            $query['out_refund_apply_id'] = $request->outRefundApplyId;
+
+        if (null !== $request->outRefundApplyId) {
+            @$query['out_refund_apply_id'] = $request->outRefundApplyId;
         }
-        if (!Utils::isUnset($request->refundApplyId)) {
-            $query['refund_apply_id'] = $request->refundApplyId;
+
+        if (null !== $request->refundApplyId) {
+            @$query['refund_apply_id'] = $request->refundApplyId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightRefundDetailV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/refund/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightRefundDetailV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/refund/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightRefundDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票退票详情
-     *  *
-     * @param FlightRefundDetailV2Request $request FlightRefundDetailV2Request
+     * 机票退票详情.
      *
-     * @return FlightRefundDetailV2Response FlightRefundDetailV2Response
+     * @param request - FlightRefundDetailV2Request
+     *
+     * @returns FlightRefundDetailV2Response
+     *
+     * @param FlightRefundDetailV2Request $request
+     *
+     * @return FlightRefundDetailV2Response
      */
     public function flightRefundDetailV2($request)
     {
@@ -7188,64 +8836,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票退票预计算
-     *  *
-     * @param FlightRefundPreCalRequest $tmpReq  FlightRefundPreCalRequest
-     * @param FlightRefundPreCalHeaders $headers FlightRefundPreCalHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 机票退票预计算.
      *
-     * @return FlightRefundPreCalResponse FlightRefundPreCalResponse
+     * @param tmpReq - FlightRefundPreCalRequest
+     * @param headers - FlightRefundPreCalHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightRefundPreCalResponse
+     *
+     * @param FlightRefundPreCalRequest $tmpReq
+     * @param FlightRefundPreCalHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FlightRefundPreCalResponse
      */
     public function flightRefundPreCalWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightRefundPreCalShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->passengerSegmentInfoList)) {
-            $request->passengerSegmentInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentInfoList, 'passenger_segment_info_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->passengerSegmentInfoList) {
+            $request->passengerSegmentInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentInfoList, 'passenger_segment_info_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->isVoluntary)) {
-            $query['is_voluntary'] = $request->isVoluntary;
+
+        if (null !== $request->isVoluntary) {
+            @$query['is_voluntary'] = $request->isVoluntary;
         }
-        if (!Utils::isUnset($request->passengerSegmentInfoListShrink)) {
-            $query['passenger_segment_info_list'] = $request->passengerSegmentInfoListShrink;
+
+        if (null !== $request->passengerSegmentInfoListShrink) {
+            @$query['passenger_segment_info_list'] = $request->passengerSegmentInfoListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightRefundPreCal',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/refund/action/pre-cal',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightRefundPreCal',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/refund/action/pre-cal',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightRefundPreCalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票退票预计算
-     *  *
-     * @param FlightRefundPreCalRequest $request FlightRefundPreCalRequest
+     * 机票退票预计算.
      *
-     * @return FlightRefundPreCalResponse FlightRefundPreCalResponse
+     * @param request - FlightRefundPreCalRequest
+     *
+     * @returns FlightRefundPreCalResponse
+     *
+     * @param FlightRefundPreCalRequest $request
+     *
+     * @return FlightRefundPreCalResponse
      */
     public function flightRefundPreCal($request)
     {
@@ -7256,79 +8920,100 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票退票费用预计算
-     *  *
-     * @param FlightRefundPreCalV2Request $tmpReq  FlightRefundPreCalV2Request
-     * @param FlightRefundPreCalV2Headers $headers FlightRefundPreCalV2Headers
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 机票退票费用预计算.
      *
-     * @return FlightRefundPreCalV2Response FlightRefundPreCalV2Response
+     * @param tmpReq - FlightRefundPreCalV2Request
+     * @param headers - FlightRefundPreCalV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightRefundPreCalV2Response
+     *
+     * @param FlightRefundPreCalV2Request $tmpReq
+     * @param FlightRefundPreCalV2Headers $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FlightRefundPreCalV2Response
      */
     public function flightRefundPreCalV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FlightRefundPreCalV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->passengerSegmentRelations)) {
-            $request->passengerSegmentRelationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->passengerSegmentRelations) {
+            $request->passengerSegmentRelationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerSegmentRelations, 'passenger_segment_relations', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ticketNos)) {
-            $request->ticketNosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketNos, 'ticket_nos', 'json');
+
+        if (null !== $tmpReq->ticketNos) {
+            $request->ticketNosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ticketNos, 'ticket_nos', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->passengerSegmentRelationsShrink)) {
-            $query['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
+
+        if (null !== $request->passengerSegmentRelationsShrink) {
+            @$query['passenger_segment_relations'] = $request->passengerSegmentRelationsShrink;
         }
-        if (!Utils::isUnset($request->preCalType)) {
-            $query['pre_cal_type'] = $request->preCalType;
+
+        if (null !== $request->preCalType) {
+            @$query['pre_cal_type'] = $request->preCalType;
         }
-        if (!Utils::isUnset($request->ticketNosShrink)) {
-            $query['ticket_nos'] = $request->ticketNosShrink;
+
+        if (null !== $request->ticketNosShrink) {
+            @$query['ticket_nos'] = $request->ticketNosShrink;
         }
-        if (!Utils::isUnset($request->voluntary)) {
-            $query['voluntary'] = $request->voluntary;
+
+        if (null !== $request->voluntary) {
+            @$query['voluntary'] = $request->voluntary;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightRefundPreCalV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v2/refund/action/pre-cal',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightRefundPreCalV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v2/refund/action/pre-cal',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightRefundPreCalV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票退票费用预计算
-     *  *
-     * @param FlightRefundPreCalV2Request $request FlightRefundPreCalV2Request
+     * 机票退票费用预计算.
      *
-     * @return FlightRefundPreCalV2Response FlightRefundPreCalV2Response
+     * @param request - FlightRefundPreCalV2Request
+     *
+     * @returns FlightRefundPreCalV2Response
+     *
+     * @param FlightRefundPreCalV2Request $request
+     *
+     * @return FlightRefundPreCalV2Response
      */
     public function flightRefundPreCalV2($request)
     {
@@ -7339,92 +9024,118 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 航班列表搜索
-     *  *
-     * @param FlightSearchListRequest $request FlightSearchListRequest
-     * @param FlightSearchListHeaders $headers FlightSearchListHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 航班列表搜索.
      *
-     * @return FlightSearchListResponse FlightSearchListResponse
+     * @param request - FlightSearchListRequest
+     * @param headers - FlightSearchListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FlightSearchListResponse
+     *
+     * @param FlightSearchListRequest $request
+     * @param FlightSearchListHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return FlightSearchListResponse
      */
     public function flightSearchListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->airlineCode)) {
-            $query['airline_code'] = $request->airlineCode;
+        if (null !== $request->airlineCode) {
+            @$query['airline_code'] = $request->airlineCode;
         }
-        if (!Utils::isUnset($request->arrCityCode)) {
-            $query['arr_city_code'] = $request->arrCityCode;
+
+        if (null !== $request->arrCityCode) {
+            @$query['arr_city_code'] = $request->arrCityCode;
         }
-        if (!Utils::isUnset($request->arrCityName)) {
-            $query['arr_city_name'] = $request->arrCityName;
+
+        if (null !== $request->arrCityName) {
+            @$query['arr_city_name'] = $request->arrCityName;
         }
-        if (!Utils::isUnset($request->arrDate)) {
-            $query['arr_date'] = $request->arrDate;
+
+        if (null !== $request->arrDate) {
+            @$query['arr_date'] = $request->arrDate;
         }
-        if (!Utils::isUnset($request->cabinClass)) {
-            $query['cabin_class'] = $request->cabinClass;
+
+        if (null !== $request->cabinClass) {
+            @$query['cabin_class'] = $request->cabinClass;
         }
-        if (!Utils::isUnset($request->depCityCode)) {
-            $query['dep_city_code'] = $request->depCityCode;
+
+        if (null !== $request->depCityCode) {
+            @$query['dep_city_code'] = $request->depCityCode;
         }
-        if (!Utils::isUnset($request->depCityName)) {
-            $query['dep_city_name'] = $request->depCityName;
+
+        if (null !== $request->depCityName) {
+            @$query['dep_city_name'] = $request->depCityName;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $query['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$query['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->flightNo)) {
-            $query['flight_no'] = $request->flightNo;
+
+        if (null !== $request->flightNo) {
+            @$query['flight_no'] = $request->flightNo;
         }
-        if (!Utils::isUnset($request->needMultiClassPrice)) {
-            $query['need_multi_class_price'] = $request->needMultiClassPrice;
+
+        if (null !== $request->needMultiClassPrice) {
+            @$query['need_multi_class_price'] = $request->needMultiClassPrice;
         }
-        if (!Utils::isUnset($request->transferCityCode)) {
-            $query['transfer_city_code'] = $request->transferCityCode;
+
+        if (null !== $request->transferCityCode) {
+            @$query['transfer_city_code'] = $request->transferCityCode;
         }
-        if (!Utils::isUnset($request->transferFlightNo)) {
-            $query['transfer_flight_no'] = $request->transferFlightNo;
+
+        if (null !== $request->transferFlightNo) {
+            @$query['transfer_flight_no'] = $request->transferFlightNo;
         }
-        if (!Utils::isUnset($request->transferLeaveDate)) {
-            $query['transfer_leave_date'] = $request->transferLeaveDate;
+
+        if (null !== $request->transferLeaveDate) {
+            @$query['transfer_leave_date'] = $request->transferLeaveDate;
         }
-        if (!Utils::isUnset($request->tripType)) {
-            $query['trip_type'] = $request->tripType;
+
+        if (null !== $request->tripType) {
+            @$query['trip_type'] = $request->tripType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlightSearchList',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/huge/dtb-flight/v1/flight/action/search-list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlightSearchList',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/huge/dtb-flight/v1/flight/action/search-list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FlightSearchListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航班列表搜索
-     *  *
-     * @param FlightSearchListRequest $request FlightSearchListRequest
+     * 航班列表搜索.
      *
-     * @return FlightSearchListResponse FlightSearchListResponse
+     * @param request - FlightSearchListRequest
+     *
+     * @returns FlightSearchListResponse
+     *
+     * @param FlightSearchListRequest $request
+     *
+     * @return FlightSearchListResponse
      */
     public function flightSearchList($request)
     {
@@ -7435,74 +9146,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询福豆记账数据
-     *  *
-     * @param FuPointBillSettlementQueryRequest $request FuPointBillSettlementQueryRequest
-     * @param FuPointBillSettlementQueryHeaders $headers FuPointBillSettlementQueryHeaders
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询福豆记账数据.
      *
-     * @return FuPointBillSettlementQueryResponse FuPointBillSettlementQueryResponse
+     * @param request - FuPointBillSettlementQueryRequest
+     * @param headers - FuPointBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FuPointBillSettlementQueryResponse
+     *
+     * @param FuPointBillSettlementQueryRequest $request
+     * @param FuPointBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return FuPointBillSettlementQueryResponse
      */
     public function fuPointBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->cooperatorId)) {
-            $query['cooperator_id'] = $request->cooperatorId;
+
+        if (null !== $request->cooperatorId) {
+            @$query['cooperator_id'] = $request->cooperatorId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FuPointBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/fupoint/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FuPointBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/fupoint/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FuPointBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询福豆记账数据
-     *  *
-     * @param FuPointBillSettlementQueryRequest $request FuPointBillSettlementQueryRequest
+     * 查询福豆记账数据.
      *
-     * @return FuPointBillSettlementQueryResponse FuPointBillSettlementQueryResponse
+     * @param request - FuPointBillSettlementQueryRequest
+     *
+     * @returns FuPointBillSettlementQueryResponse
+     *
+     * @param FuPointBillSettlementQueryRequest $request
+     *
+     * @return FuPointBillSettlementQueryResponse
      */
     public function fuPointBillSettlementQuery($request)
     {
@@ -7513,59 +9244,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 换取GroupCorpToken接口
-     *  *
-     * @param GroupCorpTokenRequest $request GroupCorpTokenRequest
-     * @param GroupCorpTokenHeaders $headers GroupCorpTokenHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 换取GroupCorpToken接口.
      *
-     * @return GroupCorpTokenResponse GroupCorpTokenResponse
+     * @param request - GroupCorpTokenRequest
+     * @param headers - GroupCorpTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GroupCorpTokenResponse
+     *
+     * @param GroupCorpTokenRequest $request
+     * @param GroupCorpTokenHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GroupCorpTokenResponse
      */
     public function groupCorpTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appSecret)) {
-            $query['app_secret'] = $request->appSecret;
+        if (null !== $request->appSecret) {
+            @$query['app_secret'] = $request->appSecret;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
+
+        if (null !== $request->corpId) {
+            @$query['corp_id'] = $request->corpId;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $query['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->subCorpId) {
+            @$query['sub_corp_id'] = $request->subCorpId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
-            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+
+        if (null !== $headers->xAcsBtripAccessToken) {
+            @$realHeaders['x-acs-btrip-access-token'] = '' . $headers->xAcsBtripAccessToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GroupCorpToken',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/btrip-open-auth/v1/group-corp-token/action/take',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GroupCorpToken',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/btrip-open-auth/v1/group-corp-token/action/take',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GroupCorpTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 换取GroupCorpToken接口
-     *  *
-     * @param GroupCorpTokenRequest $request GroupCorpTokenRequest
+     * 换取GroupCorpToken接口.
      *
-     * @return GroupCorpTokenResponse GroupCorpTokenResponse
+     * @param request - GroupCorpTokenRequest
+     *
+     * @returns GroupCorpTokenResponse
+     *
+     * @param GroupCorpTokenRequest $request
+     *
+     * @return GroupCorpTokenResponse
      */
     public function groupCorpToken($request)
     {
@@ -7576,76 +9322,96 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 集团部门同步
-     *  *
-     * @param GroupDepartSaveRequest $tmpReq  GroupDepartSaveRequest
-     * @param GroupDepartSaveHeaders $headers GroupDepartSaveHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 集团部门同步.
      *
-     * @return GroupDepartSaveResponse GroupDepartSaveResponse
+     * @param tmpReq - GroupDepartSaveRequest
+     * @param headers - GroupDepartSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GroupDepartSaveResponse
+     *
+     * @param GroupDepartSaveRequest $tmpReq
+     * @param GroupDepartSaveHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GroupDepartSaveResponse
      */
     public function groupDepartSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GroupDepartSaveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->subCorpIdList)) {
-            $request->subCorpIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->subCorpIdList) {
+            $request->subCorpIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deptName)) {
-            $body['dept_name'] = $request->deptName;
+        if (null !== $request->deptName) {
+            @$body['dept_name'] = $request->deptName;
         }
-        if (!Utils::isUnset($request->managerIds)) {
-            $body['manager_ids'] = $request->managerIds;
+
+        if (null !== $request->managerIds) {
+            @$body['manager_ids'] = $request->managerIds;
         }
-        if (!Utils::isUnset($request->outerDeptId)) {
-            $body['outer_dept_id'] = $request->outerDeptId;
+
+        if (null !== $request->outerDeptId) {
+            @$body['outer_dept_id'] = $request->outerDeptId;
         }
-        if (!Utils::isUnset($request->outerDeptPid)) {
-            $body['outer_dept_pid'] = $request->outerDeptPid;
+
+        if (null !== $request->outerDeptPid) {
+            @$body['outer_dept_pid'] = $request->outerDeptPid;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subCorpIdListShrink)) {
-            $body['sub_corp_id_list'] = $request->subCorpIdListShrink;
+
+        if (null !== $request->subCorpIdListShrink) {
+            @$body['sub_corp_id_list'] = $request->subCorpIdListShrink;
         }
-        if (!Utils::isUnset($request->syncGroup)) {
-            $body['sync_group'] = $request->syncGroup;
+
+        if (null !== $request->syncGroup) {
+            @$body['sync_group'] = $request->syncGroup;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GroupDepartSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sub_corps/v1/departs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GroupDepartSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sub_corps/v1/departs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GroupDepartSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 集团部门同步
-     *  *
-     * @param GroupDepartSaveRequest $request GroupDepartSaveRequest
+     * 集团部门同步.
      *
-     * @return GroupDepartSaveResponse GroupDepartSaveResponse
+     * @param request - GroupDepartSaveRequest
+     *
+     * @returns GroupDepartSaveResponse
+     *
+     * @param GroupDepartSaveRequest $request
+     *
+     * @return GroupDepartSaveResponse
      */
     public function groupDepartSave($request)
     {
@@ -7656,88 +9422,112 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 集团人员同步
-     *  *
-     * @param GroupUserSaveRequest $tmpReq  GroupUserSaveRequest
-     * @param GroupUserSaveHeaders $headers GroupUserSaveHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 集团人员同步.
      *
-     * @return GroupUserSaveResponse GroupUserSaveResponse
+     * @param tmpReq - GroupUserSaveRequest
+     * @param headers - GroupUserSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GroupUserSaveResponse
+     *
+     * @param GroupUserSaveRequest $tmpReq
+     * @param GroupUserSaveHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GroupUserSaveResponse
      */
     public function groupUserSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GroupUserSaveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->certList)) {
-            $request->certListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->certList) {
+            $request->certListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->subCorpIdList)) {
-            $request->subCorpIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
+
+        if (null !== $tmpReq->subCorpIdList) {
+            $request->subCorpIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subCorpIdList, 'sub_corp_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->baseCityCode)) {
-            $body['base_city_code'] = $request->baseCityCode;
+        if (null !== $request->baseCityCode) {
+            @$body['base_city_code'] = $request->baseCityCode;
         }
-        if (!Utils::isUnset($request->birthday)) {
-            $body['birthday'] = $request->birthday;
+
+        if (null !== $request->birthday) {
+            @$body['birthday'] = $request->birthday;
         }
-        if (!Utils::isUnset($request->certListShrink)) {
-            $body['cert_list'] = $request->certListShrink;
+
+        if (null !== $request->certListShrink) {
+            @$body['cert_list'] = $request->certListShrink;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $body['gender'] = $request->gender;
+
+        if (null !== $request->gender) {
+            @$body['gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->jobNo)) {
-            $body['job_no'] = $request->jobNo;
+
+        if (null !== $request->jobNo) {
+            @$body['job_no'] = $request->jobNo;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->realNameEn)) {
-            $body['real_name_en'] = $request->realNameEn;
+
+        if (null !== $request->realNameEn) {
+            @$body['real_name_en'] = $request->realNameEn;
         }
-        if (!Utils::isUnset($request->subCorpIdListShrink)) {
-            $body['sub_corp_id_list'] = $request->subCorpIdListShrink;
+
+        if (null !== $request->subCorpIdListShrink) {
+            @$body['sub_corp_id_list'] = $request->subCorpIdListShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GroupUserSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sub_corps/v1/users',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GroupUserSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sub_corps/v1/users',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GroupUserSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 集团人员同步
-     *  *
-     * @param GroupUserSaveRequest $request GroupUserSaveRequest
+     * 集团人员同步.
      *
-     * @return GroupUserSaveResponse GroupUserSaveResponse
+     * @param request - GroupUserSaveRequest
+     *
+     * @returns GroupUserSaveResponse
+     *
+     * @param GroupUserSaveRequest $request
+     *
+     * @return GroupUserSaveResponse
      */
     public function groupUserSave($request)
     {
@@ -7748,91 +9538,116 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店起价
-     *  *
-     * @param HotelAskingPriceRequest $tmpReq  HotelAskingPriceRequest
-     * @param HotelAskingPriceHeaders $headers HotelAskingPriceHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 酒店起价.
      *
-     * @return HotelAskingPriceResponse HotelAskingPriceResponse
+     * @param tmpReq - HotelAskingPriceRequest
+     * @param headers - HotelAskingPriceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelAskingPriceResponse
+     *
+     * @param HotelAskingPriceRequest $tmpReq
+     * @param HotelAskingPriceHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotelAskingPriceResponse
      */
     public function hotelAskingPriceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelAskingPriceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->shids)) {
-            $request->shidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->shids, 'shids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->shids) {
+            $request->shidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shids, 'shids', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->adultNum)) {
-            $query['adult_num'] = $request->adultNum;
+        if (null !== $request->adultNum) {
+            @$query['adult_num'] = $request->adultNum;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->checkInDate)) {
-            $query['check_in_date'] = $request->checkInDate;
+
+        if (null !== $request->checkInDate) {
+            @$query['check_in_date'] = $request->checkInDate;
         }
-        if (!Utils::isUnset($request->checkOutDate)) {
-            $query['check_out_date'] = $request->checkOutDate;
+
+        if (null !== $request->checkOutDate) {
+            @$query['check_out_date'] = $request->checkOutDate;
         }
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
+
+        if (null !== $request->cityCode) {
+            @$query['city_code'] = $request->cityCode;
         }
-        if (!Utils::isUnset($request->cityName)) {
-            $query['city_name'] = $request->cityName;
+
+        if (null !== $request->cityName) {
+            @$query['city_name'] = $request->cityName;
         }
-        if (!Utils::isUnset($request->dir)) {
-            $query['dir'] = $request->dir;
+
+        if (null !== $request->dir) {
+            @$query['dir'] = $request->dir;
         }
-        if (!Utils::isUnset($request->hotelStar)) {
-            $query['hotel_star'] = $request->hotelStar;
+
+        if (null !== $request->hotelStar) {
+            @$query['hotel_star'] = $request->hotelStar;
         }
-        if (!Utils::isUnset($request->isProtocol)) {
-            $query['is_protocol'] = $request->isProtocol;
+
+        if (null !== $request->isProtocol) {
+            @$query['is_protocol'] = $request->isProtocol;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['payment_type'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['payment_type'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->shidsShrink)) {
-            $query['shids'] = $request->shidsShrink;
+
+        if (null !== $request->shidsShrink) {
+            @$query['shids'] = $request->shidsShrink;
         }
-        if (!Utils::isUnset($request->sortCode)) {
-            $query['sort_code'] = $request->sortCode;
+
+        if (null !== $request->sortCode) {
+            @$query['sort_code'] = $request->sortCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelAskingPrice',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/hotels/action/asking-price',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelAskingPrice',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/hotels/action/asking-price',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelAskingPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店起价
-     *  *
-     * @param HotelAskingPriceRequest $request HotelAskingPriceRequest
+     * 酒店起价.
      *
-     * @return HotelAskingPriceResponse HotelAskingPriceResponse
+     * @param request - HotelAskingPriceRequest
+     *
+     * @returns HotelAskingPriceResponse
+     *
+     * @param HotelAskingPriceRequest $request
+     *
+     * @return HotelAskingPriceResponse
      */
     public function hotelAskingPrice($request)
     {
@@ -7843,71 +9658,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询酒店记账数据
-     *  *
-     * @param HotelBillSettlementQueryRequest $request HotelBillSettlementQueryRequest
-     * @param HotelBillSettlementQueryHeaders $headers HotelBillSettlementQueryHeaders
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询酒店记账数据.
      *
-     * @return HotelBillSettlementQueryResponse HotelBillSettlementQueryResponse
+     * @param request - HotelBillSettlementQueryRequest
+     * @param headers - HotelBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelBillSettlementQueryResponse
+     *
+     * @param HotelBillSettlementQueryRequest $request
+     * @param HotelBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return HotelBillSettlementQueryResponse
      */
     public function hotelBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/hotel/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/hotel/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询酒店记账数据
-     *  *
-     * @param HotelBillSettlementQueryRequest $request HotelBillSettlementQueryRequest
+     * 查询酒店记账数据.
      *
-     * @return HotelBillSettlementQueryResponse HotelBillSettlementQueryResponse
+     * @param request - HotelBillSettlementQueryRequest
+     *
+     * @returns HotelBillSettlementQueryResponse
+     *
+     * @param HotelBillSettlementQueryRequest $request
+     *
+     * @return HotelBillSettlementQueryResponse
      */
     public function hotelBillSettlementQuery($request)
     {
@@ -7918,53 +9752,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店城市列表
-     *  *
-     * @param HotelCityCodeListRequest $request HotelCityCodeListRequest
-     * @param HotelCityCodeListHeaders $headers HotelCityCodeListHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 酒店城市列表.
      *
-     * @return HotelCityCodeListResponse HotelCityCodeListResponse
+     * @param request - HotelCityCodeListRequest
+     * @param headers - HotelCityCodeListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelCityCodeListResponse
+     *
+     * @param HotelCityCodeListRequest $request
+     * @param HotelCityCodeListHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return HotelCityCodeListResponse
      */
     public function hotelCityCodeListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->countryCode)) {
-            $query['country_code'] = $request->countryCode;
+        if (null !== $request->countryCode) {
+            @$query['country_code'] = $request->countryCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelCityCodeList',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/city-codes/action/search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelCityCodeList',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/city-codes/action/search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelCityCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店城市列表
-     *  *
-     * @param HotelCityCodeListRequest $request HotelCityCodeListRequest
+     * 酒店城市列表.
      *
-     * @return HotelCityCodeListResponse HotelCityCodeListResponse
+     * @param request - HotelCityCodeListRequest
+     *
+     * @returns HotelCityCodeListResponse
+     *
+     * @param HotelCityCodeListRequest $request
+     *
+     * @return HotelCityCodeListResponse
      */
     public function hotelCityCodeList($request)
     {
@@ -7975,56 +9822,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询酒店超标审批详情
-     *  *
-     * @param HotelExceedApplyQueryRequest $request HotelExceedApplyQueryRequest
-     * @param HotelExceedApplyQueryHeaders $headers HotelExceedApplyQueryHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询酒店超标审批详情.
      *
-     * @return HotelExceedApplyQueryResponse HotelExceedApplyQueryResponse
+     * @param request - HotelExceedApplyQueryRequest
+     * @param headers - HotelExceedApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelExceedApplyQueryResponse
+     *
+     * @param HotelExceedApplyQueryRequest $request
+     * @param HotelExceedApplyQueryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return HotelExceedApplyQueryResponse
      */
     public function hotelExceedApplyQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelExceedApplyQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/hotel-exceed',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelExceedApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/hotel-exceed',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelExceedApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询酒店超标审批详情
-     *  *
-     * @param HotelExceedApplyQueryRequest $request HotelExceedApplyQueryRequest
+     * 查询酒店超标审批详情.
      *
-     * @return HotelExceedApplyQueryResponse HotelExceedApplyQueryResponse
+     * @param request - HotelExceedApplyQueryRequest
+     *
+     * @returns HotelExceedApplyQueryResponse
+     *
+     * @param HotelExceedApplyQueryRequest $request
+     *
+     * @return HotelExceedApplyQueryResponse
      */
     public function hotelExceedApplyQuery($request)
     {
@@ -8035,86 +9896,110 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店详情页报价接口(直连)
-     *  *
-     * @param HotelGoodsQueryRequest $request HotelGoodsQueryRequest
-     * @param HotelGoodsQueryHeaders $headers HotelGoodsQueryHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 酒店详情页报价接口(直连).
      *
-     * @return HotelGoodsQueryResponse HotelGoodsQueryResponse
+     * @param request - HotelGoodsQueryRequest
+     * @param headers - HotelGoodsQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelGoodsQueryResponse
+     *
+     * @param HotelGoodsQueryRequest $request
+     * @param HotelGoodsQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HotelGoodsQueryResponse
      */
     public function hotelGoodsQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adultNum)) {
-            $query['adult_num'] = $request->adultNum;
+        if (null !== $request->adultNum) {
+            @$query['adult_num'] = $request->adultNum;
         }
-        if (!Utils::isUnset($request->agreementPrice)) {
-            $query['agreement_price'] = $request->agreementPrice;
+
+        if (null !== $request->agreementPrice) {
+            @$query['agreement_price'] = $request->agreementPrice;
         }
-        if (!Utils::isUnset($request->beginDate)) {
-            $query['begin_date'] = $request->beginDate;
+
+        if (null !== $request->beginDate) {
+            @$query['begin_date'] = $request->beginDate;
         }
-        if (!Utils::isUnset($request->breakfastIncluded)) {
-            $query['breakfast_included'] = $request->breakfastIncluded;
+
+        if (null !== $request->breakfastIncluded) {
+            @$query['breakfast_included'] = $request->breakfastIncluded;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
+
+        if (null !== $request->cityCode) {
+            @$query['city_code'] = $request->cityCode;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['end_date'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['end_date'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $query['hotel_id'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$query['hotel_id'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->payOverType)) {
-            $query['pay_over_type'] = $request->payOverType;
+
+        if (null !== $request->payOverType) {
+            @$query['pay_over_type'] = $request->payOverType;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['payment_type'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['payment_type'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->specialInvoice)) {
-            $query['special_invoice'] = $request->specialInvoice;
+
+        if (null !== $request->specialInvoice) {
+            @$query['special_invoice'] = $request->specialInvoice;
         }
-        if (!Utils::isUnset($request->superMan)) {
-            $query['super_man'] = $request->superMan;
+
+        if (null !== $request->superMan) {
+            @$query['super_man'] = $request->superMan;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelGoodsQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/hotel-goods',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelGoodsQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/hotel-goods',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelGoodsQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店详情页报价接口(直连)
-     *  *
-     * @param HotelGoodsQueryRequest $request HotelGoodsQueryRequest
+     * 酒店详情页报价接口(直连).
      *
-     * @return HotelGoodsQueryResponse HotelGoodsQueryResponse
+     * @param request - HotelGoodsQueryRequest
+     *
+     * @returns HotelGoodsQueryResponse
+     *
+     * @param HotelGoodsQueryRequest $request
+     *
+     * @return HotelGoodsQueryResponse
      */
     public function hotelGoodsQuery($request)
     {
@@ -8125,62 +10010,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取酒店清单
-     *  *
-     * @param HotelIndexInfoRequest $request HotelIndexInfoRequest
-     * @param HotelIndexInfoHeaders $headers HotelIndexInfoHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取酒店清单.
      *
-     * @return HotelIndexInfoResponse HotelIndexInfoResponse
+     * @param request - HotelIndexInfoRequest
+     * @param headers - HotelIndexInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelIndexInfoResponse
+     *
+     * @param HotelIndexInfoRequest $request
+     * @param HotelIndexInfoHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return HotelIndexInfoResponse
      */
     public function hotelIndexInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
+        if (null !== $request->cityCode) {
+            @$query['city_code'] = $request->cityCode;
         }
-        if (!Utils::isUnset($request->hotelStatus)) {
-            $query['hotel_status'] = $request->hotelStatus;
+
+        if (null !== $request->hotelStatus) {
+            @$query['hotel_status'] = $request->hotelStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pageToken)) {
-            $query['page_token'] = $request->pageToken;
+
+        if (null !== $request->pageToken) {
+            @$query['page_token'] = $request->pageToken;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelIndexInfo',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/index-infos',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelIndexInfo',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/index-infos',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelIndexInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取酒店清单
-     *  *
-     * @param HotelIndexInfoRequest $request HotelIndexInfoRequest
+     * 获取酒店清单.
      *
-     * @return HotelIndexInfoResponse HotelIndexInfoResponse
+     * @param request - HotelIndexInfoRequest
+     *
+     * @returns HotelIndexInfoResponse
+     *
+     * @param HotelIndexInfoRequest $request
+     *
+     * @return HotelIndexInfoResponse
      */
     public function hotelIndexInfo($request)
     {
@@ -8191,56 +10092,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单取消
-     *  *
-     * @param HotelOrderCancelRequest $request HotelOrderCancelRequest
-     * @param HotelOrderCancelHeaders $headers HotelOrderCancelHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 酒店订单取消.
      *
-     * @return HotelOrderCancelResponse HotelOrderCancelResponse
+     * @param request - HotelOrderCancelRequest
+     * @param headers - HotelOrderCancelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderCancelResponse
+     *
+     * @param HotelOrderCancelRequest $request
+     * @param HotelOrderCancelHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotelOrderCancelResponse
      */
     public function hotelOrderCancelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->btripOrderId)) {
-            $query['btrip_order_id'] = $request->btripOrderId;
+        if (null !== $request->btripOrderId) {
+            @$query['btrip_order_id'] = $request->btripOrderId;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderCancel',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderCancel',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单取消
-     *  *
-     * @param HotelOrderCancelRequest $request HotelOrderCancelRequest
+     * 酒店订单取消.
      *
-     * @return HotelOrderCancelResponse HotelOrderCancelResponse
+     * @param request - HotelOrderCancelRequest
+     *
+     * @returns HotelOrderCancelResponse
+     *
+     * @param HotelOrderCancelRequest $request
+     *
+     * @return HotelOrderCancelResponse
      */
     public function hotelOrderCancel($request)
     {
@@ -8251,70 +10166,88 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单修改申请
-     *  *
-     * @param HotelOrderChangeApplyRequest $tmpReq  HotelOrderChangeApplyRequest
-     * @param HotelOrderChangeApplyHeaders $headers HotelOrderChangeApplyHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 酒店订单修改申请.
      *
-     * @return HotelOrderChangeApplyResponse HotelOrderChangeApplyResponse
+     * @param tmpReq - HotelOrderChangeApplyRequest
+     * @param headers - HotelOrderChangeApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderChangeApplyResponse
+     *
+     * @param HotelOrderChangeApplyRequest $tmpReq
+     * @param HotelOrderChangeApplyHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return HotelOrderChangeApplyResponse
      */
     public function hotelOrderChangeApplyWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelOrderChangeApplyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roomInfoList)) {
-            $request->roomInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomInfoList, 'room_info_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roomInfoList) {
+            $request->roomInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roomInfoList, 'room_info_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->roomInfoListShrink)) {
-            $body['room_info_list'] = $request->roomInfoListShrink;
+
+        if (null !== $request->roomInfoListShrink) {
+            @$body['room_info_list'] = $request->roomInfoListShrink;
         }
-        if (!Utils::isUnset($request->saleOrderId)) {
-            $body['sale_order_id'] = $request->saleOrderId;
+
+        if (null !== $request->saleOrderId) {
+            @$body['sale_order_id'] = $request->saleOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderChangeApply',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/change/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderChangeApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/change/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderChangeApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单修改申请
-     *  *
-     * @param HotelOrderChangeApplyRequest $request HotelOrderChangeApplyRequest
+     * 酒店订单修改申请.
      *
-     * @return HotelOrderChangeApplyResponse HotelOrderChangeApplyResponse
+     * @param request - HotelOrderChangeApplyRequest
+     *
+     * @returns HotelOrderChangeApplyResponse
+     *
+     * @param HotelOrderChangeApplyRequest $request
+     *
+     * @return HotelOrderChangeApplyResponse
      */
     public function hotelOrderChangeApply($request)
     {
@@ -8325,62 +10258,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单修改详情
-     *  *
-     * @param HotelOrderChangeDetailRequest $request HotelOrderChangeDetailRequest
-     * @param HotelOrderChangeDetailHeaders $headers HotelOrderChangeDetailHeaders
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 酒店订单修改详情.
      *
-     * @return HotelOrderChangeDetailResponse HotelOrderChangeDetailResponse
+     * @param request - HotelOrderChangeDetailRequest
+     * @param headers - HotelOrderChangeDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderChangeDetailResponse
+     *
+     * @param HotelOrderChangeDetailRequest $request
+     * @param HotelOrderChangeDetailHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return HotelOrderChangeDetailResponse
      */
     public function hotelOrderChangeDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->changeOrderId)) {
-            $body['change_order_id'] = $request->changeOrderId;
+
+        if (null !== $request->changeOrderId) {
+            @$body['change_order_id'] = $request->changeOrderId;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->saleOrderId)) {
-            $body['sale_order_id'] = $request->saleOrderId;
+
+        if (null !== $request->saleOrderId) {
+            @$body['sale_order_id'] = $request->saleOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderChangeDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/change/detail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderChangeDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/change/detail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderChangeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单修改详情
-     *  *
-     * @param HotelOrderChangeDetailRequest $request HotelOrderChangeDetailRequest
+     * 酒店订单修改详情.
      *
-     * @return HotelOrderChangeDetailResponse HotelOrderChangeDetailResponse
+     * @param request - HotelOrderChangeDetailRequest
+     *
+     * @returns HotelOrderChangeDetailResponse
+     *
+     * @param HotelOrderChangeDetailRequest $request
+     *
+     * @return HotelOrderChangeDetailResponse
      */
     public function hotelOrderChangeDetail($request)
     {
@@ -8391,127 +10340,164 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单创建
-     *  *
-     * @param HotelOrderCreateRequest $tmpReq  HotelOrderCreateRequest
-     * @param HotelOrderCreateHeaders $headers HotelOrderCreateHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 酒店订单创建.
      *
-     * @return HotelOrderCreateResponse HotelOrderCreateResponse
+     * @param tmpReq - HotelOrderCreateRequest
+     * @param headers - HotelOrderCreateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderCreateResponse
+     *
+     * @param HotelOrderCreateRequest $tmpReq
+     * @param HotelOrderCreateHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotelOrderCreateResponse
      */
     public function hotelOrderCreateWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelOrderCreateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->invoiceInfo)) {
-            $request->invoiceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->invoiceInfo, 'invoice_info', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->invoiceInfo) {
+            $request->invoiceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->invoiceInfo, 'invoice_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->occupantInfoList)) {
-            $request->occupantInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
+
+        if (null !== $tmpReq->occupantInfoList) {
+            $request->occupantInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->promotionInfo)) {
-            $request->promotionInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->promotionInfo, 'promotion_info', 'json');
+
+        if (null !== $tmpReq->promotionInfo) {
+            $request->promotionInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promotionInfo, 'promotion_info', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->checkIn)) {
-            $body['check_in'] = $request->checkIn;
+
+        if (null !== $request->checkIn) {
+            @$body['check_in'] = $request->checkIn;
         }
-        if (!Utils::isUnset($request->checkOut)) {
-            $body['check_out'] = $request->checkOut;
+
+        if (null !== $request->checkOut) {
+            @$body['check_out'] = $request->checkOut;
         }
-        if (!Utils::isUnset($request->contractEmail)) {
-            $body['contract_email'] = $request->contractEmail;
+
+        if (null !== $request->contractEmail) {
+            @$body['contract_email'] = $request->contractEmail;
         }
-        if (!Utils::isUnset($request->contractName)) {
-            $body['contract_name'] = $request->contractName;
+
+        if (null !== $request->contractName) {
+            @$body['contract_name'] = $request->contractName;
         }
-        if (!Utils::isUnset($request->contractPhone)) {
-            $body['contract_phone'] = $request->contractPhone;
+
+        if (null !== $request->contractPhone) {
+            @$body['contract_phone'] = $request->contractPhone;
         }
-        if (!Utils::isUnset($request->corpPayPrice)) {
-            $body['corp_pay_price'] = $request->corpPayPrice;
+
+        if (null !== $request->corpPayPrice) {
+            @$body['corp_pay_price'] = $request->corpPayPrice;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->extra)) {
-            $body['extra'] = $request->extra;
+
+        if (null !== $request->extra) {
+            @$body['extra'] = $request->extra;
         }
-        if (!Utils::isUnset($request->invoiceInfoShrink)) {
-            $body['invoice_info'] = $request->invoiceInfoShrink;
+
+        if (null !== $request->invoiceInfoShrink) {
+            @$body['invoice_info'] = $request->invoiceInfoShrink;
         }
-        if (!Utils::isUnset($request->itemId)) {
-            $body['item_id'] = $request->itemId;
+
+        if (null !== $request->itemId) {
+            @$body['item_id'] = $request->itemId;
         }
-        if (!Utils::isUnset($request->itineraryNo)) {
-            $body['itinerary_no'] = $request->itineraryNo;
+
+        if (null !== $request->itineraryNo) {
+            @$body['itinerary_no'] = $request->itineraryNo;
         }
-        if (!Utils::isUnset($request->occupantInfoListShrink)) {
-            $body['occupant_info_list'] = $request->occupantInfoListShrink;
+
+        if (null !== $request->occupantInfoListShrink) {
+            @$body['occupant_info_list'] = $request->occupantInfoListShrink;
         }
-        if (!Utils::isUnset($request->personPayPrice)) {
-            $body['person_pay_price'] = $request->personPayPrice;
+
+        if (null !== $request->personPayPrice) {
+            @$body['person_pay_price'] = $request->personPayPrice;
         }
-        if (!Utils::isUnset($request->promotionInfoShrink)) {
-            $body['promotion_info'] = $request->promotionInfoShrink;
+
+        if (null !== $request->promotionInfoShrink) {
+            @$body['promotion_info'] = $request->promotionInfoShrink;
         }
-        if (!Utils::isUnset($request->ratePlanId)) {
-            $body['rate_plan_id'] = $request->ratePlanId;
+
+        if (null !== $request->ratePlanId) {
+            @$body['rate_plan_id'] = $request->ratePlanId;
         }
-        if (!Utils::isUnset($request->roomId)) {
-            $body['room_id'] = $request->roomId;
+
+        if (null !== $request->roomId) {
+            @$body['room_id'] = $request->roomId;
         }
-        if (!Utils::isUnset($request->roomNum)) {
-            $body['room_num'] = $request->roomNum;
+
+        if (null !== $request->roomNum) {
+            @$body['room_num'] = $request->roomNum;
         }
-        if (!Utils::isUnset($request->sellerId)) {
-            $body['seller_id'] = $request->sellerId;
+
+        if (null !== $request->sellerId) {
+            @$body['seller_id'] = $request->sellerId;
         }
-        if (!Utils::isUnset($request->shid)) {
-            $body['shid'] = $request->shid;
+
+        if (null !== $request->shid) {
+            @$body['shid'] = $request->shid;
         }
-        if (!Utils::isUnset($request->totalOrderPrice)) {
-            $body['total_order_price'] = $request->totalOrderPrice;
+
+        if (null !== $request->totalOrderPrice) {
+            @$body['total_order_price'] = $request->totalOrderPrice;
         }
-        if (!Utils::isUnset($request->validateResKey)) {
-            $body['validate_res_key'] = $request->validateResKey;
+
+        if (null !== $request->validateResKey) {
+            @$body['validate_res_key'] = $request->validateResKey;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderCreate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderCreate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单创建
-     *  *
-     * @param HotelOrderCreateRequest $request HotelOrderCreateRequest
+     * 酒店订单创建.
      *
-     * @return HotelOrderCreateResponse HotelOrderCreateResponse
+     * @param request - HotelOrderCreateRequest
+     *
+     * @returns HotelOrderCreateResponse
+     *
+     * @param HotelOrderCreateRequest $request
+     *
+     * @return HotelOrderCreateResponse
      */
     public function hotelOrderCreate($request)
     {
@@ -8522,56 +10508,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单明细信息
-     *  *
-     * @param HotelOrderDetailInfoRequest $request HotelOrderDetailInfoRequest
-     * @param HotelOrderDetailInfoHeaders $headers HotelOrderDetailInfoHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 酒店订单明细信息.
      *
-     * @return HotelOrderDetailInfoResponse HotelOrderDetailInfoResponse
+     * @param request - HotelOrderDetailInfoRequest
+     * @param headers - HotelOrderDetailInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderDetailInfoResponse
+     *
+     * @param HotelOrderDetailInfoRequest $request
+     * @param HotelOrderDetailInfoHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return HotelOrderDetailInfoResponse
      */
     public function hotelOrderDetailInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->btripOrderId)) {
-            $query['btrip_order_id'] = $request->btripOrderId;
+        if (null !== $request->btripOrderId) {
+            @$query['btrip_order_id'] = $request->btripOrderId;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderDetailInfo',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderDetailInfo',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单明细信息
-     *  *
-     * @param HotelOrderDetailInfoRequest $request HotelOrderDetailInfoRequest
+     * 酒店订单明细信息.
      *
-     * @return HotelOrderDetailInfoResponse HotelOrderDetailInfoResponse
+     * @param request - HotelOrderDetailInfoRequest
+     *
+     * @returns HotelOrderDetailInfoResponse
+     *
+     * @param HotelOrderDetailInfoRequest $request
+     *
+     * @return HotelOrderDetailInfoResponse
      */
     public function hotelOrderDetailInfo($request)
     {
@@ -8582,47 +10582,56 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 自营酒店订单查询
-     *  *
-     * @param string                     $orderId
-     * @param HotelOrderInfoQueryHeaders $headers HotelOrderInfoQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 自营酒店订单查询.
      *
-     * @return HotelOrderInfoQueryResponse HotelOrderInfoQueryResponse
+     * @param headers - HotelOrderInfoQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderInfoQueryResponse
+     *
+     * @param string                     $orderId
+     * @param HotelOrderInfoQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return HotelOrderInfoQueryResponse
      */
     public function hotelOrderInfoQueryWithOptions($orderId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderInfoQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/order/v1/hotelOrders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderInfoQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/order/v1/hotelOrders/' . Url::percentEncode($orderId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 自营酒店订单查询
-     *  *
+     * 自营酒店订单查询.
+     *
+     * @returns HotelOrderInfoQueryResponse
+     *
      * @param string $orderId
      *
-     * @return HotelOrderInfoQueryResponse HotelOrderInfoQueryResponse
+     * @return HotelOrderInfoQueryResponse
      */
     public function hotelOrderInfoQuery($orderId)
     {
@@ -8633,86 +10642,110 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询酒店订单列表
-     *  *
-     * @param HotelOrderListQueryRequest $request HotelOrderListQueryRequest
-     * @param HotelOrderListQueryHeaders $headers HotelOrderListQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询酒店订单列表.
      *
-     * @return HotelOrderListQueryResponse HotelOrderListQueryResponse
+     * @param request - HotelOrderListQueryRequest
+     * @param headers - HotelOrderListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderListQueryResponse
+     *
+     * @param HotelOrderListQueryRequest $request
+     * @param HotelOrderListQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return HotelOrderListQueryResponse
      */
     public function hotelOrderListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allApply)) {
-            $query['all_apply'] = $request->allApply;
+        if (null !== $request->allApply) {
+            @$query['all_apply'] = $request->allApply;
         }
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $query['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$query['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['end_time'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['end_time'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['start_time'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['start_time'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $query['update_end_time'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$query['update_end_time'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->updateStartTime)) {
-            $query['update_start_time'] = $request->updateStartTime;
+
+        if (null !== $request->updateStartTime) {
+            @$query['update_start_time'] = $request->updateStartTime;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/hotel/v1/order-list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/hotel/v1/order-list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询酒店订单列表
-     *  *
-     * @param HotelOrderListQueryRequest $request HotelOrderListQueryRequest
+     * 查询酒店订单列表.
      *
-     * @return HotelOrderListQueryResponse HotelOrderListQueryResponse
+     * @param request - HotelOrderListQueryRequest
+     *
+     * @returns HotelOrderListQueryResponse
+     *
+     * @param HotelOrderListQueryRequest $request
+     *
+     * @return HotelOrderListQueryResponse
      */
     public function hotelOrderListQuery($request)
     {
@@ -8723,71 +10756,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单支付
-     *  *
-     * @param HotelOrderPayRequest $request HotelOrderPayRequest
-     * @param HotelOrderPayHeaders $headers HotelOrderPayHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 酒店订单支付.
      *
-     * @return HotelOrderPayResponse HotelOrderPayResponse
+     * @param request - HotelOrderPayRequest
+     * @param headers - HotelOrderPayHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderPayResponse
+     *
+     * @param HotelOrderPayRequest $request
+     * @param HotelOrderPayHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return HotelOrderPayResponse
      */
     public function hotelOrderPayWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->btripOrderId)) {
-            $body['btrip_order_id'] = $request->btripOrderId;
+        if (null !== $request->btripOrderId) {
+            @$body['btrip_order_id'] = $request->btripOrderId;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->companyPayFee)) {
-            $body['company_pay_fee'] = $request->companyPayFee;
+
+        if (null !== $request->companyPayFee) {
+            @$body['company_pay_fee'] = $request->companyPayFee;
         }
-        if (!Utils::isUnset($request->personPayFee)) {
-            $body['person_pay_fee'] = $request->personPayFee;
+
+        if (null !== $request->personPayFee) {
+            @$body['person_pay_fee'] = $request->personPayFee;
         }
-        if (!Utils::isUnset($request->thirdPayAccount)) {
-            $body['third_pay_account'] = $request->thirdPayAccount;
+
+        if (null !== $request->thirdPayAccount) {
+            @$body['third_pay_account'] = $request->thirdPayAccount;
         }
-        if (!Utils::isUnset($request->thirdTradeNo)) {
-            $body['third_trade_no'] = $request->thirdTradeNo;
+
+        if (null !== $request->thirdTradeNo) {
+            @$body['third_trade_no'] = $request->thirdTradeNo;
         }
-        if (!Utils::isUnset($request->totalPrice)) {
-            $body['total_price'] = $request->totalPrice;
+
+        if (null !== $request->totalPrice) {
+            @$body['total_price'] = $request->totalPrice;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderPay',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/pay',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderPay',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单支付
-     *  *
-     * @param HotelOrderPayRequest $request HotelOrderPayRequest
+     * 酒店订单支付.
      *
-     * @return HotelOrderPayResponse HotelOrderPayResponse
+     * @param request - HotelOrderPayRequest
+     *
+     * @returns HotelOrderPayResponse
+     *
+     * @param HotelOrderPayRequest $request
+     *
+     * @return HotelOrderPayResponse
      */
     public function hotelOrderPay($request)
     {
@@ -8798,97 +10850,124 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店下单前校验
-     *  *
-     * @param HotelOrderPreValidateRequest $tmpReq  HotelOrderPreValidateRequest
-     * @param HotelOrderPreValidateHeaders $headers HotelOrderPreValidateHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 酒店下单前校验.
      *
-     * @return HotelOrderPreValidateResponse HotelOrderPreValidateResponse
+     * @param tmpReq - HotelOrderPreValidateRequest
+     * @param headers - HotelOrderPreValidateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderPreValidateResponse
+     *
+     * @param HotelOrderPreValidateRequest $tmpReq
+     * @param HotelOrderPreValidateHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return HotelOrderPreValidateResponse
      */
     public function hotelOrderPreValidateWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelOrderPreValidateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dailyList)) {
-            $request->dailyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dailyList, 'daily_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dailyList) {
+            $request->dailyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dailyList, 'daily_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->occupantInfoList)) {
-            $request->occupantInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
+
+        if (null !== $tmpReq->occupantInfoList) {
+            $request->occupantInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->checkIn)) {
-            $query['check_in'] = $request->checkIn;
+
+        if (null !== $request->checkIn) {
+            @$query['check_in'] = $request->checkIn;
         }
-        if (!Utils::isUnset($request->checkOut)) {
-            $query['check_out'] = $request->checkOut;
+
+        if (null !== $request->checkOut) {
+            @$query['check_out'] = $request->checkOut;
         }
-        if (!Utils::isUnset($request->dailyListShrink)) {
-            $query['daily_list'] = $request->dailyListShrink;
+
+        if (null !== $request->dailyListShrink) {
+            @$query['daily_list'] = $request->dailyListShrink;
         }
-        if (!Utils::isUnset($request->itemId)) {
-            $query['item_id'] = $request->itemId;
+
+        if (null !== $request->itemId) {
+            @$query['item_id'] = $request->itemId;
         }
-        if (!Utils::isUnset($request->numberOfAdultsPerRoom)) {
-            $query['number_of_adults_per_room'] = $request->numberOfAdultsPerRoom;
+
+        if (null !== $request->numberOfAdultsPerRoom) {
+            @$query['number_of_adults_per_room'] = $request->numberOfAdultsPerRoom;
         }
-        if (!Utils::isUnset($request->occupantInfoListShrink)) {
-            $query['occupant_info_list'] = $request->occupantInfoListShrink;
+
+        if (null !== $request->occupantInfoListShrink) {
+            @$query['occupant_info_list'] = $request->occupantInfoListShrink;
         }
-        if (!Utils::isUnset($request->ratePlanId)) {
-            $query['rate_plan_id'] = $request->ratePlanId;
+
+        if (null !== $request->ratePlanId) {
+            @$query['rate_plan_id'] = $request->ratePlanId;
         }
-        if (!Utils::isUnset($request->roomId)) {
-            $query['room_id'] = $request->roomId;
+
+        if (null !== $request->roomId) {
+            @$query['room_id'] = $request->roomId;
         }
-        if (!Utils::isUnset($request->roomNum)) {
-            $query['room_num'] = $request->roomNum;
+
+        if (null !== $request->roomNum) {
+            @$query['room_num'] = $request->roomNum;
         }
-        if (!Utils::isUnset($request->searchRoomPrice)) {
-            $query['search_room_price'] = $request->searchRoomPrice;
+
+        if (null !== $request->searchRoomPrice) {
+            @$query['search_room_price'] = $request->searchRoomPrice;
         }
-        if (!Utils::isUnset($request->sellerId)) {
-            $query['seller_id'] = $request->sellerId;
+
+        if (null !== $request->sellerId) {
+            @$query['seller_id'] = $request->sellerId;
         }
-        if (!Utils::isUnset($request->shid)) {
-            $query['shid'] = $request->shid;
+
+        if (null !== $request->shid) {
+            @$query['shid'] = $request->shid;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderPreValidate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/orders/action/pre-validate',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderPreValidate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/orders/action/pre-validate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderPreValidateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店下单前校验
-     *  *
-     * @param HotelOrderPreValidateRequest $request HotelOrderPreValidateRequest
+     * 酒店下单前校验.
      *
-     * @return HotelOrderPreValidateResponse HotelOrderPreValidateResponse
+     * @param request - HotelOrderPreValidateRequest
+     *
+     * @returns HotelOrderPreValidateResponse
+     *
+     * @param HotelOrderPreValidateRequest $request
+     *
+     * @return HotelOrderPreValidateResponse
      */
     public function hotelOrderPreValidate($request)
     {
@@ -8899,53 +10978,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店订单查询
-     *  *
-     * @param HotelOrderQueryRequest $request HotelOrderQueryRequest
-     * @param HotelOrderQueryHeaders $headers HotelOrderQueryHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 酒店订单查询.
      *
-     * @return HotelOrderQueryResponse HotelOrderQueryResponse
+     * @param request - HotelOrderQueryRequest
+     * @param headers - HotelOrderQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelOrderQueryResponse
+     *
+     * @param HotelOrderQueryRequest $request
+     * @param HotelOrderQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HotelOrderQueryResponse
      */
     public function hotelOrderQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelOrderQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/hotel/v1/order',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelOrderQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/hotel/v1/order',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店订单查询
-     *  *
-     * @param HotelOrderQueryRequest $request HotelOrderQueryRequest
+     * 酒店订单查询.
      *
-     * @return HotelOrderQueryResponse HotelOrderQueryResponse
+     * @param request - HotelOrderQueryRequest
+     *
+     * @returns HotelOrderQueryResponse
+     *
+     * @param HotelOrderQueryRequest $request
+     *
+     * @return HotelOrderQueryResponse
      */
     public function hotelOrderQuery($request)
     {
@@ -8956,73 +11048,92 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店拉动态拉取价格接口(落地)
-     *  *
-     * @param HotelPricePullRequest $tmpReq  HotelPricePullRequest
-     * @param HotelPricePullHeaders $headers HotelPricePullHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 酒店拉动态拉取价格接口(落地).
      *
-     * @return HotelPricePullResponse HotelPricePullResponse
+     * @param tmpReq - HotelPricePullRequest
+     * @param headers - HotelPricePullHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelPricePullResponse
+     *
+     * @param HotelPricePullRequest $tmpReq
+     * @param HotelPricePullHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return HotelPricePullResponse
      */
     public function hotelPricePullWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelPricePullShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelIds)) {
-            $request->hotelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelIds, 'hotel_ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelIds) {
+            $request->hotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelIds, 'hotel_ids', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->checkIn)) {
-            $query['check_in'] = $request->checkIn;
+
+        if (null !== $request->checkIn) {
+            @$query['check_in'] = $request->checkIn;
         }
-        if (!Utils::isUnset($request->checkOut)) {
-            $query['check_out'] = $request->checkOut;
+
+        if (null !== $request->checkOut) {
+            @$query['check_out'] = $request->checkOut;
         }
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
+
+        if (null !== $request->cityCode) {
+            @$query['city_code'] = $request->cityCode;
         }
-        if (!Utils::isUnset($request->hotelIdsShrink)) {
-            $query['hotel_ids'] = $request->hotelIdsShrink;
+
+        if (null !== $request->hotelIdsShrink) {
+            @$query['hotel_ids'] = $request->hotelIdsShrink;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['payment_type'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['payment_type'] = $request->paymentType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelPricePull',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/prices/action/pull',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelPricePull',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/prices/action/pull',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelPricePullResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店拉动态拉取价格接口(落地)
-     *  *
-     * @param HotelPricePullRequest $request HotelPricePullRequest
+     * 酒店拉动态拉取价格接口(落地).
      *
-     * @return HotelPricePullResponse HotelPricePullResponse
+     * @param request - HotelPricePullRequest
+     *
+     * @returns HotelPricePullResponse
+     *
+     * @param HotelPricePullRequest $request
+     *
+     * @return HotelPricePullResponse
      */
     public function hotelPricePull($request)
     {
@@ -9033,58 +11144,72 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取酒店静态房型详情
-     *  *
-     * @param HotelRoomInfoRequest $tmpReq  HotelRoomInfoRequest
-     * @param HotelRoomInfoHeaders $headers HotelRoomInfoHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取酒店静态房型详情.
      *
-     * @return HotelRoomInfoResponse HotelRoomInfoResponse
+     * @param tmpReq - HotelRoomInfoRequest
+     * @param headers - HotelRoomInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelRoomInfoResponse
+     *
+     * @param HotelRoomInfoRequest $tmpReq
+     * @param HotelRoomInfoHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return HotelRoomInfoResponse
      */
     public function hotelRoomInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelRoomInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roomIds)) {
-            $request->roomIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIds, 'room_ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roomIds) {
+            $request->roomIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roomIds, 'room_ids', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->roomIdsShrink)) {
-            $query['room_ids'] = $request->roomIdsShrink;
+        if (null !== $request->roomIdsShrink) {
+            @$query['room_ids'] = $request->roomIdsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelRoomInfo',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/room-infos',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelRoomInfo',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/room-infos',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelRoomInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取酒店静态房型详情
-     *  *
-     * @param HotelRoomInfoRequest $request HotelRoomInfoRequest
+     * 获取酒店静态房型详情.
      *
-     * @return HotelRoomInfoResponse HotelRoomInfoResponse
+     * @param request - HotelRoomInfoRequest
+     *
+     * @returns HotelRoomInfoResponse
+     *
+     * @param HotelRoomInfoRequest $request
+     *
+     * @return HotelRoomInfoResponse
      */
     public function hotelRoomInfo($request)
     {
@@ -9095,124 +11220,160 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店列表搜索接口(直连)
-     *  *
-     * @param HotelSearchRequest $tmpReq  HotelSearchRequest
-     * @param HotelSearchHeaders $headers HotelSearchHeaders
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 酒店列表搜索接口(直连).
      *
-     * @return HotelSearchResponse HotelSearchResponse
+     * @param tmpReq - HotelSearchRequest
+     * @param headers - HotelSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelSearchResponse
+     *
+     * @param HotelSearchRequest $tmpReq
+     * @param HotelSearchHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return HotelSearchResponse
      */
     public function hotelSearchWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelSearchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->brandCode)) {
-            $request->brandCodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->brandCode, 'brand_code', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->brandCode) {
+            $request->brandCodeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->brandCode, 'brand_code', 'json');
         }
-        if (!Utils::isUnset($tmpReq->shids)) {
-            $request->shidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->shids, 'shids', 'json');
+
+        if (null !== $tmpReq->shids) {
+            $request->shidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shids, 'shids', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->adultNum)) {
-            $query['adult_num'] = $request->adultNum;
+        if (null !== $request->adultNum) {
+            @$query['adult_num'] = $request->adultNum;
         }
-        if (!Utils::isUnset($request->brandCodeShrink)) {
-            $query['brand_code'] = $request->brandCodeShrink;
+
+        if (null !== $request->brandCodeShrink) {
+            @$query['brand_code'] = $request->brandCodeShrink;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->checkInDate)) {
-            $query['check_in_date'] = $request->checkInDate;
+
+        if (null !== $request->checkInDate) {
+            @$query['check_in_date'] = $request->checkInDate;
         }
-        if (!Utils::isUnset($request->checkOutDate)) {
-            $query['check_out_date'] = $request->checkOutDate;
+
+        if (null !== $request->checkOutDate) {
+            @$query['check_out_date'] = $request->checkOutDate;
         }
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
+
+        if (null !== $request->cityCode) {
+            @$query['city_code'] = $request->cityCode;
         }
-        if (!Utils::isUnset($request->dir)) {
-            $query['dir'] = $request->dir;
+
+        if (null !== $request->dir) {
+            @$query['dir'] = $request->dir;
         }
-        if (!Utils::isUnset($request->distance)) {
-            $query['distance'] = $request->distance;
+
+        if (null !== $request->distance) {
+            @$query['distance'] = $request->distance;
         }
-        if (!Utils::isUnset($request->districtCode)) {
-            $query['district_code'] = $request->districtCode;
+
+        if (null !== $request->districtCode) {
+            @$query['district_code'] = $request->districtCode;
         }
-        if (!Utils::isUnset($request->hotelStar)) {
-            $query['hotel_star'] = $request->hotelStar;
+
+        if (null !== $request->hotelStar) {
+            @$query['hotel_star'] = $request->hotelStar;
         }
-        if (!Utils::isUnset($request->isProtocol)) {
-            $query['is_protocol'] = $request->isProtocol;
+
+        if (null !== $request->isProtocol) {
+            @$query['is_protocol'] = $request->isProtocol;
         }
-        if (!Utils::isUnset($request->keyWords)) {
-            $query['key_words'] = $request->keyWords;
+
+        if (null !== $request->keyWords) {
+            @$query['key_words'] = $request->keyWords;
         }
-        if (!Utils::isUnset($request->location)) {
-            $query['location'] = $request->location;
+
+        if (null !== $request->location) {
+            @$query['location'] = $request->location;
         }
-        if (!Utils::isUnset($request->maxPrice)) {
-            $query['max_price'] = $request->maxPrice;
+
+        if (null !== $request->maxPrice) {
+            @$query['max_price'] = $request->maxPrice;
         }
-        if (!Utils::isUnset($request->minPrice)) {
-            $query['min_price'] = $request->minPrice;
+
+        if (null !== $request->minPrice) {
+            @$query['min_price'] = $request->minPrice;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->payOverType)) {
-            $query['pay_over_type'] = $request->payOverType;
+
+        if (null !== $request->payOverType) {
+            @$query['pay_over_type'] = $request->payOverType;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['payment_type'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['payment_type'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->shidsShrink)) {
-            $query['shids'] = $request->shidsShrink;
+
+        if (null !== $request->shidsShrink) {
+            @$query['shids'] = $request->shidsShrink;
         }
-        if (!Utils::isUnset($request->sortCode)) {
-            $query['sort_code'] = $request->sortCode;
+
+        if (null !== $request->sortCode) {
+            @$query['sort_code'] = $request->sortCode;
         }
-        if (!Utils::isUnset($request->superMan)) {
-            $query['super_man'] = $request->superMan;
+
+        if (null !== $request->superMan) {
+            @$query['super_man'] = $request->superMan;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/hotels/action/search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/hotels/action/search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店列表搜索接口(直连)
-     *  *
-     * @param HotelSearchRequest $request HotelSearchRequest
+     * 酒店列表搜索接口(直连).
      *
-     * @return HotelSearchResponse HotelSearchResponse
+     * @param request - HotelSearchRequest
+     *
+     * @returns HotelSearchResponse
+     *
+     * @param HotelSearchRequest $request
+     *
+     * @return HotelSearchResponse
      */
     public function hotelSearch($request)
     {
@@ -9223,58 +11384,72 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询酒店静态详情
-     *  *
-     * @param HotelStaticInfoRequest $tmpReq  HotelStaticInfoRequest
-     * @param HotelStaticInfoHeaders $headers HotelStaticInfoHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询酒店静态详情.
      *
-     * @return HotelStaticInfoResponse HotelStaticInfoResponse
+     * @param tmpReq - HotelStaticInfoRequest
+     * @param headers - HotelStaticInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelStaticInfoResponse
+     *
+     * @param HotelStaticInfoRequest $tmpReq
+     * @param HotelStaticInfoHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HotelStaticInfoResponse
      */
     public function hotelStaticInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new HotelStaticInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelIds)) {
-            $request->hotelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelIds, 'hotel_ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelIds) {
+            $request->hotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelIds, 'hotel_ids', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->hotelIdsShrink)) {
-            $query['hotel_ids'] = $request->hotelIdsShrink;
+        if (null !== $request->hotelIdsShrink) {
+            @$query['hotel_ids'] = $request->hotelIdsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelStaticInfo',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v1/static-infos',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelStaticInfo',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v1/static-infos',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelStaticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询酒店静态详情
-     *  *
-     * @param HotelStaticInfoRequest $request HotelStaticInfoRequest
+     * 查询酒店静态详情.
      *
-     * @return HotelStaticInfoResponse HotelStaticInfoResponse
+     * @param request - HotelStaticInfoRequest
+     *
+     * @returns HotelStaticInfoResponse
+     *
+     * @param HotelStaticInfoRequest $request
+     *
+     * @return HotelStaticInfoResponse
      */
     public function hotelStaticInfo($request)
     {
@@ -9285,68 +11460,86 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 酒店关键词搜索
-     *  *
-     * @param HotelSuggestV2Request $request HotelSuggestV2Request
-     * @param HotelSuggestV2Headers $headers HotelSuggestV2Headers
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 酒店关键词搜索.
      *
-     * @return HotelSuggestV2Response HotelSuggestV2Response
+     * @param request - HotelSuggestV2Request
+     * @param headers - HotelSuggestV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelSuggestV2Response
+     *
+     * @param HotelSuggestV2Request $request
+     * @param HotelSuggestV2Headers $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return HotelSuggestV2Response
      */
     public function hotelSuggestV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->checkIn)) {
-            $query['check_in'] = $request->checkIn;
+
+        if (null !== $request->checkIn) {
+            @$query['check_in'] = $request->checkIn;
         }
-        if (!Utils::isUnset($request->checkOut)) {
-            $query['check_out'] = $request->checkOut;
+
+        if (null !== $request->checkOut) {
+            @$query['check_out'] = $request->checkOut;
         }
-        if (!Utils::isUnset($request->cityCode)) {
-            $query['city_code'] = $request->cityCode;
+
+        if (null !== $request->cityCode) {
+            @$query['city_code'] = $request->cityCode;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['search_type'] = $request->searchType;
+
+        if (null !== $request->searchType) {
+            @$query['search_type'] = $request->searchType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotelSuggestV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-hotel/v2/suggest-infos',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelSuggestV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-hotel/v2/suggest-infos',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelSuggestV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店关键词搜索
-     *  *
-     * @param HotelSuggestV2Request $request HotelSuggestV2Request
+     * 酒店关键词搜索.
      *
-     * @return HotelSuggestV2Response HotelSuggestV2Response
+     * @param request - HotelSuggestV2Request
+     *
+     * @returns HotelSuggestV2Response
+     *
+     * @param HotelSuggestV2Request $request
+     *
+     * @return HotelSuggestV2Response
      */
     public function hotelSuggestV2($request)
     {
@@ -9357,53 +11550,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票订单详情
-     *  *
-     * @param IFlightOrderDetailQueryRequest $request IFlightOrderDetailQueryRequest
-     * @param IFlightOrderDetailQueryHeaders $headers IFlightOrderDetailQueryHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 国际机票订单详情.
      *
-     * @return IFlightOrderDetailQueryResponse IFlightOrderDetailQueryResponse
+     * @param request - IFlightOrderDetailQueryRequest
+     * @param headers - IFlightOrderDetailQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IFlightOrderDetailQueryResponse
+     *
+     * @param IFlightOrderDetailQueryRequest $request
+     * @param IFlightOrderDetailQueryHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IFlightOrderDetailQueryResponse
      */
     public function iFlightOrderDetailQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IFlightOrderDetailQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/open/v1/intlFlight-order-detail-query',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IFlightOrderDetailQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v1/intlFlight-order-detail-query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IFlightOrderDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票订单详情
-     *  *
-     * @param IFlightOrderDetailQueryRequest $request IFlightOrderDetailQueryRequest
+     * 国际机票订单详情.
      *
-     * @return IFlightOrderDetailQueryResponse IFlightOrderDetailQueryResponse
+     * @param request - IFlightOrderDetailQueryRequest
+     *
+     * @returns IFlightOrderDetailQueryResponse
+     *
+     * @param IFlightOrderDetailQueryRequest $request
+     *
+     * @return IFlightOrderDetailQueryResponse
      */
     public function iFlightOrderDetailQuery($request)
     {
@@ -9414,88 +11620,112 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票订单列表
-     *  *
-     * @param IFlightOrderListQueryRequest $tmpReq  IFlightOrderListQueryRequest
-     * @param IFlightOrderListQueryHeaders $headers IFlightOrderListQueryHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 国际机票订单列表.
      *
-     * @return IFlightOrderListQueryResponse IFlightOrderListQueryResponse
+     * @param tmpReq - IFlightOrderListQueryRequest
+     * @param headers - IFlightOrderListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IFlightOrderListQueryResponse
+     *
+     * @param IFlightOrderListQueryRequest $tmpReq
+     * @param IFlightOrderListQueryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IFlightOrderListQueryResponse
      */
     public function iFlightOrderListQueryWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IFlightOrderListQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applyIdList)) {
-            $request->applyIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applyIdList, 'apply_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyIdList) {
+            $request->applyIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyIdList, 'apply_id_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->bookTypeList)) {
-            $request->bookTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookTypeList, 'book_type_list', 'json');
+
+        if (null !== $tmpReq->bookTypeList) {
+            $request->bookTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bookTypeList, 'book_type_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->bookerId)) {
-            $request->bookerIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookerId, 'booker_id', 'json');
+
+        if (null !== $tmpReq->bookerId) {
+            $request->bookerIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bookerId, 'booker_id', 'json');
         }
-        if (!Utils::isUnset($tmpReq->thirdPartApplyIdList)) {
-            $request->thirdPartApplyIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdPartApplyIdList, 'third_part_apply_id_list', 'json');
+
+        if (null !== $tmpReq->thirdPartApplyIdList) {
+            $request->thirdPartApplyIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdPartApplyIdList, 'third_part_apply_id_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->applyIdListShrink)) {
-            $query['apply_id_list'] = $request->applyIdListShrink;
+        if (null !== $request->applyIdListShrink) {
+            @$query['apply_id_list'] = $request->applyIdListShrink;
         }
-        if (!Utils::isUnset($request->bookTypeListShrink)) {
-            $query['book_type_list'] = $request->bookTypeListShrink;
+
+        if (null !== $request->bookTypeListShrink) {
+            @$query['book_type_list'] = $request->bookTypeListShrink;
         }
-        if (!Utils::isUnset($request->bookerIdShrink)) {
-            $query['booker_id'] = $request->bookerIdShrink;
+
+        if (null !== $request->bookerIdShrink) {
+            @$query['booker_id'] = $request->bookerIdShrink;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['end_date'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['end_date'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['start_date'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['start_date'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->thirdPartApplyIdListShrink)) {
-            $query['third_part_apply_id_list'] = $request->thirdPartApplyIdListShrink;
+
+        if (null !== $request->thirdPartApplyIdListShrink) {
+            @$query['third_part_apply_id_list'] = $request->thirdPartApplyIdListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IFlightOrderListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/open/v1/intlFlight-order-list-query',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IFlightOrderListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v1/intlFlight-order-list-query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IFlightOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票订单列表
-     *  *
-     * @param IFlightOrderListQueryRequest $request IFlightOrderListQueryRequest
+     * 国际机票订单列表.
      *
-     * @return IFlightOrderListQueryResponse IFlightOrderListQueryResponse
+     * @param request - IFlightOrderListQueryRequest
+     *
+     * @returns IFlightOrderListQueryResponse
+     *
+     * @param IFlightOrderListQueryRequest $request
+     *
+     * @return IFlightOrderListQueryResponse
      */
     public function iFlightOrderListQuery($request)
     {
@@ -9506,71 +11736,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询国际机票记账数据
-     *  *
-     * @param IeFlightBillSettlementQueryRequest $request IeFlightBillSettlementQueryRequest
-     * @param IeFlightBillSettlementQueryHeaders $headers IeFlightBillSettlementQueryHeaders
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询国际机票记账数据.
      *
-     * @return IeFlightBillSettlementQueryResponse IeFlightBillSettlementQueryResponse
+     * @param request - IeFlightBillSettlementQueryRequest
+     * @param headers - IeFlightBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IeFlightBillSettlementQueryResponse
+     *
+     * @param IeFlightBillSettlementQueryRequest $request
+     * @param IeFlightBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return IeFlightBillSettlementQueryResponse
      */
     public function ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IeFlightBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ie-flight/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IeFlightBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ie-flight/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IeFlightBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询国际机票记账数据
-     *  *
-     * @param IeFlightBillSettlementQueryRequest $request IeFlightBillSettlementQueryRequest
+     * 查询国际机票记账数据.
      *
-     * @return IeFlightBillSettlementQueryResponse IeFlightBillSettlementQueryResponse
+     * @param request - IeFlightBillSettlementQueryRequest
+     *
+     * @returns IeFlightBillSettlementQueryResponse
+     *
+     * @param IeFlightBillSettlementQueryRequest $request
+     *
+     * @return IeFlightBillSettlementQueryResponse
      */
     public function ieFlightBillSettlementQuery($request)
     {
@@ -9581,74 +11830,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询国际/中国港澳台酒店记账数据
-     *  *
-     * @param IeHotelBillSettlementQueryRequest $request IeHotelBillSettlementQueryRequest
-     * @param IeHotelBillSettlementQueryHeaders $headers IeHotelBillSettlementQueryHeaders
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询国际/中国港澳台酒店记账数据.
      *
-     * @return IeHotelBillSettlementQueryResponse IeHotelBillSettlementQueryResponse
+     * @param request - IeHotelBillSettlementQueryRequest
+     * @param headers - IeHotelBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IeHotelBillSettlementQueryResponse
+     *
+     * @param IeHotelBillSettlementQueryRequest $request
+     * @param IeHotelBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return IeHotelBillSettlementQueryResponse
      */
     public function ieHotelBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IeHotelBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ie-hotel/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IeHotelBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ie-hotel/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IeHotelBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询国际/中国港澳台酒店记账数据
-     *  *
-     * @param IeHotelBillSettlementQueryRequest $request IeHotelBillSettlementQueryRequest
+     * 查询国际/中国港澳台酒店记账数据.
      *
-     * @return IeHotelBillSettlementQueryResponse IeHotelBillSettlementQueryResponse
+     * @param request - IeHotelBillSettlementQueryRequest
+     *
+     * @returns IeHotelBillSettlementQueryResponse
+     *
+     * @param IeHotelBillSettlementQueryRequest $request
+     *
+     * @return IeHotelBillSettlementQueryResponse
      */
     public function ieHotelBillSettlementQuery($request)
     {
@@ -9659,65 +11928,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询保险电子发票
-     *  *
-     * @param InsInvoiceScanQueryRequest $request InsInvoiceScanQueryRequest
-     * @param InsInvoiceScanQueryHeaders $headers InsInvoiceScanQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询保险电子发票.
      *
-     * @return InsInvoiceScanQueryResponse InsInvoiceScanQueryResponse
+     * @param request - InsInvoiceScanQueryRequest
+     * @param headers - InsInvoiceScanQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsInvoiceScanQueryResponse
+     *
+     * @param InsInvoiceScanQueryRequest $request
+     * @param InsInvoiceScanQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InsInvoiceScanQueryResponse
      */
     public function insInvoiceScanQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billDate)) {
-            $query['bill_date'] = $request->billDate;
+        if (null !== $request->billDate) {
+            @$query['bill_date'] = $request->billDate;
         }
-        if (!Utils::isUnset($request->billId)) {
-            $query['bill_id'] = $request->billId;
+
+        if (null !== $request->billId) {
+            @$query['bill_id'] = $request->billId;
         }
-        if (!Utils::isUnset($request->invoiceSubTaskId)) {
-            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+
+        if (null !== $request->invoiceSubTaskId) {
+            @$query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsInvoiceScanQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scan/v1/ins-invoice',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsInvoiceScanQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scan/v1/ins-invoice',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsInvoiceScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询保险电子发票
-     *  *
-     * @param InsInvoiceScanQueryRequest $request InsInvoiceScanQueryRequest
+     * 查询保险电子发票.
      *
-     * @return InsInvoiceScanQueryResponse InsInvoiceScanQueryResponse
+     * @param request - InsInvoiceScanQueryRequest
+     *
+     * @returns InsInvoiceScanQueryResponse
+     *
+     * @param InsInvoiceScanQueryRequest $request
+     *
+     * @return InsInvoiceScanQueryResponse
      */
     public function insInvoiceScanQuery($request)
     {
@@ -9728,71 +12014,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保险订单申请
-     *  *
-     * @param InsureOrderApplyRequest $request InsureOrderApplyRequest
-     * @param InsureOrderApplyHeaders $headers InsureOrderApplyHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 保险订单申请.
      *
-     * @return InsureOrderApplyResponse InsureOrderApplyResponse
+     * @param request - InsureOrderApplyRequest
+     * @param headers - InsureOrderApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderApplyResponse
+     *
+     * @param InsureOrderApplyRequest $request
+     * @param InsureOrderApplyHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InsureOrderApplyResponse
      */
     public function insureOrderApplyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $body['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->insOrderId)) {
-            $body['ins_order_id'] = $request->insOrderId;
+
+        if (null !== $request->insOrderId) {
+            @$body['ins_order_id'] = $request->insOrderId;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$body['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $body['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$body['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderApply',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/action/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/action/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保险订单申请
-     *  *
-     * @param InsureOrderApplyRequest $request InsureOrderApplyRequest
+     * 保险订单申请.
      *
-     * @return InsureOrderApplyResponse InsureOrderApplyResponse
+     * @param request - InsureOrderApplyRequest
+     *
+     * @returns InsureOrderApplyResponse
+     *
+     * @param InsureOrderApplyRequest $request
+     *
+     * @return InsureOrderApplyResponse
      */
     public function insureOrderApply($request)
     {
@@ -9803,64 +12108,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保险订单取消
-     *  *
-     * @param string                   $insOrderId
-     * @param InsureOrderCancelRequest $request    InsureOrderCancelRequest
-     * @param InsureOrderCancelHeaders $headers    InsureOrderCancelHeaders
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * 保险订单取消.
      *
-     * @return InsureOrderCancelResponse InsureOrderCancelResponse
+     * @param request - InsureOrderCancelRequest
+     * @param headers - InsureOrderCancelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderCancelResponse
+     *
+     * @param string                   $insOrderId
+     * @param InsureOrderCancelRequest $request
+     * @param InsureOrderCancelHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderCancelResponse
      */
     public function insureOrderCancelWithOptions($insOrderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $query['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $query['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$query['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderCancel',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/' . OpenApiUtilClient::getEncodeParam($insOrderId) . '/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderCancel',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/' . Url::percentEncode($insOrderId) . '/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保险订单取消
-     *  *
-     * @param string                   $insOrderId
-     * @param InsureOrderCancelRequest $request    InsureOrderCancelRequest
+     * 保险订单取消.
      *
-     * @return InsureOrderCancelResponse InsureOrderCancelResponse
+     * @param request - InsureOrderCancelRequest
+     *
+     * @returns InsureOrderCancelResponse
+     *
+     * @param string                   $insOrderId
+     * @param InsureOrderCancelRequest $request
+     *
+     * @return InsureOrderCancelResponse
      */
     public function insureOrderCancel($insOrderId, $request)
     {
@@ -9871,85 +12192,108 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保险订单创建
-     *  *
-     * @param InsureOrderCreateRequest $tmpReq  InsureOrderCreateRequest
-     * @param InsureOrderCreateHeaders $headers InsureOrderCreateHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 保险订单创建.
      *
-     * @return InsureOrderCreateResponse InsureOrderCreateResponse
+     * @param tmpReq - InsureOrderCreateRequest
+     * @param headers - InsureOrderCreateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderCreateResponse
+     *
+     * @param InsureOrderCreateRequest $tmpReq
+     * @param InsureOrderCreateHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderCreateResponse
      */
     public function insureOrderCreateWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InsureOrderCreateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicant)) {
-            $request->applicantShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicant, 'applicant', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applicant) {
+            $request->applicantShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicant, 'applicant', 'json');
         }
-        if (!Utils::isUnset($tmpReq->insPersonAndSegmentList)) {
-            $request->insPersonAndSegmentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->insPersonAndSegmentList, 'ins_person_and_segment_list', 'json');
+
+        if (null !== $tmpReq->insPersonAndSegmentList) {
+            $request->insPersonAndSegmentListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->insPersonAndSegmentList, 'ins_person_and_segment_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applicantShrink)) {
-            $body['applicant'] = $request->applicantShrink;
+        if (null !== $request->applicantShrink) {
+            @$body['applicant'] = $request->applicantShrink;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $body['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->insPersonAndSegmentListShrink)) {
-            $body['ins_person_and_segment_list'] = $request->insPersonAndSegmentListShrink;
+
+        if (null !== $request->insPersonAndSegmentListShrink) {
+            @$body['ins_person_and_segment_list'] = $request->insPersonAndSegmentListShrink;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->outInsOrderId)) {
-            $body['out_ins_order_id'] = $request->outInsOrderId;
+
+        if (null !== $request->outInsOrderId) {
+            @$body['out_ins_order_id'] = $request->outInsOrderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$body['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $body['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$body['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderCreate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/action/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderCreate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/action/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保险订单创建
-     *  *
-     * @param InsureOrderCreateRequest $request InsureOrderCreateRequest
+     * 保险订单创建.
      *
-     * @return InsureOrderCreateResponse InsureOrderCreateResponse
+     * @param request - InsureOrderCreateRequest
+     *
+     * @returns InsureOrderCreateResponse
+     *
+     * @param InsureOrderCreateRequest $request
+     *
+     * @return InsureOrderCreateResponse
      */
     public function insureOrderCreate($request)
     {
@@ -9960,65 +12304,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保险订单查询
-     *  *
-     * @param InsureOrderDetailRequest $request InsureOrderDetailRequest
-     * @param InsureOrderDetailHeaders $headers InsureOrderDetailHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 保险订单查询.
      *
-     * @return InsureOrderDetailResponse InsureOrderDetailResponse
+     * @param request - InsureOrderDetailRequest
+     * @param headers - InsureOrderDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderDetailResponse
+     *
+     * @param InsureOrderDetailRequest $request
+     * @param InsureOrderDetailHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderDetailResponse
      */
     public function insureOrderDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $query['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->insOrderId)) {
-            $query['ins_order_id'] = $request->insOrderId;
+
+        if (null !== $request->insOrderId) {
+            @$query['ins_order_id'] = $request->insOrderId;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $query['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$query['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保险订单查询
-     *  *
-     * @param InsureOrderDetailRequest $request InsureOrderDetailRequest
+     * 保险订单查询.
      *
-     * @return InsureOrderDetailResponse InsureOrderDetailResponse
+     * @param request - InsureOrderDetailRequest
+     *
+     * @returns InsureOrderDetailResponse
+     *
+     * @param InsureOrderDetailRequest $request
+     *
+     * @return InsureOrderDetailResponse
      */
     public function insureOrderDetail($request)
     {
@@ -10029,73 +12390,92 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保险订单支付
-     *  *
-     * @param string                $insOrderId
-     * @param InsureOrderPayRequest $request    InsureOrderPayRequest
-     * @param InsureOrderPayHeaders $headers    InsureOrderPayHeaders
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * 保险订单支付.
      *
-     * @return InsureOrderPayResponse InsureOrderPayResponse
+     * @param request - InsureOrderPayRequest
+     * @param headers - InsureOrderPayHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderPayResponse
+     *
+     * @param string                $insOrderId
+     * @param InsureOrderPayRequest $request
+     * @param InsureOrderPayHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InsureOrderPayResponse
      */
     public function insureOrderPayWithOptions($insOrderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $body['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+
+        if (null !== $request->outSubOrderId) {
+            @$body['out_sub_order_id'] = $request->outSubOrderId;
         }
-        if (!Utils::isUnset($request->paymentAmount)) {
-            $body['payment_amount'] = $request->paymentAmount;
+
+        if (null !== $request->paymentAmount) {
+            @$body['payment_amount'] = $request->paymentAmount;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $body['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$body['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderPay',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/' . OpenApiUtilClient::getEncodeParam($insOrderId) . '/action/pay',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderPay',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/' . Url::percentEncode($insOrderId) . '/action/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保险订单支付
-     *  *
-     * @param string                $insOrderId
-     * @param InsureOrderPayRequest $request    InsureOrderPayRequest
+     * 保险订单支付.
      *
-     * @return InsureOrderPayResponse InsureOrderPayResponse
+     * @param request - InsureOrderPayRequest
+     *
+     * @returns InsureOrderPayResponse
+     *
+     * @param string                $insOrderId
+     * @param InsureOrderPayRequest $request
+     *
+     * @return InsureOrderPayResponse
      */
     public function insureOrderPay($insOrderId, $request)
     {
@@ -10106,81 +12486,102 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保险订单退保
-     *  *
-     * @param string                   $insOrderId
-     * @param InsureOrderRefundRequest $tmpReq     InsureOrderRefundRequest
-     * @param InsureOrderRefundHeaders $headers    InsureOrderRefundHeaders
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * 保险订单退保.
      *
-     * @return InsureOrderRefundResponse InsureOrderRefundResponse
+     * @param tmpReq - InsureOrderRefundRequest
+     * @param headers - InsureOrderRefundHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderRefundResponse
+     *
+     * @param string                   $insOrderId
+     * @param InsureOrderRefundRequest $tmpReq
+     * @param InsureOrderRefundHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InsureOrderRefundResponse
      */
     public function insureOrderRefundWithOptions($insOrderId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InsureOrderRefundShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->policyNoList)) {
-            $request->policyNoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policyNoList, 'policy_no_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->policyNoList) {
+            $request->policyNoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policyNoList, 'policy_no_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->subInsOrderIds)) {
-            $request->subInsOrderIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subInsOrderIds, 'sub_ins_order_ids', 'json');
+
+        if (null !== $tmpReq->subInsOrderIds) {
+            $request->subInsOrderIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subInsOrderIds, 'sub_ins_order_ids', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $body['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$body['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$body['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->outApplyId)) {
-            $body['out_apply_id'] = $request->outApplyId;
+
+        if (null !== $request->outApplyId) {
+            @$body['out_apply_id'] = $request->outApplyId;
         }
-        if (!Utils::isUnset($request->policyNoListShrink)) {
-            $body['policy_no_list'] = $request->policyNoListShrink;
+
+        if (null !== $request->policyNoListShrink) {
+            @$body['policy_no_list'] = $request->policyNoListShrink;
         }
-        if (!Utils::isUnset($request->subInsOrderIdsShrink)) {
-            $body['sub_ins_order_ids'] = $request->subInsOrderIdsShrink;
+
+        if (null !== $request->subInsOrderIdsShrink) {
+            @$body['sub_ins_order_ids'] = $request->subInsOrderIdsShrink;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $body['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$body['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderRefund',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/' . OpenApiUtilClient::getEncodeParam($insOrderId) . '/action/refund',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderRefund',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/' . Url::percentEncode($insOrderId) . '/action/refund',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderRefundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保险订单退保
-     *  *
-     * @param string                   $insOrderId
-     * @param InsureOrderRefundRequest $request    InsureOrderRefundRequest
+     * 保险订单退保.
      *
-     * @return InsureOrderRefundResponse InsureOrderRefundResponse
+     * @param request - InsureOrderRefundRequest
+     *
+     * @returns InsureOrderRefundResponse
+     *
+     * @param string                   $insOrderId
+     * @param InsureOrderRefundRequest $request
+     *
+     * @return InsureOrderRefundResponse
      */
     public function insureOrderRefund($insOrderId, $request)
     {
@@ -10191,47 +12592,56 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询保单详情链接
-     *  *
-     * @param string                      $insOrderId
-     * @param InsureOrderUrlDetailHeaders $headers    InsureOrderUrlDetailHeaders
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * 查询保单详情链接.
      *
-     * @return InsureOrderUrlDetailResponse InsureOrderUrlDetailResponse
+     * @param headers - InsureOrderUrlDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureOrderUrlDetailResponse
+     *
+     * @param string                      $insOrderId
+     * @param InsureOrderUrlDetailHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return InsureOrderUrlDetailResponse
      */
     public function insureOrderUrlDetailWithOptions($insOrderId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'InsureOrderUrlDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/' . OpenApiUtilClient::getEncodeParam($insOrderId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureOrderUrlDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/' . Url::percentEncode($insOrderId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureOrderUrlDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询保单详情链接
-     *  *
+     * 查询保单详情链接.
+     *
+     * @returns InsureOrderUrlDetailResponse
+     *
      * @param string $insOrderId
      *
-     * @return InsureOrderUrlDetailResponse InsureOrderUrlDetailResponse
+     * @return InsureOrderUrlDetailResponse
      */
     public function insureOrderUrlDetail($insOrderId)
     {
@@ -10242,71 +12652,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 退保详情查询
-     *  *
-     * @param InsureRefundDetailRequest $request InsureRefundDetailRequest
-     * @param InsureRefundDetailHeaders $headers InsureRefundDetailHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 退保详情查询.
      *
-     * @return InsureRefundDetailResponse InsureRefundDetailResponse
+     * @param request - InsureRefundDetailRequest
+     * @param headers - InsureRefundDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsureRefundDetailResponse
+     *
+     * @param InsureRefundDetailRequest $request
+     * @param InsureRefundDetailHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return InsureRefundDetailResponse
      */
     public function insureRefundDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $query['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->insOrderId)) {
-            $query['ins_order_id'] = $request->insOrderId;
+
+        if (null !== $request->insOrderId) {
+            @$query['ins_order_id'] = $request->insOrderId;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->outApplyId)) {
-            $query['out_apply_id'] = $request->outApplyId;
+
+        if (null !== $request->outApplyId) {
+            @$query['out_apply_id'] = $request->outApplyId;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $query['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$query['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsureRefundDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/insurances/action/refund-detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsureRefundDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/insurances/action/refund-detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsureRefundDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 退保详情查询
-     *  *
-     * @param InsureRefundDetailRequest $request InsureRefundDetailRequest
+     * 退保详情查询.
      *
-     * @return InsureRefundDetailResponse InsureRefundDetailResponse
+     * @param request - InsureRefundDetailRequest
+     *
+     * @returns InsureRefundDetailResponse
+     *
+     * @param InsureRefundDetailRequest $request
+     *
+     * @return InsureRefundDetailResponse
      */
     public function insureRefundDetail($request)
     {
@@ -10317,106 +12746,136 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票创建订单
-     *  *
-     * @param IntlFlightCreateOrderRequest $tmpReq  IntlFlightCreateOrderRequest
-     * @param IntlFlightCreateOrderHeaders $headers IntlFlightCreateOrderHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 国际机票创建订单.
      *
-     * @return IntlFlightCreateOrderResponse IntlFlightCreateOrderResponse
+     * @param tmpReq - IntlFlightCreateOrderRequest
+     * @param headers - IntlFlightCreateOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightCreateOrderResponse
+     *
+     * @param IntlFlightCreateOrderRequest $tmpReq
+     * @param IntlFlightCreateOrderHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightCreateOrderResponse
      */
     public function intlFlightCreateOrderWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IntlFlightCreateOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contactInfo)) {
-            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactInfo) {
+            $request->contactInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->costCenter)) {
-            $request->costCenterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->costCenter, 'cost_center', 'json');
+
+        if (null !== $tmpReq->costCenter) {
+            $request->costCenterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCenter, 'cost_center', 'json');
         }
-        if (!Utils::isUnset($tmpReq->extraInfo)) {
-            $request->extraInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extraInfo, 'extra_info', 'json');
+
+        if (null !== $tmpReq->extraInfo) {
+            $request->extraInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extraInfo, 'extra_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->passengerList)) {
-            $request->passengerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
+
+        if (null !== $tmpReq->passengerList) {
+            $request->passengerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->asyncCreateOrderKey)) {
-            $query['async_create_order_key'] = $request->asyncCreateOrderKey;
+        if (null !== $request->asyncCreateOrderKey) {
+            @$query['async_create_order_key'] = $request->asyncCreateOrderKey;
         }
-        if (!Utils::isUnset($request->asyncCreateOrderMode)) {
-            $query['async_create_order_mode'] = $request->asyncCreateOrderMode;
+
+        if (null !== $request->asyncCreateOrderMode) {
+            @$query['async_create_order_mode'] = $request->asyncCreateOrderMode;
         }
-        if (!Utils::isUnset($request->contactInfoShrink)) {
-            $query['contact_info'] = $request->contactInfoShrink;
+
+        if (null !== $request->contactInfoShrink) {
+            @$query['contact_info'] = $request->contactInfoShrink;
         }
-        if (!Utils::isUnset($request->costCenterShrink)) {
-            $query['cost_center'] = $request->costCenterShrink;
+
+        if (null !== $request->costCenterShrink) {
+            @$query['cost_center'] = $request->costCenterShrink;
         }
-        if (!Utils::isUnset($request->extraInfoShrink)) {
-            $query['extra_info'] = $request->extraInfoShrink;
+
+        if (null !== $request->extraInfoShrink) {
+            @$query['extra_info'] = $request->extraInfoShrink;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->otaItemId)) {
-            $query['ota_item_id'] = $request->otaItemId;
+
+        if (null !== $request->otaItemId) {
+            @$query['ota_item_id'] = $request->otaItemId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->passengerListShrink)) {
-            $query['passenger_list'] = $request->passengerListShrink;
+
+        if (null !== $request->passengerListShrink) {
+            @$query['passenger_list'] = $request->passengerListShrink;
         }
-        if (!Utils::isUnset($request->renderKey)) {
-            $query['render_key'] = $request->renderKey;
+
+        if (null !== $request->renderKey) {
+            @$query['render_key'] = $request->renderKey;
         }
-        if (!Utils::isUnset($request->totalPriceCent)) {
-            $query['total_price_cent'] = $request->totalPriceCent;
+
+        if (null !== $request->totalPriceCent) {
+            @$query['total_price_cent'] = $request->totalPriceCent;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightCreateOrder',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/order/action/create',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightCreateOrder',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/order/action/create',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightCreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票创建订单
-     *  *
-     * @param IntlFlightCreateOrderRequest $request IntlFlightCreateOrderRequest
+     * 国际机票创建订单.
      *
-     * @return IntlFlightCreateOrderResponse IntlFlightCreateOrderResponse
+     * @param request - IntlFlightCreateOrderRequest
+     *
+     * @returns IntlFlightCreateOrderResponse
+     *
+     * @param IntlFlightCreateOrderRequest $request
+     *
+     * @return IntlFlightCreateOrderResponse
      */
     public function intlFlightCreateOrder($request)
     {
@@ -10427,76 +12886,96 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票验舱验价
-     *  *
-     * @param IntlFlightInventoryPriceCheckRequest $tmpReq  IntlFlightInventoryPriceCheckRequest
-     * @param IntlFlightInventoryPriceCheckHeaders $headers IntlFlightInventoryPriceCheckHeaders
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 国际机票验舱验价.
      *
-     * @return IntlFlightInventoryPriceCheckResponse IntlFlightInventoryPriceCheckResponse
+     * @param tmpReq - IntlFlightInventoryPriceCheckRequest
+     * @param headers - IntlFlightInventoryPriceCheckHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightInventoryPriceCheckResponse
+     *
+     * @param IntlFlightInventoryPriceCheckRequest $tmpReq
+     * @param IntlFlightInventoryPriceCheckHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return IntlFlightInventoryPriceCheckResponse
      */
     public function intlFlightInventoryPriceCheckWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IntlFlightInventoryPriceCheckShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->passengerList)) {
-            $request->passengerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->passengerList) {
+            $request->passengerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerList, 'passenger_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->orderPrice)) {
-            $query['order_price'] = $request->orderPrice;
+
+        if (null !== $request->orderPrice) {
+            @$query['order_price'] = $request->orderPrice;
         }
-        if (!Utils::isUnset($request->otaItemId)) {
-            $query['ota_item_id'] = $request->otaItemId;
+
+        if (null !== $request->otaItemId) {
+            @$query['ota_item_id'] = $request->otaItemId;
         }
-        if (!Utils::isUnset($request->passengerListShrink)) {
-            $query['passenger_list'] = $request->passengerListShrink;
+
+        if (null !== $request->passengerListShrink) {
+            @$query['passenger_list'] = $request->passengerListShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightInventoryPriceCheck',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/flights/action/inventory-price-check',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightInventoryPriceCheck',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/inventory-price-check',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightInventoryPriceCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票验舱验价
-     *  *
-     * @param IntlFlightInventoryPriceCheckRequest $request IntlFlightInventoryPriceCheckRequest
+     * 国际机票验舱验价.
      *
-     * @return IntlFlightInventoryPriceCheckResponse IntlFlightInventoryPriceCheckResponse
+     * @param request - IntlFlightInventoryPriceCheckRequest
+     *
+     * @returns IntlFlightInventoryPriceCheckResponse
+     *
+     * @param IntlFlightInventoryPriceCheckRequest $request
+     *
+     * @return IntlFlightInventoryPriceCheckResponse
      */
     public function intlFlightInventoryPriceCheck($request)
     {
@@ -10507,103 +12986,132 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票航班搜索
-     *  *
-     * @param IntlFlightListingSearchRequest $tmpReq  IntlFlightListingSearchRequest
-     * @param IntlFlightListingSearchHeaders $headers IntlFlightListingSearchHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 国际机票航班搜索.
      *
-     * @return IntlFlightListingSearchResponse IntlFlightListingSearchResponse
+     * @param tmpReq - IntlFlightListingSearchRequest
+     * @param headers - IntlFlightListingSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightListingSearchResponse
+     *
+     * @param IntlFlightListingSearchRequest $tmpReq
+     * @param IntlFlightListingSearchHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IntlFlightListingSearchResponse
      */
     public function intlFlightListingSearchWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IntlFlightListingSearchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->searchJourneys)) {
-            $request->searchJourneysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->searchJourneys) {
+            $request->searchJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
         }
-        if (!Utils::isUnset($tmpReq->searchPassengerList)) {
-            $request->searchPassengerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchPassengerList, 'search_passenger_list', 'json');
+
+        if (null !== $tmpReq->searchPassengerList) {
+            $request->searchPassengerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchPassengerList, 'search_passenger_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $query['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->cabinType)) {
-            $query['cabin_type'] = $request->cabinType;
+
+        if (null !== $request->cabinType) {
+            @$query['cabin_type'] = $request->cabinType;
         }
-        if (!Utils::isUnset($request->directOnly)) {
-            $query['direct_only'] = $request->directOnly;
+
+        if (null !== $request->directOnly) {
+            @$query['direct_only'] = $request->directOnly;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->needShareFlight)) {
-            $query['need_share_flight'] = $request->needShareFlight;
+
+        if (null !== $request->needShareFlight) {
+            @$query['need_share_flight'] = $request->needShareFlight;
         }
-        if (!Utils::isUnset($request->outWheelSearch)) {
-            $query['out_wheel_search'] = $request->outWheelSearch;
+
+        if (null !== $request->outWheelSearch) {
+            @$query['out_wheel_search'] = $request->outWheelSearch;
         }
-        if (!Utils::isUnset($request->queryRecordId)) {
-            $query['query_record_id'] = $request->queryRecordId;
+
+        if (null !== $request->queryRecordId) {
+            @$query['query_record_id'] = $request->queryRecordId;
         }
-        if (!Utils::isUnset($request->searchJourneysShrink)) {
-            $query['search_journeys'] = $request->searchJourneysShrink;
+
+        if (null !== $request->searchJourneysShrink) {
+            @$query['search_journeys'] = $request->searchJourneysShrink;
         }
-        if (!Utils::isUnset($request->searchMode)) {
-            $query['search_mode'] = $request->searchMode;
+
+        if (null !== $request->searchMode) {
+            @$query['search_mode'] = $request->searchMode;
         }
-        if (!Utils::isUnset($request->searchPassengerListShrink)) {
-            $query['search_passenger_list'] = $request->searchPassengerListShrink;
+
+        if (null !== $request->searchPassengerListShrink) {
+            @$query['search_passenger_list'] = $request->searchPassengerListShrink;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $query['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$query['supplier_code'] = $request->supplierCode;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
         }
-        if (!Utils::isUnset($request->tripType)) {
-            $query['trip_type'] = $request->tripType;
+
+        if (null !== $request->tripType) {
+            @$query['trip_type'] = $request->tripType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightListingSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/flights/action/listing-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightListingSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/listing-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightListingSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票航班搜索
-     *  *
-     * @param IntlFlightListingSearchRequest $request IntlFlightListingSearchRequest
+     * 国际机票航班搜索.
      *
-     * @return IntlFlightListingSearchResponse IntlFlightListingSearchResponse
+     * @param request - IntlFlightListingSearchRequest
+     *
+     * @returns IntlFlightListingSearchResponse
+     *
+     * @param IntlFlightListingSearchRequest $request
+     *
+     * @return IntlFlightListingSearchResponse
      */
     public function intlFlightListingSearch($request)
     {
@@ -10614,62 +13122,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票订单取消
-     *  *
-     * @param IntlFlightOrderCancelRequest $request IntlFlightOrderCancelRequest
-     * @param IntlFlightOrderCancelHeaders $headers IntlFlightOrderCancelHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 国际机票订单取消.
      *
-     * @return IntlFlightOrderCancelResponse IntlFlightOrderCancelResponse
+     * @param request - IntlFlightOrderCancelRequest
+     * @param headers - IntlFlightOrderCancelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightOrderCancelResponse
+     *
+     * @param IntlFlightOrderCancelRequest $request
+     * @param IntlFlightOrderCancelHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightOrderCancelResponse
      */
     public function intlFlightOrderCancelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $query['memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$query['memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightOrderCancel',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/order/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightOrderCancel',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/order/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票订单取消
-     *  *
-     * @param IntlFlightOrderCancelRequest $request IntlFlightOrderCancelRequest
+     * 国际机票订单取消.
      *
-     * @return IntlFlightOrderCancelResponse IntlFlightOrderCancelResponse
+     * @param request - IntlFlightOrderCancelRequest
+     *
+     * @returns IntlFlightOrderCancelResponse
+     *
+     * @param IntlFlightOrderCancelRequest $request
+     *
+     * @return IntlFlightOrderCancelResponse
      */
     public function intlFlightOrderCancel($request)
     {
@@ -10680,59 +13204,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票订单详情
-     *  *
-     * @param IntlFlightOrderDetailRequest $request IntlFlightOrderDetailRequest
-     * @param IntlFlightOrderDetailHeaders $headers IntlFlightOrderDetailHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 国际机票订单详情.
      *
-     * @return IntlFlightOrderDetailResponse IntlFlightOrderDetailResponse
+     * @param request - IntlFlightOrderDetailRequest
+     * @param headers - IntlFlightOrderDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightOrderDetailResponse
+     *
+     * @param IntlFlightOrderDetailRequest $request
+     * @param IntlFlightOrderDetailHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return IntlFlightOrderDetailResponse
      */
     public function intlFlightOrderDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightOrderDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/order/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightOrderDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/order/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票订单详情
-     *  *
-     * @param IntlFlightOrderDetailRequest $request IntlFlightOrderDetailRequest
+     * 国际机票订单详情.
      *
-     * @return IntlFlightOrderDetailResponse IntlFlightOrderDetailResponse
+     * @param request - IntlFlightOrderDetailRequest
+     *
+     * @returns IntlFlightOrderDetailResponse
+     *
+     * @param IntlFlightOrderDetailRequest $request
+     *
+     * @return IntlFlightOrderDetailResponse
      */
     public function intlFlightOrderDetail($request)
     {
@@ -10743,70 +13282,88 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票订单支付
-     *  *
-     * @param IntlFlightOrderPayRequest $tmpReq  IntlFlightOrderPayRequest
-     * @param IntlFlightOrderPayHeaders $headers IntlFlightOrderPayHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 国际机票订单支付.
      *
-     * @return IntlFlightOrderPayResponse IntlFlightOrderPayResponse
+     * @param tmpReq - IntlFlightOrderPayRequest
+     * @param headers - IntlFlightOrderPayHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightOrderPayResponse
+     *
+     * @param IntlFlightOrderPayRequest $tmpReq
+     * @param IntlFlightOrderPayHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return IntlFlightOrderPayResponse
      */
     public function intlFlightOrderPayWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IntlFlightOrderPayShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extParams)) {
-            $request->extParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extParams, 'ext_params', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extParams) {
+            $request->extParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extParams, 'ext_params', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->extParamsShrink)) {
-            $query['ext_params'] = $request->extParamsShrink;
+        if (null !== $request->extParamsShrink) {
+            @$query['ext_params'] = $request->extParamsShrink;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->totalPrice)) {
-            $query['total_price'] = $request->totalPrice;
+
+        if (null !== $request->totalPrice) {
+            @$query['total_price'] = $request->totalPrice;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightOrderPay',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/order/action/pay',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightOrderPay',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/order/action/pay',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票订单支付
-     *  *
-     * @param IntlFlightOrderPayRequest $request IntlFlightOrderPayRequest
+     * 国际机票订单支付.
      *
-     * @return IntlFlightOrderPayResponse IntlFlightOrderPayResponse
+     * @param request - IntlFlightOrderPayRequest
+     *
+     * @returns IntlFlightOrderPayResponse
+     *
+     * @param IntlFlightOrderPayRequest $request
+     *
+     * @return IntlFlightOrderPayResponse
      */
     public function intlFlightOrderPay($request)
     {
@@ -10817,59 +13374,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票订单支付前校验
-     *  *
-     * @param IntlFlightOrderPayCheckRequest $request IntlFlightOrderPayCheckRequest
-     * @param IntlFlightOrderPayCheckHeaders $headers IntlFlightOrderPayCheckHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 国际机票订单支付前校验.
      *
-     * @return IntlFlightOrderPayCheckResponse IntlFlightOrderPayCheckResponse
+     * @param request - IntlFlightOrderPayCheckRequest
+     * @param headers - IntlFlightOrderPayCheckHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightOrderPayCheckResponse
+     *
+     * @param IntlFlightOrderPayCheckRequest $request
+     * @param IntlFlightOrderPayCheckHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IntlFlightOrderPayCheckResponse
      */
     public function intlFlightOrderPayCheckWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightOrderPayCheck',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/order/action/pay-check',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightOrderPayCheck',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/order/action/pay-check',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightOrderPayCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票订单支付前校验
-     *  *
-     * @param IntlFlightOrderPayCheckRequest $request IntlFlightOrderPayCheckRequest
+     * 国际机票订单支付前校验.
      *
-     * @return IntlFlightOrderPayCheckResponse IntlFlightOrderPayCheckResponse
+     * @param request - IntlFlightOrderPayCheckRequest
+     *
+     * @returns IntlFlightOrderPayCheckResponse
+     *
+     * @param IntlFlightOrderPayCheckRequest $request
+     *
+     * @return IntlFlightOrderPayCheckResponse
      */
     public function intlFlightOrderPayCheck($request)
     {
@@ -10880,67 +13452,84 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票报价商品详情
-     *  *
-     * @param string                         $otaItemId
-     * @param IntlFlightOtaItemDetailRequest $request   IntlFlightOtaItemDetailRequest
-     * @param IntlFlightOtaItemDetailHeaders $headers   IntlFlightOtaItemDetailHeaders
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * 国际机票报价商品详情.
      *
-     * @return IntlFlightOtaItemDetailResponse IntlFlightOtaItemDetailResponse
+     * @param request - IntlFlightOtaItemDetailRequest
+     * @param headers - IntlFlightOtaItemDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightOtaItemDetailResponse
+     *
+     * @param string                         $otaItemId
+     * @param IntlFlightOtaItemDetailRequest $request
+     * @param IntlFlightOtaItemDetailHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IntlFlightOtaItemDetailResponse
      */
     public function intlFlightOtaItemDetailWithOptions($otaItemId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $query['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $query['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$query['supplier_code'] = $request->supplierCode;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightOtaItemDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/items/' . OpenApiUtilClient::getEncodeParam($otaItemId) . '/action/ota-get',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightOtaItemDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/items/' . Url::percentEncode($otaItemId) . '/action/ota-get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightOtaItemDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票报价商品详情
-     *  *
-     * @param string                         $otaItemId
-     * @param IntlFlightOtaItemDetailRequest $request   IntlFlightOtaItemDetailRequest
+     * 国际机票报价商品详情.
      *
-     * @return IntlFlightOtaItemDetailResponse IntlFlightOtaItemDetailResponse
+     * @param request - IntlFlightOtaItemDetailRequest
+     *
+     * @returns IntlFlightOtaItemDetailResponse
+     *
+     * @param string                         $otaItemId
+     * @param IntlFlightOtaItemDetailRequest $request
+     *
+     * @return IntlFlightOtaItemDetailResponse
      */
     public function intlFlightOtaItemDetail($otaItemId, $request)
     {
@@ -10951,91 +13540,116 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票航班报价查询
-     *  *
-     * @param IntlFlightOtaSearchRequest $tmpReq  IntlFlightOtaSearchRequest
-     * @param IntlFlightOtaSearchHeaders $headers IntlFlightOtaSearchHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 国际机票航班报价查询.
      *
-     * @return IntlFlightOtaSearchResponse IntlFlightOtaSearchResponse
+     * @param tmpReq - IntlFlightOtaSearchRequest
+     * @param headers - IntlFlightOtaSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightOtaSearchResponse
+     *
+     * @param IntlFlightOtaSearchRequest $tmpReq
+     * @param IntlFlightOtaSearchHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return IntlFlightOtaSearchResponse
      */
     public function intlFlightOtaSearchWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IntlFlightOtaSearchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->searchJourneys)) {
-            $request->searchJourneysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->searchJourneys) {
+            $request->searchJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
         }
-        if (!Utils::isUnset($tmpReq->searchPassengerList)) {
-            $request->searchPassengerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchPassengerList, 'search_passenger_list', 'json');
+
+        if (null !== $tmpReq->searchPassengerList) {
+            $request->searchPassengerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchPassengerList, 'search_passenger_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->btripUserId)) {
-            $query['btrip_user_id'] = $request->btripUserId;
+        if (null !== $request->btripUserId) {
+            @$query['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->buyerName)) {
-            $query['buyer_name'] = $request->buyerName;
+
+        if (null !== $request->buyerName) {
+            @$query['buyer_name'] = $request->buyerName;
         }
-        if (!Utils::isUnset($request->cabinType)) {
-            $query['cabin_type'] = $request->cabinType;
+
+        if (null !== $request->cabinType) {
+            @$query['cabin_type'] = $request->cabinType;
         }
-        if (!Utils::isUnset($request->directOnly)) {
-            $query['direct_only'] = $request->directOnly;
+
+        if (null !== $request->directOnly) {
+            @$query['direct_only'] = $request->directOnly;
         }
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->needShareFlight)) {
-            $query['need_share_flight'] = $request->needShareFlight;
+
+        if (null !== $request->needShareFlight) {
+            @$query['need_share_flight'] = $request->needShareFlight;
         }
-        if (!Utils::isUnset($request->searchJourneysShrink)) {
-            $query['search_journeys'] = $request->searchJourneysShrink;
+
+        if (null !== $request->searchJourneysShrink) {
+            @$query['search_journeys'] = $request->searchJourneysShrink;
         }
-        if (!Utils::isUnset($request->searchPassengerListShrink)) {
-            $query['search_passenger_list'] = $request->searchPassengerListShrink;
+
+        if (null !== $request->searchPassengerListShrink) {
+            @$query['search_passenger_list'] = $request->searchPassengerListShrink;
         }
-        if (!Utils::isUnset($request->supplierCode)) {
-            $query['supplier_code'] = $request->supplierCode;
+
+        if (null !== $request->supplierCode) {
+            @$query['supplier_code'] = $request->supplierCode;
         }
-        if (!Utils::isUnset($request->tripType)) {
-            $query['trip_type'] = $request->tripType;
+
+        if (null !== $request->tripType) {
+            @$query['trip_type'] = $request->tripType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightOtaSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/flights/action/ota-search',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightOtaSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/ota-search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightOtaSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票航班报价查询
-     *  *
-     * @param IntlFlightOtaSearchRequest $request IntlFlightOtaSearchRequest
+     * 国际机票航班报价查询.
      *
-     * @return IntlFlightOtaSearchResponse IntlFlightOtaSearchResponse
+     * @param request - IntlFlightOtaSearchRequest
+     *
+     * @returns IntlFlightOtaSearchResponse
+     *
+     * @param IntlFlightOtaSearchRequest $request
+     *
+     * @return IntlFlightOtaSearchResponse
      */
     public function intlFlightOtaSearch($request)
     {
@@ -11046,64 +13660,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 国际机票航班可用证件查询
-     *  *
-     * @param string                                $otaItemId
-     * @param IntlFlightSegmentAvailableCertRequest $request   IntlFlightSegmentAvailableCertRequest
-     * @param IntlFlightSegmentAvailableCertHeaders $headers   IntlFlightSegmentAvailableCertHeaders
-     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
+     * 国际机票航班可用证件查询.
      *
-     * @return IntlFlightSegmentAvailableCertResponse IntlFlightSegmentAvailableCertResponse
+     * @param request - IntlFlightSegmentAvailableCertRequest
+     * @param headers - IntlFlightSegmentAvailableCertHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightSegmentAvailableCertResponse
+     *
+     * @param string                                $otaItemId
+     * @param IntlFlightSegmentAvailableCertRequest $request
+     * @param IntlFlightSegmentAvailableCertHeaders $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return IntlFlightSegmentAvailableCertResponse
      */
     public function intlFlightSegmentAvailableCertWithOptions($otaItemId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isvName)) {
-            $query['isv_name'] = $request->isvName;
+        if (null !== $request->isvName) {
+            @$query['isv_name'] = $request->isvName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IntlFlightSegmentAvailableCert',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/intl-flight/v1/items/' . OpenApiUtilClient::getEncodeParam($otaItemId) . '/action/segment-available-cert',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IntlFlightSegmentAvailableCert',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/items/' . Url::percentEncode($otaItemId) . '/action/segment-available-cert',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IntlFlightSegmentAvailableCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际机票航班可用证件查询
-     *  *
-     * @param string                                $otaItemId
-     * @param IntlFlightSegmentAvailableCertRequest $request   IntlFlightSegmentAvailableCertRequest
+     * 国际机票航班可用证件查询.
      *
-     * @return IntlFlightSegmentAvailableCertResponse IntlFlightSegmentAvailableCertResponse
+     * @param request - IntlFlightSegmentAvailableCertRequest
+     *
+     * @returns IntlFlightSegmentAvailableCertResponse
+     *
+     * @param string                                $otaItemId
+     * @param IntlFlightSegmentAvailableCertRequest $request
+     *
+     * @return IntlFlightSegmentAvailableCertResponse
      */
     public function intlFlightSegmentAvailableCert($otaItemId, $request)
     {
@@ -11114,77 +13744,98 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 新增发票配置
-     *  *
-     * @param InvoiceAddRequest $request InvoiceAddRequest
-     * @param InvoiceAddHeaders $headers InvoiceAddHeaders
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 新增发票配置.
      *
-     * @return InvoiceAddResponse InvoiceAddResponse
+     * @param request - InvoiceAddRequest
+     * @param headers - InvoiceAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceAddResponse
+     *
+     * @param InvoiceAddRequest $request
+     * @param InvoiceAddHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return InvoiceAddResponse
      */
     public function invoiceAddWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->address)) {
-            $body['address'] = $request->address;
+        if (null !== $request->address) {
+            @$body['address'] = $request->address;
         }
-        if (!Utils::isUnset($request->bankName)) {
-            $body['bank_name'] = $request->bankName;
+
+        if (null !== $request->bankName) {
+            @$body['bank_name'] = $request->bankName;
         }
-        if (!Utils::isUnset($request->bankNo)) {
-            $body['bank_no'] = $request->bankNo;
+
+        if (null !== $request->bankNo) {
+            @$body['bank_no'] = $request->bankNo;
         }
-        if (!Utils::isUnset($request->taxNo)) {
-            $body['tax_no'] = $request->taxNo;
+
+        if (null !== $request->taxNo) {
+            @$body['tax_no'] = $request->taxNo;
         }
-        if (!Utils::isUnset($request->tel)) {
-            $body['tel'] = $request->tel;
+
+        if (null !== $request->tel) {
+            @$body['tel'] = $request->tel;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->unitType)) {
-            $body['unit_type'] = $request->unitType;
+
+        if (null !== $request->unitType) {
+            @$body['unit_type'] = $request->unitType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/add-invoice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/add-invoice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增发票配置
-     *  *
-     * @param InvoiceAddRequest $request InvoiceAddRequest
+     * 新增发票配置.
      *
-     * @return InvoiceAddResponse InvoiceAddResponse
+     * @param request - InvoiceAddRequest
+     *
+     * @returns InvoiceAddResponse
+     *
+     * @param InvoiceAddRequest $request
+     *
+     * @return InvoiceAddResponse
      */
     public function invoiceAdd($request)
     {
@@ -11195,53 +13846,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除发票抬头
-     *  *
-     * @param InvoiceDeleteRequest $request InvoiceDeleteRequest
-     * @param InvoiceDeleteHeaders $headers InvoiceDeleteHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除发票抬头.
      *
-     * @return InvoiceDeleteResponse InvoiceDeleteResponse
+     * @param request - InvoiceDeleteRequest
+     * @param headers - InvoiceDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceDeleteResponse
+     *
+     * @param InvoiceDeleteRequest $request
+     * @param InvoiceDeleteHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvoiceDeleteResponse
      */
     public function invoiceDeleteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $query['third_part_id'] = $request->thirdPartId;
+        if (null !== $request->thirdPartId) {
+            @$query['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceDelete',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/invoice',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/invoice',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除发票抬头
-     *  *
-     * @param InvoiceDeleteRequest $request InvoiceDeleteRequest
+     * 删除发票抬头.
      *
-     * @return InvoiceDeleteResponse InvoiceDeleteResponse
+     * @param request - InvoiceDeleteRequest
+     *
+     * @returns InvoiceDeleteResponse
+     *
+     * @param InvoiceDeleteRequest $request
+     *
+     * @return InvoiceDeleteResponse
      */
     public function invoiceDelete($request)
     {
@@ -11252,77 +13916,98 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 修改发票配置
-     *  *
-     * @param InvoiceModifyRequest $request InvoiceModifyRequest
-     * @param InvoiceModifyHeaders $headers InvoiceModifyHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 修改发票配置.
      *
-     * @return InvoiceModifyResponse InvoiceModifyResponse
+     * @param request - InvoiceModifyRequest
+     * @param headers - InvoiceModifyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceModifyResponse
+     *
+     * @param InvoiceModifyRequest $request
+     * @param InvoiceModifyHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvoiceModifyResponse
      */
     public function invoiceModifyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->address)) {
-            $body['address'] = $request->address;
+        if (null !== $request->address) {
+            @$body['address'] = $request->address;
         }
-        if (!Utils::isUnset($request->bankName)) {
-            $body['bank_name'] = $request->bankName;
+
+        if (null !== $request->bankName) {
+            @$body['bank_name'] = $request->bankName;
         }
-        if (!Utils::isUnset($request->bankNo)) {
-            $body['bank_no'] = $request->bankNo;
+
+        if (null !== $request->bankNo) {
+            @$body['bank_no'] = $request->bankNo;
         }
-        if (!Utils::isUnset($request->taxNo)) {
-            $body['tax_no'] = $request->taxNo;
+
+        if (null !== $request->taxNo) {
+            @$body['tax_no'] = $request->taxNo;
         }
-        if (!Utils::isUnset($request->tel)) {
-            $body['tel'] = $request->tel;
+
+        if (null !== $request->tel) {
+            @$body['tel'] = $request->tel;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->unitType)) {
-            $body['unit_type'] = $request->unitType;
+
+        if (null !== $request->unitType) {
+            @$body['unit_type'] = $request->unitType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceModify',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/invoice',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceModify',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/invoice',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改发票配置
-     *  *
-     * @param InvoiceModifyRequest $request InvoiceModifyRequest
+     * 修改发票配置.
      *
-     * @return InvoiceModifyResponse InvoiceModifyResponse
+     * @param request - InvoiceModifyRequest
+     *
+     * @returns InvoiceModifyResponse
+     *
+     * @param InvoiceModifyRequest $request
+     *
+     * @return InvoiceModifyResponse
      */
     public function invoiceModify($request)
     {
@@ -11333,61 +14018,76 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 新增发票抬头可用员工
-     *  *
-     * @param InvoiceRuleAddRequest $tmpReq  InvoiceRuleAddRequest
-     * @param InvoiceRuleAddHeaders $headers InvoiceRuleAddHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 新增发票抬头可用员工.
      *
-     * @return InvoiceRuleAddResponse InvoiceRuleAddResponse
+     * @param tmpReq - InvoiceRuleAddRequest
+     * @param headers - InvoiceRuleAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceRuleAddResponse
+     *
+     * @param InvoiceRuleAddRequest $tmpReq
+     * @param InvoiceRuleAddHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InvoiceRuleAddResponse
      */
     public function invoiceRuleAddWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InvoiceRuleAddShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entities)) {
-            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entities) {
+            $request->entitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entitiesShrink)) {
-            $body['entities'] = $request->entitiesShrink;
+        if (null !== $request->entitiesShrink) {
+            @$body['entities'] = $request->entitiesShrink;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceRuleAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/invoice-rule',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceRuleAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/invoice-rule',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceRuleAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增发票抬头可用员工
-     *  *
-     * @param InvoiceRuleAddRequest $request InvoiceRuleAddRequest
+     * 新增发票抬头可用员工.
      *
-     * @return InvoiceRuleAddResponse InvoiceRuleAddResponse
+     * @param request - InvoiceRuleAddRequest
+     *
+     * @returns InvoiceRuleAddResponse
+     *
+     * @param InvoiceRuleAddRequest $request
+     *
+     * @return InvoiceRuleAddResponse
      */
     public function invoiceRuleAdd($request)
     {
@@ -11398,64 +14098,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除发票抬头可用员工
-     *  *
-     * @param InvoiceRuleDeleteRequest $tmpReq  InvoiceRuleDeleteRequest
-     * @param InvoiceRuleDeleteHeaders $headers InvoiceRuleDeleteHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 删除发票抬头可用员工.
      *
-     * @return InvoiceRuleDeleteResponse InvoiceRuleDeleteResponse
+     * @param tmpReq - InvoiceRuleDeleteRequest
+     * @param headers - InvoiceRuleDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceRuleDeleteResponse
+     *
+     * @param InvoiceRuleDeleteRequest $tmpReq
+     * @param InvoiceRuleDeleteHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InvoiceRuleDeleteResponse
      */
     public function invoiceRuleDeleteWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InvoiceRuleDeleteShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entities)) {
-            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entities) {
+            $request->entitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->delAll)) {
-            $query['del_all'] = $request->delAll;
+        if (null !== $request->delAll) {
+            @$query['del_all'] = $request->delAll;
         }
-        if (!Utils::isUnset($request->entitiesShrink)) {
-            $query['entities'] = $request->entitiesShrink;
+
+        if (null !== $request->entitiesShrink) {
+            @$query['entities'] = $request->entitiesShrink;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $query['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$query['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceRuleDelete',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/invoice-rule',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceRuleDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/invoice-rule',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceRuleDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除发票抬头可用员工
-     *  *
-     * @param InvoiceRuleDeleteRequest $request InvoiceRuleDeleteRequest
+     * 删除发票抬头可用员工.
      *
-     * @return InvoiceRuleDeleteResponse InvoiceRuleDeleteResponse
+     * @param request - InvoiceRuleDeleteRequest
+     *
+     * @returns InvoiceRuleDeleteResponse
+     *
+     * @param InvoiceRuleDeleteRequest $request
+     *
+     * @return InvoiceRuleDeleteResponse
      */
     public function invoiceRuleDelete($request)
     {
@@ -11466,67 +14182,84 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 保存发票规则
-     *  *
-     * @param InvoiceRuleSaveRequest $tmpReq  InvoiceRuleSaveRequest
-     * @param InvoiceRuleSaveHeaders $headers InvoiceRuleSaveHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 保存发票规则.
      *
-     * @return InvoiceRuleSaveResponse InvoiceRuleSaveResponse
+     * @param tmpReq - InvoiceRuleSaveRequest
+     * @param headers - InvoiceRuleSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceRuleSaveResponse
+     *
+     * @param InvoiceRuleSaveRequest $tmpReq
+     * @param InvoiceRuleSaveHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InvoiceRuleSaveResponse
      */
     public function invoiceRuleSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InvoiceRuleSaveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->entities)) {
-            $request->entitiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entities) {
+            $request->entitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'entities', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->allEmploye)) {
-            $body['all_employe'] = $request->allEmploye;
+        if (null !== $request->allEmploye) {
+            @$body['all_employe'] = $request->allEmploye;
         }
-        if (!Utils::isUnset($request->entitiesShrink)) {
-            $body['entities'] = $request->entitiesShrink;
+
+        if (null !== $request->entitiesShrink) {
+            @$body['entities'] = $request->entitiesShrink;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceRuleSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/invoice-rule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceRuleSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/invoice-rule',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceRuleSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存发票规则
-     *  *
-     * @param InvoiceRuleSaveRequest $request InvoiceRuleSaveRequest
+     * 保存发票规则.
      *
-     * @return InvoiceRuleSaveResponse InvoiceRuleSaveResponse
+     * @param request - InvoiceRuleSaveRequest
+     *
+     * @returns InvoiceRuleSaveResponse
+     *
+     * @param InvoiceRuleSaveRequest $request
+     *
+     * @return InvoiceRuleSaveResponse
      */
     public function invoiceRuleSave($request)
     {
@@ -11537,59 +14270,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 搜索用户可用发票抬头
-     *  *
-     * @param InvoiceSearchRequest $request InvoiceSearchRequest
-     * @param InvoiceSearchHeaders $headers InvoiceSearchHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 搜索用户可用发票抬头.
      *
-     * @return InvoiceSearchResponse InvoiceSearchResponse
+     * @param request - InvoiceSearchRequest
+     * @param headers - InvoiceSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvoiceSearchResponse
+     *
+     * @param InvoiceSearchRequest $request
+     * @param InvoiceSearchHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvoiceSearchResponse
      */
     public function invoiceSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $query['third_part_id'] = $request->thirdPartId;
+        if (null !== $request->thirdPartId) {
+            @$query['third_part_id'] = $request->thirdPartId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvoiceSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/invoice',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvoiceSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/invoice',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvoiceSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索用户可用发票抬头
-     *  *
-     * @param InvoiceSearchRequest $request InvoiceSearchRequest
+     * 搜索用户可用发票抬头.
      *
-     * @return InvoiceSearchResponse InvoiceSearchResponse
+     * @param request - InvoiceSearchRequest
+     *
+     * @returns InvoiceSearchResponse
+     *
+     * @param InvoiceSearchRequest $request
+     *
+     * @return InvoiceSearchResponse
      */
     public function invoiceSearch($request)
     {
@@ -11600,73 +14348,92 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 员工特殊角色修改
-     *  *
-     * @param IsvRuleSaveRequest $tmpReq  IsvRuleSaveRequest
-     * @param IsvRuleSaveHeaders $headers IsvRuleSaveHeaders
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 员工特殊角色修改.
      *
-     * @return IsvRuleSaveResponse IsvRuleSaveResponse
+     * @param tmpReq - IsvRuleSaveRequest
+     * @param headers - IsvRuleSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IsvRuleSaveResponse
+     *
+     * @param IsvRuleSaveRequest $tmpReq
+     * @param IsvRuleSaveHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return IsvRuleSaveResponse
      */
     public function isvRuleSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IsvRuleSaveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->bookuserList)) {
-            $request->bookuserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookuserList, 'bookuser_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bookuserList) {
+            $request->bookuserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bookuserList, 'bookuser_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applyNeed)) {
-            $body['apply_need'] = $request->applyNeed;
+        if (null !== $request->applyNeed) {
+            @$body['apply_need'] = $request->applyNeed;
         }
-        if (!Utils::isUnset($request->bookType)) {
-            $body['book_type'] = $request->bookType;
+
+        if (null !== $request->bookType) {
+            @$body['book_type'] = $request->bookType;
         }
-        if (!Utils::isUnset($request->bookuserListShrink)) {
-            $body['bookuser_list'] = $request->bookuserListShrink;
+
+        if (null !== $request->bookuserListShrink) {
+            @$body['bookuser_list'] = $request->bookuserListShrink;
         }
-        if (!Utils::isUnset($request->ruleNeed)) {
-            $body['rule_need'] = $request->ruleNeed;
+
+        if (null !== $request->ruleNeed) {
+            @$body['rule_need'] = $request->ruleNeed;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'IsvRuleSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/rule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IsvRuleSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/rule',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IsvRuleSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 员工特殊角色修改
-     *  *
-     * @param IsvRuleSaveRequest $request IsvRuleSaveRequest
+     * 员工特殊角色修改.
      *
-     * @return IsvRuleSaveResponse IsvRuleSaveResponse
+     * @param request - IsvRuleSaveRequest
+     *
+     * @returns IsvRuleSaveResponse
+     *
+     * @param IsvRuleSaveRequest $request
+     *
+     * @return IsvRuleSaveResponse
      */
     public function isvRuleSave($request)
     {
@@ -11677,58 +14444,72 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 用户同步
-     *  *
-     * @param IsvUserSaveRequest $tmpReq  IsvUserSaveRequest
-     * @param IsvUserSaveHeaders $headers IsvUserSaveHeaders
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 用户同步.
      *
-     * @return IsvUserSaveResponse IsvUserSaveResponse
+     * @param tmpReq - IsvUserSaveRequest
+     * @param headers - IsvUserSaveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IsvUserSaveResponse
+     *
+     * @param IsvUserSaveRequest $tmpReq
+     * @param IsvUserSaveHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return IsvUserSaveResponse
      */
     public function isvUserSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IsvUserSaveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userList)) {
-            $request->userListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userList, 'user_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userList) {
+            $request->userListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userList, 'user_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->userListShrink)) {
-            $body['user_list'] = $request->userListShrink;
+        if (null !== $request->userListShrink) {
+            @$body['user_list'] = $request->userListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'IsvUserSave',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/isvuser/v1/isvuser',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'IsvUserSave',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/isvuser/v1/isvuser',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IsvUserSaveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 用户同步
-     *  *
-     * @param IsvUserSaveRequest $request IsvUserSaveRequest
+     * 用户同步.
      *
-     * @return IsvUserSaveResponse IsvUserSaveResponse
+     * @param request - IsvUserSaveRequest
+     *
+     * @returns IsvUserSaveResponse
+     *
+     * @param IsvUserSaveRequest $request
+     *
+     * @return IsvUserSaveResponse
      */
     public function isvUserSave($request)
     {
@@ -11739,71 +14520,370 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询因公用餐记账数据
-     *  *
-     * @param MealBillSettlementQueryRequest $request MealBillSettlementQueryRequest
-     * @param MealBillSettlementQueryHeaders $headers MealBillSettlementQueryHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 新增用餐申请单.
      *
-     * @return MealBillSettlementQueryResponse MealBillSettlementQueryResponse
+     * @param tmpReq - MealApplyAddRequest
+     * @param headers - MealApplyAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MealApplyAddResponse
+     *
+     * @param MealApplyAddRequest $tmpReq
+     * @param MealApplyAddHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return MealApplyAddResponse
+     */
+    public function mealApplyAddWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MealApplyAddShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyUser) {
+            $request->applyUserShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyUser, 'apply_user', 'json');
+        }
+
+        if (null !== $tmpReq->itineraryList) {
+            $request->itineraryListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->applyUserShrink) {
+            @$body['apply_user'] = $request->applyUserShrink;
+        }
+
+        if (null !== $request->costCenterId) {
+            @$body['cost_center_id'] = $request->costCenterId;
+        }
+
+        if (null !== $request->invoiceId) {
+            @$body['invoice_id'] = $request->invoiceId;
+        }
+
+        if (null !== $request->itineraryListShrink) {
+            @$body['itinerary_list'] = $request->itineraryListShrink;
+        }
+
+        if (null !== $request->mealAmount) {
+            @$body['meal_amount'] = $request->mealAmount;
+        }
+
+        if (null !== $request->mealCause) {
+            @$body['meal_cause'] = $request->mealCause;
+        }
+
+        if (null !== $request->projectCode) {
+            @$body['project_code'] = $request->projectCode;
+        }
+
+        if (null !== $request->projectTitle) {
+            @$body['project_title'] = $request->projectTitle;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->thirdPartApplyId) {
+            @$body['third_part_apply_id'] = $request->thirdPartApplyId;
+        }
+
+        if (null !== $request->thirdPartCostCenterId) {
+            @$body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
+        }
+
+        if (null !== $request->thirdPartInvoiceId) {
+            @$body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MealApplyAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/meal',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MealApplyAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增用餐申请单.
+     *
+     * @param request - MealApplyAddRequest
+     *
+     * @returns MealApplyAddResponse
+     *
+     * @param MealApplyAddRequest $request
+     *
+     * @return MealApplyAddResponse
+     */
+    public function mealApplyAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MealApplyAddHeaders([]);
+
+        return $this->mealApplyAddWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新用餐申请单状态
+     *
+     * @param request - MealApplyApproveRequest
+     * @param headers - MealApplyApproveHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MealApplyApproveResponse
+     *
+     * @param MealApplyApproveRequest $request
+     * @param MealApplyApproveHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MealApplyApproveResponse
+     */
+    public function mealApplyApproveWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->operateTime) {
+            @$body['operate_time'] = $request->operateTime;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->thirdPartApplyId) {
+            @$body['third_part_apply_id'] = $request->thirdPartApplyId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MealApplyApprove',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/meal',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MealApplyApproveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新用餐申请单状态
+     *
+     * @param request - MealApplyApproveRequest
+     *
+     * @returns MealApplyApproveResponse
+     *
+     * @param MealApplyApproveRequest $request
+     *
+     * @return MealApplyApproveResponse
+     */
+    public function mealApplyApprove($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MealApplyApproveHeaders([]);
+
+        return $this->mealApplyApproveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询用餐申请单.
+     *
+     * @param request - MealApplyQueryRequest
+     * @param headers - MealApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MealApplyQueryResponse
+     *
+     * @param MealApplyQueryRequest $request
+     * @param MealApplyQueryHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return MealApplyQueryResponse
+     */
+    public function mealApplyQueryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->thirdPartApplyId) {
+            @$query['third_part_apply_id'] = $request->thirdPartApplyId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MealApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/meal',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MealApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用餐申请单.
+     *
+     * @param request - MealApplyQueryRequest
+     *
+     * @returns MealApplyQueryResponse
+     *
+     * @param MealApplyQueryRequest $request
+     *
+     * @return MealApplyQueryResponse
+     */
+    public function mealApplyQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MealApplyQueryHeaders([]);
+
+        return $this->mealApplyQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询因公用餐记账数据.
+     *
+     * @param request - MealBillSettlementQueryRequest
+     * @param headers - MealBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MealBillSettlementQueryResponse
+     *
+     * @param MealBillSettlementQueryRequest $request
+     * @param MealBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return MealBillSettlementQueryResponse
      */
     public function mealBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MealBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/meal/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MealBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/meal/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MealBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询因公用餐记账数据
-     *  *
-     * @param MealBillSettlementQueryRequest $request MealBillSettlementQueryRequest
+     * 查询因公用餐记账数据.
      *
-     * @return MealBillSettlementQueryResponse MealBillSettlementQueryResponse
+     * @param request - MealBillSettlementQueryRequest
+     *
+     * @returns MealBillSettlementQueryResponse
+     *
+     * @param MealBillSettlementQueryRequest $request
+     *
+     * @return MealBillSettlementQueryResponse
      */
     public function mealBillSettlementQuery($request)
     {
@@ -11814,55 +14894,68 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取用餐订单详情
-     *  *
-     * @param string                      $orderId
-     * @param MealOrderDetailQueryRequest $request MealOrderDetailQueryRequest
-     * @param MealOrderDetailQueryHeaders $headers MealOrderDetailQueryHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取用餐订单详情.
      *
-     * @return MealOrderDetailQueryResponse MealOrderDetailQueryResponse
+     * @param request - MealOrderDetailQueryRequest
+     * @param headers - MealOrderDetailQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MealOrderDetailQueryResponse
+     *
+     * @param string                      $orderId
+     * @param MealOrderDetailQueryRequest $request
+     * @param MealOrderDetailQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return MealOrderDetailQueryResponse
      */
     public function mealOrderDetailQueryWithOptions($orderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MealOrderDetailQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/meal/v1/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MealOrderDetailQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/meal/v1/orders/' . Url::percentEncode($orderId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MealOrderDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用餐订单详情
-     *  *
-     * @param string                      $orderId
-     * @param MealOrderDetailQueryRequest $request MealOrderDetailQueryRequest
+     * 获取用餐订单详情.
      *
-     * @return MealOrderDetailQueryResponse MealOrderDetailQueryResponse
+     * @param request - MealOrderDetailQueryRequest
+     *
+     * @returns MealOrderDetailQueryResponse
+     *
+     * @param string                      $orderId
+     * @param MealOrderDetailQueryRequest $request
+     *
+     * @return MealOrderDetailQueryResponse
      */
     public function mealOrderDetailQuery($orderId, $request)
     {
@@ -11873,53 +14966,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取用餐订单列表
-     *  *
-     * @param MealOrderListQueryRequest $request MealOrderListQueryRequest
-     * @param MealOrderListQueryHeaders $headers MealOrderListQueryHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取用餐订单列表.
      *
-     * @return MealOrderListQueryResponse MealOrderListQueryResponse
+     * @param request - MealOrderListQueryRequest
+     * @param headers - MealOrderListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MealOrderListQueryResponse
+     *
+     * @param MealOrderListQueryRequest $request
+     * @param MealOrderListQueryHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MealOrderListQueryResponse
      */
     public function mealOrderListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MealOrderListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/meal/v1/orders',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MealOrderListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/meal/v1/orders',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MealOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用餐订单列表
-     *  *
-     * @param MealOrderListQueryRequest $request MealOrderListQueryRequest
+     * 获取用餐订单列表.
      *
-     * @return MealOrderListQueryResponse MealOrderListQueryResponse
+     * @param request - MealOrderListQueryRequest
+     *
+     * @returns MealOrderListQueryResponse
+     *
+     * @param MealOrderListQueryRequest $request
+     *
+     * @return MealOrderListQueryResponse
      */
     public function mealOrderListQuery($request)
     {
@@ -11930,56 +15036,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 月账单确认
-     *  *
-     * @param MonthBillConfirmRequest $request MonthBillConfirmRequest
-     * @param MonthBillConfirmHeaders $headers MonthBillConfirmHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 月账单确认.
      *
-     * @return MonthBillConfirmResponse MonthBillConfirmResponse
+     * @param request - MonthBillConfirmRequest
+     * @param headers - MonthBillConfirmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MonthBillConfirmResponse
+     *
+     * @param MonthBillConfirmRequest $request
+     * @param MonthBillConfirmHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MonthBillConfirmResponse
      */
     public function monthBillConfirmWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->mailBillDate)) {
-            $body['mail_bill_date'] = $request->mailBillDate;
+        if (null !== $request->mailBillDate) {
+            @$body['mail_bill_date'] = $request->mailBillDate;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MonthBillConfirm',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/bill/v1/status/action/confirm',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MonthBillConfirm',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bill/v1/status/action/confirm',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MonthBillConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 月账单确认
-     *  *
-     * @param MonthBillConfirmRequest $request MonthBillConfirmRequest
+     * 月账单确认.
      *
-     * @return MonthBillConfirmResponse MonthBillConfirmResponse
+     * @param request - MonthBillConfirmRequest
+     *
+     * @returns MonthBillConfirmResponse
+     *
+     * @param MonthBillConfirmRequest $request
+     *
+     * @return MonthBillConfirmResponse
      */
     public function monthBillConfirm($request)
     {
@@ -11990,56 +15110,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询企业月账单
-     *  *
-     * @param MonthBillGetRequest $request MonthBillGetRequest
-     * @param MonthBillGetHeaders $headers MonthBillGetHeaders
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询企业月账单.
      *
-     * @return MonthBillGetResponse MonthBillGetResponse
+     * @param request - MonthBillGetRequest
+     * @param headers - MonthBillGetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MonthBillGetResponse
+     *
+     * @param MonthBillGetRequest $request
+     * @param MonthBillGetHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return MonthBillGetResponse
      */
     public function monthBillGetWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->billMonth)) {
-            $query['bill_month'] = $request->billMonth;
+
+        if (null !== $request->billMonth) {
+            @$query['bill_month'] = $request->billMonth;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MonthBillGet',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/open/v1/month-bill',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MonthBillGet',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v1/month-bill',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MonthBillGetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询企业月账单
-     *  *
-     * @param MonthBillGetRequest $request MonthBillGetRequest
+     * 查询企业月账单.
      *
-     * @return MonthBillGetResponse MonthBillGetResponse
+     * @param request - MonthBillGetRequest
+     *
+     * @returns MonthBillGetResponse
+     *
+     * @param MonthBillGetRequest $request
+     *
+     * @return MonthBillGetResponse
      */
     public function monthBillGet($request)
     {
@@ -12050,56 +15184,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询订单退款明细
-     *  *
-     * @param OrderRefundDetailQueryRequest $request OrderRefundDetailQueryRequest
-     * @param OrderRefundDetailQueryHeaders $headers OrderRefundDetailQueryHeaders
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询订单退款明细.
      *
-     * @return OrderRefundDetailQueryResponse OrderRefundDetailQueryResponse
+     * @param request - OrderRefundDetailQueryRequest
+     * @param headers - OrderRefundDetailQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OrderRefundDetailQueryResponse
+     *
+     * @param OrderRefundDetailQueryRequest $request
+     * @param OrderRefundDetailQueryHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return OrderRefundDetailQueryResponse
      */
     public function orderRefundDetailQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cooperatorOrderId)) {
-            $body['cooperator_order_id'] = $request->cooperatorOrderId;
+        if (null !== $request->cooperatorOrderId) {
+            @$body['cooperator_order_id'] = $request->cooperatorOrderId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OrderRefundDetailQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/coop-hotel/v1/refund/action/detail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'OrderRefundDetailQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/coop-hotel/v1/refund/action/detail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OrderRefundDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询订单退款明细
-     *  *
-     * @param OrderRefundDetailQueryRequest $request OrderRefundDetailQueryRequest
+     * 查询订单退款明细.
      *
-     * @return OrderRefundDetailQueryResponse OrderRefundDetailQueryResponse
+     * @param request - OrderRefundDetailQueryRequest
+     *
+     * @returns OrderRefundDetailQueryResponse
+     *
+     * @param OrderRefundDetailQueryRequest $request
+     *
+     * @return OrderRefundDetailQueryResponse
      */
     public function orderRefundDetailQuery($request)
     {
@@ -12110,65 +15258,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 添加项目
-     *  *
-     * @param ProjectAddRequest $request ProjectAddRequest
-     * @param ProjectAddHeaders $headers ProjectAddHeaders
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 添加项目.
      *
-     * @return ProjectAddResponse ProjectAddResponse
+     * @param request - ProjectAddRequest
+     * @param headers - ProjectAddHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProjectAddResponse
+     *
+     * @param ProjectAddRequest $request
+     * @param ProjectAddHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ProjectAddResponse
      */
     public function projectAddWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['project_name'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['project_name'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->thirdPartCostCenterId)) {
-            $body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
+
+        if (null !== $request->thirdPartCostCenterId) {
+            @$body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
-        if (!Utils::isUnset($request->thirdPartInvoiceId)) {
-            $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
+
+        if (null !== $request->thirdPartInvoiceId) {
+            @$body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ProjectAdd',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/cost/v1/project',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ProjectAdd',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cost/v1/project',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ProjectAddResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加项目
-     *  *
-     * @param ProjectAddRequest $request ProjectAddRequest
+     * 添加项目.
      *
-     * @return ProjectAddResponse ProjectAddResponse
+     * @param request - ProjectAddRequest
+     *
+     * @returns ProjectAddResponse
+     *
+     * @param ProjectAddRequest $request
+     *
+     * @return ProjectAddResponse
      */
     public function projectAdd($request)
     {
@@ -12179,53 +15344,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 删除项目
-     *  *
-     * @param ProjectDeleteRequest $request ProjectDeleteRequest
-     * @param ProjectDeleteHeaders $headers ProjectDeleteHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除项目.
      *
-     * @return ProjectDeleteResponse ProjectDeleteResponse
+     * @param request - ProjectDeleteRequest
+     * @param headers - ProjectDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProjectDeleteResponse
+     *
+     * @param ProjectDeleteRequest $request
+     * @param ProjectDeleteHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ProjectDeleteResponse
      */
     public function projectDeleteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $query['third_part_id'] = $request->thirdPartId;
+        if (null !== $request->thirdPartId) {
+            @$query['third_part_id'] = $request->thirdPartId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ProjectDelete',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/cost/v1/project',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ProjectDelete',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cost/v1/project',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ProjectDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除项目
-     *  *
-     * @param ProjectDeleteRequest $request ProjectDeleteRequest
+     * 删除项目.
      *
-     * @return ProjectDeleteResponse ProjectDeleteResponse
+     * @param request - ProjectDeleteRequest
+     *
+     * @returns ProjectDeleteResponse
+     *
+     * @param ProjectDeleteRequest $request
+     *
+     * @return ProjectDeleteResponse
      */
     public function projectDelete($request)
     {
@@ -12236,65 +15414,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 变更项目
-     *  *
-     * @param ProjectModifyRequest $request ProjectModifyRequest
-     * @param ProjectModifyHeaders $headers ProjectModifyHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 变更项目.
      *
-     * @return ProjectModifyResponse ProjectModifyResponse
+     * @param request - ProjectModifyRequest
+     * @param headers - ProjectModifyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProjectModifyResponse
+     *
+     * @param ProjectModifyRequest $request
+     * @param ProjectModifyHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ProjectModifyResponse
      */
     public function projectModifyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['project_name'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['project_name'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->thirdPartCostCenterId)) {
-            $body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
+
+        if (null !== $request->thirdPartCostCenterId) {
+            @$body['third_part_cost_center_id'] = $request->thirdPartCostCenterId;
         }
-        if (!Utils::isUnset($request->thirdPartId)) {
-            $body['third_part_id'] = $request->thirdPartId;
+
+        if (null !== $request->thirdPartId) {
+            @$body['third_part_id'] = $request->thirdPartId;
         }
-        if (!Utils::isUnset($request->thirdPartInvoiceId)) {
-            $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
+
+        if (null !== $request->thirdPartInvoiceId) {
+            @$body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ProjectModify',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/cost/v1/project',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ProjectModify',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cost/v1/project',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ProjectModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 变更项目
-     *  *
-     * @param ProjectModifyRequest $request ProjectModifyRequest
+     * 变更项目.
      *
-     * @return ProjectModifyResponse ProjectModifyResponse
+     * @param request - ProjectModifyRequest
+     *
+     * @returns ProjectModifyResponse
+     *
+     * @param ProjectModifyRequest $request
+     *
+     * @return ProjectModifyResponse
      */
     public function projectModify($request)
     {
@@ -12305,53 +15500,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询企业信息详情
-     *  *
-     * @param QueryCorpDetailInfoRequest $request QueryCorpDetailInfoRequest
-     * @param QueryCorpDetailInfoHeaders $headers QueryCorpDetailInfoHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询企业信息详情.
      *
-     * @return QueryCorpDetailInfoResponse QueryCorpDetailInfoResponse
+     * @param request - QueryCorpDetailInfoRequest
+     * @param headers - QueryCorpDetailInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCorpDetailInfoResponse
+     *
+     * @param QueryCorpDetailInfoRequest $request
+     * @param QueryCorpDetailInfoHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryCorpDetailInfoResponse
      */
     public function queryCorpDetailInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->targetCorpId)) {
-            $query['target_corp_id'] = $request->targetCorpId;
+        if (null !== $request->accountId) {
+            @$query['account_id'] = $request->accountId;
         }
+
+        if (null !== $request->targetCorpId) {
+            @$query['target_corp_id'] = $request->targetCorpId;
+        }
+
+        if (null !== $request->targetThirdCorpId) {
+            @$query['target_third_corp_id'] = $request->targetThirdCorpId;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCorpDetailInfo',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/corps/v1/corps/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryCorpDetailInfo',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/corps/v1/corps/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCorpDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询企业信息详情
-     *  *
-     * @param QueryCorpDetailInfoRequest $request QueryCorpDetailInfoRequest
+     * 查询企业信息详情.
      *
-     * @return QueryCorpDetailInfoResponse QueryCorpDetailInfoResponse
+     * @param request - QueryCorpDetailInfoRequest
+     *
+     * @returns QueryCorpDetailInfoResponse
+     *
+     * @param QueryCorpDetailInfoRequest $request
+     *
+     * @return QueryCorpDetailInfoResponse
      */
     public function queryCorpDetailInfo($request)
     {
@@ -12362,53 +15578,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个员工信息
-     *  *
-     * @param QueryEmployeeDetailRequest $request QueryEmployeeDetailRequest
-     * @param QueryEmployeeDetailHeaders $headers QueryEmployeeDetailHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取单个员工信息.
      *
-     * @return QueryEmployeeDetailResponse QueryEmployeeDetailResponse
+     * @param request - QueryEmployeeDetailRequest
+     * @param headers - QueryEmployeeDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEmployeeDetailResponse
+     *
+     * @param QueryEmployeeDetailRequest $request
+     * @param QueryEmployeeDetailHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryEmployeeDetailResponse
      */
     public function queryEmployeeDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outEmployeeId)) {
-            $query['out_employee_id'] = $request->outEmployeeId;
+        if (null !== $request->outEmployeeId) {
+            @$query['out_employee_id'] = $request->outEmployeeId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEmployeeDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/employeeDetail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryEmployeeDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/employeeDetail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryEmployeeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取单个员工信息
-     *  *
-     * @param QueryEmployeeDetailRequest $request QueryEmployeeDetailRequest
+     * 获取单个员工信息.
      *
-     * @return QueryEmployeeDetailResponse QueryEmployeeDetailResponse
+     * @param request - QueryEmployeeDetailRequest
+     *
+     * @returns QueryEmployeeDetailResponse
+     *
+     * @param QueryEmployeeDetailRequest $request
+     *
+     * @return QueryEmployeeDetailResponse
      */
     public function queryEmployeeDetail($request)
     {
@@ -12419,53 +15648,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询子企业列表
-     *  *
-     * @param QueryGroupCorpListRequest $request QueryGroupCorpListRequest
-     * @param QueryGroupCorpListHeaders $headers QueryGroupCorpListHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询子企业列表.
      *
-     * @return QueryGroupCorpListResponse QueryGroupCorpListResponse
+     * @param request - QueryGroupCorpListRequest
+     * @param headers - QueryGroupCorpListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryGroupCorpListResponse
+     *
+     * @param QueryGroupCorpListRequest $request
+     * @param QueryGroupCorpListHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryGroupCorpListResponse
      */
     public function queryGroupCorpListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryGroupCorpList',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sub_corps/v1/corps/action/corpList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryGroupCorpList',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sub_corps/v1/corps/action/corpList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryGroupCorpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询子企业列表
-     *  *
-     * @param QueryGroupCorpListRequest $request QueryGroupCorpListRequest
+     * 查询子企业列表.
      *
-     * @return QueryGroupCorpListResponse QueryGroupCorpListResponse
+     * @param request - QueryGroupCorpListRequest
+     *
+     * @returns QueryGroupCorpListResponse
+     *
+     * @param QueryGroupCorpListRequest $request
+     *
+     * @return QueryGroupCorpListResponse
      */
     public function queryGroupCorpList($request)
     {
@@ -12476,56 +15718,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 报销单查询
-     *  *
-     * @param QueryReimbursementOrderRequest $request QueryReimbursementOrderRequest
-     * @param QueryReimbursementOrderHeaders $headers QueryReimbursementOrderHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 报销单查询.
      *
-     * @return QueryReimbursementOrderResponse QueryReimbursementOrderResponse
+     * @param request - QueryReimbursementOrderRequest
+     * @param headers - QueryReimbursementOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryReimbursementOrderResponse
+     *
+     * @param QueryReimbursementOrderRequest $request
+     * @param QueryReimbursementOrderHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryReimbursementOrderResponse
      */
     public function queryReimbursementOrderWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reimbOrderNo)) {
-            $query['reimb_order_no'] = $request->reimbOrderNo;
+        if (null !== $request->reimbOrderNo) {
+            @$query['reimb_order_no'] = $request->reimbOrderNo;
         }
-        if (!Utils::isUnset($request->subCorpId)) {
-            $query['sub_corp_id'] = $request->subCorpId;
+
+        if (null !== $request->subCorpId) {
+            @$query['sub_corp_id'] = $request->subCorpId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryReimbursementOrder',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/reimbursement/v1/order',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryReimbursementOrder',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/reimbursement/v1/order',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryReimbursementOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 报销单查询
-     *  *
-     * @param QueryReimbursementOrderRequest $request QueryReimbursementOrderRequest
+     * 报销单查询.
      *
-     * @return QueryReimbursementOrderResponse QueryReimbursementOrderResponse
+     * @param request - QueryReimbursementOrderRequest
+     *
+     * @returns QueryReimbursementOrderResponse
+     *
+     * @param QueryReimbursementOrderRequest $request
+     *
+     * @return QueryReimbursementOrderResponse
      */
     public function queryReimbursementOrder($request)
     {
@@ -12536,88 +15792,112 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 单个人员同步
-     *  *
-     * @param SyncSingleUserRequest $tmpReq  SyncSingleUserRequest
-     * @param SyncSingleUserHeaders $headers SyncSingleUserHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 单个人员同步.
      *
-     * @return SyncSingleUserResponse SyncSingleUserResponse
+     * @param tmpReq - SyncSingleUserRequest
+     * @param headers - SyncSingleUserHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncSingleUserResponse
+     *
+     * @param SyncSingleUserRequest $tmpReq
+     * @param SyncSingleUserHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SyncSingleUserResponse
      */
     public function syncSingleUserWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SyncSingleUserShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->thirdDepartIdList)) {
-            $request->thirdDepartIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdDepartIdList, 'third_depart_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->thirdDepartIdList) {
+            $request->thirdDepartIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdDepartIdList, 'third_depart_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->jobNo)) {
-            $body['job_no'] = $request->jobNo;
+
+        if (null !== $request->jobNo) {
+            @$body['job_no'] = $request->jobNo;
         }
-        if (!Utils::isUnset($request->leaveStatus)) {
-            $body['leave_status'] = $request->leaveStatus;
+
+        if (null !== $request->leaveStatus) {
+            @$body['leave_status'] = $request->leaveStatus;
         }
-        if (!Utils::isUnset($request->managerUserId)) {
-            $body['manager_user_id'] = $request->managerUserId;
+
+        if (null !== $request->managerUserId) {
+            @$body['manager_user_id'] = $request->managerUserId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->position)) {
-            $body['position'] = $request->position;
+
+        if (null !== $request->position) {
+            @$body['position'] = $request->position;
         }
-        if (!Utils::isUnset($request->positionLevel)) {
-            $body['position_level'] = $request->positionLevel;
+
+        if (null !== $request->positionLevel) {
+            @$body['position_level'] = $request->positionLevel;
         }
-        if (!Utils::isUnset($request->realNameEn)) {
-            $body['real_name_en'] = $request->realNameEn;
+
+        if (null !== $request->realNameEn) {
+            @$body['real_name_en'] = $request->realNameEn;
         }
-        if (!Utils::isUnset($request->thirdDepartIdListShrink)) {
-            $body['third_depart_id_list'] = $request->thirdDepartIdListShrink;
+
+        if (null !== $request->thirdDepartIdListShrink) {
+            @$body['third_depart_id_list'] = $request->thirdDepartIdListShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SyncSingleUser',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/single-user/action/sync',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SyncSingleUser',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/single-user/action/sync',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SyncSingleUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 单个人员同步
-     *  *
-     * @param SyncSingleUserRequest $request SyncSingleUserRequest
+     * 单个人员同步.
      *
-     * @return SyncSingleUserResponse SyncSingleUserResponse
+     * @param request - SyncSingleUserRequest
+     *
+     * @returns SyncSingleUserResponse
+     *
+     * @param SyncSingleUserRequest $request
+     *
+     * @return SyncSingleUserResponse
      */
     public function syncSingleUser($request)
     {
@@ -12628,62 +15908,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 同步三方用户映射关系
-     *  *
-     * @param SyncThirdUserMappingRequest $request SyncThirdUserMappingRequest
-     * @param SyncThirdUserMappingHeaders $headers SyncThirdUserMappingHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 同步三方用户映射关系.
      *
-     * @return SyncThirdUserMappingResponse SyncThirdUserMappingResponse
+     * @param request - SyncThirdUserMappingRequest
+     * @param headers - SyncThirdUserMappingHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncThirdUserMappingResponse
+     *
+     * @param SyncThirdUserMappingRequest $request
+     * @param SyncThirdUserMappingHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SyncThirdUserMappingResponse
      */
     public function syncThirdUserMappingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thirdChannelType)) {
-            $body['third_channel_type'] = $request->thirdChannelType;
+
+        if (null !== $request->thirdChannelType) {
+            @$body['third_channel_type'] = $request->thirdChannelType;
         }
-        if (!Utils::isUnset($request->thirdUserId)) {
-            $body['third_user_id'] = $request->thirdUserId;
+
+        if (null !== $request->thirdUserId) {
+            @$body['third_user_id'] = $request->thirdUserId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SyncThirdUserMapping',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/third-users/action/mapping',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SyncThirdUserMapping',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/third-users/action/mapping',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SyncThirdUserMappingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 同步三方用户映射关系
-     *  *
-     * @param SyncThirdUserMappingRequest $request SyncThirdUserMappingRequest
+     * 同步三方用户映射关系.
      *
-     * @return SyncThirdUserMappingResponse SyncThirdUserMappingResponse
+     * @param request - SyncThirdUserMappingRequest
+     *
+     * @returns SyncThirdUserMappingResponse
+     *
+     * @param SyncThirdUserMappingRequest $request
+     *
+     * @return SyncThirdUserMappingResponse
      */
     public function syncThirdUserMapping($request)
     {
@@ -12694,47 +15990,56 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询淘宝账号信息
-     *  *
-     * @param string                    $userId
-     * @param TBAccountInfoQueryHeaders $headers TBAccountInfoQueryHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询淘宝账号信息.
      *
-     * @return TBAccountInfoQueryResponse TBAccountInfoQueryResponse
+     * @param headers - TBAccountInfoQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TBAccountInfoQueryResponse
+     *
+     * @param string                    $userId
+     * @param TBAccountInfoQueryHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TBAccountInfoQueryResponse
      */
     public function tBAccountInfoQueryWithOptions($userId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'TBAccountInfoQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/account/v1/tb-accounts/' . OpenApiUtilClient::getEncodeParam($userId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TBAccountInfoQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/account/v1/tb-accounts/' . Url::percentEncode($userId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TBAccountInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询淘宝账号信息
-     *  *
+     * 查询淘宝账号信息.
+     *
+     * @returns TBAccountInfoQueryResponse
+     *
      * @param string $userId
      *
-     * @return TBAccountInfoQueryResponse TBAccountInfoQueryResponse
+     * @return TBAccountInfoQueryResponse
      */
     public function tBAccountInfoQuery($userId)
     {
@@ -12745,47 +16050,56 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 解绑淘宝账号
-     *  *
-     * @param string                 $userId
-     * @param TBAccountUnbindHeaders $headers TBAccountUnbindHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 解绑淘宝账号.
      *
-     * @return TBAccountUnbindResponse TBAccountUnbindResponse
+     * @param headers - TBAccountUnbindHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TBAccountUnbindResponse
+     *
+     * @param string                 $userId
+     * @param TBAccountUnbindHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TBAccountUnbindResponse
      */
     public function tBAccountUnbindWithOptions($userId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'TBAccountUnbind',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/account/v1/tb-accounts/' . OpenApiUtilClient::getEncodeParam($userId) . '/action/unbind',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TBAccountUnbind',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/account/v1/tb-accounts/' . Url::percentEncode($userId) . '/action/unbind',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TBAccountUnbindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑淘宝账号
-     *  *
+     * 解绑淘宝账号.
+     *
+     * @returns TBAccountUnbindResponse
+     *
      * @param string $userId
      *
-     * @return TBAccountUnbindResponse TBAccountUnbindResponse
+     * @return TBAccountUnbindResponse
      */
     public function tBAccountUnbind($userId)
     {
@@ -12796,79 +16110,100 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签申请
-     *  *
-     * @param TicketChangingApplyRequest $tmpReq  TicketChangingApplyRequest
-     * @param TicketChangingApplyHeaders $headers TicketChangingApplyHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机票改签申请.
      *
-     * @return TicketChangingApplyResponse TicketChangingApplyResponse
+     * @param tmpReq - TicketChangingApplyRequest
+     * @param headers - TicketChangingApplyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketChangingApplyResponse
+     *
+     * @param TicketChangingApplyRequest $tmpReq
+     * @param TicketChangingApplyHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TicketChangingApplyResponse
      */
     public function ticketChangingApplyWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TicketChangingApplyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->modifyFlightInfoList)) {
-            $request->modifyFlightInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->modifyFlightInfoList, 'modify_flight_info_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->modifyFlightInfoList) {
+            $request->modifyFlightInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modifyFlightInfoList, 'modify_flight_info_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->disSubOrderId)) {
-            $body['dis_sub_order_id'] = $request->disSubOrderId;
+
+        if (null !== $request->disSubOrderId) {
+            @$body['dis_sub_order_id'] = $request->disSubOrderId;
         }
-        if (!Utils::isUnset($request->isVoluntary)) {
-            $body['is_voluntary'] = $request->isVoluntary;
+
+        if (null !== $request->isVoluntary) {
+            @$body['is_voluntary'] = $request->isVoluntary;
         }
-        if (!Utils::isUnset($request->modifyFlightInfoListShrink)) {
-            $body['modify_flight_info_list'] = $request->modifyFlightInfoListShrink;
+
+        if (null !== $request->modifyFlightInfoListShrink) {
+            @$body['modify_flight_info_list'] = $request->modifyFlightInfoListShrink;
         }
-        if (!Utils::isUnset($request->otaItemId)) {
-            $body['ota_item_id'] = $request->otaItemId;
+
+        if (null !== $request->otaItemId) {
+            @$body['ota_item_id'] = $request->otaItemId;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['session_id'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['session_id'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->whetherRetry)) {
-            $body['whether_retry'] = $request->whetherRetry;
+
+        if (null !== $request->whetherRetry) {
+            @$body['whether_retry'] = $request->whetherRetry;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TicketChangingApply',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/ticket-changing/action/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TicketChangingApply',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/ticket-changing/action/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketChangingApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签申请
-     *  *
-     * @param TicketChangingApplyRequest $request TicketChangingApplyRequest
+     * 机票改签申请.
      *
-     * @return TicketChangingApplyResponse TicketChangingApplyResponse
+     * @param request - TicketChangingApplyRequest
+     *
+     * @returns TicketChangingApplyResponse
+     *
+     * @param TicketChangingApplyRequest $request
+     *
+     * @return TicketChangingApplyResponse
      */
     public function ticketChangingApply($request)
     {
@@ -12879,56 +16214,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签取消
-     *  *
-     * @param TicketChangingCancelRequest $request TicketChangingCancelRequest
-     * @param TicketChangingCancelHeaders $headers TicketChangingCancelHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 机票改签取消.
      *
-     * @return TicketChangingCancelResponse TicketChangingCancelResponse
+     * @param request - TicketChangingCancelRequest
+     * @param headers - TicketChangingCancelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketChangingCancelResponse
+     *
+     * @param TicketChangingCancelRequest $request
+     * @param TicketChangingCancelHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return TicketChangingCancelResponse
      */
     public function ticketChangingCancelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->disSubOrderId)) {
-            $query['dis_sub_order_id'] = $request->disSubOrderId;
+
+        if (null !== $request->disSubOrderId) {
+            @$query['dis_sub_order_id'] = $request->disSubOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TicketChangingCancel',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/ticket-changing/action/cancel',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TicketChangingCancel',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/ticket-changing/action/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketChangingCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签取消
-     *  *
-     * @param TicketChangingCancelRequest $request TicketChangingCancelRequest
+     * 机票改签取消.
      *
-     * @return TicketChangingCancelResponse TicketChangingCancelResponse
+     * @param request - TicketChangingCancelRequest
+     *
+     * @returns TicketChangingCancelResponse
+     *
+     * @param TicketChangingCancelRequest $request
+     *
+     * @return TicketChangingCancelResponse
      */
     public function ticketChangingCancel($request)
     {
@@ -12939,56 +16288,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签详情
-     *  *
-     * @param TicketChangingDetailRequest $request TicketChangingDetailRequest
-     * @param TicketChangingDetailHeaders $headers TicketChangingDetailHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 机票改签详情.
      *
-     * @return TicketChangingDetailResponse TicketChangingDetailResponse
+     * @param request - TicketChangingDetailRequest
+     * @param headers - TicketChangingDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketChangingDetailResponse
+     *
+     * @param TicketChangingDetailRequest $request
+     * @param TicketChangingDetailHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return TicketChangingDetailResponse
      */
     public function ticketChangingDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->disSubOrderId)) {
-            $query['dis_sub_order_id'] = $request->disSubOrderId;
+
+        if (null !== $request->disSubOrderId) {
+            @$query['dis_sub_order_id'] = $request->disSubOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TicketChangingDetail',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/ticket-changing/action/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TicketChangingDetail',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/ticket-changing/action/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketChangingDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签详情
-     *  *
-     * @param TicketChangingDetailRequest $request TicketChangingDetailRequest
+     * 机票改签详情.
      *
-     * @return TicketChangingDetailResponse TicketChangingDetailResponse
+     * @param request - TicketChangingDetailRequest
+     *
+     * @returns TicketChangingDetailResponse
+     *
+     * @param TicketChangingDetailRequest $request
+     *
+     * @return TicketChangingDetailResponse
      */
     public function ticketChangingDetail($request)
     {
@@ -12999,71 +16362,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签询价
-     *  *
-     * @param TicketChangingEnquiryRequest $request TicketChangingEnquiryRequest
-     * @param TicketChangingEnquiryHeaders $headers TicketChangingEnquiryHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 机票改签询价.
      *
-     * @return TicketChangingEnquiryResponse TicketChangingEnquiryResponse
+     * @param request - TicketChangingEnquiryRequest
+     * @param headers - TicketChangingEnquiryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketChangingEnquiryResponse
+     *
+     * @param TicketChangingEnquiryRequest $request
+     * @param TicketChangingEnquiryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TicketChangingEnquiryResponse
      */
     public function ticketChangingEnquiryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->arrCity)) {
-            $query['arr_city'] = $request->arrCity;
+        if (null !== $request->arrCity) {
+            @$query['arr_city'] = $request->arrCity;
         }
-        if (!Utils::isUnset($request->depCity)) {
-            $query['dep_city'] = $request->depCity;
+
+        if (null !== $request->depCity) {
+            @$query['dep_city'] = $request->depCity;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->isVoluntary)) {
-            $query['is_voluntary'] = $request->isVoluntary;
+
+        if (null !== $request->isVoluntary) {
+            @$query['is_voluntary'] = $request->isVoluntary;
         }
-        if (!Utils::isUnset($request->modifyDepartDate)) {
-            $query['modify_depart_date'] = $request->modifyDepartDate;
+
+        if (null !== $request->modifyDepartDate) {
+            @$query['modify_depart_date'] = $request->modifyDepartDate;
         }
-        if (!Utils::isUnset($request->modifyFlightNo)) {
-            $query['modify_flight_no'] = $request->modifyFlightNo;
+
+        if (null !== $request->modifyFlightNo) {
+            @$query['modify_flight_no'] = $request->modifyFlightNo;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['session_id'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['session_id'] = $request->sessionId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TicketChangingEnquiry',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/ticket-changing/action/enquiry',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TicketChangingEnquiry',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/ticket-changing/action/enquiry',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketChangingEnquiryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签询价
-     *  *
-     * @param TicketChangingEnquiryRequest $request TicketChangingEnquiryRequest
+     * 机票改签询价.
      *
-     * @return TicketChangingEnquiryResponse TicketChangingEnquiryResponse
+     * @param request - TicketChangingEnquiryRequest
+     *
+     * @returns TicketChangingEnquiryResponse
+     *
+     * @param TicketChangingEnquiryRequest $request
+     *
+     * @return TicketChangingEnquiryResponse
      */
     public function ticketChangingEnquiry($request)
     {
@@ -13074,73 +16456,92 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签可改签航班列表
-     *  *
-     * @param TicketChangingFlightListRequest $tmpReq  TicketChangingFlightListRequest
-     * @param TicketChangingFlightListHeaders $headers TicketChangingFlightListHeaders
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 机票改签可改签航班列表.
      *
-     * @return TicketChangingFlightListResponse TicketChangingFlightListResponse
+     * @param tmpReq - TicketChangingFlightListRequest
+     * @param headers - TicketChangingFlightListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketChangingFlightListResponse
+     *
+     * @param TicketChangingFlightListRequest $tmpReq
+     * @param TicketChangingFlightListHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TicketChangingFlightListResponse
      */
     public function ticketChangingFlightListWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TicketChangingFlightListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->travelerInfoList)) {
-            $request->travelerInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerInfoList, 'traveler_info_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->travelerInfoList) {
+            $request->travelerInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelerInfoList, 'traveler_info_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->arrCity)) {
-            $query['arr_city'] = $request->arrCity;
+        if (null !== $request->arrCity) {
+            @$query['arr_city'] = $request->arrCity;
         }
-        if (!Utils::isUnset($request->depCity)) {
-            $query['dep_city'] = $request->depCity;
+
+        if (null !== $request->depCity) {
+            @$query['dep_city'] = $request->depCity;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $query['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$query['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $query['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$query['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->isVoluntary)) {
-            $query['is_voluntary'] = $request->isVoluntary;
+
+        if (null !== $request->isVoluntary) {
+            @$query['is_voluntary'] = $request->isVoluntary;
         }
-        if (!Utils::isUnset($request->travelerInfoListShrink)) {
-            $query['traveler_info_list'] = $request->travelerInfoListShrink;
+
+        if (null !== $request->travelerInfoListShrink) {
+            @$query['traveler_info_list'] = $request->travelerInfoListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TicketChangingFlightList',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/huge/dtb-flight/v1/ticket-changing-flight/action/list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TicketChangingFlightList',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/huge/dtb-flight/v1/ticket-changing-flight/action/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketChangingFlightListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签可改签航班列表
-     *  *
-     * @param TicketChangingFlightListRequest $request TicketChangingFlightListRequest
+     * 机票改签可改签航班列表.
      *
-     * @return TicketChangingFlightListResponse TicketChangingFlightListResponse
+     * @param request - TicketChangingFlightListRequest
+     *
+     * @returns TicketChangingFlightListResponse
+     *
+     * @param TicketChangingFlightListRequest $request
+     *
+     * @return TicketChangingFlightListResponse
      */
     public function ticketChangingFlightList($request)
     {
@@ -13151,73 +16552,92 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 机票改签航班支付
-     *  *
-     * @param TicketChangingPayRequest $tmpReq  TicketChangingPayRequest
-     * @param TicketChangingPayHeaders $headers TicketChangingPayHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 机票改签航班支付.
      *
-     * @return TicketChangingPayResponse TicketChangingPayResponse
+     * @param tmpReq - TicketChangingPayRequest
+     * @param headers - TicketChangingPayHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketChangingPayResponse
+     *
+     * @param TicketChangingPayRequest $tmpReq
+     * @param TicketChangingPayHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketChangingPayResponse
      */
     public function ticketChangingPayWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TicketChangingPayShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extra)) {
-            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'extra', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->corpPayPrice)) {
-            $body['corp_pay_price'] = $request->corpPayPrice;
+        if (null !== $request->corpPayPrice) {
+            @$body['corp_pay_price'] = $request->corpPayPrice;
         }
-        if (!Utils::isUnset($request->disOrderId)) {
-            $body['dis_order_id'] = $request->disOrderId;
+
+        if (null !== $request->disOrderId) {
+            @$body['dis_order_id'] = $request->disOrderId;
         }
-        if (!Utils::isUnset($request->disSubOrderId)) {
-            $body['dis_sub_order_id'] = $request->disSubOrderId;
+
+        if (null !== $request->disSubOrderId) {
+            @$body['dis_sub_order_id'] = $request->disSubOrderId;
         }
-        if (!Utils::isUnset($request->extraShrink)) {
-            $body['extra'] = $request->extraShrink;
+
+        if (null !== $request->extraShrink) {
+            @$body['extra'] = $request->extraShrink;
         }
-        if (!Utils::isUnset($request->personalPayPrice)) {
-            $body['personal_pay_price'] = $request->personalPayPrice;
+
+        if (null !== $request->personalPayPrice) {
+            @$body['personal_pay_price'] = $request->personalPayPrice;
         }
-        if (!Utils::isUnset($request->totalPayPrice)) {
-            $body['total_pay_price'] = $request->totalPayPrice;
+
+        if (null !== $request->totalPayPrice) {
+            @$body['total_pay_price'] = $request->totalPayPrice;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TicketChangingPay',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dtb-flight/v1/ticket-changing/action/pay',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TicketChangingPay',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dtb-flight/v1/ticket-changing/action/pay',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketChangingPayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机票改签航班支付
-     *  *
-     * @param TicketChangingPayRequest $request TicketChangingPayRequest
+     * 机票改签航班支付.
      *
-     * @return TicketChangingPayResponse TicketChangingPayResponse
+     * @param request - TicketChangingPayRequest
+     *
+     * @returns TicketChangingPayResponse
+     *
+     * @param TicketChangingPayRequest $request
+     *
+     * @return TicketChangingPayResponse
      */
     public function ticketChangingPay($request)
     {
@@ -13228,78 +16648,98 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票改签申请
-     *  *
-     * @param TrainApplyChangeRequest $tmpReq  TrainApplyChangeRequest
-     * @param TrainApplyChangeHeaders $headers TrainApplyChangeHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 火车票改签申请.
      *
-     * @return TrainApplyChangeResponse TrainApplyChangeResponse
+     * @param tmpReq - TrainApplyChangeRequest
+     * @param headers - TrainApplyChangeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainApplyChangeResponse
+     *
+     * @param TrainApplyChangeRequest $tmpReq
+     * @param TrainApplyChangeHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainApplyChangeResponse
      */
     public function trainApplyChangeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TrainApplyChangeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->changeTrainInfoS)) {
-            $request->changeTrainInfoSShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->changeTrainInfoS, 'change_train_info_s', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->changeTrainInfoS) {
+            $request->changeTrainInfoSShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->changeTrainInfoS, 'change_train_info_s', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->changeTrainInfoSShrink)) {
-            $query['change_train_info_s'] = $request->changeTrainInfoSShrink;
+        if (null !== $request->changeTrainInfoSShrink) {
+            @$query['change_train_info_s'] = $request->changeTrainInfoSShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->acceptNoSeat)) {
-            $body['accept_no_seat'] = $request->acceptNoSeat;
+        if (null !== $request->acceptNoSeat) {
+            @$body['accept_no_seat'] = $request->acceptNoSeat;
         }
-        if (!Utils::isUnset($request->forceMatch)) {
-            $body['force_match'] = $request->forceMatch;
+
+        if (null !== $request->forceMatch) {
+            @$body['force_match'] = $request->forceMatch;
         }
-        if (!Utils::isUnset($request->isPayNow)) {
-            $body['is_pay_now'] = $request->isPayNow;
+
+        if (null !== $request->isPayNow) {
+            @$body['is_pay_now'] = $request->isPayNow;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outChangeApplyId)) {
-            $body['out_change_apply_id'] = $request->outChangeApplyId;
+
+        if (null !== $request->outChangeApplyId) {
+            @$body['out_change_apply_id'] = $request->outChangeApplyId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainApplyChange',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/change/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainApplyChange',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/change/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainApplyChangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票改签申请
-     *  *
-     * @param TrainApplyChangeRequest $request TrainApplyChangeRequest
+     * 火车票改签申请.
      *
-     * @return TrainApplyChangeResponse TrainApplyChangeResponse
+     * @param request - TrainApplyChangeRequest
+     *
+     * @returns TrainApplyChangeResponse
+     *
+     * @param TrainApplyChangeRequest $request
+     *
+     * @return TrainApplyChangeResponse
      */
     public function trainApplyChange($request)
     {
@@ -13310,67 +16750,84 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票退票申请
-     *  *
-     * @param TrainApplyRefundRequest $tmpReq  TrainApplyRefundRequest
-     * @param TrainApplyRefundHeaders $headers TrainApplyRefundHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 火车票退票申请.
      *
-     * @return TrainApplyRefundResponse TrainApplyRefundResponse
+     * @param tmpReq - TrainApplyRefundRequest
+     * @param headers - TrainApplyRefundHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainApplyRefundResponse
+     *
+     * @param TrainApplyRefundRequest $tmpReq
+     * @param TrainApplyRefundHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainApplyRefundResponse
      */
     public function trainApplyRefundWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TrainApplyRefundShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->refundTrainInfos)) {
-            $request->refundTrainInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->refundTrainInfos, 'refund_train_infos', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->refundTrainInfos) {
+            $request->refundTrainInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->refundTrainInfos, 'refund_train_infos', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->outRefundId)) {
-            $body['out_refund_id'] = $request->outRefundId;
+
+        if (null !== $request->outRefundId) {
+            @$body['out_refund_id'] = $request->outRefundId;
         }
-        if (!Utils::isUnset($request->refundTrainInfosShrink)) {
-            $body['refund_train_infos'] = $request->refundTrainInfosShrink;
+
+        if (null !== $request->refundTrainInfosShrink) {
+            @$body['refund_train_infos'] = $request->refundTrainInfosShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainApplyRefund',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/refund/apply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainApplyRefund',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/refund/apply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票退票申请
-     *  *
-     * @param TrainApplyRefundRequest $request TrainApplyRefundRequest
+     * 火车票退票申请.
      *
-     * @return TrainApplyRefundResponse TrainApplyRefundResponse
+     * @param request - TrainApplyRefundRequest
+     *
+     * @returns TrainApplyRefundResponse
+     *
+     * @param TrainApplyRefundRequest $request
+     *
+     * @return TrainApplyRefundResponse
      */
     public function trainApplyRefund($request)
     {
@@ -13381,71 +16838,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询火车票记账数据
-     *  *
-     * @param TrainBillSettlementQueryRequest $request TrainBillSettlementQueryRequest
-     * @param TrainBillSettlementQueryHeaders $headers TrainBillSettlementQueryHeaders
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询火车票记账数据.
      *
-     * @return TrainBillSettlementQueryResponse TrainBillSettlementQueryResponse
+     * @param request - TrainBillSettlementQueryRequest
+     * @param headers - TrainBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainBillSettlementQueryResponse
+     *
+     * @param TrainBillSettlementQueryRequest $request
+     * @param TrainBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TrainBillSettlementQueryResponse
      */
     public function trainBillSettlementQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billBatch)) {
-            $query['bill_batch'] = $request->billBatch;
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->periodEnd)) {
-            $query['period_end'] = $request->periodEnd;
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
         }
-        if (!Utils::isUnset($request->periodStart)) {
-            $query['period_start'] = $request->periodStart;
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['scroll_id'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->scrollMod)) {
-            $query['scroll_mod'] = $request->scrollMod;
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainBillSettlementQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/bill-settlement',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/bill-settlement',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询火车票记账数据
-     *  *
-     * @param TrainBillSettlementQueryRequest $request TrainBillSettlementQueryRequest
+     * 查询火车票记账数据.
      *
-     * @return TrainBillSettlementQueryResponse TrainBillSettlementQueryResponse
+     * @param request - TrainBillSettlementQueryRequest
+     *
+     * @returns TrainBillSettlementQueryResponse
+     *
+     * @param TrainBillSettlementQueryRequest $request
+     *
+     * @return TrainBillSettlementQueryResponse
      */
     public function trainBillSettlementQuery($request)
     {
@@ -13456,56 +16932,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询火车超标审批详情
-     *  *
-     * @param TrainExceedApplyQueryRequest $request TrainExceedApplyQueryRequest
-     * @param TrainExceedApplyQueryHeaders $headers TrainExceedApplyQueryHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询火车超标审批详情.
      *
-     * @return TrainExceedApplyQueryResponse TrainExceedApplyQueryResponse
+     * @param request - TrainExceedApplyQueryRequest
+     * @param headers - TrainExceedApplyQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainExceedApplyQueryResponse
+     *
+     * @param TrainExceedApplyQueryRequest $request
+     * @param TrainExceedApplyQueryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TrainExceedApplyQueryResponse
      */
     public function trainExceedApplyQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainExceedApplyQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/train-exceed',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainExceedApplyQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/train-exceed',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainExceedApplyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询火车超标审批详情
-     *  *
-     * @param TrainExceedApplyQueryRequest $request TrainExceedApplyQueryRequest
+     * 查询火车超标审批详情.
      *
-     * @return TrainExceedApplyQueryResponse TrainExceedApplyQueryResponse
+     * @param request - TrainExceedApplyQueryRequest
+     *
+     * @returns TrainExceedApplyQueryResponse
+     *
+     * @param TrainExceedApplyQueryRequest $request
+     *
+     * @return TrainExceedApplyQueryResponse
      */
     public function trainExceedApplyQuery($request)
     {
@@ -13516,64 +17006,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票改签费用预估
-     *  *
-     * @param TrainFeeCalculateChangeRequest $tmpReq  TrainFeeCalculateChangeRequest
-     * @param TrainFeeCalculateChangeHeaders $headers TrainFeeCalculateChangeHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 火车票改签费用预估.
      *
-     * @return TrainFeeCalculateChangeResponse TrainFeeCalculateChangeResponse
+     * @param tmpReq - TrainFeeCalculateChangeRequest
+     * @param headers - TrainFeeCalculateChangeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainFeeCalculateChangeResponse
+     *
+     * @param TrainFeeCalculateChangeRequest $tmpReq
+     * @param TrainFeeCalculateChangeHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TrainFeeCalculateChangeResponse
      */
     public function trainFeeCalculateChangeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TrainFeeCalculateChangeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->changeTrainDetails)) {
-            $request->changeTrainDetailsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->changeTrainDetails, 'change_train_details', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->changeTrainDetails) {
+            $request->changeTrainDetailsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->changeTrainDetails, 'change_train_details', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->changeTrainDetailsShrink)) {
-            $body['change_train_details'] = $request->changeTrainDetailsShrink;
+        if (null !== $request->changeTrainDetailsShrink) {
+            @$body['change_train_details'] = $request->changeTrainDetailsShrink;
         }
-        if (!Utils::isUnset($request->distributeOrderId)) {
-            $body['distribute_order_id'] = $request->distributeOrderId;
+
+        if (null !== $request->distributeOrderId) {
+            @$body['distribute_order_id'] = $request->distributeOrderId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainFeeCalculateChange',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/change/fee',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainFeeCalculateChange',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/change/fee',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainFeeCalculateChangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票改签费用预估
-     *  *
-     * @param TrainFeeCalculateChangeRequest $request TrainFeeCalculateChangeRequest
+     * 火车票改签费用预估.
      *
-     * @return TrainFeeCalculateChangeResponse TrainFeeCalculateChangeResponse
+     * @param request - TrainFeeCalculateChangeRequest
+     *
+     * @returns TrainFeeCalculateChangeResponse
+     *
+     * @param TrainFeeCalculateChangeRequest $request
+     *
+     * @return TrainFeeCalculateChangeResponse
      */
     public function trainFeeCalculateChange($request)
     {
@@ -13584,64 +17090,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票退票费用预估
-     *  *
-     * @param TrainFeeCalculateRefundRequest $tmpReq  TrainFeeCalculateRefundRequest
-     * @param TrainFeeCalculateRefundHeaders $headers TrainFeeCalculateRefundHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 火车票退票费用预估.
      *
-     * @return TrainFeeCalculateRefundResponse TrainFeeCalculateRefundResponse
+     * @param tmpReq - TrainFeeCalculateRefundRequest
+     * @param headers - TrainFeeCalculateRefundHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainFeeCalculateRefundResponse
+     *
+     * @param TrainFeeCalculateRefundRequest $tmpReq
+     * @param TrainFeeCalculateRefundHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TrainFeeCalculateRefundResponse
      */
     public function trainFeeCalculateRefundWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TrainFeeCalculateRefundShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->refundTrainInfos)) {
-            $request->refundTrainInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->refundTrainInfos, 'refund_train_infos', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->refundTrainInfos) {
+            $request->refundTrainInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->refundTrainInfos, 'refund_train_infos', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->distributeOrderId)) {
-            $body['distribute_order_id'] = $request->distributeOrderId;
+        if (null !== $request->distributeOrderId) {
+            @$body['distribute_order_id'] = $request->distributeOrderId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->refundTrainInfosShrink)) {
-            $body['refund_train_infos'] = $request->refundTrainInfosShrink;
+
+        if (null !== $request->refundTrainInfosShrink) {
+            @$body['refund_train_infos'] = $request->refundTrainInfosShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainFeeCalculateRefund',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/refund/fee',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainFeeCalculateRefund',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/refund/fee',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainFeeCalculateRefundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票退票费用预估
-     *  *
-     * @param TrainFeeCalculateRefundRequest $request TrainFeeCalculateRefundRequest
+     * 火车票退票费用预估.
      *
-     * @return TrainFeeCalculateRefundResponse TrainFeeCalculateRefundResponse
+     * @param request - TrainFeeCalculateRefundRequest
+     *
+     * @returns TrainFeeCalculateRefundResponse
+     *
+     * @param TrainFeeCalculateRefundRequest $request
+     *
+     * @return TrainFeeCalculateRefundResponse
      */
     public function trainFeeCalculateRefund($request)
     {
@@ -13652,74 +17174,94 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票车次详情查询
-     *  *
-     * @param TrainNoInfoSearchRequest $request TrainNoInfoSearchRequest
-     * @param TrainNoInfoSearchHeaders $headers TrainNoInfoSearchHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 火车票车次详情查询.
      *
-     * @return TrainNoInfoSearchResponse TrainNoInfoSearchResponse
+     * @param request - TrainNoInfoSearchRequest
+     * @param headers - TrainNoInfoSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainNoInfoSearchResponse
+     *
+     * @param TrainNoInfoSearchRequest $request
+     * @param TrainNoInfoSearchHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TrainNoInfoSearchResponse
      */
     public function trainNoInfoSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->arrLocation)) {
-            $body['arr_location'] = $request->arrLocation;
+        if (null !== $request->arrLocation) {
+            @$body['arr_location'] = $request->arrLocation;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $body['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$body['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->depLocation)) {
-            $body['dep_location'] = $request->depLocation;
+
+        if (null !== $request->depLocation) {
+            @$body['dep_location'] = $request->depLocation;
         }
-        if (!Utils::isUnset($request->lineKey)) {
-            $body['line_key'] = $request->lineKey;
+
+        if (null !== $request->lineKey) {
+            @$body['line_key'] = $request->lineKey;
         }
-        if (!Utils::isUnset($request->middleDate)) {
-            $body['middle_date'] = $request->middleDate;
+
+        if (null !== $request->middleDate) {
+            @$body['middle_date'] = $request->middleDate;
         }
-        if (!Utils::isUnset($request->middleStation)) {
-            $body['middle_station'] = $request->middleStation;
+
+        if (null !== $request->middleStation) {
+            @$body['middle_station'] = $request->middleStation;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->trainNo)) {
-            $body['train_no'] = $request->trainNo;
+
+        if (null !== $request->trainNo) {
+            @$body['train_no'] = $request->trainNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainNoInfoSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/search/info',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainNoInfoSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/search/info',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainNoInfoSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票车次详情查询
-     *  *
-     * @param TrainNoInfoSearchRequest $request TrainNoInfoSearchRequest
+     * 火车票车次详情查询.
      *
-     * @return TrainNoInfoSearchResponse TrainNoInfoSearchResponse
+     * @param request - TrainNoInfoSearchRequest
+     *
+     * @returns TrainNoInfoSearchResponse
+     *
+     * @param TrainNoInfoSearchRequest $request
+     *
+     * @return TrainNoInfoSearchResponse
      */
     public function trainNoInfoSearch($request)
     {
@@ -13730,70 +17272,88 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票车次列表查询
-     *  *
-     * @param TrainNoListSearchRequest $tmpReq  TrainNoListSearchRequest
-     * @param TrainNoListSearchHeaders $headers TrainNoListSearchHeaders
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 火车票车次列表查询.
      *
-     * @return TrainNoListSearchResponse TrainNoListSearchResponse
+     * @param tmpReq - TrainNoListSearchRequest
+     * @param headers - TrainNoListSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainNoListSearchResponse
+     *
+     * @param TrainNoListSearchRequest $tmpReq
+     * @param TrainNoListSearchHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TrainNoListSearchResponse
      */
     public function trainNoListSearchWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TrainNoListSearchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->option)) {
-            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'option', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->option) {
+            $request->optionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->option, 'option', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->arrLocation)) {
-            $body['arr_location'] = $request->arrLocation;
+        if (null !== $request->arrLocation) {
+            @$body['arr_location'] = $request->arrLocation;
         }
-        if (!Utils::isUnset($request->depDate)) {
-            $body['dep_date'] = $request->depDate;
+
+        if (null !== $request->depDate) {
+            @$body['dep_date'] = $request->depDate;
         }
-        if (!Utils::isUnset($request->depLocation)) {
-            $body['dep_location'] = $request->depLocation;
+
+        if (null !== $request->depLocation) {
+            @$body['dep_location'] = $request->depLocation;
         }
-        if (!Utils::isUnset($request->optionShrink)) {
-            $body['option'] = $request->optionShrink;
+
+        if (null !== $request->optionShrink) {
+            @$body['option'] = $request->optionShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainNoListSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/search/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainNoListSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/search/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainNoListSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票车次列表查询
-     *  *
-     * @param TrainNoListSearchRequest $request TrainNoListSearchRequest
+     * 火车票车次列表查询.
      *
-     * @return TrainNoListSearchResponse TrainNoListSearchResponse
+     * @param request - TrainNoListSearchRequest
+     *
+     * @returns TrainNoListSearchResponse
+     *
+     * @param TrainNoListSearchRequest $request
+     *
+     * @return TrainNoListSearchResponse
      */
     public function trainNoListSearch($request)
     {
@@ -13804,62 +17364,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票订单取消
-     *  *
-     * @param TrainOrderCancelRequest $request TrainOrderCancelRequest
-     * @param TrainOrderCancelHeaders $headers TrainOrderCancelHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 火车票订单取消.
      *
-     * @return TrainOrderCancelResponse TrainOrderCancelResponse
+     * @param request - TrainOrderCancelRequest
+     * @param headers - TrainOrderCancelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderCancelResponse
+     *
+     * @param TrainOrderCancelRequest $request
+     * @param TrainOrderCancelHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainOrderCancelResponse
      */
     public function trainOrderCancelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->changeOrderId)) {
-            $body['change_order_id'] = $request->changeOrderId;
+        if (null !== $request->changeOrderId) {
+            @$body['change_order_id'] = $request->changeOrderId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outChangeOrderId)) {
-            $body['out_change_order_id'] = $request->outChangeOrderId;
+
+        if (null !== $request->outChangeOrderId) {
+            @$body['out_change_order_id'] = $request->outChangeOrderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderCancel',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/order/cancel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderCancel',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/order/cancel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票订单取消
-     *  *
-     * @param TrainOrderCancelRequest $request TrainOrderCancelRequest
+     * 火车票订单取消.
      *
-     * @return TrainOrderCancelResponse TrainOrderCancelResponse
+     * @param request - TrainOrderCancelRequest
+     *
+     * @returns TrainOrderCancelResponse
+     *
+     * @param TrainOrderCancelRequest $request
+     *
+     * @return TrainOrderCancelResponse
      */
     public function trainOrderCancel($request)
     {
@@ -13870,65 +17446,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票改签确认
-     *  *
-     * @param TrainOrderChangeConfirmRequest $request TrainOrderChangeConfirmRequest
-     * @param TrainOrderChangeConfirmHeaders $headers TrainOrderChangeConfirmHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 火车票改签确认.
      *
-     * @return TrainOrderChangeConfirmResponse TrainOrderChangeConfirmResponse
+     * @param request - TrainOrderChangeConfirmRequest
+     * @param headers - TrainOrderChangeConfirmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderChangeConfirmResponse
+     *
+     * @param TrainOrderChangeConfirmRequest $request
+     * @param TrainOrderChangeConfirmHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TrainOrderChangeConfirmResponse
      */
     public function trainOrderChangeConfirmWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->changeApplyId)) {
-            $body['change_apply_id'] = $request->changeApplyId;
+        if (null !== $request->changeApplyId) {
+            @$body['change_apply_id'] = $request->changeApplyId;
         }
-        if (!Utils::isUnset($request->changeSettleAmount)) {
-            $body['change_settle_amount'] = $request->changeSettleAmount;
+
+        if (null !== $request->changeSettleAmount) {
+            @$body['change_settle_amount'] = $request->changeSettleAmount;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outChangeApplyId)) {
-            $body['out_change_apply_id'] = $request->outChangeApplyId;
+
+        if (null !== $request->outChangeApplyId) {
+            @$body['out_change_apply_id'] = $request->outChangeApplyId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderChangeConfirm',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/change/confirm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderChangeConfirm',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/change/confirm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderChangeConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票改签确认
-     *  *
-     * @param TrainOrderChangeConfirmRequest $request TrainOrderChangeConfirmRequest
+     * 火车票改签确认.
      *
-     * @return TrainOrderChangeConfirmResponse TrainOrderChangeConfirmResponse
+     * @param request - TrainOrderChangeConfirmRequest
+     *
+     * @returns TrainOrderChangeConfirmResponse
+     *
+     * @param TrainOrderChangeConfirmRequest $request
+     *
+     * @return TrainOrderChangeConfirmResponse
      */
     public function trainOrderChangeConfirm($request)
     {
@@ -13939,94 +17532,120 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票正向预订
-     *  *
-     * @param TrainOrderCreateRequest $tmpReq  TrainOrderCreateRequest
-     * @param TrainOrderCreateHeaders $headers TrainOrderCreateHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 火车票正向预订.
      *
-     * @return TrainOrderCreateResponse TrainOrderCreateResponse
+     * @param tmpReq - TrainOrderCreateRequest
+     * @param headers - TrainOrderCreateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderCreateResponse
+     *
+     * @param TrainOrderCreateRequest $tmpReq
+     * @param TrainOrderCreateHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TrainOrderCreateResponse
      */
     public function trainOrderCreateWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TrainOrderCreateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->bookTrainInfos)) {
-            $request->bookTrainInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookTrainInfos, 'book_train_infos', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bookTrainInfos) {
+            $request->bookTrainInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bookTrainInfos, 'book_train_infos', 'json');
         }
-        if (!Utils::isUnset($tmpReq->businessInfo)) {
-            $request->businessInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->businessInfo, 'business_info', 'json');
+
+        if (null !== $tmpReq->businessInfo) {
+            $request->businessInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessInfo, 'business_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->contactInfo)) {
-            $request->contactInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
+
+        if (null !== $tmpReq->contactInfo) {
+            $request->contactInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactInfo, 'contact_info', 'json');
         }
-        if (!Utils::isUnset($tmpReq->passengerOpenInfoS)) {
-            $request->passengerOpenInfoSShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->passengerOpenInfoS, 'passenger_open_info_s', 'json');
+
+        if (null !== $tmpReq->passengerOpenInfoS) {
+            $request->passengerOpenInfoSShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->passengerOpenInfoS, 'passenger_open_info_s', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->acceptNoSeat)) {
-            $body['accept_no_seat'] = $request->acceptNoSeat;
+        if (null !== $request->acceptNoSeat) {
+            @$body['accept_no_seat'] = $request->acceptNoSeat;
         }
-        if (!Utils::isUnset($request->bookTrainInfosShrink)) {
-            $body['book_train_infos'] = $request->bookTrainInfosShrink;
+
+        if (null !== $request->bookTrainInfosShrink) {
+            @$body['book_train_infos'] = $request->bookTrainInfosShrink;
         }
-        if (!Utils::isUnset($request->btripUserId)) {
-            $body['btrip_user_id'] = $request->btripUserId;
+
+        if (null !== $request->btripUserId) {
+            @$body['btrip_user_id'] = $request->btripUserId;
         }
-        if (!Utils::isUnset($request->btripUserName)) {
-            $body['btrip_user_name'] = $request->btripUserName;
+
+        if (null !== $request->btripUserName) {
+            @$body['btrip_user_name'] = $request->btripUserName;
         }
-        if (!Utils::isUnset($request->businessInfoShrink)) {
-            $body['business_info'] = $request->businessInfoShrink;
+
+        if (null !== $request->businessInfoShrink) {
+            @$body['business_info'] = $request->businessInfoShrink;
         }
-        if (!Utils::isUnset($request->contactInfoShrink)) {
-            $body['contact_info'] = $request->contactInfoShrink;
+
+        if (null !== $request->contactInfoShrink) {
+            @$body['contact_info'] = $request->contactInfoShrink;
         }
-        if (!Utils::isUnset($request->forceMatch)) {
-            $body['force_match'] = $request->forceMatch;
+
+        if (null !== $request->forceMatch) {
+            @$body['force_match'] = $request->forceMatch;
         }
-        if (!Utils::isUnset($request->isPayNow)) {
-            $body['is_pay_now'] = $request->isPayNow;
+
+        if (null !== $request->isPayNow) {
+            @$body['is_pay_now'] = $request->isPayNow;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->passengerOpenInfoSShrink)) {
-            $body['passenger_open_info_s'] = $request->passengerOpenInfoSShrink;
+
+        if (null !== $request->passengerOpenInfoSShrink) {
+            @$body['passenger_open_info_s'] = $request->passengerOpenInfoSShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderCreate',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/order/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderCreate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/order/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票正向预订
-     *  *
-     * @param TrainOrderCreateRequest $request TrainOrderCreateRequest
+     * 火车票正向预订.
      *
-     * @return TrainOrderCreateResponse TrainOrderCreateResponse
+     * @param request - TrainOrderCreateRequest
+     *
+     * @returns TrainOrderCreateResponse
+     *
+     * @param TrainOrderCreateRequest $request
+     *
+     * @return TrainOrderCreateResponse
      */
     public function trainOrderCreate($request)
     {
@@ -14037,56 +17656,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票订单详情
-     *  *
-     * @param TrainOrderDetailQueryRequest $request TrainOrderDetailQueryRequest
-     * @param TrainOrderDetailQueryHeaders $headers TrainOrderDetailQueryHeaders
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 火车票订单详情.
      *
-     * @return TrainOrderDetailQueryResponse TrainOrderDetailQueryResponse
+     * @param request - TrainOrderDetailQueryRequest
+     * @param headers - TrainOrderDetailQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderDetailQueryResponse
+     *
+     * @param TrainOrderDetailQueryRequest $request
+     * @param TrainOrderDetailQueryHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TrainOrderDetailQueryResponse
      */
     public function trainOrderDetailQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderDetailQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/order/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderDetailQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/order/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票订单详情
-     *  *
-     * @param TrainOrderDetailQueryRequest $request TrainOrderDetailQueryRequest
+     * 火车票订单详情.
      *
-     * @return TrainOrderDetailQueryResponse TrainOrderDetailQueryResponse
+     * @param request - TrainOrderDetailQueryRequest
+     *
+     * @returns TrainOrderDetailQueryResponse
+     *
+     * @param TrainOrderDetailQueryRequest $request
+     *
+     * @return TrainOrderDetailQueryResponse
      */
     public function trainOrderDetailQuery($request)
     {
@@ -14097,83 +17730,106 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询火车票订单列表
-     *  *
-     * @param TrainOrderListQueryRequest $request TrainOrderListQueryRequest
-     * @param TrainOrderListQueryHeaders $headers TrainOrderListQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询火车票订单列表.
      *
-     * @return TrainOrderListQueryResponse TrainOrderListQueryResponse
+     * @param request - TrainOrderListQueryRequest
+     * @param headers - TrainOrderListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderListQueryResponse
+     *
+     * @param TrainOrderListQueryRequest $request
+     * @param TrainOrderListQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TrainOrderListQueryResponse
      */
     public function trainOrderListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allApply)) {
-            $query['all_apply'] = $request->allApply;
+        if (null !== $request->allApply) {
+            @$query['all_apply'] = $request->allApply;
         }
-        if (!Utils::isUnset($request->applyId)) {
-            $query['apply_id'] = $request->applyId;
+
+        if (null !== $request->applyId) {
+            @$query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->departId)) {
-            $query['depart_id'] = $request->departId;
+
+        if (null !== $request->departId) {
+            @$query['depart_id'] = $request->departId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['end_time'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['end_time'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['start_time'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['start_time'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->thirdpartApplyId)) {
-            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
+
+        if (null !== $request->thirdpartApplyId) {
+            @$query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $query['update_end_time'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$query['update_end_time'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->updateStartTime)) {
-            $query['update_start_time'] = $request->updateStartTime;
+
+        if (null !== $request->updateStartTime) {
+            @$query['update_start_time'] = $request->updateStartTime;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/order-list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/order-list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询火车票订单列表
-     *  *
-     * @param TrainOrderListQueryRequest $request TrainOrderListQueryRequest
+     * 查询火车票订单列表.
      *
-     * @return TrainOrderListQueryResponse TrainOrderListQueryResponse
+     * @param request - TrainOrderListQueryRequest
+     *
+     * @returns TrainOrderListQueryResponse
+     *
+     * @param TrainOrderListQueryRequest $request
+     *
+     * @return TrainOrderListQueryResponse
      */
     public function trainOrderListQuery($request)
     {
@@ -14184,59 +17840,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票订单支付
-     *  *
-     * @param TrainOrderPayRequest $request TrainOrderPayRequest
-     * @param TrainOrderPayHeaders $headers TrainOrderPayHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 火车票订单支付.
      *
-     * @return TrainOrderPayResponse TrainOrderPayResponse
+     * @param request - TrainOrderPayRequest
+     * @param headers - TrainOrderPayHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderPayResponse
+     *
+     * @param TrainOrderPayRequest $request
+     * @param TrainOrderPayHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TrainOrderPayResponse
      */
     public function trainOrderPayWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->payAmount)) {
-            $body['pay_amount'] = $request->payAmount;
+
+        if (null !== $request->payAmount) {
+            @$body['pay_amount'] = $request->payAmount;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderPay',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/order/pay',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderPay',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/order/pay',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderPayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票订单支付
-     *  *
-     * @param TrainOrderPayRequest $request TrainOrderPayRequest
+     * 火车票订单支付.
      *
-     * @return TrainOrderPayResponse TrainOrderPayResponse
+     * @param request - TrainOrderPayRequest
+     *
+     * @returns TrainOrderPayResponse
+     *
+     * @param TrainOrderPayRequest $request
+     *
+     * @return TrainOrderPayResponse
      */
     public function trainOrderPay($request)
     {
@@ -14247,56 +17918,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询火车票订单详情（含票信息）
-     *  *
-     * @param TrainOrderQueryRequest $request TrainOrderQueryRequest
-     * @param TrainOrderQueryHeaders $headers TrainOrderQueryHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询火车票订单详情（含票信息）.
      *
-     * @return TrainOrderQueryResponse TrainOrderQueryResponse
+     * @param request - TrainOrderQueryRequest
+     * @param headers - TrainOrderQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderQueryResponse
+     *
+     * @param TrainOrderQueryRequest $request
+     * @param TrainOrderQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TrainOrderQueryResponse
      */
     public function trainOrderQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/order',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/order',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询火车票订单详情（含票信息）
-     *  *
-     * @param TrainOrderQueryRequest $request TrainOrderQueryRequest
+     * 查询火车票订单详情（含票信息）.
      *
-     * @return TrainOrderQueryResponse TrainOrderQueryResponse
+     * @param request - TrainOrderQueryRequest
+     *
+     * @returns TrainOrderQueryResponse
+     *
+     * @param TrainOrderQueryRequest $request
+     *
+     * @return TrainOrderQueryResponse
      */
     public function trainOrderQuery($request)
     {
@@ -14307,56 +17992,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票订单查询V2
-     *  *
-     * @param TrainOrderQueryV2Request $request TrainOrderQueryV2Request
-     * @param TrainOrderQueryV2Headers $headers TrainOrderQueryV2Headers
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 火车票订单查询V2.
      *
-     * @return TrainOrderQueryV2Response TrainOrderQueryV2Response
+     * @param request - TrainOrderQueryV2Request
+     * @param headers - TrainOrderQueryV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainOrderQueryV2Response
+     *
+     * @param TrainOrderQueryV2Request $request
+     * @param TrainOrderQueryV2Headers $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TrainOrderQueryV2Response
      */
     public function trainOrderQueryV2WithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['order_id'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainOrderQueryV2',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v2/order',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainOrderQueryV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v2/order',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainOrderQueryV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票订单查询V2
-     *  *
-     * @param TrainOrderQueryV2Request $request TrainOrderQueryV2Request
+     * 火车票订单查询V2.
      *
-     * @return TrainOrderQueryV2Response TrainOrderQueryV2Response
+     * @param request - TrainOrderQueryV2Request
+     *
+     * @returns TrainOrderQueryV2Response
+     *
+     * @param TrainOrderQueryV2Request $request
+     *
+     * @return TrainOrderQueryV2Response
      */
     public function trainOrderQueryV2($request)
     {
@@ -14367,53 +18066,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询火车站数据
-     *  *
-     * @param TrainStationSearchRequest $request TrainStationSearchRequest
-     * @param TrainStationSearchHeaders $headers TrainStationSearchHeaders
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询火车站数据.
      *
-     * @return TrainStationSearchResponse TrainStationSearchResponse
+     * @param request - TrainStationSearchRequest
+     * @param headers - TrainStationSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainStationSearchResponse
+     *
+     * @param TrainStationSearchRequest $request
+     * @param TrainStationSearchHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TrainStationSearchResponse
      */
     public function trainStationSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainStationSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/city/v1/train',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainStationSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/city/v1/train',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainStationSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询火车站数据
-     *  *
-     * @param TrainStationSearchRequest $request TrainStationSearchRequest
+     * 查询火车站数据.
      *
-     * @return TrainStationSearchResponse TrainStationSearchResponse
+     * @param request - TrainStationSearchRequest
+     *
+     * @returns TrainStationSearchResponse
+     *
+     * @param TrainStationSearchRequest $request
+     *
+     * @return TrainStationSearchResponse
      */
     public function trainStationSearch($request)
     {
@@ -14424,62 +18136,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 火车票经停站查询
-     *  *
-     * @param TrainStopoverSearchRequest $request TrainStopoverSearchRequest
-     * @param TrainStopoverSearchHeaders $headers TrainStopoverSearchHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 火车票经停站查询.
      *
-     * @return TrainStopoverSearchResponse TrainStopoverSearchResponse
+     * @param request - TrainStopoverSearchRequest
+     * @param headers - TrainStopoverSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainStopoverSearchResponse
+     *
+     * @param TrainStopoverSearchRequest $request
+     * @param TrainStopoverSearchHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TrainStopoverSearchResponse
      */
     public function trainStopoverSearchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->arrStation)) {
-            $body['arr_station'] = $request->arrStation;
+        if (null !== $request->arrStation) {
+            @$body['arr_station'] = $request->arrStation;
         }
-        if (!Utils::isUnset($request->depStation)) {
-            $body['dep_station'] = $request->depStation;
+
+        if (null !== $request->depStation) {
+            @$body['dep_station'] = $request->depStation;
         }
-        if (!Utils::isUnset($request->trainDate)) {
-            $body['train_date'] = $request->trainDate;
+
+        if (null !== $request->trainDate) {
+            @$body['train_date'] = $request->trainDate;
         }
-        if (!Utils::isUnset($request->trainNo)) {
-            $body['train_no'] = $request->trainNo;
+
+        if (null !== $request->trainNo) {
+            @$body['train_no'] = $request->trainNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrainStopoverSearch',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/train/v1/search/stopover',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainStopoverSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/train/v1/search/stopover',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainStopoverSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票经停站查询
-     *  *
-     * @param TrainStopoverSearchRequest $request TrainStopoverSearchRequest
+     * 火车票经停站查询.
      *
-     * @return TrainStopoverSearchResponse TrainStopoverSearchResponse
+     * @param request - TrainStopoverSearchRequest
+     *
+     * @returns TrainStopoverSearchResponse
+     *
+     * @param TrainStopoverSearchRequest $request
+     *
+     * @return TrainStopoverSearchResponse
      */
     public function trainStopoverSearch($request)
     {
@@ -14490,71 +18218,90 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询火车票凭证扫描件
-     *  *
-     * @param TrainTicketScanQueryRequest $request TrainTicketScanQueryRequest
-     * @param TrainTicketScanQueryHeaders $headers TrainTicketScanQueryHeaders
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询火车票凭证扫描件.
      *
-     * @return TrainTicketScanQueryResponse TrainTicketScanQueryResponse
+     * @param request - TrainTicketScanQueryRequest
+     * @param headers - TrainTicketScanQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrainTicketScanQueryResponse
+     *
+     * @param TrainTicketScanQueryRequest $request
+     * @param TrainTicketScanQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return TrainTicketScanQueryResponse
      */
     public function trainTicketScanQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billDate)) {
-            $query['bill_date'] = $request->billDate;
+        if (null !== $request->billDate) {
+            @$query['bill_date'] = $request->billDate;
         }
-        if (!Utils::isUnset($request->billId)) {
-            $query['bill_id'] = $request->billId;
+
+        if (null !== $request->billId) {
+            @$query['bill_id'] = $request->billId;
         }
-        if (!Utils::isUnset($request->invoiceSubTaskId)) {
-            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+
+        if (null !== $request->invoiceSubTaskId) {
+            @$query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $query['serial_number'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$query['serial_number'] = $request->serialNumber;
         }
-        if (!Utils::isUnset($request->ticketNo)) {
-            $query['ticket_no'] = $request->ticketNo;
+
+        if (null !== $request->ticketNo) {
+            @$query['ticket_no'] = $request->ticketNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TrainTicketScanQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scan/v1/train-ticket',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrainTicketScanQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scan/v1/train-ticket',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrainTicketScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询火车票凭证扫描件
-     *  *
-     * @param TrainTicketScanQueryRequest $request TrainTicketScanQueryRequest
+     * 查询火车票凭证扫描件.
      *
-     * @return TrainTicketScanQueryResponse TrainTicketScanQueryResponse
+     * @param request - TrainTicketScanQueryRequest
+     *
+     * @returns TrainTicketScanQueryResponse
+     *
+     * @param TrainTicketScanQueryRequest $request
+     *
+     * @return TrainTicketScanQueryResponse
      */
     public function trainTicketScanQuery($request)
     {
@@ -14565,62 +18312,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询差标列表
-     *  *
-     * @param TravelStandardListQueryRequest $request TravelStandardListQueryRequest
-     * @param TravelStandardListQueryHeaders $headers TravelStandardListQueryHeaders
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询差标列表.
      *
-     * @return TravelStandardListQueryResponse TravelStandardListQueryResponse
+     * @param request - TravelStandardListQueryRequest
+     * @param headers - TravelStandardListQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TravelStandardListQueryResponse
+     *
+     * @param TravelStandardListQueryRequest $request
+     * @param TravelStandardListQueryHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TravelStandardListQueryResponse
      */
     public function travelStandardListQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fromGroup)) {
-            $query['from_group'] = $request->fromGroup;
+        if (null !== $request->fromGroup) {
+            @$query['from_group'] = $request->fromGroup;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['rule_name'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['rule_name'] = $request->ruleName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TravelStandardListQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/travel-manage/v1/standards/list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TravelStandardListQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/travel-manage/v1/standards/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TravelStandardListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询差标列表
-     *  *
-     * @param TravelStandardListQueryRequest $request TravelStandardListQueryRequest
+     * 查询差标列表.
      *
-     * @return TravelStandardListQueryResponse TravelStandardListQueryResponse
+     * @param request - TravelStandardListQueryRequest
+     *
+     * @returns TravelStandardListQueryResponse
+     *
+     * @param TravelStandardListQueryRequest $request
+     *
+     * @return TravelStandardListQueryResponse
      */
     public function travelStandardListQuery($request)
     {
@@ -14631,64 +18394,80 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询差标详情
-     *  *
-     * @param TravelStandardQueryRequest $tmpReq  TravelStandardQueryRequest
-     * @param TravelStandardQueryHeaders $headers TravelStandardQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询差标详情.
      *
-     * @return TravelStandardQueryResponse TravelStandardQueryResponse
+     * @param tmpReq - TravelStandardQueryRequest
+     * @param headers - TravelStandardQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TravelStandardQueryResponse
+     *
+     * @param TravelStandardQueryRequest $tmpReq
+     * @param TravelStandardQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TravelStandardQueryResponse
      */
     public function travelStandardQueryWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TravelStandardQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serviceTypeList)) {
-            $request->serviceTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceTypeList, 'service_type_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serviceTypeList) {
+            $request->serviceTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serviceTypeList, 'service_type_list', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->fromGroup)) {
-            $query['from_group'] = $request->fromGroup;
+        if (null !== $request->fromGroup) {
+            @$query['from_group'] = $request->fromGroup;
         }
-        if (!Utils::isUnset($request->ruleCode)) {
-            $query['rule_code'] = $request->ruleCode;
+
+        if (null !== $request->ruleCode) {
+            @$query['rule_code'] = $request->ruleCode;
         }
-        if (!Utils::isUnset($request->serviceTypeListShrink)) {
-            $query['service_type_list'] = $request->serviceTypeListShrink;
+
+        if (null !== $request->serviceTypeListShrink) {
+            @$query['service_type_list'] = $request->serviceTypeListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TravelStandardQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/travel-manage/v1/standards/detail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TravelStandardQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/travel-manage/v1/standards/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TravelStandardQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询差标详情
-     *  *
-     * @param TravelStandardQueryRequest $request TravelStandardQueryRequest
+     * 查询差标详情.
      *
-     * @return TravelStandardQueryResponse TravelStandardQueryResponse
+     * @param request - TravelStandardQueryRequest
+     *
+     * @returns TravelStandardQueryResponse
+     *
+     * @param TravelStandardQueryRequest $request
+     *
+     * @return TravelStandardQueryResponse
      */
     public function travelStandardQuery($request)
     {
@@ -14699,62 +18478,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询业务流程
-     *  *
-     * @param TripBusinessInstanceQueryRequest $request TripBusinessInstanceQueryRequest
-     * @param TripBusinessInstanceQueryHeaders $headers TripBusinessInstanceQueryHeaders
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询业务流程.
      *
-     * @return TripBusinessInstanceQueryResponse TripBusinessInstanceQueryResponse
+     * @param request - TripBusinessInstanceQueryRequest
+     * @param headers - TripBusinessInstanceQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TripBusinessInstanceQueryResponse
+     *
+     * @param TripBusinessInstanceQueryRequest $request
+     * @param TripBusinessInstanceQueryHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return TripBusinessInstanceQueryResponse
      */
     public function tripBusinessInstanceQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
-        if (!Utils::isUnset($request->thirdBusinessId)) {
-            $query['third_business_id'] = $request->thirdBusinessId;
+
+        if (null !== $request->thirdBusinessId) {
+            @$query['third_business_id'] = $request->thirdBusinessId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TripBusinessInstanceQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/business',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TripBusinessInstanceQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/business',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TripBusinessInstanceQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询业务流程
-     *  *
-     * @param TripBusinessInstanceQueryRequest $request TripBusinessInstanceQueryRequest
+     * 查询业务流程.
      *
-     * @return TripBusinessInstanceQueryResponse TripBusinessInstanceQueryResponse
+     * @param request - TripBusinessInstanceQueryRequest
+     *
+     * @returns TripBusinessInstanceQueryResponse
+     *
+     * @param TripBusinessInstanceQueryRequest $request
+     *
+     * @return TripBusinessInstanceQueryResponse
      */
     public function tripBusinessInstanceQuery($request)
     {
@@ -14765,59 +18560,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询抄送信息
-     *  *
-     * @param TripCCInfoQueryRequest $request TripCCInfoQueryRequest
-     * @param TripCCInfoQueryHeaders $headers TripCCInfoQueryHeaders
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询抄送信息.
      *
-     * @return TripCCInfoQueryResponse TripCCInfoQueryResponse
+     * @param request - TripCCInfoQueryRequest
+     * @param headers - TripCCInfoQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TripCCInfoQueryResponse
+     *
+     * @param TripCCInfoQueryRequest $request
+     * @param TripCCInfoQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TripCCInfoQueryResponse
      */
     public function tripCCInfoQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['node_id'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['node_id'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->thirdBusinessId)) {
-            $query['third_business_id'] = $request->thirdBusinessId;
+
+        if (null !== $request->thirdBusinessId) {
+            @$query['third_business_id'] = $request->thirdBusinessId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TripCCInfoQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/cc',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TripCCInfoQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/cc',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TripCCInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询抄送信息
-     *  *
-     * @param TripCCInfoQueryRequest $request TripCCInfoQueryRequest
+     * 查询抄送信息.
      *
-     * @return TripCCInfoQueryResponse TripCCInfoQueryResponse
+     * @param request - TripCCInfoQueryRequest
+     *
+     * @returns TripCCInfoQueryResponse
+     *
+     * @param TripCCInfoQueryRequest $request
+     *
+     * @return TripCCInfoQueryResponse
      */
     public function tripCCInfoQuery($request)
     {
@@ -14828,62 +18638,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询审批任务列表
-     *  *
-     * @param TripTaskQueryRequest $request TripTaskQueryRequest
-     * @param TripTaskQueryHeaders $headers TripTaskQueryHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询审批任务列表.
      *
-     * @return TripTaskQueryResponse TripTaskQueryResponse
+     * @param request - TripTaskQueryRequest
+     * @param headers - TripTaskQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TripTaskQueryResponse
+     *
+     * @param TripTaskQueryRequest $request
+     * @param TripTaskQueryHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TripTaskQueryResponse
      */
     public function tripTaskQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessInstanceId)) {
-            $query['business_instance_id'] = $request->businessInstanceId;
+        if (null !== $request->businessInstanceId) {
+            @$query['business_instance_id'] = $request->businessInstanceId;
         }
-        if (!Utils::isUnset($request->thirdBusinessId)) {
-            $query['third_business_id'] = $request->thirdBusinessId;
+
+        if (null !== $request->thirdBusinessId) {
+            @$query['third_business_id'] = $request->thirdBusinessId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['user_name'] = $request->userName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TripTaskQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/apply/v1/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TripTaskQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apply/v1/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TripTaskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询审批任务列表
-     *  *
-     * @param TripTaskQueryRequest $request TripTaskQueryRequest
+     * 查询审批任务列表.
      *
-     * @return TripTaskQueryResponse TripTaskQueryResponse
+     * @param request - TripTaskQueryRequest
+     *
+     * @returns TripTaskQueryResponse
+     *
+     * @param TripTaskQueryRequest $request
+     *
+     * @return TripTaskQueryResponse
      */
     public function tripTaskQuery($request)
     {
@@ -14894,56 +18720,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 更新企业自定义角色
-     *  *
-     * @param UpdateCustomRoleRequest $request UpdateCustomRoleRequest
-     * @param UpdateCustomRoleHeaders $headers UpdateCustomRoleHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 更新企业自定义角色.
      *
-     * @return UpdateCustomRoleResponse UpdateCustomRoleResponse
+     * @param request - UpdateCustomRoleRequest
+     * @param headers - UpdateCustomRoleHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomRoleResponse
+     *
+     * @param UpdateCustomRoleRequest $request
+     * @param UpdateCustomRoleHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCustomRoleResponse
      */
     public function updateCustomRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $body['role_name'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$body['role_name'] = $request->roleName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCustomRole',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/role/v1/customRoles/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateCustomRole',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/role/v1/customRoles/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新企业自定义角色
-     *  *
-     * @param UpdateCustomRoleRequest $request UpdateCustomRoleRequest
+     * 更新企业自定义角色.
      *
-     * @return UpdateCustomRoleResponse UpdateCustomRoleResponse
+     * @param request - UpdateCustomRoleRequest
+     *
+     * @returns UpdateCustomRoleResponse
+     *
+     * @param UpdateCustomRoleRequest $request
+     *
+     * @return UpdateCustomRoleResponse
      */
     public function updateCustomRole($request)
     {
@@ -14954,67 +18794,84 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 修改企业部门
-     *  *
-     * @param UpdateDepartmentRequest $tmpReq  UpdateDepartmentRequest
-     * @param UpdateDepartmentHeaders $headers UpdateDepartmentHeaders
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 修改企业部门.
      *
-     * @return UpdateDepartmentResponse UpdateDepartmentResponse
+     * @param tmpReq - UpdateDepartmentRequest
+     * @param headers - UpdateDepartmentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDepartmentResponse
+     *
+     * @param UpdateDepartmentRequest $tmpReq
+     * @param UpdateDepartmentHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDepartmentResponse
      */
     public function updateDepartmentWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDepartmentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->managerEmployeeIdList)) {
-            $request->managerEmployeeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managerEmployeeIdList, 'manager_employee_id_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->managerEmployeeIdList) {
+            $request->managerEmployeeIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->managerEmployeeIdList, 'manager_employee_id_list', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->deptName)) {
-            $body['dept_name'] = $request->deptName;
+        if (null !== $request->deptName) {
+            @$body['dept_name'] = $request->deptName;
         }
-        if (!Utils::isUnset($request->managerEmployeeIdListShrink)) {
-            $body['manager_employee_id_list'] = $request->managerEmployeeIdListShrink;
+
+        if (null !== $request->managerEmployeeIdListShrink) {
+            @$body['manager_employee_id_list'] = $request->managerEmployeeIdListShrink;
         }
-        if (!Utils::isUnset($request->outDeptId)) {
-            $body['out_dept_id'] = $request->outDeptId;
+
+        if (null !== $request->outDeptId) {
+            @$body['out_dept_id'] = $request->outDeptId;
         }
-        if (!Utils::isUnset($request->outDeptPid)) {
-            $body['out_dept_pid'] = $request->outDeptPid;
+
+        if (null !== $request->outDeptPid) {
+            @$body['out_dept_pid'] = $request->outDeptPid;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDepartment',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/department/v2/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDepartment',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/department/v2/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改企业部门
-     *  *
-     * @param UpdateDepartmentRequest $request UpdateDepartmentRequest
+     * 修改企业部门.
      *
-     * @return UpdateDepartmentResponse UpdateDepartmentResponse
+     * @param request - UpdateDepartmentRequest
+     *
+     * @returns UpdateDepartmentResponse
+     *
+     * @param UpdateDepartmentRequest $request
+     *
+     * @return UpdateDepartmentResponse
      */
     public function updateDepartment($request)
     {
@@ -15025,124 +18882,168 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 更新员工信息
-     *  *
-     * @param UpdateEmployeeRequest $tmpReq  UpdateEmployeeRequest
-     * @param UpdateEmployeeHeaders $headers UpdateEmployeeHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 更新员工信息.
      *
-     * @return UpdateEmployeeResponse UpdateEmployeeResponse
+     * @param tmpReq - UpdateEmployeeRequest
+     * @param headers - UpdateEmployeeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEmployeeResponse
+     *
+     * @param UpdateEmployeeRequest $tmpReq
+     * @param UpdateEmployeeHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateEmployeeResponse
      */
     public function updateEmployeeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateEmployeeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->baseCityCodeList)) {
-            $request->baseCityCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->baseCityCodeList, 'base_city_code_list', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->baseCityCodeList) {
+            $request->baseCityCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseCityCodeList, 'base_city_code_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->certList)) {
-            $request->certListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
+
+        if (null !== $tmpReq->baseLocationList) {
+            $request->baseLocationListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseLocationList, 'base_location_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customRoleCodeList)) {
-            $request->customRoleCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customRoleCodeList, 'custom_role_code_list', 'json');
+
+        if (null !== $tmpReq->certList) {
+            $request->certListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->certList, 'cert_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->outDeptIdList)) {
-            $request->outDeptIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
+
+        if (null !== $tmpReq->customRoleCodeList) {
+            $request->customRoleCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customRoleCodeList, 'custom_role_code_list', 'json');
         }
+
+        if (null !== $tmpReq->outDeptIdList) {
+            $request->outDeptIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->attribute)) {
-            $body['attribute'] = $request->attribute;
+        if (null !== $request->attribute) {
+            @$body['attribute'] = $request->attribute;
         }
-        if (!Utils::isUnset($request->avatar)) {
-            $body['avatar'] = $request->avatar;
+
+        if (null !== $request->avatar) {
+            @$body['avatar'] = $request->avatar;
         }
-        if (!Utils::isUnset($request->baseCityCodeListShrink)) {
-            $body['base_city_code_list'] = $request->baseCityCodeListShrink;
+
+        if (null !== $request->baseCityCodeListShrink) {
+            @$body['base_city_code_list'] = $request->baseCityCodeListShrink;
         }
-        if (!Utils::isUnset($request->birthday)) {
-            $body['birthday'] = $request->birthday;
+
+        if (null !== $request->baseLocationListShrink) {
+            @$body['base_location_list'] = $request->baseLocationListShrink;
         }
-        if (!Utils::isUnset($request->certListShrink)) {
-            $body['cert_list'] = $request->certListShrink;
+
+        if (null !== $request->birthday) {
+            @$body['birthday'] = $request->birthday;
         }
-        if (!Utils::isUnset($request->customRoleCodeListShrink)) {
-            $body['custom_role_code_list'] = $request->customRoleCodeListShrink;
+
+        if (null !== $request->certListShrink) {
+            @$body['cert_list'] = $request->certListShrink;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+
+        if (null !== $request->customRoleCodeListShrink) {
+            @$body['custom_role_code_list'] = $request->customRoleCodeListShrink;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $body['gender'] = $request->gender;
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->isAdmin)) {
-            $body['is_admin'] = $request->isAdmin;
+
+        if (null !== $request->gender) {
+            @$body['gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->isBoss)) {
-            $body['is_boss'] = $request->isBoss;
+
+        if (null !== $request->isAdmin) {
+            @$body['is_admin'] = $request->isAdmin;
         }
-        if (!Utils::isUnset($request->isDeptLeader)) {
-            $body['is_dept_leader'] = $request->isDeptLeader;
+
+        if (null !== $request->isBoss) {
+            @$body['is_boss'] = $request->isBoss;
         }
-        if (!Utils::isUnset($request->jobNo)) {
-            $body['job_no'] = $request->jobNo;
+
+        if (null !== $request->isDeptLeader) {
+            @$body['is_dept_leader'] = $request->isDeptLeader;
         }
-        if (!Utils::isUnset($request->managerUserId)) {
-            $body['manager_user_id'] = $request->managerUserId;
+
+        if (null !== $request->jobNo) {
+            @$body['job_no'] = $request->jobNo;
         }
-        if (!Utils::isUnset($request->outDeptIdListShrink)) {
-            $body['out_dept_id_list'] = $request->outDeptIdListShrink;
+
+        if (null !== $request->managerUserId) {
+            @$body['manager_user_id'] = $request->managerUserId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->outDeptIdListShrink) {
+            @$body['out_dept_id_list'] = $request->outDeptIdListShrink;
         }
-        if (!Utils::isUnset($request->positionLevel)) {
-            $body['position_level'] = $request->positionLevel;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->realName)) {
-            $body['real_name'] = $request->realName;
+
+        if (null !== $request->positionLevel) {
+            @$body['position_level'] = $request->positionLevel;
         }
-        if (!Utils::isUnset($request->realNameEn)) {
-            $body['real_name_en'] = $request->realNameEn;
+
+        if (null !== $request->realName) {
+            @$body['real_name'] = $request->realName;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->realNameEn) {
+            @$body['real_name_en'] = $request->realNameEn;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $body['user_nick'] = $request->userNick;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
+        if (null !== $request->userNick) {
+            @$body['user_nick'] = $request->userNick;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEmployee',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/employee/v2/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateEmployee',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/employee/v2/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新员工信息
-     *  *
-     * @param UpdateEmployeeRequest $request UpdateEmployeeRequest
+     * 更新员工信息.
      *
-     * @return UpdateEmployeeResponse UpdateEmployeeResponse
+     * @param request - UpdateEmployeeRequest
+     *
+     * @returns UpdateEmployeeResponse
+     *
+     * @param UpdateEmployeeRequest $request
+     *
+     * @return UpdateEmployeeResponse
      */
     public function updateEmployee($request)
     {
@@ -15153,56 +19054,70 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 更新员工在职状态
-     *  *
-     * @param UpdateEmployeeLeaveStatusRequest $request UpdateEmployeeLeaveStatusRequest
-     * @param UpdateEmployeeLeaveStatusHeaders $headers UpdateEmployeeLeaveStatusHeaders
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 更新员工在职状态
      *
-     * @return UpdateEmployeeLeaveStatusResponse UpdateEmployeeLeaveStatusResponse
+     * @param request - UpdateEmployeeLeaveStatusRequest
+     * @param headers - UpdateEmployeeLeaveStatusHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEmployeeLeaveStatusResponse
+     *
+     * @param UpdateEmployeeLeaveStatusRequest $request
+     * @param UpdateEmployeeLeaveStatusHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateEmployeeLeaveStatusResponse
      */
     public function updateEmployeeLeaveStatusWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isLeave)) {
-            $body['is_leave'] = $request->isLeave;
+        if (null !== $request->isLeave) {
+            @$body['is_leave'] = $request->isLeave;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
-            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEmployeeLeaveStatus',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/employee/v2/updateLeaveStatus',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateEmployeeLeaveStatus',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/employee/v2/updateLeaveStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateEmployeeLeaveStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新员工在职状态
-     *  *
-     * @param UpdateEmployeeLeaveStatusRequest $request UpdateEmployeeLeaveStatusRequest
+     * 更新员工在职状态
      *
-     * @return UpdateEmployeeLeaveStatusResponse UpdateEmployeeLeaveStatusResponse
+     * @param request - UpdateEmployeeLeaveStatusRequest
+     *
+     * @returns UpdateEmployeeLeaveStatusResponse
+     *
+     * @param UpdateEmployeeLeaveStatusRequest $request
+     *
+     * @return UpdateEmployeeLeaveStatusResponse
      */
     public function updateEmployeeLeaveStatus($request)
     {
@@ -15213,62 +19128,78 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 人员查询
-     *  *
-     * @param UserQueryRequest $request UserQueryRequest
-     * @param UserQueryHeaders $headers UserQueryHeaders
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 人员查询.
      *
-     * @return UserQueryResponse UserQueryResponse
+     * @param request - UserQueryRequest
+     * @param headers - UserQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UserQueryResponse
+     *
+     * @param UserQueryRequest $request
+     * @param UserQueryHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UserQueryResponse
      */
     public function userQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->modifiedTimeGreaterOrEqualThan)) {
-            $query['modified_time_greater_or_equal_than'] = $request->modifiedTimeGreaterOrEqualThan;
+        if (null !== $request->modifiedTimeGreaterOrEqualThan) {
+            @$query['modified_time_greater_or_equal_than'] = $request->modifiedTimeGreaterOrEqualThan;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pageToken)) {
-            $query['page_token'] = $request->pageToken;
+
+        if (null !== $request->pageToken) {
+            @$query['page_token'] = $request->pageToken;
         }
-        if (!Utils::isUnset($request->thirdPartJobNo)) {
-            $query['third_part_job_no'] = $request->thirdPartJobNo;
+
+        if (null !== $request->thirdPartJobNo) {
+            @$query['third_part_job_no'] = $request->thirdPartJobNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UserQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/user/v1/user',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UserQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/user/v1/user',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UserQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 人员查询
-     *  *
-     * @param UserQueryRequest $request UserQueryRequest
+     * 人员查询.
      *
-     * @return UserQueryResponse UserQueryResponse
+     * @param request - UserQueryRequest
+     *
+     * @returns UserQueryResponse
+     *
+     * @param UserQueryRequest $request
+     *
+     * @return UserQueryResponse
      */
     public function userQuery($request)
     {
@@ -15279,65 +19210,82 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询增值税发票扫描件
-     *  *
-     * @param VatInvoiceScanQueryRequest $request VatInvoiceScanQueryRequest
-     * @param VatInvoiceScanQueryHeaders $headers VatInvoiceScanQueryHeaders
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询增值税发票扫描件.
      *
-     * @return VatInvoiceScanQueryResponse VatInvoiceScanQueryResponse
+     * @param request - VatInvoiceScanQueryRequest
+     * @param headers - VatInvoiceScanQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VatInvoiceScanQueryResponse
+     *
+     * @param VatInvoiceScanQueryRequest $request
+     * @param VatInvoiceScanQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return VatInvoiceScanQueryResponse
      */
     public function vatInvoiceScanQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billDate)) {
-            $query['bill_date'] = $request->billDate;
+        if (null !== $request->billDate) {
+            @$query['bill_date'] = $request->billDate;
         }
-        if (!Utils::isUnset($request->billId)) {
-            $query['bill_id'] = $request->billId;
+
+        if (null !== $request->billId) {
+            @$query['bill_id'] = $request->billId;
         }
-        if (!Utils::isUnset($request->invoiceSubTaskId)) {
-            $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+
+        if (null !== $request->invoiceSubTaskId) {
+            @$query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['page_no'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['page_size'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VatInvoiceScanQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scan/v1/vat-invoice',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'VatInvoiceScanQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scan/v1/vat-invoice',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VatInvoiceScanQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询增值税发票扫描件
-     *  *
-     * @param VatInvoiceScanQueryRequest $request VatInvoiceScanQueryRequest
+     * 查询增值税发票扫描件.
      *
-     * @return VatInvoiceScanQueryResponse VatInvoiceScanQueryResponse
+     * @param request - VatInvoiceScanQueryRequest
+     *
+     * @returns VatInvoiceScanQueryResponse
+     *
+     * @param VatInvoiceScanQueryRequest $request
+     *
+     * @return VatInvoiceScanQueryResponse
      */
     public function vatInvoiceScanQuery($request)
     {
@@ -15348,53 +19296,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @summary 查询账期待申请的发票数据
-     *  *
-     * @param WaitApplyInvoiceTaskDetailQueryRequest $request WaitApplyInvoiceTaskDetailQueryRequest
-     * @param WaitApplyInvoiceTaskDetailQueryHeaders $headers WaitApplyInvoiceTaskDetailQueryHeaders
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查询账期待申请的发票数据.
      *
-     * @return WaitApplyInvoiceTaskDetailQueryResponse WaitApplyInvoiceTaskDetailQueryResponse
+     * @param request - WaitApplyInvoiceTaskDetailQueryRequest
+     * @param headers - WaitApplyInvoiceTaskDetailQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WaitApplyInvoiceTaskDetailQueryResponse
+     *
+     * @param WaitApplyInvoiceTaskDetailQueryRequest $request
+     * @param WaitApplyInvoiceTaskDetailQueryHeaders $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return WaitApplyInvoiceTaskDetailQueryResponse
      */
     public function waitApplyInvoiceTaskDetailQueryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billDate)) {
-            $query['bill_date'] = $request->billDate;
+        if (null !== $request->billDate) {
+            @$query['bill_date'] = $request->billDate;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
-            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WaitApplyInvoiceTaskDetailQuery',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/invoice/v1/wait-apply-task',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'WaitApplyInvoiceTaskDetailQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/invoice/v1/wait-apply-task',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return WaitApplyInvoiceTaskDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询账期待申请的发票数据
-     *  *
-     * @param WaitApplyInvoiceTaskDetailQueryRequest $request WaitApplyInvoiceTaskDetailQueryRequest
+     * 查询账期待申请的发票数据.
      *
-     * @return WaitApplyInvoiceTaskDetailQueryResponse WaitApplyInvoiceTaskDetailQueryResponse
+     * @param request - WaitApplyInvoiceTaskDetailQueryRequest
+     *
+     * @returns WaitApplyInvoiceTaskDetailQueryResponse
+     *
+     * @param WaitApplyInvoiceTaskDetailQueryRequest $request
+     *
+     * @return WaitApplyInvoiceTaskDetailQueryResponse
      */
     public function waitApplyInvoiceTaskDetailQuery($request)
     {

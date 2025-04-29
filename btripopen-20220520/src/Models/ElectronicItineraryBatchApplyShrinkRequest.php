@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ElectronicItineraryBatchApplyShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $applyItineraryListShrink;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $canReprint;
     protected $_name = [
         'applyItineraryListShrink' => 'apply_itinerary_list',
-        'canReprint'               => 'can_reprint',
+        'canReprint' => 'can_reprint',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyItineraryListShrink) {
             $res['apply_itinerary_list'] = $this->applyItineraryListShrink;
         }
+
         if (null !== $this->canReprint) {
             $res['can_reprint'] = $this->canReprint;
         }
@@ -43,17 +41,18 @@ class ElectronicItineraryBatchApplyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ElectronicItineraryBatchApplyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apply_itinerary_list'])) {
             $model->applyItineraryListShrink = $map['apply_itinerary_list'];
         }
+
         if (isset($map['can_reprint'])) {
             $model->canReprint = $map['can_reprint'];
         }

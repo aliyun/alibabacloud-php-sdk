@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hotelShare extends Model
 {
     /**
-     * @example 70
-     *
      * @var string
      */
     public $param;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'param' => 'param',
-        'type'  => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->param) {
             $res['param'] = $this->param;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -43,17 +41,18 @@ class hotelShare extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hotelShare
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['param'])) {
             $model->param = $map['param'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

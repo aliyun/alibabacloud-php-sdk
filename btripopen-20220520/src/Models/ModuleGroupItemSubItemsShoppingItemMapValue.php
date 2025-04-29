@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleGroupItemSubItemsShoppingItemMapValue\searchPrice;
-use AlibabaCloud\Tea\Model;
 
 class ModuleGroupItemSubItemsShoppingItemMapValue extends Model
 {
@@ -19,23 +19,27 @@ class ModuleGroupItemSubItemsShoppingItemMapValue extends Model
 
     public function validate()
     {
+        if (null !== $this->searchPrice) {
+            $this->searchPrice->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->searchPrice) {
-            $res['search_price'] = null !== $this->searchPrice ? $this->searchPrice->toMap() : null;
+            $res['search_price'] = null !== $this->searchPrice ? $this->searchPrice->toArray($noStream) : $this->searchPrice;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModuleGroupItemSubItemsShoppingItemMapValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

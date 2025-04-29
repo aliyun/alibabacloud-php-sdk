@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IntlFlightSegmentAvailableCertRequest extends Model
 {
     /**
-     * @example ZJTD
-     *
      * @var string
      */
     public $isvName;
 
     /**
-     * @example chinese
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @example 21341234
-     *
      * @var string
      */
     public $userId;
@@ -34,28 +28,32 @@ class IntlFlightSegmentAvailableCertRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'isvName'  => 'isv_name',
+        'isvName' => 'isv_name',
         'language' => 'language',
-        'userId'   => 'user_id',
+        'userId' => 'user_id',
         'userName' => 'user_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isvName) {
             $res['isv_name'] = $this->isvName;
         }
+
         if (null !== $this->language) {
             $res['language'] = $this->language;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['user_name'] = $this->userName;
         }
@@ -63,23 +61,26 @@ class IntlFlightSegmentAvailableCertRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IntlFlightSegmentAvailableCertRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['isv_name'])) {
             $model->isvName = $map['isv_name'];
         }
+
         if (isset($map['language'])) {
             $model->language = $map['language'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }
+
         if (isset($map['user_name'])) {
             $model->userName = $map['user_name'];
         }

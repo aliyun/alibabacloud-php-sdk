@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MealOrderListQueryRequest extends Model
 {
     /**
-     * @example 1000
-     *
      * @var string
      */
     public $userId;
@@ -20,9 +18,10 @@ class MealOrderListQueryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -32,11 +31,11 @@ class MealOrderListQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MealOrderListQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

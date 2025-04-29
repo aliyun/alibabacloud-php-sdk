@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightOtaSearchResponseBody\module\flightJourneyInfos\flightSegmentInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class luggageDirectInfo extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $depCityLuggageDirect;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $stopCityLuggageDirect;
     protected $_name = [
-        'depCityLuggageDirect'  => 'dep_city_luggage_direct',
+        'depCityLuggageDirect' => 'dep_city_luggage_direct',
         'stopCityLuggageDirect' => 'stop_city_luggage_direct',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->depCityLuggageDirect) {
             $res['dep_city_luggage_direct'] = $this->depCityLuggageDirect;
         }
+
         if (null !== $this->stopCityLuggageDirect) {
             $res['stop_city_luggage_direct'] = $this->stopCityLuggageDirect;
         }
@@ -43,17 +41,18 @@ class luggageDirectInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return luggageDirectInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dep_city_luggage_direct'])) {
             $model->depCityLuggageDirect = $map['dep_city_luggage_direct'];
         }
+
         if (isset($map['stop_city_luggage_direct'])) {
             $model->stopCityLuggageDirect = $map['stop_city_luggage_direct'];
         }

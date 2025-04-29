@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryResponseBody\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userAffiliateList extends Model
 {
@@ -18,20 +18,22 @@ class userAffiliateList extends Model
      */
     public $userName;
     protected $_name = [
-        'userId'   => 'user_id',
+        'userId' => 'user_id',
         'userName' => 'user_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['user_name'] = $this->userName;
         }
@@ -39,17 +41,18 @@ class userAffiliateList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userAffiliateList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }
+
         if (isset($map['user_name'])) {
             $model->userName = $map['user_name'];
         }

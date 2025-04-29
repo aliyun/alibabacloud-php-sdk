@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TrainFeeCalculateChangeShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $changeTrainDetailsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $distributeOrderId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2627694109810885616
-     *
      * @var string
      */
     public $orderId;
     protected $_name = [
         'changeTrainDetailsShrink' => 'change_train_details',
-        'distributeOrderId'        => 'distribute_order_id',
-        'orderId'                  => 'order_id',
+        'distributeOrderId' => 'distribute_order_id',
+        'orderId' => 'order_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeTrainDetailsShrink) {
             $res['change_train_details'] = $this->changeTrainDetailsShrink;
         }
+
         if (null !== $this->distributeOrderId) {
             $res['distribute_order_id'] = $this->distributeOrderId;
         }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
@@ -58,20 +51,22 @@ class TrainFeeCalculateChangeShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TrainFeeCalculateChangeShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['change_train_details'])) {
             $model->changeTrainDetailsShrink = $map['change_train_details'];
         }
+
         if (isset($map['distribute_order_id'])) {
             $model->distributeOrderId = $map['distribute_order_id'];
         }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModuleFlightItemListBestPriceItemSubItemPositionMapValue extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $journeyIndex;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $segmentIndex;
@@ -28,14 +24,16 @@ class ModuleFlightItemListBestPriceItemSubItemPositionMapValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->journeyIndex) {
             $res['journey_index'] = $this->journeyIndex;
         }
+
         if (null !== $this->segmentIndex) {
             $res['segment_index'] = $this->segmentIndex;
         }
@@ -43,17 +41,18 @@ class ModuleFlightItemListBestPriceItemSubItemPositionMapValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModuleFlightItemListBestPriceItemSubItemPositionMapValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['journey_index'])) {
             $model->journeyIndex = $map['journey_index'];
         }
+
         if (isset($map['segment_index'])) {
             $model->segmentIndex = $map['segment_index'];
         }

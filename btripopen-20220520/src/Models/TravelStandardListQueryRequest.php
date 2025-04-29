@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TravelStandardListQueryRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $fromGroup;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -39,27 +29,31 @@ class TravelStandardListQueryRequest extends Model
     public $ruleName;
     protected $_name = [
         'fromGroup' => 'from_group',
-        'pageNo'    => 'page_no',
-        'pageSize'  => 'page_size',
-        'ruleName'  => 'rule_name',
+        'pageNo' => 'page_no',
+        'pageSize' => 'page_size',
+        'ruleName' => 'rule_name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromGroup) {
             $res['from_group'] = $this->fromGroup;
         }
+
         if (null !== $this->pageNo) {
             $res['page_no'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['page_size'] = $this->pageSize;
         }
+
         if (null !== $this->ruleName) {
             $res['rule_name'] = $this->ruleName;
         }
@@ -67,23 +61,26 @@ class TravelStandardListQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TravelStandardListQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['from_group'])) {
             $model->fromGroup = $map['from_group'];
         }
+
         if (isset($map['page_no'])) {
             $model->pageNo = $map['page_no'];
         }
+
         if (isset($map['page_size'])) {
             $model->pageSize = $map['page_size'];
         }
+
         if (isset($map['rule_name'])) {
             $model->ruleName = $map['rule_name'];
         }

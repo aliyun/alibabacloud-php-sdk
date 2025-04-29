@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelAskingPriceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelAskingPriceResponseBody\module\hotelAskingPriceDetails;
-use AlibabaCloud\Tea\Model;
 
 class module extends Model
 {
@@ -19,17 +19,21 @@ class module extends Model
 
     public function validate()
     {
+        if (\is_array($this->hotelAskingPriceDetails)) {
+            Model::validateArray($this->hotelAskingPriceDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelAskingPriceDetails) {
-            $res['hotel_asking_price_details'] = [];
-            if (null !== $this->hotelAskingPriceDetails && \is_array($this->hotelAskingPriceDetails)) {
-                $n = 0;
-                foreach ($this->hotelAskingPriceDetails as $item) {
-                    $res['hotel_asking_price_details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hotelAskingPriceDetails)) {
+                $res['hotel_asking_price_details'] = [];
+                $n1 = 0;
+                foreach ($this->hotelAskingPriceDetails as $item1) {
+                    $res['hotel_asking_price_details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hotel_asking_price_details'])) {
             if (!empty($map['hotel_asking_price_details'])) {
                 $model->hotelAskingPriceDetails = [];
-                $n                              = 0;
-                foreach ($map['hotel_asking_price_details'] as $item) {
-                    $model->hotelAskingPriceDetails[$n++] = null !== $item ? hotelAskingPriceDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['hotel_asking_price_details'] as $item1) {
+                    $model->hotelAskingPriceDetails[$n1++] = hotelAskingPriceDetails::fromMap($item1);
                 }
             }
         }

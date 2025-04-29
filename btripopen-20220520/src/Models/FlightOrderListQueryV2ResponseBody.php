@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ResponseBody\module;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class FlightOrderListQueryV2ResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var string
      */
     public $code;
@@ -33,66 +31,73 @@ class FlightOrderListQueryV2ResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @example C61ECFF6-****-****-****-D77369043A5F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 21041ce********056433edbb2
-     *
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'code'      => 'code',
-        'message'   => 'message',
-        'module'    => 'module',
-        'pageInfo'  => 'pageInfo',
+        'code' => 'code',
+        'message' => 'message',
+        'module' => 'module',
+        'pageInfo' => 'pageInfo',
         'requestId' => 'requestId',
-        'success'   => 'success',
-        'traceId'   => 'traceId',
+        'success' => 'success',
+        'traceId' => 'traceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->module)) {
+            Model::validateArray($this->module);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->module) {
-            $res['module'] = [];
-            if (null !== $this->module && \is_array($this->module)) {
-                $n = 0;
-                foreach ($this->module as $item) {
-                    $res['module'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->module)) {
+                $res['module'] = [];
+                $n1 = 0;
+                foreach ($this->module as $item1) {
+                    $res['module'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['pageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['pageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
         }
@@ -100,38 +105,44 @@ class FlightOrderListQueryV2ResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FlightOrderListQueryV2ResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['module'])) {
             if (!empty($map['module'])) {
                 $model->module = [];
-                $n             = 0;
-                foreach ($map['module'] as $item) {
-                    $model->module[$n++] = null !== $item ? module::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['module'] as $item1) {
+                    $model->module[$n1++] = module::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['pageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['pageInfo']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
         }
