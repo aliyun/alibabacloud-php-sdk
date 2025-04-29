@@ -12,17 +12,19 @@ class FailoverDiskReplicaPairRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaPairId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'regionId'      => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'replicaPairId' => 'ReplicaPairId',
     ];
 

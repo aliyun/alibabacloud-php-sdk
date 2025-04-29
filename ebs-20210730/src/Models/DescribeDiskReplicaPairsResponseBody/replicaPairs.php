@@ -13,133 +13,158 @@ class replicaPairs extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationDiskId;
+
     /**
      * @var string
      */
     public $destinationRegion;
+
     /**
      * @var string
      */
     public $destinationZoneId;
+
     /**
      * @var int
      */
     public $expiredTime;
+
     /**
      * @var int
      */
     public $lastRecoverPoint;
+
     /**
      * @var string
      */
     public $pairName;
+
     /**
      * @var string
      */
     public $primaryRegion;
+
     /**
      * @var string
      */
     public $primaryZone;
+
     /**
      * @var int
      */
     public $RPO;
+
     /**
      * @var string
      */
     public $replicaGroupId;
+
     /**
      * @var string
      */
     public $replicaGroupName;
+
     /**
      * @var string
      */
     public $replicaPairId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var string
      */
     public $sourceDiskId;
+
     /**
      * @var string
      */
     public $sourceRegion;
+
     /**
      * @var string
      */
     public $sourceZoneId;
+
     /**
      * @var string
      */
     public $standbyRegion;
+
     /**
      * @var string
      */
     public $standbyZone;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusMessage;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'bandwidth'         => 'Bandwidth',
-        'chargeType'        => 'ChargeType',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
+        'bandwidth' => 'Bandwidth',
+        'chargeType' => 'ChargeType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'destinationDiskId' => 'DestinationDiskId',
         'destinationRegion' => 'DestinationRegion',
         'destinationZoneId' => 'DestinationZoneId',
-        'expiredTime'       => 'ExpiredTime',
-        'lastRecoverPoint'  => 'LastRecoverPoint',
-        'pairName'          => 'PairName',
-        'primaryRegion'     => 'PrimaryRegion',
-        'primaryZone'       => 'PrimaryZone',
-        'RPO'               => 'RPO',
-        'replicaGroupId'    => 'ReplicaGroupId',
-        'replicaGroupName'  => 'ReplicaGroupName',
-        'replicaPairId'     => 'ReplicaPairId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'site'              => 'Site',
-        'sourceDiskId'      => 'SourceDiskId',
-        'sourceRegion'      => 'SourceRegion',
-        'sourceZoneId'      => 'SourceZoneId',
-        'standbyRegion'     => 'StandbyRegion',
-        'standbyZone'       => 'StandbyZone',
-        'status'            => 'Status',
-        'statusMessage'     => 'StatusMessage',
-        'tags'              => 'Tags',
+        'expiredTime' => 'ExpiredTime',
+        'lastRecoverPoint' => 'LastRecoverPoint',
+        'pairName' => 'PairName',
+        'primaryRegion' => 'PrimaryRegion',
+        'primaryZone' => 'PrimaryZone',
+        'RPO' => 'RPO',
+        'replicaGroupId' => 'ReplicaGroupId',
+        'replicaGroupName' => 'ReplicaGroupName',
+        'replicaPairId' => 'ReplicaPairId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'site' => 'Site',
+        'sourceDiskId' => 'SourceDiskId',
+        'sourceRegion' => 'SourceRegion',
+        'sourceZoneId' => 'SourceZoneId',
+        'standbyRegion' => 'StandbyRegion',
+        'standbyZone' => 'StandbyZone',
+        'status' => 'Status',
+        'statusMessage' => 'StatusMessage',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -256,7 +281,7 @@ class replicaPairs extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -377,7 +402,7 @@ class replicaPairs extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

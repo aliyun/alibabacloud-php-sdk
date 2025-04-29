@@ -12,18 +12,20 @@ class DeleteEnterpriseSnapshotPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'policyId'    => 'PolicyId',
-        'regionId'    => 'RegionId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

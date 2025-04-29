@@ -12,22 +12,25 @@ class ReprotectDiskReplicaGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaGroupId;
+
     /**
      * @var bool
      */
     public $reverseReplicate;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'regionId'         => 'RegionId',
-        'replicaGroupId'   => 'ReplicaGroupId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
+        'replicaGroupId' => 'ReplicaGroupId',
         'reverseReplicate' => 'ReverseReplicate',
     ];
 

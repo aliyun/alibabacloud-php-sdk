@@ -12,17 +12,19 @@ class CreateDedicatedBlockStorageClusterResponseBody extends Model
      * @var string
      */
     public $dbscId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'dbscId'    => 'DbscId',
-        'orderId'   => 'OrderId',
+        'dbscId' => 'DbscId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 

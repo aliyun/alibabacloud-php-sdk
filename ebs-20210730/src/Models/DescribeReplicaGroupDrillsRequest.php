@@ -12,38 +12,44 @@ class DescribeReplicaGroupDrillsRequest extends Model
      * @var string
      */
     public $drillId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'drillId'    => 'DrillId',
-        'groupId'    => 'GroupId',
+        'drillId' => 'DrillId',
+        'groupId' => 'GroupId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

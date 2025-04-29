@@ -12,33 +12,38 @@ class QueryDedicatedBlockStorageClusterInventoryDataRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dbscId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dbscId'      => 'DbscId',
-        'endTime'     => 'EndTime',
-        'period'      => 'Period',
-        'regionId'    => 'RegionId',
-        'startTime'   => 'StartTime',
+        'dbscId' => 'DbscId',
+        'endTime' => 'EndTime',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

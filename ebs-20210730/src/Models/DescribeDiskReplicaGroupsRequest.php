@@ -13,53 +13,62 @@ class DescribeDiskReplicaGroupsRequest extends Model
      * @var string
      */
     public $groupIds;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'groupIds'        => 'GroupIds',
-        'maxResults'      => 'MaxResults',
-        'name'            => 'Name',
-        'nextToken'       => 'NextToken',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'groupIds' => 'GroupIds',
+        'maxResults' => 'MaxResults',
+        'name' => 'Name',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'site'            => 'Site',
-        'tag'             => 'Tag',
+        'site' => 'Site',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -112,7 +121,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -169,7 +178,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

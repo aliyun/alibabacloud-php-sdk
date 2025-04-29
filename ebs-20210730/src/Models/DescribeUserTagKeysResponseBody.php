@@ -12,23 +12,26 @@ class DescribeUserTagKeysResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $tagKeys;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'tagKeys'    => 'TagKeys',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'tagKeys' => 'TagKeys',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class DescribeUserTagKeysResponseBody extends Model
         if (null !== $this->tagKeys) {
             if (\is_array($this->tagKeys)) {
                 $res['TagKeys'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
                     $res['TagKeys'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class DescribeUserTagKeysResponseBody extends Model
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
                 $model->tagKeys = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
                     $model->tagKeys[$n1++] = $item1;
                 }

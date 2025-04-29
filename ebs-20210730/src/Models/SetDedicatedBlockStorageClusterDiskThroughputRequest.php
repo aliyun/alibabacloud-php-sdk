@@ -12,23 +12,26 @@ class SetDedicatedBlockStorageClusterDiskThroughputRequest extends Model
      * @var int
      */
     public $bps;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'bps'         => 'Bps',
+        'bps' => 'Bps',
         'clientToken' => 'ClientToken',
-        'diskId'      => 'DiskId',
-        'regionId'    => 'RegionId',
+        'diskId' => 'DiskId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DescribeDiskMonitorDataRequest extends Model
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'diskId'    => 'DiskId',
-        'endTime'   => 'EndTime',
-        'period'    => 'Period',
-        'regionId'  => 'RegionId',
+        'diskId' => 'DiskId',
+        'endTime' => 'EndTime',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
         'startTime' => 'StartTime',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

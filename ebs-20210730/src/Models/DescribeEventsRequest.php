@@ -12,53 +12,62 @@ class DescribeEventsRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'eventLevel'   => 'EventLevel',
-        'eventName'    => 'EventName',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'endTime' => 'EndTime',
+        'eventLevel' => 'EventLevel',
+        'eventName' => 'EventName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

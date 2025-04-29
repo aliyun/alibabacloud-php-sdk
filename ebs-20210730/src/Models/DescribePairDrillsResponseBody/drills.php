@@ -12,38 +12,44 @@ class drills extends Model
      * @var string
      */
     public $drillDiskId;
+
     /**
      * @var string
      */
     public $drillDiskStatus;
+
     /**
      * @var string
      */
     public $drillId;
+
     /**
      * @var int
      */
     public $recoverPoint;
+
     /**
      * @var int
      */
     public $startAt;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusMessage;
     protected $_name = [
-        'drillDiskId'     => 'DrillDiskId',
+        'drillDiskId' => 'DrillDiskId',
         'drillDiskStatus' => 'DrillDiskStatus',
-        'drillId'         => 'DrillId',
-        'recoverPoint'    => 'RecoverPoint',
-        'startAt'         => 'StartAt',
-        'status'          => 'Status',
-        'statusMessage'   => 'StatusMessage',
+        'drillId' => 'DrillId',
+        'recoverPoint' => 'RecoverPoint',
+        'startAt' => 'StartAt',
+        'status' => 'Status',
+        'statusMessage' => 'StatusMessage',
     ];
 
     public function validate()

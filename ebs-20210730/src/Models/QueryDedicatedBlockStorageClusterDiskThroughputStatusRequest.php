@@ -12,18 +12,20 @@ class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $qosRequestId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'qosRequestId' => 'QosRequestId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

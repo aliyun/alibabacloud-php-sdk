@@ -12,22 +12,25 @@ class GetReportRequest extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $reportType;
     protected $_name = [
-        'appName'    => 'AppName',
-        'regionId'   => 'RegionId',
-        'reportId'   => 'ReportId',
+        'appName' => 'AppName',
+        'regionId' => 'RegionId',
+        'reportId' => 'ReportId',
         'reportType' => 'ReportType',
     ];
 

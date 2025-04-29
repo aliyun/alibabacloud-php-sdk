@@ -13,33 +13,38 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
      * @var dedicatedBlockStorageClusters[]
      */
     public $dedicatedBlockStorageClusters;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'dedicatedBlockStorageClusters' => 'DedicatedBlockStorageClusters',
-        'nextToken'                     => 'NextToken',
-        'pageNumber'                    => 'PageNumber',
-        'pageSize'                      => 'PageSize',
-        'requestId'                     => 'RequestId',
-        'totalCount'                    => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
         if (null !== $this->dedicatedBlockStorageClusters) {
             if (\is_array($this->dedicatedBlockStorageClusters)) {
                 $res['DedicatedBlockStorageClusters'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->dedicatedBlockStorageClusters as $item1) {
                     $res['DedicatedBlockStorageClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
         if (isset($map['DedicatedBlockStorageClusters'])) {
             if (!empty($map['DedicatedBlockStorageClusters'])) {
                 $model->dedicatedBlockStorageClusters = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['DedicatedBlockStorageClusters'] as $item1) {
                     $model->dedicatedBlockStorageClusters[$n1++] = dedicatedBlockStorageClusters::fromMap($item1);
                 }

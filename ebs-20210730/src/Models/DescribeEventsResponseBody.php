@@ -13,23 +13,26 @@ class DescribeEventsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceEvents[]
      */
     public $resourceEvents;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'resourceEvents' => 'ResourceEvents',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class DescribeEventsResponseBody extends Model
         if (null !== $this->resourceEvents) {
             if (\is_array($this->resourceEvents)) {
                 $res['ResourceEvents'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->resourceEvents as $item1) {
                     $res['ResourceEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class DescribeEventsResponseBody extends Model
         if (isset($map['ResourceEvents'])) {
             if (!empty($map['ResourceEvents'])) {
                 $model->resourceEvents = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ResourceEvents'] as $item1) {
                     $model->resourceEvents[$n1++] = resourceEvents::fromMap($item1);
                 }

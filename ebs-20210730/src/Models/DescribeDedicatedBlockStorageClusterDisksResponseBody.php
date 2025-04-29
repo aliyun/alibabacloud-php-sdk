@@ -13,16 +13,18 @@ class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
      * @var disks
      */
     public $disks;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'disks'     => 'Disks',
+        'disks' => 'Disks',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];

@@ -12,23 +12,26 @@ class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
      * @var string
      */
     public $dbscId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'dbscId'     => 'DbscId',
+        'dbscId' => 'DbscId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class DescribeDiskEventsRequest extends Model
      * @var string
      */
     public $diskCategory;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'diskCategory' => 'DiskCategory',
-        'diskId'       => 'DiskId',
-        'endTime'      => 'EndTime',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
-        'startTime'    => 'StartTime',
-        'type'         => 'Type',
+        'diskId' => 'DiskId',
+        'endTime' => 'EndTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -13,58 +13,68 @@ class DescribeDiskReplicaPairsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pairIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaGroupId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'name'            => 'Name',
-        'nextToken'       => 'NextToken',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'pairIds'         => 'PairIds',
-        'regionId'        => 'RegionId',
-        'replicaGroupId'  => 'ReplicaGroupId',
+        'maxResults' => 'MaxResults',
+        'name' => 'Name',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'pairIds' => 'PairIds',
+        'regionId' => 'RegionId',
+        'replicaGroupId' => 'ReplicaGroupId',
         'resourceGroupId' => 'ResourceGroupId',
-        'site'            => 'Site',
-        'tag'             => 'Tag',
+        'site' => 'Site',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -121,7 +131,7 @@ class DescribeDiskReplicaPairsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -182,7 +192,7 @@ class DescribeDiskReplicaPairsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

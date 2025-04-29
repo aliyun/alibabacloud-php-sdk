@@ -12,38 +12,44 @@ class DescribeDiskMonitorDataListRequest extends Model
      * @var string
      */
     public $diskIds;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'diskIds'    => 'DiskIds',
-        'endTime'    => 'EndTime',
+        'diskIds' => 'DiskIds',
+        'endTime' => 'EndTime',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
-        'type'       => 'Type',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class DescribeDiskReplicaPairProgressRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaPairId;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
         'replicaPairId' => 'ReplicaPairId',
     ];
 

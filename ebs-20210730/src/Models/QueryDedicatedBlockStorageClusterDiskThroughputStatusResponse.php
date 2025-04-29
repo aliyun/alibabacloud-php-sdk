@@ -12,18 +12,20 @@ class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse extends Mode
      * @var string[]
      */
     public $headers;
+
     /**
      * @var int
      */
     public $statusCode;
+
     /**
      * @var QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

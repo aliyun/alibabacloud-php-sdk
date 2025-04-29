@@ -12,14 +12,17 @@ class UnbindEnterpriseSnapshotPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $diskTargets;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class UnbindEnterpriseSnapshotPolicyRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'diskTargets' => 'DiskTargets',
-        'policyId'    => 'PolicyId',
-        'regionId'    => 'RegionId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class UnbindEnterpriseSnapshotPolicyRequest extends Model
         if (null !== $this->diskTargets) {
             if (\is_array($this->diskTargets)) {
                 $res['DiskTargets'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->diskTargets as $item1) {
                     $res['DiskTargets'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class UnbindEnterpriseSnapshotPolicyRequest extends Model
         if (isset($map['DiskTargets'])) {
             if (!empty($map['DiskTargets'])) {
                 $model->diskTargets = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DiskTargets'] as $item1) {
                     $model->diskTargets[$n1++] = $item1;
                 }

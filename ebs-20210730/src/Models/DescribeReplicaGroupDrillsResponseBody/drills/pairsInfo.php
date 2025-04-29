@@ -12,18 +12,20 @@ class pairsInfo extends Model
      * @var string
      */
     public $drillDiskId;
+
     /**
      * @var string
      */
     public $drillDiskStatus;
+
     /**
      * @var string
      */
     public $pairId;
     protected $_name = [
-        'drillDiskId'     => 'DrillDiskId',
+        'drillDiskId' => 'DrillDiskId',
         'drillDiskStatus' => 'DrillDiskStatus',
-        'pairId'          => 'PairId',
+        'pairId' => 'PairId',
     ];
 
     public function validate()

@@ -12,38 +12,50 @@ class DescribeMetricDataRequest extends Model
      * @var string
      */
     public $aggreOps;
+
+    /**
+     * @var string
+     */
+    public $aggreOverLineOps;
+
     /**
      * @var string
      */
     public $dimensions;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'aggreOps'   => 'AggreOps',
+        'aggreOps' => 'AggreOps',
+        'aggreOverLineOps' => 'AggreOverLineOps',
         'dimensions' => 'Dimensions',
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'metricName' => 'MetricName',
-        'period'     => 'Period',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -56,6 +68,10 @@ class DescribeMetricDataRequest extends Model
         $res = [];
         if (null !== $this->aggreOps) {
             $res['AggreOps'] = $this->aggreOps;
+        }
+
+        if (null !== $this->aggreOverLineOps) {
+            $res['AggreOverLineOps'] = $this->aggreOverLineOps;
         }
 
         if (null !== $this->dimensions) {
@@ -95,6 +111,10 @@ class DescribeMetricDataRequest extends Model
         $model = new self();
         if (isset($map['AggreOps'])) {
             $model->aggreOps = $map['AggreOps'];
+        }
+
+        if (isset($map['AggreOverLineOps'])) {
+            $model->aggreOverLineOps = $map['AggreOverLineOps'];
         }
 
         if (isset($map['Dimensions'])) {

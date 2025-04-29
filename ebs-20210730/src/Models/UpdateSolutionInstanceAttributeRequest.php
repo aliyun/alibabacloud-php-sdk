@@ -12,27 +12,31 @@ class UpdateSolutionInstanceAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $solutionInstanceId;
     protected $_name = [
-        'clientToken'        => 'ClientToken',
-        'description'        => 'Description',
-        'name'               => 'Name',
-        'regionId'           => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
         'solutionInstanceId' => 'SolutionInstanceId',
     ];
 

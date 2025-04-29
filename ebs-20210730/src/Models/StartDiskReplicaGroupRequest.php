@@ -12,22 +12,25 @@ class StartDiskReplicaGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $oneShot;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaGroupId;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'oneShot'        => 'OneShot',
-        'regionId'       => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'oneShot' => 'OneShot',
+        'regionId' => 'RegionId',
         'replicaGroupId' => 'ReplicaGroupId',
     ];
 

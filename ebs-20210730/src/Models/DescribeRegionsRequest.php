@@ -12,18 +12,20 @@ class DescribeRegionsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'regionId'       => 'RegionId',
-        'resourceType'   => 'ResourceType',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

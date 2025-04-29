@@ -13,63 +13,74 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
      * @var string
      */
     public $azoneId;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $dedicatedBlockStorageClusterId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'azoneId'                        => 'AzoneId',
-        'category'                       => 'Category',
-        'clientToken'                    => 'ClientToken',
+        'azoneId' => 'AzoneId',
+        'category' => 'Category',
+        'clientToken' => 'ClientToken',
         'dedicatedBlockStorageClusterId' => 'DedicatedBlockStorageClusterId',
-        'maxResults'                     => 'MaxResults',
-        'nextToken'                      => 'NextToken',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'status'                         => 'Status',
-        'tag'                            => 'Tag',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -104,7 +115,7 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         if (null !== $this->dedicatedBlockStorageClusterId) {
             if (\is_array($this->dedicatedBlockStorageClusterId)) {
                 $res['DedicatedBlockStorageClusterId'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->dedicatedBlockStorageClusterId as $item1) {
                     $res['DedicatedBlockStorageClusterId'][$n1++] = $item1;
                 }
@@ -138,7 +149,7 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -148,7 +159,7 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -181,7 +192,7 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         if (isset($map['DedicatedBlockStorageClusterId'])) {
             if (!empty($map['DedicatedBlockStorageClusterId'])) {
                 $model->dedicatedBlockStorageClusterId = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['DedicatedBlockStorageClusterId'] as $item1) {
                     $model->dedicatedBlockStorageClusterId[$n1++] = $item1;
                 }
@@ -215,7 +226,7 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }
@@ -225,7 +236,7 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

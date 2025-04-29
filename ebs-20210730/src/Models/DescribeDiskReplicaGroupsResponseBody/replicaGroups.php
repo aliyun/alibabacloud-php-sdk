@@ -13,103 +13,122 @@ class replicaGroups extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationRegionId;
+
     /**
      * @var string
      */
     public $destinationZoneId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $lastRecoverPoint;
+
     /**
      * @var int[][]
      */
     public $pairIds;
+
     /**
      * @var int
      */
     public $pairNumber;
+
     /**
      * @var string
      */
     public $primaryRegion;
+
     /**
      * @var string
      */
     public $primaryZone;
+
     /**
      * @var int
      */
     public $RPO;
+
     /**
      * @var string
      */
     public $replicaGroupId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var string
      */
     public $sourceRegionId;
+
     /**
      * @var string
      */
     public $sourceZoneId;
+
     /**
      * @var string
      */
     public $standbyRegion;
+
     /**
      * @var string
      */
     public $standbyZone;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'bandwidth'           => 'Bandwidth',
-        'description'         => 'Description',
+        'bandwidth' => 'Bandwidth',
+        'description' => 'Description',
         'destinationRegionId' => 'DestinationRegionId',
-        'destinationZoneId'   => 'DestinationZoneId',
-        'groupName'           => 'GroupName',
-        'lastRecoverPoint'    => 'LastRecoverPoint',
-        'pairIds'             => 'PairIds',
-        'pairNumber'          => 'PairNumber',
-        'primaryRegion'       => 'PrimaryRegion',
-        'primaryZone'         => 'PrimaryZone',
-        'RPO'                 => 'RPO',
-        'replicaGroupId'      => 'ReplicaGroupId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'site'                => 'Site',
-        'sourceRegionId'      => 'SourceRegionId',
-        'sourceZoneId'        => 'SourceZoneId',
-        'standbyRegion'       => 'StandbyRegion',
-        'standbyZone'         => 'StandbyZone',
-        'status'              => 'Status',
-        'tags'                => 'Tags',
+        'destinationZoneId' => 'DestinationZoneId',
+        'groupName' => 'GroupName',
+        'lastRecoverPoint' => 'LastRecoverPoint',
+        'pairIds' => 'PairIds',
+        'pairNumber' => 'PairNumber',
+        'primaryRegion' => 'PrimaryRegion',
+        'primaryZone' => 'PrimaryZone',
+        'RPO' => 'RPO',
+        'replicaGroupId' => 'ReplicaGroupId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'site' => 'Site',
+        'sourceRegionId' => 'SourceRegionId',
+        'sourceZoneId' => 'SourceZoneId',
+        'standbyRegion' => 'StandbyRegion',
+        'standbyZone' => 'StandbyZone',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -153,7 +172,7 @@ class replicaGroups extends Model
         if (null !== $this->pairIds) {
             if (\is_array($this->pairIds)) {
                 $res['PairIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->pairIds as $item1) {
                     $res['PairIds'][$n1++] = $item1;
                 }
@@ -211,7 +230,7 @@ class replicaGroups extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -256,7 +275,7 @@ class replicaGroups extends Model
         if (isset($map['PairIds'])) {
             if (!empty($map['PairIds'])) {
                 $model->pairIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['PairIds'] as $item1) {
                     $model->pairIds[$n1++] = $item1;
                 }
@@ -314,7 +333,7 @@ class replicaGroups extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

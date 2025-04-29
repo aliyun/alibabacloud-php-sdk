@@ -13,78 +13,98 @@ class diskInfos extends Model
      * @var int
      */
     public $bps;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $diskCategory;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $diskName;
+
     /**
      * @var string
      */
     public $diskStatus;
+
     /**
      * @var string
      */
     public $diskType;
+
     /**
      * @var int
      */
     public $iops;
+
     /**
      * @var string[]
      */
     public $lensTags;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var int
      */
     public $provisionedIops;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sharingEnabled;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'bps'              => 'Bps',
-        'burstingEnabled'  => 'BurstingEnabled',
-        'diskCategory'     => 'DiskCategory',
-        'diskId'           => 'DiskId',
-        'diskName'         => 'DiskName',
-        'diskStatus'       => 'DiskStatus',
-        'diskType'         => 'DiskType',
-        'iops'             => 'Iops',
-        'lensTags'         => 'LensTags',
+        'bps' => 'Bps',
+        'burstingEnabled' => 'BurstingEnabled',
+        'diskCategory' => 'DiskCategory',
+        'diskId' => 'DiskId',
+        'diskName' => 'DiskName',
+        'diskStatus' => 'DiskStatus',
+        'diskType' => 'DiskType',
+        'iops' => 'Iops',
+        'lensTags' => 'LensTags',
         'performanceLevel' => 'PerformanceLevel',
-        'provisionedIops'  => 'ProvisionedIops',
-        'regionId'         => 'RegionId',
-        'size'             => 'Size',
-        'tags'             => 'Tags',
-        'zoneId'           => 'ZoneId',
+        'provisionedIops' => 'ProvisionedIops',
+        'regionId' => 'RegionId',
+        'sharingEnabled' => 'SharingEnabled',
+        'size' => 'Size',
+        'tags' => 'Tags',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -136,7 +156,7 @@ class diskInfos extends Model
         if (null !== $this->lensTags) {
             if (\is_array($this->lensTags)) {
                 $res['LensTags'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->lensTags as $item1) {
                     $res['LensTags'][$n1++] = $item1;
                 }
@@ -155,6 +175,10 @@ class diskInfos extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->sharingEnabled) {
+            $res['SharingEnabled'] = $this->sharingEnabled;
+        }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -162,7 +186,7 @@ class diskInfos extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -219,7 +243,7 @@ class diskInfos extends Model
         if (isset($map['LensTags'])) {
             if (!empty($map['LensTags'])) {
                 $model->lensTags = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['LensTags'] as $item1) {
                     $model->lensTags[$n1++] = $item1;
                 }
@@ -238,6 +262,10 @@ class diskInfos extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['SharingEnabled'])) {
+            $model->sharingEnabled = $map['SharingEnabled'];
+        }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
@@ -245,7 +273,7 @@ class diskInfos extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

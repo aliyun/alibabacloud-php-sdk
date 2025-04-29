@@ -12,12 +12,13 @@ class DescribeSolutionInstanceConfigurationResponseBody extends Model
      * @var mixed[][]
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -35,7 +36,7 @@ class DescribeSolutionInstanceConfigurationResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     if (\is_array($item1)) {
                         $res['Data'][$n1++] = [];
@@ -65,7 +66,7 @@ class DescribeSolutionInstanceConfigurationResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     if (!empty($item1)) {
                         $model->data[$n1++] = [];

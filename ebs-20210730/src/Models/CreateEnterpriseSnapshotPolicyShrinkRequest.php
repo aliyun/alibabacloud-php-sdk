@@ -13,68 +13,80 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $crossRegionCopyInfoShrink;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $retainRuleShrink;
+
     /**
      * @var string
      */
     public $scheduleShrink;
+
     /**
      * @var string
      */
     public $specialRetainRulesShrink;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $storageRuleShrink;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'crossRegionCopyInfoShrink' => 'CrossRegionCopyInfo',
-        'desc'                      => 'Desc',
-        'name'                      => 'Name',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'retainRuleShrink'          => 'RetainRule',
-        'scheduleShrink'            => 'Schedule',
-        'specialRetainRulesShrink'  => 'SpecialRetainRules',
-        'state'                     => 'State',
-        'storageRuleShrink'         => 'StorageRule',
-        'tag'                       => 'Tag',
-        'targetType'                => 'TargetType',
+        'desc' => 'Desc',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'retainRuleShrink' => 'RetainRule',
+        'scheduleShrink' => 'Schedule',
+        'specialRetainRulesShrink' => 'SpecialRetainRules',
+        'state' => 'State',
+        'storageRuleShrink' => 'StorageRule',
+        'tag' => 'Tag',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
@@ -135,7 +147,7 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -204,7 +216,7 @@ class CreateEnterpriseSnapshotPolicyShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

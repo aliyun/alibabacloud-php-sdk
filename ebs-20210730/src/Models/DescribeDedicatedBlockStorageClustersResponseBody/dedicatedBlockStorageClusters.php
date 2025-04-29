@@ -14,98 +14,116 @@ class dedicatedBlockStorageClusters extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dedicatedBlockStorageClusterCapacity
      */
     public $dedicatedBlockStorageClusterCapacity;
+
     /**
      * @var string
      */
     public $dedicatedBlockStorageClusterId;
+
     /**
      * @var string
      */
     public $dedicatedBlockStorageClusterName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableThinProvision;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var float
      */
     public $sizeOverSoldRatio;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageDomain;
+
     /**
      * @var string
      */
     public $supportedCategory;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'aliUid'                               => 'AliUid',
-        'category'                             => 'Category',
-        'createTime'                           => 'CreateTime',
+        'aliUid' => 'AliUid',
+        'category' => 'Category',
+        'createTime' => 'CreateTime',
         'dedicatedBlockStorageClusterCapacity' => 'DedicatedBlockStorageClusterCapacity',
-        'dedicatedBlockStorageClusterId'       => 'DedicatedBlockStorageClusterId',
-        'dedicatedBlockStorageClusterName'     => 'DedicatedBlockStorageClusterName',
-        'description'                          => 'Description',
-        'enableThinProvision'                  => 'EnableThinProvision',
-        'expiredTime'                          => 'ExpiredTime',
-        'performanceLevel'                     => 'PerformanceLevel',
-        'regionId'                             => 'RegionId',
-        'resourceGroupId'                      => 'ResourceGroupId',
-        'sizeOverSoldRatio'                    => 'SizeOverSoldRatio',
-        'status'                               => 'Status',
-        'storageDomain'                        => 'StorageDomain',
-        'supportedCategory'                    => 'SupportedCategory',
-        'tags'                                 => 'Tags',
-        'type'                                 => 'Type',
-        'zoneId'                               => 'ZoneId',
+        'dedicatedBlockStorageClusterId' => 'DedicatedBlockStorageClusterId',
+        'dedicatedBlockStorageClusterName' => 'DedicatedBlockStorageClusterName',
+        'description' => 'Description',
+        'enableThinProvision' => 'EnableThinProvision',
+        'expiredTime' => 'ExpiredTime',
+        'performanceLevel' => 'PerformanceLevel',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sizeOverSoldRatio' => 'SizeOverSoldRatio',
+        'status' => 'Status',
+        'storageDomain' => 'StorageDomain',
+        'supportedCategory' => 'SupportedCategory',
+        'tags' => 'Tags',
+        'type' => 'Type',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -189,7 +207,7 @@ class dedicatedBlockStorageClusters extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -282,7 +300,7 @@ class dedicatedBlockStorageClusters extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

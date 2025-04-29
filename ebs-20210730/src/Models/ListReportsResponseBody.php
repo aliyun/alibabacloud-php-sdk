@@ -13,33 +13,38 @@ class ListReportsResponseBody extends Model
      * @var historyReports[]
      */
     public $historyReports;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'historyReports' => 'HistoryReports',
-        'nextToken'      => 'NextToken',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class ListReportsResponseBody extends Model
         if (null !== $this->historyReports) {
             if (\is_array($this->historyReports)) {
                 $res['HistoryReports'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->historyReports as $item1) {
                     $res['HistoryReports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class ListReportsResponseBody extends Model
         if (isset($map['HistoryReports'])) {
             if (!empty($map['HistoryReports'])) {
                 $model->historyReports = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['HistoryReports'] as $item1) {
                     $model->historyReports[$n1++] = historyReports::fromMap($item1);
                 }

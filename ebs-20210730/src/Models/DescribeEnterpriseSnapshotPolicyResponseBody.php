@@ -13,32 +13,37 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var policies[]
      */
     public $policies;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'policies'   => 'Policies',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -68,7 +73,7 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
         if (null !== $this->policies) {
             if (\is_array($this->policies)) {
                 $res['Policies'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->policies as $item1) {
                     $res['Policies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Policies'] as $item1) {
                     $model->policies[$n1++] = policies::fromMap($item1);
                 }

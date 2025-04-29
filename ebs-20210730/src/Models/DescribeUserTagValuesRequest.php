@@ -12,28 +12,32 @@ class DescribeUserTagValuesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tagFilterValue;
+
     /**
      * @var string
      */
     public $tagKey;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'regionId'       => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'tagFilterValue' => 'TagFilterValue',
-        'tagKey'         => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()

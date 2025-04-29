@@ -12,27 +12,31 @@ class historyReports extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $reportName;
+
     /**
      * @var string
      */
     public $reportTime;
+
     /**
      * @var string
      */
     public $subscribePeriod;
     protected $_name = [
-        'appName'         => 'AppName',
-        'reportId'        => 'ReportId',
-        'reportName'      => 'ReportName',
-        'reportTime'      => 'ReportTime',
+        'appName' => 'AppName',
+        'reportId' => 'ReportId',
+        'reportName' => 'ReportName',
+        'reportTime' => 'ReportTime',
         'subscribePeriod' => 'SubscribePeriod',
     ];
 

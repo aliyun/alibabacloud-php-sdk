@@ -12,23 +12,26 @@ class RemoveDiskReplicaPairRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaGroupId;
+
     /**
      * @var string
      */
     public $replicaPairId;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'replicaGroupId' => 'ReplicaGroupId',
-        'replicaPairId'  => 'ReplicaPairId',
+        'replicaPairId' => 'ReplicaPairId',
     ];
 
     public function validate()

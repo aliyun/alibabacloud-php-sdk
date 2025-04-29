@@ -12,13 +12,14 @@ class data extends Model
      * @var mixed[]
      */
     public $dataPoints;
+
     /**
      * @var mixed[]
      */
     public $labels;
     protected $_name = [
         'dataPoints' => 'DataPoints',
-        'labels'     => 'Labels',
+        'labels' => 'Labels',
     ];
 
     public function validate()

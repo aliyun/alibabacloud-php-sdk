@@ -13,12 +13,13 @@ class DescribeRegionsResponseBody extends Model
      * @var regions[]
      */
     public $regions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeRegionsResponseBody extends Model
         if (null !== $this->regions) {
             if (\is_array($this->regions)) {
                 $res['Regions'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->regions as $item1) {
                     $res['Regions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeRegionsResponseBody extends Model
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Regions'] as $item1) {
                     $model->regions[$n1++] = regions::fromMap($item1);
                 }

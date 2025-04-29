@@ -12,13 +12,14 @@ class dataList extends Model
      * @var mixed
      */
     public $datapoints;
+
     /**
      * @var mixed
      */
     public $labels;
     protected $_name = [
         'datapoints' => 'Datapoints',
-        'labels'     => 'Labels',
+        'labels' => 'Labels',
     ];
 
     public function validate()

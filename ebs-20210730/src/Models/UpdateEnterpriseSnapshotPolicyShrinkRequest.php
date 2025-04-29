@@ -12,58 +12,68 @@ class UpdateEnterpriseSnapshotPolicyShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $crossRegionCopyInfoShrink;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $retainRuleShrink;
+
     /**
      * @var string
      */
     public $scheduleShrink;
+
     /**
      * @var string
      */
     public $specialRetainRulesShrink;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $storageRuleShrink;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'crossRegionCopyInfoShrink' => 'CrossRegionCopyInfo',
-        'desc'                      => 'Desc',
-        'name'                      => 'Name',
-        'policyId'                  => 'PolicyId',
-        'regionId'                  => 'RegionId',
-        'retainRuleShrink'          => 'RetainRule',
-        'scheduleShrink'            => 'Schedule',
-        'specialRetainRulesShrink'  => 'SpecialRetainRules',
-        'state'                     => 'State',
-        'storageRuleShrink'         => 'StorageRule',
+        'desc' => 'Desc',
+        'name' => 'Name',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
+        'retainRuleShrink' => 'RetainRule',
+        'scheduleShrink' => 'Schedule',
+        'specialRetainRulesShrink' => 'SpecialRetainRules',
+        'state' => 'State',
+        'storageRuleShrink' => 'StorageRule',
     ];
 
     public function validate()

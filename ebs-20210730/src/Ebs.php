@@ -172,6 +172,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - AddDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDiskReplicaPairResponse
      *
      * @param AddDiskReplicaPairRequest $request
@@ -203,21 +204,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -232,6 +230,7 @@ class Ebs extends OpenApiClient
      * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
      *
      * @param request - AddDiskReplicaPairRequest
+     *
      * @returns AddDiskReplicaPairResponse
      *
      * @param AddDiskReplicaPairRequest $request
@@ -254,6 +253,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ApplyLensServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApplyLensServiceResponse
      *
      * @param RuntimeOptions $runtime
@@ -262,23 +262,20 @@ class Ebs extends OpenApiClient
      */
     public function applyLensServiceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ApplyLensService',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyLensService',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ApplyLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyLensServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -287,6 +284,7 @@ class Ebs extends OpenApiClient
      * @remarks
      * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
      * @returns ApplyLensServiceResponse
      *
      * @return ApplyLensServiceResponse
@@ -303,6 +301,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - BindEnterpriseSnapshotPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindEnterpriseSnapshotPolicyResponse
      *
      * @param BindEnterpriseSnapshotPolicyRequest $request
@@ -334,27 +333,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindEnterpriseSnapshotPolicy',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindEnterpriseSnapshotPolicy',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Bind disks into a enterprise-level snapshot policy.
      *
      * @param request - BindEnterpriseSnapshotPolicyRequest
+     *
      * @returns BindEnterpriseSnapshotPolicyResponse
      *
      * @param BindEnterpriseSnapshotPolicyRequest $request
@@ -377,6 +374,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - CancelLensServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelLensServiceResponse
      *
      * @param RuntimeOptions $runtime
@@ -385,23 +383,20 @@ class Ebs extends OpenApiClient
      */
     public function cancelLensServiceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'CancelLensService',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelLensService',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelLensServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -410,6 +405,7 @@ class Ebs extends OpenApiClient
      * @remarks
      * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
      * @returns CancelLensServiceResponse
      *
      * @return CancelLensServiceResponse
@@ -426,6 +422,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -461,27 +458,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Changes the resource group to which an Elastic Block Storage (EBS) resource belongs.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -500,6 +495,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ClearPairDrillRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ClearPairDrillResponse
      *
      * @param ClearPairDrillRequest $request
@@ -527,27 +523,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ClearPairDrill',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ClearPairDrill',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ClearPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ClearPairDrillResponse::fromMap($this->execute($params, $req, $runtime));
+        return ClearPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Clears the disaster recovery drills that were initiated from the secondary disk of a replication pair and deletes the auto-created drill disks.
      *
      * @param request - ClearPairDrillRequest
+     *
      * @returns ClearPairDrillResponse
      *
      * @param ClearPairDrillRequest $request
@@ -566,6 +560,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ClearReplicaGroupDrillRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ClearReplicaGroupDrillResponse
      *
      * @param ClearReplicaGroupDrillRequest $request
@@ -593,27 +588,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ClearReplicaGroupDrill',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ClearReplicaGroupDrill',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ClearReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ClearReplicaGroupDrillResponse::fromMap($this->execute($params, $req, $runtime));
+        return ClearReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Clears the disaster recovery drills that were initiated from the secondary disks of a replication pair-consistent group and deletes the auto-created drill disks.
      *
      * @param request - ClearReplicaGroupDrillRequest
+     *
      * @returns ClearReplicaGroupDrillResponse
      *
      * @param ClearReplicaGroupDrillRequest $request
@@ -639,6 +632,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - CreateDedicatedBlockStorageClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDedicatedBlockStorageClusterResponse
      *
      * @param CreateDedicatedBlockStorageClusterRequest $request
@@ -694,21 +688,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDedicatedBlockStorageCluster',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDedicatedBlockStorageCluster',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDedicatedBlockStorageClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDedicatedBlockStorageClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDedicatedBlockStorageClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -722,6 +713,7 @@ class Ebs extends OpenApiClient
      * *   You are charged for creating dedicated block storage clusters.
      *
      * @param request - CreateDedicatedBlockStorageClusterRequest
+     *
      * @returns CreateDedicatedBlockStorageClusterResponse
      *
      * @param CreateDedicatedBlockStorageClusterRequest $request
@@ -749,6 +741,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - CreateDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDiskReplicaGroupResponse
      *
      * @param CreateDiskReplicaGroupRequest $request
@@ -808,21 +801,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,6 +828,7 @@ class Ebs extends OpenApiClient
      * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
      *
      * @param request - CreateDiskReplicaGroupRequest
+     *
      * @returns CreateDiskReplicaGroupResponse
      *
      * @param CreateDiskReplicaGroupRequest $request
@@ -864,6 +855,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - CreateDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDiskReplicaPairResponse
      *
      * @param CreateDiskReplicaPairRequest $request
@@ -943,21 +935,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,6 +961,7 @@ class Ebs extends OpenApiClient
      * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
      *
      * @param request - CreateDiskReplicaPairRequest
+     *
      * @returns CreateDiskReplicaPairResponse
      *
      * @param CreateDiskReplicaPairRequest $request
@@ -990,6 +980,7 @@ class Ebs extends OpenApiClient
      *
      * @param tmpReq - CreateEnterpriseSnapshotPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateEnterpriseSnapshotPolicyResponse
      *
      * @param CreateEnterpriseSnapshotPolicyRequest $tmpReq
@@ -1079,27 +1070,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateEnterpriseSnapshotPolicy',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEnterpriseSnapshotPolicy',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Create an enterprise-level snapshot policy.
      *
      * @param request - CreateEnterpriseSnapshotPolicyRequest
+     *
      * @returns CreateEnterpriseSnapshotPolicyResponse
      *
      * @param CreateEnterpriseSnapshotPolicyRequest $request
@@ -1124,6 +1113,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DeleteDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDiskReplicaGroupResponse
      *
      * @param DeleteDiskReplicaGroupRequest $request
@@ -1151,21 +1141,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1178,6 +1165,7 @@ class Ebs extends OpenApiClient
      * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
      *
      * @param request - DeleteDiskReplicaGroupRequest
+     *
      * @returns DeleteDiskReplicaGroupResponse
      *
      * @param DeleteDiskReplicaGroupRequest $request
@@ -1202,6 +1190,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DeleteDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDiskReplicaPairResponse
      *
      * @param DeleteDiskReplicaPairRequest $request
@@ -1229,21 +1218,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1256,6 +1242,7 @@ class Ebs extends OpenApiClient
      * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
      *
      * @param request - DeleteDiskReplicaPairRequest
+     *
      * @returns DeleteDiskReplicaPairResponse
      *
      * @param DeleteDiskReplicaPairRequest $request
@@ -1274,6 +1261,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DeleteEnterpriseSnapshotPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteEnterpriseSnapshotPolicyResponse
      *
      * @param DeleteEnterpriseSnapshotPolicyRequest $request
@@ -1301,27 +1289,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEnterpriseSnapshotPolicy',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEnterpriseSnapshotPolicy',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Delete a enterprise-level snapshot policy.
      *
      * @param request - DeleteEnterpriseSnapshotPolicyRequest
+     *
      * @returns DeleteEnterpriseSnapshotPolicyResponse
      *
      * @param DeleteEnterpriseSnapshotPolicyRequest $request
@@ -1348,6 +1334,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDedicatedBlockStorageClusterDisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDedicatedBlockStorageClusterDisksResponse
      *
      * @param DescribeDedicatedBlockStorageClusterDisksRequest $request
@@ -1379,21 +1366,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedBlockStorageClusterDisks',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedBlockStorageClusterDisks',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1408,6 +1392,7 @@ class Ebs extends OpenApiClient
      * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
      *
      * @param request - DescribeDedicatedBlockStorageClusterDisksRequest
+     *
      * @returns DescribeDedicatedBlockStorageClusterDisksResponse
      *
      * @param DescribeDedicatedBlockStorageClusterDisksRequest $request
@@ -1432,6 +1417,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDedicatedBlockStorageClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDedicatedBlockStorageClustersResponse
      *
      * @param DescribeDedicatedBlockStorageClustersRequest $request
@@ -1494,24 +1480,21 @@ class Ebs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedBlockStorageClusters',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedBlockStorageClusters',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1524,6 +1507,7 @@ class Ebs extends OpenApiClient
      * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
      *
      * @param request - DescribeDedicatedBlockStorageClustersRequest
+     *
      * @returns DescribeDedicatedBlockStorageClustersResponse
      *
      * @param DescribeDedicatedBlockStorageClustersRequest $request
@@ -1546,6 +1530,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDiskEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiskEventsResponse
      *
      * @param DescribeDiskEventsRequest $request
@@ -1593,21 +1578,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskEvents',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskEvents',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDiskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiskEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1618,6 +1600,7 @@ class Ebs extends OpenApiClient
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *
      * @param request - DescribeDiskEventsRequest
+     *
      * @returns DescribeDiskEventsResponse
      *
      * @param DescribeDiskEventsRequest $request
@@ -1642,6 +1625,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDiskMonitorDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiskMonitorDataResponse
      *
      * @param DescribeDiskMonitorDataRequest $request
@@ -1681,21 +1665,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskMonitorData',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskMonitorData',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDiskMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiskMonitorDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiskMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1708,6 +1689,7 @@ class Ebs extends OpenApiClient
      * *   You can query the monitoring data collected in the last three days. An error is returned if the time specified by `StartTime` is more than three days prior to the current time.
      *
      * @param request - DescribeDiskMonitorDataRequest
+     *
      * @returns DescribeDiskMonitorDataResponse
      *
      * @param DescribeDiskMonitorDataRequest $request
@@ -1730,6 +1712,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDiskMonitorDataListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiskMonitorDataListResponse
      *
      * @param DescribeDiskMonitorDataListRequest $request
@@ -1773,21 +1756,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskMonitorDataList',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskMonitorDataList',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDiskMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiskMonitorDataListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiskMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1798,6 +1778,7 @@ class Ebs extends OpenApiClient
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *
      * @param request - DescribeDiskMonitorDataListRequest
+     *
      * @returns DescribeDiskMonitorDataListResponse
      *
      * @param DescribeDiskMonitorDataListRequest $request
@@ -1821,6 +1802,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDiskReplicaGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiskReplicaGroupsResponse
      *
      * @param DescribeDiskReplicaGroupsRequest $request
@@ -1876,21 +1858,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskReplicaGroups',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskReplicaGroups',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDiskReplicaGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiskReplicaGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiskReplicaGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1902,6 +1881,7 @@ class Ebs extends OpenApiClient
      * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
      *
      * @param request - DescribeDiskReplicaGroupsRequest
+     *
      * @returns DescribeDiskReplicaGroupsResponse
      *
      * @param DescribeDiskReplicaGroupsRequest $request
@@ -1920,6 +1900,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDiskReplicaPairProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiskReplicaPairProgressResponse
      *
      * @param DescribeDiskReplicaPairProgressRequest $request
@@ -1943,27 +1924,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskReplicaPairProgress',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskReplicaPairProgress',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDiskReplicaPairProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiskReplicaPairProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiskReplicaPairProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the replication progress of a replication pair.
      *
      * @param request - DescribeDiskReplicaPairProgressRequest
+     *
      * @returns DescribeDiskReplicaPairProgressResponse
      *
      * @param DescribeDiskReplicaPairProgressRequest $request
@@ -1988,6 +1967,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeDiskReplicaPairsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiskReplicaPairsResponse
      *
      * @param DescribeDiskReplicaPairsRequest $request
@@ -2047,21 +2027,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskReplicaPairs',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskReplicaPairs',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDiskReplicaPairsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiskReplicaPairsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiskReplicaPairsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2074,6 +2051,7 @@ class Ebs extends OpenApiClient
      * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
      *
      * @param request - DescribeDiskReplicaPairsRequest
+     *
      * @returns DescribeDiskReplicaPairsResponse
      *
      * @param DescribeDiskReplicaPairsRequest $request
@@ -2092,6 +2070,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeEnterpriseSnapshotPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEnterpriseSnapshotPolicyResponse
      *
      * @param DescribeEnterpriseSnapshotPolicyRequest $request
@@ -2147,27 +2126,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEnterpriseSnapshotPolicy',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEnterpriseSnapshotPolicy',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about enterprise-level snapshot policies. When you call this operation, you can specify parameters, such as PolicyIds, ResourceGroupId, and Tag, in the request.
      *
      * @param request - DescribeEnterpriseSnapshotPolicyRequest
+     *
      * @returns DescribeEnterpriseSnapshotPolicyResponse
      *
      * @param DescribeEnterpriseSnapshotPolicyRequest $request
@@ -2186,6 +2163,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEventsResponse
      *
      * @param DescribeEventsRequest $request
@@ -2241,27 +2219,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEvents',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEvents',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the risk events of a disk.
      *
      * @param request - DescribeEventsRequest
+     *
      * @returns DescribeEventsResponse
      *
      * @param DescribeEventsRequest $request
@@ -2280,6 +2256,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeLensMonitorDisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeLensMonitorDisksResponse
      *
      * @param DescribeLensMonitorDisksRequest $request
@@ -2323,27 +2300,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLensMonitorDisks',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLensMonitorDisks',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLensMonitorDisksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLensMonitorDisksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLensMonitorDisksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries one or more Elastic Block Storage (EBS) devices that you created.
      *
      * @param request - DescribeLensMonitorDisksRequest
+     *
      * @returns DescribeLensMonitorDisksResponse
      *
      * @param DescribeLensMonitorDisksRequest $request
@@ -2366,6 +2341,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeLensServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeLensServiceStatusResponse
      *
      * @param RuntimeOptions $runtime
@@ -2374,23 +2350,20 @@ class Ebs extends OpenApiClient
      */
     public function describeLensServiceStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeLensServiceStatus',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLensServiceStatus',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLensServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLensServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLensServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2399,6 +2372,7 @@ class Ebs extends OpenApiClient
      * @remarks
      * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
      * @returns DescribeLensServiceStatusResponse
      *
      * @return DescribeLensServiceStatusResponse
@@ -2415,6 +2389,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMetricDataResponse
      *
      * @param DescribeMetricDataRequest $request
@@ -2428,6 +2403,10 @@ class Ebs extends OpenApiClient
         $query = [];
         if (null !== $request->aggreOps) {
             @$query['AggreOps'] = $request->aggreOps;
+        }
+
+        if (null !== $request->aggreOverLineOps) {
+            @$query['AggreOverLineOps'] = $request->aggreOverLineOps;
         }
 
         if (null !== $request->dimensions) {
@@ -2458,27 +2437,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricData',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricData',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
      *
      * @param request - DescribeMetricDataRequest
+     *
      * @returns DescribeMetricDataResponse
      *
      * @param DescribeMetricDataRequest $request
@@ -2497,6 +2474,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribePairDrillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePairDrillsResponse
      *
      * @param DescribePairDrillsRequest $request
@@ -2540,27 +2518,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePairDrills',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePairDrills',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePairDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePairDrillsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePairDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the disaster recovery drills that were performed on the replication pair whose secondary disk resides in a specific region.
      *
      * @param request - DescribePairDrillsRequest
+     *
      * @returns DescribePairDrillsResponse
      *
      * @param DescribePairDrillsRequest $request
@@ -2579,6 +2555,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -2606,27 +2583,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details of regions in which Elastic Block Storage (EBS) features (such as async replication, CloudLens for EBS, and Dedicated Block Storage Cluster) are supported.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -2645,6 +2620,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeReplicaGroupDrillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeReplicaGroupDrillsResponse
      *
      * @param DescribeReplicaGroupDrillsRequest $request
@@ -2688,27 +2664,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeReplicaGroupDrills',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeReplicaGroupDrills',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeReplicaGroupDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeReplicaGroupDrillsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeReplicaGroupDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the disaster recovery drills that were performed on the replication pair-consistent group whose secondary disk resides in a specific region.
      *
      * @param request - DescribeReplicaGroupDrillsRequest
+     *
      * @returns DescribeReplicaGroupDrillsResponse
      *
      * @param DescribeReplicaGroupDrillsRequest $request
@@ -2727,6 +2701,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeSolutionInstanceConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSolutionInstanceConfigurationResponse
      *
      * @param DescribeSolutionInstanceConfigurationRequest $request
@@ -2758,27 +2733,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSolutionInstanceConfiguration',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSolutionInstanceConfiguration',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSolutionInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSolutionInstanceConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSolutionInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询解决方案实例默认配置.
      *
      * @param request - DescribeSolutionInstanceConfigurationRequest
+     *
      * @returns DescribeSolutionInstanceConfigurationResponse
      *
      * @param DescribeSolutionInstanceConfigurationRequest $request
@@ -2801,6 +2774,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeUserTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserTagKeysResponse
      *
      * @param DescribeUserTagKeysRequest $request
@@ -2832,21 +2806,18 @@ class Ebs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserTagKeys',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserTagKeys',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2857,6 +2828,7 @@ class Ebs extends OpenApiClient
      * Query the tag key-value pairs of user\\"s cloud disk and snapshot. The search scope can be narrowed down by using filterTagKey.
      *
      * @param request - DescribeUserTagKeysRequest
+     *
      * @returns DescribeUserTagKeysResponse
      *
      * @param DescribeUserTagKeysRequest $request
@@ -2881,6 +2853,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - DescribeUserTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserTagValuesResponse
      *
      * @param DescribeUserTagValuesRequest $request
@@ -2916,21 +2889,18 @@ class Ebs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserTagValues',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserTagValues',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2943,6 +2913,7 @@ class Ebs extends OpenApiClient
      * - For paginated queries, it is recommended to use the MaxResults and NextToken parameters. Usage instructions: When querying the first page, set only MaxResults to limit the number of returned entries. The NextToken in the response will serve as the token for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response, and set MaxResults to limit the number of returned entries.
      *
      * @param request - DescribeUserTagValuesRequest
+     *
      * @returns DescribeUserTagValuesResponse
      *
      * @param DescribeUserTagValuesRequest $request
@@ -2968,6 +2939,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - FailoverDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FailoverDiskReplicaGroupResponse
      *
      * @param FailoverDiskReplicaGroupRequest $request
@@ -2995,21 +2967,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FailoverDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FailoverDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FailoverDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FailoverDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return FailoverDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3023,6 +2992,7 @@ class Ebs extends OpenApiClient
      * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
      *
      * @param request - FailoverDiskReplicaGroupRequest
+     *
      * @returns FailoverDiskReplicaGroupResponse
      *
      * @param FailoverDiskReplicaGroupRequest $request
@@ -3047,6 +3017,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - FailoverDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FailoverDiskReplicaPairResponse
      *
      * @param FailoverDiskReplicaPairRequest $request
@@ -3074,21 +3045,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FailoverDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FailoverDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FailoverDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FailoverDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return FailoverDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3101,6 +3069,7 @@ class Ebs extends OpenApiClient
      * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
      *
      * @param request - FailoverDiskReplicaPairRequest
+     *
      * @returns FailoverDiskReplicaPairResponse
      *
      * @param FailoverDiskReplicaPairRequest $request
@@ -3119,6 +3088,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - GetReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetReportResponse
      *
      * @param GetReportRequest $request
@@ -3149,30 +3119,28 @@ class Ebs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetReport',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetReport',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Centralized Role: Obtain User Usage Report with reportId.
      *
      * @param request - GetReportRequest
+     *
      * @returns GetReportResponse
      *
      * @param GetReportRequest $request
@@ -3191,6 +3159,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ListReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListReportsResponse
      *
      * @param ListReportsRequest $request
@@ -3229,30 +3198,28 @@ class Ebs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListReports',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListReports',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Centralized Role: Query Historical Reports.
      *
      * @param request - ListReportsRequest
+     *
      * @returns ListReportsResponse
      *
      * @param ListReportsRequest $request
@@ -3277,6 +3244,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -3316,21 +3284,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3343,6 +3308,7 @@ class Ebs extends OpenApiClient
      * If you set `Tag.N` and `ResourceId.N` at the same time, the EBS resources that match both the parameters are returned.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -3364,6 +3330,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ModifyDedicatedBlockStorageClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDedicatedBlockStorageClusterAttributeResponse
      *
      * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request
@@ -3399,21 +3366,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedBlockStorageClusterAttribute',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedBlockStorageClusterAttribute',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3423,6 +3387,7 @@ class Ebs extends OpenApiClient
      * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
      *
      * @param request - ModifyDedicatedBlockStorageClusterAttributeRequest
+     *
      * @returns ModifyDedicatedBlockStorageClusterAttributeResponse
      *
      * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request
@@ -3446,6 +3411,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ModifyDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDiskReplicaGroupResponse
      *
      * @param ModifyDiskReplicaGroupRequest $request
@@ -3489,21 +3455,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3515,6 +3478,7 @@ class Ebs extends OpenApiClient
      * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
      *
      * @param request - ModifyDiskReplicaGroupRequest
+     *
      * @returns ModifyDiskReplicaGroupResponse
      *
      * @param ModifyDiskReplicaGroupRequest $request
@@ -3538,6 +3502,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ModifyDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDiskReplicaPairResponse
      *
      * @param ModifyDiskReplicaPairRequest $request
@@ -3581,21 +3546,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3607,6 +3569,7 @@ class Ebs extends OpenApiClient
      * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
      *
      * @param request - ModifyDiskReplicaPairRequest
+     *
      * @returns ModifyDiskReplicaPairResponse
      *
      * @param ModifyDiskReplicaPairRequest $request
@@ -3625,6 +3588,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
      *
      * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request
@@ -3651,30 +3615,28 @@ class Ebs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDedicatedBlockStorageClusterDiskThroughputStatus',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDedicatedBlockStorageClusterDiskThroughputStatus',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Query the throughput status of a dedicated block storage cluster disk which has been set through the SetDedicatedBlockStorageClusterDiskThroughput API.
      *
      * @param request - QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
+     *
      * @returns QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
      *
      * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request
@@ -3696,6 +3658,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - QueryDedicatedBlockStorageClusterInventoryDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryDedicatedBlockStorageClusterInventoryDataResponse
      *
      * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request
@@ -3734,24 +3697,21 @@ class Ebs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDedicatedBlockStorageClusterInventoryData',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDedicatedBlockStorageClusterInventoryData',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3761,6 +3721,7 @@ class Ebs extends OpenApiClient
      * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
      *
      * @param request - QueryDedicatedBlockStorageClusterInventoryDataRequest
+     *
      * @returns QueryDedicatedBlockStorageClusterInventoryDataResponse
      *
      * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request
@@ -3784,6 +3745,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - RemoveDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveDiskReplicaPairResponse
      *
      * @param RemoveDiskReplicaPairRequest $request
@@ -3815,21 +3777,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3841,6 +3800,7 @@ class Ebs extends OpenApiClient
      * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
      *
      * @param request - RemoveDiskReplicaPairRequest
+     *
      * @returns RemoveDiskReplicaPairResponse
      *
      * @param RemoveDiskReplicaPairRequest $request
@@ -3867,6 +3827,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ReprotectDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReprotectDiskReplicaGroupResponse
      *
      * @param ReprotectDiskReplicaGroupRequest $request
@@ -3898,21 +3859,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReprotectDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReprotectDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReprotectDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReprotectDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReprotectDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3927,6 +3885,7 @@ class Ebs extends OpenApiClient
      * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
      *
      * @param request - ReprotectDiskReplicaGroupRequest
+     *
      * @returns ReprotectDiskReplicaGroupResponse
      *
      * @param ReprotectDiskReplicaGroupRequest $request
@@ -3953,6 +3912,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - ReprotectDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReprotectDiskReplicaPairResponse
      *
      * @param ReprotectDiskReplicaPairRequest $request
@@ -3984,21 +3944,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReprotectDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReprotectDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReprotectDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReprotectDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReprotectDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4013,6 +3970,7 @@ class Ebs extends OpenApiClient
      * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
      *
      * @param request - ReprotectDiskReplicaPairRequest
+     *
      * @returns ReprotectDiskReplicaPairResponse
      *
      * @param ReprotectDiskReplicaPairRequest $request
@@ -4031,6 +3989,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - SetDedicatedBlockStorageClusterDiskThroughputRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDedicatedBlockStorageClusterDiskThroughputResponse
      *
      * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request
@@ -4061,30 +4020,28 @@ class Ebs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetDedicatedBlockStorageClusterDiskThroughput',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDedicatedBlockStorageClusterDiskThroughput',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * In the elastic type dedicated block storage cluster, you can easily achieve the specified throughput (Bps) for the target disk. You only need to set the cloud disk ID and the target throughput, simplifying the process of configuring.
      *
      * @param request - SetDedicatedBlockStorageClusterDiskThroughputRequest
+     *
      * @returns SetDedicatedBlockStorageClusterDiskThroughputResponse
      *
      * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request
@@ -4110,6 +4067,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - StartDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDiskReplicaGroupResponse
      *
      * @param StartDiskReplicaGroupRequest $request
@@ -4141,21 +4099,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4169,6 +4124,7 @@ class Ebs extends OpenApiClient
      * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
      *
      * @param request - StartDiskReplicaGroupRequest
+     *
      * @returns StartDiskReplicaGroupResponse
      *
      * @param StartDiskReplicaGroupRequest $request
@@ -4193,6 +4149,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - StartDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDiskReplicaPairResponse
      *
      * @param StartDiskReplicaPairRequest $request
@@ -4224,21 +4181,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4251,6 +4205,7 @@ class Ebs extends OpenApiClient
      * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
      *
      * @param request - StartDiskReplicaPairRequest
+     *
      * @returns StartDiskReplicaPairResponse
      *
      * @param StartDiskReplicaPairRequest $request
@@ -4272,6 +4227,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - StartPairDrillRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartPairDrillResponse
      *
      * @param StartPairDrillRequest $request
@@ -4299,21 +4255,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartPairDrill',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartPairDrill',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartPairDrillResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4323,6 +4276,7 @@ class Ebs extends OpenApiClient
      * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
      *
      * @param request - StartPairDrillRequest
+     *
      * @returns StartPairDrillResponse
      *
      * @param StartPairDrillRequest $request
@@ -4344,6 +4298,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - StartReplicaGroupDrillRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartReplicaGroupDrillResponse
      *
      * @param StartReplicaGroupDrillRequest $request
@@ -4371,21 +4326,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartReplicaGroupDrill',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartReplicaGroupDrill',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartReplicaGroupDrillResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4395,6 +4347,7 @@ class Ebs extends OpenApiClient
      * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
      *
      * @param request - StartReplicaGroupDrillRequest
+     *
      * @returns StartReplicaGroupDrillResponse
      *
      * @param StartReplicaGroupDrillRequest $request
@@ -4419,6 +4372,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - StopDiskReplicaGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDiskReplicaGroupResponse
      *
      * @param StopDiskReplicaGroupRequest $request
@@ -4446,21 +4400,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDiskReplicaGroup',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDiskReplicaGroup',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4473,6 +4424,7 @@ class Ebs extends OpenApiClient
      * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
      *
      * @param request - StopDiskReplicaGroupRequest
+     *
      * @returns StopDiskReplicaGroupResponse
      *
      * @param StopDiskReplicaGroupRequest $request
@@ -4496,6 +4448,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - StopDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDiskReplicaPairResponse
      *
      * @param StopDiskReplicaPairRequest $request
@@ -4523,21 +4476,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDiskReplicaPair',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDiskReplicaPair',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4549,6 +4499,7 @@ class Ebs extends OpenApiClient
      * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
      *
      * @param request - StopDiskReplicaPairRequest
+     *
      * @returns StopDiskReplicaPairResponse
      *
      * @param StopDiskReplicaPairRequest $request
@@ -4570,6 +4521,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -4605,21 +4557,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4629,6 +4578,7 @@ class Ebs extends OpenApiClient
      * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -4647,6 +4597,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - UnbindEnterpriseSnapshotPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnbindEnterpriseSnapshotPolicyResponse
      *
      * @param UnbindEnterpriseSnapshotPolicyRequest $request
@@ -4678,27 +4629,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindEnterpriseSnapshotPolicy',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindEnterpriseSnapshotPolicy',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Unbind disks from a enterprise-level snapshot policy.
      *
      * @param request - UnbindEnterpriseSnapshotPolicyRequest
+     *
      * @returns UnbindEnterpriseSnapshotPolicyResponse
      *
      * @param UnbindEnterpriseSnapshotPolicyRequest $request
@@ -4721,6 +4670,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -4760,21 +4710,18 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4785,6 +4732,7 @@ class Ebs extends OpenApiClient
      * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -4803,6 +4751,7 @@ class Ebs extends OpenApiClient
      *
      * @param tmpReq - UpdateEnterpriseSnapshotPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateEnterpriseSnapshotPolicyResponse
      *
      * @param UpdateEnterpriseSnapshotPolicyRequest $tmpReq
@@ -4884,27 +4833,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEnterpriseSnapshotPolicy',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEnterpriseSnapshotPolicy',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Search for a enterprise-level snapshot policy.
      *
      * @param request - UpdateEnterpriseSnapshotPolicyRequest
+     *
      * @returns UpdateEnterpriseSnapshotPolicyResponse
      *
      * @param UpdateEnterpriseSnapshotPolicyRequest $request
@@ -4923,6 +4870,7 @@ class Ebs extends OpenApiClient
      *
      * @param request - UpdateSolutionInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSolutionInstanceAttributeResponse
      *
      * @param UpdateSolutionInstanceAttributeRequest $request
@@ -4958,27 +4906,25 @@ class Ebs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSolutionInstanceAttribute',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSolutionInstanceAttribute',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSolutionInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSolutionInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSolutionInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新解决方案实例属性.
      *
      * @param request - UpdateSolutionInstanceAttributeRequest
+     *
      * @returns UpdateSolutionInstanceAttributeResponse
      *
      * @param UpdateSolutionInstanceAttributeRequest $request

@@ -12,38 +12,44 @@ class DescribePairDrillsRequest extends Model
      * @var string
      */
     public $drillId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pairId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'drillId'    => 'DrillId',
+        'drillId' => 'DrillId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'pairId'     => 'PairId',
-        'regionId'   => 'RegionId',
+        'pageSize' => 'PageSize',
+        'pairId' => 'PairId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

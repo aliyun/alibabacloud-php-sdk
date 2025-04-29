@@ -13,83 +13,98 @@ class CreateDiskReplicaPairRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationDiskId;
+
     /**
      * @var string
      */
     public $destinationRegionId;
+
     /**
      * @var string
      */
     public $destinationZoneId;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $pairName;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var int
      */
     public $RPO;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceZoneId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'bandwidth'           => 'Bandwidth',
-        'chargeType'          => 'ChargeType',
-        'clientToken'         => 'ClientToken',
-        'description'         => 'Description',
-        'destinationDiskId'   => 'DestinationDiskId',
+        'bandwidth' => 'Bandwidth',
+        'chargeType' => 'ChargeType',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'destinationDiskId' => 'DestinationDiskId',
         'destinationRegionId' => 'DestinationRegionId',
-        'destinationZoneId'   => 'DestinationZoneId',
-        'diskId'              => 'DiskId',
-        'pairName'            => 'PairName',
-        'period'              => 'Period',
-        'periodUnit'          => 'PeriodUnit',
-        'RPO'                 => 'RPO',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'sourceZoneId'        => 'SourceZoneId',
-        'tag'                 => 'Tag',
+        'destinationZoneId' => 'DestinationZoneId',
+        'diskId' => 'DiskId',
+        'pairName' => 'PairName',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'RPO' => 'RPO',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceZoneId' => 'SourceZoneId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -166,7 +181,7 @@ class CreateDiskReplicaPairRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -247,7 +262,7 @@ class CreateDiskReplicaPairRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

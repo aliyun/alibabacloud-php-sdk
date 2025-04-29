@@ -13,18 +13,20 @@ class data extends Model
      * @var monitorItems
      */
     public $monitorItems;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $timestamp;
     protected $_name = [
         'monitorItems' => 'MonitorItems',
-        'resourceId'   => 'ResourceId',
-        'timestamp'    => 'Timestamp',
+        'resourceId' => 'ResourceId',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

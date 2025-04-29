@@ -13,173 +13,206 @@ class disk extends Model
      * @var string
      */
     public $attachedTime;
+
     /**
      * @var string
      */
     public $bdfId;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $deleteAutoSnapshot;
+
     /**
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $detachedTime;
+
     /**
      * @var string
      */
     public $device;
+
     /**
      * @var string
      */
     public $diskChargeType;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $diskName;
+
     /**
      * @var bool
      */
     public $enableAutoSnapshot;
+
     /**
      * @var bool
      */
     public $encrypted;
+
     /**
      * @var int
      */
     public $IOPS;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $KMSKeyId;
+
     /**
      * @var int
      */
     public $mountInstanceNum;
+
     /**
      * @var string
      */
     public $multiAttach;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var bool
      */
     public $portable;
+
     /**
      * @var int
      */
     public $provisionedIops;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $sourceSnapshotId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageClusterId;
+
     /**
      * @var string
      */
     public $storageSetId;
+
     /**
      * @var int
      */
     public $storageSetPartitionNumber;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $throughput;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'attachedTime'              => 'AttachedTime',
-        'bdfId'                     => 'BdfId',
-        'burstingEnabled'           => 'BurstingEnabled',
-        'category'                  => 'Category',
-        'deleteAutoSnapshot'        => 'DeleteAutoSnapshot',
-        'deleteWithInstance'        => 'DeleteWithInstance',
-        'description'               => 'Description',
-        'detachedTime'              => 'DetachedTime',
-        'device'                    => 'Device',
-        'diskChargeType'            => 'DiskChargeType',
-        'diskId'                    => 'DiskId',
-        'diskName'                  => 'DiskName',
-        'enableAutoSnapshot'        => 'EnableAutoSnapshot',
-        'encrypted'                 => 'Encrypted',
-        'IOPS'                      => 'IOPS',
-        'imageId'                   => 'ImageId',
-        'instanceId'                => 'InstanceId',
-        'KMSKeyId'                  => 'KMSKeyId',
-        'mountInstanceNum'          => 'MountInstanceNum',
-        'multiAttach'               => 'MultiAttach',
-        'performanceLevel'          => 'PerformanceLevel',
-        'portable'                  => 'Portable',
-        'provisionedIops'           => 'ProvisionedIops',
-        'regionId'                  => 'RegionId',
-        'size'                      => 'Size',
-        'sourceSnapshotId'          => 'SourceSnapshotId',
-        'status'                    => 'Status',
-        'storageClusterId'          => 'StorageClusterId',
-        'storageSetId'              => 'StorageSetId',
+        'attachedTime' => 'AttachedTime',
+        'bdfId' => 'BdfId',
+        'burstingEnabled' => 'BurstingEnabled',
+        'category' => 'Category',
+        'deleteAutoSnapshot' => 'DeleteAutoSnapshot',
+        'deleteWithInstance' => 'DeleteWithInstance',
+        'description' => 'Description',
+        'detachedTime' => 'DetachedTime',
+        'device' => 'Device',
+        'diskChargeType' => 'DiskChargeType',
+        'diskId' => 'DiskId',
+        'diskName' => 'DiskName',
+        'enableAutoSnapshot' => 'EnableAutoSnapshot',
+        'encrypted' => 'Encrypted',
+        'IOPS' => 'IOPS',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'KMSKeyId' => 'KMSKeyId',
+        'mountInstanceNum' => 'MountInstanceNum',
+        'multiAttach' => 'MultiAttach',
+        'performanceLevel' => 'PerformanceLevel',
+        'portable' => 'Portable',
+        'provisionedIops' => 'ProvisionedIops',
+        'regionId' => 'RegionId',
+        'size' => 'Size',
+        'sourceSnapshotId' => 'SourceSnapshotId',
+        'status' => 'Status',
+        'storageClusterId' => 'StorageClusterId',
+        'storageSetId' => 'StorageSetId',
         'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
-        'tags'                      => 'Tags',
-        'throughput'                => 'Throughput',
-        'type'                      => 'Type',
-        'zoneId'                    => 'ZoneId',
+        'tags' => 'Tags',
+        'throughput' => 'Throughput',
+        'type' => 'Type',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -316,7 +349,7 @@ class disk extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -469,7 +502,7 @@ class disk extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

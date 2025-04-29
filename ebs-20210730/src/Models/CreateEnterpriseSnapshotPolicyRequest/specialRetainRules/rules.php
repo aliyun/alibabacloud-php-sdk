@@ -12,18 +12,20 @@ class rules extends Model
      * @var string
      */
     public $specialPeriodUnit;
+
     /**
      * @var int
      */
     public $timeInterval;
+
     /**
      * @var string
      */
     public $timeUnit;
     protected $_name = [
         'specialPeriodUnit' => 'SpecialPeriodUnit',
-        'timeInterval'      => 'TimeInterval',
-        'timeUnit'          => 'TimeUnit',
+        'timeInterval' => 'TimeInterval',
+        'timeUnit' => 'TimeUnit',
     ];
 
     public function validate()

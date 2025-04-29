@@ -12,13 +12,14 @@ class CreateDiskReplicaGroupResponseBody extends Model
      * @var string
      */
     public $replicaGroupId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'replicaGroupId' => 'ReplicaGroupId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

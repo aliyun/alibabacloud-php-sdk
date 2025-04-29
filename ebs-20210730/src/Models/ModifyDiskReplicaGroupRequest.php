@@ -12,37 +12,43 @@ class ModifyDiskReplicaGroupRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $RPO;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaGroupId;
     protected $_name = [
-        'bandwidth'      => 'Bandwidth',
-        'clientToken'    => 'ClientToken',
-        'description'    => 'Description',
-        'groupName'      => 'GroupName',
-        'RPO'            => 'RPO',
-        'regionId'       => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'RPO' => 'RPO',
+        'regionId' => 'RegionId',
         'replicaGroupId' => 'ReplicaGroupId',
     ];
 

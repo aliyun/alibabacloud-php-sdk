@@ -13,22 +13,25 @@ class DescribeLensMonitorDisksResponseBody extends Model
      * @var diskInfos[]
      */
     public $diskInfos;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'diskInfos'  => 'DiskInfos',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'diskInfos' => 'DiskInfos',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class DescribeLensMonitorDisksResponseBody extends Model
         if (null !== $this->diskInfos) {
             if (\is_array($this->diskInfos)) {
                 $res['DiskInfos'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->diskInfos as $item1) {
                     $res['DiskInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class DescribeLensMonitorDisksResponseBody extends Model
         if (isset($map['DiskInfos'])) {
             if (!empty($map['DiskInfos'])) {
                 $model->diskInfos = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DiskInfos'] as $item1) {
                     $model->diskInfos[$n1++] = diskInfos::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class StartReplicaGroupDrillRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'groupId'     => 'GroupId',
-        'regionId'    => 'RegionId',
+        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

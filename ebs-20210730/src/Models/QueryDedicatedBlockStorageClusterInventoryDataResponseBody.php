@@ -13,33 +13,38 @@ class QueryDedicatedBlockStorageClusterInventoryDataResponseBody extends Model
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $dbscId;
+
     /**
      * @var string
      */
     public $dbscName;
+
     /**
      * @var string
      */
     public $diskCategory;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'data'         => 'Data',
-        'dbscId'       => 'DbscId',
-        'dbscName'     => 'DbscName',
+        'data' => 'Data',
+        'dbscId' => 'DbscId',
+        'dbscName' => 'DbscName',
         'diskCategory' => 'DiskCategory',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class QueryDedicatedBlockStorageClusterInventoryDataResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class QueryDedicatedBlockStorageClusterInventoryDataResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

@@ -12,17 +12,19 @@ class ClearReplicaGroupDrillRequest extends Model
      * @var string
      */
     public $drillId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'drillId'  => 'DrillId',
-        'groupId'  => 'GroupId',
+        'drillId' => 'DrillId',
+        'groupId' => 'GroupId',
         'regionId' => 'RegionId',
     ];
 

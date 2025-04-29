@@ -12,63 +12,74 @@ class dedicatedBlockStorageClusterCapacity extends Model
      * @var int
      */
     public $availableCapacity;
+
     /**
      * @var int
      */
     public $availableDeviceCapacity;
+
     /**
      * @var float
      */
     public $availableSpaceCapacity;
+
     /**
      * @var int
      */
     public $clusterAvailableCapacity;
+
     /**
      * @var int
      */
     public $clusterDeliveryCapacity;
+
     /**
      * @var int
      */
     public $deliveryCapacity;
+
     /**
      * @var int
      */
     public $totalCapacity;
+
     /**
      * @var int
      */
     public $totalDeviceCapacity;
+
     /**
      * @var int
      */
     public $totalSpaceCapacity;
+
     /**
      * @var int
      */
     public $usedCapacity;
+
     /**
      * @var int
      */
     public $usedDeviceCapacity;
+
     /**
      * @var float
      */
     public $usedSpaceCapacity;
     protected $_name = [
-        'availableCapacity'        => 'AvailableCapacity',
-        'availableDeviceCapacity'  => 'AvailableDeviceCapacity',
-        'availableSpaceCapacity'   => 'AvailableSpaceCapacity',
+        'availableCapacity' => 'AvailableCapacity',
+        'availableDeviceCapacity' => 'AvailableDeviceCapacity',
+        'availableSpaceCapacity' => 'AvailableSpaceCapacity',
         'clusterAvailableCapacity' => 'ClusterAvailableCapacity',
-        'clusterDeliveryCapacity'  => 'ClusterDeliveryCapacity',
-        'deliveryCapacity'         => 'DeliveryCapacity',
-        'totalCapacity'            => 'TotalCapacity',
-        'totalDeviceCapacity'      => 'TotalDeviceCapacity',
-        'totalSpaceCapacity'       => 'TotalSpaceCapacity',
-        'usedCapacity'             => 'UsedCapacity',
-        'usedDeviceCapacity'       => 'UsedDeviceCapacity',
-        'usedSpaceCapacity'        => 'UsedSpaceCapacity',
+        'clusterDeliveryCapacity' => 'ClusterDeliveryCapacity',
+        'deliveryCapacity' => 'DeliveryCapacity',
+        'totalCapacity' => 'TotalCapacity',
+        'totalDeviceCapacity' => 'TotalDeviceCapacity',
+        'totalSpaceCapacity' => 'TotalSpaceCapacity',
+        'usedCapacity' => 'UsedCapacity',
+        'usedDeviceCapacity' => 'UsedDeviceCapacity',
+        'usedSpaceCapacity' => 'UsedSpaceCapacity',
     ];
 
     public function validate()

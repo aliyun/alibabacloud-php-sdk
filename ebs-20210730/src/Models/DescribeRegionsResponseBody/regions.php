@@ -13,23 +13,26 @@ class regions extends Model
      * @var string
      */
     public $localName;
+
     /**
      * @var string
      */
     public $regionEndpoint;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var zones[]
      */
     public $zones;
     protected $_name = [
-        'localName'      => 'LocalName',
+        'localName' => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
-        'zones'          => 'Zones',
+        'regionId' => 'RegionId',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class regions extends Model
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
                     $res['Zones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class regions extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
                     $model->zones[$n1++] = zones::fromMap($item1);
                 }

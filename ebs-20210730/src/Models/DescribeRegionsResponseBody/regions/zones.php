@@ -12,18 +12,20 @@ class zones extends Model
      * @var string
      */
     public $localName;
+
     /**
      * @var string[]
      */
     public $resourceTypes;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'localName'     => 'LocalName',
+        'localName' => 'LocalName',
         'resourceTypes' => 'ResourceTypes',
-        'zoneId'        => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class zones extends Model
         if (null !== $this->resourceTypes) {
             if (\is_array($this->resourceTypes)) {
                 $res['ResourceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
                     $res['ResourceTypes'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class zones extends Model
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
                     $model->resourceTypes[$n1++] = $item1;
                 }

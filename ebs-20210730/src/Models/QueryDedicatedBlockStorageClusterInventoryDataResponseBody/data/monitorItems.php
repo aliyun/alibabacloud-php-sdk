@@ -12,13 +12,14 @@ class monitorItems extends Model
      * @var int
      */
     public $availableSize;
+
     /**
      * @var int
      */
     public $totalSize;
     protected $_name = [
         'availableSize' => 'AvailableSize',
-        'totalSize'     => 'TotalSize',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()

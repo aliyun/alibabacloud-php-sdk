@@ -12,18 +12,20 @@ class retainRule extends Model
      * @var int
      */
     public $number;
+
     /**
      * @var int
      */
     public $timeInterval;
+
     /**
      * @var string
      */
     public $timeUnit;
     protected $_name = [
-        'number'       => 'Number',
+        'number' => 'Number',
         'timeInterval' => 'TimeInterval',
-        'timeUnit'     => 'TimeUnit',
+        'timeUnit' => 'TimeUnit',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class ClearPairDrillRequest extends Model
      * @var string
      */
     public $drillId;
+
     /**
      * @var string
      */
     public $pairId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'drillId'  => 'DrillId',
-        'pairId'   => 'PairId',
+        'drillId' => 'DrillId',
+        'pairId' => 'PairId',
         'regionId' => 'RegionId',
     ];
 

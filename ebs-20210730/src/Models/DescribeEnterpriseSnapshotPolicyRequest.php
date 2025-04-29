@@ -13,53 +13,62 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $diskIds;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $policyIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'diskIds'         => 'DiskIds',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'policyIds'       => 'PolicyIds',
-        'regionId'        => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'diskIds' => 'DiskIds',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'policyIds' => 'PolicyIds',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag'             => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -86,7 +95,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         if (null !== $this->diskIds) {
             if (\is_array($this->diskIds)) {
                 $res['DiskIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->diskIds as $item1) {
                     $res['DiskIds'][$n1++] = $item1;
                 }
@@ -112,7 +121,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         if (null !== $this->policyIds) {
             if (\is_array($this->policyIds)) {
                 $res['PolicyIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->policyIds as $item1) {
                     $res['PolicyIds'][$n1++] = $item1;
                 }
@@ -130,7 +139,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -155,7 +164,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         if (isset($map['DiskIds'])) {
             if (!empty($map['DiskIds'])) {
                 $model->diskIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['DiskIds'] as $item1) {
                     $model->diskIds[$n1++] = $item1;
                 }
@@ -181,7 +190,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
                 $model->policyIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
                     $model->policyIds[$n1++] = $item1;
                 }
@@ -199,7 +208,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

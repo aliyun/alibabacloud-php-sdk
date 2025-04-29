@@ -12,18 +12,20 @@ class CreateDiskReplicaPairResponseBody extends Model
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $replicaPairId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'       => 'OrderId',
+        'orderId' => 'OrderId',
         'replicaPairId' => 'ReplicaPairId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

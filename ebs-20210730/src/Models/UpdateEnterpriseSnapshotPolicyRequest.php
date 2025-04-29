@@ -17,58 +17,68 @@ class UpdateEnterpriseSnapshotPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var crossRegionCopyInfo
      */
     public $crossRegionCopyInfo;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var retainRule
      */
     public $retainRule;
+
     /**
      * @var schedule
      */
     public $schedule;
+
     /**
      * @var specialRetainRules
      */
     public $specialRetainRules;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var storageRule
      */
     public $storageRule;
     protected $_name = [
-        'clientToken'         => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'crossRegionCopyInfo' => 'CrossRegionCopyInfo',
-        'desc'                => 'Desc',
-        'name'                => 'Name',
-        'policyId'            => 'PolicyId',
-        'regionId'            => 'RegionId',
-        'retainRule'          => 'RetainRule',
-        'schedule'            => 'Schedule',
-        'specialRetainRules'  => 'SpecialRetainRules',
-        'state'               => 'State',
-        'storageRule'         => 'StorageRule',
+        'desc' => 'Desc',
+        'name' => 'Name',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
+        'retainRule' => 'RetainRule',
+        'schedule' => 'Schedule',
+        'specialRetainRules' => 'SpecialRetainRules',
+        'state' => 'State',
+        'storageRule' => 'StorageRule',
     ];
 
     public function validate()

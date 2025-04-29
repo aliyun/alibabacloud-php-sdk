@@ -13,33 +13,38 @@ class DescribeDiskReplicaPairsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var replicaPairs[]
      */
     public $replicaPairs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'replicaPairs' => 'ReplicaPairs',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class DescribeDiskReplicaPairsResponseBody extends Model
         if (null !== $this->replicaPairs) {
             if (\is_array($this->replicaPairs)) {
                 $res['ReplicaPairs'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->replicaPairs as $item1) {
                     $res['ReplicaPairs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class DescribeDiskReplicaPairsResponseBody extends Model
         if (isset($map['ReplicaPairs'])) {
             if (!empty($map['ReplicaPairs'])) {
                 $model->replicaPairs = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ReplicaPairs'] as $item1) {
                     $model->replicaPairs[$n1++] = replicaPairs::fromMap($item1);
                 }

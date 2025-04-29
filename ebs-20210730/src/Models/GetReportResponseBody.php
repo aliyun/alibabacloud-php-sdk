@@ -13,12 +13,13 @@ class GetReportResponseBody extends Model
      * @var datas[]
      */
     public $datas;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'datas'     => 'Datas',
+        'datas' => 'Datas',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class GetReportResponseBody extends Model
         if (null !== $this->datas) {
             if (\is_array($this->datas)) {
                 $res['Datas'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->datas as $item1) {
                     $res['Datas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetReportResponseBody extends Model
         if (isset($map['Datas'])) {
             if (!empty($map['Datas'])) {
                 $model->datas = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Datas'] as $item1) {
                     $model->datas[$n1++] = datas::fromMap($item1);
                 }

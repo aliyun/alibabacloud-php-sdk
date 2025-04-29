@@ -12,18 +12,20 @@ class monitorData extends Model
      * @var int
      */
     public $burstIOCount;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $timestamp;
     protected $_name = [
         'burstIOCount' => 'BurstIOCount',
-        'diskId'       => 'DiskId',
-        'timestamp'    => 'Timestamp',
+        'diskId' => 'DiskId',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class monitorData extends Model
      * @var int
      */
     public $BPSPercent;
+
     /**
      * @var int
      */
     public $burstIOCount;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var int
      */
     public $IOPSPercent;
+
     /**
      * @var int
      */
     public $readBPS;
+
     /**
      * @var int
      */
     public $readBlockSize;
+
     /**
      * @var int
      */
     public $readIOPS;
+
     /**
      * @var int
      */
     public $readLatency;
+
     /**
      * @var string
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $writeBPS;
+
     /**
      * @var int
      */
     public $writeBlockSize;
+
     /**
      * @var int
      */
     public $writeIOPS;
+
     /**
      * @var int
      */
     public $writeLatency;
     protected $_name = [
-        'BPSPercent'     => 'BPSPercent',
-        'burstIOCount'   => 'BurstIOCount',
-        'diskId'         => 'DiskId',
-        'IOPSPercent'    => 'IOPSPercent',
-        'readBPS'        => 'ReadBPS',
-        'readBlockSize'  => 'ReadBlockSize',
-        'readIOPS'       => 'ReadIOPS',
-        'readLatency'    => 'ReadLatency',
-        'timestamp'      => 'Timestamp',
-        'writeBPS'       => 'WriteBPS',
+        'BPSPercent' => 'BPSPercent',
+        'burstIOCount' => 'BurstIOCount',
+        'diskId' => 'DiskId',
+        'IOPSPercent' => 'IOPSPercent',
+        'readBPS' => 'ReadBPS',
+        'readBlockSize' => 'ReadBlockSize',
+        'readIOPS' => 'ReadIOPS',
+        'readLatency' => 'ReadLatency',
+        'timestamp' => 'Timestamp',
+        'writeBPS' => 'WriteBPS',
         'writeBlockSize' => 'WriteBlockSize',
-        'writeIOPS'      => 'WriteIOPS',
-        'writeLatency'   => 'WriteLatency',
+        'writeIOPS' => 'WriteIOPS',
+        'writeLatency' => 'WriteLatency',
     ];
 
     public function validate()

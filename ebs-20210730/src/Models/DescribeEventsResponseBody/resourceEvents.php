@@ -12,63 +12,74 @@ class resourceEvents extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $extraAttributes;
+
     /**
      * @var string
      */
     public $recommendAction;
+
     /**
      * @var string
      */
     public $recommendParams;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'     => 'Description',
-        'endTime'         => 'EndTime',
-        'eventLevel'      => 'EventLevel',
-        'eventName'       => 'EventName',
-        'eventType'       => 'EventType',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'eventLevel' => 'EventLevel',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
         'extraAttributes' => 'ExtraAttributes',
         'recommendAction' => 'RecommendAction',
         'recommendParams' => 'RecommendParams',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

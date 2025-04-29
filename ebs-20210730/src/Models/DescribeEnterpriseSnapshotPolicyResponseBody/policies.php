@@ -18,83 +18,98 @@ class policies extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var crossRegionCopyInfo
      */
     public $crossRegionCopyInfo;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var string[]
      */
     public $diskIds;
+
     /**
      * @var bool
      */
     public $managedForEcs;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var retainRule
      */
     public $retainRule;
+
     /**
      * @var schedule
      */
     public $schedule;
+
     /**
      * @var specialRetainRules
      */
     public $specialRetainRules;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var storageRule
      */
     public $storageRule;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $targetCount;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'createTime'          => 'CreateTime',
+        'createTime' => 'CreateTime',
         'crossRegionCopyInfo' => 'CrossRegionCopyInfo',
-        'desc'                => 'Desc',
-        'diskIds'             => 'DiskIds',
-        'managedForEcs'       => 'ManagedForEcs',
-        'name'                => 'Name',
-        'policyId'            => 'PolicyId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'retainRule'          => 'RetainRule',
-        'schedule'            => 'Schedule',
-        'specialRetainRules'  => 'SpecialRetainRules',
-        'state'               => 'State',
-        'storageRule'         => 'StorageRule',
-        'tags'                => 'Tags',
-        'targetCount'         => 'TargetCount',
-        'targetType'          => 'TargetType',
+        'desc' => 'Desc',
+        'diskIds' => 'DiskIds',
+        'managedForEcs' => 'ManagedForEcs',
+        'name' => 'Name',
+        'policyId' => 'PolicyId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'retainRule' => 'RetainRule',
+        'schedule' => 'Schedule',
+        'specialRetainRules' => 'SpecialRetainRules',
+        'state' => 'State',
+        'storageRule' => 'StorageRule',
+        'tags' => 'Tags',
+        'targetCount' => 'TargetCount',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
@@ -141,7 +156,7 @@ class policies extends Model
         if (null !== $this->diskIds) {
             if (\is_array($this->diskIds)) {
                 $res['DiskIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->diskIds as $item1) {
                     $res['DiskIds'][$n1++] = $item1;
                 }
@@ -187,7 +202,7 @@ class policies extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -228,7 +243,7 @@ class policies extends Model
         if (isset($map['DiskIds'])) {
             if (!empty($map['DiskIds'])) {
                 $model->diskIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['DiskIds'] as $item1) {
                     $model->diskIds[$n1++] = $item1;
                 }
@@ -274,7 +289,7 @@ class policies extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

@@ -13,32 +13,37 @@ class DescribePairDrillsResponseBody extends Model
      * @var drills[]
      */
     public $drills;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'drills'     => 'Drills',
-        'nextToken'  => 'NextToken',
+        'drills' => 'Drills',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -56,7 +61,7 @@ class DescribePairDrillsResponseBody extends Model
         if (null !== $this->drills) {
             if (\is_array($this->drills)) {
                 $res['Drills'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->drills as $item1) {
                     $res['Drills'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribePairDrillsResponseBody extends Model
         if (isset($map['Drills'])) {
             if (!empty($map['Drills'])) {
                 $model->drills = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Drills'] as $item1) {
                     $model->drills[$n1++] = drills::fromMap($item1);
                 }

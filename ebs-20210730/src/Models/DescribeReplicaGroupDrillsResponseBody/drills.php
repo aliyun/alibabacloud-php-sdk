@@ -13,37 +13,43 @@ class drills extends Model
      * @var string
      */
     public $drillId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var pairsInfo[]
      */
     public $pairsInfo;
+
     /**
      * @var int
      */
     public $recoverPoint;
+
     /**
      * @var int
      */
     public $startAt;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusMessage;
     protected $_name = [
-        'drillId'       => 'DrillId',
-        'groupId'       => 'GroupId',
-        'pairsInfo'     => 'PairsInfo',
-        'recoverPoint'  => 'RecoverPoint',
-        'startAt'       => 'StartAt',
-        'status'        => 'Status',
+        'drillId' => 'DrillId',
+        'groupId' => 'GroupId',
+        'pairsInfo' => 'PairsInfo',
+        'recoverPoint' => 'RecoverPoint',
+        'startAt' => 'StartAt',
+        'status' => 'Status',
         'statusMessage' => 'StatusMessage',
     ];
 
@@ -69,7 +75,7 @@ class drills extends Model
         if (null !== $this->pairsInfo) {
             if (\is_array($this->pairsInfo)) {
                 $res['PairsInfo'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->pairsInfo as $item1) {
                     $res['PairsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class drills extends Model
         if (isset($map['PairsInfo'])) {
             if (!empty($map['PairsInfo'])) {
                 $model->pairsInfo = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PairsInfo'] as $item1) {
                     $model->pairsInfo[$n1++] = pairsInfo::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class regions extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $retainDays;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'retainDays' => 'RetainDays',
     ];
 

@@ -12,18 +12,20 @@ class StartPairDrillRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $pairId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'pairId'      => 'PairId',
-        'regionId'    => 'RegionId',
+        'pairId' => 'PairId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

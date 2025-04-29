@@ -12,18 +12,20 @@ class DescribeDiskReplicaPairProgressResponseBody extends Model
      * @var int
      */
     public $progress;
+
     /**
      * @var int
      */
     public $recoverPoint;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'progress'     => 'Progress',
+        'progress' => 'Progress',
         'recoverPoint' => 'RecoverPoint',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

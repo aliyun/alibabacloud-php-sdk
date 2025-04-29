@@ -12,12 +12,13 @@ class StartPairDrillResponseBody extends Model
      * @var string
      */
     public $drillId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'drillId'   => 'DrillId',
+        'drillId' => 'DrillId',
         'requestId' => 'RequestId',
     ];
 

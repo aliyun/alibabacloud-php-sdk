@@ -12,28 +12,32 @@ class ModifyDedicatedBlockStorageClusterAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dbscId;
+
     /**
      * @var string
      */
     public $dbscName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dbscId'      => 'DbscId',
-        'dbscName'    => 'DbscName',
+        'dbscId' => 'DbscId',
+        'dbscName' => 'DbscName',
         'description' => 'Description',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

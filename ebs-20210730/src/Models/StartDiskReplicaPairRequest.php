@@ -12,22 +12,25 @@ class StartDiskReplicaPairRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $oneShot;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaPairId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'oneShot'       => 'OneShot',
-        'regionId'      => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'oneShot' => 'OneShot',
+        'regionId' => 'RegionId',
         'replicaPairId' => 'ReplicaPairId',
     ];
 

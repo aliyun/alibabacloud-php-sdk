@@ -12,37 +12,43 @@ class ModifyDiskReplicaPairRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $pairName;
+
     /**
      * @var int
      */
     public $RPO;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicaPairId;
     protected $_name = [
-        'bandwidth'     => 'Bandwidth',
-        'clientToken'   => 'ClientToken',
-        'description'   => 'Description',
-        'pairName'      => 'PairName',
-        'RPO'           => 'RPO',
-        'regionId'      => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'pairName' => 'PairName',
+        'RPO' => 'RPO',
+        'regionId' => 'RegionId',
         'replicaPairId' => 'ReplicaPairId',
     ];
 

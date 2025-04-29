@@ -12,38 +12,44 @@ class diskEvents extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $recommendAction;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'description'     => 'Description',
-        'diskId'          => 'DiskId',
+        'description' => 'Description',
+        'diskId' => 'DiskId',
         'recommendAction' => 'RecommendAction',
-        'regionId'        => 'RegionId',
-        'status'          => 'Status',
-        'timestamp'       => 'Timestamp',
-        'type'            => 'Type',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'timestamp' => 'Timestamp',
+        'type' => 'Type',
     ];
 
     public function validate()

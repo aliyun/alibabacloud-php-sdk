@@ -13,53 +13,62 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
      * @var string
      */
     public $azone;
+
     /**
      * @var int
      */
     public $capacity;
+
     /**
      * @var string
      */
     public $dbscId;
+
     /**
      * @var string
      */
     public $dbscName;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'azone'           => 'Azone',
-        'capacity'        => 'Capacity',
-        'dbscId'          => 'DbscId',
-        'dbscName'        => 'DbscName',
-        'period'          => 'Period',
-        'periodUnit'      => 'PeriodUnit',
-        'regionId'        => 'RegionId',
+        'azone' => 'Azone',
+        'capacity' => 'Capacity',
+        'dbscId' => 'DbscId',
+        'dbscName' => 'DbscName',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag'             => 'Tag',
-        'type'            => 'Type',
+        'tag' => 'Tag',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -108,7 +117,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -165,7 +174,7 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
