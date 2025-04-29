@@ -14,6 +14,11 @@ class UpdateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $edition;
+
+    /**
      * @var bool
      */
     public $encryptedInstance;
@@ -56,6 +61,11 @@ class UpdateInstanceRequest extends Model
     /**
      * @var int
      */
+    public $provisionedCapacity;
+
+    /**
+     * @var int
+     */
     public $queueCapacity;
 
     /**
@@ -84,6 +94,7 @@ class UpdateInstanceRequest extends Model
     public $tracingStorageTime;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'edition' => 'Edition',
         'encryptedInstance' => 'EncryptedInstance',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
@@ -92,6 +103,7 @@ class UpdateInstanceRequest extends Model
         'maxEipTps' => 'MaxEipTps',
         'maxPrivateTps' => 'MaxPrivateTps',
         'modifyType' => 'ModifyType',
+        'provisionedCapacity' => 'ProvisionedCapacity',
         'queueCapacity' => 'QueueCapacity',
         'serverlessChargeType' => 'ServerlessChargeType',
         'storageSize' => 'StorageSize',
@@ -110,6 +122,10 @@ class UpdateInstanceRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->encryptedInstance) {
@@ -142,6 +158,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
+        }
+
+        if (null !== $this->provisionedCapacity) {
+            $res['ProvisionedCapacity'] = $this->provisionedCapacity;
         }
 
         if (null !== $this->queueCapacity) {
@@ -183,6 +203,10 @@ class UpdateInstanceRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
+        }
+
         if (isset($map['EncryptedInstance'])) {
             $model->encryptedInstance = $map['EncryptedInstance'];
         }
@@ -213,6 +237,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];
+        }
+
+        if (isset($map['ProvisionedCapacity'])) {
+            $model->provisionedCapacity = $map['ProvisionedCapacity'];
         }
 
         if (isset($map['QueueCapacity'])) {

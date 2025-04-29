@@ -1662,6 +1662,10 @@ class Amqpopen extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->encryptedInstance) {
             @$query['EncryptedInstance'] = $request->encryptedInstance;
         }
@@ -1692,6 +1696,10 @@ class Amqpopen extends OpenApiClient
 
         if (null !== $request->modifyType) {
             @$query['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->provisionedCapacity) {
+            @$query['ProvisionedCapacity'] = $request->provisionedCapacity;
         }
 
         if (null !== $request->queueCapacity) {
