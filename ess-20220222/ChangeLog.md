@@ -1,3 +1,10 @@
+2025-04-29 Version: 1.8.14
+- Update API CreateScalingRule: add request parameters AlarmOptions.
+- Update API DescribeScalingRules: add response parameters Body.ScalingRules.$.Alarms.$.Period.
+- Update API ModifyScalingRule: add request parameters AlarmOptions.
+- Update API RemoveInstances: add request parameters LifecycleHookContext.
+
+
 2025-04-08 Version: 1.8.13
 - Update API ModifyInstanceAttribute: add request parameters InstanceIds.
 

@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ess\V20220222\Models\RemoveInstancesRequest\lifecycleHookContext;
 
-class RemoveInstancesRequest extends Model
+class RemoveInstancesShrinkRequest extends Model
 {
     /**
      * @var string
@@ -30,9 +29,9 @@ class RemoveInstancesRequest extends Model
     public $instanceIds;
 
     /**
-     * @var lifecycleHookContext
+     * @var string
      */
-    public $lifecycleHookContext;
+    public $lifecycleHookContextShrink;
 
     /**
      * @var string
@@ -78,7 +77,7 @@ class RemoveInstancesRequest extends Model
         'decreaseDesiredCapacity' => 'DecreaseDesiredCapacity',
         'ignoreInvalidInstance' => 'IgnoreInvalidInstance',
         'instanceIds' => 'InstanceIds',
-        'lifecycleHookContext' => 'LifecycleHookContext',
+        'lifecycleHookContextShrink' => 'LifecycleHookContext',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -93,9 +92,6 @@ class RemoveInstancesRequest extends Model
     {
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
-        }
-        if (null !== $this->lifecycleHookContext) {
-            $this->lifecycleHookContext->validate();
         }
         parent::validate();
     }
@@ -125,8 +121,8 @@ class RemoveInstancesRequest extends Model
             }
         }
 
-        if (null !== $this->lifecycleHookContext) {
-            $res['LifecycleHookContext'] = null !== $this->lifecycleHookContext ? $this->lifecycleHookContext->toArray($noStream) : $this->lifecycleHookContext;
+        if (null !== $this->lifecycleHookContextShrink) {
+            $res['LifecycleHookContext'] = $this->lifecycleHookContextShrink;
         }
 
         if (null !== $this->ownerAccount) {
@@ -195,7 +191,7 @@ class RemoveInstancesRequest extends Model
         }
 
         if (isset($map['LifecycleHookContext'])) {
-            $model->lifecycleHookContext = lifecycleHookContext::fromMap($map['LifecycleHookContext']);
+            $model->lifecycleHookContextShrink = $map['LifecycleHookContext'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest\alarmDimensions;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest\alarmOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest\hybridMetrics;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest\stepAdjustments;
 
@@ -25,6 +26,11 @@ class CreateScalingRuleRequest extends Model
      * @var alarmDimensions[]
      */
     public $alarmDimensions;
+
+    /**
+     * @var alarmOptions
+     */
+    public $alarmOptions;
 
     /**
      * @var int
@@ -149,6 +155,7 @@ class CreateScalingRuleRequest extends Model
         'adjustmentType' => 'AdjustmentType',
         'adjustmentValue' => 'AdjustmentValue',
         'alarmDimensions' => 'AlarmDimensions',
+        'alarmOptions' => 'AlarmOptions',
         'cooldown' => 'Cooldown',
         'disableScaleIn' => 'DisableScaleIn',
         'estimatedInstanceWarmup' => 'EstimatedInstanceWarmup',
@@ -180,6 +187,9 @@ class CreateScalingRuleRequest extends Model
         if (\is_array($this->alarmDimensions)) {
             Model::validateArray($this->alarmDimensions);
         }
+        if (null !== $this->alarmOptions) {
+            $this->alarmOptions->validate();
+        }
         if (\is_array($this->hybridMetrics)) {
             Model::validateArray($this->hybridMetrics);
         }
@@ -208,6 +218,10 @@ class CreateScalingRuleRequest extends Model
                     $res['AlarmDimensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->alarmOptions) {
+            $res['AlarmOptions'] = null !== $this->alarmOptions ? $this->alarmOptions->toArray($noStream) : $this->alarmOptions;
         }
 
         if (null !== $this->cooldown) {
@@ -345,6 +359,10 @@ class CreateScalingRuleRequest extends Model
                     $model->alarmDimensions[$n1++] = alarmDimensions::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['AlarmOptions'])) {
+            $model->alarmOptions = alarmOptions::fromMap($map['AlarmOptions']);
         }
 
         if (isset($map['Cooldown'])) {

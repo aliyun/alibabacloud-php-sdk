@@ -45,6 +45,11 @@ class alarms extends Model
     public $metricType;
 
     /**
+     * @var int
+     */
+    public $period;
+
+    /**
      * @var string
      */
     public $statistics;
@@ -61,6 +66,7 @@ class alarms extends Model
         'evaluationCount' => 'EvaluationCount',
         'metricName' => 'MetricName',
         'metricType' => 'MetricType',
+        'period' => 'Period',
         'statistics' => 'Statistics',
         'threshold' => 'Threshold',
     ];
@@ -108,6 +114,10 @@ class alarms extends Model
 
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
+        }
+
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
 
         if (null !== $this->statistics) {
@@ -161,6 +171,10 @@ class alarms extends Model
 
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
+        }
+
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
 
         if (isset($map['Statistics'])) {
