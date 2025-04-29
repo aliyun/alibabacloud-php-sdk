@@ -31,6 +31,11 @@ class functionComputeConfig extends Model
     /**
      * @var string
      */
+    public $fcVersion;
+
+    /**
+     * @var string
+     */
     public $functionName;
 
     /**
@@ -77,6 +82,7 @@ class functionComputeConfig extends Model
         'contentTypeValue' => 'ContentTypeValue',
         'fcBaseUrl' => 'FcBaseUrl',
         'fcType' => 'FcType',
+        'fcVersion' => 'FcVersion',
         'functionName' => 'FunctionName',
         'method' => 'Method',
         'onlyBusinessPath' => 'OnlyBusinessPath',
@@ -110,6 +116,10 @@ class functionComputeConfig extends Model
 
         if (null !== $this->fcType) {
             $res['FcType'] = $this->fcType;
+        }
+
+        if (null !== $this->fcVersion) {
+            $res['FcVersion'] = $this->fcVersion;
         }
 
         if (null !== $this->functionName) {
@@ -173,6 +183,10 @@ class functionComputeConfig extends Model
 
         if (isset($map['FcType'])) {
             $model->fcType = $map['FcType'];
+        }
+
+        if (isset($map['FcVersion'])) {
+            $model->fcVersion = $map['FcVersion'];
         }
 
         if (isset($map['FunctionName'])) {
