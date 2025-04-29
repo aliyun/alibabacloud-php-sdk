@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $basicCarrier;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $mts;
+
     /**
      * @var bool
      */
     public $numberPortability;
+
     /**
      * @var string
      */
     public $province;
     protected $_name = [
-        'basicCarrier'      => 'BasicCarrier',
-        'carrier'           => 'Carrier',
-        'city'              => 'City',
-        'mts'               => 'Mts',
+        'basicCarrier' => 'BasicCarrier',
+        'carrier' => 'Carrier',
+        'city' => 'City',
+        'mts' => 'Mts',
         'numberPortability' => 'NumberPortability',
-        'province'          => 'Province',
+        'province' => 'Province',
     ];
 
     public function validate()

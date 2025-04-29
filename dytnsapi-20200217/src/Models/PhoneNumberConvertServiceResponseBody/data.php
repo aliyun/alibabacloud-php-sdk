@@ -12,22 +12,25 @@ class data extends Model
      * @var bool
      */
     public $converResult;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $numberMd5;
+
     /**
      * @var string
      */
     public $numberSha256;
     protected $_name = [
         'converResult' => 'ConverResult',
-        'number'       => 'Number',
-        'numberMd5'    => 'NumberMd5',
+        'number' => 'Number',
+        'numberMd5' => 'NumberMd5',
         'numberSha256' => 'NumberSha256',
     ];
 

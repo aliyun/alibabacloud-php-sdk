@@ -12,58 +12,68 @@ class data extends Model
      * @var string
      */
     public $authorizationCode;
+
     /**
      * @var int
      */
     public $failTotal;
+
     /**
      * @var string
      */
     public $gmtDateStr;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $industryName;
+
     /**
      * @var int
      */
     public $partnerId;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var int
      */
     public $successTotal;
+
     /**
      * @var int
      */
     public $tagId;
+
     /**
      * @var string
      */
     public $tagName;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'authorizationCode' => 'AuthorizationCode',
-        'failTotal'         => 'FailTotal',
-        'gmtDateStr'        => 'GmtDateStr',
-        'id'                => 'Id',
-        'industryName'      => 'IndustryName',
-        'partnerId'         => 'PartnerId',
-        'sceneName'         => 'SceneName',
-        'successTotal'      => 'SuccessTotal',
-        'tagId'             => 'TagId',
-        'tagName'           => 'TagName',
-        'total'             => 'Total',
+        'failTotal' => 'FailTotal',
+        'gmtDateStr' => 'GmtDateStr',
+        'id' => 'Id',
+        'industryName' => 'IndustryName',
+        'partnerId' => 'PartnerId',
+        'sceneName' => 'SceneName',
+        'successTotal' => 'SuccessTotal',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
+        'total' => 'Total',
     ];
 
     public function validate()

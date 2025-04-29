@@ -12,33 +12,38 @@ class QueryTagInfoBySelectionRequest extends Model
      * @var int
      */
     public $industryId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var int
      */
     public $tagId;
     protected $_name = [
-        'industryId'           => 'IndustryId',
-        'ownerId'              => 'OwnerId',
+        'industryId' => 'IndustryId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sceneId'              => 'SceneId',
-        'tagId'                => 'TagId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sceneId' => 'SceneId',
+        'tagId' => 'TagId',
     ];
 
     public function validate()

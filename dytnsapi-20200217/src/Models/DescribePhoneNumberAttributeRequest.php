@@ -12,23 +12,26 @@ class DescribePhoneNumberAttributeRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $deviceRisk;
+
     /**
      * @var string
      */
     public $ipRisk;
+
     /**
      * @var string
      */
     public $score1;
+
     /**
      * @var string
      */
     public $score2;
+
     /**
      * @var string
      */
     public $score3;
     protected $_name = [
         'deviceRisk' => 'Device_risk',
-        'ipRisk'     => 'Ip_risk',
-        'score1'     => 'Score1',
-        'score2'     => 'Score2',
-        'score3'     => 'Score3',
+        'ipRisk' => 'Ip_risk',
+        'score1' => 'Score1',
+        'score2' => 'Score2',
+        'score3' => 'Score3',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class phoneNumberAttribute extends Model
      * @var string
      */
     public $basicCarrier;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var bool
      */
     public $isNumberPortability;
+
     /**
      * @var int
      */
     public $numberSegment;
+
     /**
      * @var string
      */
     public $province;
     protected $_name = [
-        'basicCarrier'        => 'BasicCarrier',
-        'carrier'             => 'Carrier',
-        'city'                => 'City',
+        'basicCarrier' => 'BasicCarrier',
+        'carrier' => 'Carrier',
+        'city' => 'City',
         'isNumberPortability' => 'IsNumberPortability',
-        'numberSegment'       => 'NumberSegment',
-        'province'            => 'Province',
+        'numberSegment' => 'NumberSegment',
+        'province' => 'Province',
     ];
 
     public function validate()

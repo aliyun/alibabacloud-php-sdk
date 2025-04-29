@@ -12,38 +12,44 @@ class CompanyThreeElementsVerificationRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $epCertName;
+
     /**
      * @var string
      */
     public $epCertNo;
+
     /**
      * @var string
      */
     public $legalPersonCertName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'epCertName'           => 'EpCertName',
-        'epCertNo'             => 'EpCertNo',
-        'legalPersonCertName'  => 'LegalPersonCertName',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'epCertName' => 'EpCertName',
+        'epCertNo' => 'EpCertNo',
+        'legalPersonCertName' => 'LegalPersonCertName',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

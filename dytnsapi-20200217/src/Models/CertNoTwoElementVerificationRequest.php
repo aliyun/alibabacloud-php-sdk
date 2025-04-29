@@ -12,33 +12,38 @@ class CertNoTwoElementVerificationRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $certNo;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'certName'             => 'CertName',
-        'certNo'               => 'CertNo',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'certName' => 'CertName',
+        'certNo' => 'CertNo',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

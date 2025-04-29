@@ -13,32 +13,37 @@ class paramList extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $hint;
+
     /**
      * @var bool
      */
     public $must;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var valueDict[]
      */
     public $valueDict;
     protected $_name = [
-        'code'      => 'Code',
-        'hint'      => 'Hint',
-        'must'      => 'Must',
-        'name'      => 'Name',
-        'type'      => 'Type',
+        'code' => 'Code',
+        'hint' => 'Hint',
+        'must' => 'Must',
+        'name' => 'Name',
+        'type' => 'Type',
         'valueDict' => 'ValueDict',
     ];
 
@@ -76,7 +81,7 @@ class paramList extends Model
         if (null !== $this->valueDict) {
             if (\is_array($this->valueDict)) {
                 $res['ValueDict'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->valueDict as $item1) {
                     $res['ValueDict'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -117,7 +122,7 @@ class paramList extends Model
         if (isset($map['ValueDict'])) {
             if (!empty($map['ValueDict'])) {
                 $model->valueDict = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ValueDict'] as $item1) {
                     $model->valueDict[$n1++] = valueDict::fromMap($item1);
                 }

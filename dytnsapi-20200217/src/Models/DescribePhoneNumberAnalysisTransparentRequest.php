@@ -12,38 +12,44 @@ class DescribePhoneNumberAnalysisTransparentRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $numberType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'ip'                   => 'Ip',
-        'numberType'           => 'NumberType',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'inputNumber' => 'InputNumber',
+        'ip' => 'Ip',
+        'numberType' => 'NumberType',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

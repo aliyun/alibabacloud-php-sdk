@@ -12,33 +12,38 @@ class PhoneNumberStatusForPublicRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

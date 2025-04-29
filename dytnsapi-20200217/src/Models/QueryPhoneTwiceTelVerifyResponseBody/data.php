@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $carrierCode;
+
     /**
      * @var int
      */
     public $verifyResult;
     protected $_name = [
-        'carrierCode'  => 'CarrierCode',
+        'carrierCode' => 'CarrierCode',
         'verifyResult' => 'VerifyResult',
     ];
 

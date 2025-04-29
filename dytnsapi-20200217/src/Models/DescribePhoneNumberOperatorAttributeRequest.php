@@ -12,43 +12,50 @@ class DescribePhoneNumberOperatorAttributeRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resultCount;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'flowName'             => 'FlowName',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'flowName' => 'FlowName',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resultCount'          => 'ResultCount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resultCount' => 'ResultCount',
     ];
 
     public function validate()

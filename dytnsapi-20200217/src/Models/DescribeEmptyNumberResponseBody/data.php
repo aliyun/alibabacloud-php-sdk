@@ -12,6 +12,7 @@ class data extends Model
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */

@@ -12,58 +12,68 @@ class GetUAIDApplyTokenSignRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $clientType;
+
     /**
      * @var string
      */
     public $format;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $paramKey;
+
     /**
      * @var string
      */
     public $paramStr;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'carrier'              => 'Carrier',
-        'clientType'           => 'ClientType',
-        'format'               => 'Format',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'paramKey'             => 'ParamKey',
-        'paramStr'             => 'ParamStr',
+        'authCode' => 'AuthCode',
+        'carrier' => 'Carrier',
+        'clientType' => 'ClientType',
+        'format' => 'Format',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
+        'paramKey' => 'ParamKey',
+        'paramStr' => 'ParamStr',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'time'                 => 'Time',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'time' => 'Time',
     ];
 
     public function validate()

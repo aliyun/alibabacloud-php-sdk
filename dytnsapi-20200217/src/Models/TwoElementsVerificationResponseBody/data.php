@@ -12,6 +12,7 @@ class data extends Model
      * @var string
      */
     public $basicCarrier;
+
     /**
      * @var int
      */

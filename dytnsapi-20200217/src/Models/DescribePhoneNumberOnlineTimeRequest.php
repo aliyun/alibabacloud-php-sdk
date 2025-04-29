@@ -12,38 +12,44 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'carrier'              => 'Carrier',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'carrier' => 'Carrier',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

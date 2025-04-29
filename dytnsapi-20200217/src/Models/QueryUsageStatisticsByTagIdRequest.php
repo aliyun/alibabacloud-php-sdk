@@ -12,43 +12,50 @@ class QueryUsageStatisticsByTagIdRequest extends Model
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $tagId;
     protected $_name = [
-        'beginTime'            => 'BeginTime',
-        'endTime'              => 'EndTime',
-        'ownerId'              => 'OwnerId',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tagId'                => 'TagId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tagId' => 'TagId',
     ];
 
     public function validate()

@@ -12,18 +12,26 @@ class data extends Model
      * @var string
      */
     public $encryptedNumber;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $originalNumber;
+
+    /**
+     * @var string
+     */
+    public $outId;
     protected $_name = [
         'encryptedNumber' => 'EncryptedNumber',
-        'expireTime'      => 'ExpireTime',
-        'originalNumber'  => 'OriginalNumber',
+        'expireTime' => 'ExpireTime',
+        'originalNumber' => 'OriginalNumber',
+        'outId' => 'OutId',
     ];
 
     public function validate()
@@ -44,6 +52,10 @@ class data extends Model
 
         if (null !== $this->originalNumber) {
             $res['OriginalNumber'] = $this->originalNumber;
+        }
+
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
 
         return $res;
@@ -67,6 +79,10 @@ class data extends Model
 
         if (isset($map['OriginalNumber'])) {
             $model->originalNumber = $map['OriginalNumber'];
+        }
+
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
 
         return $model;

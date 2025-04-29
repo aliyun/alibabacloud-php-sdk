@@ -12,38 +12,44 @@ class QueryPhoneTwiceTelVerifyRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

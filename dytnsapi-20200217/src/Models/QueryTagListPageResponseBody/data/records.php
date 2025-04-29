@@ -12,63 +12,74 @@ class records extends Model
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $docAddress;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $industryId;
+
     /**
      * @var string
      */
     public $industryName;
+
     /**
      * @var string
      */
     public $introduction;
+
     /**
      * @var int
      */
     public $isOpen;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $saleStatusStr;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sceneName;
     protected $_name = [
-        'apiName'       => 'ApiName',
-        'code'          => 'Code',
-        'docAddress'    => 'DocAddress',
-        'id'            => 'Id',
-        'industryId'    => 'IndustryId',
-        'industryName'  => 'IndustryName',
-        'introduction'  => 'Introduction',
-        'isOpen'        => 'IsOpen',
-        'name'          => 'Name',
+        'apiName' => 'ApiName',
+        'code' => 'Code',
+        'docAddress' => 'DocAddress',
+        'id' => 'Id',
+        'industryId' => 'IndustryId',
+        'industryName' => 'IndustryName',
+        'introduction' => 'Introduction',
+        'isOpen' => 'IsOpen',
+        'name' => 'Name',
         'saleStatusStr' => 'SaleStatusStr',
-        'sceneId'       => 'SceneId',
-        'sceneName'     => 'SceneName',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
     ];
 
     public function validate()

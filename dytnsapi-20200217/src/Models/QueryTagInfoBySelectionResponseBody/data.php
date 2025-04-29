@@ -13,73 +13,86 @@ class data extends Model
      * @var string[]
      */
     public $authCodeList;
+
     /**
      * @var string
      */
     public $complexityType;
+
     /**
      * @var string
      */
     public $demoAddress;
+
     /**
      * @var string
      */
     public $docAddress;
+
     /**
      * @var string
      */
     public $enumDefinitionAddress;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var int
      */
     public $industryId;
+
     /**
      * @var string
      */
     public $industryName;
+
     /**
      * @var paramList[]
      */
     public $paramList;
+
     /**
      * @var string
      */
     public $richTextDescription;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var int
      */
     public $tagId;
+
     /**
      * @var string
      */
     public $tagName;
     protected $_name = [
-        'authCodeList'          => 'AuthCodeList',
-        'complexityType'        => 'ComplexityType',
-        'demoAddress'           => 'DemoAddress',
-        'docAddress'            => 'DocAddress',
+        'authCodeList' => 'AuthCodeList',
+        'complexityType' => 'ComplexityType',
+        'demoAddress' => 'DemoAddress',
+        'docAddress' => 'DocAddress',
         'enumDefinitionAddress' => 'EnumDefinitionAddress',
-        'flowName'              => 'FlowName',
-        'industryId'            => 'IndustryId',
-        'industryName'          => 'IndustryName',
-        'paramList'             => 'ParamList',
-        'richTextDescription'   => 'RichTextDescription',
-        'sceneId'               => 'SceneId',
-        'sceneName'             => 'SceneName',
-        'tagId'                 => 'TagId',
-        'tagName'               => 'TagName',
+        'flowName' => 'FlowName',
+        'industryId' => 'IndustryId',
+        'industryName' => 'IndustryName',
+        'paramList' => 'ParamList',
+        'richTextDescription' => 'RichTextDescription',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
     ];
 
     public function validate()
@@ -99,7 +112,7 @@ class data extends Model
         if (null !== $this->authCodeList) {
             if (\is_array($this->authCodeList)) {
                 $res['AuthCodeList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->authCodeList as $item1) {
                     $res['AuthCodeList'][$n1++] = $item1;
                 }
@@ -137,7 +150,7 @@ class data extends Model
         if (null !== $this->paramList) {
             if (\is_array($this->paramList)) {
                 $res['ParamList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->paramList as $item1) {
                     $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -178,7 +191,7 @@ class data extends Model
         if (isset($map['AuthCodeList'])) {
             if (!empty($map['AuthCodeList'])) {
                 $model->authCodeList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AuthCodeList'] as $item1) {
                     $model->authCodeList[$n1++] = $item1;
                 }
@@ -216,7 +229,7 @@ class data extends Model
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ParamList'] as $item1) {
                     $model->paramList[$n1++] = paramList::fromMap($item1);
                 }

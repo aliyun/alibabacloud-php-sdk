@@ -12,23 +12,26 @@ class QueryTagApplyRuleRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $tagId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tagId'                => 'TagId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tagId' => 'TagId',
     ];
 
     public function validate()

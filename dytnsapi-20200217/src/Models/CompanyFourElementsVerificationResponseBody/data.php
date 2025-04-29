@@ -13,23 +13,26 @@ class data extends Model
      * @var detailInfo
      */
     public $detailInfo;
+
     /**
      * @var string[]
      */
     public $inconsistentData;
+
     /**
      * @var int
      */
     public $reasonCode;
+
     /**
      * @var string
      */
     public $verifyResult;
     protected $_name = [
-        'detailInfo'       => 'DetailInfo',
+        'detailInfo' => 'DetailInfo',
         'inconsistentData' => 'InconsistentData',
-        'reasonCode'       => 'ReasonCode',
-        'verifyResult'     => 'VerifyResult',
+        'reasonCode' => 'ReasonCode',
+        'verifyResult' => 'VerifyResult',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class data extends Model
         if (null !== $this->inconsistentData) {
             if (\is_array($this->inconsistentData)) {
                 $res['InconsistentData'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->inconsistentData as $item1) {
                     $res['InconsistentData'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class data extends Model
         if (isset($map['InconsistentData'])) {
             if (!empty($map['InconsistentData'])) {
                 $model->inconsistentData = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['InconsistentData'] as $item1) {
                     $model->inconsistentData[$n1++] = $item1;
                 }

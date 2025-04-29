@@ -12,43 +12,50 @@ class CertNoThreeElementVerificationRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $certNo;
+
     /**
      * @var string
      */
     public $certPicture;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'certName'             => 'CertName',
-        'certNo'               => 'CertNo',
-        'certPicture'          => 'CertPicture',
-        'mask'                 => 'Mask',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'certName' => 'CertName',
+        'certNo' => 'CertNo',
+        'certPicture' => 'CertPicture',
+        'mask' => 'Mask',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

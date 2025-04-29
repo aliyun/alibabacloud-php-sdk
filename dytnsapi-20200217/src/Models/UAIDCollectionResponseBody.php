@@ -13,28 +13,32 @@ class UAIDCollectionResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var model_
      */
     public $model;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'message'            => 'Message',
-        'model'              => 'Model',
-        'requestId'          => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'model' => 'Model',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

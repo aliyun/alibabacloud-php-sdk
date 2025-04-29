@@ -12,28 +12,32 @@ class DescribePhoneNumberAnalysisPaiResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'data'               => 'Data',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -58,7 +62,7 @@ class DescribePhoneNumberAnalysisPaiResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = $item1;
                 }
@@ -95,7 +99,7 @@ class DescribePhoneNumberAnalysisPaiResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = $item1;
                 }

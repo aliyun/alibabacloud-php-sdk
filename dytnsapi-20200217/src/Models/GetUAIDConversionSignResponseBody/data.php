@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var string
      */
     public $sign;
     protected $_name = [
         'carrier' => 'Carrier',
-        'outId'   => 'OutId',
-        'sign'    => 'Sign',
+        'outId' => 'OutId',
+        'sign' => 'Sign',
     ];
 
     public function validate()

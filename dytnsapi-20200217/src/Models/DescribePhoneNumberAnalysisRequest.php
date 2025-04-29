@@ -12,43 +12,50 @@ class DescribePhoneNumberAnalysisRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var int
      */
     public $numberType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $rate;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'numberType'           => 'NumberType',
-        'ownerId'              => 'OwnerId',
-        'rate'                 => 'Rate',
+        'authCode' => 'AuthCode',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'numberType' => 'NumberType',
+        'ownerId' => 'OwnerId',
+        'rate' => 'Rate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

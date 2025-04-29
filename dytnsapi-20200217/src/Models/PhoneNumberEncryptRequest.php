@@ -12,33 +12,44 @@ class PhoneNumberEncryptRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
+    /**
+     * @var string
+     */
+    public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,6 +70,10 @@ class PhoneNumberEncryptRequest extends Model
 
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
+        }
+
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
 
         if (null !== $this->ownerId) {
@@ -94,6 +109,10 @@ class PhoneNumberEncryptRequest extends Model
 
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
+        }
+
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
 
         if (isset($map['OwnerId'])) {

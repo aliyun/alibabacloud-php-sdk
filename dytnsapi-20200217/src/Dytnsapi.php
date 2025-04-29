@@ -59,8 +59,6 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForRealRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForRealResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForSmsRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForSmsResponse;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVirtualRequest;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVirtualResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVoiceRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVoiceResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryAvailableAuthCodeRequest;
@@ -131,6 +129,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - CertNoThreeElementVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CertNoThreeElementVerificationResponse
      *
      * @param CertNoThreeElementVerificationRequest $request
@@ -178,15 +177,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CertNoThreeElementVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CertNoThreeElementVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CertNoThreeElementVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -196,6 +195,7 @@ class Dytnsapi extends OpenApiClient
      * 身份证三要素.
      *
      * @param request - CertNoThreeElementVerificationRequest
+     *
      * @returns CertNoThreeElementVerificationResponse
      *
      * @param CertNoThreeElementVerificationRequest $request
@@ -214,6 +214,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - CertNoTwoElementVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CertNoTwoElementVerificationResponse
      *
      * @param CertNoTwoElementVerificationRequest $request
@@ -253,15 +254,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CertNoTwoElementVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CertNoTwoElementVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CertNoTwoElementVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -271,6 +272,7 @@ class Dytnsapi extends OpenApiClient
      * 身份证二要素认证
      *
      * @param request - CertNoTwoElementVerificationRequest
+     *
      * @returns CertNoTwoElementVerificationResponse
      *
      * @param CertNoTwoElementVerificationRequest $request
@@ -294,6 +296,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - CompanyFourElementsVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompanyFourElementsVerificationResponse
      *
      * @param CompanyFourElementsVerificationRequest $request
@@ -341,15 +344,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompanyFourElementsVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompanyFourElementsVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompanyFourElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -364,6 +367,7 @@ class Dytnsapi extends OpenApiClient
      * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
      *
      * @param request - CompanyFourElementsVerificationRequest
+     *
      * @returns CompanyFourElementsVerificationResponse
      *
      * @param CompanyFourElementsVerificationRequest $request
@@ -387,6 +391,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - CompanyThreeElementsVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompanyThreeElementsVerificationResponse
      *
      * @param CompanyThreeElementsVerificationRequest $request
@@ -430,15 +435,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompanyThreeElementsVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompanyThreeElementsVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompanyThreeElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -453,6 +458,7 @@ class Dytnsapi extends OpenApiClient
      * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
      *
      * @param request - CompanyThreeElementsVerificationRequest
+     *
      * @returns CompanyThreeElementsVerificationResponse
      *
      * @param CompanyThreeElementsVerificationRequest $request
@@ -476,6 +482,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - CompanyTwoElementsVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompanyTwoElementsVerificationResponse
      *
      * @param CompanyTwoElementsVerificationRequest $request
@@ -515,15 +522,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompanyTwoElementsVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompanyTwoElementsVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompanyTwoElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -538,6 +545,7 @@ class Dytnsapi extends OpenApiClient
      * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
      *
      * @param request - CompanyTwoElementsVerificationRequest
+     *
      * @returns CompanyTwoElementsVerificationResponse
      *
      * @param CompanyTwoElementsVerificationRequest $request
@@ -566,6 +574,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribeEmptyNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEmptyNumberResponse
      *
      * @param DescribeEmptyNumberRequest $request
@@ -605,15 +614,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEmptyNumber',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEmptyNumber',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEmptyNumberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -633,6 +642,7 @@ class Dytnsapi extends OpenApiClient
      * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](https://help.aliyun.com/document_detail/154006.html).
      *
      * @param request - DescribeEmptyNumberRequest
+     *
      * @returns DescribeEmptyNumberResponse
      *
      * @param DescribeEmptyNumberRequest $request
@@ -651,6 +661,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribeMobileOperatorAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMobileOperatorAttributeResponse
      *
      * @param DescribeMobileOperatorAttributeRequest $request
@@ -690,15 +701,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMobileOperatorAttribute',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMobileOperatorAttribute',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMobileOperatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -708,6 +719,7 @@ class Dytnsapi extends OpenApiClient
      * 号码归属地查询v2.
      *
      * @param request - DescribeMobileOperatorAttributeRequest
+     *
      * @returns DescribeMobileOperatorAttributeResponse
      *
      * @param DescribeMobileOperatorAttributeRequest $request
@@ -726,6 +738,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberAnalysisResponse
      *
      * @param DescribePhoneNumberAnalysisRequest $request
@@ -773,15 +786,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberAnalysis',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberAnalysis',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -791,6 +804,7 @@ class Dytnsapi extends OpenApiClient
      * 号码分析实时查询蚂蚁
      *
      * @param request - DescribePhoneNumberAnalysisRequest
+     *
      * @returns DescribePhoneNumberAnalysisResponse
      *
      * @param DescribePhoneNumberAnalysisRequest $request
@@ -812,6 +826,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberAnalysisAIRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberAnalysisAIResponse
      *
      * @param DescribePhoneNumberAnalysisAIRequest $request
@@ -855,15 +870,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberAnalysisAI',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberAnalysisAI',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberAnalysisAIResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -876,6 +891,7 @@ class Dytnsapi extends OpenApiClient
      * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the Labels page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can use the label. Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.
      *
      * @param request - DescribePhoneNumberAnalysisAIRequest
+     *
      * @returns DescribePhoneNumberAnalysisAIResponse
      *
      * @param DescribePhoneNumberAnalysisAIRequest $request
@@ -894,6 +910,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberAnalysisPaiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberAnalysisPaiResponse
      *
      * @param DescribePhoneNumberAnalysisPaiRequest $request
@@ -937,15 +954,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberAnalysisPai',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberAnalysisPai',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberAnalysisPaiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -955,6 +972,7 @@ class Dytnsapi extends OpenApiClient
      * 号码分析服务pai供应商批量查询接口.
      *
      * @param request - DescribePhoneNumberAnalysisPaiRequest
+     *
      * @returns DescribePhoneNumberAnalysisPaiResponse
      *
      * @param DescribePhoneNumberAnalysisPaiRequest $request
@@ -973,6 +991,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberAnalysisTransparentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberAnalysisTransparentResponse
      *
      * @param DescribePhoneNumberAnalysisTransparentRequest $request
@@ -1016,15 +1035,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberAnalysisTransparent',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberAnalysisTransparent',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberAnalysisTransparentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1034,6 +1053,7 @@ class Dytnsapi extends OpenApiClient
      * 泛行业人群筛选.
      *
      * @param request - DescribePhoneNumberAnalysisTransparentRequest
+     *
      * @returns DescribePhoneNumberAnalysisTransparentResponse
      *
      * @param DescribePhoneNumberAnalysisTransparentRequest $request
@@ -1048,7 +1068,6 @@ class Dytnsapi extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the carrier, registration location, and mobile number portability information of a phone number.
      *
@@ -1062,6 +1081,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberAttributeResponse
      *
      * @param DescribePhoneNumberAttributeRequest $request
@@ -1093,22 +1113,21 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberAttribute',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberAttribute',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * Queries the carrier, registration location, and mobile number portability information of a phone number.
      *
@@ -1121,6 +1140,7 @@ class Dytnsapi extends OpenApiClient
      * @deprecated openAPI DescribePhoneNumberAttribute is deprecated, please use Dytnsapi::2020-02-17::DescribePhoneNumberOperatorAttribute instead
      *
      * @param request - DescribePhoneNumberAttributeRequest
+     *
      * @returns DescribePhoneNumberAttributeResponse
      *
      * @param DescribePhoneNumberAttributeRequest $request
@@ -1145,6 +1165,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberOnlineTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberOnlineTimeResponse
      *
      * @param DescribePhoneNumberOnlineTimeRequest $request
@@ -1188,15 +1209,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberOnlineTime',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberOnlineTime',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberOnlineTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1212,6 +1233,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribePhoneNumberOnlineTimeRequest
+     *
      * @returns DescribePhoneNumberOnlineTimeResponse
      *
      * @param DescribePhoneNumberOnlineTimeRequest $request
@@ -1236,6 +1258,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberOperatorAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberOperatorAttributeResponse
      *
      * @param DescribePhoneNumberOperatorAttributeRequest $request
@@ -1283,15 +1306,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberOperatorAttribute',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberOperatorAttribute',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberOperatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1307,6 +1330,7 @@ class Dytnsapi extends OpenApiClient
      * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
      *
      * @param request - DescribePhoneNumberOperatorAttributeRequest
+     *
      * @returns DescribePhoneNumberOperatorAttributeResponse
      *
      * @param DescribePhoneNumberOperatorAttributeRequest $request
@@ -1325,6 +1349,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberOperatorAttributeAnnualRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberOperatorAttributeAnnualResponse
      *
      * @param DescribePhoneNumberOperatorAttributeAnnualRequest $request
@@ -1352,15 +1377,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberOperatorAttributeAnnual',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberOperatorAttributeAnnual',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberOperatorAttributeAnnualResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1370,6 +1395,7 @@ class Dytnsapi extends OpenApiClient
      * 号码归属服务(包年包月客户专用).
      *
      * @param request - DescribePhoneNumberOperatorAttributeAnnualRequest
+     *
      * @returns DescribePhoneNumberOperatorAttributeAnnualResponse
      *
      * @param DescribePhoneNumberOperatorAttributeAnnualRequest $request
@@ -1388,6 +1414,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberOperatorAttributeAnnualUseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberOperatorAttributeAnnualUseResponse
      *
      * @param DescribePhoneNumberOperatorAttributeAnnualUseRequest $request
@@ -1415,15 +1442,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberOperatorAttributeAnnualUse',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberOperatorAttributeAnnualUse',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberOperatorAttributeAnnualUseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1433,6 +1460,7 @@ class Dytnsapi extends OpenApiClient
      * 号码归属服务(包年包月客户专用).
      *
      * @param request - DescribePhoneNumberOperatorAttributeAnnualUseRequest
+     *
      * @returns DescribePhoneNumberOperatorAttributeAnnualUseResponse
      *
      * @param DescribePhoneNumberOperatorAttributeAnnualUseRequest $request
@@ -1451,6 +1479,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneNumberRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneNumberRiskResponse
      *
      * @param DescribePhoneNumberRiskRequest $request
@@ -1490,15 +1519,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneNumberRisk',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneNumberRisk',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneNumberRiskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1508,6 +1537,7 @@ class Dytnsapi extends OpenApiClient
      * 风险用户评分.
      *
      * @param request - DescribePhoneNumberRiskRequest
+     *
      * @returns DescribePhoneNumberRiskResponse
      *
      * @param DescribePhoneNumberRiskRequest $request
@@ -1535,6 +1565,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribePhoneTwiceTelVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhoneTwiceTelVerifyResponse
      *
      * @param DescribePhoneTwiceTelVerifyRequest $request
@@ -1578,15 +1609,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhoneTwiceTelVerify',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhoneTwiceTelVerify',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePhoneTwiceTelVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1605,6 +1636,7 @@ class Dytnsapi extends OpenApiClient
      * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](https://help.aliyun.com/document_detail/154006.html).
      *
      * @param request - DescribePhoneTwiceTelVerifyRequest
+     *
      * @returns DescribePhoneTwiceTelVerifyResponse
      *
      * @param DescribePhoneTwiceTelVerifyRequest $request
@@ -1623,6 +1655,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - GetUAIDApplyTokenSignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUAIDApplyTokenSignResponse
      *
      * @param GetUAIDApplyTokenSignRequest $request
@@ -1682,15 +1715,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUAIDApplyTokenSign',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUAIDApplyTokenSign',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUAIDApplyTokenSignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1700,6 +1733,7 @@ class Dytnsapi extends OpenApiClient
      * 获取UAID申请Token所需的签名字段.
      *
      * @param request - GetUAIDApplyTokenSignRequest
+     *
      * @returns GetUAIDApplyTokenSignResponse
      *
      * @param GetUAIDApplyTokenSignRequest $request
@@ -1718,6 +1752,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - GetUAIDConversionSignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUAIDConversionSignResponse
      *
      * @param GetUAIDConversionSignRequest $request
@@ -1777,15 +1812,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUAIDConversionSign',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUAIDConversionSign',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUAIDConversionSignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1795,6 +1830,7 @@ class Dytnsapi extends OpenApiClient
      * 获取号码采集服务申请Token所需的签名字段.
      *
      * @param request - GetUAIDConversionSignRequest
+     *
      * @returns GetUAIDConversionSignResponse
      *
      * @param GetUAIDConversionSignRequest $request
@@ -1818,6 +1854,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - InvalidPhoneNumberFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InvalidPhoneNumberFilterResponse
      *
      * @param InvalidPhoneNumberFilterRequest $request
@@ -1857,15 +1894,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvalidPhoneNumberFilter',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InvalidPhoneNumberFilter',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvalidPhoneNumberFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1880,6 +1917,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - InvalidPhoneNumberFilterRequest
+     *
      * @returns InvalidPhoneNumberFilterResponse
      *
      * @param InvalidPhoneNumberFilterRequest $request
@@ -1896,6 +1934,7 @@ class Dytnsapi extends OpenApiClient
     /**
      * @param request - PhoneNumberConvertServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberConvertServiceResponse
      *
      * @param PhoneNumberConvertServiceRequest $request
@@ -1935,15 +1974,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberConvertService',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberConvertService',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberConvertServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1951,6 +1990,7 @@ class Dytnsapi extends OpenApiClient
 
     /**
      * @param request - PhoneNumberConvertServiceRequest
+     *
      * @returns PhoneNumberConvertServiceResponse
      *
      * @param PhoneNumberConvertServiceRequest $request
@@ -1974,6 +2014,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - PhoneNumberEncryptRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberEncryptResponse
      *
      * @param PhoneNumberEncryptRequest $request
@@ -1997,6 +2038,10 @@ class Dytnsapi extends OpenApiClient
             @$query['Mask'] = $request->mask;
         }
 
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -2013,15 +2058,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberEncrypt',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberEncrypt',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2036,6 +2081,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - PhoneNumberEncryptRequest
+     *
      * @returns PhoneNumberEncryptResponse
      *
      * @param PhoneNumberEncryptRequest $request
@@ -2061,6 +2107,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - PhoneNumberStatusForAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberStatusForAccountResponse
      *
      * @param PhoneNumberStatusForAccountRequest $request
@@ -2100,15 +2147,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberStatusForAccount',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberStatusForAccount',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberStatusForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2125,6 +2172,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - PhoneNumberStatusForAccountRequest
+     *
      * @returns PhoneNumberStatusForAccountResponse
      *
      * @param PhoneNumberStatusForAccountRequest $request
@@ -2150,6 +2198,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - PhoneNumberStatusForPublicRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberStatusForPublicResponse
      *
      * @param PhoneNumberStatusForPublicRequest $request
@@ -2189,15 +2238,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberStatusForPublic',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberStatusForPublic',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberStatusForPublicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2214,6 +2263,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - PhoneNumberStatusForPublicRequest
+     *
      * @returns PhoneNumberStatusForPublicResponse
      *
      * @param PhoneNumberStatusForPublicRequest $request
@@ -2239,6 +2289,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - PhoneNumberStatusForRealRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberStatusForRealResponse
      *
      * @param PhoneNumberStatusForRealRequest $request
@@ -2278,15 +2329,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberStatusForReal',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberStatusForReal',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberStatusForRealResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2303,6 +2354,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - PhoneNumberStatusForRealRequest
+     *
      * @returns PhoneNumberStatusForRealResponse
      *
      * @param PhoneNumberStatusForRealRequest $request
@@ -2328,6 +2380,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - PhoneNumberStatusForSmsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberStatusForSmsResponse
      *
      * @param PhoneNumberStatusForSmsRequest $request
@@ -2367,15 +2420,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberStatusForSms',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberStatusForSms',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberStatusForSmsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2392,6 +2445,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - PhoneNumberStatusForSmsRequest
+     *
      * @returns PhoneNumberStatusForSmsResponse
      *
      * @param PhoneNumberStatusForSmsRequest $request
@@ -2406,97 +2460,6 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * Queries the status of a virtual phone number. You can choose an encryption method for your phone number query, including plaintext, MD5, and SHA256.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/154751.html) of Cell Phone Number Service.
-     * *   You are charged only if the value of Code is OK and the value of IsPrivacyNumber is true or false.
-     * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](https://help.aliyun.com/document_detail/154006.html).
-     * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
-     * ### [](#qps)QPS limits
-     * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - PhoneNumberStatusForVirtualRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns PhoneNumberStatusForVirtualResponse
-     *
-     * @param PhoneNumberStatusForVirtualRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return PhoneNumberStatusForVirtualResponse
-     */
-    public function phoneNumberStatusForVirtualWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->authCode) {
-            @$query['AuthCode'] = $request->authCode;
-        }
-
-        if (null !== $request->inputNumber) {
-            @$query['InputNumber'] = $request->inputNumber;
-        }
-
-        if (null !== $request->mask) {
-            @$query['Mask'] = $request->mask;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PhoneNumberStatusForVirtual',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return PhoneNumberStatusForVirtualResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries the status of a virtual phone number. You can choose an encryption method for your phone number query, including plaintext, MD5, and SHA256.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/154751.html) of Cell Phone Number Service.
-     * *   You are charged only if the value of Code is OK and the value of IsPrivacyNumber is true or false.
-     * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](https://help.aliyun.com/document_detail/154006.html).
-     * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
-     * ### [](#qps)QPS limits
-     * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
-     * @param request - PhoneNumberStatusForVirtualRequest
-     * @returns PhoneNumberStatusForVirtualResponse
-     *
-     * @param PhoneNumberStatusForVirtualRequest $request
-     *
-     * @return PhoneNumberStatusForVirtualResponse
-     */
-    public function phoneNumberStatusForVirtual($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->phoneNumberStatusForVirtualWithOptions($request, $runtime);
-    }
-
-    /**
      * Queries the real-time service state of a phone number. The state includes NORMAL, SHUTDOWN, and NOT_EXIST. You can choose an encryption method for your phone number query, including plaintext, MD5, and SHA256.
      *
      * @remarks
@@ -2508,6 +2471,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - PhoneNumberStatusForVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PhoneNumberStatusForVoiceResponse
      *
      * @param PhoneNumberStatusForVoiceRequest $request
@@ -2547,15 +2511,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PhoneNumberStatusForVoice',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PhoneNumberStatusForVoice',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PhoneNumberStatusForVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2572,6 +2536,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - PhoneNumberStatusForVoiceRequest
+     *
      * @returns PhoneNumberStatusForVoiceResponse
      *
      * @param PhoneNumberStatusForVoiceRequest $request
@@ -2590,6 +2555,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryAvailableAuthCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryAvailableAuthCodeResponse
      *
      * @param QueryAvailableAuthCodeRequest $request
@@ -2621,15 +2587,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAvailableAuthCode',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAvailableAuthCode',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAvailableAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2639,6 +2605,7 @@ class Dytnsapi extends OpenApiClient
      * Queries available authorization codes.
      *
      * @param request - QueryAvailableAuthCodeRequest
+     *
      * @returns QueryAvailableAuthCodeResponse
      *
      * @param QueryAvailableAuthCodeRequest $request
@@ -2657,6 +2624,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryPhoneNumberOnlineTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryPhoneNumberOnlineTimeResponse
      *
      * @param QueryPhoneNumberOnlineTimeRequest $request
@@ -2696,15 +2664,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPhoneNumberOnlineTime',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPhoneNumberOnlineTime',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPhoneNumberOnlineTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2714,6 +2682,7 @@ class Dytnsapi extends OpenApiClient
      * 在网时长专用接口.
      *
      * @param request - QueryPhoneNumberOnlineTimeRequest
+     *
      * @returns QueryPhoneNumberOnlineTimeResponse
      *
      * @param QueryPhoneNumberOnlineTimeRequest $request
@@ -2732,6 +2701,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryPhoneTwiceTelVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryPhoneTwiceTelVerifyResponse
      *
      * @param QueryPhoneTwiceTelVerifyRequest $request
@@ -2775,15 +2745,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPhoneTwiceTelVerify',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPhoneTwiceTelVerify',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPhoneTwiceTelVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2793,6 +2763,7 @@ class Dytnsapi extends OpenApiClient
      * 二次号携号转网号码查询.
      *
      * @param request - QueryPhoneTwiceTelVerifyRequest
+     *
      * @returns QueryPhoneTwiceTelVerifyResponse
      *
      * @param QueryPhoneTwiceTelVerifyRequest $request
@@ -2811,6 +2782,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryTagApplyRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTagApplyRuleResponse
      *
      * @param QueryTagApplyRuleRequest $request
@@ -2842,15 +2814,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTagApplyRule',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTagApplyRule',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTagApplyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2860,6 +2832,7 @@ class Dytnsapi extends OpenApiClient
      * Queries tag application rules.
      *
      * @param request - QueryTagApplyRuleRequest
+     *
      * @returns QueryTagApplyRuleResponse
      *
      * @param QueryTagApplyRuleRequest $request
@@ -2878,6 +2851,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryTagInfoBySelectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTagInfoBySelectionResponse
      *
      * @param QueryTagInfoBySelectionRequest $request
@@ -2917,15 +2891,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTagInfoBySelection',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTagInfoBySelection',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTagInfoBySelectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2935,6 +2909,7 @@ class Dytnsapi extends OpenApiClient
      * Queries information about tags.
      *
      * @param request - QueryTagInfoBySelectionRequest
+     *
      * @returns QueryTagInfoBySelectionResponse
      *
      * @param QueryTagInfoBySelectionRequest $request
@@ -2953,6 +2928,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryTagListPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTagListPageResponse
      *
      * @param QueryTagListPageRequest $request
@@ -2988,15 +2964,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTagListPage',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTagListPage',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTagListPageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3006,6 +2982,7 @@ class Dytnsapi extends OpenApiClient
      * Queries a list of tags by page.
      *
      * @param request - QueryTagListPageRequest
+     *
      * @returns QueryTagListPageResponse
      *
      * @param QueryTagListPageRequest $request
@@ -3024,6 +3001,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - QueryUsageStatisticsByTagIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryUsageStatisticsByTagIdResponse
      *
      * @param QueryUsageStatisticsByTagIdRequest $request
@@ -3071,15 +3049,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUsageStatisticsByTagId',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUsageStatisticsByTagId',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryUsageStatisticsByTagIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3089,6 +3067,7 @@ class Dytnsapi extends OpenApiClient
      * Queries the usage statistics based on tag IDs.
      *
      * @param request - QueryUsageStatisticsByTagIdRequest
+     *
      * @returns QueryUsageStatisticsByTagIdResponse
      *
      * @param QueryUsageStatisticsByTagIdRequest $request
@@ -3114,6 +3093,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - ThreeElementsVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ThreeElementsVerificationResponse
      *
      * @param ThreeElementsVerificationRequest $request
@@ -3161,15 +3141,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ThreeElementsVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ThreeElementsVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ThreeElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3186,6 +3166,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ThreeElementsVerificationRequest
+     *
      * @returns ThreeElementsVerificationResponse
      *
      * @param ThreeElementsVerificationRequest $request
@@ -3211,6 +3192,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - TwoElementsVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TwoElementsVerificationResponse
      *
      * @param TwoElementsVerificationRequest $request
@@ -3254,15 +3236,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TwoElementsVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TwoElementsVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TwoElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3279,6 +3261,7 @@ class Dytnsapi extends OpenApiClient
      * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - TwoElementsVerificationRequest
+     *
      * @returns TwoElementsVerificationResponse
      *
      * @param TwoElementsVerificationRequest $request
@@ -3297,6 +3280,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - UAIDCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UAIDCollectionResponse
      *
      * @param UAIDCollectionRequest $request
@@ -3352,15 +3336,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UAIDCollection',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UAIDCollection',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UAIDCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3370,6 +3354,7 @@ class Dytnsapi extends OpenApiClient
      * UAID采集.
      *
      * @param request - UAIDCollectionRequest
+     *
      * @returns UAIDCollectionResponse
      *
      * @param UAIDCollectionRequest $request
@@ -3388,6 +3373,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - UAIDConversionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UAIDConversionResponse
      *
      * @param UAIDConversionRequest $request
@@ -3431,15 +3417,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UAIDConversion',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UAIDConversion',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UAIDConversionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3449,6 +3435,7 @@ class Dytnsapi extends OpenApiClient
      * uaid号码转换服务
      *
      * @param request - UAIDConversionRequest
+     *
      * @returns UAIDConversionResponse
      *
      * @param UAIDConversionRequest $request
@@ -3467,6 +3454,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - UAIDVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UAIDVerificationResponse
      *
      * @param UAIDVerificationRequest $request
@@ -3522,15 +3510,15 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UAIDVerification',
-            'version'     => '2020-02-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UAIDVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UAIDVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3540,6 +3528,7 @@ class Dytnsapi extends OpenApiClient
      * 获取UAID.
      *
      * @param request - UAIDVerificationRequest
+     *
      * @returns UAIDVerificationResponse
      *
      * @param UAIDVerificationRequest $request

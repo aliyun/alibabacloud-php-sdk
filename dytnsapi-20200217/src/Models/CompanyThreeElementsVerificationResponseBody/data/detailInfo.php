@@ -12,13 +12,14 @@ class detailInfo extends Model
      * @var string
      */
     public $enterpriseStatus;
+
     /**
      * @var string
      */
     public $openTime;
     protected $_name = [
         'enterpriseStatus' => 'EnterpriseStatus',
-        'openTime'         => 'OpenTime',
+        'openTime' => 'OpenTime',
     ];
 
     public function validate()

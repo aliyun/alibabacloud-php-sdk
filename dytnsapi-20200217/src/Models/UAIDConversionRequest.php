@@ -12,38 +12,44 @@ class UAIDConversionRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $uaidList;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'carrier'              => 'Carrier',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'carrier' => 'Carrier',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'uaidList'             => 'UaidList',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'uaidList' => 'UaidList',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $applyMaterialDesc;
+
     /**
      * @var int
      */
     public $autoAudit;
+
     /**
      * @var string
      */
     public $chargingStandardLink;
+
     /**
      * @var int
      */
     public $encryptedQuery;
+
     /**
      * @var int
      */
     public $needApplyMaterial;
+
     /**
      * @var string
      */
     public $slaLink;
     protected $_name = [
-        'applyMaterialDesc'    => 'ApplyMaterialDesc',
-        'autoAudit'            => 'AutoAudit',
+        'applyMaterialDesc' => 'ApplyMaterialDesc',
+        'autoAudit' => 'AutoAudit',
         'chargingStandardLink' => 'ChargingStandardLink',
-        'encryptedQuery'       => 'EncryptedQuery',
-        'needApplyMaterial'    => 'NeedApplyMaterial',
-        'slaLink'              => 'SlaLink',
+        'encryptedQuery' => 'EncryptedQuery',
+        'needApplyMaterial' => 'NeedApplyMaterial',
+        'slaLink' => 'SlaLink',
     ];
 
     public function validate()

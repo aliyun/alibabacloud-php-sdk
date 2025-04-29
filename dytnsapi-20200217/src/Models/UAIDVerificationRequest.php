@@ -12,53 +12,62 @@ class UAIDVerificationRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $userGrantId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'carrier'              => 'Carrier',
-        'ip'                   => 'Ip',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'province'             => 'Province',
+        'authCode' => 'AuthCode',
+        'carrier' => 'Carrier',
+        'ip' => 'Ip',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
+        'province' => 'Province',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'token'                => 'Token',
-        'userGrantId'          => 'UserGrantId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'token' => 'Token',
+        'userGrantId' => 'UserGrantId',
     ];
 
     public function validate()

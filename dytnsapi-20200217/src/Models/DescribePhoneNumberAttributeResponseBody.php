@@ -13,23 +13,26 @@ class DescribePhoneNumberAttributeResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var phoneNumberAttribute
      */
     public $phoneNumberAttribute;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'                 => 'Code',
-        'message'              => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'phoneNumberAttribute' => 'PhoneNumberAttribute',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

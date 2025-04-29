@@ -12,18 +12,20 @@ class DescribePhoneNumberOperatorAttributeAnnualUseRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
     protected $_name = [
-        'authCode'    => 'AuthCode',
+        'authCode' => 'AuthCode',
         'inputNumber' => 'InputNumber',
-        'mask'        => 'Mask',
+        'mask' => 'Mask',
     ];
 
     public function validate()

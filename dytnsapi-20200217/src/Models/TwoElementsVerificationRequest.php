@@ -12,38 +12,44 @@ class TwoElementsVerificationRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $inputNumber;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
-        'name'                 => 'Name',
-        'ownerId'              => 'OwnerId',
+        'authCode' => 'AuthCode',
+        'inputNumber' => 'InputNumber',
+        'mask' => 'Mask',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
