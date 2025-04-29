@@ -33,6 +33,11 @@ class textGenerateResult extends Model
     public $multimodalSearchResultList;
 
     /**
+     * @var string
+     */
+    public $reasonTextGenerate;
+
+    /**
      * @var referenceList[]
      */
     public $referenceList;
@@ -51,6 +56,7 @@ class textGenerateResult extends Model
         'generateLevel' => 'GenerateLevel',
         'generateTraceability' => 'GenerateTraceability',
         'multimodalSearchResultList' => 'MultimodalSearchResultList',
+        'reasonTextGenerate' => 'ReasonTextGenerate',
         'referenceList' => 'ReferenceList',
         'textGenerate' => 'TextGenerate',
         'textGenerateMultimodalMediaList' => 'TextGenerateMultimodalMediaList',
@@ -96,6 +102,10 @@ class textGenerateResult extends Model
                     $res['MultimodalSearchResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->reasonTextGenerate) {
+            $res['ReasonTextGenerate'] = $this->reasonTextGenerate;
         }
 
         if (null !== $this->referenceList) {
@@ -153,6 +163,10 @@ class textGenerateResult extends Model
                     $model->multimodalSearchResultList[$n1++] = multimodalSearchResultList::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['ReasonTextGenerate'])) {
+            $model->reasonTextGenerate = $map['ReasonTextGenerate'];
         }
 
         if (isset($map['ReferenceList'])) {

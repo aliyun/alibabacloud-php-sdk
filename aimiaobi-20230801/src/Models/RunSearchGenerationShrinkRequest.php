@@ -21,6 +21,11 @@ class RunSearchGenerationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $originalSessionId;
 
     /**
@@ -40,6 +45,7 @@ class RunSearchGenerationShrinkRequest extends Model
     protected $_name = [
         'agentContextShrink' => 'AgentContext',
         'chatConfigShrink' => 'ChatConfig',
+        'modelId' => 'ModelId',
         'originalSessionId' => 'OriginalSessionId',
         'prompt' => 'Prompt',
         'taskId' => 'TaskId',
@@ -60,6 +66,10 @@ class RunSearchGenerationShrinkRequest extends Model
 
         if (null !== $this->chatConfigShrink) {
             $res['ChatConfig'] = $this->chatConfigShrink;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->originalSessionId) {
@@ -95,6 +105,10 @@ class RunSearchGenerationShrinkRequest extends Model
 
         if (isset($map['ChatConfig'])) {
             $model->chatConfigShrink = $map['ChatConfig'];
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['OriginalSessionId'])) {

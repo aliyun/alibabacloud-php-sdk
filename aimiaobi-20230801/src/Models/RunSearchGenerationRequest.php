@@ -23,6 +23,11 @@ class RunSearchGenerationRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $originalSessionId;
 
     /**
@@ -42,6 +47,7 @@ class RunSearchGenerationRequest extends Model
     protected $_name = [
         'agentContext' => 'AgentContext',
         'chatConfig' => 'ChatConfig',
+        'modelId' => 'ModelId',
         'originalSessionId' => 'OriginalSessionId',
         'prompt' => 'Prompt',
         'taskId' => 'TaskId',
@@ -68,6 +74,10 @@ class RunSearchGenerationRequest extends Model
 
         if (null !== $this->chatConfig) {
             $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toArray($noStream) : $this->chatConfig;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->originalSessionId) {
@@ -103,6 +113,10 @@ class RunSearchGenerationRequest extends Model
 
         if (isset($map['ChatConfig'])) {
             $model->chatConfig = chatConfig::fromMap($map['ChatConfig']);
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['OriginalSessionId'])) {

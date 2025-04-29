@@ -271,6 +271,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigShrinkRe
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsRequest;
@@ -7861,6 +7864,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['ChatConfig'] = $request->chatConfigShrink;
         }
 
+        if (null !== $request->modelId) {
+            @$body['ModelId'] = $request->modelId;
+        }
+
         if (null !== $request->originalSessionId) {
             @$body['OriginalSessionId'] = $request->originalSessionId;
         }
@@ -8867,6 +8874,97 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveMaterialDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 保存自定义文体.
+     *
+     * @param tmpReq - SaveStyleLearningResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveStyleLearningResultResponse
+     *
+     * @param SaveStyleLearningResultRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SaveStyleLearningResultResponse
+     */
+    public function saveStyleLearningResultWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveStyleLearningResultShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customTextIdList) {
+            $request->customTextIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customTextIdList, 'CustomTextIdList', 'json');
+        }
+
+        if (null !== $tmpReq->materialIdList) {
+            $request->materialIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->materialIdList, 'MaterialIdList', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->agentKey) {
+            @$body['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->aigcResult) {
+            @$body['AigcResult'] = $request->aigcResult;
+        }
+
+        if (null !== $request->customTextIdListShrink) {
+            @$body['CustomTextIdList'] = $request->customTextIdListShrink;
+        }
+
+        if (null !== $request->materialIdListShrink) {
+            @$body['MaterialIdList'] = $request->materialIdListShrink;
+        }
+
+        if (null !== $request->rewriteResult) {
+            @$body['RewriteResult'] = $request->rewriteResult;
+        }
+
+        if (null !== $request->styleName) {
+            @$body['StyleName'] = $request->styleName;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveStyleLearningResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 保存自定义文体.
+     *
+     * @param request - SaveStyleLearningResultRequest
+     *
+     * @returns SaveStyleLearningResultResponse
+     *
+     * @param SaveStyleLearningResultRequest $request
+     *
+     * @return SaveStyleLearningResultResponse
+     */
+    public function saveStyleLearningResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveStyleLearningResultWithOptions($request, $runtime);
     }
 
     /**

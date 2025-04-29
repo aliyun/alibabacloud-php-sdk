@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponse
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\tokenCalculate;
 
 class bizContext extends Model
 {
@@ -18,6 +19,11 @@ class bizContext extends Model
      * @var generatedContent
      */
     public $generatedContent;
+
+    /**
+     * @var string
+     */
+    public $modelId;
 
     /**
      * @var string
@@ -48,15 +54,22 @@ class bizContext extends Model
      * @var bool
      */
     public $supplementEnable;
+
+    /**
+     * @var tokenCalculate
+     */
+    public $tokenCalculate;
     protected $_name = [
         'currentStep' => 'CurrentStep',
         'generatedContent' => 'GeneratedContent',
+        'modelId' => 'ModelId',
         'nextStep' => 'NextStep',
         'recommendSearchQueryList' => 'RecommendSearchQueryList',
         'searchKeywords' => 'SearchKeywords',
         'searchQueryList' => 'SearchQueryList',
         'supplementDataType' => 'SupplementDataType',
         'supplementEnable' => 'SupplementEnable',
+        'tokenCalculate' => 'TokenCalculate',
     ];
 
     public function validate()
@@ -73,6 +86,9 @@ class bizContext extends Model
         if (\is_array($this->searchQueryList)) {
             Model::validateArray($this->searchQueryList);
         }
+        if (null !== $this->tokenCalculate) {
+            $this->tokenCalculate->validate();
+        }
         parent::validate();
     }
 
@@ -85,6 +101,10 @@ class bizContext extends Model
 
         if (null !== $this->generatedContent) {
             $res['GeneratedContent'] = null !== $this->generatedContent ? $this->generatedContent->toArray($noStream) : $this->generatedContent;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->nextStep) {
@@ -129,6 +149,10 @@ class bizContext extends Model
             $res['SupplementEnable'] = $this->supplementEnable;
         }
 
+        if (null !== $this->tokenCalculate) {
+            $res['TokenCalculate'] = null !== $this->tokenCalculate ? $this->tokenCalculate->toArray($noStream) : $this->tokenCalculate;
+        }
+
         return $res;
     }
 
@@ -146,6 +170,10 @@ class bizContext extends Model
 
         if (isset($map['GeneratedContent'])) {
             $model->generatedContent = generatedContent::fromMap($map['GeneratedContent']);
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['NextStep'])) {
@@ -188,6 +216,10 @@ class bizContext extends Model
 
         if (isset($map['SupplementEnable'])) {
             $model->supplementEnable = $map['SupplementEnable'];
+        }
+
+        if (isset($map['TokenCalculate'])) {
+            $model->tokenCalculate = tokenCalculate::fromMap($map['TokenCalculate']);
         }
 
         return $model;

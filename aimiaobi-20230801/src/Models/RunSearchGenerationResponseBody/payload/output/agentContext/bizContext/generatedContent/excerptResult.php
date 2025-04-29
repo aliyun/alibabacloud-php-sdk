@@ -20,6 +20,11 @@ class excerptResult extends Model
     public $generateLevel;
 
     /**
+     * @var string
+     */
+    public $reasonTextGenerate;
+
+    /**
      * @var searchResult[]
      */
     public $searchResult;
@@ -31,6 +36,7 @@ class excerptResult extends Model
     protected $_name = [
         'generateFinished' => 'GenerateFinished',
         'generateLevel' => 'GenerateLevel',
+        'reasonTextGenerate' => 'ReasonTextGenerate',
         'searchResult' => 'SearchResult',
         'textGenerate' => 'TextGenerate',
     ];
@@ -52,6 +58,10 @@ class excerptResult extends Model
 
         if (null !== $this->generateLevel) {
             $res['GenerateLevel'] = $this->generateLevel;
+        }
+
+        if (null !== $this->reasonTextGenerate) {
+            $res['ReasonTextGenerate'] = $this->reasonTextGenerate;
         }
 
         if (null !== $this->searchResult) {
@@ -85,6 +95,10 @@ class excerptResult extends Model
 
         if (isset($map['GenerateLevel'])) {
             $model->generateLevel = $map['GenerateLevel'];
+        }
+
+        if (isset($map['ReasonTextGenerate'])) {
+            $model->reasonTextGenerate = $map['ReasonTextGenerate'];
         }
 
         if (isset($map['SearchResult'])) {
