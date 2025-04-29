@@ -14,6 +14,11 @@ class ModifyImageSharePermissionRequest extends Model
     public $addAccount;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -59,6 +64,7 @@ class ModifyImageSharePermissionRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'addAccount' => 'AddAccount',
+        'dryRun' => 'DryRun',
         'imageId' => 'ImageId',
         'isPublic' => 'IsPublic',
         'launchPermission' => 'LaunchPermission',
@@ -92,6 +98,10 @@ class ModifyImageSharePermissionRequest extends Model
                     $res['AddAccount'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->imageId) {
@@ -155,6 +165,10 @@ class ModifyImageSharePermissionRequest extends Model
                     $model->addAccount[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ImageId'])) {

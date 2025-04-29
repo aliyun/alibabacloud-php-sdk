@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ExportImageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $imageFormat;
@@ -53,6 +58,7 @@ class ExportImageRequest extends Model
      */
     public $roleName;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'imageFormat' => 'ImageFormat',
         'imageId' => 'ImageId',
         'OSSBucket' => 'OSSBucket',
@@ -72,6 +78,10 @@ class ExportImageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->imageFormat) {
             $res['ImageFormat'] = $this->imageFormat;
         }
@@ -119,6 +129,10 @@ class ExportImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['ImageFormat'])) {
             $model->imageFormat = $map['ImageFormat'];
         }

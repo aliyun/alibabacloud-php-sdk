@@ -42,6 +42,11 @@ class CreateImageRequest extends Model
     public $diskDeviceMapping;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var features
      */
     public $features;
@@ -117,6 +122,7 @@ class CreateImageRequest extends Model
         'description' => 'Description',
         'detectionStrategy' => 'DetectionStrategy',
         'diskDeviceMapping' => 'DiskDeviceMapping',
+        'dryRun' => 'DryRun',
         'features' => 'Features',
         'imageFamily' => 'ImageFamily',
         'imageName' => 'ImageName',
@@ -178,6 +184,10 @@ class CreateImageRequest extends Model
                     $res['DiskDeviceMapping'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->features) {
@@ -281,6 +291,10 @@ class CreateImageRequest extends Model
                     $model->diskDeviceMapping[$n1++] = diskDeviceMapping::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Features'])) {

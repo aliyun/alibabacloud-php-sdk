@@ -20,6 +20,11 @@ class ModifyImageAttributeRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var features
      */
     public $features;
@@ -76,6 +81,7 @@ class ModifyImageAttributeRequest extends Model
     protected $_name = [
         'bootMode' => 'BootMode',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'features' => 'Features',
         'imageFamily' => 'ImageFamily',
         'imageId' => 'ImageId',
@@ -106,6 +112,10 @@ class ModifyImageAttributeRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->features) {
@@ -169,6 +179,10 @@ class ModifyImageAttributeRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Features'])) {

@@ -12,6 +12,11 @@ class CopyImageRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $destinationDescription;
 
     /**
@@ -23,6 +28,11 @@ class CopyImageRequest extends Model
      * @var string
      */
     public $destinationRegionId;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -79,9 +89,11 @@ class CopyImageRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'destinationDescription' => 'DestinationDescription',
         'destinationImageName' => 'DestinationImageName',
         'destinationRegionId' => 'DestinationRegionId',
+        'dryRun' => 'DryRun',
         'encryptAlgorithm' => 'EncryptAlgorithm',
         'encrypted' => 'Encrypted',
         'imageId' => 'ImageId',
@@ -106,6 +118,10 @@ class CopyImageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->destinationDescription) {
             $res['DestinationDescription'] = $this->destinationDescription;
         }
@@ -116,6 +132,10 @@ class CopyImageRequest extends Model
 
         if (null !== $this->destinationRegionId) {
             $res['DestinationRegionId'] = $this->destinationRegionId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->encryptAlgorithm) {
@@ -179,6 +199,10 @@ class CopyImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DestinationDescription'])) {
             $model->destinationDescription = $map['DestinationDescription'];
         }
@@ -189,6 +213,10 @@ class CopyImageRequest extends Model
 
         if (isset($map['DestinationRegionId'])) {
             $model->destinationRegionId = $map['DestinationRegionId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EncryptAlgorithm'])) {
