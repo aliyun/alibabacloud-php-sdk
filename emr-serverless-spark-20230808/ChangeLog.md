@@ -1,3 +1,7 @@
+2025-04-30 Version: 1.11.0
+- Support API EditWorkspaceQueue.
+
+
 2025-04-08 Version: 1.10.0
 - Support API GetDoctorApplication.
 - Update API CreateProcessDefinitionWithSchedule: add request parameters globalParams.

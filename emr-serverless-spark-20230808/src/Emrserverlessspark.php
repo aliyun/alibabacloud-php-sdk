@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementReque
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationRequest;
@@ -150,11 +152,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -216,11 +215,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelJobRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -369,11 +365,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProcessDefinitionWithScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProcessDefinitionWithScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProcessDefinitionWithScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -477,11 +470,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -565,11 +555,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,11 +683,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -720,6 +704,85 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->createWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies the queue of a workspace.
+     *
+     * @param request - EditWorkspaceQueueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditWorkspaceQueueResponse
+     *
+     * @param EditWorkspaceQueueRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EditWorkspaceQueueResponse
+     */
+    public function editWorkspaceQueueWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->environments) {
+            @$body['environments'] = $request->environments;
+        }
+
+        if (null !== $request->resourceSpec) {
+            @$body['resourceSpec'] = $request->resourceSpec;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceQueueName) {
+            @$body['workspaceQueueName'] = $request->workspaceQueueName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EditWorkspaceQueue',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/queues/action/edit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EditWorkspaceQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the queue of a workspace.
+     *
+     * @param request - EditWorkspaceQueueRequest
+     *
+     * @returns EditWorkspaceQueueResponse
+     *
+     * @param EditWorkspaceQueueRequest $request
+     *
+     * @return EditWorkspaceQueueResponse
+     */
+    public function editWorkspaceQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->editWorkspaceQueueWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -766,11 +829,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCuHoursResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCuHoursResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCuHoursResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -842,11 +902,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDoctorApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDoctorApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDoctorApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -910,11 +967,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -978,11 +1032,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,11 +1097,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1117,11 +1165,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1192,11 +1237,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantRoleToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantRoleToUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantRoleToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1323,11 +1365,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobRunsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobRunsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobRunsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1412,11 +1451,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListKyuubiSparkApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListKyuubiSparkApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListKyuubiSparkApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1491,11 +1527,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLogContentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLogContentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLogContentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1576,11 +1609,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListReleaseVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListReleaseVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListReleaseVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1661,11 +1691,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSessionClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1731,11 +1758,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspaceQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspaceQueuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspaceQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1822,11 +1846,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1937,11 +1958,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartJobRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2043,11 +2061,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartProcessInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2119,11 +2134,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2195,11 +2207,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2262,11 +2271,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TerminateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TerminateSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
+        return TerminateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2420,11 +2426,8 @@ class Emrserverlessspark extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateProcessDefinitionWithScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateProcessDefinitionWithScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateProcessDefinitionWithScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
