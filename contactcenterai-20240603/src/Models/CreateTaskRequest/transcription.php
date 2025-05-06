@@ -34,6 +34,11 @@ class transcription extends Model
     public $level;
 
     /**
+     * @var bool
+     */
+    public $roleIdentification;
+
+    /**
      * @var int
      */
     public $serviceChannel;
@@ -58,6 +63,7 @@ class transcription extends Model
         'clientChannel' => 'clientChannel',
         'fileName' => 'fileName',
         'level' => 'level',
+        'roleIdentification' => 'roleIdentification',
         'serviceChannel' => 'serviceChannel',
         'serviceChannelKeywords' => 'serviceChannelKeywords',
         'vocabularyId' => 'vocabularyId',
@@ -93,6 +99,10 @@ class transcription extends Model
 
         if (null !== $this->level) {
             $res['level'] = $this->level;
+        }
+
+        if (null !== $this->roleIdentification) {
+            $res['roleIdentification'] = $this->roleIdentification;
         }
 
         if (null !== $this->serviceChannel) {
@@ -146,6 +156,10 @@ class transcription extends Model
 
         if (isset($map['level'])) {
             $model->level = $map['level'];
+        }
+
+        if (isset($map['roleIdentification'])) {
+            $model->roleIdentification = $map['roleIdentification'];
         }
 
         if (isset($map['serviceChannel'])) {
