@@ -3249,6 +3249,10 @@ class Config extends OpenApiClient
             @$body['CompliancePackId'] = $request->compliancePackId;
         }
 
+        if (null !== $request->multiFiles) {
+            @$body['MultiFiles'] = $request->multiFiles;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);

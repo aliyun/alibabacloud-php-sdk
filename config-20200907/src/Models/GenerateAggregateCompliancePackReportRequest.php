@@ -22,10 +22,16 @@ class GenerateAggregateCompliancePackReportRequest extends Model
      * @var string
      */
     public $compliancePackId;
+
+    /**
+     * @var bool
+     */
+    public $multiFiles;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
         'clientToken' => 'ClientToken',
         'compliancePackId' => 'CompliancePackId',
+        'multiFiles' => 'MultiFiles',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class GenerateAggregateCompliancePackReportRequest extends Model
 
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
+        }
+
+        if (null !== $this->multiFiles) {
+            $res['MultiFiles'] = $this->multiFiles;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class GenerateAggregateCompliancePackReportRequest extends Model
 
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
+        }
+
+        if (isset($map['MultiFiles'])) {
+            $model->multiFiles = $map['MultiFiles'];
         }
 
         return $model;
