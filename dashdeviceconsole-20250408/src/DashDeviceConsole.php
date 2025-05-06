@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\DashDeviceConsole\V20250408;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\DashDeviceConsole\V20250408\Models\DeletePromptRequest;
+use AlibabaCloud\SDK\DashDeviceConsole\V20250408\Models\DeletePromptResponse;
 use AlibabaCloud\SDK\DashDeviceConsole\V20250408\Models\GetPromptRequest;
 use AlibabaCloud\SDK\DashDeviceConsole\V20250408\Models\GetPromptResponse;
 use AlibabaCloud\SDK\DashDeviceConsole\V20250408\Models\PushPromptRequest;
@@ -49,6 +51,67 @@ class DashDeviceConsole extends OpenApiClient
     }
 
     /**
+     * delete prompt.
+     *
+     * @param request - DeletePromptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePromptResponse
+     *
+     * @param DeletePromptRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePromptResponse
+     */
+    public function deletePromptWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['groupId'] = $request->groupId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrompt',
+            'version' => '2025-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/prompt/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * delete prompt.
+     *
+     * @param request - DeletePromptRequest
+     *
+     * @returns DeletePromptResponse
+     *
+     * @param DeletePromptRequest $request
+     *
+     * @return DeletePromptResponse
+     */
+    public function deletePrompt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePromptWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * get prompt.
      *
      * @param request - GetPromptRequest
@@ -86,11 +149,8 @@ class DashDeviceConsole extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPromptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPromptResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPromptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -156,11 +216,8 @@ class DashDeviceConsole extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PushPromptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushPromptResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushPromptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
