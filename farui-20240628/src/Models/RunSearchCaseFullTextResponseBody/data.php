@@ -4,26 +4,27 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextResponseBody\data\caseResult;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var string
+     */
+    public $caseLevel;
+
     /**
      * @var caseResult[]
      */
     public $caseResult;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -39,48 +40,69 @@ class data extends Model
     public $queryKeywords;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'caseResult'    => 'caseResult',
-        'currentPage'   => 'currentPage',
-        'pageSize'      => 'pageSize',
-        'query'         => 'query',
+        'caseLevel' => 'caseLevel',
+        'caseResult' => 'caseResult',
+        'currentPage' => 'currentPage',
+        'pageSize' => 'pageSize',
+        'query' => 'query',
         'queryKeywords' => 'queryKeywords',
-        'totalCount'    => 'totalCount',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->caseResult)) {
+            Model::validateArray($this->caseResult);
+        }
+        if (\is_array($this->queryKeywords)) {
+            Model::validateArray($this->queryKeywords);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->caseLevel) {
+            $res['caseLevel'] = $this->caseLevel;
+        }
+
         if (null !== $this->caseResult) {
-            $res['caseResult'] = [];
-            if (null !== $this->caseResult && \is_array($this->caseResult)) {
-                $n = 0;
-                foreach ($this->caseResult as $item) {
-                    $res['caseResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->caseResult)) {
+                $res['caseResult'] = [];
+                $n1 = 0;
+                foreach ($this->caseResult as $item1) {
+                    $res['caseResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->queryKeywords) {
-            $res['queryKeywords'] = $this->queryKeywords;
+            if (\is_array($this->queryKeywords)) {
+                $res['queryKeywords'] = [];
+                $n1 = 0;
+                foreach ($this->queryKeywords as $item1) {
+                    $res['queryKeywords'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -88,37 +110,50 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['caseLevel'])) {
+            $model->caseLevel = $map['caseLevel'];
+        }
+
         if (isset($map['caseResult'])) {
             if (!empty($map['caseResult'])) {
                 $model->caseResult = [];
-                $n                 = 0;
-                foreach ($map['caseResult'] as $item) {
-                    $model->caseResult[$n++] = null !== $item ? caseResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['caseResult'] as $item1) {
+                    $model->caseResult[$n1++] = caseResult::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['queryKeywords'])) {
             if (!empty($map['queryKeywords'])) {
-                $model->queryKeywords = $map['queryKeywords'];
+                $model->queryKeywords = [];
+                $n1 = 0;
+                foreach ($map['queryKeywords'] as $item1) {
+                    $model->queryKeywords[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

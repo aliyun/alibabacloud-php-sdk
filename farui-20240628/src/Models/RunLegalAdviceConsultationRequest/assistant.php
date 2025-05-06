@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assistant extends Model
 {
     /**
-     * @example assitant_abc_123
-     *
      * @var string
      */
     public $id;
@@ -21,41 +19,49 @@ class assistant extends Model
     public $metaData;
 
     /**
-     * @example legal_advice_consult
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 1.0.0
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'id'       => 'id',
+        'id' => 'id',
         'metaData' => 'metaData',
-        'type'     => 'type',
-        'version'  => 'version',
+        'type' => 'type',
+        'version' => 'version',
     ];
 
     public function validate()
     {
+        if (\is_array($this->metaData)) {
+            Model::validateArray($this->metaData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->metaData) {
-            $res['metaData'] = $this->metaData;
+            if (\is_array($this->metaData)) {
+                $res['metaData'] = [];
+                foreach ($this->metaData as $key1 => $value1) {
+                    $res['metaData'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -63,23 +69,31 @@ class assistant extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assistant
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['metaData'])) {
-            $model->metaData = $map['metaData'];
+            if (!empty($map['metaData'])) {
+                $model->metaData = [];
+                foreach ($map['metaData'] as $key1 => $value1) {
+                    $model->metaData[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

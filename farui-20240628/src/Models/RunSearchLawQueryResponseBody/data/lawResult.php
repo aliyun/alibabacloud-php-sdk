@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryResponseBody\data\lawResult\lawDomain;
-use AlibabaCloud\Tea\Model;
 
 class lawResult extends Model
 {
@@ -15,26 +15,29 @@ class lawResult extends Model
     public $lawDomain;
 
     /**
-     * @example 0.0050
-     *
      * @var string
      */
     public $similarity;
     protected $_name = [
-        'lawDomain'  => 'lawDomain',
+        'lawDomain' => 'lawDomain',
         'similarity' => 'similarity',
     ];
 
     public function validate()
     {
+        if (null !== $this->lawDomain) {
+            $this->lawDomain->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lawDomain) {
-            $res['lawDomain'] = null !== $this->lawDomain ? $this->lawDomain->toMap() : null;
+            $res['lawDomain'] = null !== $this->lawDomain ? $this->lawDomain->toArray($noStream) : $this->lawDomain;
         }
+
         if (null !== $this->similarity) {
             $res['similarity'] = $this->similarity;
         }
@@ -42,17 +45,18 @@ class lawResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lawResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['lawDomain'])) {
             $model->lawDomain = lawDomain::fromMap($map['lawDomain']);
         }
+
         if (isset($map['similarity'])) {
             $model->similarity = $map['similarity'];
         }

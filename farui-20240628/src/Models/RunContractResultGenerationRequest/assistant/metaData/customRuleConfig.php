@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest\assistant\metaData;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest\assistant\metaData\customRuleConfig\customRules;
-use AlibabaCloud\Tea\Model;
 
 class customRuleConfig extends Model
 {
@@ -19,17 +19,21 @@ class customRuleConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->customRules)) {
+            Model::validateArray($this->customRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customRules) {
-            $res['customRules'] = [];
-            if (null !== $this->customRules && \is_array($this->customRules)) {
-                $n = 0;
-                foreach ($this->customRules as $item) {
-                    $res['customRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customRules)) {
+                $res['customRules'] = [];
+                $n1 = 0;
+                foreach ($this->customRules as $item1) {
+                    $res['customRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class customRuleConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customRuleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['customRules'])) {
             if (!empty($map['customRules'])) {
                 $model->customRules = [];
-                $n                  = 0;
-                foreach ($map['customRules'] as $item) {
-                    $model->customRules[$n++] = null !== $item ? customRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['customRules'] as $item1) {
+                    $model->customRules[$n1++] = customRules::fromMap($item1);
                 }
             }
         }

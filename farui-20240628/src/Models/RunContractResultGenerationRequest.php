@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest\assistant;
-use AlibabaCloud\Tea\Model;
 
 class RunContractResultGenerationRequest extends Model
 {
     /**
-     * @example farui
-     *
      * @var string
      */
     public $appId;
@@ -22,30 +20,34 @@ class RunContractResultGenerationRequest extends Model
     public $assistant;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $stream;
     protected $_name = [
-        'appId'     => 'appId',
+        'appId' => 'appId',
         'assistant' => 'assistant',
-        'stream'    => 'stream',
+        'stream' => 'stream',
     ];
 
     public function validate()
     {
+        if (null !== $this->assistant) {
+            $this->assistant->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
         }
+
         if (null !== $this->assistant) {
-            $res['assistant'] = null !== $this->assistant ? $this->assistant->toMap() : null;
+            $res['assistant'] = null !== $this->assistant ? $this->assistant->toArray($noStream) : $this->assistant;
         }
+
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
         }
@@ -53,20 +55,22 @@ class RunContractResultGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunContractResultGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
         }
+
         if (isset($map['assistant'])) {
             $model->assistant = assistant::fromMap($map['assistant']);
         }
+
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
         }

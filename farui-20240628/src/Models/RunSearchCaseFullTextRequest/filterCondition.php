@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filterCondition extends Model
 {
@@ -18,20 +18,22 @@ class filterCondition extends Model
      */
     public $caseTitle;
     protected $_name = [
-        'caseNo'    => 'caseNo',
+        'caseNo' => 'caseNo',
         'caseTitle' => 'caseTitle',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->caseNo) {
             $res['caseNo'] = $this->caseNo;
         }
+
         if (null !== $this->caseTitle) {
             $res['caseTitle'] = $this->caseTitle;
         }
@@ -39,17 +41,18 @@ class filterCondition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterCondition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['caseNo'])) {
             $model->caseNo = $map['caseNo'];
         }
+
         if (isset($map['caseTitle'])) {
             $model->caseTitle = $map['caseTitle'];
         }

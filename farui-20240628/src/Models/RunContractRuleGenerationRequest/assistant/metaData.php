@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationRequest\assistant;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metaData extends Model
 {
     /**
-     * @example 9a6b1ba60d9944249363ec3cc1529b7b
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $position;
     protected $_name = [
-        'fileId'   => 'fileId',
+        'fileId' => 'fileId',
         'position' => 'position',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['fileId'] = $this->fileId;
         }
+
         if (null !== $this->position) {
             $res['position'] = $this->position;
         }
@@ -43,17 +41,18 @@ class metaData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileId'])) {
             $model->fileId = $map['fileId'];
         }
+
         if (isset($map['position'])) {
             $model->position = $map['position'];
         }

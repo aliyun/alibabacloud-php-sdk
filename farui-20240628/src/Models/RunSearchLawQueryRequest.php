@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryRequest\filterCondition;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryRequest\pageParam;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryRequest\thread;
-use AlibabaCloud\Tea\Model;
 
 class RunSearchLawQueryRequest extends Model
 {
     /**
-     * @example farui
-     *
      * @var string
      */
     public $appId;
@@ -29,8 +27,6 @@ class RunSearchLawQueryRequest extends Model
     public $pageParam;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
@@ -45,68 +41,101 @@ class RunSearchLawQueryRequest extends Model
      */
     public $thread;
     protected $_name = [
-        'appId'           => 'appId',
+        'appId' => 'appId',
         'filterCondition' => 'filterCondition',
-        'pageParam'       => 'pageParam',
-        'query'           => 'query',
-        'queryKeywords'   => 'queryKeywords',
-        'thread'          => 'thread',
+        'pageParam' => 'pageParam',
+        'query' => 'query',
+        'queryKeywords' => 'queryKeywords',
+        'thread' => 'thread',
     ];
 
     public function validate()
     {
+        if (null !== $this->filterCondition) {
+            $this->filterCondition->validate();
+        }
+        if (null !== $this->pageParam) {
+            $this->pageParam->validate();
+        }
+        if (\is_array($this->queryKeywords)) {
+            Model::validateArray($this->queryKeywords);
+        }
+        if (null !== $this->thread) {
+            $this->thread->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
         }
+
         if (null !== $this->filterCondition) {
-            $res['filterCondition'] = null !== $this->filterCondition ? $this->filterCondition->toMap() : null;
+            $res['filterCondition'] = null !== $this->filterCondition ? $this->filterCondition->toArray($noStream) : $this->filterCondition;
         }
+
         if (null !== $this->pageParam) {
-            $res['pageParam'] = null !== $this->pageParam ? $this->pageParam->toMap() : null;
+            $res['pageParam'] = null !== $this->pageParam ? $this->pageParam->toArray($noStream) : $this->pageParam;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->queryKeywords) {
-            $res['queryKeywords'] = $this->queryKeywords;
+            if (\is_array($this->queryKeywords)) {
+                $res['queryKeywords'] = [];
+                $n1 = 0;
+                foreach ($this->queryKeywords as $item1) {
+                    $res['queryKeywords'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->thread) {
-            $res['thread'] = null !== $this->thread ? $this->thread->toMap() : null;
+            $res['thread'] = null !== $this->thread ? $this->thread->toArray($noStream) : $this->thread;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunSearchLawQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
         }
+
         if (isset($map['filterCondition'])) {
             $model->filterCondition = filterCondition::fromMap($map['filterCondition']);
         }
+
         if (isset($map['pageParam'])) {
             $model->pageParam = pageParam::fromMap($map['pageParam']);
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['queryKeywords'])) {
             if (!empty($map['queryKeywords'])) {
-                $model->queryKeywords = $map['queryKeywords'];
+                $model->queryKeywords = [];
+                $n1 = 0;
+                foreach ($map['queryKeywords'] as $item1) {
+                    $model->queryKeywords[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['thread'])) {
             $model->thread = thread::fromMap($map['thread']);
         }

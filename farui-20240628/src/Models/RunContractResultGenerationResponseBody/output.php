@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationResponseBody\output\result;
-use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -15,26 +15,29 @@ class output extends Model
     public $result;
 
     /**
-     * @example eaa56e1e-e205-4f5e-926e-5e2269ae7f68
-     *
      * @var string
      */
     public $resultTaskId;
     protected $_name = [
-        'result'       => 'result',
+        'result' => 'result',
         'resultTaskId' => 'resultTaskId',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
+
         if (null !== $this->resultTaskId) {
             $res['resultTaskId'] = $this->resultTaskId;
         }
@@ -42,17 +45,18 @@ class output extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }
+
         if (isset($map['resultTaskId'])) {
             $model->resultTaskId = $map['resultTaskId'];
         }

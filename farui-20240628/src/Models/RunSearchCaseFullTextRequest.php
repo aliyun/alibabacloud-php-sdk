@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextRequest\filterCondition;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextRequest\pageParam;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextRequest\thread;
-use AlibabaCloud\Tea\Model;
 
 class RunSearchCaseFullTextRequest extends Model
 {
     /**
-     * @example farui
-     *
      * @var string
      */
     public $appId;
@@ -24,15 +22,11 @@ class RunSearchCaseFullTextRequest extends Model
     public $filterCondition;
 
     /**
-     * @description This parameter is required.
-     *
      * @var pageParam
      */
     public $pageParam;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
@@ -41,6 +35,11 @@ class RunSearchCaseFullTextRequest extends Model
      * @var string[]
      */
     public $queryKeywords;
+
+    /**
+     * @var string
+     */
+    public $referLevel;
 
     /**
      * @var string[]
@@ -52,75 +51,132 @@ class RunSearchCaseFullTextRequest extends Model
      */
     public $thread;
     protected $_name = [
-        'appId'               => 'appId',
-        'filterCondition'     => 'filterCondition',
-        'pageParam'           => 'pageParam',
-        'query'               => 'query',
-        'queryKeywords'       => 'queryKeywords',
+        'appId' => 'appId',
+        'filterCondition' => 'filterCondition',
+        'pageParam' => 'pageParam',
+        'query' => 'query',
+        'queryKeywords' => 'queryKeywords',
+        'referLevel' => 'referLevel',
         'sortKeyAndDirection' => 'sortKeyAndDirection',
-        'thread'              => 'thread',
+        'thread' => 'thread',
     ];
 
     public function validate()
     {
+        if (null !== $this->filterCondition) {
+            $this->filterCondition->validate();
+        }
+        if (null !== $this->pageParam) {
+            $this->pageParam->validate();
+        }
+        if (\is_array($this->queryKeywords)) {
+            Model::validateArray($this->queryKeywords);
+        }
+        if (\is_array($this->sortKeyAndDirection)) {
+            Model::validateArray($this->sortKeyAndDirection);
+        }
+        if (null !== $this->thread) {
+            $this->thread->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
         }
+
         if (null !== $this->filterCondition) {
-            $res['filterCondition'] = null !== $this->filterCondition ? $this->filterCondition->toMap() : null;
+            $res['filterCondition'] = null !== $this->filterCondition ? $this->filterCondition->toArray($noStream) : $this->filterCondition;
         }
+
         if (null !== $this->pageParam) {
-            $res['pageParam'] = null !== $this->pageParam ? $this->pageParam->toMap() : null;
+            $res['pageParam'] = null !== $this->pageParam ? $this->pageParam->toArray($noStream) : $this->pageParam;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->queryKeywords) {
-            $res['queryKeywords'] = $this->queryKeywords;
+            if (\is_array($this->queryKeywords)) {
+                $res['queryKeywords'] = [];
+                $n1 = 0;
+                foreach ($this->queryKeywords as $item1) {
+                    $res['queryKeywords'][$n1++] = $item1;
+                }
+            }
         }
+
+        if (null !== $this->referLevel) {
+            $res['referLevel'] = $this->referLevel;
+        }
+
         if (null !== $this->sortKeyAndDirection) {
-            $res['sortKeyAndDirection'] = $this->sortKeyAndDirection;
+            if (\is_array($this->sortKeyAndDirection)) {
+                $res['sortKeyAndDirection'] = [];
+                foreach ($this->sortKeyAndDirection as $key1 => $value1) {
+                    $res['sortKeyAndDirection'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->thread) {
-            $res['thread'] = null !== $this->thread ? $this->thread->toMap() : null;
+            $res['thread'] = null !== $this->thread ? $this->thread->toArray($noStream) : $this->thread;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunSearchCaseFullTextRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
         }
+
         if (isset($map['filterCondition'])) {
             $model->filterCondition = filterCondition::fromMap($map['filterCondition']);
         }
+
         if (isset($map['pageParam'])) {
             $model->pageParam = pageParam::fromMap($map['pageParam']);
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['queryKeywords'])) {
             if (!empty($map['queryKeywords'])) {
-                $model->queryKeywords = $map['queryKeywords'];
+                $model->queryKeywords = [];
+                $n1 = 0;
+                foreach ($map['queryKeywords'] as $item1) {
+                    $model->queryKeywords[$n1++] = $item1;
+                }
             }
         }
-        if (isset($map['sortKeyAndDirection'])) {
-            $model->sortKeyAndDirection = $map['sortKeyAndDirection'];
+
+        if (isset($map['referLevel'])) {
+            $model->referLevel = $map['referLevel'];
         }
+
+        if (isset($map['sortKeyAndDirection'])) {
+            if (!empty($map['sortKeyAndDirection'])) {
+                $model->sortKeyAndDirection = [];
+                foreach ($map['sortKeyAndDirection'] as $key1 => $value1) {
+                    $model->sortKeyAndDirection[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['thread'])) {
             $model->thread = thread::fromMap($map['thread']);
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationResponseBody\output;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @example medium
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @example 1.1
-     *
      * @var string
      */
     public $ruleSequence;
@@ -32,28 +28,32 @@ class rules extends Model
      */
     public $ruleTitle;
     protected $_name = [
-        'riskLevel'    => 'riskLevel',
+        'riskLevel' => 'riskLevel',
         'ruleSequence' => 'ruleSequence',
-        'ruleTag'      => 'ruleTag',
-        'ruleTitle'    => 'ruleTitle',
+        'ruleTag' => 'ruleTag',
+        'ruleTitle' => 'ruleTitle',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->riskLevel) {
             $res['riskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->ruleSequence) {
             $res['ruleSequence'] = $this->ruleSequence;
         }
+
         if (null !== $this->ruleTag) {
             $res['ruleTag'] = $this->ruleTag;
         }
+
         if (null !== $this->ruleTitle) {
             $res['ruleTitle'] = $this->ruleTitle;
         }
@@ -61,23 +61,26 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['riskLevel'])) {
             $model->riskLevel = $map['riskLevel'];
         }
+
         if (isset($map['ruleSequence'])) {
             $model->ruleSequence = $map['ruleSequence'];
         }
+
         if (isset($map['ruleTag'])) {
             $model->ruleTag = $map['ruleTag'];
         }
+
         if (isset($map['ruleTitle'])) {
             $model->ruleTitle = $map['ruleTitle'];
         }

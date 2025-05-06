@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest\assistant\metaData;
-use AlibabaCloud\Tea\Model;
 
 class assistant extends Model
 {
@@ -15,37 +15,39 @@ class assistant extends Model
     public $metaData;
 
     /**
-     * @example contract_examime
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 1.0.0
-     *
      * @var string
      */
     public $version;
     protected $_name = [
         'metaData' => 'metaData',
-        'type'     => 'type',
-        'version'  => 'version',
+        'type' => 'type',
+        'version' => 'version',
     ];
 
     public function validate()
     {
+        if (null !== $this->metaData) {
+            $this->metaData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metaData) {
-            $res['metaData'] = null !== $this->metaData ? $this->metaData->toMap() : null;
+            $res['metaData'] = null !== $this->metaData ? $this->metaData->toArray($noStream) : $this->metaData;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -53,20 +55,22 @@ class assistant extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assistant
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['metaData'])) {
             $model->metaData = metaData::fromMap($map['metaData']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

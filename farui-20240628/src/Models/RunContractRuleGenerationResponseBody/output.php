@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationResponseBody\output\rules;
-use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
     /**
-     * @example b265b416-ca1f-425d-9340-c968f39624e9
-     *
      * @var string
      */
     public $ruleTaskId;
@@ -22,25 +20,30 @@ class output extends Model
     public $rules;
     protected $_name = [
         'ruleTaskId' => 'ruleTaskId',
-        'rules'      => 'rules',
+        'rules' => 'rules',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleTaskId) {
             $res['ruleTaskId'] = $this->ruleTaskId;
         }
+
         if (null !== $this->rules) {
-            $res['rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['rules'] = [];
+                $n1 = 0;
+                foreach ($this->rules as $item1) {
+                    $res['rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class output extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ruleTaskId'])) {
             $model->ruleTaskId = $map['ruleTaskId'];
         }
+
         if (isset($map['rules'])) {
             if (!empty($map['rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['rules'] as $item1) {
+                    $model->rules[$n1++] = rules::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextResponseBody\data\caseResult\caseDomain;
-use AlibabaCloud\Tea\Model;
 
 class caseResult extends Model
 {
@@ -15,26 +15,39 @@ class caseResult extends Model
     public $caseDomain;
 
     /**
-     * @example 0.88
-     *
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var string
      */
     public $similarity;
     protected $_name = [
         'caseDomain' => 'caseDomain',
+        'mode' => 'mode',
         'similarity' => 'similarity',
     ];
 
     public function validate()
     {
+        if (null !== $this->caseDomain) {
+            $this->caseDomain->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->caseDomain) {
-            $res['caseDomain'] = null !== $this->caseDomain ? $this->caseDomain->toMap() : null;
+            $res['caseDomain'] = null !== $this->caseDomain ? $this->caseDomain->toArray($noStream) : $this->caseDomain;
         }
+
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
+        }
+
         if (null !== $this->similarity) {
             $res['similarity'] = $this->similarity;
         }
@@ -42,17 +55,22 @@ class caseResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return caseResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['caseDomain'])) {
             $model->caseDomain = caseDomain::fromMap($map['caseDomain']);
         }
+
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
+        }
+
         if (isset($map['similarity'])) {
             $model->similarity = $map['similarity'];
         }

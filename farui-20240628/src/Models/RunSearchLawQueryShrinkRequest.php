@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\FaRui\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunSearchLawQueryShrinkRequest extends Model
 {
     /**
-     * @example farui
-     *
      * @var string
      */
     public $appId;
@@ -26,8 +24,6 @@ class RunSearchLawQueryShrinkRequest extends Model
     public $pageParamShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
@@ -42,36 +38,42 @@ class RunSearchLawQueryShrinkRequest extends Model
      */
     public $threadShrink;
     protected $_name = [
-        'appId'                 => 'appId',
+        'appId' => 'appId',
         'filterConditionShrink' => 'filterCondition',
-        'pageParamShrink'       => 'pageParam',
-        'query'                 => 'query',
-        'queryKeywordsShrink'   => 'queryKeywords',
-        'threadShrink'          => 'thread',
+        'pageParamShrink' => 'pageParam',
+        'query' => 'query',
+        'queryKeywordsShrink' => 'queryKeywords',
+        'threadShrink' => 'thread',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
         }
+
         if (null !== $this->filterConditionShrink) {
             $res['filterCondition'] = $this->filterConditionShrink;
         }
+
         if (null !== $this->pageParamShrink) {
             $res['pageParam'] = $this->pageParamShrink;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->queryKeywordsShrink) {
             $res['queryKeywords'] = $this->queryKeywordsShrink;
         }
+
         if (null !== $this->threadShrink) {
             $res['thread'] = $this->threadShrink;
         }
@@ -79,29 +81,34 @@ class RunSearchLawQueryShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunSearchLawQueryShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
         }
+
         if (isset($map['filterCondition'])) {
             $model->filterConditionShrink = $map['filterCondition'];
         }
+
         if (isset($map['pageParam'])) {
             $model->pageParamShrink = $map['pageParam'];
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['queryKeywords'])) {
             $model->queryKeywordsShrink = $map['queryKeywords'];
         }
+
         if (isset($map['thread'])) {
             $model->threadShrink = $map['thread'];
         }
