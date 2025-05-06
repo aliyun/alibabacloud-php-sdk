@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clusterUsedStorage extends Model
 {
@@ -18,20 +18,22 @@ class clusterUsedStorage extends Model
      */
     public $usedStorage;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'usedStorage' => 'UsedStorage',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->usedStorage) {
             $res['UsedStorage'] = $this->usedStorage;
         }
@@ -39,17 +41,18 @@ class clusterUsedStorage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterUsedStorage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['UsedStorage'])) {
             $model->usedStorage = $map['UsedStorage'];
         }

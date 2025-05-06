@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceResponseBody\orderInfo;
-use AlibabaCloud\Tea\Model;
 
 class ConvertHybridInstanceResponseBody extends Model
 {
     /**
-     * @example 000000
-     *
      * @var string
      */
     public $errCode;
@@ -22,41 +20,44 @@ class ConvertHybridInstanceResponseBody extends Model
     public $orderInfo;
 
     /**
-     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errCode'   => 'ErrCode',
+        'errCode' => 'ErrCode',
         'orderInfo' => 'OrderInfo',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->orderInfo) {
+            $this->orderInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->orderInfo) {
-            $res['OrderInfo'] = null !== $this->orderInfo ? $this->orderInfo->toMap() : null;
+            $res['OrderInfo'] = null !== $this->orderInfo ? $this->orderInfo->toArray($noStream) : $this->orderInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -64,23 +65,26 @@ class ConvertHybridInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConvertHybridInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['OrderInfo'])) {
             $model->orderInfo = orderInfo::fromMap($map['OrderInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

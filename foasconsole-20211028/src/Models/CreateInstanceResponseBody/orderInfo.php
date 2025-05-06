@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderInfo extends Model
 {
     /**
-     * @example f-cn-zvp2q0zik06
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 210406354694567
-     *
      * @var int
      */
     public $orderId;
@@ -32,28 +28,32 @@ class orderInfo extends Model
      */
     public $storageOrderId;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'orderId'           => 'OrderId',
+        'instanceId' => 'InstanceId',
+        'orderId' => 'OrderId',
         'storageInstanceId' => 'StorageInstanceId',
-        'storageOrderId'    => 'StorageOrderId',
+        'storageOrderId' => 'StorageOrderId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->storageInstanceId) {
             $res['StorageInstanceId'] = $this->storageInstanceId;
         }
+
         if (null !== $this->storageOrderId) {
             $res['StorageOrderId'] = $this->storageOrderId;
         }
@@ -61,23 +61,26 @@ class orderInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['StorageInstanceId'])) {
             $model->storageInstanceId = $map['StorageInstanceId'];
         }
+
         if (isset($map['StorageOrderId'])) {
             $model->storageOrderId = $map['StorageOrderId'];
         }

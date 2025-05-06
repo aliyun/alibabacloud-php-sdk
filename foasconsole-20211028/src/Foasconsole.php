@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceShrinkRequest;
@@ -69,11 +68,10 @@ use AlibabaCloud\SDK\Foasconsole\V20211028\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Foasconsole extends OpenApiClient
 {
@@ -98,69 +96,80 @@ class Foasconsole extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 开通弹性计算
-     *  *
-     * @param ConvertHybridInstanceRequest $tmpReq  ConvertHybridInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 开通弹性计算.
      *
-     * @return ConvertHybridInstanceResponse ConvertHybridInstanceResponse
+     * @param tmpReq - ConvertHybridInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertHybridInstanceResponse
+     *
+     * @param ConvertHybridInstanceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConvertHybridInstanceResponse
      */
     public function convertHybridInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ConvertHybridInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $query['ResourceSpec'] = $request->resourceSpecShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ConvertHybridInstance',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ConvertHybridInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
 
-        return ConvertHybridInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$query['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertHybridInstance',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConvertHybridInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开通弹性计算
-     *  *
-     * @param ConvertHybridInstanceRequest $request ConvertHybridInstanceRequest
+     * 开通弹性计算.
      *
-     * @return ConvertHybridInstanceResponse ConvertHybridInstanceResponse
+     * @param request - ConvertHybridInstanceRequest
+     *
+     * @returns ConvertHybridInstanceResponse
+     *
+     * @param ConvertHybridInstanceRequest $request
+     *
+     * @return ConvertHybridInstanceResponse
      */
     public function convertHybridInstance($request)
     {
@@ -170,67 +179,80 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 按量付费转包年包月
-     *  *
-     * @param ConvertInstanceRequest $tmpReq  ConvertInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 按量付费转包年包月.
      *
-     * @return ConvertInstanceResponse ConvertInstanceResponse
+     * @param tmpReq - ConvertInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertInstanceResponse
+     *
+     * @param ConvertInstanceRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConvertInstanceResponse
      */
     public function convertInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ConvertInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->namespaceResourceSpecs)) {
-            $request->namespaceResourceSpecsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaceResourceSpecs, 'NamespaceResourceSpecs', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->isAutoRenew)) {
-            $body['IsAutoRenew'] = $request->isAutoRenew;
-        }
-        if (!Utils::isUnset($request->namespaceResourceSpecsShrink)) {
-            $body['NamespaceResourceSpecs'] = $request->namespaceResourceSpecsShrink;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ConvertInstance',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ConvertInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->namespaceResourceSpecs) {
+            $request->namespaceResourceSpecsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->namespaceResourceSpecs, 'NamespaceResourceSpecs', 'json');
         }
 
-        return ConvertInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $body = [];
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isAutoRenew) {
+            @$body['IsAutoRenew'] = $request->isAutoRenew;
+        }
+
+        if (null !== $request->namespaceResourceSpecsShrink) {
+            @$body['NamespaceResourceSpecs'] = $request->namespaceResourceSpecsShrink;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertInstance',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConvertInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 按量付费转包年包月
-     *  *
-     * @param ConvertInstanceRequest $request ConvertInstanceRequest
+     * 按量付费转包年包月.
      *
-     * @return ConvertInstanceResponse ConvertInstanceResponse
+     * @param request - ConvertInstanceRequest
+     *
+     * @returns ConvertInstanceResponse
+     *
+     * @param ConvertInstanceRequest $request
+     *
+     * @return ConvertInstanceResponse
      */
     public function convertInstance($request)
     {
@@ -240,50 +262,58 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 包年包月转按量付费
-     *  *
-     * @param ConvertPrepayInstanceRequest $request ConvertPrepayInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 包年包月转按量付费.
      *
-     * @return ConvertPrepayInstanceResponse ConvertPrepayInstanceResponse
+     * @param request - ConvertPrepayInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertPrepayInstanceResponse
+     *
+     * @param ConvertPrepayInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConvertPrepayInstanceResponse
      */
     public function convertPrepayInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ConvertPrepayInstance',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ConvertPrepayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
 
-        return ConvertPrepayInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertPrepayInstance',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConvertPrepayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 包年包月转按量付费
-     *  *
-     * @param ConvertPrepayInstanceRequest $request ConvertPrepayInstanceRequest
+     * 包年包月转按量付费.
      *
-     * @return ConvertPrepayInstanceResponse ConvertPrepayInstanceResponse
+     * @param request - ConvertPrepayInstanceRequest
+     *
+     * @returns ConvertPrepayInstanceResponse
+     *
+     * @param ConvertPrepayInstanceRequest $request
+     *
+     * @return ConvertPrepayInstanceResponse
      */
     public function convertPrepayInstance($request)
     {
@@ -293,124 +323,156 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例
-     *  *
-     * @param CreateInstanceRequest $tmpReq  CreateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建实例.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param tmpReq - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
-            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
-            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->storage)) {
-            $request->storageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storage, 'Storage', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->vSwitchIds)) {
-            $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->architectureType)) {
-            $body['ArchitectureType'] = $request->architectureType;
-        }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $body['AutoRenew'] = $request->autoRenew;
-        }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['ChargeType'] = $request->chargeType;
-        }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->extra)) {
-            $body['Extra'] = $request->extra;
-        }
-        if (!Utils::isUnset($request->ha)) {
-            $body['Ha'] = $request->ha;
-        }
-        if (!Utils::isUnset($request->haResourceSpecShrink)) {
-            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
-            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
-        }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['InstanceName'] = $request->instanceName;
-        }
-        if (!Utils::isUnset($request->monitorType)) {
-            $body['MonitorType'] = $request->monitorType;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->promotionCode)) {
-            $body['PromotionCode'] = $request->promotionCode;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->storageShrink)) {
-            $body['Storage'] = $request->storageShrink;
-        }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $body['Tag'] = $request->tagShrink;
-        }
-        if (!Utils::isUnset($request->usePromotionCode)) {
-            $body['UsePromotionCode'] = $request->usePromotionCode;
-        }
-        if (!Utils::isUnset($request->vSwitchIdsShrink)) {
-            $body['VSwitchIds'] = $request->vSwitchIdsShrink;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->haResourceSpec) {
+            $request->haResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
         }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $tmpReq->haVSwitchIds) {
+            $request->haVSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+        }
+
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
+        }
+
+        if (null !== $tmpReq->storage) {
+            $request->storageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storage, 'Storage', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        if (null !== $tmpReq->vSwitchIds) {
+            $request->vSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->architectureType) {
+            @$body['ArchitectureType'] = $request->architectureType;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->extra) {
+            @$body['Extra'] = $request->extra;
+        }
+
+        if (null !== $request->ha) {
+            @$body['Ha'] = $request->ha;
+        }
+
+        if (null !== $request->haResourceSpecShrink) {
+            @$body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+
+        if (null !== $request->haVSwitchIdsShrink) {
+            @$body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->monitorType) {
+            @$body['MonitorType'] = $request->monitorType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        if (null !== $request->storageShrink) {
+            @$body['Storage'] = $request->storageShrink;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$body['Tag'] = $request->tagShrink;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
+        }
+
+        if (null !== $request->vSwitchIdsShrink) {
+            @$body['VSwitchIds'] = $request->vSwitchIdsShrink;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstance',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建实例
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * 创建实例.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -420,64 +482,76 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 创建命名空间
-     *  *
-     * @param CreateNamespaceRequest $tmpReq  CreateNamespaceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建命名空间.
      *
-     * @return CreateNamespaceResponse CreateNamespaceResponse
+     * @param tmpReq - CreateNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNamespaceResponse
+     *
+     * @param CreateNamespaceRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateNamespaceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->ha)) {
-            $body['Ha'] = $request->ha;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateNamespace',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
 
-        return CreateNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
+        $body = [];
+        if (null !== $request->ha) {
+            @$body['Ha'] = $request->ha;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNamespace',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建命名空间
-     *  *
-     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * 创建命名空间.
      *
-     * @return CreateNamespaceResponse CreateNamespaceResponse
+     * @param request - CreateNamespaceRequest
+     *
+     * @returns CreateNamespaceResponse
+     *
+     * @param CreateNamespaceRequest $request
+     *
+     * @return CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -487,50 +561,58 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 释放按量付费的实例
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 释放按量付费的实例.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstance',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 释放按量付费的实例
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * 释放按量付费的实例.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -540,53 +622,62 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 删除namespace
-     *  *
-     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除namespace.
      *
-     * @return DeleteNamespaceResponse DeleteNamespaceResponse
+     * @param request - DeleteNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNamespaceResponse
+     *
+     * @param DeleteNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteNamespace',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
 
-        return DeleteNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNamespace',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除namespace
-     *  *
-     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * 删除namespace.
      *
-     * @return DeleteNamespaceResponse DeleteNamespaceResponse
+     * @param request - DeleteNamespaceRequest
+     *
+     * @returns DeleteNamespaceResponse
+     *
+     * @param DeleteNamespaceRequest $request
+     *
+     * @return DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -596,49 +687,56 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary instance列表
-     *  *
-     * @param DescribeInstancesRequest $tmpReq  DescribeInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * instance列表.
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param tmpReq - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
-        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstances',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary instance列表
-     *  *
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * instance列表.
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param request - DescribeInstancesRequest
+     *
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -648,49 +746,56 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary namespace列表
-     *  *
-     * @param DescribeNamespacesRequest $tmpReq  DescribeNamespacesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * namespace列表.
      *
-     * @return DescribeNamespacesResponse DescribeNamespacesResponse
+     * @param tmpReq - DescribeNamespacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNamespacesResponse
+     *
+     * @param DescribeNamespacesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeNamespacesResponse
      */
     public function describeNamespacesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeNamespacesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeNamespaces',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
-        return DescribeNamespacesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNamespaces',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary namespace列表
-     *  *
-     * @param DescribeNamespacesRequest $request DescribeNamespacesRequest
+     * namespace列表.
      *
-     * @return DescribeNamespacesResponse DescribeNamespacesResponse
+     * @param request - DescribeNamespacesRequest
+     *
+     * @returns DescribeNamespacesResponse
+     *
+     * @param DescribeNamespacesRequest $request
+     *
+     * @return DescribeNamespacesResponse
      */
     public function describeNamespaces($request)
     {
@@ -700,37 +805,41 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 获取支持的region列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取支持的region列表.
      *
-     * @return DescribeSupportedRegionsResponse DescribeSupportedRegionsResponse
+     * @param request - DescribeSupportedRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupportedRegionsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeSupportedRegionsResponse
      */
     public function describeSupportedRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeSupportedRegions',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportedRegions',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSupportedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSupportedRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSupportedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取支持的region列表
-     *  *
-     * @return DescribeSupportedRegionsResponse DescribeSupportedRegionsResponse
+     * 获取支持的region列表.
+     *
+     * @returns DescribeSupportedRegionsResponse
+     *
+     * @return DescribeSupportedRegionsResponse
      */
     public function describeSupportedRegions()
     {
@@ -740,44 +849,50 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 获取支持的zoneId列表
-     *  *
-     * @param DescribeSupportedZonesRequest $request DescribeSupportedZonesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取支持的zoneId列表.
      *
-     * @return DescribeSupportedZonesResponse DescribeSupportedZonesResponse
+     * @param request - DescribeSupportedZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupportedZonesResponse
+     *
+     * @param DescribeSupportedZonesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSupportedZonesResponse
      */
     public function describeSupportedZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSupportedZones',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportedZones',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSupportedZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSupportedZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSupportedZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取支持的zoneId列表
-     *  *
-     * @param DescribeSupportedZonesRequest $request DescribeSupportedZonesRequest
+     * 获取支持的zoneId列表.
      *
-     * @return DescribeSupportedZonesResponse DescribeSupportedZonesResponse
+     * @param request - DescribeSupportedZonesRequest
+     *
+     * @returns DescribeSupportedZonesResponse
+     *
+     * @param DescribeSupportedZonesRequest $request
+     *
+     * @return DescribeSupportedZonesResponse
      */
     public function describeSupportedZones($request)
     {
@@ -787,59 +902,70 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 列举flinkasi标签
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 列举flinkasi标签.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举flinkasi标签
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 列举flinkasi标签.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -849,58 +975,68 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 对按量弹性实例修改resource quota
-     *  *
-     * @param ModifyElasticResourceSpecRequest $tmpReq  ModifyElasticResourceSpecRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 对按量弹性实例修改resource quota.
      *
-     * @return ModifyElasticResourceSpecResponse ModifyElasticResourceSpecResponse
+     * @param tmpReq - ModifyElasticResourceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyElasticResourceSpecResponse
+     *
+     * @param ModifyElasticResourceSpecRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyElasticResourceSpecResponse
      */
     public function modifyElasticResourceSpecWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyElasticResourceSpecShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyElasticResourceSpec',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyElasticResourceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
 
-        return ModifyElasticResourceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyElasticResourceSpec',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyElasticResourceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 对按量弹性实例修改resource quota
-     *  *
-     * @param ModifyElasticResourceSpecRequest $request ModifyElasticResourceSpecRequest
+     * 对按量弹性实例修改resource quota.
      *
-     * @return ModifyElasticResourceSpecResponse ModifyElasticResourceSpecResponse
+     * @param request - ModifyElasticResourceSpecRequest
+     *
+     * @returns ModifyElasticResourceSpecResponse
+     *
+     * @param ModifyElasticResourceSpecRequest $request
+     *
+     * @return ModifyElasticResourceSpecResponse
      */
     public function modifyElasticResourceSpec($request)
     {
@@ -910,61 +1046,72 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 修改集群交换机
-     *  *
-     * @param ModifyInstanceVswitchRequest $tmpReq  ModifyInstanceVswitchRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改集群交换机.
      *
-     * @return ModifyInstanceVswitchResponse ModifyInstanceVswitchResponse
+     * @param tmpReq - ModifyInstanceVswitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceVswitchResponse
+     *
+     * @param ModifyInstanceVswitchRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyInstanceVswitchResponse
      */
     public function modifyInstanceVswitchWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyInstanceVswitchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
-            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->vSwitchIds)) {
-            $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
-            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->vSwitchIdsShrink)) {
-            $body['VSwitchIds'] = $request->vSwitchIdsShrink;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyInstanceVswitch',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyInstanceVswitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->haVSwitchIds) {
+            $request->haVSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
         }
 
-        return ModifyInstanceVswitchResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $tmpReq->vSwitchIds) {
+            $request->vSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->haVSwitchIdsShrink) {
+            @$body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->vSwitchIdsShrink) {
+            @$body['VSwitchIds'] = $request->vSwitchIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceVswitch',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceVswitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改集群交换机
-     *  *
-     * @param ModifyInstanceVswitchRequest $request ModifyInstanceVswitchRequest
+     * 修改集群交换机.
      *
-     * @return ModifyInstanceVswitchResponse ModifyInstanceVswitchResponse
+     * @param request - ModifyInstanceVswitchRequest
+     *
+     * @returns ModifyInstanceVswitchResponse
+     *
+     * @param ModifyInstanceVswitchRequest $request
+     *
+     * @return ModifyInstanceVswitchResponse
      */
     public function modifyInstanceVswitch($request)
     {
@@ -974,72 +1121,86 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 修改namespace资源，包含按量和包年包月、混合计费
-     *  *
-     * @param ModifyNamespaceSpecV2Request $tmpReq  ModifyNamespaceSpecV2Request
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改namespace资源，包含按量和包年包月、混合计费.
      *
-     * @return ModifyNamespaceSpecV2Response ModifyNamespaceSpecV2Response
+     * @param tmpReq - ModifyNamespaceSpecV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyNamespaceSpecV2Response
+     *
+     * @param ModifyNamespaceSpecV2Request $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyNamespaceSpecV2Response
      */
     public function modifyNamespaceSpecV2WithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyNamespaceSpecV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->elasticResourceSpec)) {
-            $request->elasticResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->elasticResourceSpec, 'ElasticResourceSpec', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->guaranteedResourceSpec)) {
-            $request->guaranteedResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->guaranteedResourceSpec, 'GuaranteedResourceSpec', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->ha)) {
-            $query['Ha'] = $request->ha;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->elasticResourceSpecShrink)) {
-            $body['ElasticResourceSpec'] = $request->elasticResourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->guaranteedResourceSpecShrink)) {
-            $body['GuaranteedResourceSpec'] = $request->guaranteedResourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyNamespaceSpecV2',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyNamespaceSpecV2Response::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->elasticResourceSpec) {
+            $request->elasticResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->elasticResourceSpec, 'ElasticResourceSpec', 'json');
         }
 
-        return ModifyNamespaceSpecV2Response::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $tmpReq->guaranteedResourceSpec) {
+            $request->guaranteedResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->guaranteedResourceSpec, 'GuaranteedResourceSpec', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ha) {
+            @$query['Ha'] = $request->ha;
+        }
+
+        $body = [];
+        if (null !== $request->elasticResourceSpecShrink) {
+            @$body['ElasticResourceSpec'] = $request->elasticResourceSpecShrink;
+        }
+
+        if (null !== $request->guaranteedResourceSpecShrink) {
+            @$body['GuaranteedResourceSpec'] = $request->guaranteedResourceSpecShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyNamespaceSpecV2',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyNamespaceSpecV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改namespace资源，包含按量和包年包月、混合计费
-     *  *
-     * @param ModifyNamespaceSpecV2Request $request ModifyNamespaceSpecV2Request
+     * 修改namespace资源，包含按量和包年包月、混合计费.
      *
-     * @return ModifyNamespaceSpecV2Response ModifyNamespaceSpecV2Response
+     * @param request - ModifyNamespaceSpecV2Request
+     *
+     * @returns ModifyNamespaceSpecV2Response
+     *
+     * @param ModifyNamespaceSpecV2Request $request
+     *
+     * @return ModifyNamespaceSpecV2Response
      */
     public function modifyNamespaceSpecV2($request)
     {
@@ -1048,85 +1209,99 @@ class Foasconsole extends OpenApiClient
         return $this->modifyNamespaceSpecV2WithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * 扩容/缩容.
+     *
      * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead
-     *  *
-     * @summary 扩容/缩容
-     *  *
-     * Deprecated
      *
-     * @param ModifyPrepayInstanceSpecRequest $tmpReq  ModifyPrepayInstanceSpecRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ModifyPrepayInstanceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
+     * @returns ModifyPrepayInstanceSpecResponse
+     *
+     * @param ModifyPrepayInstanceSpecRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpecWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyPrepayInstanceSpecShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
-            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->haResourceSpec) {
+            $request->haResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
         }
-        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
-            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+
+        if (null !== $tmpReq->haVSwitchIds) {
+            $request->haVSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
+
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ha)) {
-            $body['Ha'] = $request->ha;
+        if (null !== $request->ha) {
+            @$body['Ha'] = $request->ha;
         }
-        if (!Utils::isUnset($request->haResourceSpecShrink)) {
-            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
+
+        if (null !== $request->haResourceSpecShrink) {
+            @$body['HaResourceSpec'] = $request->haResourceSpecShrink;
         }
-        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
-            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+
+        if (null !== $request->haVSwitchIdsShrink) {
+            @$body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
         }
-        if (!Utils::isUnset($request->haZoneId)) {
-            $body['HaZoneId'] = $request->haZoneId;
+
+        if (null !== $request->haZoneId) {
+            @$body['HaZoneId'] = $request->haZoneId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPrepayInstanceSpec',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPrepayInstanceSpec',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPrepayInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPrepayInstanceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPrepayInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 扩容/缩容.
+     *
      * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead
-     *  *
-     * @summary 扩容/缩容
-     *  *
-     * Deprecated
      *
-     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     * @param request - ModifyPrepayInstanceSpecRequest
      *
-     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
+     * @returns ModifyPrepayInstanceSpecResponse
+     *
+     * @param ModifyPrepayInstanceSpecRequest $request
+     *
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpec($request)
     {
@@ -1135,70 +1310,79 @@ class Foasconsole extends OpenApiClient
         return $this->modifyPrepayInstanceSpecWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * 修改namespace资源分配.
+     *
      * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead
-     *  *
-     * @summary 修改namespace资源分配
-     *  *
-     * Deprecated
      *
-     * @param ModifyPrepayNamespaceSpecRequest $tmpReq  ModifyPrepayNamespaceSpecRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ModifyPrepayNamespaceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
+     * @returns ModifyPrepayNamespaceSpecResponse
+     *
+     * @param ModifyPrepayNamespaceSpecRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpecWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyPrepayNamespaceSpecShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPrepayNamespaceSpec',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPrepayNamespaceSpec',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPrepayNamespaceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPrepayNamespaceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPrepayNamespaceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 修改namespace资源分配.
+     *
      * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead
-     *  *
-     * @summary 修改namespace资源分配
-     *  *
-     * Deprecated
      *
-     * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
+     * @param request - ModifyPrepayNamespaceSpecRequest
      *
-     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
+     * @returns ModifyPrepayNamespaceSpecResponse
+     *
+     * @param ModifyPrepayNamespaceSpecRequest $request
+     *
+     * @return ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpec($request)
     {
@@ -1208,67 +1392,80 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 按量付费转包年包月询价
-     *  *
-     * @param QueryConvertInstancePriceRequest $tmpReq  QueryConvertInstancePriceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 按量付费转包年包月询价.
      *
-     * @return QueryConvertInstancePriceResponse QueryConvertInstancePriceResponse
+     * @param tmpReq - QueryConvertInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConvertInstancePriceResponse
+     *
+     * @param QueryConvertInstancePriceRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryConvertInstancePriceResponse
      */
     public function queryConvertInstancePriceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryConvertInstancePriceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->namespaceResourceSpecs)) {
-            $request->namespaceResourceSpecsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaceResourceSpecs, 'NamespaceResourceSpecs', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->isAutoRenew)) {
-            $body['IsAutoRenew'] = $request->isAutoRenew;
-        }
-        if (!Utils::isUnset($request->namespaceResourceSpecsShrink)) {
-            $body['NamespaceResourceSpecs'] = $request->namespaceResourceSpecsShrink;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryConvertInstancePrice',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryConvertInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->namespaceResourceSpecs) {
+            $request->namespaceResourceSpecsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->namespaceResourceSpecs, 'NamespaceResourceSpecs', 'json');
         }
 
-        return QueryConvertInstancePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        $body = [];
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isAutoRenew) {
+            @$body['IsAutoRenew'] = $request->isAutoRenew;
+        }
+
+        if (null !== $request->namespaceResourceSpecsShrink) {
+            @$body['NamespaceResourceSpecs'] = $request->namespaceResourceSpecsShrink;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryConvertInstancePrice',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryConvertInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 按量付费转包年包月询价
-     *  *
-     * @param QueryConvertInstancePriceRequest $request QueryConvertInstancePriceRequest
+     * 按量付费转包年包月询价.
      *
-     * @return QueryConvertInstancePriceResponse QueryConvertInstancePriceResponse
+     * @param request - QueryConvertInstancePriceRequest
+     *
+     * @returns QueryConvertInstancePriceResponse
+     *
+     * @param QueryConvertInstancePriceRequest $request
+     *
+     * @return QueryConvertInstancePriceResponse
      */
     public function queryConvertInstancePrice($request)
     {
@@ -1278,50 +1475,58 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 包年包月转按量付费询价
-     *  *
-     * @param QueryConvertPrepayInstancePriceRequest $request QueryConvertPrepayInstancePriceRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 包年包月转按量付费询价.
      *
-     * @return QueryConvertPrepayInstancePriceResponse QueryConvertPrepayInstancePriceResponse
+     * @param request - QueryConvertPrepayInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConvertPrepayInstancePriceResponse
+     *
+     * @param QueryConvertPrepayInstancePriceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryConvertPrepayInstancePriceResponse
      */
     public function queryConvertPrepayInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryConvertPrepayInstancePrice',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryConvertPrepayInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
 
-        return QueryConvertPrepayInstancePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryConvertPrepayInstancePrice',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryConvertPrepayInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 包年包月转按量付费询价
-     *  *
-     * @param QueryConvertPrepayInstancePriceRequest $request QueryConvertPrepayInstancePriceRequest
+     * 包年包月转按量付费询价.
      *
-     * @return QueryConvertPrepayInstancePriceResponse QueryConvertPrepayInstancePriceResponse
+     * @param request - QueryConvertPrepayInstancePriceRequest
+     *
+     * @returns QueryConvertPrepayInstancePriceResponse
+     *
+     * @param QueryConvertPrepayInstancePriceRequest $request
+     *
+     * @return QueryConvertPrepayInstancePriceResponse
      */
     public function queryConvertPrepayInstancePrice($request)
     {
@@ -1331,106 +1536,132 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 获取创建实例的价格
-     *  *
-     * @param QueryCreateInstancePriceRequest $tmpReq  QueryCreateInstancePriceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取创建实例的价格
      *
-     * @return QueryCreateInstancePriceResponse QueryCreateInstancePriceResponse
+     * @param tmpReq - QueryCreateInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCreateInstancePriceResponse
+     *
+     * @param QueryCreateInstancePriceRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryCreateInstancePriceResponse
      */
     public function queryCreateInstancePriceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryCreateInstancePriceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
-            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->storage)) {
-            $request->storageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storage, 'Storage', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->vSwitchIds)) {
-            $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->architectureType)) {
-            $body['ArchitectureType'] = $request->architectureType;
-        }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $body['AutoRenew'] = $request->autoRenew;
-        }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['ChargeType'] = $request->chargeType;
-        }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->extra)) {
-            $body['Extra'] = $request->extra;
-        }
-        if (!Utils::isUnset($request->ha)) {
-            $body['Ha'] = $request->ha;
-        }
-        if (!Utils::isUnset($request->haResourceSpecShrink)) {
-            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['InstanceName'] = $request->instanceName;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->promotionCode)) {
-            $body['PromotionCode'] = $request->promotionCode;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->storageShrink)) {
-            $body['Storage'] = $request->storageShrink;
-        }
-        if (!Utils::isUnset($request->usePromotionCode)) {
-            $body['UsePromotionCode'] = $request->usePromotionCode;
-        }
-        if (!Utils::isUnset($request->vSwitchIdsShrink)) {
-            $body['VSwitchIds'] = $request->vSwitchIdsShrink;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryCreateInstancePrice',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryCreateInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->haResourceSpec) {
+            $request->haResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
         }
 
-        return QueryCreateInstancePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
+        }
+
+        if (null !== $tmpReq->storage) {
+            $request->storageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storage, 'Storage', 'json');
+        }
+
+        if (null !== $tmpReq->vSwitchIds) {
+            $request->vSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->architectureType) {
+            @$body['ArchitectureType'] = $request->architectureType;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->extra) {
+            @$body['Extra'] = $request->extra;
+        }
+
+        if (null !== $request->ha) {
+            @$body['Ha'] = $request->ha;
+        }
+
+        if (null !== $request->haResourceSpecShrink) {
+            @$body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        if (null !== $request->storageShrink) {
+            @$body['Storage'] = $request->storageShrink;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
+        }
+
+        if (null !== $request->vSwitchIdsShrink) {
+            @$body['VSwitchIds'] = $request->vSwitchIdsShrink;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCreateInstancePrice',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCreateInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取创建实例的价格
-     *  *
-     * @param QueryCreateInstancePriceRequest $request QueryCreateInstancePriceRequest
+     * 获取创建实例的价格
      *
-     * @return QueryCreateInstancePriceResponse QueryCreateInstancePriceResponse
+     * @param request - QueryCreateInstancePriceRequest
+     *
+     * @returns QueryCreateInstancePriceResponse
+     *
+     * @param QueryCreateInstancePriceRequest $request
+     *
+     * @return QueryCreateInstancePriceResponse
      */
     public function queryCreateInstancePrice($request)
     {
@@ -1440,79 +1671,96 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 查询付费类型为包年包月的实例修改资源规格的价格
-     *  *
-     * @param QueryModifyInstancePriceRequest $tmpReq  QueryModifyInstancePriceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询付费类型为包年包月的实例修改资源规格的价格
      *
-     * @return QueryModifyInstancePriceResponse QueryModifyInstancePriceResponse
+     * @param tmpReq - QueryModifyInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryModifyInstancePriceResponse
+     *
+     * @param QueryModifyInstancePriceRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryModifyInstancePriceResponse
      */
     public function queryModifyInstancePriceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryModifyInstancePriceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->haResourceSpec)) {
-            $request->haResourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->haVSwitchIds)) {
-            $request->haVSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->resourceSpec)) {
-            $request->resourceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->ha)) {
-            $body['Ha'] = $request->ha;
-        }
-        if (!Utils::isUnset($request->haResourceSpecShrink)) {
-            $body['HaResourceSpec'] = $request->haResourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->haVSwitchIdsShrink)) {
-            $body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->promotionCode)) {
-            $body['PromotionCode'] = $request->promotionCode;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->resourceSpecShrink)) {
-            $body['ResourceSpec'] = $request->resourceSpecShrink;
-        }
-        if (!Utils::isUnset($request->usePromotionCode)) {
-            $body['UsePromotionCode'] = $request->usePromotionCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryModifyInstancePrice',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryModifyInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->haResourceSpec) {
+            $request->haResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
         }
 
-        return QueryModifyInstancePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $tmpReq->haVSwitchIds) {
+            $request->haVSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+        }
+
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->ha) {
+            @$body['Ha'] = $request->ha;
+        }
+
+        if (null !== $request->haResourceSpecShrink) {
+            @$body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+
+        if (null !== $request->haVSwitchIdsShrink) {
+            @$body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryModifyInstancePrice',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryModifyInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询付费类型为包年包月的实例修改资源规格的价格
-     *  *
-     * @param QueryModifyInstancePriceRequest $request QueryModifyInstancePriceRequest
+     * 查询付费类型为包年包月的实例修改资源规格的价格
      *
-     * @return QueryModifyInstancePriceResponse QueryModifyInstancePriceResponse
+     * @param request - QueryModifyInstancePriceRequest
+     *
+     * @returns QueryModifyInstancePriceResponse
+     *
+     * @param QueryModifyInstancePriceRequest $request
+     *
+     * @return QueryModifyInstancePriceResponse
      */
     public function queryModifyInstancePrice($request)
     {
@@ -1522,56 +1770,66 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 查询付费类型为包年包月的实例续费价格
-     *  *
-     * @param QueryRenewInstancePriceRequest $request QueryRenewInstancePriceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询付费类型为包年包月的实例续费价格
      *
-     * @return QueryRenewInstancePriceResponse QueryRenewInstancePriceResponse
+     * @param request - QueryRenewInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRenewInstancePriceResponse
+     *
+     * @param QueryRenewInstancePriceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryRenewInstancePriceResponse
      */
     public function queryRenewInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryRenewInstancePrice',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryRenewInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
 
-        return QueryRenewInstancePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRenewInstancePrice',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRenewInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询付费类型为包年包月的实例续费价格
-     *  *
-     * @param QueryRenewInstancePriceRequest $request QueryRenewInstancePriceRequest
+     * 查询付费类型为包年包月的实例续费价格
      *
-     * @return QueryRenewInstancePriceResponse QueryRenewInstancePriceResponse
+     * @param request - QueryRenewInstancePriceRequest
+     *
+     * @returns QueryRenewInstancePriceResponse
+     *
+     * @param QueryRenewInstancePriceRequest $request
+     *
+     * @return QueryRenewInstancePriceResponse
      */
     public function queryRenewInstancePrice($request)
     {
@@ -1581,56 +1839,66 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 续费
-     *  *
-     * @param RenewInstanceRequest $request RenewInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 续费.
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @param request - RenewInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['PricingCycle'] = $request->pricingCycle;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
 
-        return RenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RenewInstance',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 续费
-     *  *
-     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * 续费.
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @param request - RenewInstanceRequest
+     *
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -1640,56 +1908,66 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary 打标签接口
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 打标签接口.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 打标签接口
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * 打标签接口.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1699,59 +1977,70 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @summary flinkasi去标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * flinkasi去标签.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2021-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary flinkasi去标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * flinkasi去标签.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {

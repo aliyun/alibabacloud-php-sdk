@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNamespaceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example f-cn-wwo36qj4g06
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example di-593439443804417
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'namespace'  => 'Namespace',
-        'region'     => 'Region',
+        'namespace' => 'Namespace',
+        'region' => 'Region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -60,20 +51,22 @@ class DeleteNamespaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

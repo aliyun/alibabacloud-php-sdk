@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateInstanceShrinkRequest extends Model
 {
@@ -14,24 +14,16 @@ class CreateInstanceShrinkRequest extends Model
     public $architectureType;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PRE
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $duration;
@@ -57,10 +49,6 @@ class CreateInstanceShrinkRequest extends Model
     public $haVSwitchIdsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example rtc-e2e-test-pre
-     *
      * @var string
      */
     public $instanceName;
@@ -71,24 +59,16 @@ class CreateInstanceShrinkRequest extends Model
     public $monitorType;
 
     /**
-     * @example Month
-     *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @example 500043499350689
-     *
      * @var string
      */
     public $promotionCode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
@@ -104,8 +84,6 @@ class CreateInstanceShrinkRequest extends Model
     public $resourceSpecShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $storageShrink;
@@ -121,107 +99,121 @@ class CreateInstanceShrinkRequest extends Model
     public $usePromotionCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $vSwitchIdsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example vpc-2ze9xoh8qyt1rnxfmfcdi
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'architectureType'     => 'ArchitectureType',
-        'autoRenew'            => 'AutoRenew',
-        'chargeType'           => 'ChargeType',
-        'duration'             => 'Duration',
-        'extra'                => 'Extra',
-        'ha'                   => 'Ha',
+        'architectureType' => 'ArchitectureType',
+        'autoRenew' => 'AutoRenew',
+        'chargeType' => 'ChargeType',
+        'duration' => 'Duration',
+        'extra' => 'Extra',
+        'ha' => 'Ha',
         'haResourceSpecShrink' => 'HaResourceSpec',
-        'haVSwitchIdsShrink'   => 'HaVSwitchIds',
-        'instanceName'         => 'InstanceName',
-        'monitorType'          => 'MonitorType',
-        'pricingCycle'         => 'PricingCycle',
-        'promotionCode'        => 'PromotionCode',
-        'region'               => 'Region',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceSpecShrink'   => 'ResourceSpec',
-        'storageShrink'        => 'Storage',
-        'tagShrink'            => 'Tag',
-        'usePromotionCode'     => 'UsePromotionCode',
-        'vSwitchIdsShrink'     => 'VSwitchIds',
-        'vpcId'                => 'VpcId',
+        'haVSwitchIdsShrink' => 'HaVSwitchIds',
+        'instanceName' => 'InstanceName',
+        'monitorType' => 'MonitorType',
+        'pricingCycle' => 'PricingCycle',
+        'promotionCode' => 'PromotionCode',
+        'region' => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceSpecShrink' => 'ResourceSpec',
+        'storageShrink' => 'Storage',
+        'tagShrink' => 'Tag',
+        'usePromotionCode' => 'UsePromotionCode',
+        'vSwitchIdsShrink' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->architectureType) {
             $res['ArchitectureType'] = $this->architectureType;
         }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
         }
+
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
         }
+
         if (null !== $this->haResourceSpecShrink) {
             $res['HaResourceSpec'] = $this->haResourceSpecShrink;
         }
+
         if (null !== $this->haVSwitchIdsShrink) {
             $res['HaVSwitchIds'] = $this->haVSwitchIdsShrink;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->monitorType) {
             $res['MonitorType'] = $this->monitorType;
         }
+
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
+
         if (null !== $this->promotionCode) {
             $res['PromotionCode'] = $this->promotionCode;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceSpecShrink) {
             $res['ResourceSpec'] = $this->resourceSpecShrink;
         }
+
         if (null !== $this->storageShrink) {
             $res['Storage'] = $this->storageShrink;
         }
+
         if (null !== $this->tagShrink) {
             $res['Tag'] = $this->tagShrink;
         }
+
         if (null !== $this->usePromotionCode) {
             $res['UsePromotionCode'] = $this->usePromotionCode;
         }
+
         if (null !== $this->vSwitchIdsShrink) {
             $res['VSwitchIds'] = $this->vSwitchIdsShrink;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -229,71 +221,90 @@ class CreateInstanceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstanceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArchitectureType'])) {
             $model->architectureType = $map['ArchitectureType'];
         }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
         }
+
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];
         }
+
         if (isset($map['HaResourceSpec'])) {
             $model->haResourceSpecShrink = $map['HaResourceSpec'];
         }
+
         if (isset($map['HaVSwitchIds'])) {
             $model->haVSwitchIdsShrink = $map['HaVSwitchIds'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['MonitorType'])) {
             $model->monitorType = $map['MonitorType'];
         }
+
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
+
         if (isset($map['PromotionCode'])) {
             $model->promotionCode = $map['PromotionCode'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpecShrink = $map['ResourceSpec'];
         }
+
         if (isset($map['Storage'])) {
             $model->storageShrink = $map['Storage'];
         }
+
         if (isset($map['Tag'])) {
             $model->tagShrink = $map['Tag'];
         }
+
         if (isset($map['UsePromotionCode'])) {
             $model->usePromotionCode = $map['UsePromotionCode'];
         }
+
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIdsShrink = $map['VSwitchIds'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

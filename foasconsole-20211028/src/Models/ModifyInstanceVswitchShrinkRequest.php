@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceVswitchShrinkRequest extends Model
 {
@@ -14,10 +14,6 @@ class ModifyInstanceVswitchShrinkRequest extends Model
     public $haVSwitchIdsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example sc_flinkserverless_public_cn-7e22ae****
-     *
      * @var string
      */
     public $instanceId;
@@ -28,23 +24,26 @@ class ModifyInstanceVswitchShrinkRequest extends Model
     public $vSwitchIdsShrink;
     protected $_name = [
         'haVSwitchIdsShrink' => 'HaVSwitchIds',
-        'instanceId'         => 'InstanceId',
-        'vSwitchIdsShrink'   => 'VSwitchIds',
+        'instanceId' => 'InstanceId',
+        'vSwitchIdsShrink' => 'VSwitchIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->haVSwitchIdsShrink) {
             $res['HaVSwitchIds'] = $this->haVSwitchIdsShrink;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->vSwitchIdsShrink) {
             $res['VSwitchIds'] = $this->vSwitchIdsShrink;
         }
@@ -52,20 +51,22 @@ class ModifyInstanceVswitchShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceVswitchShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HaVSwitchIds'])) {
             $model->haVSwitchIdsShrink = $map['HaVSwitchIds'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIdsShrink = $map['VSwitchIds'];
         }

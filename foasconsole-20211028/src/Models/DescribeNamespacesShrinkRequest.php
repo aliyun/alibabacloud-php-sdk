@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNamespacesShrinkRequest extends Model
 {
@@ -14,40 +14,26 @@ class DescribeNamespacesShrinkRequest extends Model
     public $ha;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example f-cn-wwo36qj4g06
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example di-590843445844225
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageIndex;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
@@ -57,40 +43,47 @@ class DescribeNamespacesShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
-        'ha'         => 'Ha',
+        'ha' => 'Ha',
         'instanceId' => 'InstanceId',
-        'namespace'  => 'Namespace',
-        'pageIndex'  => 'PageIndex',
-        'pageSize'   => 'PageSize',
-        'region'     => 'Region',
+        'namespace' => 'Namespace',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
         'tagsShrink' => 'Tags',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
         }
@@ -98,32 +91,38 @@ class DescribeNamespacesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNamespacesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
         }

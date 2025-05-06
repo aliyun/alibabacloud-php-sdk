@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterState\clusterStage;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class totalStageWithWeight extends Model
 {
@@ -24,23 +24,26 @@ class totalStageWithWeight extends Model
     public $weight;
     protected $_name = [
         'stepIndex' => 'StepIndex',
-        'stepName'  => 'StepName',
-        'weight'    => 'Weight',
+        'stepName' => 'StepName',
+        'weight' => 'Weight',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stepIndex) {
             $res['StepIndex'] = $this->stepIndex;
         }
+
         if (null !== $this->stepName) {
             $res['StepName'] = $this->stepName;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -48,20 +51,22 @@ class totalStageWithWeight extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return totalStageWithWeight
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StepIndex'])) {
             $model->stepIndex = $map['StepIndex'];
         }
+
         if (isset($map['StepName'])) {
             $model->stepName = $map['StepName'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
