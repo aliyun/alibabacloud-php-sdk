@@ -34,6 +34,11 @@ class CreateDatasetShrinkRequest extends Model
     public $documentHandleConfigShrink;
 
     /**
+     * @var string
+     */
+    public $invokeType;
+
+    /**
      * @var int
      */
     public $searchDatasetEnable;
@@ -48,6 +53,7 @@ class CreateDatasetShrinkRequest extends Model
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
         'documentHandleConfigShrink' => 'DocumentHandleConfig',
+        'invokeType' => 'InvokeType',
         'searchDatasetEnable' => 'SearchDatasetEnable',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -78,6 +84,10 @@ class CreateDatasetShrinkRequest extends Model
 
         if (null !== $this->documentHandleConfigShrink) {
             $res['DocumentHandleConfig'] = $this->documentHandleConfigShrink;
+        }
+
+        if (null !== $this->invokeType) {
+            $res['InvokeType'] = $this->invokeType;
         }
 
         if (null !== $this->searchDatasetEnable) {
@@ -117,6 +127,10 @@ class CreateDatasetShrinkRequest extends Model
 
         if (isset($map['DocumentHandleConfig'])) {
             $model->documentHandleConfigShrink = $map['DocumentHandleConfig'];
+        }
+
+        if (isset($map['InvokeType'])) {
+            $model->invokeType = $map['InvokeType'];
         }
 
         if (isset($map['SearchDatasetEnable'])) {

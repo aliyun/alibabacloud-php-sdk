@@ -602,6 +602,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['DocumentHandleConfig'] = $request->documentHandleConfigShrink;
         }
 
+        if (null !== $request->invokeType) {
+            @$body['InvokeType'] = $request->invokeType;
+        }
+
         if (null !== $request->searchDatasetEnable) {
             @$body['SearchDatasetEnable'] = $request->searchDatasetEnable;
         }

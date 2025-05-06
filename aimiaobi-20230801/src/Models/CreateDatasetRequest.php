@@ -36,6 +36,11 @@ class CreateDatasetRequest extends Model
     public $documentHandleConfig;
 
     /**
+     * @var string
+     */
+    public $invokeType;
+
+    /**
      * @var int
      */
     public $searchDatasetEnable;
@@ -50,6 +55,7 @@ class CreateDatasetRequest extends Model
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
         'documentHandleConfig' => 'DocumentHandleConfig',
+        'invokeType' => 'InvokeType',
         'searchDatasetEnable' => 'SearchDatasetEnable',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -86,6 +92,10 @@ class CreateDatasetRequest extends Model
 
         if (null !== $this->documentHandleConfig) {
             $res['DocumentHandleConfig'] = null !== $this->documentHandleConfig ? $this->documentHandleConfig->toArray($noStream) : $this->documentHandleConfig;
+        }
+
+        if (null !== $this->invokeType) {
+            $res['InvokeType'] = $this->invokeType;
         }
 
         if (null !== $this->searchDatasetEnable) {
@@ -125,6 +135,10 @@ class CreateDatasetRequest extends Model
 
         if (isset($map['DocumentHandleConfig'])) {
             $model->documentHandleConfig = documentHandleConfig::fromMap($map['DocumentHandleConfig']);
+        }
+
+        if (isset($map['InvokeType'])) {
+            $model->invokeType = $map['InvokeType'];
         }
 
         if (isset($map['SearchDatasetEnable'])) {
