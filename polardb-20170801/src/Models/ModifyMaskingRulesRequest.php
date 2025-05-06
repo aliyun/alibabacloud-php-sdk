@@ -16,12 +16,22 @@ class ModifyMaskingRulesRequest extends Model
     /**
      * @var string
      */
+    public $defaultAlgo;
+
+    /**
+     * @var string
+     */
     public $enable;
 
     /**
      * @var string
      */
     public $interfaceVersion;
+
+    /**
+     * @var string
+     */
+    public $maskingAlgo;
 
     /**
      * @var string
@@ -44,8 +54,10 @@ class ModifyMaskingRulesRequest extends Model
     public $ruleVersion;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'defaultAlgo' => 'DefaultAlgo',
         'enable' => 'Enable',
         'interfaceVersion' => 'InterfaceVersion',
+        'maskingAlgo' => 'MaskingAlgo',
         'ruleConfig' => 'RuleConfig',
         'ruleName' => 'RuleName',
         'ruleNameList' => 'RuleNameList',
@@ -64,12 +76,20 @@ class ModifyMaskingRulesRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
+        if (null !== $this->defaultAlgo) {
+            $res['DefaultAlgo'] = $this->defaultAlgo;
+        }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
 
         if (null !== $this->interfaceVersion) {
             $res['InterfaceVersion'] = $this->interfaceVersion;
+        }
+
+        if (null !== $this->maskingAlgo) {
+            $res['MaskingAlgo'] = $this->maskingAlgo;
         }
 
         if (null !== $this->ruleConfig) {
@@ -103,12 +123,20 @@ class ModifyMaskingRulesRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['DefaultAlgo'])) {
+            $model->defaultAlgo = $map['DefaultAlgo'];
+        }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
 
         if (isset($map['InterfaceVersion'])) {
             $model->interfaceVersion = $map['InterfaceVersion'];
+        }
+
+        if (isset($map['MaskingAlgo'])) {
+            $model->maskingAlgo = $map['MaskingAlgo'];
         }
 
         if (isset($map['RuleConfig'])) {
