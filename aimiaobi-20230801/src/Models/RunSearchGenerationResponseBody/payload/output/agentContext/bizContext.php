@@ -13,6 +13,16 @@ class bizContext extends Model
     /**
      * @var string
      */
+    public $askUser;
+
+    /**
+     * @var string[]
+     */
+    public $askUserKeywords;
+
+    /**
+     * @var string
+     */
     public $currentStep;
 
     /**
@@ -60,6 +70,8 @@ class bizContext extends Model
      */
     public $tokenCalculate;
     protected $_name = [
+        'askUser' => 'AskUser',
+        'askUserKeywords' => 'AskUserKeywords',
         'currentStep' => 'CurrentStep',
         'generatedContent' => 'GeneratedContent',
         'modelId' => 'ModelId',
@@ -74,6 +86,9 @@ class bizContext extends Model
 
     public function validate()
     {
+        if (\is_array($this->askUserKeywords)) {
+            Model::validateArray($this->askUserKeywords);
+        }
         if (null !== $this->generatedContent) {
             $this->generatedContent->validate();
         }
@@ -95,6 +110,20 @@ class bizContext extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->askUser) {
+            $res['AskUser'] = $this->askUser;
+        }
+
+        if (null !== $this->askUserKeywords) {
+            if (\is_array($this->askUserKeywords)) {
+                $res['AskUserKeywords'] = [];
+                $n1 = 0;
+                foreach ($this->askUserKeywords as $item1) {
+                    $res['AskUserKeywords'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->currentStep) {
             $res['CurrentStep'] = $this->currentStep;
         }
@@ -164,6 +193,20 @@ class bizContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AskUser'])) {
+            $model->askUser = $map['AskUser'];
+        }
+
+        if (isset($map['AskUserKeywords'])) {
+            if (!empty($map['AskUserKeywords'])) {
+                $model->askUserKeywords = [];
+                $n1 = 0;
+                foreach ($map['AskUserKeywords'] as $item1) {
+                    $model->askUserKeywords[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['CurrentStep'])) {
             $model->currentStep = $map['CurrentStep'];
         }
