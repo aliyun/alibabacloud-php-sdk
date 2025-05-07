@@ -978,7 +978,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取 Ray Dashboard 链接.
+     * Obtains a Ray Dashboard URL.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
      *
      * @param request - GetRayDashboardRequest
      * @param headers - map
@@ -1025,7 +1028,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取 Ray Dashboard 链接.
+     * Obtains a Ray Dashboard URL.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
      *
      * @param request - GetRayDashboardRequest
      *
@@ -1179,7 +1185,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a user token.
+     * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
      *
      * @param request - GetTokenRequest
      * @param headers - map
@@ -1229,7 +1235,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a user token.
+     * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
      *
      * @param request - GetTokenRequest
      *
@@ -1515,6 +1521,10 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->jobId) {
             @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
 
         if (null !== $request->jobType) {

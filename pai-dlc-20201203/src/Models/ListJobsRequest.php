@@ -46,6 +46,11 @@ class ListJobsRequest extends Model
     /**
      * @var string
      */
+    public $jobIds;
+
+    /**
+     * @var string
+     */
     public $jobType;
 
     /**
@@ -135,6 +140,7 @@ class ListJobsRequest extends Model
         'endTime' => 'EndTime',
         'fromAllWorkspaces' => 'FromAllWorkspaces',
         'jobId' => 'JobId',
+        'jobIds' => 'JobIds',
         'jobType' => 'JobType',
         'order' => 'Order',
         'oversoldInfo' => 'OversoldInfo',
@@ -191,6 +197,10 @@ class ListJobsRequest extends Model
 
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
         }
 
         if (null !== $this->jobType) {
@@ -303,6 +313,10 @@ class ListJobsRequest extends Model
 
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+
+        if (isset($map['JobIds'])) {
+            $model->jobIds = $map['JobIds'];
         }
 
         if (isset($map['JobType'])) {
