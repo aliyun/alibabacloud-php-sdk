@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Buss\V20220822\Models\FindInstanceInfoResponseBody\data;
 
-class FindInstanceInfoResponseBody extends Model
+class RecordClickLinkActionResponseBody extends Model
 {
     /**
      * @var string
@@ -18,11 +17,6 @@ class FindInstanceInfoResponseBody extends Model
      * @var int
      */
     public $count;
-
-    /**
-     * @var data
-     */
-    public $data;
 
     /**
      * @var string
@@ -41,7 +35,6 @@ class FindInstanceInfoResponseBody extends Model
     protected $_name = [
         'code' => 'Code',
         'count' => 'Count',
-        'data' => 'Data',
         'message' => 'Message',
         'requestId' => 'RequestId',
         'success' => 'Success',
@@ -49,9 +42,6 @@ class FindInstanceInfoResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
         parent::validate();
     }
 
@@ -64,10 +54,6 @@ class FindInstanceInfoResponseBody extends Model
 
         if (null !== $this->count) {
             $res['Count'] = $this->count;
-        }
-
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->message) {
@@ -99,10 +85,6 @@ class FindInstanceInfoResponseBody extends Model
 
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
-        }
-
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['Message'])) {

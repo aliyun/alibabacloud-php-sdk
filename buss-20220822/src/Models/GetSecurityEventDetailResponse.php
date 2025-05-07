@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class PunishResourceSearchResponse extends Model
+class GetSecurityEventDetailResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class PunishResourceSearchResponse extends Model
     public $statusCode;
 
     /**
-     * @var PunishResourceSearchResponseBody
+     * @var GetSecurityEventDetailResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class PunishResourceSearchResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = PunishResourceSearchResponseBody::fromMap($map['body']);
+            $model->body = GetSecurityEventDetailResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Buss\V20220822\Models\CreateUserInvestigationInfoQueryTaskResponseBody;
+namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class RecordClickLinkActionRequest extends Model
 {
     /**
      * @var string
      */
-    public $taskId;
+    public $tag;
     protected $_name = [
-        'taskId' => 'taskId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['taskId'] = $this->taskId;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['taskId'])) {
-            $model->taskId = $map['taskId'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

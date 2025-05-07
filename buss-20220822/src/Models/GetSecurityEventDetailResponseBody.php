@@ -5,19 +5,14 @@
 namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Buss\V20220822\Models\FindInstanceInfoResponseBody\data;
+use AlibabaCloud\SDK\Buss\V20220822\Models\GetSecurityEventDetailResponseBody\data;
 
-class FindInstanceInfoResponseBody extends Model
+class GetSecurityEventDetailResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
-
-    /**
-     * @var int
-     */
-    public $count;
 
     /**
      * @var data
@@ -40,7 +35,6 @@ class FindInstanceInfoResponseBody extends Model
     public $success;
     protected $_name = [
         'code' => 'Code',
-        'count' => 'Count',
         'data' => 'Data',
         'message' => 'Message',
         'requestId' => 'RequestId',
@@ -60,10 +54,6 @@ class FindInstanceInfoResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         if (null !== $this->data) {
@@ -95,10 +85,6 @@ class FindInstanceInfoResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         if (isset($map['Data'])) {

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Buss\V20220822;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Buss\V20220822\Models\BusinessResultServiceRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\BusinessResultServiceResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\BusinessResultServiceShrinkRequest;
@@ -16,9 +15,13 @@ use AlibabaCloud\SDK\Buss\V20220822\Models\FindInstanceInfoResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\FindInstanceInfoShrinkRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\FindUserAvailbleResourcesRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\FindUserAvailbleResourcesResponse;
+use AlibabaCloud\SDK\Buss\V20220822\Models\GetSecurityEventDetailRequest;
+use AlibabaCloud\SDK\Buss\V20220822\Models\GetSecurityEventDetailResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\PunishResourceSearchRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\PunishResourceSearchResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\PunishResourceSearchShrinkRequest;
+use AlibabaCloud\SDK\Buss\V20220822\Models\RecordClickLinkActionRequest;
+use AlibabaCloud\SDK\Buss\V20220822\Models\RecordClickLinkActionResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\RiskEventSyncRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\RiskEventSyncResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\SearchPunishEventsRequest;
@@ -30,11 +33,12 @@ use AlibabaCloud\SDK\Buss\V20220822\Models\SearchPunishRecordsShrinkRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\SearchPunishRequestRequest;
 use AlibabaCloud\SDK\Buss\V20220822\Models\SearchPunishRequestResponse;
 use AlibabaCloud\SDK\Buss\V20220822\Models\SearchPunishRequestShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\SDK\Buss\V20220822\Models\UpdateSecurityEventStatusRequest;
+use AlibabaCloud\SDK\Buss\V20220822\Models\UpdateSecurityEventStatusResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Buss extends OpenApiClient
 {
@@ -59,57 +63,68 @@ class Buss extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 处罚请求异步接口回调
-     *  *
-     * @param BusinessResultServiceRequest $tmpReq  BusinessResultServiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 处罚请求异步接口回调.
      *
-     * @return BusinessResultServiceResponse BusinessResultServiceResponse
+     * @param tmpReq - BusinessResultServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BusinessResultServiceResponse
+     *
+     * @param BusinessResultServiceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BusinessResultServiceResponse
      */
     public function businessResultServiceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BusinessResultServiceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->result)) {
-            $request->resultShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->result, 'Result', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->result) {
+            $request->resultShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->result, 'Result', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BusinessResultService',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BusinessResultService',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BusinessResultServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 处罚请求异步接口回调
-     *  *
-     * @param BusinessResultServiceRequest $request BusinessResultServiceRequest
+     * 处罚请求异步接口回调.
      *
-     * @return BusinessResultServiceResponse BusinessResultServiceResponse
+     * @param request - BusinessResultServiceRequest
+     *
+     * @returns BusinessResultServiceResponse
+     *
+     * @param BusinessResultServiceRequest $request
+     *
+     * @return BusinessResultServiceResponse
      */
     public function businessResultService($request)
     {
@@ -119,41 +134,50 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 协查中心查询任务接口
-     *  *
-     * @param CreateUserInvestigationInfoQueryTaskRequest $request CreateUserInvestigationInfoQueryTaskRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 协查中心查询任务接口.
      *
-     * @return CreateUserInvestigationInfoQueryTaskResponse CreateUserInvestigationInfoQueryTaskResponse
+     * @param request - CreateUserInvestigationInfoQueryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserInvestigationInfoQueryTaskResponse
+     *
+     * @param CreateUserInvestigationInfoQueryTaskRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateUserInvestigationInfoQueryTaskResponse
      */
     public function createUserInvestigationInfoQueryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserInvestigationInfoQueryTask',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUserInvestigationInfoQueryTask',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUserInvestigationInfoQueryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 协查中心查询任务接口
-     *  *
-     * @param CreateUserInvestigationInfoQueryTaskRequest $request CreateUserInvestigationInfoQueryTaskRequest
+     * 协查中心查询任务接口.
      *
-     * @return CreateUserInvestigationInfoQueryTaskResponse CreateUserInvestigationInfoQueryTaskResponse
+     * @param request - CreateUserInvestigationInfoQueryTaskRequest
+     *
+     * @returns CreateUserInvestigationInfoQueryTaskResponse
+     *
+     * @param CreateUserInvestigationInfoQueryTaskRequest $request
+     *
+     * @return CreateUserInvestigationInfoQueryTaskResponse
      */
     public function createUserInvestigationInfoQueryTask($request)
     {
@@ -163,46 +187,56 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 反查资源
-     *  *
-     * @param FindInstanceInfoRequest $tmpReq  FindInstanceInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 反查资源.
      *
-     * @return FindInstanceInfoResponse FindInstanceInfoResponse
+     * @param tmpReq - FindInstanceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindInstanceInfoResponse
+     *
+     * @param FindInstanceInfoRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return FindInstanceInfoResponse
      */
     public function findInstanceInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FindInstanceInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extras)) {
-            $request->extrasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extras, 'extras', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extras) {
+            $request->extrasShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extras, 'extras', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FindInstanceInfo',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FindInstanceInfo',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FindInstanceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 反查资源
-     *  *
-     * @param FindInstanceInfoRequest $request FindInstanceInfoRequest
+     * 反查资源.
      *
-     * @return FindInstanceInfoResponse FindInstanceInfoResponse
+     * @param request - FindInstanceInfoRequest
+     *
+     * @returns FindInstanceInfoResponse
+     *
+     * @param FindInstanceInfoRequest $request
+     *
+     * @return FindInstanceInfoResponse
      */
     public function findInstanceInfo($request)
     {
@@ -212,41 +246,50 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 根据用户id查询对应产品下全部可用资产信息接口
-     *  *
-     * @param FindUserAvailbleResourcesRequest $request FindUserAvailbleResourcesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 根据用户id查询对应产品下全部可用资产信息接口.
      *
-     * @return FindUserAvailbleResourcesResponse FindUserAvailbleResourcesResponse
+     * @param request - FindUserAvailbleResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindUserAvailbleResourcesResponse
+     *
+     * @param FindUserAvailbleResourcesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return FindUserAvailbleResourcesResponse
      */
     public function findUserAvailbleResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FindUserAvailbleResources',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FindUserAvailbleResources',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FindUserAvailbleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据用户id查询对应产品下全部可用资产信息接口
-     *  *
-     * @param FindUserAvailbleResourcesRequest $request FindUserAvailbleResourcesRequest
+     * 根据用户id查询对应产品下全部可用资产信息接口.
      *
-     * @return FindUserAvailbleResourcesResponse FindUserAvailbleResourcesResponse
+     * @param request - FindUserAvailbleResourcesRequest
+     *
+     * @returns FindUserAvailbleResourcesResponse
+     *
+     * @param FindUserAvailbleResourcesRequest $request
+     *
+     * @return FindUserAvailbleResourcesResponse
      */
     public function findUserAvailbleResources($request)
     {
@@ -256,55 +299,121 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 处罚资源搜索
-     *  *
-     * @param PunishResourceSearchRequest $tmpReq  PunishResourceSearchRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询安全事件详情.
      *
-     * @return PunishResourceSearchResponse PunishResourceSearchResponse
+     * @param request - GetSecurityEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityEventDetailResponse
+     *
+     * @param GetSecurityEventDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetSecurityEventDetailResponse
+     */
+    public function getSecurityEventDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityEventDetail',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询安全事件详情.
+     *
+     * @param request - GetSecurityEventDetailRequest
+     *
+     * @returns GetSecurityEventDetailResponse
+     *
+     * @param GetSecurityEventDetailRequest $request
+     *
+     * @return GetSecurityEventDetailResponse
+     */
+    public function getSecurityEventDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityEventDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 处罚资源搜索.
+     *
+     * @param tmpReq - PunishResourceSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PunishResourceSearchResponse
+     *
+     * @param PunishResourceSearchRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PunishResourceSearchResponse
      */
     public function punishResourceSearchWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PunishResourceSearchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionCodes)) {
-            $request->actionCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionCodes) {
+            $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->bussinessCodes)) {
-            $request->bussinessCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bussinessCodes, 'BussinessCodes', 'json');
+
+        if (null !== $tmpReq->bussinessCodes) {
+            $request->bussinessCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bussinessCodes, 'BussinessCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceCodes)) {
-            $request->sourceCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
+
+        if (null !== $tmpReq->sourceCodes) {
+            $request->sourceCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userIds)) {
-            $request->userIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PunishResourceSearch',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PunishResourceSearch',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PunishResourceSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 处罚资源搜索
-     *  *
-     * @param PunishResourceSearchRequest $request PunishResourceSearchRequest
+     * 处罚资源搜索.
      *
-     * @return PunishResourceSearchResponse PunishResourceSearchResponse
+     * @param request - PunishResourceSearchRequest
+     *
+     * @returns PunishResourceSearchResponse
+     *
+     * @param PunishResourceSearchRequest $request
+     *
+     * @return PunishResourceSearchResponse
      */
     public function punishResourceSearch($request)
     {
@@ -314,74 +423,151 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 风险事件同步
-     *  *
-     * @param RiskEventSyncRequest $request RiskEventSyncRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 记录是否点击链接.
      *
-     * @return RiskEventSyncResponse RiskEventSyncResponse
+     * @param request - RecordClickLinkActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecordClickLinkActionResponse
+     *
+     * @param RecordClickLinkActionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecordClickLinkActionResponse
+     */
+    public function recordClickLinkActionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RecordClickLinkAction',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RecordClickLinkActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 记录是否点击链接.
+     *
+     * @param request - RecordClickLinkActionRequest
+     *
+     * @returns RecordClickLinkActionResponse
+     *
+     * @param RecordClickLinkActionRequest $request
+     *
+     * @return RecordClickLinkActionResponse
+     */
+    public function recordClickLinkAction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recordClickLinkActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 风险事件同步.
+     *
+     * @param request - RiskEventSyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RiskEventSyncResponse
+     *
+     * @param RiskEventSyncRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RiskEventSyncResponse
      */
     public function riskEventSyncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deleted)) {
-            $body['Deleted'] = $request->deleted;
+        if (null !== $request->deleted) {
+            @$body['Deleted'] = $request->deleted;
         }
-        if (!Utils::isUnset($request->discoveryTime)) {
-            $body['DiscoveryTime'] = $request->discoveryTime;
+
+        if (null !== $request->discoveryTime) {
+            @$body['DiscoveryTime'] = $request->discoveryTime;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $body['EventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$body['EventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->eventNumber)) {
-            $body['EventNumber'] = $request->eventNumber;
+
+        if (null !== $request->eventNumber) {
+            @$body['EventNumber'] = $request->eventNumber;
         }
-        if (!Utils::isUnset($request->relevanceBu)) {
-            $body['RelevanceBu'] = $request->relevanceBu;
+
+        if (null !== $request->relevanceBu) {
+            @$body['RelevanceBu'] = $request->relevanceBu;
         }
-        if (!Utils::isUnset($request->riskDetail)) {
-            $body['RiskDetail'] = $request->riskDetail;
+
+        if (null !== $request->riskDetail) {
+            @$body['RiskDetail'] = $request->riskDetail;
         }
-        if (!Utils::isUnset($request->riskEffectType)) {
-            $body['RiskEffectType'] = $request->riskEffectType;
+
+        if (null !== $request->riskEffectType) {
+            @$body['RiskEffectType'] = $request->riskEffectType;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->riskType)) {
-            $body['RiskType'] = $request->riskType;
+
+        if (null !== $request->riskType) {
+            @$body['RiskType'] = $request->riskType;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->submitter)) {
-            $body['Submitter'] = $request->submitter;
+
+        if (null !== $request->submitter) {
+            @$body['Submitter'] = $request->submitter;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RiskEventSync',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RiskEventSync',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RiskEventSyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 风险事件同步
-     *  *
-     * @param RiskEventSyncRequest $request RiskEventSyncRequest
+     * 风险事件同步.
      *
-     * @return RiskEventSyncResponse RiskEventSyncResponse
+     * @param request - RiskEventSyncRequest
+     *
+     * @returns RiskEventSyncResponse
+     *
+     * @param RiskEventSyncRequest $request
+     *
+     * @return RiskEventSyncResponse
      */
     public function riskEventSync($request)
     {
@@ -391,67 +577,84 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 管控事件查询
-     *  *
-     * @param SearchPunishEventsRequest $tmpReq  SearchPunishEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 管控事件查询.
      *
-     * @return SearchPunishEventsResponse SearchPunishEventsResponse
+     * @param tmpReq - SearchPunishEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchPunishEventsResponse
+     *
+     * @param SearchPunishEventsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SearchPunishEventsResponse
      */
     public function searchPunishEventsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchPunishEventsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->bussinessCodes)) {
-            $request->bussinessCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bussinessCodes, 'BussinessCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bussinessCodes) {
+            $request->bussinessCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bussinessCodes, 'BussinessCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->caseCodes)) {
-            $request->caseCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->caseCodes, 'CaseCodes', 'json');
+
+        if (null !== $tmpReq->caseCodes) {
+            $request->caseCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseCodes, 'CaseCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->eventCodes)) {
-            $request->eventCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
+
+        if (null !== $tmpReq->eventCodes) {
+            $request->eventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->bussinessCodesShrink)) {
-            $query['BussinessCodes'] = $request->bussinessCodesShrink;
+
+        if (null !== $request->bussinessCodesShrink) {
+            @$query['BussinessCodes'] = $request->bussinessCodesShrink;
         }
-        if (!Utils::isUnset($request->caseCodesShrink)) {
-            $query['CaseCodes'] = $request->caseCodesShrink;
+
+        if (null !== $request->caseCodesShrink) {
+            @$query['CaseCodes'] = $request->caseCodesShrink;
         }
-        if (!Utils::isUnset($request->eventCodesShrink)) {
-            $query['EventCodes'] = $request->eventCodesShrink;
+
+        if (null !== $request->eventCodesShrink) {
+            @$query['EventCodes'] = $request->eventCodesShrink;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchPunishEvents',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchPunishEvents',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchPunishEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 管控事件查询
-     *  *
-     * @param SearchPunishEventsRequest $request SearchPunishEventsRequest
+     * 管控事件查询.
      *
-     * @return SearchPunishEventsResponse SearchPunishEventsResponse
+     * @param request - SearchPunishEventsRequest
+     *
+     * @returns SearchPunishEventsResponse
+     *
+     * @param SearchPunishEventsRequest $request
+     *
+     * @return SearchPunishEventsResponse
      */
     public function searchPunishEvents($request)
     {
@@ -461,106 +664,136 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 管控事件查询
-     *  *
-     * @param SearchPunishRecordsRequest $tmpReq  SearchPunishRecordsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 管控事件查询.
      *
-     * @return SearchPunishRecordsResponse SearchPunishRecordsResponse
+     * @param tmpReq - SearchPunishRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchPunishRecordsResponse
+     *
+     * @param SearchPunishRecordsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchPunishRecordsResponse
      */
     public function searchPunishRecordsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchPunishRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionCodes)) {
-            $request->actionCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionCodes) {
+            $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->caseCodes)) {
-            $request->caseCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->caseCodes, 'CaseCodes', 'json');
+
+        if (null !== $tmpReq->caseCodes) {
+            $request->caseCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseCodes, 'CaseCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->eventCodes)) {
-            $request->eventCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
+
+        if (null !== $tmpReq->eventCodes) {
+            $request->eventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->punishStatus)) {
-            $request->punishStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->punishStatus, 'PunishStatus', 'json');
+
+        if (null !== $tmpReq->punishStatus) {
+            $request->punishStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->punishStatus, 'PunishStatus', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceCodes)) {
-            $request->sourceCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
+
+        if (null !== $tmpReq->sourceCodes) {
+            $request->sourceCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->actionCodesShrink)) {
-            $query['ActionCodes'] = $request->actionCodesShrink;
+        if (null !== $request->actionCodesShrink) {
+            @$query['ActionCodes'] = $request->actionCodesShrink;
         }
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->bussinessCodes)) {
-            $query['BussinessCodes'] = $request->bussinessCodes;
+
+        if (null !== $request->bussinessCodes) {
+            @$query['BussinessCodes'] = $request->bussinessCodes;
         }
-        if (!Utils::isUnset($request->caseCodesShrink)) {
-            $query['CaseCodes'] = $request->caseCodesShrink;
+
+        if (null !== $request->caseCodesShrink) {
+            @$query['CaseCodes'] = $request->caseCodesShrink;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventCodesShrink)) {
-            $query['EventCodes'] = $request->eventCodesShrink;
+
+        if (null !== $request->eventCodesShrink) {
+            @$query['EventCodes'] = $request->eventCodesShrink;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->punishStatusShrink)) {
-            $query['PunishStatus'] = $request->punishStatusShrink;
+
+        if (null !== $request->punishStatusShrink) {
+            @$query['PunishStatus'] = $request->punishStatusShrink;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->sourceCodesShrink)) {
-            $query['SourceCodes'] = $request->sourceCodesShrink;
+
+        if (null !== $request->sourceCodesShrink) {
+            @$query['SourceCodes'] = $request->sourceCodesShrink;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->urlFuzzy)) {
-            $query['UrlFuzzy'] = $request->urlFuzzy;
+
+        if (null !== $request->urlFuzzy) {
+            @$query['UrlFuzzy'] = $request->urlFuzzy;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchPunishRecords',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchPunishRecords',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchPunishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 管控事件查询
-     *  *
-     * @param SearchPunishRecordsRequest $request SearchPunishRecordsRequest
+     * 管控事件查询.
      *
-     * @return SearchPunishRecordsResponse SearchPunishRecordsResponse
+     * @param request - SearchPunishRecordsRequest
+     *
+     * @returns SearchPunishRecordsResponse
+     *
+     * @param SearchPunishRecordsRequest $request
+     *
+     * @return SearchPunishRecordsResponse
      */
     public function searchPunishRecords($request)
     {
@@ -570,66 +803,134 @@ class Buss extends OpenApiClient
     }
 
     /**
-     * @summary 处罚记录查询
-     *  *
-     * @param SearchPunishRequestRequest $tmpReq  SearchPunishRequestRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 处罚记录查询.
      *
-     * @return SearchPunishRequestResponse SearchPunishRequestResponse
+     * @param tmpReq - SearchPunishRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchPunishRequestResponse
+     *
+     * @param SearchPunishRequestRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchPunishRequestResponse
      */
     public function searchPunishRequestWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchPunishRequestShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->antiStatuses)) {
-            $request->antiStatusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->antiStatuses, 'AntiStatuses', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->antiStatuses) {
+            $request->antiStatusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->antiStatuses, 'AntiStatuses', 'json');
         }
-        if (!Utils::isUnset($tmpReq->bussinessCodes)) {
-            $request->bussinessCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bussinessCodes, 'BussinessCodes', 'json');
+
+        if (null !== $tmpReq->bussinessCodes) {
+            $request->bussinessCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bussinessCodes, 'BussinessCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->eventCodes)) {
-            $request->eventCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
+
+        if (null !== $tmpReq->eventCodes) {
+            $request->eventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->punishStatuses)) {
-            $request->punishStatusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->punishStatuses, 'PunishStatuses', 'json');
+
+        if (null !== $tmpReq->punishStatuses) {
+            $request->punishStatusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->punishStatuses, 'PunishStatuses', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceCodes)) {
-            $request->sourceCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
+
+        if (null !== $tmpReq->sourceCodes) {
+            $request->sourceCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userIds)) {
-            $request->userIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchPunishRequest',
-            'version'     => '2022-08-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchPunishRequest',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchPunishRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 处罚记录查询
-     *  *
-     * @param SearchPunishRequestRequest $request SearchPunishRequestRequest
+     * 处罚记录查询.
      *
-     * @return SearchPunishRequestResponse SearchPunishRequestResponse
+     * @param request - SearchPunishRequestRequest
+     *
+     * @returns SearchPunishRequestResponse
+     *
+     * @param SearchPunishRequestRequest $request
+     *
+     * @return SearchPunishRequestResponse
      */
     public function searchPunishRequest($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->searchPunishRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新安全事件状态
+     *
+     * @param request - UpdateSecurityEventStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityEventStatusResponse
+     *
+     * @param UpdateSecurityEventStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateSecurityEventStatusResponse
+     */
+    public function updateSecurityEventStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityEventStatus',
+            'version' => '2022-08-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新安全事件状态
+     *
+     * @param request - UpdateSecurityEventStatusRequest
+     *
+     * @returns UpdateSecurityEventStatusResponse
+     *
+     * @param UpdateSecurityEventStatusRequest $request
+     *
+     * @return UpdateSecurityEventStatusResponse
+     */
+    public function updateSecurityEventStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityEventStatusWithOptions($request, $runtime);
     }
 }

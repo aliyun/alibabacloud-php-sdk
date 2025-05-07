@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchPunishEventsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $aliUid;
@@ -35,32 +33,64 @@ class SearchPunishEventsRequest extends Model
      */
     public $resourceId;
     protected $_name = [
-        'aliUid'         => 'AliUid',
+        'aliUid' => 'AliUid',
         'bussinessCodes' => 'BussinessCodes',
-        'caseCodes'      => 'CaseCodes',
-        'eventCodes'     => 'EventCodes',
-        'resourceId'     => 'ResourceId',
+        'caseCodes' => 'CaseCodes',
+        'eventCodes' => 'EventCodes',
+        'resourceId' => 'ResourceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->bussinessCodes)) {
+            Model::validateArray($this->bussinessCodes);
+        }
+        if (\is_array($this->caseCodes)) {
+            Model::validateArray($this->caseCodes);
+        }
+        if (\is_array($this->eventCodes)) {
+            Model::validateArray($this->eventCodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->bussinessCodes) {
-            $res['BussinessCodes'] = $this->bussinessCodes;
+            if (\is_array($this->bussinessCodes)) {
+                $res['BussinessCodes'] = [];
+                $n1 = 0;
+                foreach ($this->bussinessCodes as $item1) {
+                    $res['BussinessCodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->caseCodes) {
-            $res['CaseCodes'] = $this->caseCodes;
+            if (\is_array($this->caseCodes)) {
+                $res['CaseCodes'] = [];
+                $n1 = 0;
+                foreach ($this->caseCodes as $item1) {
+                    $res['CaseCodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->eventCodes) {
-            $res['EventCodes'] = $this->eventCodes;
+            if (\is_array($this->eventCodes)) {
+                $res['EventCodes'] = [];
+                $n1 = 0;
+                foreach ($this->eventCodes as $item1) {
+                    $res['EventCodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -68,32 +98,48 @@ class SearchPunishEventsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchPunishEventsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['BussinessCodes'])) {
             if (!empty($map['BussinessCodes'])) {
-                $model->bussinessCodes = $map['BussinessCodes'];
+                $model->bussinessCodes = [];
+                $n1 = 0;
+                foreach ($map['BussinessCodes'] as $item1) {
+                    $model->bussinessCodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['CaseCodes'])) {
             if (!empty($map['CaseCodes'])) {
-                $model->caseCodes = $map['CaseCodes'];
+                $model->caseCodes = [];
+                $n1 = 0;
+                foreach ($map['CaseCodes'] as $item1) {
+                    $model->caseCodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EventCodes'])) {
             if (!empty($map['EventCodes'])) {
-                $model->eventCodes = $map['EventCodes'];
+                $model->eventCodes = [];
+                $n1 = 0;
+                foreach ($map['EventCodes'] as $item1) {
+                    $model->eventCodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

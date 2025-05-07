@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Buss\V20220822\Models\FindUserAvailbleResourcesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userInfo extends Model
 {
@@ -33,32 +33,37 @@ class userInfo extends Model
      */
     public $whiteUser;
     protected $_name = [
-        'gcLevel'        => 'GcLevel',
+        'gcLevel' => 'GcLevel',
         'hitWhiteReason' => 'HitWhiteReason',
-        'userId'         => 'UserId',
-        'userSite'       => 'UserSite',
-        'whiteUser'      => 'WhiteUser',
+        'userId' => 'UserId',
+        'userSite' => 'UserSite',
+        'whiteUser' => 'WhiteUser',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gcLevel) {
             $res['GcLevel'] = $this->gcLevel;
         }
+
         if (null !== $this->hitWhiteReason) {
             $res['HitWhiteReason'] = $this->hitWhiteReason;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userSite) {
             $res['UserSite'] = $this->userSite;
         }
+
         if (null !== $this->whiteUser) {
             $res['WhiteUser'] = $this->whiteUser;
         }
@@ -66,26 +71,30 @@ class userInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GcLevel'])) {
             $model->gcLevel = $map['GcLevel'];
         }
+
         if (isset($map['HitWhiteReason'])) {
             $model->hitWhiteReason = $map['HitWhiteReason'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserSite'])) {
             $model->userSite = $map['UserSite'];
         }
+
         if (isset($map['WhiteUser'])) {
             $model->whiteUser = $map['WhiteUser'];
         }

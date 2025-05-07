@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BusinessResultServiceShrinkRequest extends Model
 {
@@ -43,40 +43,47 @@ class BusinessResultServiceShrinkRequest extends Model
      */
     public $success;
     protected $_name = [
-        'actionCode'    => 'ActionCode',
+        'actionCode' => 'ActionCode',
         'bussinessCode' => 'BussinessCode',
-        'errCode'       => 'ErrCode',
-        'errMessage'    => 'ErrMessage',
-        'requestId'     => 'RequestId',
-        'resultShrink'  => 'Result',
-        'success'       => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'requestId' => 'RequestId',
+        'resultShrink' => 'Result',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionCode) {
             $res['ActionCode'] = $this->actionCode;
         }
+
         if (null !== $this->bussinessCode) {
             $res['BussinessCode'] = $this->bussinessCode;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultShrink) {
             $res['Result'] = $this->resultShrink;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -84,32 +91,38 @@ class BusinessResultServiceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BusinessResultServiceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionCode'])) {
             $model->actionCode = $map['ActionCode'];
         }
+
         if (isset($map['BussinessCode'])) {
             $model->bussinessCode = $map['BussinessCode'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->resultShrink = $map['Result'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

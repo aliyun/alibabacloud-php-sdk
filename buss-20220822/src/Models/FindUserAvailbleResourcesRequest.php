@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Buss\V20220822\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FindUserAvailbleResourcesRequest extends Model
 {
@@ -34,31 +34,36 @@ class FindUserAvailbleResourcesRequest extends Model
     public $userId;
     protected $_name = [
         'bussinessCode' => 'bussinessCode',
-        'currPage'      => 'currPage',
-        'pageSize'      => 'pageSize',
-        'resourceType'  => 'resourceType',
-        'userId'        => 'userId',
+        'currPage' => 'currPage',
+        'pageSize' => 'pageSize',
+        'resourceType' => 'resourceType',
+        'userId' => 'userId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bussinessCode) {
             $res['bussinessCode'] = $this->bussinessCode;
         }
+
         if (null !== $this->currPage) {
             $res['currPage'] = $this->currPage;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -66,26 +71,30 @@ class FindUserAvailbleResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FindUserAvailbleResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bussinessCode'])) {
             $model->bussinessCode = $map['bussinessCode'];
         }
+
         if (isset($map['currPage'])) {
             $model->currPage = $map['currPage'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

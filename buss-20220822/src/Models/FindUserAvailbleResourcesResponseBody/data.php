@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Buss\V20220822\Models\FindUserAvailbleResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Buss\V20220822\Models\FindUserAvailbleResourcesResponseBody\data\pegCoordinates;
 use AlibabaCloud\SDK\Buss\V20220822\Models\FindUserAvailbleResourcesResponseBody\data\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -21,49 +21,58 @@ class data extends Model
     public $userInfo;
     protected $_name = [
         'pegCoordinates' => 'PegCoordinates',
-        'userInfo'       => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->pegCoordinates)) {
+            Model::validateArray($this->pegCoordinates);
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pegCoordinates) {
-            $res['PegCoordinates'] = [];
-            if (null !== $this->pegCoordinates && \is_array($this->pegCoordinates)) {
-                $n = 0;
-                foreach ($this->pegCoordinates as $item) {
-                    $res['PegCoordinates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->pegCoordinates)) {
+                $res['PegCoordinates'] = [];
+                $n1 = 0;
+                foreach ($this->pegCoordinates as $item1) {
+                    $res['PegCoordinates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PegCoordinates'])) {
             if (!empty($map['PegCoordinates'])) {
                 $model->pegCoordinates = [];
-                $n                     = 0;
-                foreach ($map['PegCoordinates'] as $item) {
-                    $model->pegCoordinates[$n++] = null !== $item ? pegCoordinates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PegCoordinates'] as $item1) {
+                    $model->pegCoordinates[$n1++] = pegCoordinates::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }
