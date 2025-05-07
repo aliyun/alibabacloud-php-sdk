@@ -11,12 +11,21 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbFixedLineShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxgRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxgResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionFixedLineShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnExtensionResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnFixedLineShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgRequest;
@@ -45,8 +54,14 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxbBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxbBindFixedLineResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxnBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxnBindFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxnExtensionBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxnExtensionBindFixedLineResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretAPhoneNoToCustRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretAPhoneNoToCustResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistRequest;
@@ -69,6 +84,12 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateBlackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateBlackNoResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxbBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxbBindFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxnBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxnBindFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxnExtensionBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxnExtensionBindFixedLineResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryRecordFileDownloadUrlRequest;
@@ -95,6 +116,15 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindXBRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindXBResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxbBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxbBindFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxbBindFixedLineShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnBindFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnBindFixedLineShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnExtensionBindFixedLineRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnExtensionBindFixedLineResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnExtensionBindFixedLineShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -540,6 +570,137 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * 固话AxB绑定.
+     *
+     * @param tmpReq - BindAxbFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAxbFixedLineResponse
+     *
+     * @param BindAxbFixedLineRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BindAxbFixedLineResponse
+     */
+    public function bindAxbFixedLineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BindAxbFixedLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->anucode) {
+            @$query['Anucode'] = $request->anucode;
+        }
+
+        if (null !== $request->anucodecalled) {
+            @$query['Anucodecalled'] = $request->anucodecalled;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->areacode) {
+            @$query['Areacode'] = $request->areacode;
+        }
+
+        if (null !== $request->bindType) {
+            @$query['BindType'] = $request->bindType;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$query['Extra'] = $request->extraShrink;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subts) {
+            @$query['Subts'] = $request->subts;
+        }
+
+        if (null !== $request->TAnucodeConnect) {
+            @$query['TAnucodeConnect'] = $request->TAnucodeConnect;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindAxbFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindAxbFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 固话AxB绑定.
+     *
+     * @param request - BindAxbFixedLineRequest
+     *
+     * @returns BindAxbFixedLineResponse
+     *
+     * @param BindAxbFixedLineRequest $request
+     *
+     * @return BindAxbFixedLineResponse
+     */
+    public function bindAxbFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxbFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
      * Adds an AXG binding.
      *
      * @remarks
@@ -950,6 +1111,268 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindAxnExtensionWithOptions($request, $runtime);
+    }
+
+    /**
+     * AXN分机号-号码绑定.
+     *
+     * @param tmpReq - BindAxnExtensionFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAxnExtensionFixedLineResponse
+     *
+     * @param BindAxnExtensionFixedLineRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return BindAxnExtensionFixedLineResponse
+     */
+    public function bindAxnExtensionFixedLineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BindAxnExtensionFixedLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extraaxx) {
+            $request->extraaxxShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extraaxx, 'Extraaxx', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->anucode) {
+            @$query['Anucode'] = $request->anucode;
+        }
+
+        if (null !== $request->anucodecalled) {
+            @$query['Anucodecalled'] = $request->anucodecalled;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->areacode) {
+            @$query['Areacode'] = $request->areacode;
+        }
+
+        if (null !== $request->bindType) {
+            @$query['BindType'] = $request->bindType;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->extraaxxShrink) {
+            @$query['Extraaxx'] = $request->extraaxxShrink;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subts) {
+            @$query['Subts'] = $request->subts;
+        }
+
+        if (null !== $request->TAnucodeConnect) {
+            @$query['TAnucodeConnect'] = $request->TAnucodeConnect;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        if (null !== $request->telXext) {
+            @$query['TelXext'] = $request->telXext;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindAxnExtensionFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindAxnExtensionFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AXN分机号-号码绑定.
+     *
+     * @param request - BindAxnExtensionFixedLineRequest
+     *
+     * @returns BindAxnExtensionFixedLineResponse
+     *
+     * @param BindAxnExtensionFixedLineRequest $request
+     *
+     * @return BindAxnExtensionFixedLineResponse
+     */
+    public function bindAxnExtensionFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxnExtensionFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * AXN模式绑定，分配X号码
+     *
+     * @param tmpReq - BindAxnFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAxnFixedLineResponse
+     *
+     * @param BindAxnFixedLineRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BindAxnFixedLineResponse
+     */
+    public function bindAxnFixedLineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BindAxnFixedLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->anucode) {
+            @$query['Anucode'] = $request->anucode;
+        }
+
+        if (null !== $request->anucodecalled) {
+            @$query['Anucodecalled'] = $request->anucodecalled;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->areacode) {
+            @$query['Areacode'] = $request->areacode;
+        }
+
+        if (null !== $request->bindType) {
+            @$query['BindType'] = $request->bindType;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$query['Extra'] = $request->extraShrink;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subts) {
+            @$query['Subts'] = $request->subts;
+        }
+
+        if (null !== $request->TAnucodeConnect) {
+            @$query['TAnucodeConnect'] = $request->TAnucodeConnect;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindAxnFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindAxnFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AXN模式绑定，分配X号码
+     *
+     * @param request - BindAxnFixedLineRequest
+     *
+     * @returns BindAxnFixedLineResponse
+     *
+     * @param BindAxnFixedLineRequest $request
+     *
+     * @return BindAxnFixedLineResponse
+     */
+    public function bindAxnFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxnFixedLineWithOptions($request, $runtime);
     }
 
     /**
@@ -2028,6 +2451,87 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * 固话AxB解绑.
+     *
+     * @param request - DeleteAxbBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAxbBindFixedLineResponse
+     *
+     * @param DeleteAxbBindFixedLineRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAxbBindFixedLineResponse
+     */
+    public function deleteAxbBindFixedLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAxbBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAxbBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 固话AxB解绑.
+     *
+     * @param request - DeleteAxbBindFixedLineRequest
+     *
+     * @returns DeleteAxbBindFixedLineResponse
+     *
+     * @param DeleteAxbBindFixedLineRequest $request
+     *
+     * @return DeleteAxbBindFixedLineResponse
+     */
+    public function deleteAxbBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAxbBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DeleteAxgGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2094,6 +2598,168 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAxgGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解绑已有Axn绑定.
+     *
+     * @param request - DeleteAxnBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAxnBindFixedLineResponse
+     *
+     * @param DeleteAxnBindFixedLineRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAxnBindFixedLineResponse
+     */
+    public function deleteAxnBindFixedLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAxnBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAxnBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑已有Axn绑定.
+     *
+     * @param request - DeleteAxnBindFixedLineRequest
+     *
+     * @returns DeleteAxnBindFixedLineResponse
+     *
+     * @param DeleteAxnBindFixedLineRequest $request
+     *
+     * @return DeleteAxnBindFixedLineResponse
+     */
+    public function deleteAxnBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAxnBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解绑已有AXN分机号绑定.
+     *
+     * @param request - DeleteAxnExtensionBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAxnExtensionBindFixedLineResponse
+     *
+     * @param DeleteAxnExtensionBindFixedLineRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteAxnExtensionBindFixedLineResponse
+     */
+    public function deleteAxnExtensionBindFixedLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAxnExtensionBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAxnExtensionBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑已有AXN分机号绑定.
+     *
+     * @param request - DeleteAxnExtensionBindFixedLineRequest
+     *
+     * @returns DeleteAxnExtensionBindFixedLineResponse
+     *
+     * @param DeleteAxnExtensionBindFixedLineRequest $request
+     *
+     * @return DeleteAxnExtensionBindFixedLineResponse
+     */
+    public function deleteAxnExtensionBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAxnExtensionBindFixedLineWithOptions($request, $runtime);
     }
 
     /**
@@ -2993,6 +3659,281 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateBlackNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 固话AxB查询.
+     *
+     * @param request - QueryAxbBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAxbBindFixedLineResponse
+     *
+     * @param QueryAxbBindFixedLineRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryAxbBindFixedLineResponse
+     */
+    public function queryAxbBindFixedLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAxbBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAxbBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 固话AxB查询.
+     *
+     * @param request - QueryAxbBindFixedLineRequest
+     *
+     * @returns QueryAxbBindFixedLineResponse
+     *
+     * @param QueryAxbBindFixedLineRequest $request
+     *
+     * @return QueryAxbBindFixedLineResponse
+     */
+    public function queryAxbBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAxbBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Axn绑定关系.
+     *
+     * @param request - QueryAxnBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAxnBindFixedLineResponse
+     *
+     * @param QueryAxnBindFixedLineRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryAxnBindFixedLineResponse
+     */
+    public function queryAxnBindFixedLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAxnBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAxnBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Axn绑定关系.
+     *
+     * @param request - QueryAxnBindFixedLineRequest
+     *
+     * @returns QueryAxnBindFixedLineResponse
+     *
+     * @param QueryAxnBindFixedLineRequest $request
+     *
+     * @return QueryAxnBindFixedLineResponse
+     */
+    public function queryAxnBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAxnBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询AXN分机号绑定关系.
+     *
+     * @param request - QueryAxnExtensionBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAxnExtensionBindFixedLineResponse
+     *
+     * @param QueryAxnExtensionBindFixedLineRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryAxnExtensionBindFixedLineResponse
+     */
+    public function queryAxnExtensionBindFixedLineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAxnExtensionBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAxnExtensionBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询AXN分机号绑定关系.
+     *
+     * @param request - QueryAxnExtensionBindFixedLineRequest
+     *
+     * @returns QueryAxnExtensionBindFixedLineResponse
+     *
+     * @param QueryAxnExtensionBindFixedLineRequest $request
+     *
+     * @return QueryAxnExtensionBindFixedLineResponse
+     */
+    public function queryAxnExtensionBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAxnExtensionBindFixedLineWithOptions($request, $runtime);
     }
 
     /**
@@ -4088,6 +5029,371 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unlockSecretNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 固话AxB绑定更新.
+     *
+     * @param tmpReq - UpdateAxbBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAxbBindFixedLineResponse
+     *
+     * @param UpdateAxbBindFixedLineRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAxbBindFixedLineResponse
+     */
+    public function updateAxbBindFixedLineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAxbBindFixedLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->anucode) {
+            @$query['Anucode'] = $request->anucode;
+        }
+
+        if (null !== $request->anucodecalled) {
+            @$query['Anucodecalled'] = $request->anucodecalled;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$query['Extra'] = $request->extraShrink;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->subts) {
+            @$query['Subts'] = $request->subts;
+        }
+
+        if (null !== $request->TAnucodeConnect) {
+            @$query['TAnucodeConnect'] = $request->TAnucodeConnect;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAxbBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAxbBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 固话AxB绑定更新.
+     *
+     * @param request - UpdateAxbBindFixedLineRequest
+     *
+     * @returns UpdateAxbBindFixedLineResponse
+     *
+     * @param UpdateAxbBindFixedLineRequest $request
+     *
+     * @return UpdateAxbBindFixedLineResponse
+     */
+    public function updateAxbBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAxbBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Axn绑定关系.
+     *
+     * @param tmpReq - UpdateAxnBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAxnBindFixedLineResponse
+     *
+     * @param UpdateAxnBindFixedLineRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAxnBindFixedLineResponse
+     */
+    public function updateAxnBindFixedLineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAxnBindFixedLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->anucode) {
+            @$query['Anucode'] = $request->anucode;
+        }
+
+        if (null !== $request->anucodecalled) {
+            @$query['Anucodecalled'] = $request->anucodecalled;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$query['Extra'] = $request->extraShrink;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->subts) {
+            @$query['Subts'] = $request->subts;
+        }
+
+        if (null !== $request->TAnucodeConnect) {
+            @$query['TAnucodeConnect'] = $request->TAnucodeConnect;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAxnBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAxnBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Axn绑定关系.
+     *
+     * @param request - UpdateAxnBindFixedLineRequest
+     *
+     * @returns UpdateAxnBindFixedLineResponse
+     *
+     * @param UpdateAxnBindFixedLineRequest $request
+     *
+     * @return UpdateAxnBindFixedLineResponse
+     */
+    public function updateAxnBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAxnBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新AXN分机号绑定关系.
+     *
+     * @param tmpReq - UpdateAxnExtensionBindFixedLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAxnExtensionBindFixedLineResponse
+     *
+     * @param UpdateAxnExtensionBindFixedLineRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateAxnExtensionBindFixedLineResponse
+     */
+    public function updateAxnExtensionBindFixedLineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAxnExtensionBindFixedLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extraaxx) {
+            $request->extraaxxShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extraaxx, 'Extraaxx', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->anucode) {
+            @$query['Anucode'] = $request->anucode;
+        }
+
+        if (null !== $request->anucodecalled) {
+            @$query['Anucodecalled'] = $request->anucodecalled;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->extraaxxShrink) {
+            @$query['Extraaxx'] = $request->extraaxxShrink;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subId) {
+            @$query['SubId'] = $request->subId;
+        }
+
+        if (null !== $request->subts) {
+            @$query['Subts'] = $request->subts;
+        }
+
+        if (null !== $request->TAnucodeConnect) {
+            @$query['TAnucodeConnect'] = $request->TAnucodeConnect;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->ts) {
+            @$query['Ts'] = $request->ts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAxnExtensionBindFixedLine',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAxnExtensionBindFixedLineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新AXN分机号绑定关系.
+     *
+     * @param request - UpdateAxnExtensionBindFixedLineRequest
+     *
+     * @returns UpdateAxnExtensionBindFixedLineResponse
+     *
+     * @param UpdateAxnExtensionBindFixedLineRequest $request
+     *
+     * @return UpdateAxnExtensionBindFixedLineResponse
+     */
+    public function updateAxnExtensionBindFixedLine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAxnExtensionBindFixedLineWithOptions($request, $runtime);
     }
 
     /**
