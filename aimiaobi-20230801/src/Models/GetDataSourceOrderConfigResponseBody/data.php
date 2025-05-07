@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseB
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $totalDocSize;
+
+    /**
      * @var userConfigDataSourceList[]
      */
     public $userConfigDataSourceList;
     protected $_name = [
+        'totalDocSize' => 'TotalDocSize',
         'userConfigDataSourceList' => 'UserConfigDataSourceList',
     ];
 
@@ -28,6 +34,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->totalDocSize) {
+            $res['TotalDocSize'] = $this->totalDocSize;
+        }
+
         if (null !== $this->userConfigDataSourceList) {
             if (\is_array($this->userConfigDataSourceList)) {
                 $res['UserConfigDataSourceList'] = [];
@@ -49,6 +59,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TotalDocSize'])) {
+            $model->totalDocSize = $map['TotalDocSize'];
+        }
+
         if (isset($map['UserConfigDataSourceList'])) {
             if (!empty($map['UserConfigDataSourceList'])) {
                 $model->userConfigDataSourceList = [];
