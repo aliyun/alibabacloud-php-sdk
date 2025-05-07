@@ -12,6 +12,16 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $blueGreenDeploymentName;
+
+    /**
+     * @var string
+     */
+    public $blueInstanceName;
+
+    /**
+     * @var string
+     */
     public $bpeEnabled;
 
     /**
@@ -177,6 +187,11 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $greenInstanceName;
+
+    /**
+     * @var string
+     */
     public $guardDBInstanceId;
 
     /**
@@ -274,6 +289,8 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'blueGreenDeploymentName' => 'BlueGreenDeploymentName',
+        'blueInstanceName' => 'BlueInstanceName',
         'bpeEnabled' => 'BpeEnabled',
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
@@ -307,6 +324,7 @@ class DBInstance extends Model
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
         'generalGroupName' => 'GeneralGroupName',
+        'greenInstanceName' => 'GreenInstanceName',
         'guardDBInstanceId' => 'GuardDBInstanceId',
         'instanceNetworkType' => 'InstanceNetworkType',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
@@ -340,6 +358,14 @@ class DBInstance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->blueGreenDeploymentName) {
+            $res['BlueGreenDeploymentName'] = $this->blueGreenDeploymentName;
+        }
+
+        if (null !== $this->blueInstanceName) {
+            $res['BlueInstanceName'] = $this->blueInstanceName;
+        }
+
         if (null !== $this->bpeEnabled) {
             $res['BpeEnabled'] = $this->bpeEnabled;
         }
@@ -472,6 +498,10 @@ class DBInstance extends Model
             $res['GeneralGroupName'] = $this->generalGroupName;
         }
 
+        if (null !== $this->greenInstanceName) {
+            $res['GreenInstanceName'] = $this->greenInstanceName;
+        }
+
         if (null !== $this->guardDBInstanceId) {
             $res['GuardDBInstanceId'] = $this->guardDBInstanceId;
         }
@@ -563,6 +593,14 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlueGreenDeploymentName'])) {
+            $model->blueGreenDeploymentName = $map['BlueGreenDeploymentName'];
+        }
+
+        if (isset($map['BlueInstanceName'])) {
+            $model->blueInstanceName = $map['BlueInstanceName'];
+        }
+
         if (isset($map['BpeEnabled'])) {
             $model->bpeEnabled = $map['BpeEnabled'];
         }
@@ -693,6 +731,10 @@ class DBInstance extends Model
 
         if (isset($map['GeneralGroupName'])) {
             $model->generalGroupName = $map['GeneralGroupName'];
+        }
+
+        if (isset($map['GreenInstanceName'])) {
+            $model->greenInstanceName = $map['GreenInstanceName'];
         }
 
         if (isset($map['GuardDBInstanceId'])) {

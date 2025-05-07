@@ -46,6 +46,11 @@ class DescribeRCInstancesRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tag;
 
     /**
@@ -60,6 +65,7 @@ class DescribeRCInstancesRequest extends Model
         'pageSize' => 'PageSize',
         'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
+        'status' => 'Status',
         'tag' => 'Tag',
         'vpcId' => 'VpcId',
     ];
@@ -98,6 +104,10 @@ class DescribeRCInstancesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->tag) {
@@ -145,6 +155,10 @@ class DescribeRCInstancesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Tag'])) {

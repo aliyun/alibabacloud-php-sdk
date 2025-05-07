@@ -42,6 +42,16 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $blueGreenDeploymentName;
+
+    /**
+     * @var string
+     */
+    public $blueInstanceName;
+
+    /**
+     * @var string
+     */
     public $bpeEnabled;
 
     /**
@@ -78,6 +88,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $compressionRatio;
+
+    /**
+     * @var bool
+     */
+    public $computeBurstEnabled;
 
     /**
      * @var string
@@ -218,6 +233,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $generalGroupName;
+
+    /**
+     * @var string
+     */
+    public $greenInstanceName;
 
     /**
      * @var string
@@ -439,6 +459,8 @@ class DBInstanceAttribute extends Model
         'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
         'availabilityValue' => 'AvailabilityValue',
         'babelfishConfig' => 'BabelfishConfig',
+        'blueGreenDeploymentName' => 'BlueGreenDeploymentName',
+        'blueInstanceName' => 'BlueInstanceName',
         'bpeEnabled' => 'BpeEnabled',
         'burstingEnabled' => 'BurstingEnabled',
         'canTempUpgrade' => 'CanTempUpgrade',
@@ -447,6 +469,7 @@ class DBInstanceAttribute extends Model
         'collation' => 'Collation',
         'compressionMode' => 'CompressionMode',
         'compressionRatio' => 'CompressionRatio',
+        'computeBurstEnabled' => 'ComputeBurstEnabled',
         'connectionMode' => 'ConnectionMode',
         'connectionString' => 'ConnectionString',
         'consoleVersion' => 'ConsoleVersion',
@@ -475,6 +498,7 @@ class DBInstanceAttribute extends Model
         'expireTime' => 'ExpireTime',
         'extra' => 'Extra',
         'generalGroupName' => 'GeneralGroupName',
+        'greenInstanceName' => 'GreenInstanceName',
         'guardDBInstanceId' => 'GuardDBInstanceId',
         'IPType' => 'IPType',
         'incrementSourceDBInstanceId' => 'IncrementSourceDBInstanceId',
@@ -566,6 +590,14 @@ class DBInstanceAttribute extends Model
             $res['BabelfishConfig'] = null !== $this->babelfishConfig ? $this->babelfishConfig->toArray($noStream) : $this->babelfishConfig;
         }
 
+        if (null !== $this->blueGreenDeploymentName) {
+            $res['BlueGreenDeploymentName'] = $this->blueGreenDeploymentName;
+        }
+
+        if (null !== $this->blueInstanceName) {
+            $res['BlueInstanceName'] = $this->blueInstanceName;
+        }
+
         if (null !== $this->bpeEnabled) {
             $res['BpeEnabled'] = $this->bpeEnabled;
         }
@@ -596,6 +628,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->compressionRatio) {
             $res['CompressionRatio'] = $this->compressionRatio;
+        }
+
+        if (null !== $this->computeBurstEnabled) {
+            $res['ComputeBurstEnabled'] = $this->computeBurstEnabled;
         }
 
         if (null !== $this->connectionMode) {
@@ -708,6 +744,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->generalGroupName) {
             $res['GeneralGroupName'] = $this->generalGroupName;
+        }
+
+        if (null !== $this->greenInstanceName) {
+            $res['GreenInstanceName'] = $this->greenInstanceName;
         }
 
         if (null !== $this->guardDBInstanceId) {
@@ -913,6 +953,14 @@ class DBInstanceAttribute extends Model
             $model->babelfishConfig = babelfishConfig::fromMap($map['BabelfishConfig']);
         }
 
+        if (isset($map['BlueGreenDeploymentName'])) {
+            $model->blueGreenDeploymentName = $map['BlueGreenDeploymentName'];
+        }
+
+        if (isset($map['BlueInstanceName'])) {
+            $model->blueInstanceName = $map['BlueInstanceName'];
+        }
+
         if (isset($map['BpeEnabled'])) {
             $model->bpeEnabled = $map['BpeEnabled'];
         }
@@ -943,6 +991,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['CompressionRatio'])) {
             $model->compressionRatio = $map['CompressionRatio'];
+        }
+
+        if (isset($map['ComputeBurstEnabled'])) {
+            $model->computeBurstEnabled = $map['ComputeBurstEnabled'];
         }
 
         if (isset($map['ConnectionMode'])) {
@@ -1055,6 +1107,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['GeneralGroupName'])) {
             $model->generalGroupName = $map['GeneralGroupName'];
+        }
+
+        if (isset($map['GreenInstanceName'])) {
+            $model->greenInstanceName = $map['GreenInstanceName'];
         }
 
         if (isset($map['GuardDBInstanceId'])) {
