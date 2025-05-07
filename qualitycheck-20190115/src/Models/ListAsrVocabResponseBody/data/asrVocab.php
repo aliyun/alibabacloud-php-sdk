@@ -12,38 +12,44 @@ class asrVocab extends Model
      * @var int
      */
     public $asrVersion;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $modelCustomizationId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $vocabularyId;
     protected $_name = [
-        'asrVersion'           => 'AsrVersion',
-        'createTime'           => 'CreateTime',
-        'id'                   => 'Id',
+        'asrVersion' => 'AsrVersion',
+        'createTime' => 'CreateTime',
+        'id' => 'Id',
         'modelCustomizationId' => 'ModelCustomizationId',
-        'name'                 => 'Name',
-        'updateTime'           => 'UpdateTime',
-        'vocabularyId'         => 'VocabularyId',
+        'name' => 'Name',
+        'updateTime' => 'UpdateTime',
+        'vocabularyId' => 'VocabularyId',
     ];
 
     public function validate()

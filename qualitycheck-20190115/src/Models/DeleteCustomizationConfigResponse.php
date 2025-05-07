@@ -12,18 +12,20 @@ class DeleteCustomizationConfigResponse extends Model
      * @var string[]
      */
     public $headers;
+
     /**
      * @var int
      */
     public $statusCode;
+
     /**
      * @var DeleteCustomizationConfigResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

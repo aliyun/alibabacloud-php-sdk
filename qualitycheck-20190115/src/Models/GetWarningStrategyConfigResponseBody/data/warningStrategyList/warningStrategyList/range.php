@@ -12,13 +12,14 @@ class range extends Model
      * @var int
      */
     public $rangeNum;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'rangeNum' => 'RangeNum',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

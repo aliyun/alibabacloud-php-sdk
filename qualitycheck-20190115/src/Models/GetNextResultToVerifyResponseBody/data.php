@@ -13,73 +13,86 @@ class data extends Model
      * @var string
      */
     public $audioScheme;
+
     /**
      * @var string
      */
     public $audioURL;
+
     /**
      * @var dialogues
      */
     public $dialogues;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var int
      */
     public $incorrectWords;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var float
      */
     public $precision;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var bool
      */
     public $verified;
+
     /**
      * @var int
      */
     public $verifiedCount;
     protected $_name = [
-        'audioScheme'    => 'AudioScheme',
-        'audioURL'       => 'AudioURL',
-        'dialogues'      => 'Dialogues',
-        'duration'       => 'Duration',
-        'fileId'         => 'FileId',
-        'fileName'       => 'FileName',
+        'audioScheme' => 'AudioScheme',
+        'audioURL' => 'AudioURL',
+        'dialogues' => 'Dialogues',
+        'duration' => 'Duration',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
         'incorrectWords' => 'IncorrectWords',
-        'index'          => 'Index',
-        'precision'      => 'Precision',
-        'status'         => 'Status',
-        'totalCount'     => 'TotalCount',
-        'updateTime'     => 'UpdateTime',
-        'verified'       => 'Verified',
-        'verifiedCount'  => 'VerifiedCount',
+        'index' => 'Index',
+        'precision' => 'Precision',
+        'status' => 'Status',
+        'totalCount' => 'TotalCount',
+        'updateTime' => 'UpdateTime',
+        'verified' => 'Verified',
+        'verifiedCount' => 'VerifiedCount',
     ];
 
     public function validate()

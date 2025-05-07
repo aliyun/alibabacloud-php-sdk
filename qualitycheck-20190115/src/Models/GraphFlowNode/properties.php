@@ -12,73 +12,86 @@ class properties extends Model
      * @var int
      */
     public $autoReview;
+
     /**
      * @var bool
      */
     public $branchJudge;
+
     /**
      * @var int
      */
     public $checkMoreSize;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $ruleScoreType;
+
     /**
      * @var string
      */
     public $sayType;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreNumType;
+
     /**
      * @var int
      */
     public $scoreRuleHitType;
+
     /**
      * @var int
      */
     public $scoreType;
+
     /**
      * @var string[]
      */
     public $triggers;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'autoReview'       => 'AutoReview',
-        'branchJudge'      => 'BranchJudge',
-        'checkMoreSize'    => 'CheckMoreSize',
-        'checkType'        => 'CheckType',
-        'lambda'           => 'Lambda',
-        'role'             => 'Role',
-        'ruleScoreType'    => 'RuleScoreType',
-        'sayType'          => 'SayType',
-        'scoreNum'         => 'ScoreNum',
-        'scoreNumType'     => 'ScoreNumType',
+        'autoReview' => 'AutoReview',
+        'branchJudge' => 'BranchJudge',
+        'checkMoreSize' => 'CheckMoreSize',
+        'checkType' => 'CheckType',
+        'lambda' => 'Lambda',
+        'role' => 'Role',
+        'ruleScoreType' => 'RuleScoreType',
+        'sayType' => 'SayType',
+        'scoreNum' => 'ScoreNum',
+        'scoreNumType' => 'ScoreNumType',
         'scoreRuleHitType' => 'ScoreRuleHitType',
-        'scoreType'        => 'ScoreType',
-        'triggers'         => 'Triggers',
-        'type'             => 'Type',
+        'scoreType' => 'ScoreType',
+        'triggers' => 'Triggers',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -143,7 +156,7 @@ class properties extends Model
         if (null !== $this->triggers) {
             if (\is_array($this->triggers)) {
                 $res['Triggers'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->triggers as $item1) {
                     $res['Triggers'][$n1++] = $item1;
                 }
@@ -216,7 +229,7 @@ class properties extends Model
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Triggers'] as $item1) {
                     $model->triggers[$n1++] = $item1;
                 }

@@ -13,63 +13,74 @@ class reviewHistory extends Model
      * @var string
      */
     public $comments;
+
     /**
      * @var int
      */
     public $complainResult;
+
     /**
      * @var int
      */
     public $oldScore;
+
     /**
      * @var int
      */
     public $operator;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var string
      */
     public $reviewManagerType;
+
     /**
      * @var int
      */
     public $reviewResult;
+
     /**
      * @var reviewRightRule
      */
     public $reviewRightRule;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var int
      */
     public $time;
+
     /**
      * @var string
      */
     public $timeStr;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'comments'          => 'Comments',
-        'complainResult'    => 'ComplainResult',
-        'oldScore'          => 'OldScore',
-        'operator'          => 'Operator',
-        'operatorName'      => 'OperatorName',
+        'comments' => 'Comments',
+        'complainResult' => 'ComplainResult',
+        'oldScore' => 'OldScore',
+        'operator' => 'Operator',
+        'operatorName' => 'OperatorName',
         'reviewManagerType' => 'ReviewManagerType',
-        'reviewResult'      => 'ReviewResult',
-        'reviewRightRule'   => 'ReviewRightRule',
-        'score'             => 'Score',
-        'time'              => 'Time',
-        'timeStr'           => 'TimeStr',
-        'type'              => 'Type',
+        'reviewResult' => 'ReviewResult',
+        'reviewRightRule' => 'ReviewRightRule',
+        'score' => 'Score',
+        'time' => 'Time',
+        'timeStr' => 'TimeStr',
+        'type' => 'Type',
     ];
 
     public function validate()

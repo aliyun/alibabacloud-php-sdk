@@ -12,43 +12,50 @@ class rules extends Model
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var int
      */
     public $ruleScoreType;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreNumType;
+
     /**
      * @var int
      */
     public $scoreType;
+
     /**
      * @var int
      */
     public $targetType;
     protected $_name = [
-        'checkType'     => 'CheckType',
-        'name'          => 'Name',
-        'rid'           => 'Rid',
+        'checkType' => 'CheckType',
+        'name' => 'Name',
+        'rid' => 'Rid',
         'ruleScoreType' => 'RuleScoreType',
-        'scoreNum'      => 'ScoreNum',
-        'scoreNumType'  => 'ScoreNumType',
-        'scoreType'     => 'ScoreType',
-        'targetType'    => 'TargetType',
+        'scoreNum' => 'ScoreNum',
+        'scoreNumType' => 'ScoreNumType',
+        'scoreType' => 'ScoreType',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()

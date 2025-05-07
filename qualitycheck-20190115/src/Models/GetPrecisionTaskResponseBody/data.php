@@ -13,63 +13,74 @@ class data extends Model
      * @var int
      */
     public $dataSetId;
+
     /**
      * @var string
      */
     public $dataSetName;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $incorrectWords;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var precisions
      */
     public $precisions;
+
     /**
      * @var int
      */
     public $source;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $verifiedCount;
     protected $_name = [
-        'dataSetId'      => 'DataSetId',
-        'dataSetName'    => 'DataSetName',
-        'duration'       => 'Duration',
+        'dataSetId' => 'DataSetId',
+        'dataSetName' => 'DataSetName',
+        'duration' => 'Duration',
         'incorrectWords' => 'IncorrectWords',
-        'name'           => 'Name',
-        'precisions'     => 'Precisions',
-        'source'         => 'Source',
-        'status'         => 'Status',
-        'taskId'         => 'TaskId',
-        'totalCount'     => 'TotalCount',
-        'updateTime'     => 'UpdateTime',
-        'verifiedCount'  => 'VerifiedCount',
+        'name' => 'Name',
+        'precisions' => 'Precisions',
+        'source' => 'Source',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
+        'updateTime' => 'UpdateTime',
+        'verifiedCount' => 'VerifiedCount',
     ];
 
     public function validate()

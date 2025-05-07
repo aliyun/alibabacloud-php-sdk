@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->ruleCountInfo) {
             if (\is_array($this->ruleCountInfo)) {
                 $res['RuleCountInfo'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ruleCountInfo as $item1) {
                     $res['RuleCountInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['RuleCountInfo'])) {
             if (!empty($map['RuleCountInfo'])) {
                 $model->ruleCountInfo = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RuleCountInfo'] as $item1) {
                     $model->ruleCountInfo[$n1++] = ruleCountInfo::fromMap($item1);
                 }

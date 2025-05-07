@@ -30,7 +30,7 @@ class callerList extends Model
         if (null !== $this->callerList) {
             if (\is_array($this->callerList)) {
                 $res['CallerList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->callerList as $item1) {
                     $res['CallerList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class callerList extends Model
         if (isset($map['CallerList'])) {
             if (!empty($map['CallerList'])) {
                 $model->callerList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['CallerList'] as $item1) {
                     $model->callerList[$n1++] = $item1;
                 }

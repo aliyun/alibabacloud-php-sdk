@@ -13,17 +13,19 @@ class hitTaskFlowList extends Model
      * @var TaskGraphFlow
      */
     public $graphFlow;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var int
      */
     public $taskFlowType;
     protected $_name = [
-        'graphFlow'    => 'GraphFlow',
-        'rid'          => 'Rid',
+        'graphFlow' => 'GraphFlow',
+        'rid' => 'Rid',
         'taskFlowType' => 'TaskFlowType',
     ];
 

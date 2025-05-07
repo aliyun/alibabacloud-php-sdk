@@ -12,12 +12,13 @@ class samplingModeAgent extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
     protected $_name = [
-        'agentId'   => 'AgentId',
+        'agentId' => 'AgentId',
         'agentName' => 'AgentName',
     ];
 

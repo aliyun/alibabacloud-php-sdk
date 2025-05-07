@@ -15,138 +15,164 @@ class data extends Model
      * @var int
      */
     public $asrTaskPriority;
+
     /**
      * @var int
      */
     public $asrVersion;
+
     /**
      * @var int
      */
     public $assignType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createUser;
+
     /**
      * @var dataConfig
      */
     public $dataConfig;
+
     /**
      * @var float
      */
     public $finishRate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $manualReview;
+
     /**
      * @var string
      */
     public $modeCustomizationId;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $numberExecuting;
+
     /**
      * @var int
      */
     public $numberFail;
+
     /**
      * @var int
      */
     public $numberSuccess;
+
     /**
      * @var int
      */
     public $numberSum;
+
     /**
      * @var schemeIdList
      */
     public $schemeIdList;
+
     /**
      * @var schemeList
      */
     public $schemeList;
+
     /**
      * @var int
      */
     public $schemeTaskConfigId;
+
     /**
      * @var int
      */
     public $sourceDataType;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateUser;
+
     /**
      * @var string
      */
     public $userGroup;
+
     /**
      * @var string
      */
     public $vocabId;
+
     /**
      * @var string
      */
     public $vocabName;
     protected $_name = [
-        'asrTaskPriority'     => 'AsrTaskPriority',
-        'asrVersion'          => 'AsrVersion',
-        'assignType'          => 'AssignType',
-        'createTime'          => 'CreateTime',
-        'createUser'          => 'CreateUser',
-        'dataConfig'          => 'DataConfig',
-        'finishRate'          => 'FinishRate',
-        'id'                  => 'Id',
-        'manualReview'        => 'ManualReview',
+        'asrTaskPriority' => 'AsrTaskPriority',
+        'asrVersion' => 'AsrVersion',
+        'assignType' => 'AssignType',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'dataConfig' => 'DataConfig',
+        'finishRate' => 'FinishRate',
+        'id' => 'Id',
+        'manualReview' => 'ManualReview',
         'modeCustomizationId' => 'ModeCustomizationId',
-        'modelName'           => 'ModelName',
-        'name'                => 'Name',
-        'numberExecuting'     => 'NumberExecuting',
-        'numberFail'          => 'NumberFail',
-        'numberSuccess'       => 'NumberSuccess',
-        'numberSum'           => 'NumberSum',
-        'schemeIdList'        => 'SchemeIdList',
-        'schemeList'          => 'SchemeList',
-        'schemeTaskConfigId'  => 'SchemeTaskConfigId',
-        'sourceDataType'      => 'SourceDataType',
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'updateTime'          => 'UpdateTime',
-        'updateUser'          => 'UpdateUser',
-        'userGroup'           => 'UserGroup',
-        'vocabId'             => 'VocabId',
-        'vocabName'           => 'VocabName',
+        'modelName' => 'ModelName',
+        'name' => 'Name',
+        'numberExecuting' => 'NumberExecuting',
+        'numberFail' => 'NumberFail',
+        'numberSuccess' => 'NumberSuccess',
+        'numberSum' => 'NumberSum',
+        'schemeIdList' => 'SchemeIdList',
+        'schemeList' => 'SchemeList',
+        'schemeTaskConfigId' => 'SchemeTaskConfigId',
+        'sourceDataType' => 'SourceDataType',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'updateUser' => 'UpdateUser',
+        'userGroup' => 'UserGroup',
+        'vocabId' => 'VocabId',
+        'vocabName' => 'VocabName',
     ];
 
     public function validate()

@@ -30,7 +30,7 @@ class pvalues extends Model
         if (null !== $this->pvalues) {
             if (\is_array($this->pvalues)) {
                 $res['Pvalues'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->pvalues as $item1) {
                     $res['Pvalues'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class pvalues extends Model
         if (isset($map['Pvalues'])) {
             if (!empty($map['Pvalues'])) {
                 $model->pvalues = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Pvalues'] as $item1) {
                     $model->pvalues[$n1++] = $item1;
                 }

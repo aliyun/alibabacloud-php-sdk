@@ -14,68 +14,80 @@ class GetRulesCountListResponseBody extends Model
      * @var int
      */
     public $businessType;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var messages
      */
     public $messages;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'businessType'   => 'BusinessType',
-        'code'           => 'Code',
-        'count'          => 'Count',
-        'currentPage'    => 'CurrentPage',
-        'data'           => 'Data',
+        'businessType' => 'BusinessType',
+        'code' => 'Code',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'messages'       => 'Messages',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'totalCount'     => 'TotalCount',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

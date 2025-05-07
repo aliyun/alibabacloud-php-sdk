@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $tid;
     protected $_name = [
         'taskId' => 'TaskId',
-        'tid'    => 'Tid',
+        'tid' => 'Tid',
     ];
 
     public function validate()

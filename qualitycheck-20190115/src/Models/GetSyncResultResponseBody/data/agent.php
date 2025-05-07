@@ -12,17 +12,19 @@ class agent extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $skillGroup;
     protected $_name = [
-        'id'         => 'Id',
-        'name'       => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'skillGroup' => 'SkillGroup',
     ];
 

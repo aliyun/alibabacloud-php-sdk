@@ -12,18 +12,20 @@ class flowNodePrerequisiteParam extends Model
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $nodeMatchStatus;
+
     /**
      * @var string
      */
     public $nodeName;
     protected $_name = [
-        'nodeId'          => 'NodeId',
+        'nodeId' => 'NodeId',
         'nodeMatchStatus' => 'NodeMatchStatus',
-        'nodeName'        => 'NodeName',
+        'nodeName' => 'NodeName',
     ];
 
     public function validate()

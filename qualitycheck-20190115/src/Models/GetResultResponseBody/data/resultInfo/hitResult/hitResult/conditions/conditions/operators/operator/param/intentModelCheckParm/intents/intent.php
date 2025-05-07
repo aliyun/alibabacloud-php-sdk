@@ -12,12 +12,13 @@ class intent extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 

@@ -13,38 +13,44 @@ class UpdateRuleToSchemeResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var messages
      */
     public $messages;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'messages'       => 'Messages',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

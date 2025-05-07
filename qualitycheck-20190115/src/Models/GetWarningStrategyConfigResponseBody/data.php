@@ -13,37 +13,43 @@ class data extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $intervalTime;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var int
      */
     public $maxNumber;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var warningStrategyList
      */
     public $warningStrategyList;
     protected $_name = [
-        'id'                  => 'Id',
-        'intervalTime'        => 'IntervalTime',
-        'lambda'              => 'Lambda',
-        'level'               => 'Level',
-        'maxNumber'           => 'MaxNumber',
-        'name'                => 'Name',
+        'id' => 'Id',
+        'intervalTime' => 'IntervalTime',
+        'lambda' => 'Lambda',
+        'level' => 'Level',
+        'maxNumber' => 'MaxNumber',
+        'name' => 'Name',
         'warningStrategyList' => 'WarningStrategyList',
     ];
 

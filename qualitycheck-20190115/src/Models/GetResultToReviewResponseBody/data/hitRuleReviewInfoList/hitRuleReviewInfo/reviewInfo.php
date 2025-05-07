@@ -12,28 +12,32 @@ class reviewInfo extends Model
      * @var string
      */
     public $hitId;
+
     /**
      * @var int
      */
     public $reviewResult;
+
     /**
      * @var string
      */
     public $reviewTime;
+
     /**
      * @var string
      */
     public $reviewer;
+
     /**
      * @var int
      */
     public $rid;
     protected $_name = [
-        'hitId'        => 'HitId',
+        'hitId' => 'HitId',
         'reviewResult' => 'ReviewResult',
-        'reviewTime'   => 'ReviewTime',
-        'reviewer'     => 'Reviewer',
-        'rid'          => 'Rid',
+        'reviewTime' => 'ReviewTime',
+        'reviewer' => 'Reviewer',
+        'rid' => 'Rid',
     ];
 
     public function validate()

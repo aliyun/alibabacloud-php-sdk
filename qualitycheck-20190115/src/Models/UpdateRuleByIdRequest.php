@@ -12,28 +12,32 @@ class UpdateRuleByIdRequest extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var bool
      */
     public $isCopy;
+
     /**
      * @var string
      */
     public $jsonStrForRule;
+
     /**
      * @var bool
      */
     public $returnRelatedSchemes;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'baseMeAgentId'        => 'BaseMeAgentId',
-        'isCopy'               => 'IsCopy',
-        'jsonStrForRule'       => 'JsonStrForRule',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'isCopy' => 'IsCopy',
+        'jsonStrForRule' => 'JsonStrForRule',
         'returnRelatedSchemes' => 'ReturnRelatedSchemes',
-        'ruleId'               => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

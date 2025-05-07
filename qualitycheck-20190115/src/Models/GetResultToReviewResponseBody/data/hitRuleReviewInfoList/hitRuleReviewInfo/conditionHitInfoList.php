@@ -31,7 +31,7 @@ class conditionHitInfoList extends Model
         if (null !== $this->conditionHitInfo) {
             if (\is_array($this->conditionHitInfo)) {
                 $res['ConditionHitInfo'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->conditionHitInfo as $item1) {
                     $res['ConditionHitInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class conditionHitInfoList extends Model
         if (isset($map['ConditionHitInfo'])) {
             if (!empty($map['ConditionHitInfo'])) {
                 $model->conditionHitInfo = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ConditionHitInfo'] as $item1) {
                     $model->conditionHitInfo[$n1++] = conditionHitInfo::fromMap($item1);
                 }

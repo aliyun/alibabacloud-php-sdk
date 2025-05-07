@@ -12,58 +12,68 @@ class keyWords extends Model
      * @var string
      */
     public $cid;
+
     /**
      * @var string
      */
     public $customizeCode;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var string
      */
     public $oid;
+
     /**
      * @var string
      */
     public $operatorKey;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var string
      */
     public $similarPhrase;
+
     /**
      * @var string
      */
     public $tid;
+
     /**
      * @var int
      */
     public $to;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var string
      */
     public $val;
     protected $_name = [
-        'cid'           => 'Cid',
+        'cid' => 'Cid',
         'customizeCode' => 'CustomizeCode',
-        'from'          => 'From',
-        'oid'           => 'Oid',
-        'operatorKey'   => 'OperatorKey',
-        'pid'           => 'Pid',
+        'from' => 'From',
+        'oid' => 'Oid',
+        'operatorKey' => 'OperatorKey',
+        'pid' => 'Pid',
         'similarPhrase' => 'SimilarPhrase',
-        'tid'           => 'Tid',
-        'to'            => 'To',
-        'uuid'          => 'Uuid',
-        'val'           => 'Val',
+        'tid' => 'Tid',
+        'to' => 'To',
+        'uuid' => 'Uuid',
+        'val' => 'Val',
     ];
 
     public function validate()

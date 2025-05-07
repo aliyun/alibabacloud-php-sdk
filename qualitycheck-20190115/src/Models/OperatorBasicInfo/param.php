@@ -13,268 +13,320 @@ class param extends Model
      * @var string
      */
     public $answerThreshold;
+
     /**
      * @var string[]
      */
     public $antModelInfo;
+
     /**
      * @var bool
      */
     public $average;
+
     /**
      * @var string
      */
     public $beginType;
+
     /**
      * @var string
      */
     public $botId;
+
     /**
      * @var bool
      */
     public $caseSensitive;
+
     /**
      * @var string
      */
     public $categoryPathCode;
+
     /**
      * @var bool
      */
     public $checkFirstSentence;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $compareOperator;
+
     /**
      * @var bool
      */
     public $contextChatMatch;
+
     /**
      * @var JudgeNodeMetaDesc
      */
     public $customerParam;
+
     /**
      * @var int
      */
     public $delayTime;
+
     /**
      * @var bool
      */
     public $differentRole;
+
     /**
      * @var string
      */
     public $endType;
+
     /**
      * @var string[]
      */
     public $excludes;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var bool
      */
     public $fromEnd;
+
     /**
      * @var int
      */
     public $hitTime;
+
     /**
      * @var bool
      */
     public $inSentence;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var int
      */
     public $intervalEnd;
+
     /**
      * @var int
      */
     public $keywordExtension;
+
     /**
      * @var int
      */
     public $keywordMatchSize;
+
     /**
      * @var string[]
      */
     public $keywords;
+
     /**
      * @var string
      */
     public $knowledgeInfo;
+
     /**
      * @var int
      */
     public $knowledgeSentenceNum;
+
     /**
      * @var string
      */
     public $knowledgeTargetId;
+
     /**
      * @var string
      */
     public $knowledgeTargetName;
+
     /**
      * @var int
      */
     public $knowledgeTargetType;
+
     /**
      * @var string[]
      */
     public $lgfSentences;
+
     /**
      * @var int
      */
     public $maxEmotionChangeValue;
+
     /**
      * @var int
      */
     public $minWordSize;
+
     /**
      * @var bool
      */
     public $nearDialogue;
+
     /**
      * @var string
      */
     public $notRegex;
+
     /**
      * @var string
      */
     public $phrase;
+
     /**
      * @var string
      */
     public $pkey;
+
     /**
      * @var int
      */
     public $poutputType;
+
     /**
      * @var string[]
      */
     public $pvalues;
+
     /**
      * @var string
      */
     public $questionThreshold;
+
     /**
      * @var string[]
      */
     public $references;
+
     /**
      * @var string
      */
     public $regex;
+
     /**
      * @var int
      */
     public $roleId;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var float
      */
     public $similarityThreshold;
+
     /**
      * @var string[]
      */
     public $similarlySentences;
+
     /**
      * @var string[][]
      */
     public $synonyms;
+
     /**
      * @var int
      */
     public $target;
+
     /**
      * @var string
      */
     public $targetRole;
+
     /**
      * @var float
      */
     public $threshold;
+
     /**
      * @var bool
      */
     public $useEasAlgorithm;
+
     /**
      * @var float
      */
     public $velocity;
+
     /**
      * @var int
      */
     public $velocityInMint;
     protected $_name = [
-        'answerThreshold'       => 'AnswerThreshold',
-        'antModelInfo'          => 'AntModelInfo',
-        'average'               => 'Average',
-        'beginType'             => 'BeginType',
-        'botId'                 => 'BotId',
-        'caseSensitive'         => 'Case_sensitive',
-        'categoryPathCode'      => 'CategoryPathCode',
-        'checkFirstSentence'    => 'CheckFirstSentence',
-        'checkType'             => 'CheckType',
-        'compareOperator'       => 'CompareOperator',
-        'contextChatMatch'      => 'ContextChatMatch',
-        'customerParam'         => 'CustomerParam',
-        'delayTime'             => 'DelayTime',
-        'differentRole'         => 'Different_role',
-        'endType'               => 'EndType',
-        'excludes'              => 'Excludes',
-        'from'                  => 'From',
-        'fromEnd'               => 'From_end',
-        'hitTime'               => 'Hit_time',
-        'inSentence'            => 'In_sentence',
-        'interval'              => 'Interval',
-        'intervalEnd'           => 'IntervalEnd',
-        'keywordExtension'      => 'KeywordExtension',
-        'keywordMatchSize'      => 'KeywordMatchSize',
-        'keywords'              => 'Keywords',
-        'knowledgeInfo'         => 'KnowledgeInfo',
-        'knowledgeSentenceNum'  => 'KnowledgeSentenceNum',
-        'knowledgeTargetId'     => 'KnowledgeTargetId',
-        'knowledgeTargetName'   => 'KnowledgeTargetName',
-        'knowledgeTargetType'   => 'KnowledgeTargetType',
-        'lgfSentences'          => 'LgfSentences',
+        'answerThreshold' => 'AnswerThreshold',
+        'antModelInfo' => 'AntModelInfo',
+        'average' => 'Average',
+        'beginType' => 'BeginType',
+        'botId' => 'BotId',
+        'caseSensitive' => 'Case_sensitive',
+        'categoryPathCode' => 'CategoryPathCode',
+        'checkFirstSentence' => 'CheckFirstSentence',
+        'checkType' => 'CheckType',
+        'compareOperator' => 'CompareOperator',
+        'contextChatMatch' => 'ContextChatMatch',
+        'customerParam' => 'CustomerParam',
+        'delayTime' => 'DelayTime',
+        'differentRole' => 'Different_role',
+        'endType' => 'EndType',
+        'excludes' => 'Excludes',
+        'from' => 'From',
+        'fromEnd' => 'From_end',
+        'hitTime' => 'Hit_time',
+        'inSentence' => 'In_sentence',
+        'interval' => 'Interval',
+        'intervalEnd' => 'IntervalEnd',
+        'keywordExtension' => 'KeywordExtension',
+        'keywordMatchSize' => 'KeywordMatchSize',
+        'keywords' => 'Keywords',
+        'knowledgeInfo' => 'KnowledgeInfo',
+        'knowledgeSentenceNum' => 'KnowledgeSentenceNum',
+        'knowledgeTargetId' => 'KnowledgeTargetId',
+        'knowledgeTargetName' => 'KnowledgeTargetName',
+        'knowledgeTargetType' => 'KnowledgeTargetType',
+        'lgfSentences' => 'LgfSentences',
         'maxEmotionChangeValue' => 'MaxEmotionChangeValue',
-        'minWordSize'           => 'MinWordSize',
-        'nearDialogue'          => 'Near_dialogue',
-        'notRegex'              => 'NotRegex',
-        'phrase'                => 'Phrase',
-        'pkey'                  => 'Pkey',
-        'poutputType'           => 'Poutput_type',
-        'pvalues'               => 'Pvalues',
-        'questionThreshold'     => 'QuestionThreshold',
-        'references'            => 'References',
-        'regex'                 => 'Regex',
-        'roleId'                => 'RoleId',
-        'score'                 => 'Score',
-        'similarityThreshold'   => 'Similarity_threshold',
-        'similarlySentences'    => 'SimilarlySentences',
-        'synonyms'              => 'Synonyms',
-        'target'                => 'Target',
-        'targetRole'            => 'Target_role',
-        'threshold'             => 'Threshold',
-        'useEasAlgorithm'       => 'UseEasAlgorithm',
-        'velocity'              => 'Velocity',
-        'velocityInMint'        => 'VelocityInMint',
+        'minWordSize' => 'MinWordSize',
+        'nearDialogue' => 'Near_dialogue',
+        'notRegex' => 'NotRegex',
+        'phrase' => 'Phrase',
+        'pkey' => 'Pkey',
+        'poutputType' => 'Poutput_type',
+        'pvalues' => 'Pvalues',
+        'questionThreshold' => 'QuestionThreshold',
+        'references' => 'References',
+        'regex' => 'Regex',
+        'roleId' => 'RoleId',
+        'score' => 'Score',
+        'similarityThreshold' => 'Similarity_threshold',
+        'similarlySentences' => 'SimilarlySentences',
+        'synonyms' => 'Synonyms',
+        'target' => 'Target',
+        'targetRole' => 'Target_role',
+        'threshold' => 'Threshold',
+        'useEasAlgorithm' => 'UseEasAlgorithm',
+        'velocity' => 'Velocity',
+        'velocityInMint' => 'VelocityInMint',
     ];
 
     public function validate()
@@ -380,7 +432,7 @@ class param extends Model
         if (null !== $this->excludes) {
             if (\is_array($this->excludes)) {
                 $res['Excludes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->excludes as $item1) {
                     $res['Excludes'][$n1++] = $item1;
                 }
@@ -422,7 +474,7 @@ class param extends Model
         if (null !== $this->keywords) {
             if (\is_array($this->keywords)) {
                 $res['Keywords'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->keywords as $item1) {
                     $res['Keywords'][$n1++] = $item1;
                 }
@@ -452,7 +504,7 @@ class param extends Model
         if (null !== $this->lgfSentences) {
             if (\is_array($this->lgfSentences)) {
                 $res['LgfSentences'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->lgfSentences as $item1) {
                     $res['LgfSentences'][$n1++] = $item1;
                 }
@@ -490,7 +542,7 @@ class param extends Model
         if (null !== $this->pvalues) {
             if (\is_array($this->pvalues)) {
                 $res['Pvalues'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->pvalues as $item1) {
                     $res['Pvalues'][$n1++] = $item1;
                 }
@@ -504,7 +556,7 @@ class param extends Model
         if (null !== $this->references) {
             if (\is_array($this->references)) {
                 $res['References'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->references as $item1) {
                     $res['References'][$n1++] = $item1;
                 }
@@ -530,7 +582,7 @@ class param extends Model
         if (null !== $this->similarlySentences) {
             if (\is_array($this->similarlySentences)) {
                 $res['SimilarlySentences'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->similarlySentences as $item1) {
                     $res['SimilarlySentences'][$n1++] = $item1;
                 }
@@ -543,7 +595,7 @@ class param extends Model
                 foreach ($this->synonyms as $key1 => $value1) {
                     if (\is_array($value1)) {
                         $res['Synonyms'][$key1] = [];
-                        $n2                     = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $res['Synonyms'][$key1][$n2++] = $item2;
                         }
@@ -655,7 +707,7 @@ class param extends Model
         if (isset($map['Excludes'])) {
             if (!empty($map['Excludes'])) {
                 $model->excludes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Excludes'] as $item1) {
                     $model->excludes[$n1++] = $item1;
                 }
@@ -697,7 +749,7 @@ class param extends Model
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
                 $model->keywords = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
                     $model->keywords[$n1++] = $item1;
                 }
@@ -727,7 +779,7 @@ class param extends Model
         if (isset($map['LgfSentences'])) {
             if (!empty($map['LgfSentences'])) {
                 $model->lgfSentences = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['LgfSentences'] as $item1) {
                     $model->lgfSentences[$n1++] = $item1;
                 }
@@ -765,7 +817,7 @@ class param extends Model
         if (isset($map['Pvalues'])) {
             if (!empty($map['Pvalues'])) {
                 $model->pvalues = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Pvalues'] as $item1) {
                     $model->pvalues[$n1++] = $item1;
                 }
@@ -779,7 +831,7 @@ class param extends Model
         if (isset($map['References'])) {
             if (!empty($map['References'])) {
                 $model->references = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['References'] as $item1) {
                     $model->references[$n1++] = $item1;
                 }
@@ -805,7 +857,7 @@ class param extends Model
         if (isset($map['SimilarlySentences'])) {
             if (!empty($map['SimilarlySentences'])) {
                 $model->similarlySentences = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['SimilarlySentences'] as $item1) {
                     $model->similarlySentences[$n1++] = $item1;
                 }
@@ -818,7 +870,7 @@ class param extends Model
                 foreach ($map['Synonyms'] as $key1 => $value1) {
                     if (!empty($value1)) {
                         $model->synonyms[$key1] = [];
-                        $n2                     = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $model->synonyms[$key1][$n2++] = $item2;
                         }

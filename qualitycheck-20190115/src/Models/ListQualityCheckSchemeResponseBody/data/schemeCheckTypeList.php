@@ -12,27 +12,31 @@ class schemeCheckTypeList extends Model
      * @var string
      */
     public $checkName;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var int
      */
     public $targetType;
     protected $_name = [
-        'checkName'  => 'CheckName',
-        'checkType'  => 'CheckType',
-        'enable'     => 'Enable',
-        'score'      => 'Score',
+        'checkName' => 'CheckName',
+        'checkType' => 'CheckType',
+        'enable' => 'Enable',
+        'score' => 'Score',
         'targetType' => 'TargetType',
     ];
 

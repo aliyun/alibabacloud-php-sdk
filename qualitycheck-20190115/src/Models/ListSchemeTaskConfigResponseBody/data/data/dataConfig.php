@@ -13,23 +13,26 @@ class dataConfig extends Model
      * @var assignConfigs
      */
     public $assignConfigs;
+
     /**
      * @var string
      */
     public $dataSets;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var string
      */
     public $resultParam;
     protected $_name = [
         'assignConfigs' => 'AssignConfigs',
-        'dataSets'      => 'DataSets',
-        'index'         => 'Index',
-        'resultParam'   => 'ResultParam',
+        'dataSets' => 'DataSets',
+        'index' => 'Index',
+        'resultParam' => 'ResultParam',
     ];
 
     public function validate()

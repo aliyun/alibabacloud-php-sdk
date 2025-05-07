@@ -30,7 +30,7 @@ class messages extends Model
         if (null !== $this->message) {
             if (\is_array($this->message)) {
                 $res['Message'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->message as $item1) {
                     $res['Message'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class messages extends Model
         if (isset($map['Message'])) {
             if (!empty($map['Message'])) {
                 $model->message = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Message'] as $item1) {
                     $model->message[$n1++] = $item1;
                 }

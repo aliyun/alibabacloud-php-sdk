@@ -31,7 +31,7 @@ class scoreInfos extends Model
         if (null !== $this->scoreParam) {
             if (\is_array($this->scoreParam)) {
                 $res['ScoreParam'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->scoreParam as $item1) {
                     $res['ScoreParam'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class scoreInfos extends Model
         if (isset($map['ScoreParam'])) {
             if (!empty($map['ScoreParam'])) {
                 $model->scoreParam = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ScoreParam'] as $item1) {
                     $model->scoreParam[$n1++] = scoreParam::fromMap($item1);
                 }

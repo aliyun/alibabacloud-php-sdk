@@ -13,33 +13,38 @@ class TestRuleV4ResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

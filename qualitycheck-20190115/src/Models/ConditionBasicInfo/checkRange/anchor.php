@@ -12,17 +12,19 @@ class anchor extends Model
      * @var string
      */
     public $cid;
+
     /**
      * @var int
      */
     public $hitTime;
+
     /**
      * @var string
      */
     public $location;
     protected $_name = [
-        'cid'      => 'Cid',
-        'hitTime'  => 'Hit_time',
+        'cid' => 'Cid',
+        'hitTime' => 'Hit_time',
         'location' => 'Location',
     ];
 

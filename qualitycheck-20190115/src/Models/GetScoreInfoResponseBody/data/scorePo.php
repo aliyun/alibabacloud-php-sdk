@@ -13,18 +13,20 @@ class scorePo extends Model
      * @var int
      */
     public $scoreId;
+
     /**
      * @var scoreInfos
      */
     public $scoreInfos;
+
     /**
      * @var string
      */
     public $scoreName;
     protected $_name = [
-        'scoreId'    => 'ScoreId',
+        'scoreId' => 'ScoreId',
         'scoreInfos' => 'ScoreInfos',
-        'scoreName'  => 'ScoreName',
+        'scoreName' => 'ScoreName',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class ruleNameInfo extends Model
      * @var int
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'rid'      => 'Rid',
+        'rid' => 'Rid',
         'ruleName' => 'RuleName',
     ];
 

@@ -14,23 +14,26 @@ class ruleBasicInfo extends Model
      * @var businessCategories
      */
     public $businessCategories;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleLambda;
+
     /**
      * @var triggers
      */
     public $triggers;
     protected $_name = [
         'businessCategories' => 'BusinessCategories',
-        'rid'                => 'Rid',
-        'ruleLambda'         => 'RuleLambda',
-        'triggers'           => 'Triggers',
+        'rid' => 'Rid',
+        'ruleLambda' => 'RuleLambda',
+        'triggers' => 'Triggers',
     ];
 
     public function validate()

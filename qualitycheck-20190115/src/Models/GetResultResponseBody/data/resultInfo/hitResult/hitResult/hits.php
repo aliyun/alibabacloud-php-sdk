@@ -31,7 +31,7 @@ class hits extends Model
         if (null !== $this->hit) {
             if (\is_array($this->hit)) {
                 $res['Hit'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->hit as $item1) {
                     $res['Hit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hits extends Model
         if (isset($map['Hit'])) {
             if (!empty($map['Hit'])) {
                 $model->hit = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Hit'] as $item1) {
                     $model->hit[$n1++] = hit::fromMap($item1);
                 }

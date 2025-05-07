@@ -12,22 +12,25 @@ class hitScore extends Model
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $scoreId;
+
     /**
      * @var string
      */
     public $scoreName;
+
     /**
      * @var string
      */
     public $scoreNumber;
     protected $_name = [
-        'ruleId'      => 'RuleId',
-        'scoreId'     => 'ScoreId',
-        'scoreName'   => 'ScoreName',
+        'ruleId' => 'RuleId',
+        'scoreId' => 'ScoreId',
+        'scoreName' => 'ScoreName',
         'scoreNumber' => 'ScoreNumber',
     ];
 

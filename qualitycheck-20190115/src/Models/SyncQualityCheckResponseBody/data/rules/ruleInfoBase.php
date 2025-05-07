@@ -12,38 +12,44 @@ class ruleInfoBase extends Model
      * @var string
      */
     public $comments;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var string
      */
     public $ruleCategoryName;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreNumType;
+
     /**
      * @var int
      */
     public $scoreType;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'comments'         => 'Comments',
-        'level'            => 'Level',
+        'comments' => 'Comments',
+        'level' => 'Level',
         'ruleCategoryName' => 'RuleCategoryName',
-        'scoreNum'         => 'ScoreNum',
-        'scoreNumType'     => 'ScoreNumType',
-        'scoreType'        => 'ScoreType',
-        'type'             => 'Type',
+        'scoreNum' => 'ScoreNum',
+        'scoreNumType' => 'ScoreNumType',
+        'scoreType' => 'ScoreType',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class JudgeNodeMetaDesc extends Model
      * @var string
      */
     public $actualValue;
+
     /**
      * @var int
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $field;
+
     /**
      * @var int
      */
     public $fieldType;
+
     /**
      * @var int
      */
     public $symbol;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'actualValue' => 'ActualValue',
-        'dataType'    => 'DataType',
-        'field'       => 'Field',
-        'fieldType'   => 'FieldType',
-        'symbol'      => 'Symbol',
-        'value'       => 'Value',
+        'dataType' => 'DataType',
+        'field' => 'Field',
+        'fieldType' => 'FieldType',
+        'symbol' => 'Symbol',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class skillGroups extends Model
         if (null !== $this->skillGroup) {
             if (\is_array($this->skillGroup)) {
                 $res['SkillGroup'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->skillGroup as $item1) {
                     $res['SkillGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class skillGroups extends Model
         if (isset($map['SkillGroup'])) {
             if (!empty($map['SkillGroup'])) {
                 $model->skillGroup = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroup'] as $item1) {
                     $model->skillGroup[$n1++] = skillGroup::fromMap($item1);
                 }

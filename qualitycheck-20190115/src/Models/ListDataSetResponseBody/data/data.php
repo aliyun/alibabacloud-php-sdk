@@ -12,118 +12,140 @@ class data extends Model
      * @var int
      */
     public $autoTranscoding;
+
     /**
      * @var int
      */
     public $channelId0;
+
     /**
      * @var int
      */
     public $channelId1;
+
     /**
      * @var int
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createType;
+
     /**
      * @var int
      */
     public $dataSetType;
+
     /**
      * @var int
      */
     public $isDelete;
+
     /**
      * @var string
      */
     public $roleConfigProp;
+
     /**
      * @var int
      */
     public $roleConfigStatus;
+
     /**
      * @var string
      */
     public $roleConfigTask;
+
     /**
      * @var string
      */
     public $setBucketName;
+
     /**
      * @var string
      */
     public $setDomain;
+
     /**
      * @var string
      */
     public $setFolderName;
+
     /**
      * @var int
      */
     public $setId;
+
     /**
      * @var string
      */
     public $setName;
+
     /**
      * @var int
      */
     public $setNumber;
+
     /**
      * @var string
      */
     public $setRoleArn;
+
     /**
      * @var int
      */
     public $setType;
+
     /**
      * @var int
      */
     public $sourceDataType;
+
     /**
      * @var string
      */
     public $subDir;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $userGroup;
     protected $_name = [
-        'autoTranscoding'  => 'AutoTranscoding',
-        'channelId0'       => 'ChannelId0',
-        'channelId1'       => 'ChannelId1',
-        'channelType'      => 'ChannelType',
-        'createTime'       => 'CreateTime',
-        'createType'       => 'CreateType',
-        'dataSetType'      => 'DataSetType',
-        'isDelete'         => 'IsDelete',
-        'roleConfigProp'   => 'RoleConfigProp',
+        'autoTranscoding' => 'AutoTranscoding',
+        'channelId0' => 'ChannelId0',
+        'channelId1' => 'ChannelId1',
+        'channelType' => 'ChannelType',
+        'createTime' => 'CreateTime',
+        'createType' => 'CreateType',
+        'dataSetType' => 'DataSetType',
+        'isDelete' => 'IsDelete',
+        'roleConfigProp' => 'RoleConfigProp',
         'roleConfigStatus' => 'RoleConfigStatus',
-        'roleConfigTask'   => 'RoleConfigTask',
-        'setBucketName'    => 'SetBucketName',
-        'setDomain'        => 'SetDomain',
-        'setFolderName'    => 'SetFolderName',
-        'setId'            => 'SetId',
-        'setName'          => 'SetName',
-        'setNumber'        => 'SetNumber',
-        'setRoleArn'       => 'SetRoleArn',
-        'setType'          => 'SetType',
-        'sourceDataType'   => 'SourceDataType',
-        'subDir'           => 'SubDir',
-        'updateTime'       => 'UpdateTime',
-        'userGroup'        => 'UserGroup',
+        'roleConfigTask' => 'RoleConfigTask',
+        'setBucketName' => 'SetBucketName',
+        'setDomain' => 'SetDomain',
+        'setFolderName' => 'SetFolderName',
+        'setId' => 'SetId',
+        'setName' => 'SetName',
+        'setNumber' => 'SetNumber',
+        'setRoleArn' => 'SetRoleArn',
+        'setType' => 'SetType',
+        'sourceDataType' => 'SourceDataType',
+        'subDir' => 'SubDir',
+        'updateTime' => 'UpdateTime',
+        'userGroup' => 'UserGroup',
     ];
 
     public function validate()

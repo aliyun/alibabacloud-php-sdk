@@ -31,7 +31,7 @@ class keyWords extends Model
         if (null !== $this->keyWord) {
             if (\is_array($this->keyWord)) {
                 $res['KeyWord'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->keyWord as $item1) {
                     $res['KeyWord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class keyWords extends Model
         if (isset($map['KeyWord'])) {
             if (!empty($map['KeyWord'])) {
                 $model->keyWord = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['KeyWord'] as $item1) {
                     $model->keyWord[$n1++] = keyWord::fromMap($item1);
                 }

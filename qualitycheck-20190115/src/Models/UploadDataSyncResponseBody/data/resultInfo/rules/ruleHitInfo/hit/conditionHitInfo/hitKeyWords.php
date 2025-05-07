@@ -31,7 +31,7 @@ class hitKeyWords extends Model
         if (null !== $this->hitKeyWord) {
             if (\is_array($this->hitKeyWord)) {
                 $res['HitKeyWord'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->hitKeyWord as $item1) {
                     $res['HitKeyWord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hitKeyWords extends Model
         if (isset($map['HitKeyWord'])) {
             if (!empty($map['HitKeyWord'])) {
                 $model->hitKeyWord = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['HitKeyWord'] as $item1) {
                     $model->hitKeyWord[$n1++] = hitKeyWord::fromMap($item1);
                 }

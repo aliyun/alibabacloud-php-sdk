@@ -13,12 +13,13 @@ class intentModelCheckParm extends Model
      * @var intents
      */
     public $intents;
+
     /**
      * @var string
      */
     public $modelScene;
     protected $_name = [
-        'intents'    => 'Intents',
+        'intents' => 'Intents',
         'modelScene' => 'ModelScene',
     ];
 

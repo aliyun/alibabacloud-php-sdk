@@ -13,43 +13,50 @@ class ListPrecisionTaskResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
-        'count'      => 'Count',
-        'data'       => 'Data',
-        'message'    => 'Message',
+        'code' => 'Code',
+        'count' => 'Count',
+        'data' => 'Data',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

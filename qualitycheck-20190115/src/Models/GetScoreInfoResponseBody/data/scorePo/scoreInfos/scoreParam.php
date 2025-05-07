@@ -12,23 +12,26 @@ class scoreParam extends Model
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreSubId;
+
     /**
      * @var string
      */
     public $scoreSubName;
+
     /**
      * @var int
      */
     public $scoreType;
     protected $_name = [
-        'scoreNum'     => 'ScoreNum',
-        'scoreSubId'   => 'ScoreSubId',
+        'scoreNum' => 'ScoreNum',
+        'scoreSubId' => 'ScoreSubId',
         'scoreSubName' => 'ScoreSubName',
-        'scoreType'    => 'ScoreType',
+        'scoreType' => 'ScoreType',
     ];
 
     public function validate()

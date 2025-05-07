@@ -12,28 +12,32 @@ class hitKeyWord extends Model
      * @var int
      */
     public $from;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var string
      */
     public $tid;
+
     /**
      * @var int
      */
     public $to;
+
     /**
      * @var string
      */
     public $val;
     protected $_name = [
         'from' => 'From',
-        'pid'  => 'Pid',
-        'tid'  => 'Tid',
-        'to'   => 'To',
-        'val'  => 'Val',
+        'pid' => 'Pid',
+        'tid' => 'Tid',
+        'to' => 'To',
+        'val' => 'Val',
     ];
 
     public function validate()

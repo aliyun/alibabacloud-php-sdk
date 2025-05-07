@@ -13,28 +13,32 @@ class operator extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $oid;
+
     /**
      * @var param
      */
     public $param;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'    => 'Id',
-        'name'  => 'Name',
-        'oid'   => 'Oid',
+        'id' => 'Id',
+        'name' => 'Name',
+        'oid' => 'Oid',
         'param' => 'Param',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

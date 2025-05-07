@@ -13,22 +13,25 @@ class RuleTestDialogue extends Model
      * @var content[]
      */
     public $content;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $userGroup;
     protected $_name = [
-        'content'   => 'Content',
-        'id'        => 'Id',
-        'name'      => 'Name',
+        'content' => 'Content',
+        'id' => 'Id',
+        'name' => 'Name',
         'userGroup' => 'UserGroup',
     ];
 
@@ -46,7 +49,7 @@ class RuleTestDialogue extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['Content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['Content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class RuleTestDialogue extends Model
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

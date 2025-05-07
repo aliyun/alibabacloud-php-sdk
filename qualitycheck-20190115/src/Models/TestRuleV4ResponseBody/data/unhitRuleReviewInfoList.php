@@ -13,23 +13,26 @@ class unhitRuleReviewInfoList extends Model
      * @var ConditionBasicInfo[]
      */
     public $conditionInfoList;
+
     /**
      * @var bool
      */
     public $matched;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var int
      */
     public $taskFlowType;
     protected $_name = [
         'conditionInfoList' => 'ConditionInfoList',
-        'matched'           => 'Matched',
-        'rid'               => 'Rid',
-        'taskFlowType'      => 'TaskFlowType',
+        'matched' => 'Matched',
+        'rid' => 'Rid',
+        'taskFlowType' => 'TaskFlowType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class unhitRuleReviewInfoList extends Model
         if (null !== $this->conditionInfoList) {
             if (\is_array($this->conditionInfoList)) {
                 $res['ConditionInfoList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->conditionInfoList as $item1) {
                     $res['ConditionInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class unhitRuleReviewInfoList extends Model
         if (isset($map['ConditionInfoList'])) {
             if (!empty($map['ConditionInfoList'])) {
                 $model->conditionInfoList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ConditionInfoList'] as $item1) {
                     $model->conditionInfoList[$n1++] = ConditionBasicInfo::fromMap($item1);
                 }

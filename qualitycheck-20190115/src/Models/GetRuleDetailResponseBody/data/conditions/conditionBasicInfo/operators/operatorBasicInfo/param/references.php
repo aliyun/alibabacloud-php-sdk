@@ -30,7 +30,7 @@ class references extends Model
         if (null !== $this->reference) {
             if (\is_array($this->reference)) {
                 $res['Reference'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reference as $item1) {
                     $res['Reference'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class references extends Model
         if (isset($map['Reference'])) {
             if (!empty($map['Reference'])) {
                 $model->reference = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Reference'] as $item1) {
                     $model->reference[$n1++] = $item1;
                 }

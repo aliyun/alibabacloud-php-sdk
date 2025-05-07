@@ -12,17 +12,19 @@ class ruleCountInfo extends Model
      * @var bool
      */
     public $select;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $typeName;
     protected $_name = [
-        'select'   => 'Select',
-        'type'     => 'Type',
+        'select' => 'Select',
+        'type' => 'Type',
         'typeName' => 'TypeName',
     ];
 

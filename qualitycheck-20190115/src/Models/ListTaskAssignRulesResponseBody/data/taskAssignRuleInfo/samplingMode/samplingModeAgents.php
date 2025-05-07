@@ -31,7 +31,7 @@ class samplingModeAgents extends Model
         if (null !== $this->samplingModeAgent) {
             if (\is_array($this->samplingModeAgent)) {
                 $res['SamplingModeAgent'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->samplingModeAgent as $item1) {
                     $res['SamplingModeAgent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class samplingModeAgents extends Model
         if (isset($map['SamplingModeAgent'])) {
             if (!empty($map['SamplingModeAgent'])) {
                 $model->samplingModeAgent = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SamplingModeAgent'] as $item1) {
                     $model->samplingModeAgent[$n1++] = samplingModeAgent::fromMap($item1);
                 }

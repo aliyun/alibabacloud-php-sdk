@@ -30,7 +30,7 @@ class operKeyWords extends Model
         if (null !== $this->operKeyWord) {
             if (\is_array($this->operKeyWord)) {
                 $res['OperKeyWord'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->operKeyWord as $item1) {
                     $res['OperKeyWord'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class operKeyWords extends Model
         if (isset($map['OperKeyWord'])) {
             if (!empty($map['OperKeyWord'])) {
                 $model->operKeyWord = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['OperKeyWord'] as $item1) {
                     $model->operKeyWord[$n1++] = $item1;
                 }

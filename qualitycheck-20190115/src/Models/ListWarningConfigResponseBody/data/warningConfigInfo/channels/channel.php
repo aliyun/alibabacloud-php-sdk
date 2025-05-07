@@ -12,13 +12,14 @@ class channel extends Model
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'type' => 'Type',
-        'url'  => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

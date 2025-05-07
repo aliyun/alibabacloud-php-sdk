@@ -30,7 +30,7 @@ class data extends Model
         if (null !== $this->ridInfo) {
             if (\is_array($this->ridInfo)) {
                 $res['RidInfo'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->ridInfo as $item1) {
                     $res['RidInfo'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class data extends Model
         if (isset($map['RidInfo'])) {
             if (!empty($map['RidInfo'])) {
                 $model->ridInfo = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['RidInfo'] as $item1) {
                     $model->ridInfo[$n1++] = $item1;
                 }

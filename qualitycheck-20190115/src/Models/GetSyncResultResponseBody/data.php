@@ -16,78 +16,92 @@ class data extends Model
      * @var agent
      */
     public $agent;
+
     /**
      * @var asrResult[]
      */
     public $asrResult;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var hitResult[]
      */
     public $hitResult;
+
     /**
      * @var recording
      */
     public $recording;
+
     /**
      * @var string
      */
     public $resolver;
+
     /**
      * @var int
      */
     public $reviewResult;
+
     /**
      * @var int
      */
     public $reviewStatus;
+
     /**
      * @var string
      */
     public $reviewer;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'agent'        => 'Agent',
-        'asrResult'    => 'AsrResult',
-        'comments'     => 'Comments',
-        'createTime'   => 'CreateTime',
+        'agent' => 'Agent',
+        'asrResult' => 'AsrResult',
+        'comments' => 'Comments',
+        'createTime' => 'CreateTime',
         'errorMessage' => 'ErrorMessage',
-        'hitResult'    => 'HitResult',
-        'recording'    => 'Recording',
-        'resolver'     => 'Resolver',
+        'hitResult' => 'HitResult',
+        'recording' => 'Recording',
+        'resolver' => 'Resolver',
         'reviewResult' => 'ReviewResult',
         'reviewStatus' => 'ReviewStatus',
-        'reviewer'     => 'Reviewer',
-        'score'        => 'Score',
-        'status'       => 'Status',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
+        'reviewer' => 'Reviewer',
+        'score' => 'Score',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()
@@ -117,7 +131,7 @@ class data extends Model
         if (null !== $this->asrResult) {
             if (\is_array($this->asrResult)) {
                 $res['AsrResult'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->asrResult as $item1) {
                     $res['AsrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +153,7 @@ class data extends Model
         if (null !== $this->hitResult) {
             if (\is_array($this->hitResult)) {
                 $res['HitResult'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->hitResult as $item1) {
                     $res['HitResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -200,7 +214,7 @@ class data extends Model
         if (isset($map['AsrResult'])) {
             if (!empty($map['AsrResult'])) {
                 $model->asrResult = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AsrResult'] as $item1) {
                     $model->asrResult[$n1++] = asrResult::fromMap($item1);
                 }
@@ -222,7 +236,7 @@ class data extends Model
         if (isset($map['HitResult'])) {
             if (!empty($map['HitResult'])) {
                 $model->hitResult = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['HitResult'] as $item1) {
                     $model->hitResult[$n1++] = hitResult::fromMap($item1);
                 }

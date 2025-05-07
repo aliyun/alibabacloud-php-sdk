@@ -14,13 +14,14 @@ class hit extends Model
      * @var hitKeyWords[]
      */
     public $hitKeyWords;
+
     /**
      * @var phrase
      */
     public $phrase;
     protected $_name = [
         'hitKeyWords' => 'HitKeyWords',
-        'phrase'      => 'Phrase',
+        'phrase' => 'Phrase',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class hit extends Model
         if (null !== $this->hitKeyWords) {
             if (\is_array($this->hitKeyWords)) {
                 $res['HitKeyWords'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->hitKeyWords as $item1) {
                     $res['HitKeyWords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class hit extends Model
         if (isset($map['HitKeyWords'])) {
             if (!empty($map['HitKeyWords'])) {
                 $model->hitKeyWords = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['HitKeyWords'] as $item1) {
                     $model->hitKeyWords[$n1++] = hitKeyWords::fromMap($item1);
                 }

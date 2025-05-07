@@ -31,7 +31,7 @@ class skillGroupScreens extends Model
         if (null !== $this->skillGroupScreen) {
             if (\is_array($this->skillGroupScreen)) {
                 $res['SkillGroupScreen'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupScreen as $item1) {
                     $res['SkillGroupScreen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class skillGroupScreens extends Model
         if (isset($map['SkillGroupScreen'])) {
             if (!empty($map['SkillGroupScreen'])) {
                 $model->skillGroupScreen = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupScreen'] as $item1) {
                     $model->skillGroupScreen[$n1++] = skillGroupScreen::fromMap($item1);
                 }

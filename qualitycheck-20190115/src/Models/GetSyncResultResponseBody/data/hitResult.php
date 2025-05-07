@@ -13,28 +13,32 @@ class hitResult extends Model
      * @var hits[]
      */
     public $hits;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $reviewResult;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'hits'         => 'Hits',
-        'name'         => 'Name',
+        'hits' => 'Hits',
+        'name' => 'Name',
         'reviewResult' => 'ReviewResult',
-        'rid'          => 'Rid',
-        'type'         => 'Type',
+        'rid' => 'Rid',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class hitResult extends Model
         if (null !== $this->hits) {
             if (\is_array($this->hits)) {
                 $res['Hits'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->hits as $item1) {
                     $res['Hits'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class hitResult extends Model
         if (isset($map['Hits'])) {
             if (!empty($map['Hits'])) {
                 $model->hits = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Hits'] as $item1) {
                     $model->hits[$n1++] = hits::fromMap($item1);
                 }

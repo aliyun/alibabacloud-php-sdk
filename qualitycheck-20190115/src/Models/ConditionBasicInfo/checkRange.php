@@ -14,33 +14,38 @@ class checkRange extends Model
      * @var bool
      */
     public $absolute;
+
     /**
      * @var bool
      */
     public $allSentencesSatisfy;
+
     /**
      * @var anchor
      */
     public $anchor;
+
     /**
      * @var range
      */
     public $range;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $roleId;
     protected $_name = [
-        'absolute'            => 'Absolute',
+        'absolute' => 'Absolute',
         'allSentencesSatisfy' => 'AllSentencesSatisfy',
-        'anchor'              => 'Anchor',
-        'range'               => 'Range',
-        'role'                => 'Role',
-        'roleId'              => 'RoleId',
+        'anchor' => 'Anchor',
+        'range' => 'Range',
+        'role' => 'Role',
+        'roleId' => 'RoleId',
     ];
 
     public function validate()

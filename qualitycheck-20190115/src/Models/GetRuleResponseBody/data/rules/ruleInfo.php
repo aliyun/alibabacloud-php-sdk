@@ -13,113 +13,134 @@ class ruleInfo extends Model
      * @var int
      */
     public $autoReview;
+
     /**
      * @var businessCategoryNameList
      */
     public $businessCategoryNameList;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $createEmpid;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $isDelete;
+
     /**
      * @var int
      */
     public $isOnline;
+
     /**
      * @var string
      */
     public $lastUpdateEmpid;
+
     /**
      * @var string
      */
     public $lastUpdateTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleLambda;
+
     /**
      * @var int
      */
     public $ruleScoreType;
+
     /**
      * @var int
      */
     public $scoreId;
+
     /**
      * @var string
      */
     public $scoreName;
+
     /**
      * @var int
      */
     public $scoreSubId;
+
     /**
      * @var string
      */
     public $scoreSubName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
-        'autoReview'               => 'AutoReview',
+        'autoReview' => 'AutoReview',
         'businessCategoryNameList' => 'BusinessCategoryNameList',
-        'comments'                 => 'Comments',
-        'createEmpid'              => 'CreateEmpid',
-        'createTime'               => 'CreateTime',
-        'endTime'                  => 'EndTime',
-        'isDelete'                 => 'IsDelete',
-        'isOnline'                 => 'IsOnline',
-        'lastUpdateEmpid'          => 'LastUpdateEmpid',
-        'lastUpdateTime'           => 'LastUpdateTime',
-        'name'                     => 'Name',
-        'rid'                      => 'Rid',
-        'ruleLambda'               => 'RuleLambda',
-        'ruleScoreType'            => 'RuleScoreType',
-        'scoreId'                  => 'ScoreId',
-        'scoreName'                => 'ScoreName',
-        'scoreSubId'               => 'ScoreSubId',
-        'scoreSubName'             => 'ScoreSubName',
-        'startTime'                => 'StartTime',
-        'status'                   => 'Status',
-        'type'                     => 'Type',
-        'weight'                   => 'Weight',
+        'comments' => 'Comments',
+        'createEmpid' => 'CreateEmpid',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'isDelete' => 'IsDelete',
+        'isOnline' => 'IsOnline',
+        'lastUpdateEmpid' => 'LastUpdateEmpid',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'name' => 'Name',
+        'rid' => 'Rid',
+        'ruleLambda' => 'RuleLambda',
+        'ruleScoreType' => 'RuleScoreType',
+        'scoreId' => 'ScoreId',
+        'scoreName' => 'ScoreName',
+        'scoreSubId' => 'ScoreSubId',
+        'scoreSubName' => 'ScoreSubName',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
     public function validate()

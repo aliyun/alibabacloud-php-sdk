@@ -12,12 +12,13 @@ class reviewRightRule extends Model
      * @var int
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'rid'      => 'rid',
+        'rid' => 'rid',
         'ruleName' => 'ruleName',
     ];
 

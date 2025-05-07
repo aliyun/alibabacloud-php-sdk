@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->taskAssignRuleInfo) {
             if (\is_array($this->taskAssignRuleInfo)) {
                 $res['TaskAssignRuleInfo'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->taskAssignRuleInfo as $item1) {
                     $res['TaskAssignRuleInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['TaskAssignRuleInfo'])) {
             if (!empty($map['TaskAssignRuleInfo'])) {
                 $model->taskAssignRuleInfo = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['TaskAssignRuleInfo'] as $item1) {
                     $model->taskAssignRuleInfo[$n1++] = taskAssignRuleInfo::fromMap($item1);
                 }

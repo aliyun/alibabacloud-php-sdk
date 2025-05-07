@@ -15,58 +15,68 @@ class hitRuleReviewInfo extends Model
      * @var int
      */
     public $autoReview;
+
     /**
      * @var complainHistories
      */
     public $complainHistories;
+
     /**
      * @var bool
      */
     public $complainable;
+
     /**
      * @var conditionHitInfoList
      */
     public $conditionHitInfoList;
+
     /**
      * @var reviewInfo
      */
     public $reviewInfo;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $scoreId;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreSubId;
+
     /**
      * @var string
      */
     public $scoreSubName;
     protected $_name = [
-        'autoReview'           => 'AutoReview',
-        'complainHistories'    => 'ComplainHistories',
-        'complainable'         => 'Complainable',
+        'autoReview' => 'AutoReview',
+        'complainHistories' => 'ComplainHistories',
+        'complainable' => 'Complainable',
         'conditionHitInfoList' => 'ConditionHitInfoList',
-        'reviewInfo'           => 'ReviewInfo',
-        'rid'                  => 'Rid',
-        'ruleName'             => 'RuleName',
-        'scoreId'              => 'ScoreId',
-        'scoreNum'             => 'ScoreNum',
-        'scoreSubId'           => 'ScoreSubId',
-        'scoreSubName'         => 'ScoreSubName',
+        'reviewInfo' => 'ReviewInfo',
+        'rid' => 'Rid',
+        'ruleName' => 'RuleName',
+        'scoreId' => 'ScoreId',
+        'scoreNum' => 'ScoreNum',
+        'scoreSubId' => 'ScoreSubId',
+        'scoreSubName' => 'ScoreSubName',
     ];
 
     public function validate()

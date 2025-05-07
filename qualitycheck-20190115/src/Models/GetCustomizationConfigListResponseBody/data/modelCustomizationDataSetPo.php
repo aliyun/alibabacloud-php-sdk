@@ -12,38 +12,44 @@ class modelCustomizationDataSetPo extends Model
      * @var int
      */
     public $asrVersion;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $modeCustomizationId;
+
     /**
      * @var int
      */
     public $modelId;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var int
      */
     public $modelStatus;
+
     /**
      * @var int
      */
     public $taskType;
     protected $_name = [
-        'asrVersion'          => 'AsrVersion',
-        'createTime'          => 'CreateTime',
+        'asrVersion' => 'AsrVersion',
+        'createTime' => 'CreateTime',
         'modeCustomizationId' => 'ModeCustomizationId',
-        'modelId'             => 'ModelId',
-        'modelName'           => 'ModelName',
-        'modelStatus'         => 'ModelStatus',
-        'taskType'            => 'TaskType',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
+        'modelStatus' => 'ModelStatus',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

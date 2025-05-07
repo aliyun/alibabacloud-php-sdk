@@ -12,238 +12,284 @@ class RuleCountInfo extends Model
      * @var int
      */
     public $autoReview;
+
     /**
      * @var BusinessCategoryBasicInfo[]
      */
     public $businessCategoryBasicInfoList;
+
     /**
      * @var string[]
      */
     public $businessCategoryNameList;
+
     /**
      * @var int[]
      */
     public $businessRange;
+
     /**
      * @var int
      */
     public $checkNumber;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $createEmpName;
+
     /**
      * @var string
      */
     public $createEmpid;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $deny;
+
     /**
      * @var int
      */
     public $effective;
+
     /**
      * @var string
      */
     public $effectiveEndTime;
+
     /**
      * @var string
      */
     public $effectiveStartTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $fullCycle;
+
     /**
      * @var mixed
      */
     public $graphFlow;
+
     /**
      * @var int
      */
     public $hitNumber;
+
     /**
      * @var float
      */
     public $hitRate;
+
     /**
      * @var float
      */
     public $hitRealViolationRate;
+
     /**
      * @var int
      */
     public $isDelete;
+
     /**
      * @var bool
      */
     public $isSelect;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $lastUpdateEmpName;
+
     /**
      * @var string
      */
     public $lastUpdateEmpid;
+
     /**
      * @var string
      */
     public $lastUpdateTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $operationMode;
+
     /**
      * @var int
      */
     public $preReviewNumber;
+
     /**
      * @var int
      */
     public $problemNumber;
+
     /**
      * @var int
      */
     public $qualityCheckType;
+
     /**
      * @var int
      */
     public $realViolationNumber;
+
     /**
      * @var float
      */
     public $reviewAccuracyRate;
+
     /**
      * @var int
      */
     public $reviewNumber;
+
     /**
      * @var float
      */
     public $reviewRate;
+
     /**
      * @var string
      */
     public $reviewStatusName;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var int
      */
     public $ruleScoreSingleType;
+
     /**
      * @var int
      */
     public $ruleScoreType;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var int
      */
     public $scoreSubId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $targetType;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $typeName;
+
     /**
      * @var int
      */
     public $unReviewNumber;
+
     /**
      * @var string
      */
     public $userGroup;
     protected $_name = [
-        'autoReview'                    => 'AutoReview',
+        'autoReview' => 'AutoReview',
         'businessCategoryBasicInfoList' => 'BusinessCategoryBasicInfoList',
-        'businessCategoryNameList'      => 'BusinessCategoryNameList',
-        'businessRange'                 => 'BusinessRange',
-        'checkNumber'                   => 'CheckNumber',
-        'comments'                      => 'Comments',
-        'createEmpName'                 => 'CreateEmpName',
-        'createEmpid'                   => 'CreateEmpid',
-        'createTime'                    => 'CreateTime',
-        'deny'                          => 'Deny',
-        'effective'                     => 'Effective',
-        'effectiveEndTime'              => 'EffectiveEndTime',
-        'effectiveStartTime'            => 'EffectiveStartTime',
-        'endTime'                       => 'EndTime',
-        'fullCycle'                     => 'FullCycle',
-        'graphFlow'                     => 'GraphFlow',
-        'hitNumber'                     => 'HitNumber',
-        'hitRate'                       => 'HitRate',
-        'hitRealViolationRate'          => 'HitRealViolationRate',
-        'isDelete'                      => 'IsDelete',
-        'isSelect'                      => 'IsSelect',
-        'jobName'                       => 'JobName',
-        'lastUpdateEmpName'             => 'LastUpdateEmpName',
-        'lastUpdateEmpid'               => 'LastUpdateEmpid',
-        'lastUpdateTime'                => 'LastUpdateTime',
-        'name'                          => 'Name',
-        'operationMode'                 => 'OperationMode',
-        'preReviewNumber'               => 'PreReviewNumber',
-        'problemNumber'                 => 'ProblemNumber',
-        'qualityCheckType'              => 'QualityCheckType',
-        'realViolationNumber'           => 'RealViolationNumber',
-        'reviewAccuracyRate'            => 'ReviewAccuracyRate',
-        'reviewNumber'                  => 'ReviewNumber',
-        'reviewRate'                    => 'ReviewRate',
-        'reviewStatusName'              => 'ReviewStatusName',
-        'rid'                           => 'Rid',
-        'ruleScoreSingleType'           => 'RuleScoreSingleType',
-        'ruleScoreType'                 => 'RuleScoreType',
-        'ruleType'                      => 'RuleType',
-        'scoreSubId'                    => 'ScoreSubId',
-        'startTime'                     => 'StartTime',
-        'status'                        => 'Status',
-        'targetType'                    => 'TargetType',
-        'type'                          => 'Type',
-        'typeName'                      => 'TypeName',
-        'unReviewNumber'                => 'UnReviewNumber',
-        'userGroup'                     => 'UserGroup',
+        'businessCategoryNameList' => 'BusinessCategoryNameList',
+        'businessRange' => 'BusinessRange',
+        'checkNumber' => 'CheckNumber',
+        'comments' => 'Comments',
+        'createEmpName' => 'CreateEmpName',
+        'createEmpid' => 'CreateEmpid',
+        'createTime' => 'CreateTime',
+        'deny' => 'Deny',
+        'effective' => 'Effective',
+        'effectiveEndTime' => 'EffectiveEndTime',
+        'effectiveStartTime' => 'EffectiveStartTime',
+        'endTime' => 'EndTime',
+        'fullCycle' => 'FullCycle',
+        'graphFlow' => 'GraphFlow',
+        'hitNumber' => 'HitNumber',
+        'hitRate' => 'HitRate',
+        'hitRealViolationRate' => 'HitRealViolationRate',
+        'isDelete' => 'IsDelete',
+        'isSelect' => 'IsSelect',
+        'jobName' => 'JobName',
+        'lastUpdateEmpName' => 'LastUpdateEmpName',
+        'lastUpdateEmpid' => 'LastUpdateEmpid',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'name' => 'Name',
+        'operationMode' => 'OperationMode',
+        'preReviewNumber' => 'PreReviewNumber',
+        'problemNumber' => 'ProblemNumber',
+        'qualityCheckType' => 'QualityCheckType',
+        'realViolationNumber' => 'RealViolationNumber',
+        'reviewAccuracyRate' => 'ReviewAccuracyRate',
+        'reviewNumber' => 'ReviewNumber',
+        'reviewRate' => 'ReviewRate',
+        'reviewStatusName' => 'ReviewStatusName',
+        'rid' => 'Rid',
+        'ruleScoreSingleType' => 'RuleScoreSingleType',
+        'ruleScoreType' => 'RuleScoreType',
+        'ruleType' => 'RuleType',
+        'scoreSubId' => 'ScoreSubId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
+        'typeName' => 'TypeName',
+        'unReviewNumber' => 'UnReviewNumber',
+        'userGroup' => 'UserGroup',
     ];
 
     public function validate()
@@ -270,7 +316,7 @@ class RuleCountInfo extends Model
         if (null !== $this->businessCategoryBasicInfoList) {
             if (\is_array($this->businessCategoryBasicInfoList)) {
                 $res['BusinessCategoryBasicInfoList'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->businessCategoryBasicInfoList as $item1) {
                     $res['BusinessCategoryBasicInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -280,7 +326,7 @@ class RuleCountInfo extends Model
         if (null !== $this->businessCategoryNameList) {
             if (\is_array($this->businessCategoryNameList)) {
                 $res['BusinessCategoryNameList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->businessCategoryNameList as $item1) {
                     $res['BusinessCategoryNameList'][$n1++] = $item1;
                 }
@@ -290,7 +336,7 @@ class RuleCountInfo extends Model
         if (null !== $this->businessRange) {
             if (\is_array($this->businessRange)) {
                 $res['BusinessRange'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->businessRange as $item1) {
                     $res['BusinessRange'][$n1++] = $item1;
                 }
@@ -487,7 +533,7 @@ class RuleCountInfo extends Model
         if (isset($map['BusinessCategoryBasicInfoList'])) {
             if (!empty($map['BusinessCategoryBasicInfoList'])) {
                 $model->businessCategoryBasicInfoList = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['BusinessCategoryBasicInfoList'] as $item1) {
                     $model->businessCategoryBasicInfoList[$n1++] = BusinessCategoryBasicInfo::fromMap($item1);
                 }
@@ -497,7 +543,7 @@ class RuleCountInfo extends Model
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
                 $model->businessCategoryNameList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['BusinessCategoryNameList'] as $item1) {
                     $model->businessCategoryNameList[$n1++] = $item1;
                 }
@@ -507,7 +553,7 @@ class RuleCountInfo extends Model
         if (isset($map['BusinessRange'])) {
             if (!empty($map['BusinessRange'])) {
                 $model->businessRange = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['BusinessRange'] as $item1) {
                     $model->businessRange[$n1++] = $item1;
                 }

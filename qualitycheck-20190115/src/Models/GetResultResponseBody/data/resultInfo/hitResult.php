@@ -31,7 +31,7 @@ class hitResult extends Model
         if (null !== $this->hitResult) {
             if (\is_array($this->hitResult)) {
                 $res['HitResult'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->hitResult as $item1) {
                     $res['HitResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hitResult extends Model
         if (isset($map['HitResult'])) {
             if (!empty($map['HitResult'])) {
                 $model->hitResult = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['HitResult'] as $item1) {
                     $model->hitResult[$n1++] = self::fromMap($item1);
                 }

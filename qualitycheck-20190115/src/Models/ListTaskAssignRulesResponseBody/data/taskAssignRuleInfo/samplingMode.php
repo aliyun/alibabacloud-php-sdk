@@ -13,43 +13,50 @@ class samplingMode extends Model
      * @var int
      */
     public $anyNumberOfDraws;
+
     /**
      * @var bool
      */
     public $designated;
+
     /**
      * @var int
      */
     public $dimension;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var int
      */
     public $numberOfDraws;
+
     /**
      * @var float
      */
     public $proportion;
+
     /**
      * @var int
      */
     public $randomInspectionNumber;
+
     /**
      * @var samplingModeAgents
      */
     public $samplingModeAgents;
     protected $_name = [
-        'anyNumberOfDraws'       => 'AnyNumberOfDraws',
-        'designated'             => 'Designated',
-        'dimension'              => 'Dimension',
-        'limit'                  => 'Limit',
-        'numberOfDraws'          => 'NumberOfDraws',
-        'proportion'             => 'Proportion',
+        'anyNumberOfDraws' => 'AnyNumberOfDraws',
+        'designated' => 'Designated',
+        'dimension' => 'Dimension',
+        'limit' => 'Limit',
+        'numberOfDraws' => 'NumberOfDraws',
+        'proportion' => 'Proportion',
         'randomInspectionNumber' => 'RandomInspectionNumber',
-        'samplingModeAgents'     => 'SamplingModeAgents',
+        'samplingModeAgents' => 'SamplingModeAgents',
     ];
 
     public function validate()

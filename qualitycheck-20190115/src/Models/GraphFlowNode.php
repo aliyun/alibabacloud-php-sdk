@@ -14,52 +14,61 @@ class GraphFlowNode extends Model
      * @var ConditionBasicInfo[]
      */
     public $conditions;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var nextNodes[]
      */
     public $nextNodes;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var properties
      */
     public $properties;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var bool
      */
     public $useConditions;
     protected $_name = [
-        'conditions'    => 'Conditions',
-        'content'       => 'Content',
-        'id'            => 'Id',
-        'index'         => 'Index',
-        'name'          => 'Name',
-        'nextNodes'     => 'NextNodes',
-        'nodeType'      => 'NodeType',
-        'properties'    => 'Properties',
-        'rid'           => 'Rid',
+        'conditions' => 'Conditions',
+        'content' => 'Content',
+        'id' => 'Id',
+        'index' => 'Index',
+        'name' => 'Name',
+        'nextNodes' => 'NextNodes',
+        'nodeType' => 'NodeType',
+        'properties' => 'Properties',
+        'rid' => 'Rid',
         'useConditions' => 'UseConditions',
     ];
 
@@ -83,7 +92,7 @@ class GraphFlowNode extends Model
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['Conditions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->conditions as $item1) {
                     $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +118,7 @@ class GraphFlowNode extends Model
         if (null !== $this->nextNodes) {
             if (\is_array($this->nextNodes)) {
                 $res['NextNodes'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->nextNodes as $item1) {
                     $res['NextNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -146,7 +155,7 @@ class GraphFlowNode extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
                     $model->conditions[$n1++] = ConditionBasicInfo::fromMap($item1);
                 }
@@ -172,7 +181,7 @@ class GraphFlowNode extends Model
         if (isset($map['NextNodes'])) {
             if (!empty($map['NextNodes'])) {
                 $model->nextNodes = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NextNodes'] as $item1) {
                     $model->nextNodes[$n1++] = nextNodes::fromMap($item1);
                 }

@@ -21,138 +21,164 @@ class resultInfo extends Model
      * @var agent
      */
     public $agent;
+
     /**
      * @var asrResult
      */
     public $asrResult;
+
     /**
      * @var string
      */
     public $assignmentTime;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $createTimeLong;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var hitResult
      */
     public $hitResult;
+
     /**
      * @var hitScore
      */
     public $hitScore;
+
     /**
      * @var string
      */
     public $lastDataId;
+
     /**
      * @var recording
      */
     public $recording;
+
     /**
      * @var string
      */
     public $resolver;
+
     /**
      * @var reviewHistoryList
      */
     public $reviewHistoryList;
+
     /**
      * @var int
      */
     public $reviewResult;
+
     /**
      * @var int
      */
     public $reviewStatus;
+
     /**
      * @var string
      */
     public $reviewTime;
+
     /**
      * @var string
      */
     public $reviewTimeLong;
+
     /**
      * @var int
      */
     public $reviewType;
+
     /**
      * @var reviewTypeIdList
      */
     public $reviewTypeIdList;
+
     /**
      * @var string
      */
     public $reviewer;
+
     /**
      * @var schemeIdList
      */
     public $schemeIdList;
+
     /**
      * @var schemeNameList
      */
     public $schemeNameList;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $vid;
     protected $_name = [
-        'agent'             => 'Agent',
-        'asrResult'         => 'AsrResult',
-        'assignmentTime'    => 'AssignmentTime',
-        'comments'          => 'Comments',
-        'createTime'        => 'CreateTime',
-        'createTimeLong'    => 'CreateTimeLong',
-        'errorMessage'      => 'ErrorMessage',
-        'hitResult'         => 'HitResult',
-        'hitScore'          => 'HitScore',
-        'lastDataId'        => 'LastDataId',
-        'recording'         => 'Recording',
-        'resolver'          => 'Resolver',
+        'agent' => 'Agent',
+        'asrResult' => 'AsrResult',
+        'assignmentTime' => 'AssignmentTime',
+        'comments' => 'Comments',
+        'createTime' => 'CreateTime',
+        'createTimeLong' => 'CreateTimeLong',
+        'errorMessage' => 'ErrorMessage',
+        'hitResult' => 'HitResult',
+        'hitScore' => 'HitScore',
+        'lastDataId' => 'LastDataId',
+        'recording' => 'Recording',
+        'resolver' => 'Resolver',
         'reviewHistoryList' => 'ReviewHistoryList',
-        'reviewResult'      => 'ReviewResult',
-        'reviewStatus'      => 'ReviewStatus',
-        'reviewTime'        => 'ReviewTime',
-        'reviewTimeLong'    => 'ReviewTimeLong',
-        'reviewType'        => 'ReviewType',
-        'reviewTypeIdList'  => 'ReviewTypeIdList',
-        'reviewer'          => 'Reviewer',
-        'schemeIdList'      => 'SchemeIdList',
-        'schemeNameList'    => 'SchemeNameList',
-        'score'             => 'Score',
-        'status'            => 'Status',
-        'taskId'            => 'TaskId',
-        'taskName'          => 'TaskName',
-        'vid'               => 'Vid',
+        'reviewResult' => 'ReviewResult',
+        'reviewStatus' => 'ReviewStatus',
+        'reviewTime' => 'ReviewTime',
+        'reviewTimeLong' => 'ReviewTimeLong',
+        'reviewType' => 'ReviewType',
+        'reviewTypeIdList' => 'ReviewTypeIdList',
+        'reviewer' => 'Reviewer',
+        'schemeIdList' => 'SchemeIdList',
+        'schemeNameList' => 'SchemeNameList',
+        'score' => 'Score',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'vid' => 'Vid',
     ];
 
     public function validate()

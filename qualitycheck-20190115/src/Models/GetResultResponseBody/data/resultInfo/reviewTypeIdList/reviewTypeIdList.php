@@ -13,13 +13,14 @@ class reviewTypeIdList extends Model
      * @var reviewKeyIdList
      */
     public $reviewKeyIdList;
+
     /**
      * @var int
      */
     public $reviewTypeId;
     protected $_name = [
         'reviewKeyIdList' => 'ReviewKeyIdList',
-        'reviewTypeId'    => 'ReviewTypeId',
+        'reviewTypeId' => 'ReviewTypeId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class reviewHistoryList extends Model
         if (null !== $this->reviewHistory) {
             if (\is_array($this->reviewHistory)) {
                 $res['ReviewHistory'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->reviewHistory as $item1) {
                     $res['ReviewHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class reviewHistoryList extends Model
         if (isset($map['ReviewHistory'])) {
             if (!empty($map['ReviewHistory'])) {
                 $model->reviewHistory = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ReviewHistory'] as $item1) {
                     $model->reviewHistory[$n1++] = reviewHistory::fromMap($item1);
                 }

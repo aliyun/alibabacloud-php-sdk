@@ -30,7 +30,7 @@ class customerServiceIdList extends Model
         if (null !== $this->customerServiceIdList) {
             if (\is_array($this->customerServiceIdList)) {
                 $res['CustomerServiceIdList'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->customerServiceIdList as $item1) {
                     $res['CustomerServiceIdList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class customerServiceIdList extends Model
         if (isset($map['CustomerServiceIdList'])) {
             if (!empty($map['CustomerServiceIdList'])) {
                 $model->customerServiceIdList = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['CustomerServiceIdList'] as $item1) {
                     $model->customerServiceIdList[$n1++] = $item1;
                 }

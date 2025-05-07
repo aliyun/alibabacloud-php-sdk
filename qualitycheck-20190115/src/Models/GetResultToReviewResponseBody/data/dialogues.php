@@ -31,7 +31,7 @@ class dialogues extends Model
         if (null !== $this->dialogue) {
             if (\is_array($this->dialogue)) {
                 $res['Dialogue'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dialogue as $item1) {
                     $res['Dialogue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dialogues extends Model
         if (isset($map['Dialogue'])) {
             if (!empty($map['Dialogue'])) {
                 $model->dialogue = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Dialogue'] as $item1) {
                     $model->dialogue[$n1++] = dialogue::fromMap($item1);
                 }

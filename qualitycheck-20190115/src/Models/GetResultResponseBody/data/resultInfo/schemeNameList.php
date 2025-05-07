@@ -30,7 +30,7 @@ class schemeNameList extends Model
         if (null !== $this->schemeNameList) {
             if (\is_array($this->schemeNameList)) {
                 $res['SchemeNameList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->schemeNameList as $item1) {
                     $res['SchemeNameList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class schemeNameList extends Model
         if (isset($map['SchemeNameList'])) {
             if (!empty($map['SchemeNameList'])) {
                 $model->schemeNameList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SchemeNameList'] as $item1) {
                     $model->schemeNameList[$n1++] = $item1;
                 }

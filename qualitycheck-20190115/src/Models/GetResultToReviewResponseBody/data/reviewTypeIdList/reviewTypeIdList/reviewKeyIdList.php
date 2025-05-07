@@ -30,7 +30,7 @@ class reviewKeyIdList extends Model
         if (null !== $this->reviewKeyIdList) {
             if (\is_array($this->reviewKeyIdList)) {
                 $res['ReviewKeyIdList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->reviewKeyIdList as $item1) {
                     $res['ReviewKeyIdList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class reviewKeyIdList extends Model
         if (isset($map['ReviewKeyIdList'])) {
             if (!empty($map['ReviewKeyIdList'])) {
                 $model->reviewKeyIdList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ReviewKeyIdList'] as $item1) {
                     $model->reviewKeyIdList[$n1++] = $item1;
                 }

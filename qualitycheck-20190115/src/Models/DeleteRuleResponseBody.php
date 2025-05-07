@@ -13,33 +13,38 @@ class DeleteRuleResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var messages
      */
     public $messages;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'messages'       => 'Messages',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

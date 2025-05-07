@@ -31,7 +31,7 @@ class hitScore extends Model
         if (null !== $this->hitScore) {
             if (\is_array($this->hitScore)) {
                 $res['HitScore'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->hitScore as $item1) {
                     $res['HitScore'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hitScore extends Model
         if (isset($map['HitScore'])) {
             if (!empty($map['HitScore'])) {
                 $model->hitScore = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['HitScore'] as $item1) {
                     $model->hitScore[$n1++] = self::fromMap($item1);
                 }

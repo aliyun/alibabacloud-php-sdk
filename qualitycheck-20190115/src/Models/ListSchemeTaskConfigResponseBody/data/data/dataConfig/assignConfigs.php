@@ -31,7 +31,7 @@ class assignConfigs extends Model
         if (null !== $this->assignConfig) {
             if (\is_array($this->assignConfig)) {
                 $res['AssignConfig'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->assignConfig as $item1) {
                     $res['AssignConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class assignConfigs extends Model
         if (isset($map['AssignConfig'])) {
             if (!empty($map['AssignConfig'])) {
                 $model->assignConfig = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AssignConfig'] as $item1) {
                     $model->assignConfig[$n1++] = assignConfig::fromMap($item1);
                 }

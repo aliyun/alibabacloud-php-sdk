@@ -12,33 +12,38 @@ class RulesInfo extends Model
      * @var ConditionBasicInfo[]
      */
     public $conditions;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var RuleTestDialogue[]
      */
     public $dialogues;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var RuleInfo[]
      */
     public $rules;
     protected $_name = [
         'conditions' => 'Conditions',
-        'count'      => 'Count',
-        'dialogues'  => 'Dialogues',
+        'count' => 'Count',
+        'dialogues' => 'Dialogues',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'rules'      => 'Rules',
+        'pageSize' => 'PageSize',
+        'rules' => 'Rules',
     ];
 
     public function validate()
@@ -61,7 +66,7 @@ class RulesInfo extends Model
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['Conditions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->conditions as $item1) {
                     $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -75,7 +80,7 @@ class RulesInfo extends Model
         if (null !== $this->dialogues) {
             if (\is_array($this->dialogues)) {
                 $res['Dialogues'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->dialogues as $item1) {
                     $res['Dialogues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -93,7 +98,7 @@ class RulesInfo extends Model
         if (null !== $this->rules) {
             if (\is_array($this->rules)) {
                 $res['Rules'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->rules as $item1) {
                     $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +119,7 @@ class RulesInfo extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
                     $model->conditions[$n1++] = ConditionBasicInfo::fromMap($item1);
                 }
@@ -128,7 +133,7 @@ class RulesInfo extends Model
         if (isset($map['Dialogues'])) {
             if (!empty($map['Dialogues'])) {
                 $model->dialogues = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Dialogues'] as $item1) {
                     $model->dialogues[$n1++] = RuleTestDialogue::fromMap($item1);
                 }
@@ -146,7 +151,7 @@ class RulesInfo extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
                     $model->rules[$n1++] = RuleInfo::fromMap($item1);
                 }

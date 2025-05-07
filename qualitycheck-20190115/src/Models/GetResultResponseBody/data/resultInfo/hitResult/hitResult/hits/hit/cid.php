@@ -30,7 +30,7 @@ class cid extends Model
         if (null !== $this->cid) {
             if (\is_array($this->cid)) {
                 $res['Cid'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->cid as $item1) {
                     $res['Cid'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class cid extends Model
         if (isset($map['Cid'])) {
             if (!empty($map['Cid'])) {
                 $model->cid = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Cid'] as $item1) {
                     $model->cid[$n1++] = $item1;
                 }

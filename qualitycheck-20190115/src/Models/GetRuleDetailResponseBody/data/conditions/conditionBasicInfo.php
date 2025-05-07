@@ -14,23 +14,26 @@ class conditionBasicInfo extends Model
      * @var checkRange
      */
     public $checkRange;
+
     /**
      * @var string
      */
     public $conditionInfoCid;
+
     /**
      * @var string
      */
     public $operLambda;
+
     /**
      * @var operators
      */
     public $operators;
     protected $_name = [
-        'checkRange'       => 'CheckRange',
+        'checkRange' => 'CheckRange',
         'conditionInfoCid' => 'ConditionInfoCid',
-        'operLambda'       => 'OperLambda',
-        'operators'        => 'Operators',
+        'operLambda' => 'OperLambda',
+        'operators' => 'Operators',
     ];
 
     public function validate()

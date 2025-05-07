@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $wsEndpoint;
     protected $_name = [
-        'sessionId'  => 'SessionId',
-        'token'      => 'Token',
+        'sessionId' => 'SessionId',
+        'token' => 'Token',
         'wsEndpoint' => 'WsEndpoint',
     ];
 

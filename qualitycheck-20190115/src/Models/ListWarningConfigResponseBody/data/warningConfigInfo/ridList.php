@@ -30,7 +30,7 @@ class ridList extends Model
         if (null !== $this->ridList) {
             if (\is_array($this->ridList)) {
                 $res['RidList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->ridList as $item1) {
                     $res['RidList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ridList extends Model
         if (isset($map['RidList'])) {
             if (!empty($map['RidList'])) {
                 $model->ridList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['RidList'] as $item1) {
                     $model->ridList[$n1++] = $item1;
                 }

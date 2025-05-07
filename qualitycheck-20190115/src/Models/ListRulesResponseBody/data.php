@@ -12,43 +12,50 @@ class data extends Model
      * @var string[]
      */
     public $businessCategoryNameList;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $typeName;
     protected $_name = [
         'businessCategoryNameList' => 'BusinessCategoryNameList',
-        'comments'                 => 'Comments',
-        'createTime'               => 'CreateTime',
-        'name'                     => 'Name',
-        'rid'                      => 'Rid',
-        'ruleType'                 => 'RuleType',
-        'type'                     => 'Type',
-        'typeName'                 => 'TypeName',
+        'comments' => 'Comments',
+        'createTime' => 'CreateTime',
+        'name' => 'Name',
+        'rid' => 'Rid',
+        'ruleType' => 'RuleType',
+        'type' => 'Type',
+        'typeName' => 'TypeName',
     ];
 
     public function validate()
@@ -65,7 +72,7 @@ class data extends Model
         if (null !== $this->businessCategoryNameList) {
             if (\is_array($this->businessCategoryNameList)) {
                 $res['BusinessCategoryNameList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->businessCategoryNameList as $item1) {
                     $res['BusinessCategoryNameList'][$n1++] = $item1;
                 }
@@ -114,7 +121,7 @@ class data extends Model
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
                 $model->businessCategoryNameList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['BusinessCategoryNameList'] as $item1) {
                     $model->businessCategoryNameList[$n1++] = $item1;
                 }

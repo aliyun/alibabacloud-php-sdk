@@ -31,7 +31,7 @@ class reviewRightRule extends Model
         if (null !== $this->reviewRightRule) {
             if (\is_array($this->reviewRightRule)) {
                 $res['ReviewRightRule'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->reviewRightRule as $item1) {
                     $res['ReviewRightRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class reviewRightRule extends Model
         if (isset($map['ReviewRightRule'])) {
             if (!empty($map['ReviewRightRule'])) {
                 $model->reviewRightRule = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ReviewRightRule'] as $item1) {
                     $model->reviewRightRule[$n1++] = self::fromMap($item1);
                 }

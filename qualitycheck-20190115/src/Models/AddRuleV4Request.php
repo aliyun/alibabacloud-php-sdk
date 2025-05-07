@@ -12,17 +12,19 @@ class AddRuleV4Request extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var bool
      */
     public $isCopy;
+
     /**
      * @var string
      */
     public $jsonStrForRule;
     protected $_name = [
-        'baseMeAgentId'  => 'BaseMeAgentId',
-        'isCopy'         => 'IsCopy',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'isCopy' => 'IsCopy',
         'jsonStrForRule' => 'JsonStrForRule',
     ];
 

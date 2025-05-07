@@ -30,7 +30,7 @@ class reviewerList extends Model
         if (null !== $this->reviewerList) {
             if (\is_array($this->reviewerList)) {
                 $res['ReviewerList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->reviewerList as $item1) {
                     $res['ReviewerList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class reviewerList extends Model
         if (isset($map['ReviewerList'])) {
             if (!empty($map['ReviewerList'])) {
                 $model->reviewerList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ReviewerList'] as $item1) {
                     $model->reviewerList[$n1++] = $item1;
                 }

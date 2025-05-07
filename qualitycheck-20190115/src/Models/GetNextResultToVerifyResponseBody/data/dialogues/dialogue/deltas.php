@@ -31,7 +31,7 @@ class deltas extends Model
         if (null !== $this->delta) {
             if (\is_array($this->delta)) {
                 $res['Delta'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->delta as $item1) {
                     $res['Delta'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class deltas extends Model
         if (isset($map['Delta'])) {
             if (!empty($map['Delta'])) {
                 $model->delta = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Delta'] as $item1) {
                     $model->delta[$n1++] = delta::fromMap($item1);
                 }

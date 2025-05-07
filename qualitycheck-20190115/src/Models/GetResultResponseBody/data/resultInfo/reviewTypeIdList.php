@@ -31,7 +31,7 @@ class reviewTypeIdList extends Model
         if (null !== $this->reviewTypeIdList) {
             if (\is_array($this->reviewTypeIdList)) {
                 $res['ReviewTypeIdList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->reviewTypeIdList as $item1) {
                     $res['ReviewTypeIdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class reviewTypeIdList extends Model
         if (isset($map['ReviewTypeIdList'])) {
             if (!empty($map['ReviewTypeIdList'])) {
                 $model->reviewTypeIdList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ReviewTypeIdList'] as $item1) {
                     $model->reviewTypeIdList[$n1++] = self::fromMap($item1);
                 }

@@ -13,23 +13,26 @@ class data extends Model
      * @var int
      */
     public $asrVersion;
+
     /**
      * @var string
      */
     public $modelCustomizationId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var words
      */
     public $words;
     protected $_name = [
-        'asrVersion'           => 'AsrVersion',
+        'asrVersion' => 'AsrVersion',
         'modelCustomizationId' => 'ModelCustomizationId',
-        'name'                 => 'Name',
-        'words'                => 'Words',
+        'name' => 'Name',
+        'words' => 'Words',
     ];
 
     public function validate()

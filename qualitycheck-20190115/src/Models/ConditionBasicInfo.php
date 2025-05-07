@@ -13,48 +13,56 @@ class ConditionBasicInfo extends Model
      * @var checkRange
      */
     public $checkRange;
+
     /**
      * @var string
      */
     public $cid;
+
     /**
      * @var int
      */
     public $exclusion;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var OperatorBasicInfo[]
      */
     public $operators;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var string
      */
     public $userGroup;
     protected $_name = [
         'checkRange' => 'Check_range',
-        'cid'        => 'Cid',
-        'exclusion'  => 'Exclusion',
-        'id'         => 'Id',
-        'lambda'     => 'Lambda',
-        'name'       => 'Name',
-        'operators'  => 'Operators',
-        'rid'        => 'Rid',
-        'userGroup'  => 'UserGroup',
+        'cid' => 'Cid',
+        'exclusion' => 'Exclusion',
+        'id' => 'Id',
+        'lambda' => 'Lambda',
+        'name' => 'Name',
+        'operators' => 'Operators',
+        'rid' => 'Rid',
+        'userGroup' => 'UserGroup',
     ];
 
     public function validate()
@@ -98,7 +106,7 @@ class ConditionBasicInfo extends Model
         if (null !== $this->operators) {
             if (\is_array($this->operators)) {
                 $res['Operators'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->operators as $item1) {
                     $res['Operators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +159,7 @@ class ConditionBasicInfo extends Model
         if (isset($map['Operators'])) {
             if (!empty($map['Operators'])) {
                 $model->operators = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Operators'] as $item1) {
                     $model->operators[$n1++] = OperatorBasicInfo::fromMap($item1);
                 }

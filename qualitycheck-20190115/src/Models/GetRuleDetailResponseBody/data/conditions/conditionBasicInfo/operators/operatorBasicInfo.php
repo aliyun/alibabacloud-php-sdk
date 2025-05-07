@@ -13,23 +13,26 @@ class operatorBasicInfo extends Model
      * @var string
      */
     public $oid;
+
     /**
      * @var string
      */
     public $operName;
+
     /**
      * @var param
      */
     public $param;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'oid'      => 'Oid',
+        'oid' => 'Oid',
         'operName' => 'OperName',
-        'param'    => 'Param',
-        'type'     => 'Type',
+        'param' => 'Param',
+        'type' => 'Type',
     ];
 
     public function validate()

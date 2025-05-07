@@ -31,7 +31,7 @@ class conditions extends Model
         if (null !== $this->conditionBasicInfo) {
             if (\is_array($this->conditionBasicInfo)) {
                 $res['ConditionBasicInfo'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->conditionBasicInfo as $item1) {
                     $res['ConditionBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class conditions extends Model
         if (isset($map['ConditionBasicInfo'])) {
             if (!empty($map['ConditionBasicInfo'])) {
                 $model->conditionBasicInfo = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ConditionBasicInfo'] as $item1) {
                     $model->conditionBasicInfo[$n1++] = conditionBasicInfo::fromMap($item1);
                 }

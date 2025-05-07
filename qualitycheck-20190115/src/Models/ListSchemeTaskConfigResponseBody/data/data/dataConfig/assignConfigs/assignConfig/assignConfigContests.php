@@ -31,7 +31,7 @@ class assignConfigContests extends Model
         if (null !== $this->assignConfigContest) {
             if (\is_array($this->assignConfigContest)) {
                 $res['AssignConfigContest'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->assignConfigContest as $item1) {
                     $res['AssignConfigContest'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class assignConfigContests extends Model
         if (isset($map['AssignConfigContest'])) {
             if (!empty($map['AssignConfigContest'])) {
                 $model->assignConfigContest = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['AssignConfigContest'] as $item1) {
                     $model->assignConfigContest[$n1++] = assignConfigContest::fromMap($item1);
                 }

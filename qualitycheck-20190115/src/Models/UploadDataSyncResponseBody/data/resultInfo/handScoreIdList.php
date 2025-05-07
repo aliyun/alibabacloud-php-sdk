@@ -30,7 +30,7 @@ class handScoreIdList extends Model
         if (null !== $this->handScoreIdList) {
             if (\is_array($this->handScoreIdList)) {
                 $res['HandScoreIdList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->handScoreIdList as $item1) {
                     $res['HandScoreIdList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class handScoreIdList extends Model
         if (isset($map['HandScoreIdList'])) {
             if (!empty($map['HandScoreIdList'])) {
                 $model->handScoreIdList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['HandScoreIdList'] as $item1) {
                     $model->handScoreIdList[$n1++] = $item1;
                 }

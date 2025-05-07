@@ -12,12 +12,13 @@ class schemeList extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $schemeId;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'schemeId' => 'SchemeId',
     ];
 

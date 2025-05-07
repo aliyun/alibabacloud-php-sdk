@@ -30,7 +30,7 @@ class triggers extends Model
         if (null !== $this->trigger) {
             if (\is_array($this->trigger)) {
                 $res['Trigger'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->trigger as $item1) {
                     $res['Trigger'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class triggers extends Model
         if (isset($map['Trigger'])) {
             if (!empty($map['Trigger'])) {
                 $model->trigger = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Trigger'] as $item1) {
                     $model->trigger[$n1++] = $item1;
                 }

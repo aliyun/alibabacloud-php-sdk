@@ -14,18 +14,20 @@ class resultInfo extends Model
      * @var handScoreIdList
      */
     public $handScoreIdList;
+
     /**
      * @var rules
      */
     public $rules;
+
     /**
      * @var int
      */
     public $score;
     protected $_name = [
         'handScoreIdList' => 'HandScoreIdList',
-        'rules'           => 'Rules',
-        'score'           => 'Score',
+        'rules' => 'Rules',
+        'score' => 'Score',
     ];
 
     public function validate()

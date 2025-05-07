@@ -31,7 +31,7 @@ class complainHistories extends Model
         if (null !== $this->complainHistories) {
             if (\is_array($this->complainHistories)) {
                 $res['ComplainHistories'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->complainHistories as $item1) {
                     $res['ComplainHistories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class complainHistories extends Model
         if (isset($map['ComplainHistories'])) {
             if (!empty($map['ComplainHistories'])) {
                 $model->complainHistories = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ComplainHistories'] as $item1) {
                     $model->complainHistories[$n1++] = self::fromMap($item1);
                 }

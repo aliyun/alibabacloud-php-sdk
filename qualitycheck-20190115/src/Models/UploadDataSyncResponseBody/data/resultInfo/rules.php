@@ -31,7 +31,7 @@ class rules extends Model
         if (null !== $this->ruleHitInfo) {
             if (\is_array($this->ruleHitInfo)) {
                 $res['RuleHitInfo'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ruleHitInfo as $item1) {
                     $res['RuleHitInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class rules extends Model
         if (isset($map['RuleHitInfo'])) {
             if (!empty($map['RuleHitInfo'])) {
                 $model->ruleHitInfo = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RuleHitInfo'] as $item1) {
                     $model->ruleHitInfo[$n1++] = ruleHitInfo::fromMap($item1);
                 }

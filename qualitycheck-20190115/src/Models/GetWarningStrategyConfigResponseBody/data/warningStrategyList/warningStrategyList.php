@@ -13,53 +13,62 @@ class warningStrategyList extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $durationExpression;
+
     /**
      * @var int
      */
     public $hitNumber;
+
     /**
      * @var int
      */
     public $hitNumberExpression;
+
     /**
      * @var string
      */
     public $hitRuleList;
+
     /**
      * @var int
      */
     public $hitType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var range
      */
     public $range;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'code'                => 'Code',
-        'duration'            => 'Duration',
-        'durationExpression'  => 'DurationExpression',
-        'hitNumber'           => 'HitNumber',
+        'code' => 'Code',
+        'duration' => 'Duration',
+        'durationExpression' => 'DurationExpression',
+        'hitNumber' => 'HitNumber',
         'hitNumberExpression' => 'HitNumberExpression',
-        'hitRuleList'         => 'HitRuleList',
-        'hitType'             => 'HitType',
-        'id'                  => 'Id',
-        'range'               => 'Range',
-        'status'              => 'Status',
+        'hitRuleList' => 'HitRuleList',
+        'hitType' => 'HitType',
+        'id' => 'Id',
+        'range' => 'Range',
+        'status' => 'Status',
     ];
 
     public function validate()

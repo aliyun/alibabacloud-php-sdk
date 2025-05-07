@@ -12,58 +12,68 @@ class dialogue extends Model
      * @var int
      */
     public $begin;
+
     /**
      * @var string
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $beginTimeMs;
+
     /**
      * @var int
      */
     public $emotionValue;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $hourMinSec;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $silenceDuration;
+
     /**
      * @var int
      */
     public $speechRate;
+
     /**
      * @var string
      */
     public $words;
     protected $_name = [
-        'begin'           => 'Begin',
-        'beginTime'       => 'BeginTime',
-        'beginTimeMs'     => 'BeginTimeMs',
-        'emotionValue'    => 'EmotionValue',
-        'end'             => 'End',
-        'hourMinSec'      => 'HourMinSec',
-        'identity'        => 'Identity',
-        'role'            => 'Role',
+        'begin' => 'Begin',
+        'beginTime' => 'BeginTime',
+        'beginTimeMs' => 'BeginTimeMs',
+        'emotionValue' => 'EmotionValue',
+        'end' => 'End',
+        'hourMinSec' => 'HourMinSec',
+        'identity' => 'Identity',
+        'role' => 'Role',
         'silenceDuration' => 'SilenceDuration',
-        'speechRate'      => 'SpeechRate',
-        'words'           => 'Words',
+        'speechRate' => 'SpeechRate',
+        'words' => 'Words',
     ];
 
     public function validate()

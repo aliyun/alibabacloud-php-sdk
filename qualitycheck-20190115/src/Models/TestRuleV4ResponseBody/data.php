@@ -15,17 +15,19 @@ class data extends Model
      * @var hitRuleReviewInfoList[]
      */
     public $hitRuleReviewInfoList;
+
     /**
      * @var hitTaskFlowList[]
      */
     public $hitTaskFlowList;
+
     /**
      * @var unhitRuleReviewInfoList[]
      */
     public $unhitRuleReviewInfoList;
     protected $_name = [
-        'hitRuleReviewInfoList'   => 'HitRuleReviewInfoList',
-        'hitTaskFlowList'         => 'HitTaskFlowList',
+        'hitRuleReviewInfoList' => 'HitRuleReviewInfoList',
+        'hitTaskFlowList' => 'HitTaskFlowList',
         'unhitRuleReviewInfoList' => 'UnhitRuleReviewInfoList',
     ];
 
@@ -49,7 +51,7 @@ class data extends Model
         if (null !== $this->hitRuleReviewInfoList) {
             if (\is_array($this->hitRuleReviewInfoList)) {
                 $res['HitRuleReviewInfoList'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->hitRuleReviewInfoList as $item1) {
                     $res['HitRuleReviewInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class data extends Model
         if (null !== $this->hitTaskFlowList) {
             if (\is_array($this->hitTaskFlowList)) {
                 $res['HitTaskFlowList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->hitTaskFlowList as $item1) {
                     $res['HitTaskFlowList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class data extends Model
         if (null !== $this->unhitRuleReviewInfoList) {
             if (\is_array($this->unhitRuleReviewInfoList)) {
                 $res['UnhitRuleReviewInfoList'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->unhitRuleReviewInfoList as $item1) {
                     $res['UnhitRuleReviewInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -90,7 +92,7 @@ class data extends Model
         if (isset($map['HitRuleReviewInfoList'])) {
             if (!empty($map['HitRuleReviewInfoList'])) {
                 $model->hitRuleReviewInfoList = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['HitRuleReviewInfoList'] as $item1) {
                     $model->hitRuleReviewInfoList[$n1++] = hitRuleReviewInfoList::fromMap($item1);
                 }
@@ -100,7 +102,7 @@ class data extends Model
         if (isset($map['HitTaskFlowList'])) {
             if (!empty($map['HitTaskFlowList'])) {
                 $model->hitTaskFlowList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['HitTaskFlowList'] as $item1) {
                     $model->hitTaskFlowList[$n1++] = hitTaskFlowList::fromMap($item1);
                 }
@@ -110,7 +112,7 @@ class data extends Model
         if (isset($map['UnhitRuleReviewInfoList'])) {
             if (!empty($map['UnhitRuleReviewInfoList'])) {
                 $model->unhitRuleReviewInfoList = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['UnhitRuleReviewInfoList'] as $item1) {
                     $model->unhitRuleReviewInfoList[$n1++] = unhitRuleReviewInfoList::fromMap($item1);
                 }

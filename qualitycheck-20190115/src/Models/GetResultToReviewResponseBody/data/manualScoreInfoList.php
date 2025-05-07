@@ -31,7 +31,7 @@ class manualScoreInfoList extends Model
         if (null !== $this->manualScoreInfo) {
             if (\is_array($this->manualScoreInfo)) {
                 $res['ManualScoreInfo'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->manualScoreInfo as $item1) {
                     $res['ManualScoreInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class manualScoreInfoList extends Model
         if (isset($map['ManualScoreInfo'])) {
             if (!empty($map['ManualScoreInfo'])) {
                 $model->manualScoreInfo = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ManualScoreInfo'] as $item1) {
                     $model->manualScoreInfo[$n1++] = manualScoreInfo::fromMap($item1);
                 }

@@ -12,22 +12,25 @@ class BusinessCategoryBasicInfo extends Model
      * @var int
      */
     public $bid;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $originalId;
+
     /**
      * @var int
      */
     public $serviceType;
     protected $_name = [
-        'bid'         => 'Bid',
-        'name'        => 'Name',
-        'originalId'  => 'OriginalId',
+        'bid' => 'Bid',
+        'name' => 'Name',
+        'originalId' => 'OriginalId',
         'serviceType' => 'ServiceType',
     ];
 

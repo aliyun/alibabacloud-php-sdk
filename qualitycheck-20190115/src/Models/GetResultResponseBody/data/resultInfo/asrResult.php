@@ -31,7 +31,7 @@ class asrResult extends Model
         if (null !== $this->asrResult) {
             if (\is_array($this->asrResult)) {
                 $res['AsrResult'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->asrResult as $item1) {
                     $res['AsrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class asrResult extends Model
         if (isset($map['AsrResult'])) {
             if (!empty($map['AsrResult'])) {
                 $model->asrResult = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AsrResult'] as $item1) {
                     $model->asrResult[$n1++] = self::fromMap($item1);
                 }

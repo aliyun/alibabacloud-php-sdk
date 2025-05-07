@@ -30,7 +30,7 @@ class businessCategoryNameList extends Model
         if (null !== $this->businessCategoryNameList) {
             if (\is_array($this->businessCategoryNameList)) {
                 $res['BusinessCategoryNameList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->businessCategoryNameList as $item1) {
                     $res['BusinessCategoryNameList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class businessCategoryNameList extends Model
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
                 $model->businessCategoryNameList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['BusinessCategoryNameList'] as $item1) {
                     $model->businessCategoryNameList[$n1++] = $item1;
                 }

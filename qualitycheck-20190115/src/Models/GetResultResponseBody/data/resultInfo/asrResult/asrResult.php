@@ -12,38 +12,44 @@ class asrResult extends Model
      * @var int
      */
     public $begin;
+
     /**
      * @var int
      */
     public $emotionValue;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $speechRate;
+
     /**
      * @var string
      */
     public $words;
     protected $_name = [
-        'begin'        => 'Begin',
+        'begin' => 'Begin',
         'emotionValue' => 'EmotionValue',
-        'end'          => 'End',
-        'identity'     => 'Identity',
-        'role'         => 'Role',
-        'speechRate'   => 'SpeechRate',
-        'words'        => 'Words',
+        'end' => 'End',
+        'identity' => 'Identity',
+        'role' => 'Role',
+        'speechRate' => 'SpeechRate',
+        'words' => 'Words',
     ];
 
     public function validate()

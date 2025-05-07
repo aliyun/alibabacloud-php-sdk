@@ -12,68 +12,80 @@ class ListRulesV4ResponseBody extends Model
      * @var int
      */
     public $businessType;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var RuleCountInfo[]
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string[]
      */
     public $messages;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'businessType'   => 'BusinessType',
-        'code'           => 'Code',
-        'count'          => 'Count',
-        'currentPage'    => 'CurrentPage',
-        'data'           => 'Data',
+        'businessType' => 'BusinessType',
+        'code' => 'Code',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'messages'       => 'Messages',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'totalCount'     => 'TotalCount',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -109,7 +121,7 @@ class ListRulesV4ResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -127,7 +139,7 @@ class ListRulesV4ResponseBody extends Model
         if (null !== $this->messages) {
             if (\is_array($this->messages)) {
                 $res['Messages'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->messages as $item1) {
                     $res['Messages'][$n1++] = $item1;
                 }
@@ -184,7 +196,7 @@ class ListRulesV4ResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = RuleCountInfo::fromMap($item1);
                 }
@@ -202,7 +214,7 @@ class ListRulesV4ResponseBody extends Model
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Messages'] as $item1) {
                     $model->messages[$n1++] = $item1;
                 }

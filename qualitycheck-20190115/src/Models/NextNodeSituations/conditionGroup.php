@@ -13,13 +13,14 @@ class conditionGroup extends Model
      * @var JudgeNodeMetaDesc[]
      */
     public $conditions;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'conditions' => 'Conditions',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class conditionGroup extends Model
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['Conditions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->conditions as $item1) {
                     $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class conditionGroup extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
                     $model->conditions[$n1++] = JudgeNodeMetaDesc::fromMap($item1);
                 }

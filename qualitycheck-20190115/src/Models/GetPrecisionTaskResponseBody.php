@@ -13,28 +13,32 @@ class GetPrecisionTaskResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

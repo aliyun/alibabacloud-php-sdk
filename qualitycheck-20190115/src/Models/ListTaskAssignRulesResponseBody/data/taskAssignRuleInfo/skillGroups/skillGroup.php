@@ -12,12 +12,13 @@ class skillGroup extends Model
      * @var string
      */
     public $skillId;
+
     /**
      * @var string
      */
     public $skillName;
     protected $_name = [
-        'skillId'   => 'SkillId',
+        'skillId' => 'SkillId',
         'skillName' => 'SkillName',
     ];
 

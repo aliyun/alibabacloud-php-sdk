@@ -13,33 +13,38 @@ class manualScoreInfo extends Model
      * @var complainHistories
      */
     public $complainHistories;
+
     /**
      * @var bool
      */
     public $complainable;
+
     /**
      * @var int
      */
     public $scoreId;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreSubId;
+
     /**
      * @var string
      */
     public $scoreSubName;
     protected $_name = [
         'complainHistories' => 'ComplainHistories',
-        'complainable'      => 'Complainable',
-        'scoreId'           => 'ScoreId',
-        'scoreNum'          => 'ScoreNum',
-        'scoreSubId'        => 'ScoreSubId',
-        'scoreSubName'      => 'ScoreSubName',
+        'complainable' => 'Complainable',
+        'scoreId' => 'ScoreId',
+        'scoreNum' => 'ScoreNum',
+        'scoreSubId' => 'ScoreSubId',
+        'scoreSubName' => 'ScoreSubName',
     ];
 
     public function validate()

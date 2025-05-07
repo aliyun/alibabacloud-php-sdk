@@ -13,12 +13,13 @@ class source extends Model
      * @var line
      */
     public $line;
+
     /**
      * @var int
      */
     public $position;
     protected $_name = [
-        'line'     => 'Line',
+        'line' => 'Line',
         'position' => 'Position',
     ];
 

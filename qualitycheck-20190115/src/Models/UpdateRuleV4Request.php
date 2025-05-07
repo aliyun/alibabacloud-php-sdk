@@ -12,18 +12,20 @@ class UpdateRuleV4Request extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var string
      */
     public $jsonStrForRule;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'baseMeAgentId'  => 'BaseMeAgentId',
+        'baseMeAgentId' => 'BaseMeAgentId',
         'jsonStrForRule' => 'JsonStrForRule',
-        'ruleId'         => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->precisionTask) {
             if (\is_array($this->precisionTask)) {
                 $res['PrecisionTask'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->precisionTask as $item1) {
                     $res['PrecisionTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['PrecisionTask'])) {
             if (!empty($map['PrecisionTask'])) {
                 $model->precisionTask = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['PrecisionTask'] as $item1) {
                     $model->precisionTask[$n1++] = precisionTask::fromMap($item1);
                 }

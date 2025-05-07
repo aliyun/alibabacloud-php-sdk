@@ -12,33 +12,38 @@ class DeleteCheckTypeToSchemeResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string[]
      */
     public $messages;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'messages'  => 'Messages',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'messages' => 'Messages',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -67,7 +72,7 @@ class DeleteCheckTypeToSchemeResponseBody extends Model
         if (null !== $this->messages) {
             if (\is_array($this->messages)) {
                 $res['Messages'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->messages as $item1) {
                     $res['Messages'][$n1++] = $item1;
                 }
@@ -108,7 +113,7 @@ class DeleteCheckTypeToSchemeResponseBody extends Model
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Messages'] as $item1) {
                     $model->messages[$n1++] = $item1;
                 }

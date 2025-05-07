@@ -30,7 +30,7 @@ class listObject extends Model
         if (null !== $this->listObject) {
             if (\is_array($this->listObject)) {
                 $res['ListObject'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->listObject as $item1) {
                     $res['ListObject'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class listObject extends Model
         if (isset($map['ListObject'])) {
             if (!empty($map['ListObject'])) {
                 $model->listObject = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ListObject'] as $item1) {
                     $model->listObject[$n1++] = $item1;
                 }

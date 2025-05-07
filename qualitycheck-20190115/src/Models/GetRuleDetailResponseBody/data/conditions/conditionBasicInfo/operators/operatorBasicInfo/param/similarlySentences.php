@@ -30,7 +30,7 @@ class similarlySentences extends Model
         if (null !== $this->similarlySentence) {
             if (\is_array($this->similarlySentence)) {
                 $res['SimilarlySentence'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->similarlySentence as $item1) {
                     $res['SimilarlySentence'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class similarlySentences extends Model
         if (isset($map['SimilarlySentence'])) {
             if (!empty($map['SimilarlySentence'])) {
                 $model->similarlySentence = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SimilarlySentence'] as $item1) {
                     $model->similarlySentence[$n1++] = $item1;
                 }

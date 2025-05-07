@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->businessCategoryBasicInfo) {
             if (\is_array($this->businessCategoryBasicInfo)) {
                 $res['BusinessCategoryBasicInfo'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->businessCategoryBasicInfo as $item1) {
                     $res['BusinessCategoryBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['BusinessCategoryBasicInfo'])) {
             if (!empty($map['BusinessCategoryBasicInfo'])) {
                 $model->businessCategoryBasicInfo = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['BusinessCategoryBasicInfo'] as $item1) {
                     $model->businessCategoryBasicInfo[$n1++] = businessCategoryBasicInfo::fromMap($item1);
                 }

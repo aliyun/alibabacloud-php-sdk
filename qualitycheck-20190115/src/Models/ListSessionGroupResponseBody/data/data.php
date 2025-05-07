@@ -19,93 +19,110 @@ class data extends Model
      * @var int
      */
     public $assignStatus;
+
     /**
      * @var string
      */
     public $callStartTime;
+
     /**
      * @var callerList
      */
     public $callerList;
+
     /**
      * @var customerIdList
      */
     public $customerIdList;
+
     /**
      * @var customerNameList
      */
     public $customerNameList;
+
     /**
      * @var customerServiceIdList
      */
     public $customerServiceIdList;
+
     /**
      * @var customerServiceNameList
      */
     public $customerServiceNameList;
+
     /**
      * @var int
      */
     public $hitSessionCount;
+
     /**
      * @var string
      */
     public $lastDataId;
+
     /**
      * @var int
      */
     public $reviewStatus;
+
     /**
      * @var reviewerList
      */
     public $reviewerList;
+
     /**
      * @var int
      */
     public $schemeTaskConfigId;
+
     /**
      * @var string
      */
     public $schemeTaskConfigName;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var int
      */
     public $sessionCount;
+
     /**
      * @var string
      */
     public $sessionGroupId;
+
     /**
      * @var bool
      */
     public $sessionGroupReviewedOrComplained;
+
     /**
      * @var skillGroupNameList
      */
     public $skillGroupNameList;
     protected $_name = [
-        'assignStatus'                     => 'AssignStatus',
-        'callStartTime'                    => 'CallStartTime',
-        'callerList'                       => 'CallerList',
-        'customerIdList'                   => 'CustomerIdList',
-        'customerNameList'                 => 'CustomerNameList',
-        'customerServiceIdList'            => 'CustomerServiceIdList',
-        'customerServiceNameList'          => 'CustomerServiceNameList',
-        'hitSessionCount'                  => 'HitSessionCount',
-        'lastDataId'                       => 'LastDataId',
-        'reviewStatus'                     => 'ReviewStatus',
-        'reviewerList'                     => 'ReviewerList',
-        'schemeTaskConfigId'               => 'SchemeTaskConfigId',
-        'schemeTaskConfigName'             => 'SchemeTaskConfigName',
-        'score'                            => 'Score',
-        'sessionCount'                     => 'SessionCount',
-        'sessionGroupId'                   => 'SessionGroupId',
+        'assignStatus' => 'AssignStatus',
+        'callStartTime' => 'CallStartTime',
+        'callerList' => 'CallerList',
+        'customerIdList' => 'CustomerIdList',
+        'customerNameList' => 'CustomerNameList',
+        'customerServiceIdList' => 'CustomerServiceIdList',
+        'customerServiceNameList' => 'CustomerServiceNameList',
+        'hitSessionCount' => 'HitSessionCount',
+        'lastDataId' => 'LastDataId',
+        'reviewStatus' => 'ReviewStatus',
+        'reviewerList' => 'ReviewerList',
+        'schemeTaskConfigId' => 'SchemeTaskConfigId',
+        'schemeTaskConfigName' => 'SchemeTaskConfigName',
+        'score' => 'Score',
+        'sessionCount' => 'SessionCount',
+        'sessionGroupId' => 'SessionGroupId',
         'sessionGroupReviewedOrComplained' => 'SessionGroupReviewedOrComplained',
-        'skillGroupNameList'               => 'SkillGroupNameList',
+        'skillGroupNameList' => 'SkillGroupNameList',
     ];
 
     public function validate()

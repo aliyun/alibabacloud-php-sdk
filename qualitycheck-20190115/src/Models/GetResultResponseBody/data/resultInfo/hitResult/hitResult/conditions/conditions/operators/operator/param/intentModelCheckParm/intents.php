@@ -31,7 +31,7 @@ class intents extends Model
         if (null !== $this->intent) {
             if (\is_array($this->intent)) {
                 $res['Intent'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->intent as $item1) {
                     $res['Intent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class intents extends Model
         if (isset($map['Intent'])) {
             if (!empty($map['Intent'])) {
                 $model->intent = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Intent'] as $item1) {
                     $model->intent[$n1++] = intent::fromMap($item1);
                 }

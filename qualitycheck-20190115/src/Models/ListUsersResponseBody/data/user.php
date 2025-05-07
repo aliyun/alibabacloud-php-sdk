@@ -12,48 +12,56 @@ class user extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $loginUserType;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'aliUid'        => 'AliUid',
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'displayName'   => 'DisplayName',
-        'id'            => 'Id',
+        'aliUid' => 'AliUid',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'id' => 'Id',
         'loginUserType' => 'LoginUserType',
-        'roleName'      => 'RoleName',
-        'updateTime'    => 'UpdateTime',
-        'userName'      => 'UserName',
+        'roleName' => 'RoleName',
+        'updateTime' => 'UpdateTime',
+        'userName' => 'UserName',
     ];
 
     public function validate()

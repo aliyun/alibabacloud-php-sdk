@@ -14,28 +14,32 @@ class data extends Model
      * @var conditions
      */
     public $conditions;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var rules
      */
     public $rules;
     protected $_name = [
         'conditions' => 'Conditions',
-        'count'      => 'Count',
+        'count' => 'Count',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'rules'      => 'Rules',
+        'pageSize' => 'PageSize',
+        'rules' => 'Rules',
     ];
 
     public function validate()

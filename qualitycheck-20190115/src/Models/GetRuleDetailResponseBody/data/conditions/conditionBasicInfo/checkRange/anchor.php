@@ -12,18 +12,20 @@ class anchor extends Model
      * @var string
      */
     public $anchorCid;
+
     /**
      * @var int
      */
     public $hitTime;
+
     /**
      * @var string
      */
     public $location;
     protected $_name = [
         'anchorCid' => 'AnchorCid',
-        'hitTime'   => 'HitTime',
-        'location'  => 'Location',
+        'hitTime' => 'HitTime',
+        'location' => 'Location',
     ];
 
     public function validate()

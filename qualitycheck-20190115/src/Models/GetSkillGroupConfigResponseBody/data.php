@@ -14,103 +14,122 @@ class data extends Model
      * @var int
      */
     public $allContentQualityCheck;
+
     /**
      * @var string
      */
     public $allRids;
+
     /**
      * @var allRuleList
      */
     public $allRuleList;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $modelId;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $qualityCheckType;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var ruleList
      */
     public $ruleList;
+
     /**
      * @var int
      */
     public $skillGroupFrom;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $vocabId;
+
     /**
      * @var string
      */
     public $vocabName;
     protected $_name = [
         'allContentQualityCheck' => 'AllContentQualityCheck',
-        'allRids'                => 'AllRids',
-        'allRuleList'            => 'AllRuleList',
-        'createTime'             => 'CreateTime',
-        'id'                     => 'Id',
-        'instanceId'             => 'InstanceId',
-        'modelId'                => 'ModelId',
-        'modelName'              => 'ModelName',
-        'name'                   => 'Name',
-        'qualityCheckType'       => 'QualityCheckType',
-        'rid'                    => 'Rid',
-        'ruleList'               => 'RuleList',
-        'skillGroupFrom'         => 'SkillGroupFrom',
-        'skillGroupId'           => 'SkillGroupId',
-        'skillGroupName'         => 'SkillGroupName',
-        'status'                 => 'Status',
-        'type'                   => 'Type',
-        'updateTime'             => 'UpdateTime',
-        'vocabId'                => 'VocabId',
-        'vocabName'              => 'VocabName',
+        'allRids' => 'AllRids',
+        'allRuleList' => 'AllRuleList',
+        'createTime' => 'CreateTime',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
+        'name' => 'Name',
+        'qualityCheckType' => 'QualityCheckType',
+        'rid' => 'Rid',
+        'ruleList' => 'RuleList',
+        'skillGroupFrom' => 'SkillGroupFrom',
+        'skillGroupId' => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'vocabId' => 'VocabId',
+        'vocabName' => 'VocabName',
     ];
 
     public function validate()

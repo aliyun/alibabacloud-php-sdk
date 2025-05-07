@@ -12,13 +12,14 @@ class ruleBasicInfo extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $rid;
     protected $_name = [
         'name' => 'Name',
-        'rid'  => 'Rid',
+        'rid' => 'Rid',
     ];
 
     public function validate()

@@ -12,88 +12,104 @@ class phrase extends Model
      * @var int
      */
     public $begin;
+
     /**
      * @var string
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $emotionFineGrainedValue;
+
     /**
      * @var int
      */
     public $emotionValue;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var int
      */
     public $hitStatus;
+
     /**
      * @var string
      */
     public $hourMinSec;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var int
      */
     public $renterId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $sid;
+
     /**
      * @var int
      */
     public $silenceDuration;
+
     /**
      * @var int
      */
     public $speechRate;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var string
      */
     public $words;
     protected $_name = [
-        'begin'                   => 'Begin',
-        'beginTime'               => 'BeginTime',
-        'channelId'               => 'ChannelId',
+        'begin' => 'Begin',
+        'beginTime' => 'BeginTime',
+        'channelId' => 'ChannelId',
         'emotionFineGrainedValue' => 'EmotionFineGrainedValue',
-        'emotionValue'            => 'EmotionValue',
-        'end'                     => 'End',
-        'hitStatus'               => 'HitStatus',
-        'hourMinSec'              => 'HourMinSec',
-        'identity'                => 'Identity',
-        'pid'                     => 'Pid',
-        'renterId'                => 'RenterId',
-        'role'                    => 'Role',
-        'sid'                     => 'Sid',
-        'silenceDuration'         => 'SilenceDuration',
-        'speechRate'              => 'SpeechRate',
-        'uuid'                    => 'Uuid',
-        'words'                   => 'Words',
+        'emotionValue' => 'EmotionValue',
+        'end' => 'End',
+        'hitStatus' => 'HitStatus',
+        'hourMinSec' => 'HourMinSec',
+        'identity' => 'Identity',
+        'pid' => 'Pid',
+        'renterId' => 'RenterId',
+        'role' => 'Role',
+        'sid' => 'Sid',
+        'silenceDuration' => 'SilenceDuration',
+        'speechRate' => 'SpeechRate',
+        'uuid' => 'Uuid',
+        'words' => 'Words',
     ];
 
     public function validate()

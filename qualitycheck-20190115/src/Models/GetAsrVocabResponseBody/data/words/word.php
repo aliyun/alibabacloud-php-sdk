@@ -12,13 +12,14 @@ class word extends Model
      * @var int
      */
     public $weight;
+
     /**
      * @var string
      */
     public $word;
     protected $_name = [
         'weight' => 'Weight',
-        'word'   => 'Word',
+        'word' => 'Word',
     ];
 
     public function validate()

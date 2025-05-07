@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data[]
+     * @var data\data[]
      */
     public $data;
     protected $_name = [
@@ -30,7 +30,7 @@ class data extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class data extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data::fromMap($item1);
+                    $model->data[$n1++] = data\data::fromMap($item1);
                 }
             }
         }

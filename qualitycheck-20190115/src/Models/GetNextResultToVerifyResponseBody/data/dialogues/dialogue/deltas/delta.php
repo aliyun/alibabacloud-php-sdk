@@ -14,10 +14,12 @@ class delta extends Model
      * @var source
      */
     public $source;
+
     /**
      * @var target
      */
     public $target;
+
     /**
      * @var string
      */
@@ -25,7 +27,7 @@ class delta extends Model
     protected $_name = [
         'source' => 'Source',
         'target' => 'Target',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

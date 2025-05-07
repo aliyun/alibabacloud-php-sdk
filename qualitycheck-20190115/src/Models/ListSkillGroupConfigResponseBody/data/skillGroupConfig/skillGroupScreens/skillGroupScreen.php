@@ -12,23 +12,26 @@ class skillGroupScreen extends Model
      * @var int
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $symbol;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'dataType' => 'DataType',
-        'name'     => 'Name',
-        'symbol'   => 'Symbol',
-        'value'    => 'Value',
+        'name' => 'Name',
+        'symbol' => 'Symbol',
+        'value' => 'Value',
     ];
 
     public function validate()

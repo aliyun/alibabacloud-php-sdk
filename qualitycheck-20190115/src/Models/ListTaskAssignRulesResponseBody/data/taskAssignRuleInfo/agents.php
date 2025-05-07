@@ -31,7 +31,7 @@ class agents extends Model
         if (null !== $this->agent) {
             if (\is_array($this->agent)) {
                 $res['Agent'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->agent as $item1) {
                     $res['Agent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class agents extends Model
         if (isset($map['Agent'])) {
             if (!empty($map['Agent'])) {
                 $model->agent = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Agent'] as $item1) {
                     $model->agent[$n1++] = agent::fromMap($item1);
                 }

@@ -30,7 +30,7 @@ class skillGroupNameList extends Model
         if (null !== $this->skillGroupNameList) {
             if (\is_array($this->skillGroupNameList)) {
                 $res['SkillGroupNameList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupNameList as $item1) {
                     $res['SkillGroupNameList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class skillGroupNameList extends Model
         if (isset($map['SkillGroupNameList'])) {
             if (!empty($map['SkillGroupNameList'])) {
                 $model->skillGroupNameList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupNameList'] as $item1) {
                     $model->skillGroupNameList[$n1++] = $item1;
                 }

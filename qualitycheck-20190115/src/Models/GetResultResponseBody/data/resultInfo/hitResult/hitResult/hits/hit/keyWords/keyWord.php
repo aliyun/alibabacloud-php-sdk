@@ -12,23 +12,26 @@ class keyWord extends Model
      * @var string
      */
     public $cid;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var int
      */
     public $to;
+
     /**
      * @var string
      */
     public $val;
     protected $_name = [
-        'cid'  => 'Cid',
+        'cid' => 'Cid',
         'from' => 'From',
-        'to'   => 'To',
-        'val'  => 'Val',
+        'to' => 'To',
+        'val' => 'Val',
     ];
 
     public function validate()

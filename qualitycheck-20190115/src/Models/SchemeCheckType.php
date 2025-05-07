@@ -14,42 +14,49 @@ class SchemeCheckType extends Model
      * @var string
      */
     public $checkName;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var int
      */
     public $schemeId;
+
     /**
      * @var schemeScoreInfoList[]
      */
     public $schemeScoreInfoList;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var int
      */
     public $sourceScore;
+
     /**
      * @var taskFlowScoreInfoList[]
      */
     public $taskFlowScoreInfoList;
     protected $_name = [
-        'checkName'             => 'CheckName',
-        'checkType'             => 'CheckType',
-        'enable'                => 'Enable',
-        'schemeId'              => 'SchemeId',
-        'schemeScoreInfoList'   => 'SchemeScoreInfoList',
-        'score'                 => 'Score',
-        'sourceScore'           => 'SourceScore',
+        'checkName' => 'CheckName',
+        'checkType' => 'CheckType',
+        'enable' => 'Enable',
+        'schemeId' => 'SchemeId',
+        'schemeScoreInfoList' => 'SchemeScoreInfoList',
+        'score' => 'Score',
+        'sourceScore' => 'SourceScore',
         'taskFlowScoreInfoList' => 'TaskFlowScoreInfoList',
     ];
 
@@ -86,7 +93,7 @@ class SchemeCheckType extends Model
         if (null !== $this->schemeScoreInfoList) {
             if (\is_array($this->schemeScoreInfoList)) {
                 $res['SchemeScoreInfoList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->schemeScoreInfoList as $item1) {
                     $res['SchemeScoreInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +111,7 @@ class SchemeCheckType extends Model
         if (null !== $this->taskFlowScoreInfoList) {
             if (\is_array($this->taskFlowScoreInfoList)) {
                 $res['TaskFlowScoreInfoList'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->taskFlowScoreInfoList as $item1) {
                     $res['TaskFlowScoreInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -141,7 +148,7 @@ class SchemeCheckType extends Model
         if (isset($map['SchemeScoreInfoList'])) {
             if (!empty($map['SchemeScoreInfoList'])) {
                 $model->schemeScoreInfoList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SchemeScoreInfoList'] as $item1) {
                     $model->schemeScoreInfoList[$n1++] = schemeScoreInfoList::fromMap($item1);
                 }
@@ -159,7 +166,7 @@ class SchemeCheckType extends Model
         if (isset($map['TaskFlowScoreInfoList'])) {
             if (!empty($map['TaskFlowScoreInfoList'])) {
                 $model->taskFlowScoreInfoList = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['TaskFlowScoreInfoList'] as $item1) {
                     $model->taskFlowScoreInfoList[$n1++] = taskFlowScoreInfoList::fromMap($item1);
                 }

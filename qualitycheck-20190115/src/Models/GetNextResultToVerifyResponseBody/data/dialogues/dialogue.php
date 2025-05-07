@@ -13,73 +13,86 @@ class dialogue extends Model
      * @var int
      */
     public $begin;
+
     /**
      * @var string
      */
     public $beginTime;
+
     /**
      * @var deltas
      */
     public $deltas;
+
     /**
      * @var int
      */
     public $emotionValue;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $hourMinSec;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var int
      */
     public $incorrectWords;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $silenceDuration;
+
     /**
      * @var string
      */
     public $sourceRole;
+
     /**
      * @var string
      */
     public $sourceWords;
+
     /**
      * @var int
      */
     public $speechRate;
+
     /**
      * @var string
      */
     public $words;
     protected $_name = [
-        'begin'           => 'Begin',
-        'beginTime'       => 'BeginTime',
-        'deltas'          => 'Deltas',
-        'emotionValue'    => 'EmotionValue',
-        'end'             => 'End',
-        'hourMinSec'      => 'HourMinSec',
-        'identity'        => 'Identity',
-        'incorrectWords'  => 'IncorrectWords',
-        'role'            => 'Role',
+        'begin' => 'Begin',
+        'beginTime' => 'BeginTime',
+        'deltas' => 'Deltas',
+        'emotionValue' => 'EmotionValue',
+        'end' => 'End',
+        'hourMinSec' => 'HourMinSec',
+        'identity' => 'Identity',
+        'incorrectWords' => 'IncorrectWords',
+        'role' => 'Role',
         'silenceDuration' => 'SilenceDuration',
-        'sourceRole'      => 'SourceRole',
-        'sourceWords'     => 'SourceWords',
-        'speechRate'      => 'SpeechRate',
-        'words'           => 'Words',
+        'sourceRole' => 'SourceRole',
+        'sourceWords' => 'SourceWords',
+        'speechRate' => 'SpeechRate',
+        'words' => 'Words',
     ];
 
     public function validate()

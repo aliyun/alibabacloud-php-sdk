@@ -12,83 +12,98 @@ class recording extends Model
      * @var string
      */
     public $business;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callTime;
+
     /**
      * @var int
      */
     public $callType;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $dataSetName;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $durationAudio;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $primaryId;
+
     /**
      * @var string
      */
     public $remark1;
+
     /**
      * @var string
      */
     public $remark2;
+
     /**
      * @var string
      */
     public $remark3;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'business'      => 'Business',
-        'callId'        => 'CallId',
-        'callTime'      => 'CallTime',
-        'callType'      => 'CallType',
-        'callee'        => 'Callee',
-        'caller'        => 'Caller',
-        'dataSetName'   => 'DataSetName',
-        'duration'      => 'Duration',
+        'business' => 'Business',
+        'callId' => 'CallId',
+        'callTime' => 'CallTime',
+        'callType' => 'CallType',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'dataSetName' => 'DataSetName',
+        'duration' => 'Duration',
         'durationAudio' => 'DurationAudio',
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'primaryId'     => 'PrimaryId',
-        'remark1'       => 'Remark1',
-        'remark2'       => 'Remark2',
-        'remark3'       => 'Remark3',
-        'url'           => 'Url',
+        'id' => 'Id',
+        'name' => 'Name',
+        'primaryId' => 'PrimaryId',
+        'remark1' => 'Remark1',
+        'remark2' => 'Remark2',
+        'remark3' => 'Remark3',
+        'url' => 'Url',
     ];
 
     public function validate()

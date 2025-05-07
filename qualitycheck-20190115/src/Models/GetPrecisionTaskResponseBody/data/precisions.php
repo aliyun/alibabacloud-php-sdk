@@ -31,7 +31,7 @@ class precisions extends Model
         if (null !== $this->precision) {
             if (\is_array($this->precision)) {
                 $res['Precision'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->precision as $item1) {
                     $res['Precision'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class precisions extends Model
         if (isset($map['Precision'])) {
             if (!empty($map['Precision'])) {
                 $model->precision = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Precision'] as $item1) {
                     $model->precision[$n1++] = precision::fromMap($item1);
                 }

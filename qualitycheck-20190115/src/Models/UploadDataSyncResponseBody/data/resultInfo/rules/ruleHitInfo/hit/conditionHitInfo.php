@@ -15,18 +15,20 @@ class conditionHitInfo extends Model
      * @var hitCids
      */
     public $hitCids;
+
     /**
      * @var hitKeyWords
      */
     public $hitKeyWords;
+
     /**
      * @var phrase
      */
     public $phrase;
     protected $_name = [
-        'hitCids'     => 'HitCids',
+        'hitCids' => 'HitCids',
         'hitKeyWords' => 'HitKeyWords',
-        'phrase'      => 'Phrase',
+        'phrase' => 'Phrase',
     ];
 
     public function validate()

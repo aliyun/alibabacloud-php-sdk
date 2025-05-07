@@ -12,133 +12,158 @@ class GetRulesCountListRequest extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var string
      */
     public $businessName;
+
     /**
      * @var int
      */
     public $businessRange;
+
     /**
      * @var string
      */
     public $categoryName;
+
     /**
      * @var bool
      */
     public $countTotal;
+
     /**
      * @var string
      */
     public $createEmpid;
+
     /**
      * @var int
      */
     public $createUserId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $lastUpdateEmpid;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $requireInfos;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleIdOrRuleName;
+
     /**
      * @var int
      */
     public $ruleScoreSingleType;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var int
      */
     public $schemeId;
+
     /**
      * @var int
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $typeName;
+
     /**
      * @var string
      */
     public $updateEndTime;
+
     /**
      * @var string
      */
     public $updateStartTime;
+
     /**
      * @var int
      */
     public $updateUserId;
     protected $_name = [
-        'baseMeAgentId'       => 'BaseMeAgentId',
-        'businessName'        => 'BusinessName',
-        'businessRange'       => 'BusinessRange',
-        'categoryName'        => 'CategoryName',
-        'countTotal'          => 'CountTotal',
-        'createEmpid'         => 'CreateEmpid',
-        'createUserId'        => 'CreateUserId',
-        'currentPage'         => 'CurrentPage',
-        'endTime'             => 'EndTime',
-        'lastUpdateEmpid'     => 'LastUpdateEmpid',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'requireInfos'        => 'RequireInfos',
-        'rid'                 => 'Rid',
-        'ruleIdOrRuleName'    => 'RuleIdOrRuleName',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'businessName' => 'BusinessName',
+        'businessRange' => 'BusinessRange',
+        'categoryName' => 'CategoryName',
+        'countTotal' => 'CountTotal',
+        'createEmpid' => 'CreateEmpid',
+        'createUserId' => 'CreateUserId',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
+        'lastUpdateEmpid' => 'LastUpdateEmpid',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requireInfos' => 'RequireInfos',
+        'rid' => 'Rid',
+        'ruleIdOrRuleName' => 'RuleIdOrRuleName',
         'ruleScoreSingleType' => 'RuleScoreSingleType',
-        'ruleType'            => 'RuleType',
-        'schemeId'            => 'SchemeId',
-        'sourceType'          => 'SourceType',
-        'startTime'           => 'StartTime',
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'typeName'            => 'TypeName',
-        'updateEndTime'       => 'UpdateEndTime',
-        'updateStartTime'     => 'UpdateStartTime',
-        'updateUserId'        => 'UpdateUserId',
+        'ruleType' => 'RuleType',
+        'schemeId' => 'SchemeId',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'type' => 'Type',
+        'typeName' => 'TypeName',
+        'updateEndTime' => 'UpdateEndTime',
+        'updateStartTime' => 'UpdateStartTime',
+        'updateUserId' => 'UpdateUserId',
     ];
 
     public function validate()
@@ -203,7 +228,7 @@ class GetRulesCountListRequest extends Model
         if (null !== $this->requireInfos) {
             if (\is_array($this->requireInfos)) {
                 $res['RequireInfos'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->requireInfos as $item1) {
                     $res['RequireInfos'][$n1++] = $item1;
                 }
@@ -324,7 +349,7 @@ class GetRulesCountListRequest extends Model
         if (isset($map['RequireInfos'])) {
             if (!empty($map['RequireInfos'])) {
                 $model->requireInfos = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RequireInfos'] as $item1) {
                     $model->requireInfos[$n1++] = $item1;
                 }

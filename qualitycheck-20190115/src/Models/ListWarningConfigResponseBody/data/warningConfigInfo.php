@@ -15,42 +15,49 @@ class warningConfigInfo extends Model
      * @var channels
      */
     public $channels;
+
     /**
      * @var int
      */
     public $configId;
+
     /**
      * @var string
      */
     public $configName;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var ridList
      */
     public $ridList;
+
     /**
      * @var ruleList
      */
     public $ruleList;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'channels'   => 'Channels',
-        'configId'   => 'ConfigId',
+        'channels' => 'Channels',
+        'configId' => 'ConfigId',
         'configName' => 'ConfigName',
         'createTime' => 'CreateTime',
-        'ridList'    => 'RidList',
-        'ruleList'   => 'RuleList',
-        'status'     => 'Status',
+        'ridList' => 'RidList',
+        'ruleList' => 'RuleList',
+        'status' => 'Status',
         'updateTime' => 'UpdateTime',
     ];
 

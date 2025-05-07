@@ -12,148 +12,176 @@ class recording extends Model
      * @var string
      */
     public $business;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callTime;
+
     /**
      * @var int
      */
     public $callType;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $customerName;
+
     /**
      * @var string
      */
     public $dataSetName;
+
     /**
      * @var int
      */
     public $dialogueSize;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $primaryId;
+
     /**
      * @var string
      */
     public $remark1;
+
     /**
      * @var string
      */
     public $remark10;
+
     /**
      * @var string
      */
     public $remark11;
+
     /**
      * @var string
      */
     public $remark12;
+
     /**
      * @var string
      */
     public $remark13;
+
     /**
      * @var string
      */
     public $remark2;
+
     /**
      * @var string
      */
     public $remark3;
+
     /**
      * @var string
      */
     public $remark4;
+
     /**
      * @var int
      */
     public $remark5;
+
     /**
      * @var string
      */
     public $remark6;
+
     /**
      * @var string
      */
     public $remark7;
+
     /**
      * @var string
      */
     public $remark8;
+
     /**
      * @var string
      */
     public $remark9;
+
     /**
      * @var int
      */
     public $taskConfigId;
+
     /**
      * @var string
      */
     public $taskConfigName;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'business'       => 'Business',
-        'callId'         => 'CallId',
-        'callTime'       => 'CallTime',
-        'callType'       => 'CallType',
-        'callee'         => 'Callee',
-        'caller'         => 'Caller',
-        'customerName'   => 'CustomerName',
-        'dataSetName'    => 'DataSetName',
-        'dialogueSize'   => 'DialogueSize',
-        'duration'       => 'Duration',
-        'id'             => 'Id',
-        'name'           => 'Name',
-        'primaryId'      => 'PrimaryId',
-        'remark1'        => 'Remark1',
-        'remark10'       => 'Remark10',
-        'remark11'       => 'Remark11',
-        'remark12'       => 'Remark12',
-        'remark13'       => 'Remark13',
-        'remark2'        => 'Remark2',
-        'remark3'        => 'Remark3',
-        'remark4'        => 'Remark4',
-        'remark5'        => 'Remark5',
-        'remark6'        => 'Remark6',
-        'remark7'        => 'Remark7',
-        'remark8'        => 'Remark8',
-        'remark9'        => 'Remark9',
-        'taskConfigId'   => 'TaskConfigId',
+        'business' => 'Business',
+        'callId' => 'CallId',
+        'callTime' => 'CallTime',
+        'callType' => 'CallType',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'customerName' => 'CustomerName',
+        'dataSetName' => 'DataSetName',
+        'dialogueSize' => 'DialogueSize',
+        'duration' => 'Duration',
+        'id' => 'Id',
+        'name' => 'Name',
+        'primaryId' => 'PrimaryId',
+        'remark1' => 'Remark1',
+        'remark10' => 'Remark10',
+        'remark11' => 'Remark11',
+        'remark12' => 'Remark12',
+        'remark13' => 'Remark13',
+        'remark2' => 'Remark2',
+        'remark3' => 'Remark3',
+        'remark4' => 'Remark4',
+        'remark5' => 'Remark5',
+        'remark6' => 'Remark6',
+        'remark7' => 'Remark7',
+        'remark8' => 'Remark8',
+        'remark9' => 'Remark9',
+        'taskConfigId' => 'TaskConfigId',
         'taskConfigName' => 'TaskConfigName',
-        'url'            => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

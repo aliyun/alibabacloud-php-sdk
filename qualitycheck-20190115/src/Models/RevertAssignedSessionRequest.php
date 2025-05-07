@@ -12,13 +12,14 @@ class RevertAssignedSessionRequest extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var string
      */
     public $jsonStr;
     protected $_name = [
         'baseMeAgentId' => 'BaseMeAgentId',
-        'jsonStr'       => 'jsonStr',
+        'jsonStr' => 'jsonStr',
     ];
 
     public function validate()

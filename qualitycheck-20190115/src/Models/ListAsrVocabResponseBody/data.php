@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->asrVocab) {
             if (\is_array($this->asrVocab)) {
                 $res['AsrVocab'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->asrVocab as $item1) {
                     $res['AsrVocab'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['AsrVocab'])) {
             if (!empty($map['AsrVocab'])) {
                 $model->asrVocab = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['AsrVocab'] as $item1) {
                     $model->asrVocab[$n1++] = asrVocab::fromMap($item1);
                 }

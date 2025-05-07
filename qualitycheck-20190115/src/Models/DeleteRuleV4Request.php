@@ -12,18 +12,20 @@ class DeleteRuleV4Request extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var bool
      */
     public $forceDelete;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'baseMeAgentId' => 'BaseMeAgentId',
-        'forceDelete'   => 'ForceDelete',
-        'ruleId'        => 'RuleId',
+        'forceDelete' => 'ForceDelete',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

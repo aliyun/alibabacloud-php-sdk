@@ -12,278 +12,332 @@ class RuleInfo extends Model
      * @var int
      */
     public $autoReview;
+
     /**
      * @var string[]
      */
     public $businessCategoryNameList;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var int
      */
     public $configType;
+
     /**
      * @var string
      */
     public $createEmpName;
+
     /**
      * @var string
      */
     public $createEmpid;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $deny;
+
     /**
      * @var RuleTestDialogue[]
      */
     public $dialogues;
+
     /**
      * @var int
      */
     public $effective;
+
     /**
      * @var string
      */
     public $effectiveEndTime;
+
     /**
      * @var string
      */
     public $effectiveStartTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $externalProperty;
+
     /**
      * @var int
      */
     public $fullCycle;
+
     /**
      * @var mixed
      */
     public $graphFlow;
+
     /**
      * @var int
      */
     public $isDelete;
+
     /**
      * @var int
      */
     public $isOnline;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var string
      */
     public $lastUpdateEmpName;
+
     /**
      * @var string
      */
     public $lastUpdateEmpid;
+
     /**
      * @var string
      */
     public $lastUpdateTime;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var int
      */
     public $meet;
+
     /**
      * @var int
      */
     public $modifyType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $operationMode;
+
     /**
      * @var int
      */
     public $qualityCheckType;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleCategoryName;
+
     /**
      * @var int
      */
     public $ruleScoreType;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var SchemeCheckType
      */
     public $schemeCheckType;
+
     /**
      * @var int
      */
     public $schemeId;
+
     /**
      * @var string
      */
     public $schemeName;
+
     /**
      * @var int
      */
     public $schemeRuleMappingId;
+
     /**
      * @var bool
      */
     public $scoreDeleted;
+
     /**
      * @var int
      */
     public $scoreId;
+
     /**
      * @var string
      */
     public $scoreName;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreNumType;
+
     /**
      * @var int
      */
     public $scoreRuleHitType;
+
     /**
      * @var int
      */
     public $scoreSubId;
+
     /**
      * @var string
      */
     public $scoreSubName;
+
     /**
      * @var int
      */
     public $scoreType;
+
     /**
      * @var int
      */
     public $sortIndex;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $targetType;
+
     /**
      * @var int
      */
     public $taskFlowId;
+
     /**
      * @var int
      */
     public $taskFlowType;
+
     /**
      * @var string[]
      */
     public $triggers;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
-        'autoReview'               => 'AutoReview',
+        'autoReview' => 'AutoReview',
         'businessCategoryNameList' => 'BusinessCategoryNameList',
-        'checkType'                => 'CheckType',
-        'comments'                 => 'Comments',
-        'configType'               => 'ConfigType',
-        'createEmpName'            => 'CreateEmpName',
-        'createEmpid'              => 'CreateEmpid',
-        'createTime'               => 'CreateTime',
-        'deny'                     => 'Deny',
-        'dialogues'                => 'Dialogues',
-        'effective'                => 'Effective',
-        'effectiveEndTime'         => 'EffectiveEndTime',
-        'effectiveStartTime'       => 'EffectiveStartTime',
-        'endTime'                  => 'EndTime',
-        'externalProperty'         => 'ExternalProperty',
-        'fullCycle'                => 'FullCycle',
-        'graphFlow'                => 'GraphFlow',
-        'isDelete'                 => 'IsDelete',
-        'isOnline'                 => 'IsOnline',
-        'lambda'                   => 'Lambda',
-        'lastUpdateEmpName'        => 'LastUpdateEmpName',
-        'lastUpdateEmpid'          => 'LastUpdateEmpid',
-        'lastUpdateTime'           => 'LastUpdateTime',
-        'level'                    => 'Level',
-        'meet'                     => 'Meet',
-        'modifyType'               => 'ModifyType',
-        'name'                     => 'Name',
-        'operationMode'            => 'OperationMode',
-        'qualityCheckType'         => 'QualityCheckType',
-        'rid'                      => 'Rid',
-        'ruleCategoryName'         => 'RuleCategoryName',
-        'ruleScoreType'            => 'RuleScoreType',
-        'ruleType'                 => 'RuleType',
-        'schemeCheckType'          => 'SchemeCheckType',
-        'schemeId'                 => 'SchemeId',
-        'schemeName'               => 'SchemeName',
-        'schemeRuleMappingId'      => 'SchemeRuleMappingId',
-        'scoreDeleted'             => 'ScoreDeleted',
-        'scoreId'                  => 'ScoreId',
-        'scoreName'                => 'ScoreName',
-        'scoreNum'                 => 'ScoreNum',
-        'scoreNumType'             => 'ScoreNumType',
-        'scoreRuleHitType'         => 'ScoreRuleHitType',
-        'scoreSubId'               => 'ScoreSubId',
-        'scoreSubName'             => 'ScoreSubName',
-        'scoreType'                => 'ScoreType',
-        'sortIndex'                => 'SortIndex',
-        'startTime'                => 'StartTime',
-        'status'                   => 'Status',
-        'targetType'               => 'TargetType',
-        'taskFlowId'               => 'TaskFlowId',
-        'taskFlowType'             => 'TaskFlowType',
-        'triggers'                 => 'Triggers',
-        'type'                     => 'Type',
-        'weight'                   => 'Weight',
+        'checkType' => 'CheckType',
+        'comments' => 'Comments',
+        'configType' => 'ConfigType',
+        'createEmpName' => 'CreateEmpName',
+        'createEmpid' => 'CreateEmpid',
+        'createTime' => 'CreateTime',
+        'deny' => 'Deny',
+        'dialogues' => 'Dialogues',
+        'effective' => 'Effective',
+        'effectiveEndTime' => 'EffectiveEndTime',
+        'effectiveStartTime' => 'EffectiveStartTime',
+        'endTime' => 'EndTime',
+        'externalProperty' => 'ExternalProperty',
+        'fullCycle' => 'FullCycle',
+        'graphFlow' => 'GraphFlow',
+        'isDelete' => 'IsDelete',
+        'isOnline' => 'IsOnline',
+        'lambda' => 'Lambda',
+        'lastUpdateEmpName' => 'LastUpdateEmpName',
+        'lastUpdateEmpid' => 'LastUpdateEmpid',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'level' => 'Level',
+        'meet' => 'Meet',
+        'modifyType' => 'ModifyType',
+        'name' => 'Name',
+        'operationMode' => 'OperationMode',
+        'qualityCheckType' => 'QualityCheckType',
+        'rid' => 'Rid',
+        'ruleCategoryName' => 'RuleCategoryName',
+        'ruleScoreType' => 'RuleScoreType',
+        'ruleType' => 'RuleType',
+        'schemeCheckType' => 'SchemeCheckType',
+        'schemeId' => 'SchemeId',
+        'schemeName' => 'SchemeName',
+        'schemeRuleMappingId' => 'SchemeRuleMappingId',
+        'scoreDeleted' => 'ScoreDeleted',
+        'scoreId' => 'ScoreId',
+        'scoreName' => 'ScoreName',
+        'scoreNum' => 'ScoreNum',
+        'scoreNumType' => 'ScoreNumType',
+        'scoreRuleHitType' => 'ScoreRuleHitType',
+        'scoreSubId' => 'ScoreSubId',
+        'scoreSubName' => 'ScoreSubName',
+        'scoreType' => 'ScoreType',
+        'sortIndex' => 'SortIndex',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'targetType' => 'TargetType',
+        'taskFlowId' => 'TaskFlowId',
+        'taskFlowType' => 'TaskFlowType',
+        'triggers' => 'Triggers',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
     public function validate()
@@ -313,7 +367,7 @@ class RuleInfo extends Model
         if (null !== $this->businessCategoryNameList) {
             if (\is_array($this->businessCategoryNameList)) {
                 $res['BusinessCategoryNameList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->businessCategoryNameList as $item1) {
                     $res['BusinessCategoryNameList'][$n1++] = $item1;
                 }
@@ -351,7 +405,7 @@ class RuleInfo extends Model
         if (null !== $this->dialogues) {
             if (\is_array($this->dialogues)) {
                 $res['Dialogues'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->dialogues as $item1) {
                     $res['Dialogues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -529,7 +583,7 @@ class RuleInfo extends Model
         if (null !== $this->triggers) {
             if (\is_array($this->triggers)) {
                 $res['Triggers'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->triggers as $item1) {
                     $res['Triggers'][$n1++] = $item1;
                 }
@@ -562,7 +616,7 @@ class RuleInfo extends Model
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
                 $model->businessCategoryNameList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['BusinessCategoryNameList'] as $item1) {
                     $model->businessCategoryNameList[$n1++] = $item1;
                 }
@@ -600,7 +654,7 @@ class RuleInfo extends Model
         if (isset($map['Dialogues'])) {
             if (!empty($map['Dialogues'])) {
                 $model->dialogues = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Dialogues'] as $item1) {
                     $model->dialogues[$n1++] = RuleTestDialogue::fromMap($item1);
                 }
@@ -778,7 +832,7 @@ class RuleInfo extends Model
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Triggers'] as $item1) {
                     $model->triggers[$n1++] = $item1;
                 }

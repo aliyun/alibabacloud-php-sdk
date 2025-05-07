@@ -12,13 +12,14 @@ class GetSkillGroupConfigRequest extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var string
      */
     public $jsonStr;
     protected $_name = [
         'baseMeAgentId' => 'BaseMeAgentId',
-        'jsonStr'       => 'JsonStr',
+        'jsonStr' => 'JsonStr',
     ];
 
     public function validate()

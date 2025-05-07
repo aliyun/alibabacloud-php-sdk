@@ -14,38 +14,44 @@ class conditions extends Model
      * @var checkRange
      */
     public $checkRange;
+
     /**
      * @var string
      */
     public $cid;
+
     /**
      * @var int
      */
     public $exclusion;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var operators
      */
     public $operators;
+
     /**
      * @var string
      */
     public $rid;
     protected $_name = [
         'checkRange' => 'Check_range',
-        'cid'        => 'Cid',
-        'exclusion'  => 'Exclusion',
-        'id'         => 'Id',
-        'lambda'     => 'Lambda',
-        'operators'  => 'Operators',
-        'rid'        => 'Rid',
+        'cid' => 'Cid',
+        'exclusion' => 'Exclusion',
+        'id' => 'Id',
+        'lambda' => 'Lambda',
+        'operators' => 'Operators',
+        'rid' => 'Rid',
     ];
 
     public function validate()

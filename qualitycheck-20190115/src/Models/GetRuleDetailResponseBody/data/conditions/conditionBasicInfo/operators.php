@@ -31,7 +31,7 @@ class operators extends Model
         if (null !== $this->operatorBasicInfo) {
             if (\is_array($this->operatorBasicInfo)) {
                 $res['OperatorBasicInfo'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->operatorBasicInfo as $item1) {
                     $res['OperatorBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class operators extends Model
         if (isset($map['OperatorBasicInfo'])) {
             if (!empty($map['OperatorBasicInfo'])) {
                 $model->operatorBasicInfo = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['OperatorBasicInfo'] as $item1) {
                     $model->operatorBasicInfo[$n1++] = operatorBasicInfo::fromMap($item1);
                 }

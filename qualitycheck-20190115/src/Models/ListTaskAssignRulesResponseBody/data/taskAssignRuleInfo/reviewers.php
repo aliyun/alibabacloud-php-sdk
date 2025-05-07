@@ -31,7 +31,7 @@ class reviewers extends Model
         if (null !== $this->reviewer) {
             if (\is_array($this->reviewer)) {
                 $res['Reviewer'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->reviewer as $item1) {
                     $res['Reviewer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class reviewers extends Model
         if (isset($map['Reviewer'])) {
             if (!empty($map['Reviewer'])) {
                 $model->reviewer = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Reviewer'] as $item1) {
                     $model->reviewer[$n1++] = reviewer::fromMap($item1);
                 }

@@ -14,23 +14,26 @@ class ruleHitInfo extends Model
      * @var conditionInfo
      */
     public $conditionInfo;
+
     /**
      * @var hit
      */
     public $hit;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var string
      */
     public $tid;
     protected $_name = [
         'conditionInfo' => 'ConditionInfo',
-        'hit'           => 'Hit',
-        'rid'           => 'Rid',
-        'tid'           => 'Tid',
+        'hit' => 'Hit',
+        'rid' => 'Rid',
+        'tid' => 'Tid',
     ];
 
     public function validate()

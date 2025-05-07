@@ -12,13 +12,14 @@ class timeRange extends Model
      * @var int
      */
     public $from;
+
     /**
      * @var int
      */
     public $to;
     protected $_name = [
         'from' => 'From',
-        'to'   => 'To',
+        'to' => 'To',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class schemeScoreInfoList extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var int
      */
     public $scoreNum;
+
     /**
      * @var int
      */
     public $scoreNumType;
+
     /**
      * @var int
      */
     public $scoreRuleHitType;
+
     /**
      * @var int
      */
     public $scoreType;
+
     /**
      * @var int
      */
     public $taskFlowId;
+
     /**
      * @var string
      */
     public $taskFlowName;
     protected $_name = [
-        'name'             => 'Name',
-        'rid'              => 'Rid',
-        'scoreNum'         => 'ScoreNum',
-        'scoreNumType'     => 'ScoreNumType',
+        'name' => 'Name',
+        'rid' => 'Rid',
+        'scoreNum' => 'ScoreNum',
+        'scoreNumType' => 'ScoreNumType',
         'scoreRuleHitType' => 'ScoreRuleHitType',
-        'scoreType'        => 'ScoreType',
-        'taskFlowId'       => 'TaskFlowId',
-        'taskFlowName'     => 'TaskFlowName',
+        'scoreType' => 'ScoreType',
+        'taskFlowId' => 'TaskFlowId',
+        'taskFlowName' => 'TaskFlowName',
     ];
 
     public function validate()

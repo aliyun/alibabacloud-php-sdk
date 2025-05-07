@@ -30,7 +30,7 @@ class antModelInfo extends Model
         if (null !== $this->antModelInfo) {
             if (\is_array($this->antModelInfo)) {
                 $res['AntModelInfo'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->antModelInfo as $item1) {
                     $res['AntModelInfo'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class antModelInfo extends Model
         if (isset($map['AntModelInfo'])) {
             if (!empty($map['AntModelInfo'])) {
                 $model->antModelInfo = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AntModelInfo'] as $item1) {
                     $model->antModelInfo[$n1++] = $item1;
                 }

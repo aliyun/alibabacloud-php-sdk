@@ -13,23 +13,26 @@ class taskFlowScoreInfoList extends Model
      * @var schemeScoreInfoList[]
      */
     public $schemeScoreInfoList;
+
     /**
      * @var int
      */
     public $taskFlowId;
+
     /**
      * @var string
      */
     public $taskFlowName;
+
     /**
      * @var int
      */
     public $taskFlowType;
     protected $_name = [
         'schemeScoreInfoList' => 'SchemeScoreInfoList',
-        'taskFlowId'          => 'TaskFlowId',
-        'taskFlowName'        => 'TaskFlowName',
-        'taskFlowType'        => 'TaskFlowType',
+        'taskFlowId' => 'TaskFlowId',
+        'taskFlowName' => 'TaskFlowName',
+        'taskFlowType' => 'TaskFlowType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class taskFlowScoreInfoList extends Model
         if (null !== $this->schemeScoreInfoList) {
             if (\is_array($this->schemeScoreInfoList)) {
                 $res['SchemeScoreInfoList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->schemeScoreInfoList as $item1) {
                     $res['SchemeScoreInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class taskFlowScoreInfoList extends Model
         if (isset($map['SchemeScoreInfoList'])) {
             if (!empty($map['SchemeScoreInfoList'])) {
                 $model->schemeScoreInfoList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SchemeScoreInfoList'] as $item1) {
                     $model->schemeScoreInfoList[$n1++] = schemeScoreInfoList::fromMap($item1);
                 }

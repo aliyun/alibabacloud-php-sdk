@@ -30,7 +30,7 @@ class keywords extends Model
         if (null !== $this->keyword) {
             if (\is_array($this->keyword)) {
                 $res['Keyword'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->keyword as $item1) {
                     $res['Keyword'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class keywords extends Model
         if (isset($map['Keyword'])) {
             if (!empty($map['Keyword'])) {
                 $model->keyword = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Keyword'] as $item1) {
                     $model->keyword[$n1++] = $item1;
                 }

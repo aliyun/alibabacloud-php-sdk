@@ -14,23 +14,26 @@ class rules extends Model
      * @var hit[]
      */
     public $hit;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var ruleInfoBase
      */
     public $ruleInfoBase;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'hit'          => 'Hit',
-        'rid'          => 'Rid',
+        'hit' => 'Hit',
+        'rid' => 'Rid',
         'ruleInfoBase' => 'RuleInfoBase',
-        'ruleName'     => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class rules extends Model
         if (null !== $this->hit) {
             if (\is_array($this->hit)) {
                 $res['Hit'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->hit as $item1) {
                     $res['Hit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class rules extends Model
         if (isset($map['Hit'])) {
             if (!empty($map['Hit'])) {
                 $model->hit = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Hit'] as $item1) {
                     $model->hit[$n1++] = hit::fromMap($item1);
                 }

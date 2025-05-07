@@ -14,18 +14,20 @@ class hits extends Model
      * @var string[]
      */
     public $cid;
+
     /**
      * @var keyWords[]
      */
     public $keyWords;
+
     /**
      * @var phrase
      */
     public $phrase;
     protected $_name = [
-        'cid'      => 'Cid',
+        'cid' => 'Cid',
         'keyWords' => 'KeyWords',
-        'phrase'   => 'Phrase',
+        'phrase' => 'Phrase',
     ];
 
     public function validate()
@@ -48,7 +50,7 @@ class hits extends Model
         if (null !== $this->cid) {
             if (\is_array($this->cid)) {
                 $res['Cid'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->cid as $item1) {
                     $res['Cid'][$n1++] = $item1;
                 }
@@ -58,7 +60,7 @@ class hits extends Model
         if (null !== $this->keyWords) {
             if (\is_array($this->keyWords)) {
                 $res['KeyWords'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->keyWords as $item1) {
                     $res['KeyWords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +85,7 @@ class hits extends Model
         if (isset($map['Cid'])) {
             if (!empty($map['Cid'])) {
                 $model->cid = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Cid'] as $item1) {
                     $model->cid[$n1++] = $item1;
                 }
@@ -93,7 +95,7 @@ class hits extends Model
         if (isset($map['KeyWords'])) {
             if (!empty($map['KeyWords'])) {
                 $model->keyWords = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['KeyWords'] as $item1) {
                     $model->keyWords[$n1++] = keyWords::fromMap($item1);
                 }

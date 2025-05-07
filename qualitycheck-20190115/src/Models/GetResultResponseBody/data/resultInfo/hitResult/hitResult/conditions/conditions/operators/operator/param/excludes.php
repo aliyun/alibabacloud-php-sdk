@@ -30,7 +30,7 @@ class excludes extends Model
         if (null !== $this->exclude) {
             if (\is_array($this->exclude)) {
                 $res['Exclude'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->exclude as $item1) {
                     $res['Exclude'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class excludes extends Model
         if (isset($map['Exclude'])) {
             if (!empty($map['Exclude'])) {
                 $model->exclude = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Exclude'] as $item1) {
                     $model->exclude[$n1++] = $item1;
                 }

@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->warningConfigInfo) {
             if (\is_array($this->warningConfigInfo)) {
                 $res['WarningConfigInfo'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->warningConfigInfo as $item1) {
                     $res['WarningConfigInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['WarningConfigInfo'])) {
             if (!empty($map['WarningConfigInfo'])) {
                 $model->warningConfigInfo = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['WarningConfigInfo'] as $item1) {
                     $model->warningConfigInfo[$n1++] = warningConfigInfo::fromMap($item1);
                 }

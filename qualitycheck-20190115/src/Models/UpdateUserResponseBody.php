@@ -12,23 +12,26 @@ class UpdateUserResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

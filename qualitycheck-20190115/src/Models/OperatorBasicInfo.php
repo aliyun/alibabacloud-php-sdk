@@ -13,38 +13,44 @@ class OperatorBasicInfo extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $oid;
+
     /**
      * @var param
      */
     public $param;
+
     /**
      * @var int
      */
     public $qualityCheckType;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userGroup;
     protected $_name = [
-        'id'               => 'Id',
-        'name'             => 'Name',
-        'oid'              => 'Oid',
-        'param'            => 'Param',
+        'id' => 'Id',
+        'name' => 'Name',
+        'oid' => 'Oid',
+        'param' => 'Param',
         'qualityCheckType' => 'QualityCheckType',
-        'type'             => 'Type',
-        'userGroup'        => 'UserGroup',
+        'type' => 'Type',
+        'userGroup' => 'UserGroup',
     ];
 
     public function validate()

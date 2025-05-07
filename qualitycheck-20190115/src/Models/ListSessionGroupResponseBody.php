@@ -14,68 +14,80 @@ class ListSessionGroupResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $lastDataId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var messages
      */
     public $messages;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resultCountId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'count'          => 'Count',
-        'currentPage'    => 'CurrentPage',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'lastDataId'     => 'LastDataId',
-        'message'        => 'Message',
-        'messages'       => 'Messages',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'resultCountId'  => 'ResultCountId',
-        'success'        => 'Success',
+        'lastDataId' => 'LastDataId',
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'resultCountId' => 'ResultCountId',
+        'success' => 'Success',
     ];
 
     public function validate()

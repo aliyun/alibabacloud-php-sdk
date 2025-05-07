@@ -13,48 +13,56 @@ class ListQualityCheckSchemeResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resultCountId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'          => 'Code',
-        'count'         => 'Count',
-        'data'          => 'Data',
-        'message'       => 'Message',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'count' => 'Count',
+        'data' => 'Data',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'resultCountId' => 'ResultCountId',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -79,7 +87,7 @@ class ListQualityCheckSchemeResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -132,7 +140,7 @@ class ListQualityCheckSchemeResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

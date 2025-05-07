@@ -17,98 +17,116 @@ class taskAssignRuleInfo extends Model
      * @var agents
      */
     public $agents;
+
     /**
      * @var string
      */
     public $agentsStr;
+
     /**
      * @var int
      */
     public $assignmentType;
+
     /**
      * @var int
      */
     public $callTimeEnd;
+
     /**
      * @var int
      */
     public $callTimeStart;
+
     /**
      * @var int
      */
     public $callType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $durationMax;
+
     /**
      * @var int
      */
     public $durationMin;
+
     /**
      * @var int
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var reviewers
      */
     public $reviewers;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var rules
      */
     public $rules;
+
     /**
      * @var samplingMode
      */
     public $samplingMode;
+
     /**
      * @var skillGroups
      */
     public $skillGroups;
+
     /**
      * @var string
      */
     public $skillGroupsStr;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'agents'         => 'Agents',
-        'agentsStr'      => 'AgentsStr',
+        'agents' => 'Agents',
+        'agentsStr' => 'AgentsStr',
         'assignmentType' => 'AssignmentType',
-        'callTimeEnd'    => 'CallTimeEnd',
-        'callTimeStart'  => 'CallTimeStart',
-        'callType'       => 'CallType',
-        'createTime'     => 'CreateTime',
-        'durationMax'    => 'DurationMax',
-        'durationMin'    => 'DurationMin',
-        'enabled'        => 'Enabled',
-        'priority'       => 'Priority',
-        'reviewers'      => 'Reviewers',
-        'ruleId'         => 'RuleId',
-        'ruleName'       => 'RuleName',
-        'rules'          => 'Rules',
-        'samplingMode'   => 'SamplingMode',
-        'skillGroups'    => 'SkillGroups',
+        'callTimeEnd' => 'CallTimeEnd',
+        'callTimeStart' => 'CallTimeStart',
+        'callType' => 'CallType',
+        'createTime' => 'CreateTime',
+        'durationMax' => 'DurationMax',
+        'durationMin' => 'DurationMin',
+        'enabled' => 'Enabled',
+        'priority' => 'Priority',
+        'reviewers' => 'Reviewers',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'rules' => 'Rules',
+        'samplingMode' => 'SamplingMode',
+        'skillGroups' => 'SkillGroups',
         'skillGroupsStr' => 'SkillGroupsStr',
-        'updateTime'     => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

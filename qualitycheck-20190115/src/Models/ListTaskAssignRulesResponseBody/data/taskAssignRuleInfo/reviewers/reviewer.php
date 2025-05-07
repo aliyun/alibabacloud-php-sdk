@@ -12,12 +12,13 @@ class reviewer extends Model
      * @var string
      */
     public $reviewerId;
+
     /**
      * @var string
      */
     public $reviewerName;
     protected $_name = [
-        'reviewerId'   => 'ReviewerId',
+        'reviewerId' => 'ReviewerId',
         'reviewerName' => 'ReviewerName',
     ];
 

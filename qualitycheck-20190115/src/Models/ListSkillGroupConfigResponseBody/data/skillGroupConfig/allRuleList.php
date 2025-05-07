@@ -31,7 +31,7 @@ class allRuleList extends Model
         if (null !== $this->ruleNameInfo) {
             if (\is_array($this->ruleNameInfo)) {
                 $res['RuleNameInfo'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ruleNameInfo as $item1) {
                     $res['RuleNameInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class allRuleList extends Model
         if (isset($map['RuleNameInfo'])) {
             if (!empty($map['RuleNameInfo'])) {
                 $model->ruleNameInfo = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RuleNameInfo'] as $item1) {
                     $model->ruleNameInfo[$n1++] = ruleNameInfo::fromMap($item1);
                 }

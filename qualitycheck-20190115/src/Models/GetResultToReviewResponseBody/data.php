@@ -17,68 +17,80 @@ class data extends Model
      * @var string
      */
     public $audioScheme;
+
     /**
      * @var string
      */
     public $audioURL;
+
     /**
      * @var string
      */
     public $comments;
+
     /**
      * @var dialogues
      */
     public $dialogues;
+
     /**
      * @var string
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $fileMergeName;
+
     /**
      * @var hitRuleReviewInfoList
      */
     public $hitRuleReviewInfoList;
+
     /**
      * @var manualScoreInfoList
      */
     public $manualScoreInfoList;
+
     /**
      * @var reviewHistoryList
      */
     public $reviewHistoryList;
+
     /**
      * @var reviewTypeIdList
      */
     public $reviewTypeIdList;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalScore;
+
     /**
      * @var string
      */
     public $vid;
     protected $_name = [
-        'audioScheme'           => 'AudioScheme',
-        'audioURL'              => 'AudioURL',
-        'comments'              => 'Comments',
-        'dialogues'             => 'Dialogues',
-        'fileId'                => 'FileId',
-        'fileMergeName'         => 'FileMergeName',
+        'audioScheme' => 'AudioScheme',
+        'audioURL' => 'AudioURL',
+        'comments' => 'Comments',
+        'dialogues' => 'Dialogues',
+        'fileId' => 'FileId',
+        'fileMergeName' => 'FileMergeName',
         'hitRuleReviewInfoList' => 'HitRuleReviewInfoList',
-        'manualScoreInfoList'   => 'ManualScoreInfoList',
-        'reviewHistoryList'     => 'ReviewHistoryList',
-        'reviewTypeIdList'      => 'ReviewTypeIdList',
-        'status'                => 'Status',
-        'totalScore'            => 'TotalScore',
-        'vid'                   => 'Vid',
+        'manualScoreInfoList' => 'ManualScoreInfoList',
+        'reviewHistoryList' => 'ReviewHistoryList',
+        'reviewTypeIdList' => 'ReviewTypeIdList',
+        'status' => 'Status',
+        'totalScore' => 'TotalScore',
+        'vid' => 'Vid',
     ];
 
     public function validate()

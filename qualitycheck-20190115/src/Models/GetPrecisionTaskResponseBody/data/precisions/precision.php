@@ -12,28 +12,32 @@ class precision extends Model
      * @var int
      */
     public $modelId;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var float
      */
     public $precision;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'modelId'   => 'ModelId',
+        'modelId' => 'ModelId',
         'modelName' => 'ModelName',
         'precision' => 'Precision',
-        'status'    => 'Status',
-        'taskId'    => 'TaskId',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

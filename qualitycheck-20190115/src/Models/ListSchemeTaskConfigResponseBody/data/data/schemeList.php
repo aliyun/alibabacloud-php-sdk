@@ -31,7 +31,7 @@ class schemeList extends Model
         if (null !== $this->schemeList) {
             if (\is_array($this->schemeList)) {
                 $res['SchemeList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->schemeList as $item1) {
                     $res['SchemeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class schemeList extends Model
         if (isset($map['SchemeList'])) {
             if (!empty($map['SchemeList'])) {
                 $model->schemeList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SchemeList'] as $item1) {
                     $model->schemeList[$n1++] = self::fromMap($item1);
                 }

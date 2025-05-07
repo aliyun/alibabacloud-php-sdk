@@ -14,48 +14,56 @@ class hitResult extends Model
      * @var conditions
      */
     public $conditions;
+
     /**
      * @var hits
      */
     public $hits;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $reviewResult;
+
     /**
      * @var string
      */
     public $rid;
+
     /**
      * @var int
      */
     public $schemeId;
+
     /**
      * @var int
      */
     public $schemeVersion;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'conditions'    => 'Conditions',
-        'hits'          => 'Hits',
-        'name'          => 'Name',
-        'reviewResult'  => 'ReviewResult',
-        'rid'           => 'Rid',
-        'schemeId'      => 'SchemeId',
+        'conditions' => 'Conditions',
+        'hits' => 'Hits',
+        'name' => 'Name',
+        'reviewResult' => 'ReviewResult',
+        'rid' => 'Rid',
+        'schemeId' => 'SchemeId',
         'schemeVersion' => 'SchemeVersion',
-        'score'         => 'Score',
-        'type'          => 'Type',
+        'score' => 'Score',
+        'type' => 'Type',
     ];
 
     public function validate()

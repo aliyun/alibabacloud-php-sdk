@@ -18,158 +18,188 @@ class param extends Model
      * @var antModelInfo
      */
     public $antModelInfo;
+
     /**
      * @var bool
      */
     public $average;
+
     /**
      * @var string
      */
     public $beginType;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $compareOperator;
+
     /**
      * @var bool
      */
     public $contextChatMatch;
+
     /**
      * @var int
      */
     public $delayTime;
+
     /**
      * @var bool
      */
     public $differentRole;
+
     /**
      * @var excludes
      */
     public $excludes;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var bool
      */
     public $fromEnd;
+
     /**
      * @var int
      */
     public $hitTime;
+
     /**
      * @var bool
      */
     public $inSentence;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var bool
      */
     public $keywordExtension;
+
     /**
      * @var int
      */
     public $keywordMatchSize;
+
     /**
      * @var int
      */
     public $maxEmotionChangeValue;
+
     /**
      * @var int
      */
     public $minWordSize;
+
     /**
      * @var string
      */
     public $notRegex;
+
     /**
      * @var operKeyWords
      */
     public $operKeyWords;
+
     /**
      * @var string
      */
     public $phrase;
+
     /**
      * @var pvalues
      */
     public $pvalues;
+
     /**
      * @var references
      */
     public $references;
+
     /**
      * @var string
      */
     public $regex;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var float
      */
     public $similarityThreshold;
+
     /**
      * @var similarlySentences
      */
     public $similarlySentences;
+
     /**
      * @var int
      */
     public $target;
+
     /**
      * @var string
      */
     public $targetRole;
+
     /**
      * @var float
      */
     public $threshold;
+
     /**
      * @var int
      */
     public $velocityInMint;
     protected $_name = [
-        'antModelInfo'          => 'AntModelInfo',
-        'average'               => 'Average',
-        'beginType'             => 'BeginType',
-        'checkType'             => 'CheckType',
-        'compareOperator'       => 'CompareOperator',
-        'contextChatMatch'      => 'ContextChatMatch',
-        'delayTime'             => 'DelayTime',
-        'differentRole'         => 'DifferentRole',
-        'excludes'              => 'Excludes',
-        'from'                  => 'From',
-        'fromEnd'               => 'FromEnd',
-        'hitTime'               => 'HitTime',
-        'inSentence'            => 'InSentence',
-        'interval'              => 'Interval',
-        'keywordExtension'      => 'KeywordExtension',
-        'keywordMatchSize'      => 'KeywordMatchSize',
+        'antModelInfo' => 'AntModelInfo',
+        'average' => 'Average',
+        'beginType' => 'BeginType',
+        'checkType' => 'CheckType',
+        'compareOperator' => 'CompareOperator',
+        'contextChatMatch' => 'ContextChatMatch',
+        'delayTime' => 'DelayTime',
+        'differentRole' => 'DifferentRole',
+        'excludes' => 'Excludes',
+        'from' => 'From',
+        'fromEnd' => 'FromEnd',
+        'hitTime' => 'HitTime',
+        'inSentence' => 'InSentence',
+        'interval' => 'Interval',
+        'keywordExtension' => 'KeywordExtension',
+        'keywordMatchSize' => 'KeywordMatchSize',
         'maxEmotionChangeValue' => 'MaxEmotionChangeValue',
-        'minWordSize'           => 'MinWordSize',
-        'notRegex'              => 'NotRegex',
-        'operKeyWords'          => 'OperKeyWords',
-        'phrase'                => 'Phrase',
-        'pvalues'               => 'Pvalues',
-        'references'            => 'References',
-        'regex'                 => 'Regex',
-        'score'                 => 'Score',
-        'similarityThreshold'   => 'Similarity_threshold',
-        'similarlySentences'    => 'SimilarlySentences',
-        'target'                => 'Target',
-        'targetRole'            => 'TargetRole',
-        'threshold'             => 'Threshold',
-        'velocityInMint'        => 'VelocityInMint',
+        'minWordSize' => 'MinWordSize',
+        'notRegex' => 'NotRegex',
+        'operKeyWords' => 'OperKeyWords',
+        'phrase' => 'Phrase',
+        'pvalues' => 'Pvalues',
+        'references' => 'References',
+        'regex' => 'Regex',
+        'score' => 'Score',
+        'similarityThreshold' => 'Similarity_threshold',
+        'similarlySentences' => 'SimilarlySentences',
+        'target' => 'Target',
+        'targetRole' => 'TargetRole',
+        'threshold' => 'Threshold',
+        'velocityInMint' => 'VelocityInMint',
     ];
 
     public function validate()

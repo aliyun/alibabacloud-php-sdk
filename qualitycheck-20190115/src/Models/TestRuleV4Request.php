@@ -12,13 +12,14 @@ class TestRuleV4Request extends Model
      * @var int
      */
     public $isSchemeData;
+
     /**
      * @var string
      */
     public $testJson;
     protected $_name = [
         'isSchemeData' => 'IsSchemeData',
-        'testJson'     => 'TestJson',
+        'testJson' => 'TestJson',
     ];
 
     public function validate()

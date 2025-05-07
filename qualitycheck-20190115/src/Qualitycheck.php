@@ -183,6 +183,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadAudioDataRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadAudioDataResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncForLLMRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncForLLMResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataV4Request;
@@ -235,6 +237,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - AddBusinessCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddBusinessCategoryResponse
      *
      * @param AddBusinessCategoryRequest $request
@@ -258,25 +261,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddBusinessCategory',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddBusinessCategory',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddBusinessCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddBusinessCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddBusinessCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AddBusinessCategoryRequest
+     *
      * @returns AddBusinessCategoryResponse
      *
      * @param AddBusinessCategoryRequest $request
@@ -293,6 +294,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - AddRuleCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddRuleCategoryResponse
      *
      * @param AddRuleCategoryRequest $request
@@ -316,25 +318,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddRuleCategory',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRuleCategory',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddRuleCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddRuleCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddRuleCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AddRuleCategoryRequest
+     *
      * @returns AddRuleCategoryResponse
      *
      * @param AddRuleCategoryRequest $request
@@ -353,6 +353,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - AddRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddRuleV4Response
      *
      * @param AddRuleV4Request $request
@@ -379,30 +380,28 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddRuleV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRuleV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddRuleV4Response::fromMap($this->execute($params, $req, $runtime));
+        return AddRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * V4创建规则.
      *
      * @param request - AddRuleV4Request
+     *
      * @returns AddRuleV4Response
      *
      * @param AddRuleV4Request $request
@@ -421,6 +420,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ApplyWsTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApplyWsTokenResponse
      *
      * @param ApplyWsTokenRequest $request
@@ -444,27 +444,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyWsToken',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyWsToken',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ApplyWsTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyWsTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyWsTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 申领实时语音所需token.
      *
      * @param request - ApplyWsTokenRequest
+     *
      * @returns ApplyWsTokenResponse
      *
      * @param ApplyWsTokenRequest $request
@@ -481,6 +479,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - AssignReviewerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssignReviewerResponse
      *
      * @param AssignReviewerRequest $request
@@ -504,25 +503,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssignReviewer',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssignReviewer',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssignReviewerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssignReviewerResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssignReviewerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AssignReviewerRequest
+     *
      * @returns AssignReviewerResponse
      *
      * @param AssignReviewerRequest $request
@@ -537,7 +534,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 会话组批量分配.
      *
@@ -545,6 +541,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - AssignReviewerBySessionGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssignReviewerBySessionGroupResponse
      *
      * @param AssignReviewerBySessionGroupRequest $request
@@ -568,31 +565,28 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssignReviewerBySessionGroup',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssignReviewerBySessionGroup',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssignReviewerBySessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssignReviewerBySessionGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssignReviewerBySessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 会话组批量分配.
      *
      * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
      *
      * @param request - AssignReviewerBySessionGroupRequest
+     *
      * @returns AssignReviewerBySessionGroupResponse
      *
      * @param AssignReviewerBySessionGroupRequest $request
@@ -611,6 +605,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - BatchSubmitReviewInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchSubmitReviewInfoResponse
      *
      * @param BatchSubmitReviewInfoRequest $request
@@ -634,27 +629,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchSubmitReviewInfo',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchSubmitReviewInfo',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchSubmitReviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchSubmitReviewInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchSubmitReviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量复核.
      *
      * @param request - BatchSubmitReviewInfoRequest
+     *
      * @returns BatchSubmitReviewInfoResponse
      *
      * @param BatchSubmitReviewInfoRequest $request
@@ -673,6 +666,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - CreateAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAsrVocabResponse
      *
      * @param CreateAsrVocabRequest $request
@@ -696,27 +690,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAsrVocab',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAsrVocab',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAsrVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建热词模型.
      *
      * @param request - CreateAsrVocabRequest
+     *
      * @returns CreateAsrVocabResponse
      *
      * @param CreateAsrVocabRequest $request
@@ -735,6 +727,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - CreateCheckTypeToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCheckTypeToSchemeResponse
      *
      * @param CreateCheckTypeToSchemeRequest $request
@@ -758,27 +751,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCheckTypeToScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCheckTypeToScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCheckTypeToSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建质检方案中的质检维度.
      *
      * @param request - CreateCheckTypeToSchemeRequest
+     *
      * @returns CreateCheckTypeToSchemeResponse
      *
      * @param CreateCheckTypeToSchemeRequest $request
@@ -797,6 +788,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - CreateQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityCheckSchemeResponse
      *
      * @param CreateQualityCheckSchemeRequest $request
@@ -820,27 +812,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityCheckScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityCheckScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateQualityCheckSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 新增质检方案.
      *
      * @param request - CreateQualityCheckSchemeRequest
+     *
      * @returns CreateQualityCheckSchemeResponse
      *
      * @param CreateQualityCheckSchemeRequest $request
@@ -859,6 +849,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - CreateSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSchemeTaskConfigResponse
      *
      * @param CreateSchemeTaskConfigRequest $request
@@ -882,27 +873,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSchemeTaskConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSchemeTaskConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSchemeTaskConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 新建质检任务
      *
      * @param request - CreateSchemeTaskConfigRequest
+     *
      * @returns CreateSchemeTaskConfigResponse
      *
      * @param CreateSchemeTaskConfigRequest $request
@@ -919,6 +908,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - CreateSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSkillGroupConfigResponse
      *
      * @param CreateSkillGroupConfigRequest $request
@@ -942,25 +932,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSkillGroupConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSkillGroupConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSkillGroupConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateSkillGroupConfigRequest
+     *
      * @returns CreateSkillGroupConfigResponse
      *
      * @param CreateSkillGroupConfigRequest $request
@@ -977,6 +965,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - CreateTaskAssignRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTaskAssignRuleResponse
      *
      * @param CreateTaskAssignRuleRequest $request
@@ -1000,25 +989,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTaskAssignRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTaskAssignRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTaskAssignRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskAssignRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskAssignRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateTaskAssignRuleRequest
+     *
      * @returns CreateTaskAssignRuleResponse
      *
      * @param CreateTaskAssignRuleRequest $request
@@ -1035,6 +1022,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - CreateWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWarningConfigResponse
      *
      * @param CreateWarningConfigRequest $request
@@ -1058,25 +1046,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateWarningConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWarningConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWarningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateWarningConfigRequest
+     *
      * @returns CreateWarningConfigResponse
      *
      * @param CreateWarningConfigRequest $request
@@ -1095,6 +1081,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - CreateWarningStrategyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWarningStrategyConfigResponse
      *
      * @param CreateWarningStrategyConfigRequest $request
@@ -1118,27 +1105,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateWarningStrategyConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWarningStrategyConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWarningStrategyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 预警策略-新增.
      *
      * @param request - CreateWarningStrategyConfigRequest
+     *
      * @returns CreateWarningStrategyConfigResponse
      *
      * @param CreateWarningStrategyConfigRequest $request
@@ -1155,6 +1140,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DelRuleCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DelRuleCategoryResponse
      *
      * @param DelRuleCategoryRequest $request
@@ -1178,25 +1164,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DelRuleCategory',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DelRuleCategory',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DelRuleCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DelRuleCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DelRuleCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DelRuleCategoryRequest
+     *
      * @returns DelRuleCategoryResponse
      *
      * @param DelRuleCategoryRequest $request
@@ -1213,6 +1197,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeleteAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAsrVocabResponse
      *
      * @param DeleteAsrVocabRequest $request
@@ -1236,25 +1221,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAsrVocab',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAsrVocab',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAsrVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteAsrVocabRequest
+     *
      * @returns DeleteAsrVocabResponse
      *
      * @param DeleteAsrVocabRequest $request
@@ -1271,6 +1254,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeleteBusinessCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBusinessCategoryResponse
      *
      * @param DeleteBusinessCategoryRequest $request
@@ -1294,25 +1278,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBusinessCategory',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBusinessCategory',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteBusinessCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteBusinessCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteBusinessCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteBusinessCategoryRequest
+     *
      * @returns DeleteBusinessCategoryResponse
      *
      * @param DeleteBusinessCategoryRequest $request
@@ -1331,6 +1313,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - DeleteCheckTypeToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCheckTypeToSchemeResponse
      *
      * @param DeleteCheckTypeToSchemeRequest $request
@@ -1354,27 +1337,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCheckTypeToScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCheckTypeToScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCheckTypeToSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除质检唯独.
      *
      * @param request - DeleteCheckTypeToSchemeRequest
+     *
      * @returns DeleteCheckTypeToSchemeResponse
      *
      * @param DeleteCheckTypeToSchemeRequest $request
@@ -1391,6 +1372,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeleteCustomizationConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomizationConfigResponse
      *
      * @param DeleteCustomizationConfigRequest $request
@@ -1414,25 +1396,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomizationConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomizationConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomizationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomizationConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomizationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteCustomizationConfigRequest
+     *
      * @returns DeleteCustomizationConfigResponse
      *
      * @param DeleteCustomizationConfigRequest $request
@@ -1447,12 +1427,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI DeleteDataSet is deprecated
      *
      * @param request - DeleteDataSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDataSetResponse
      *
      * @param DeleteDataSetRequest $request
@@ -1476,29 +1456,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataSet',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataSet',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI DeleteDataSet is deprecated
      *
      * @param request - DeleteDataSetRequest
+     *
      * @returns DeleteDataSetResponse
      *
      * @param DeleteDataSetRequest $request
@@ -1515,6 +1492,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeletePrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePrecisionTaskResponse
      *
      * @param DeletePrecisionTaskRequest $request
@@ -1538,25 +1516,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePrecisionTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePrecisionTask',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePrecisionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeletePrecisionTaskRequest
+     *
      * @returns DeletePrecisionTaskResponse
      *
      * @param DeletePrecisionTaskRequest $request
@@ -1575,6 +1551,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - DeleteQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityCheckSchemeResponse
      *
      * @param DeleteQualityCheckSchemeRequest $request
@@ -1598,27 +1575,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityCheckScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityCheckScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteQualityCheckSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除质检方案.
      *
      * @param request - DeleteQualityCheckSchemeRequest
+     *
      * @returns DeleteQualityCheckSchemeResponse
      *
      * @param DeleteQualityCheckSchemeRequest $request
@@ -1633,7 +1608,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 删除规则.
      *
@@ -1641,6 +1615,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - DeleteRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRuleResponse
      *
      * @param DeleteRuleRequest $request
@@ -1671,34 +1646,31 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 删除规则.
      *
      * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
      * @param request - DeleteRuleRequest
+     *
      * @returns DeleteRuleResponse
      *
      * @param DeleteRuleRequest $request
@@ -1717,6 +1689,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - DeleteRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRuleV4Response
      *
      * @param DeleteRuleV4Request $request
@@ -1743,30 +1716,28 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRuleV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRuleV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRuleV4Response::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * V4删除规则.
      *
      * @param request - DeleteRuleV4Request
+     *
      * @returns DeleteRuleV4Response
      *
      * @param DeleteRuleV4Request $request
@@ -1785,6 +1756,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - DeleteSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSchemeTaskConfigResponse
      *
      * @param DeleteSchemeTaskConfigRequest $request
@@ -1808,27 +1780,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSchemeTaskConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSchemeTaskConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSchemeTaskConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除质检任务
      *
      * @param request - DeleteSchemeTaskConfigRequest
+     *
      * @returns DeleteSchemeTaskConfigResponse
      *
      * @param DeleteSchemeTaskConfigRequest $request
@@ -1845,6 +1815,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeleteSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSkillGroupConfigResponse
      *
      * @param DeleteSkillGroupConfigRequest $request
@@ -1868,25 +1839,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSkillGroupConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSkillGroupConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSkillGroupConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteSkillGroupConfigRequest
+     *
      * @returns DeleteSkillGroupConfigResponse
      *
      * @param DeleteSkillGroupConfigRequest $request
@@ -1903,6 +1872,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeleteTaskAssignRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTaskAssignRuleResponse
      *
      * @param DeleteTaskAssignRuleRequest $request
@@ -1926,25 +1896,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTaskAssignRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTaskAssignRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTaskAssignRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTaskAssignRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTaskAssignRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteTaskAssignRuleRequest
+     *
      * @returns DeleteTaskAssignRuleResponse
      *
      * @param DeleteTaskAssignRuleRequest $request
@@ -1961,6 +1929,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - DeleteWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWarningConfigResponse
      *
      * @param DeleteWarningConfigRequest $request
@@ -1984,25 +1953,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWarningConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWarningConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWarningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteWarningConfigRequest
+     *
      * @returns DeleteWarningConfigResponse
      *
      * @param DeleteWarningConfigRequest $request
@@ -2021,6 +1988,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - DeleteWarningStrategyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWarningStrategyConfigResponse
      *
      * @param DeleteWarningStrategyConfigRequest $request
@@ -2044,27 +2012,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWarningStrategyConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWarningStrategyConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWarningStrategyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 预警策略-删除.
      *
      * @param request - DeleteWarningStrategyConfigRequest
+     *
      * @returns DeleteWarningStrategyConfigResponse
      *
      * @param DeleteWarningStrategyConfigRequest $request
@@ -2081,6 +2047,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAsrVocabResponse
      *
      * @param GetAsrVocabRequest $request
@@ -2104,25 +2071,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAsrVocab',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAsrVocab',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAsrVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetAsrVocabRequest
+     *
      * @returns GetAsrVocabResponse
      *
      * @param GetAsrVocabRequest $request
@@ -2139,6 +2104,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetBusinessCategoryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBusinessCategoryListResponse
      *
      * @param GetBusinessCategoryListRequest $request
@@ -2162,25 +2128,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBusinessCategoryList',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBusinessCategoryList',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetBusinessCategoryListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetBusinessCategoryListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetBusinessCategoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetBusinessCategoryListRequest
+     *
      * @returns GetBusinessCategoryListResponse
      *
      * @param GetBusinessCategoryListRequest $request
@@ -2199,6 +2163,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - GetCustomizationConfigListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCustomizationConfigListResponse
      *
      * @param GetCustomizationConfigListRequest $request
@@ -2222,27 +2187,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCustomizationConfigList',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCustomizationConfigList',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomizationConfigListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomizationConfigListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomizationConfigListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取语音模型列表.
      *
      * @param request - GetCustomizationConfigListRequest
+     *
      * @returns GetCustomizationConfigListResponse
      *
      * @param GetCustomizationConfigListRequest $request
@@ -2259,6 +2222,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetNextResultToVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNextResultToVerifyResponse
      *
      * @param GetNextResultToVerifyRequest $request
@@ -2282,25 +2246,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNextResultToVerify',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNextResultToVerify',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNextResultToVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNextResultToVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNextResultToVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetNextResultToVerifyRequest
+     *
      * @returns GetNextResultToVerifyResponse
      *
      * @param GetNextResultToVerifyRequest $request
@@ -2317,6 +2279,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetPrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPrecisionTaskResponse
      *
      * @param GetPrecisionTaskRequest $request
@@ -2340,25 +2303,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPrecisionTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPrecisionTask',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPrecisionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetPrecisionTaskRequest
+     *
      * @returns GetPrecisionTaskResponse
      *
      * @param GetPrecisionTaskRequest $request
@@ -2377,6 +2338,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - GetQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityCheckSchemeResponse
      *
      * @param GetQualityCheckSchemeRequest $request
@@ -2400,27 +2362,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityCheckScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityCheckScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityCheckSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取质检方案.
      *
      * @param request - GetQualityCheckSchemeRequest
+     *
      * @returns GetQualityCheckSchemeResponse
      *
      * @param GetQualityCheckSchemeRequest $request
@@ -2437,6 +2397,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResultResponse
      *
      * @param GetResultRequest $request
@@ -2460,25 +2421,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResult',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResult',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetResultRequest
+     *
      * @returns GetResultResponse
      *
      * @param GetResultRequest $request
@@ -2495,6 +2454,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetResultToReviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResultToReviewResponse
      *
      * @param GetResultToReviewRequest $request
@@ -2518,25 +2478,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResultToReview',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResultToReview',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResultToReviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResultToReviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResultToReviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetResultToReviewRequest
+     *
      * @returns GetResultToReviewResponse
      *
      * @param GetResultToReviewRequest $request
@@ -2551,12 +2509,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRuleResponse
      *
      * @param GetRuleRequest $request
@@ -2580,29 +2538,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleRequest
+     *
      * @returns GetRuleResponse
      *
      * @param GetRuleRequest $request
@@ -2617,7 +2572,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 获取规则.
      *
@@ -2625,6 +2579,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - GetRuleByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRuleByIdResponse
      *
      * @param GetRuleByIdRequest $request
@@ -2647,34 +2602,31 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRuleById',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRuleById',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 获取规则.
      *
      * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleByIdRequest
+     *
      * @returns GetRuleByIdResponse
      *
      * @param GetRuleByIdRequest $request
@@ -2691,6 +2643,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetRuleCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRuleCategoryResponse
      *
      * @param GetRuleCategoryRequest $request
@@ -2714,25 +2667,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRuleCategory',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRuleCategory',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRuleCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetRuleCategoryRequest
+     *
      * @returns GetRuleCategoryResponse
      *
      * @param GetRuleCategoryRequest $request
@@ -2747,12 +2698,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRuleDetailResponse
      *
      * @param GetRuleDetailRequest $request
@@ -2776,29 +2727,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRuleDetail',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRuleDetail',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleDetailRequest
+     *
      * @returns GetRuleDetailResponse
      *
      * @param GetRuleDetailRequest $request
@@ -2817,6 +2765,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - GetRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRuleV4Response
      *
      * @param GetRuleV4Request $request
@@ -2836,27 +2785,25 @@ class Qualitycheck extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRuleV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRuleV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleV4Response::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * V4获取规则.
      *
      * @param request - GetRuleV4Request
+     *
      * @returns GetRuleV4Response
      *
      * @param GetRuleV4Request $request
@@ -2875,6 +2822,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - GetRulesCountListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRulesCountListResponse
      *
      * @param GetRulesCountListRequest $request
@@ -2993,30 +2941,28 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRulesCountList',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRulesCountList',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRulesCountListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRulesCountListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRulesCountListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获得规则列表.
      *
      * @param request - GetRulesCountListRequest
+     *
      * @returns GetRulesCountListResponse
      *
      * @param GetRulesCountListRequest $request
@@ -3031,12 +2977,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI GetScoreInfo is deprecated
      *
      * @param request - GetScoreInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetScoreInfoResponse
      *
      * @param GetScoreInfoRequest $request
@@ -3060,29 +3006,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetScoreInfo',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScoreInfo',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetScoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetScoreInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetScoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI GetScoreInfo is deprecated
      *
      * @param request - GetScoreInfoRequest
+     *
      * @returns GetScoreInfoResponse
      *
      * @param GetScoreInfoRequest $request
@@ -3099,6 +3042,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - GetSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupConfigResponse
      *
      * @param GetSkillGroupConfigRequest $request
@@ -3122,25 +3066,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetSkillGroupConfigRequest
+     *
      * @returns GetSkillGroupConfigResponse
      *
      * @param GetSkillGroupConfigRequest $request
@@ -3155,12 +3097,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead
      *
      * @param request - GetSyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSyncResultResponse
      *
      * @param GetSyncResultRequest $request
@@ -3184,29 +3126,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSyncResult',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSyncResult',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSyncResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead
      *
      * @param request - GetSyncResultRequest
+     *
      * @returns GetSyncResultResponse
      *
      * @param GetSyncResultRequest $request
@@ -3225,6 +3164,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - GetWarningStrategyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWarningStrategyConfigResponse
      *
      * @param GetWarningStrategyConfigRequest $request
@@ -3248,27 +3188,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWarningStrategyConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWarningStrategyConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWarningStrategyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 预警策略-详情.
      *
      * @param request - GetWarningStrategyConfigRequest
+     *
      * @returns GetWarningStrategyConfigResponse
      *
      * @param GetWarningStrategyConfigRequest $request
@@ -3285,6 +3223,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - HandleComplaintRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HandleComplaintResponse
      *
      * @param HandleComplaintRequest $request
@@ -3308,25 +3247,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HandleComplaint',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HandleComplaint',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HandleComplaintResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HandleComplaintResponse::fromMap($this->execute($params, $req, $runtime));
+        return HandleComplaintResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - HandleComplaintRequest
+     *
      * @returns HandleComplaintResponse
      *
      * @param HandleComplaintRequest $request
@@ -3341,12 +3278,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
      * @param request - InvalidRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InvalidRuleResponse
      *
      * @param InvalidRuleRequest $request
@@ -3370,29 +3307,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvalidRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InvalidRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InvalidRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InvalidRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return InvalidRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
      * @param request - InvalidRuleRequest
+     *
      * @returns InvalidRuleResponse
      *
      * @param InvalidRuleRequest $request
@@ -3411,6 +3345,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAsrVocabResponse
      *
      * @param ListAsrVocabRequest $request
@@ -3434,27 +3369,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAsrVocab',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAsrVocab',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAsrVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取热词模型列表.
      *
      * @param request - ListAsrVocabRequest
+     *
      * @returns ListAsrVocabResponse
      *
      * @param ListAsrVocabRequest $request
@@ -3469,7 +3402,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 获取数据集列表.
      *
@@ -3477,6 +3409,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListDataSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataSetResponse
      *
      * @param ListDataSetRequest $request
@@ -3500,31 +3433,28 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSet',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataSet',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 获取数据集列表.
      *
      * @deprecated OpenAPI ListDataSet is deprecated
      *
      * @param request - ListDataSetRequest
+     *
      * @returns ListDataSetResponse
      *
      * @param ListDataSetRequest $request
@@ -3541,6 +3471,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - ListPrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrecisionTaskResponse
      *
      * @param ListPrecisionTaskRequest $request
@@ -3564,25 +3495,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrecisionTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrecisionTask',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrecisionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListPrecisionTaskRequest
+     *
      * @returns ListPrecisionTaskResponse
      *
      * @param ListPrecisionTaskRequest $request
@@ -3601,6 +3530,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListQualityCheckSchemeResponse
      *
      * @param ListQualityCheckSchemeRequest $request
@@ -3624,27 +3554,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQualityCheckScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQualityCheckScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListQualityCheckSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 质检方案列表.
      *
      * @param request - ListQualityCheckSchemeRequest
+     *
      * @returns ListQualityCheckSchemeResponse
      *
      * @param ListQualityCheckSchemeRequest $request
@@ -3659,12 +3587,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead
      *
      * @param request - ListRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRulesResponse
      *
      * @param ListRulesRequest $request
@@ -3688,29 +3616,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRules',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRules',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead
      *
      * @param request - ListRulesRequest
+     *
      * @returns ListRulesResponse
      *
      * @param ListRulesRequest $request
@@ -3729,6 +3654,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListRulesV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRulesV4Response
      *
      * @param ListRulesV4Request $request
@@ -3847,30 +3773,28 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRulesV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRulesV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRulesV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRulesV4Response::fromMap($this->execute($params, $req, $runtime));
+        return ListRulesV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * V4获得规则列表.
      *
      * @param request - ListRulesV4Request
+     *
      * @returns ListRulesV4Response
      *
      * @param ListRulesV4Request $request
@@ -3889,6 +3813,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSchemeTaskConfigResponse
      *
      * @param ListSchemeTaskConfigRequest $request
@@ -3912,27 +3837,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSchemeTaskConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSchemeTaskConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSchemeTaskConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取质检任务列表.
      *
      * @param request - ListSchemeTaskConfigRequest
+     *
      * @returns ListSchemeTaskConfigResponse
      *
      * @param ListSchemeTaskConfigRequest $request
@@ -3947,7 +3870,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 获取会话组列表.
      *
@@ -3955,6 +3877,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListSessionGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSessionGroupResponse
      *
      * @param ListSessionGroupRequest $request
@@ -3978,31 +3901,28 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSessionGroup',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSessionGroup',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSessionGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 获取会话组列表.
      *
      * @deprecated OpenAPI ListSessionGroup is deprecated
      *
      * @param request - ListSessionGroupRequest
+     *
      * @returns ListSessionGroupResponse
      *
      * @param ListSessionGroupRequest $request
@@ -4019,6 +3939,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - ListSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSkillGroupConfigResponse
      *
      * @param ListSkillGroupConfigRequest $request
@@ -4042,25 +3963,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSkillGroupConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSkillGroupConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSkillGroupConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListSkillGroupConfigRequest
+     *
      * @returns ListSkillGroupConfigResponse
      *
      * @param ListSkillGroupConfigRequest $request
@@ -4077,6 +3996,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - ListTaskAssignRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTaskAssignRulesResponse
      *
      * @param ListTaskAssignRulesRequest $request
@@ -4100,25 +4020,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTaskAssignRules',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTaskAssignRules',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTaskAssignRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskAssignRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskAssignRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListTaskAssignRulesRequest
+     *
      * @returns ListTaskAssignRulesResponse
      *
      * @param ListTaskAssignRulesRequest $request
@@ -4135,6 +4053,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -4158,25 +4077,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListUsersRequest
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -4193,6 +4110,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - ListWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListWarningConfigResponse
      *
      * @param ListWarningConfigRequest $request
@@ -4216,25 +4134,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWarningConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListWarningConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWarningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListWarningConfigRequest
+     *
      * @returns ListWarningConfigResponse
      *
      * @param ListWarningConfigRequest $request
@@ -4253,6 +4169,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - ListWarningStrategyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListWarningStrategyConfigResponse
      *
      * @param ListWarningStrategyConfigRequest $request
@@ -4276,27 +4193,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWarningStrategyConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListWarningStrategyConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWarningStrategyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 预警策略-列表.
      *
      * @param request - ListWarningStrategyConfigRequest
+     *
      * @returns ListWarningStrategyConfigResponse
      *
      * @param ListWarningStrategyConfigRequest $request
@@ -4315,6 +4230,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - RevertAssignedSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevertAssignedSessionResponse
      *
      * @param RevertAssignedSessionRequest $request
@@ -4338,27 +4254,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevertAssignedSession',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevertAssignedSession',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevertAssignedSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevertAssignedSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevertAssignedSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量回收.
      *
      * @param request - RevertAssignedSessionRequest
+     *
      * @returns RevertAssignedSessionResponse
      *
      * @param RevertAssignedSessionRequest $request
@@ -4373,7 +4287,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 会话组批量回收.
      *
@@ -4381,6 +4294,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - RevertAssignedSessionGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevertAssignedSessionGroupResponse
      *
      * @param RevertAssignedSessionGroupRequest $request
@@ -4404,31 +4318,28 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevertAssignedSessionGroup',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevertAssignedSessionGroup',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevertAssignedSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevertAssignedSessionGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevertAssignedSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 会话组批量回收.
      *
      * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
      *
      * @param request - RevertAssignedSessionGroupRequest
+     *
      * @returns RevertAssignedSessionGroupResponse
      *
      * @param RevertAssignedSessionGroupRequest $request
@@ -4443,12 +4354,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI SaveConfigDataSet is deprecated
      *
      * @param request - SaveConfigDataSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveConfigDataSetResponse
      *
      * @param SaveConfigDataSetRequest $request
@@ -4472,29 +4383,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveConfigDataSet',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveConfigDataSet',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveConfigDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveConfigDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveConfigDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI SaveConfigDataSet is deprecated
      *
      * @param request - SaveConfigDataSetRequest
+     *
      * @returns SaveConfigDataSetResponse
      *
      * @param SaveConfigDataSetRequest $request
@@ -4511,6 +4419,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - SubmitComplaintRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitComplaintResponse
      *
      * @param SubmitComplaintRequest $request
@@ -4534,25 +4443,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitComplaint',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitComplaint',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitComplaintResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitComplaintResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitComplaintResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SubmitComplaintRequest
+     *
      * @returns SubmitComplaintResponse
      *
      * @param SubmitComplaintRequest $request
@@ -4569,6 +4476,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - SubmitPrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitPrecisionTaskResponse
      *
      * @param SubmitPrecisionTaskRequest $request
@@ -4592,25 +4500,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitPrecisionTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitPrecisionTask',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitPrecisionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SubmitPrecisionTaskRequest
+     *
      * @returns SubmitPrecisionTaskResponse
      *
      * @param SubmitPrecisionTaskRequest $request
@@ -4627,6 +4533,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - SubmitQualityCheckTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitQualityCheckTaskResponse
      *
      * @param SubmitQualityCheckTaskRequest $request
@@ -4650,25 +4557,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitQualityCheckTask',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitQualityCheckTask',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitQualityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitQualityCheckTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitQualityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SubmitQualityCheckTaskRequest
+     *
      * @returns SubmitQualityCheckTaskResponse
      *
      * @param SubmitQualityCheckTaskRequest $request
@@ -4685,6 +4590,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - SubmitReviewInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitReviewInfoResponse
      *
      * @param SubmitReviewInfoRequest $request
@@ -4708,25 +4614,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitReviewInfo',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitReviewInfo',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitReviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitReviewInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitReviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SubmitReviewInfoRequest
+     *
      * @returns SubmitReviewInfoResponse
      *
      * @param SubmitReviewInfoRequest $request
@@ -4743,6 +4647,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - SyncQualityCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SyncQualityCheckResponse
      *
      * @param SyncQualityCheckRequest $request
@@ -4766,25 +4671,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SyncQualityCheck',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SyncQualityCheck',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SyncQualityCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncQualityCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncQualityCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SyncQualityCheckRequest
+     *
      * @returns SyncQualityCheckResponse
      *
      * @param SyncQualityCheckRequest $request
@@ -4803,6 +4706,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - TestRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TestRuleV4Response
      *
      * @param TestRuleV4Request $request
@@ -4826,27 +4730,25 @@ class Qualitycheck extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TestRuleV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TestRuleV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TestRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TestRuleV4Response::fromMap($this->execute($params, $req, $runtime));
+        return TestRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 测试规则.
      *
      * @param request - TestRuleV4Request
+     *
      * @returns TestRuleV4Response
      *
      * @param TestRuleV4Request $request
@@ -4863,6 +4765,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UpdateAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAsrVocabResponse
      *
      * @param UpdateAsrVocabRequest $request
@@ -4886,25 +4789,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAsrVocab',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAsrVocab',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAsrVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAsrVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateAsrVocabRequest
+     *
      * @returns UpdateAsrVocabResponse
      *
      * @param UpdateAsrVocabRequest $request
@@ -4923,6 +4824,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateCheckTypeToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCheckTypeToSchemeResponse
      *
      * @param UpdateCheckTypeToSchemeRequest $request
@@ -4946,27 +4848,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCheckTypeToScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCheckTypeToScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCheckTypeToSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新质检方案中的质检维度.
      *
      * @param request - UpdateCheckTypeToSchemeRequest
+     *
      * @returns UpdateCheckTypeToSchemeResponse
      *
      * @param UpdateCheckTypeToSchemeRequest $request
@@ -4985,6 +4885,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateQualityCheckDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateQualityCheckDataResponse
      *
      * @param UpdateQualityCheckDataRequest $request
@@ -5008,27 +4909,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQualityCheckData',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQualityCheckData',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateQualityCheckDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateQualityCheckDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateQualityCheckDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新会话随录数据.
      *
      * @param request - UpdateQualityCheckDataRequest
+     *
      * @returns UpdateQualityCheckDataResponse
      *
      * @param UpdateQualityCheckDataRequest $request
@@ -5047,6 +4946,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateQualityCheckSchemeResponse
      *
      * @param UpdateQualityCheckSchemeRequest $request
@@ -5070,27 +4970,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQualityCheckScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQualityCheckScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateQualityCheckSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新质检方案.
      *
      * @param request - UpdateQualityCheckSchemeRequest
+     *
      * @returns UpdateQualityCheckSchemeResponse
      *
      * @param UpdateQualityCheckSchemeRequest $request
@@ -5105,12 +5003,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
      * @param request - UpdateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRuleResponse
      *
      * @param UpdateRuleRequest $request
@@ -5134,29 +5032,26 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
      * @param request - UpdateRuleRequest
+     *
      * @returns UpdateRuleResponse
      *
      * @param UpdateRuleRequest $request
@@ -5171,7 +5066,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 更新规则.
      *
@@ -5179,6 +5073,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateRuleByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRuleByIdResponse
      *
      * @param UpdateRuleByIdRequest $request
@@ -5213,34 +5108,31 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRuleById',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRuleById',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRuleByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 更新规则.
      *
      * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
      * @param request - UpdateRuleByIdRequest
+     *
      * @returns UpdateRuleByIdResponse
      *
      * @param UpdateRuleByIdRequest $request
@@ -5259,6 +5151,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateRuleToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRuleToSchemeResponse
      *
      * @param UpdateRuleToSchemeRequest $request
@@ -5282,27 +5175,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRuleToScheme',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRuleToScheme',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRuleToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRuleToSchemeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRuleToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新质检方案的规则.
      *
      * @param request - UpdateRuleToSchemeRequest
+     *
      * @returns UpdateRuleToSchemeResponse
      *
      * @param UpdateRuleToSchemeRequest $request
@@ -5321,6 +5212,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRuleV4Response
      *
      * @param UpdateRuleV4Request $request
@@ -5347,30 +5239,28 @@ class Qualitycheck extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRuleV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRuleV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRuleV4Response::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * V4更新规则.
      *
      * @param request - UpdateRuleV4Request
+     *
      * @returns UpdateRuleV4Response
      *
      * @param UpdateRuleV4Request $request
@@ -5389,6 +5279,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSchemeTaskConfigResponse
      *
      * @param UpdateSchemeTaskConfigRequest $request
@@ -5412,27 +5303,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSchemeTaskConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSchemeTaskConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSchemeTaskConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新质检任务
      *
      * @param request - UpdateSchemeTaskConfigRequest
+     *
      * @returns UpdateSchemeTaskConfigResponse
      *
      * @param UpdateSchemeTaskConfigRequest $request
@@ -5449,6 +5338,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UpdateSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSkillGroupConfigResponse
      *
      * @param UpdateSkillGroupConfigRequest $request
@@ -5472,25 +5362,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSkillGroupConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSkillGroupConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSkillGroupConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateSkillGroupConfigRequest
+     *
      * @returns UpdateSkillGroupConfigResponse
      *
      * @param UpdateSkillGroupConfigRequest $request
@@ -5507,6 +5395,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UpdateSyncQualityCheckDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSyncQualityCheckDataResponse
      *
      * @param UpdateSyncQualityCheckDataRequest $request
@@ -5530,25 +5419,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSyncQualityCheckData',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSyncQualityCheckData',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSyncQualityCheckDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSyncQualityCheckDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSyncQualityCheckDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateSyncQualityCheckDataRequest
+     *
      * @returns UpdateSyncQualityCheckDataResponse
      *
      * @param UpdateSyncQualityCheckDataRequest $request
@@ -5565,6 +5452,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UpdateTaskAssignRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTaskAssignRuleResponse
      *
      * @param UpdateTaskAssignRuleRequest $request
@@ -5588,25 +5476,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTaskAssignRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTaskAssignRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTaskAssignRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskAssignRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskAssignRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateTaskAssignRuleRequest
+     *
      * @returns UpdateTaskAssignRuleResponse
      *
      * @param UpdateTaskAssignRuleRequest $request
@@ -5623,6 +5509,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUserResponse
      *
      * @param UpdateUserRequest $request
@@ -5646,25 +5533,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUser',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUser',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateUserRequest
+     *
      * @returns UpdateUserResponse
      *
      * @param UpdateUserRequest $request
@@ -5681,6 +5566,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UpdateWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWarningConfigResponse
      *
      * @param UpdateWarningConfigRequest $request
@@ -5704,25 +5590,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWarningConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateWarningConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWarningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWarningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateWarningConfigRequest
+     *
      * @returns UpdateWarningConfigResponse
      *
      * @param UpdateWarningConfigRequest $request
@@ -5741,6 +5625,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UpdateWarningStrategyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWarningStrategyConfigResponse
      *
      * @param UpdateWarningStrategyConfigRequest $request
@@ -5764,27 +5649,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWarningStrategyConfig',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateWarningStrategyConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWarningStrategyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 预警策略-更新.
      *
      * @param request - UpdateWarningStrategyConfigRequest
+     *
      * @returns UpdateWarningStrategyConfigResponse
      *
      * @param UpdateWarningStrategyConfigRequest $request
@@ -5801,6 +5684,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UploadAudioDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UploadAudioDataResponse
      *
      * @param UploadAudioDataRequest $request
@@ -5824,25 +5708,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadAudioData',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadAudioData',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadAudioDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadAudioDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadAudioDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UploadAudioDataRequest
+     *
      * @returns UploadAudioDataResponse
      *
      * @param UploadAudioDataRequest $request
@@ -5857,7 +5739,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
      *
@@ -5865,6 +5746,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UploadDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UploadDataResponse
      *
      * @param UploadDataRequest $request
@@ -5888,31 +5770,28 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadData',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadData',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
      *
      * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
      *
      * @param request - UploadDataRequest
+     *
      * @returns UploadDataResponse
      *
      * @param UploadDataRequest $request
@@ -5931,6 +5810,7 @@ class Qualitycheck extends OpenApiClient
      *
      * @param request - UploadDataSyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UploadDataSyncResponse
      *
      * @param UploadDataSyncRequest $request
@@ -5954,27 +5834,25 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadDataSync',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadDataSync',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadDataSyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadDataSyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadDataSyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * http_hsf.
      *
      * @param request - UploadDataSyncRequest
+     *
      * @returns UploadDataSyncResponse
      *
      * @param UploadDataSyncRequest $request
@@ -5989,10 +5867,72 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * http_hsf.
+     *
+     * @param request - UploadDataSyncForLLMRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDataSyncForLLMResponse
+     *
+     * @param UploadDataSyncForLLMRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UploadDataSyncForLLMResponse
+     */
+    public function uploadDataSyncForLLMWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadDataSyncForLLM',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadDataSyncForLLMResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * http_hsf.
+     *
+     * @param request - UploadDataSyncForLLMRequest
+     *
+     * @returns UploadDataSyncForLLMResponse
+     *
+     * @param UploadDataSyncForLLMRequest $request
+     *
+     * @return UploadDataSyncForLLMResponse
+     */
+    public function uploadDataSyncForLLM($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadDataSyncForLLMWithOptions($request, $runtime);
+    }
+
+    /**
      * UploadDataV4.
      *
      * @param request - UploadDataV4Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UploadDataV4Response
      *
      * @param UploadDataV4Request $request
@@ -6016,27 +5956,25 @@ class Qualitycheck extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadDataV4',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadDataV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadDataV4Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadDataV4Response::fromMap($this->execute($params, $req, $runtime));
+        return UploadDataV4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * UploadDataV4.
      *
      * @param request - UploadDataV4Request
+     *
      * @returns UploadDataV4Response
      *
      * @param UploadDataV4Request $request
@@ -6053,6 +5991,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - UploadRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UploadRuleResponse
      *
      * @param UploadRuleRequest $request
@@ -6076,25 +6015,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadRule',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadRule',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UploadRuleRequest
+     *
      * @returns UploadRuleResponse
      *
      * @param UploadRuleRequest $request
@@ -6111,6 +6048,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - VerifyFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VerifyFileResponse
      *
      * @param VerifyFileRequest $request
@@ -6134,25 +6072,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyFile',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyFile',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return VerifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - VerifyFileRequest
+     *
      * @returns VerifyFileResponse
      *
      * @param VerifyFileRequest $request
@@ -6169,6 +6105,7 @@ class Qualitycheck extends OpenApiClient
     /**
      * @param request - VerifySentenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VerifySentenceResponse
      *
      * @param VerifySentenceRequest $request
@@ -6192,25 +6129,23 @@ class Qualitycheck extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifySentence',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifySentence',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return VerifySentenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifySentenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifySentenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - VerifySentenceRequest
+     *
      * @returns VerifySentenceResponse
      *
      * @param VerifySentenceRequest $request

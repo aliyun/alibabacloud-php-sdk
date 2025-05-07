@@ -13,38 +13,44 @@ class branchInfoList extends Model
      * @var int
      */
     public $checkType;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $nextNodeId;
+
     /**
      * @var NextNodeSituations
      */
     public $situation;
+
     /**
      * @var string[]
      */
     public $triggers;
     protected $_name = [
-        'checkType'  => 'CheckType',
-        'index'      => 'Index',
-        'lambda'     => 'Lambda',
-        'name'       => 'Name',
+        'checkType' => 'CheckType',
+        'index' => 'Index',
+        'lambda' => 'Lambda',
+        'name' => 'Name',
         'nextNodeId' => 'NextNodeId',
-        'situation'  => 'Situation',
-        'triggers'   => 'Triggers',
+        'situation' => 'Situation',
+        'triggers' => 'Triggers',
     ];
 
     public function validate()
@@ -88,7 +94,7 @@ class branchInfoList extends Model
         if (null !== $this->triggers) {
             if (\is_array($this->triggers)) {
                 $res['Triggers'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->triggers as $item1) {
                     $res['Triggers'][$n1++] = $item1;
                 }
@@ -133,7 +139,7 @@ class branchInfoList extends Model
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Triggers'] as $item1) {
                     $model->triggers[$n1++] = $item1;
                 }

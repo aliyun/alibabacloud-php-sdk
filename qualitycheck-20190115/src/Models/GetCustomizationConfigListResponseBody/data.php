@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->modelCustomizationDataSetPo) {
             if (\is_array($this->modelCustomizationDataSetPo)) {
                 $res['ModelCustomizationDataSetPo'] = [];
-                $n1                                 = 0;
+                $n1 = 0;
                 foreach ($this->modelCustomizationDataSetPo as $item1) {
                     $res['ModelCustomizationDataSetPo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['ModelCustomizationDataSetPo'])) {
             if (!empty($map['ModelCustomizationDataSetPo'])) {
                 $model->modelCustomizationDataSetPo = [];
-                $n1                                 = 0;
+                $n1 = 0;
                 foreach ($map['ModelCustomizationDataSetPo'] as $item1) {
                     $model->modelCustomizationDataSetPo[$n1++] = modelCustomizationDataSetPo::fromMap($item1);
                 }

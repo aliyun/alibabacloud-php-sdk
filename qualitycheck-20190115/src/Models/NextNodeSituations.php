@@ -13,13 +13,14 @@ class NextNodeSituations extends Model
      * @var conditionGroup[]
      */
     public $conditionGroup;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'conditionGroup' => 'ConditionGroup',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class NextNodeSituations extends Model
         if (null !== $this->conditionGroup) {
             if (\is_array($this->conditionGroup)) {
                 $res['ConditionGroup'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->conditionGroup as $item1) {
                     $res['ConditionGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class NextNodeSituations extends Model
         if (isset($map['ConditionGroup'])) {
             if (!empty($map['ConditionGroup'])) {
                 $model->conditionGroup = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ConditionGroup'] as $item1) {
                     $model->conditionGroup[$n1++] = conditionGroup::fromMap($item1);
                 }

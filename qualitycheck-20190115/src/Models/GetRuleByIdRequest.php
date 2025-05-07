@@ -12,13 +12,14 @@ class GetRuleByIdRequest extends Model
      * @var int
      */
     public $baseMeAgentId;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'baseMeAgentId' => 'BaseMeAgentId',
-        'ruleId'        => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

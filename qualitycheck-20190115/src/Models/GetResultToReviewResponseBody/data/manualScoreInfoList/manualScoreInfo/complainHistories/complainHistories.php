@@ -12,28 +12,32 @@ class complainHistories extends Model
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $operationTime;
+
     /**
      * @var int
      */
     public $operationType;
+
     /**
      * @var int
      */
     public $operator;
+
     /**
      * @var string
      */
     public $operatorName;
     protected $_name = [
-        'comments'      => 'Comments',
+        'comments' => 'Comments',
         'operationTime' => 'OperationTime',
         'operationType' => 'OperationType',
-        'operator'      => 'Operator',
-        'operatorName'  => 'OperatorName',
+        'operator' => 'Operator',
+        'operatorName' => 'OperatorName',
     ];
 
     public function validate()

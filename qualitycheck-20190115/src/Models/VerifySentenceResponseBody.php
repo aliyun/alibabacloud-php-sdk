@@ -13,43 +13,50 @@ class VerifySentenceResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $incorrectWords;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $sourceRole;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $targetRole;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'incorrectWords' => 'IncorrectWords',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'sourceRole'     => 'SourceRole',
-        'success'        => 'Success',
-        'targetRole'     => 'TargetRole',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'sourceRole' => 'SourceRole',
+        'success' => 'Success',
+        'targetRole' => 'TargetRole',
     ];
 
     public function validate()

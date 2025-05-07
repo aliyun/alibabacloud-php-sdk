@@ -15,18 +15,20 @@ class hit extends Model
      * @var cid
      */
     public $cid;
+
     /**
      * @var keyWords
      */
     public $keyWords;
+
     /**
      * @var phrase
      */
     public $phrase;
     protected $_name = [
-        'cid'      => 'Cid',
+        'cid' => 'Cid',
         'keyWords' => 'KeyWords',
-        'phrase'   => 'Phrase',
+        'phrase' => 'Phrase',
     ];
 
     public function validate()

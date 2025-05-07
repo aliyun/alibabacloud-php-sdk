@@ -30,7 +30,7 @@ class hitCids extends Model
         if (null !== $this->cidItem) {
             if (\is_array($this->cidItem)) {
                 $res['CidItem'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->cidItem as $item1) {
                     $res['CidItem'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class hitCids extends Model
         if (isset($map['CidItem'])) {
             if (!empty($map['CidItem'])) {
                 $model->cidItem = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['CidItem'] as $item1) {
                     $model->cidItem[$n1++] = $item1;
                 }

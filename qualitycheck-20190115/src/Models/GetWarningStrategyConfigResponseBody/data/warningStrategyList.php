@@ -31,7 +31,7 @@ class warningStrategyList extends Model
         if (null !== $this->warningStrategyList) {
             if (\is_array($this->warningStrategyList)) {
                 $res['warningStrategyList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->warningStrategyList as $item1) {
                     $res['warningStrategyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class warningStrategyList extends Model
         if (isset($map['warningStrategyList'])) {
             if (!empty($map['warningStrategyList'])) {
                 $model->warningStrategyList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['warningStrategyList'] as $item1) {
                     $model->warningStrategyList[$n1++] = self::fromMap($item1);
                 }

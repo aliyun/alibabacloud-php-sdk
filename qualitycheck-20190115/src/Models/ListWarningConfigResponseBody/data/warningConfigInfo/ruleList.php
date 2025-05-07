@@ -31,7 +31,7 @@ class ruleList extends Model
         if (null !== $this->warningRule) {
             if (\is_array($this->warningRule)) {
                 $res['WarningRule'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->warningRule as $item1) {
                     $res['WarningRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class ruleList extends Model
         if (isset($map['WarningRule'])) {
             if (!empty($map['WarningRule'])) {
                 $model->warningRule = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['WarningRule'] as $item1) {
                     $model->warningRule[$n1++] = warningRule::fromMap($item1);
                 }

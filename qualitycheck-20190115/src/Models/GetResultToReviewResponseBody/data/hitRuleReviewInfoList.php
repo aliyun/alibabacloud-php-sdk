@@ -31,7 +31,7 @@ class hitRuleReviewInfoList extends Model
         if (null !== $this->hitRuleReviewInfo) {
             if (\is_array($this->hitRuleReviewInfo)) {
                 $res['HitRuleReviewInfo'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->hitRuleReviewInfo as $item1) {
                     $res['HitRuleReviewInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hitRuleReviewInfoList extends Model
         if (isset($map['HitRuleReviewInfo'])) {
             if (!empty($map['HitRuleReviewInfo'])) {
                 $model->hitRuleReviewInfo = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['HitRuleReviewInfo'] as $item1) {
                     $model->hitRuleReviewInfo[$n1++] = hitRuleReviewInfo::fromMap($item1);
                 }

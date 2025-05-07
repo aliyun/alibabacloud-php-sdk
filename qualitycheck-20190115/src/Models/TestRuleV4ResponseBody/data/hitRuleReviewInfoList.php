@@ -15,68 +15,80 @@ class hitRuleReviewInfoList extends Model
      * @var int
      */
     public $branchHitId;
+
     /**
      * @var branchInfoList[]
      */
     public $branchInfoList;
+
     /**
      * @var conditionHitInfoList[]
      */
     public $conditionHitInfoList;
+
     /**
      * @var ConditionBasicInfo[]
      */
     public $conditionInfoList;
+
     /**
      * @var string
      */
     public $judgeNodeName;
+
     /**
      * @var string
      */
     public $lambda;
+
     /**
      * @var bool
      */
     public $matched;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var int
      */
     public $rid;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $ruleScoreType;
+
     /**
      * @var int
      */
     public $scoreNumType;
+
     /**
      * @var int
      */
     public $taskFlowId;
     protected $_name = [
-        'branchHitId'          => 'BranchHitId',
-        'branchInfoList'       => 'BranchInfoList',
+        'branchHitId' => 'BranchHitId',
+        'branchInfoList' => 'BranchInfoList',
         'conditionHitInfoList' => 'ConditionHitInfoList',
-        'conditionInfoList'    => 'ConditionInfoList',
-        'judgeNodeName'        => 'JudgeNodeName',
-        'lambda'               => 'Lambda',
-        'matched'              => 'Matched',
-        'nodeType'             => 'NodeType',
-        'rid'                  => 'Rid',
-        'ruleName'             => 'RuleName',
-        'ruleScoreType'        => 'RuleScoreType',
-        'scoreNumType'         => 'ScoreNumType',
-        'taskFlowId'           => 'TaskFlowId',
+        'conditionInfoList' => 'ConditionInfoList',
+        'judgeNodeName' => 'JudgeNodeName',
+        'lambda' => 'Lambda',
+        'matched' => 'Matched',
+        'nodeType' => 'NodeType',
+        'rid' => 'Rid',
+        'ruleName' => 'RuleName',
+        'ruleScoreType' => 'RuleScoreType',
+        'scoreNumType' => 'ScoreNumType',
+        'taskFlowId' => 'TaskFlowId',
     ];
 
     public function validate()
@@ -103,7 +115,7 @@ class hitRuleReviewInfoList extends Model
         if (null !== $this->branchInfoList) {
             if (\is_array($this->branchInfoList)) {
                 $res['BranchInfoList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->branchInfoList as $item1) {
                     $res['BranchInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +125,7 @@ class hitRuleReviewInfoList extends Model
         if (null !== $this->conditionHitInfoList) {
             if (\is_array($this->conditionHitInfoList)) {
                 $res['ConditionHitInfoList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->conditionHitInfoList as $item1) {
                     $res['ConditionHitInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +135,7 @@ class hitRuleReviewInfoList extends Model
         if (null !== $this->conditionInfoList) {
             if (\is_array($this->conditionInfoList)) {
                 $res['ConditionInfoList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->conditionInfoList as $item1) {
                     $res['ConditionInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -184,7 +196,7 @@ class hitRuleReviewInfoList extends Model
         if (isset($map['BranchInfoList'])) {
             if (!empty($map['BranchInfoList'])) {
                 $model->branchInfoList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['BranchInfoList'] as $item1) {
                     $model->branchInfoList[$n1++] = branchInfoList::fromMap($item1);
                 }
@@ -194,7 +206,7 @@ class hitRuleReviewInfoList extends Model
         if (isset($map['ConditionHitInfoList'])) {
             if (!empty($map['ConditionHitInfoList'])) {
                 $model->conditionHitInfoList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ConditionHitInfoList'] as $item1) {
                     $model->conditionHitInfoList[$n1++] = conditionHitInfoList::fromMap($item1);
                 }
@@ -204,7 +216,7 @@ class hitRuleReviewInfoList extends Model
         if (isset($map['ConditionInfoList'])) {
             if (!empty($map['ConditionInfoList'])) {
                 $model->conditionInfoList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ConditionInfoList'] as $item1) {
                     $model->conditionInfoList[$n1++] = ConditionBasicInfo::fromMap($item1);
                 }

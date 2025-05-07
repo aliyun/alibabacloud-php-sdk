@@ -16,148 +16,176 @@ class param extends Model
      * @var bool
      */
     public $average;
+
     /**
      * @var string
      */
     public $beginType;
+
     /**
      * @var bool
      */
     public $caseSensitive;
+
     /**
      * @var bool
      */
     public $checkFirstSentence;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $compareOperator;
+
     /**
      * @var bool
      */
     public $contextChatMatch;
+
     /**
      * @var int
      */
     public $delayTime;
+
     /**
      * @var string
      */
     public $endType;
+
     /**
      * @var excludes
      */
     public $excludes;
+
     /**
      * @var flowNodePrerequisiteParam
      */
     public $flowNodePrerequisiteParam;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var bool
      */
     public $fromEnd;
+
     /**
      * @var int
      */
     public $hitTime;
+
     /**
      * @var bool
      */
     public $inSentence;
+
     /**
      * @var intentModelCheckParm
      */
     public $intentModelCheckParm;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var int
      */
     public $intervalEnd;
+
     /**
      * @var int
      */
     public $keywordExtension;
+
     /**
      * @var int
      */
     public $keywordMatchSize;
+
     /**
      * @var keywords
      */
     public $keywords;
+
     /**
      * @var int
      */
     public $maxEmotionChangeValue;
+
     /**
      * @var int
      */
     public $minWordSize;
+
     /**
      * @var bool
      */
     public $nearDialogue;
+
     /**
      * @var string
      */
     public $notRegex;
+
     /**
      * @var string
      */
     public $phrase;
+
     /**
      * @var string
      */
     public $regex;
+
     /**
      * @var int
      */
     public $target;
+
     /**
      * @var float
      */
     public $threshold;
     protected $_name = [
-        'average'                   => 'Average',
-        'beginType'                 => 'BeginType',
-        'caseSensitive'             => 'Case_sensitive',
-        'checkFirstSentence'        => 'CheckFirstSentence',
-        'checkType'                 => 'CheckType',
-        'compareOperator'           => 'CompareOperator',
-        'contextChatMatch'          => 'ContextChatMatch',
-        'delayTime'                 => 'DelayTime',
-        'endType'                   => 'EndType',
-        'excludes'                  => 'Excludes',
+        'average' => 'Average',
+        'beginType' => 'BeginType',
+        'caseSensitive' => 'Case_sensitive',
+        'checkFirstSentence' => 'CheckFirstSentence',
+        'checkType' => 'CheckType',
+        'compareOperator' => 'CompareOperator',
+        'contextChatMatch' => 'ContextChatMatch',
+        'delayTime' => 'DelayTime',
+        'endType' => 'EndType',
+        'excludes' => 'Excludes',
         'flowNodePrerequisiteParam' => 'FlowNodePrerequisiteParam',
-        'from'                      => 'From',
-        'fromEnd'                   => 'From_end',
-        'hitTime'                   => 'Hit_time',
-        'inSentence'                => 'In_sentence',
-        'intentModelCheckParm'      => 'IntentModelCheckParm',
-        'interval'                  => 'Interval',
-        'intervalEnd'               => 'IntervalEnd',
-        'keywordExtension'          => 'KeywordExtension',
-        'keywordMatchSize'          => 'KeywordMatchSize',
-        'keywords'                  => 'Keywords',
-        'maxEmotionChangeValue'     => 'MaxEmotionChangeValue',
-        'minWordSize'               => 'MinWordSize',
-        'nearDialogue'              => 'Near_dialogue',
-        'notRegex'                  => 'NotRegex',
-        'phrase'                    => 'Phrase',
-        'regex'                     => 'Regex',
-        'target'                    => 'Target',
-        'threshold'                 => 'Threshold',
+        'from' => 'From',
+        'fromEnd' => 'From_end',
+        'hitTime' => 'Hit_time',
+        'inSentence' => 'In_sentence',
+        'intentModelCheckParm' => 'IntentModelCheckParm',
+        'interval' => 'Interval',
+        'intervalEnd' => 'IntervalEnd',
+        'keywordExtension' => 'KeywordExtension',
+        'keywordMatchSize' => 'KeywordMatchSize',
+        'keywords' => 'Keywords',
+        'maxEmotionChangeValue' => 'MaxEmotionChangeValue',
+        'minWordSize' => 'MinWordSize',
+        'nearDialogue' => 'Near_dialogue',
+        'notRegex' => 'NotRegex',
+        'phrase' => 'Phrase',
+        'regex' => 'Regex',
+        'target' => 'Target',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()

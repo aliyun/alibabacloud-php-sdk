@@ -31,7 +31,7 @@ class channels extends Model
         if (null !== $this->channel) {
             if (\is_array($this->channel)) {
                 $res['Channel'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->channel as $item1) {
                     $res['Channel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class channels extends Model
         if (isset($map['Channel'])) {
             if (!empty($map['Channel'])) {
                 $model->channel = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Channel'] as $item1) {
                     $model->channel[$n1++] = channel::fromMap($item1);
                 }

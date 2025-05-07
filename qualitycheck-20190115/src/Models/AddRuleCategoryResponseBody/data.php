@@ -12,13 +12,14 @@ class data extends Model
      * @var bool
      */
     public $select;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'select' => 'Select',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
