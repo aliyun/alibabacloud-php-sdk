@@ -11,9 +11,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $httpUrl;
+
+    /**
+     * @var string
+     */
     public $token;
+
+    /**
+     * @var string
+     */
+    public $webSocketUrl;
     protected $_name = [
+        'httpUrl' => 'HttpUrl',
         'token' => 'Token',
+        'webSocketUrl' => 'WebSocketUrl',
     ];
 
     public function validate()
@@ -24,8 +36,16 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->httpUrl) {
+            $res['HttpUrl'] = $this->httpUrl;
+        }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
+        }
+
+        if (null !== $this->webSocketUrl) {
+            $res['WebSocketUrl'] = $this->webSocketUrl;
         }
 
         return $res;
@@ -39,8 +59,16 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HttpUrl'])) {
+            $model->httpUrl = $map['HttpUrl'];
+        }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
+        }
+
+        if (isset($map['WebSocketUrl'])) {
+            $model->webSocketUrl = $map['WebSocketUrl'];
         }
 
         return $model;
