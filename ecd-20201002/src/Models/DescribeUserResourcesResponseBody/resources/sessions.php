@@ -11,6 +11,11 @@ class sessions extends Model
     /**
      * @var string
      */
+    public $nickName;
+
+    /**
+     * @var string
+     */
     public $resourceSessionStartTime;
 
     /**
@@ -23,6 +28,7 @@ class sessions extends Model
      */
     public $userPrincipalName;
     protected $_name = [
+        'nickName' => 'NickName',
         'resourceSessionStartTime' => 'ResourceSessionStartTime',
         'userId' => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
@@ -36,6 +42,10 @@ class sessions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
+        }
+
         if (null !== $this->resourceSessionStartTime) {
             $res['ResourceSessionStartTime'] = $this->resourceSessionStartTime;
         }
@@ -59,6 +69,10 @@ class sessions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
+        }
+
         if (isset($map['ResourceSessionStartTime'])) {
             $model->resourceSessionStartTime = $map['ResourceSessionStartTime'];
         }
