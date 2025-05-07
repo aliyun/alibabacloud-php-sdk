@@ -11,6 +11,11 @@ class rules extends Model
     /**
      * @var string
      */
+    public $actionExternal;
+
+    /**
+     * @var string
+     */
     public $config;
 
     /**
@@ -22,6 +27,26 @@ class rules extends Model
      * @var string
      */
     public $defenseScene;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $detailRuleIds;
+
+    /**
+     * @var string
+     */
+    public $externalInfo;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
 
     /**
      * @var int
@@ -39,6 +64,11 @@ class rules extends Model
     public $ruleName;
 
     /**
+     * @var string
+     */
+    public $ruleType;
+
+    /**
      * @var int
      */
     public $status;
@@ -48,12 +78,18 @@ class rules extends Model
      */
     public $templateId;
     protected $_name = [
+        'actionExternal' => 'ActionExternal',
         'config' => 'Config',
         'defenseOrigin' => 'DefenseOrigin',
         'defenseScene' => 'DefenseScene',
+        'description' => 'Description',
+        'detailRuleIds' => 'DetailRuleIds',
+        'externalInfo' => 'ExternalInfo',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
         'status' => 'Status',
         'templateId' => 'TemplateId',
     ];
@@ -66,6 +102,10 @@ class rules extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->actionExternal) {
+            $res['ActionExternal'] = $this->actionExternal;
+        }
+
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
@@ -78,6 +118,22 @@ class rules extends Model
             $res['DefenseScene'] = $this->defenseScene;
         }
 
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->detailRuleIds) {
+            $res['DetailRuleIds'] = $this->detailRuleIds;
+        }
+
+        if (null !== $this->externalInfo) {
+            $res['ExternalInfo'] = $this->externalInfo;
+        }
+
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
@@ -88,6 +144,10 @@ class rules extends Model
 
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
         }
 
         if (null !== $this->status) {
@@ -109,6 +169,10 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActionExternal'])) {
+            $model->actionExternal = $map['ActionExternal'];
+        }
+
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
@@ -121,6 +185,22 @@ class rules extends Model
             $model->defenseScene = $map['DefenseScene'];
         }
 
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
+        if (isset($map['DetailRuleIds'])) {
+            $model->detailRuleIds = $map['DetailRuleIds'];
+        }
+
+        if (isset($map['ExternalInfo'])) {
+            $model->externalInfo = $map['ExternalInfo'];
+        }
+
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
@@ -131,6 +211,10 @@ class rules extends Model
 
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
         }
 
         if (isset($map['Status'])) {

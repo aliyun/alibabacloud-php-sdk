@@ -460,11 +460,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -536,11 +533,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ClearMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ClearMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return ClearMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -608,11 +602,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CopyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,11 +687,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateApiExportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApiExportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApiExportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -790,11 +778,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -870,11 +855,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -952,11 +934,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1044,11 +1023,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1142,11 +1118,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1238,11 +1211,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHybridCloudGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1329,11 +1299,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1408,11 +1375,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMemberAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1472,11 +1436,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePostpaidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePostpaidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePostpaidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1560,11 +1521,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSM2CertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSM2CertResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSM2CertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1636,11 +1594,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApisecAbnormalsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1712,11 +1667,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApisecEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1792,11 +1744,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1864,11 +1813,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1940,11 +1886,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2012,11 +1955,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2088,11 +2028,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2168,11 +2105,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2244,11 +2178,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMemberAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2312,11 +2243,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountDelegatedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountDelegatedStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountDelegatedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2392,11 +2320,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApiExportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApiExportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApiExportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2484,11 +2409,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2616,11 +2538,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecAbnormalsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2764,11 +2683,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecApiResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecApiResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecApiResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2844,11 +2760,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecAssetTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecAssetTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecAssetTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2936,11 +2849,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecEventDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecEventDomainStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecEventDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3072,11 +2982,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3140,11 +3047,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecLogDeliveriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecLogDeliveriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecLogDeliveriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3228,11 +3132,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecMatchedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecMatchedHostsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecMatchedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3312,11 +3213,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecProtectionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecProtectionGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecProtectionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3396,11 +3294,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecProtectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecProtectionResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecProtectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3492,11 +3387,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3588,11 +3480,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3664,11 +3553,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecSlsLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecSlsLogStoresResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecSlsLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3736,11 +3622,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecSlsProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecSlsProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecSlsProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3812,11 +3695,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3888,11 +3768,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecSuggestionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3968,11 +3845,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApisecUserOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApisecUserOperationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApisecUserOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4040,11 +3914,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCertDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCertDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCertDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4124,11 +3995,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCertsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4216,11 +4084,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4288,11 +4153,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudResourceAccessedPortsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudResourceAccessedPortsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudResourceAccessedPortsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4400,11 +4262,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4468,11 +4327,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCnameCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCnameCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCnameCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4536,11 +4392,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDDoSStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDDoSStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDDoSStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4604,11 +4457,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefaultHttpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4676,11 +4526,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4748,11 +4595,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4828,11 +4672,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourceGroupNamesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourceGroupNamesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourceGroupNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4912,11 +4753,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4992,11 +4830,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourceNamesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5084,11 +4919,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourceTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5168,11 +5000,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5244,11 +5073,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5328,11 +5154,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5400,11 +5223,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5488,11 +5308,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5596,11 +5413,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5668,11 +5482,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainDNSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainDNSRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainDNSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5736,11 +5547,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5824,11 +5632,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5908,11 +5713,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowChartResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowChartResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowChartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5984,11 +5786,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowTopResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6064,11 +5863,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowTopUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6132,11 +5928,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFreeUserAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFreeUserAssetCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFreeUserAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6200,11 +5993,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFreeUserEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFreeUserEventCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFreeUserEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6268,11 +6058,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFreeUserEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFreeUserEventTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFreeUserEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6336,11 +6123,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFreeUserEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFreeUserEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFreeUserEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6392,11 +6176,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudClusterRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6460,11 +6241,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6552,11 +6330,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6640,11 +6415,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6716,11 +6488,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudServerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudServerRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudServerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6804,11 +6573,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6872,11 +6638,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHybridCloudUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHybridCloudUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHybridCloudUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6936,11 +6699,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7028,11 +6788,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMajorProtectionBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMajorProtectionBlackIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMajorProtectionBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7104,11 +6861,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMemberAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7186,11 +6940,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNetworkFlowTimeSeriesMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNetworkFlowTimeSeriesMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNetworkFlowTimeSeriesMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7272,11 +7023,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNetworkFlowTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNetworkFlowTopNMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNetworkFlowTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7340,11 +7088,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePauseProtectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7424,11 +7169,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePeakTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePeakTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePeakTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7532,11 +7274,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProductInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7608,11 +7347,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePunishedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePunishedDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePunishedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7688,11 +7424,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeResourceInstanceCertsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeResourceInstanceCertsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeResourceInstanceCertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7760,11 +7493,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeResourceLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7832,11 +7562,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeResourcePortResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeResourcePortResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeResourcePortResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7900,11 +7627,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeResourceRegionIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeResourceRegionIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeResourceRegionIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7972,11 +7696,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeResourceSupportRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeResourceSupportRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeResourceSupportRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8060,11 +7781,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeResponseCodeTrendGraphResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeResponseCodeTrendGraphResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeResponseCodeTrendGraphResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8144,11 +7862,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8228,11 +7943,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleHitsTopClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleHitsTopClientIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleHitsTopClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8308,11 +8020,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleHitsTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleHitsTopResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleHitsTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8396,11 +8105,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleHitsTopRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleHitsTopRuleIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleHitsTopRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8476,11 +8182,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8556,11 +8259,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleHitsTopUaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleHitsTopUaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleHitsTopUaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8640,11 +8340,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRuleHitsTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRuleHitsTopUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRuleHitsTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8732,11 +8429,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityEventLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8826,11 +8520,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityEventTimeSeriesMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityEventTimeSeriesMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityEventTimeSeriesMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8924,11 +8615,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityEventTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityEventTopNMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityEventTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9022,11 +8710,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveApiStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveApiStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveApiStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9102,11 +8787,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveDetectionResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveDetectionResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveDetectionResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9182,11 +8864,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveOutboundDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveOutboundDistributionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveOutboundDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9294,11 +8973,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveOutboundStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveOutboundStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveOutboundStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9374,11 +9050,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveOutboundTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveOutboundTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveOutboundTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9482,11 +9155,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveRequestLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9578,11 +9248,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveRequestsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9670,11 +9337,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSensitiveStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSensitiveStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSensitiveStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9738,11 +9402,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsAuthStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9806,11 +9467,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9874,11 +9532,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsLogStoreStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsLogStoreStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsLogStoreStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9946,11 +9601,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTemplateResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTemplateResourceCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTemplateResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10022,11 +9674,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTemplateResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10094,11 +9743,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserAbnormalTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserAbnormalTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserAbnormalTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10174,11 +9820,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserAbnormalTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserAbnormalTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserAbnormalTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10262,11 +9905,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserApiRequestResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserApiRequestResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserApiRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10342,11 +9982,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserAssetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserAssetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserAssetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10414,11 +10051,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserEventTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserEventTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserEventTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10494,11 +10128,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserEventTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10562,11 +10193,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserSlsLogRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserSlsLogRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserSlsLogRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10630,11 +10258,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserWafLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10710,11 +10335,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVisitTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVisitTopIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVisitTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10790,11 +10412,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeVisitUasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVisitUasResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVisitUasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10858,11 +10477,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeWafSourceIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10930,11 +10546,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11006,11 +10619,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11086,11 +10696,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11170,11 +10777,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecAbnormalsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11254,11 +10858,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecApiResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecApiResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecApiResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11338,11 +10939,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11422,11 +11020,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11498,11 +11093,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecLogDeliveryStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11582,11 +11174,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecModuleStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11662,11 +11251,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApisecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApisecStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApisecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11748,11 +11334,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCloudResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11836,11 +11419,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefaultHttpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11920,11 +11500,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12016,11 +11593,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseResourceXffResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseResourceXffResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseResourceXffResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12098,11 +11672,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12174,11 +11745,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseRuleCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseRuleCacheResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseRuleCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12254,11 +11822,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseRuleStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12334,11 +11899,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12410,11 +11972,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDefenseTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDefenseTemplateStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDefenseTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12500,11 +12059,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12572,11 +12128,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDomainPunishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDomainPunishStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDomainPunishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12648,11 +12201,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12732,11 +12282,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudClusterRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12816,11 +12363,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12896,11 +12440,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12976,11 +12517,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13044,11 +12582,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13132,11 +12667,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHybridCloudServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHybridCloudServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHybridCloudServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13220,11 +12752,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13300,11 +12829,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyMemberAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13372,11 +12898,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyPauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPauseProtectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13448,11 +12971,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyResourceLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13536,11 +13056,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTemplateResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13604,11 +13121,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13630,7 +13144,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
+     * Synchronizes Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances to Web Application Firewall (WAF).
      *
      * @remarks
      * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
@@ -13675,15 +13189,12 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SyncProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncProductInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
+     * Synchronizes Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances to Web Application Firewall (WAF).
      *
      * @remarks
      * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
@@ -13750,11 +13261,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13826,11 +13334,8 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
