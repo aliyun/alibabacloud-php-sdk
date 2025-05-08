@@ -26,6 +26,11 @@ class AddFileShrinkRequest extends Model
     /**
      * @var string
      */
+    public $originalFileUrl;
+
+    /**
+     * @var string
+     */
     public $parser;
 
     /**
@@ -36,6 +41,7 @@ class AddFileShrinkRequest extends Model
         'categoryId' => 'CategoryId',
         'categoryType' => 'CategoryType',
         'leaseId' => 'LeaseId',
+        'originalFileUrl' => 'OriginalFileUrl',
         'parser' => 'Parser',
         'tagsShrink' => 'Tags',
     ];
@@ -58,6 +64,10 @@ class AddFileShrinkRequest extends Model
 
         if (null !== $this->leaseId) {
             $res['LeaseId'] = $this->leaseId;
+        }
+
+        if (null !== $this->originalFileUrl) {
+            $res['OriginalFileUrl'] = $this->originalFileUrl;
         }
 
         if (null !== $this->parser) {
@@ -89,6 +99,10 @@ class AddFileShrinkRequest extends Model
 
         if (isset($map['LeaseId'])) {
             $model->leaseId = $map['LeaseId'];
+        }
+
+        if (isset($map['OriginalFileUrl'])) {
+            $model->originalFileUrl = $map['OriginalFileUrl'];
         }
 
         if (isset($map['Parser'])) {

@@ -239,6 +239,10 @@ class Bailian extends OpenApiClient
             @$body['LeaseId'] = $request->leaseId;
         }
 
+        if (null !== $request->originalFileUrl) {
+            @$body['OriginalFileUrl'] = $request->originalFileUrl;
+        }
+
         if (null !== $request->parser) {
             @$body['Parser'] = $request->parser;
         }
