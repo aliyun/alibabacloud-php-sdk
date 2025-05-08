@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\intelligentSearchConfig\copilotPreciseSearchSources;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\intelligentSearchConfig\searchSamples;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\intelligentSearchConfig\searchSources;
 
 class intelligentSearchConfig extends Model
 {
+    /**
+     * @var copilotPreciseSearchSources[]
+     */
+    public $copilotPreciseSearchSources;
+
     /**
      * @var string
      */
@@ -25,6 +31,7 @@ class intelligentSearchConfig extends Model
      */
     public $searchSources;
     protected $_name = [
+        'copilotPreciseSearchSources' => 'CopilotPreciseSearchSources',
         'productDescription' => 'ProductDescription',
         'searchSamples' => 'SearchSamples',
         'searchSources' => 'SearchSources',
@@ -32,6 +39,9 @@ class intelligentSearchConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->copilotPreciseSearchSources)) {
+            Model::validateArray($this->copilotPreciseSearchSources);
+        }
         if (\is_array($this->searchSamples)) {
             Model::validateArray($this->searchSamples);
         }
@@ -44,6 +54,16 @@ class intelligentSearchConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->copilotPreciseSearchSources) {
+            if (\is_array($this->copilotPreciseSearchSources)) {
+                $res['CopilotPreciseSearchSources'] = [];
+                $n1 = 0;
+                foreach ($this->copilotPreciseSearchSources as $item1) {
+                    $res['CopilotPreciseSearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->productDescription) {
             $res['ProductDescription'] = $this->productDescription;
         }
@@ -79,6 +99,16 @@ class intelligentSearchConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CopilotPreciseSearchSources'])) {
+            if (!empty($map['CopilotPreciseSearchSources'])) {
+                $model->copilotPreciseSearchSources = [];
+                $n1 = 0;
+                foreach ($map['CopilotPreciseSearchSources'] as $item1) {
+                    $model->copilotPreciseSearchSources[$n1++] = copilotPreciseSearchSources::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['ProductDescription'])) {
             $model->productDescription = $map['ProductDescription'];
         }
