@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetImageDiagnoseRequest extends Model
 {
     /**
-     * @example {   "product_id": "1",   "platform": "ae" }
-     *
      * @var string
      */
     public $extra;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://xxxxx.oss-cn-shenzhen.aliyuncs.com/jd/41209/xxxxx.jpg
-     *
      * @var string
      */
     public $url;
     protected $_name = [
         'extra' => 'Extra',
-        'url'   => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -45,17 +41,18 @@ class GetImageDiagnoseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageDiagnoseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

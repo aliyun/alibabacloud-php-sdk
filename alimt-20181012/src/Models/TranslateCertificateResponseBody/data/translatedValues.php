@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateCertificateResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class translatedValues extends Model
 {
@@ -14,8 +14,6 @@ class translatedValues extends Model
     public $key;
 
     /**
-     * @example name
-     *
      * @var string
      */
     public $keyTranslation;
@@ -26,34 +24,36 @@ class translatedValues extends Model
     public $value;
 
     /**
-     * @example Solemn
-     *
      * @var string
      */
     public $valueTranslation;
     protected $_name = [
-        'key'              => 'Key',
-        'keyTranslation'   => 'KeyTranslation',
-        'value'            => 'Value',
+        'key' => 'Key',
+        'keyTranslation' => 'KeyTranslation',
+        'value' => 'Value',
         'valueTranslation' => 'ValueTranslation',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->keyTranslation) {
             $res['KeyTranslation'] = $this->keyTranslation;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->valueTranslation) {
             $res['ValueTranslation'] = $this->valueTranslation;
         }
@@ -61,23 +61,26 @@ class translatedValues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return translatedValues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['KeyTranslation'])) {
             $model->keyTranslation = $map['KeyTranslation'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['ValueTranslation'])) {
             $model->valueTranslation = $map['ValueTranslation'];
         }

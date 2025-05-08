@@ -5,12 +5,12 @@
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateAsyncTranslateResponseBody\data;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateSearchResponseBody\data;
 
-class CreateAsyncTranslateResponseBody extends Model
+class TranslateSearchResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

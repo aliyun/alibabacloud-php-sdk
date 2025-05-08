@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
+namespace AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateSearchResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class OpenAlimtServiceRequest extends Model
+class data extends Model
 {
-    /**
-     * @var int
-     */
-    public $ownerId;
-
     /**
      * @var string
      */
-    public $type;
+    public $translated;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'type' => 'Type',
+        'translated' => 'Translated',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class OpenAlimtServiceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->translated) {
+            $res['Translated'] = $this->translated;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class OpenAlimtServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Translated'])) {
+            $model->translated = $map['Translated'];
         }
 
         return $model;

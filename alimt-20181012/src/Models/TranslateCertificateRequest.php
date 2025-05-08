@@ -4,79 +4,66 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TranslateCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example driving_license
-     *
      * @var string
      */
     public $certificateType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://imageurl
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @example text
-     *
      * @var string
      */
     public $resultType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $sourceLanguage;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example en
-     *
      * @var string
      */
     public $targetLanguage;
     protected $_name = [
         'certificateType' => 'CertificateType',
-        'imageUrl'        => 'ImageUrl',
-        'resultType'      => 'ResultType',
-        'sourceLanguage'  => 'SourceLanguage',
-        'targetLanguage'  => 'TargetLanguage',
+        'imageUrl' => 'ImageUrl',
+        'resultType' => 'ResultType',
+        'sourceLanguage' => 'SourceLanguage',
+        'targetLanguage' => 'TargetLanguage',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
+
         if (null !== $this->resultType) {
             $res['ResultType'] = $this->resultType;
         }
+
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
         }
+
         if (null !== $this->targetLanguage) {
             $res['TargetLanguage'] = $this->targetLanguage;
         }
@@ -84,26 +71,30 @@ class TranslateCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TranslateCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
+
         if (isset($map['ResultType'])) {
             $model->resultType = $map['ResultType'];
         }
+
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
         }
+
         if (isset($map['TargetLanguage'])) {
             $model->targetLanguage = $map['TargetLanguage'];
         }

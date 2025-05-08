@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class TranslateGeneralRequest extends Model
+class TranslateSearchRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $context;
-
     /**
      * @var string
      */
@@ -38,7 +33,6 @@ class TranslateGeneralRequest extends Model
      */
     public $targetLanguage;
     protected $_name = [
-        'context' => 'Context',
         'formatType' => 'FormatType',
         'scene' => 'Scene',
         'sourceLanguage' => 'SourceLanguage',
@@ -54,10 +48,6 @@ class TranslateGeneralRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->context) {
-            $res['Context'] = $this->context;
-        }
-
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
         }
@@ -89,10 +79,6 @@ class TranslateGeneralRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Context'])) {
-            $model->context = $map['Context'];
-        }
-
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];
         }

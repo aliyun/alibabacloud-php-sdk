@@ -6,19 +6,25 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OpenAlimtServiceResponseBody extends Model
+class GetDetectLanguageVpcResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $orderId;
+    public $detectedLanguage;
+
+    /**
+     * @var string
+     */
+    public $languageProbabilities;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId' => 'OrderId',
+        'detectedLanguage' => 'DetectedLanguage',
+        'languageProbabilities' => 'LanguageProbabilities',
         'requestId' => 'RequestId',
     ];
 
@@ -30,8 +36,12 @@ class OpenAlimtServiceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->detectedLanguage) {
+            $res['DetectedLanguage'] = $this->detectedLanguage;
+        }
+
+        if (null !== $this->languageProbabilities) {
+            $res['LanguageProbabilities'] = $this->languageProbabilities;
         }
 
         if (null !== $this->requestId) {
@@ -49,8 +59,12 @@ class OpenAlimtServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['DetectedLanguage'])) {
+            $model->detectedLanguage = $map['DetectedLanguage'];
+        }
+
+        if (isset($map['LanguageProbabilities'])) {
+            $model->languageProbabilities = $map['LanguageProbabilities'];
         }
 
         if (isset($map['RequestId'])) {

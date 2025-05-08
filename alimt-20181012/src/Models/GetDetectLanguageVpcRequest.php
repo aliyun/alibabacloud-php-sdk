@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OpenAlimtServiceResponseBody extends Model
+class GetDetectLanguageVpcRequest extends Model
 {
     /**
      * @var string
      */
-    public $orderId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $sourceText;
     protected $_name = [
-        'orderId' => 'OrderId',
-        'requestId' => 'RequestId',
+        'sourceText' => 'SourceText',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class OpenAlimtServiceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->sourceText) {
+            $res['SourceText'] = $this->sourceText;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class OpenAlimtServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['SourceText'])) {
+            $model->sourceText = $map['SourceText'];
         }
 
         return $model;

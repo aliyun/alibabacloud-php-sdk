@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetBatchTranslateByVPCResponse extends Model
+class TranslateSearchResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetBatchTranslateByVPCResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetBatchTranslateByVPCResponseBody
+     * @var TranslateSearchResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class GetBatchTranslateByVPCResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetBatchTranslateByVPCResponseBody::fromMap($map['body']);
+            $model->body = TranslateSearchResponseBody::fromMap($map['body']);
         }
 
         return $model;

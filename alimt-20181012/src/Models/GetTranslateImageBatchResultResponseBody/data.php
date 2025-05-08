@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateImageBatchResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateImageBatchResultResponseBody\data\result;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,8 +15,6 @@ class data extends Model
     public $result;
 
     /**
-     * @example finished
-     *
      * @var string
      */
     public $status;
@@ -27,20 +25,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -48,23 +51,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = result::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
