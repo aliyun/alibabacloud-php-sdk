@@ -2468,6 +2468,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->generateTechnology) {
+            @$body['GenerateTechnology'] = $request->generateTechnology;
+        }
+
         if (null !== $request->productCode) {
             @$body['ProductCode'] = $request->productCode;
         }
@@ -8718,6 +8722,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->generateTechnology) {
+            @$body['GenerateTechnology'] = $request->generateTechnology;
+        }
+
         if (null !== $request->productCode) {
             @$body['ProductCode'] = $request->productCode;
         }

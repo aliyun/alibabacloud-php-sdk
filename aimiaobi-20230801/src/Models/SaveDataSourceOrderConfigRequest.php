@@ -17,6 +17,11 @@ class SaveDataSourceOrderConfigRequest extends Model
     /**
      * @var string
      */
+    public $generateTechnology;
+
+    /**
+     * @var string
+     */
     public $productCode;
 
     /**
@@ -25,6 +30,7 @@ class SaveDataSourceOrderConfigRequest extends Model
     public $userConfigDataSourceList;
     protected $_name = [
         'agentKey' => 'AgentKey',
+        'generateTechnology' => 'GenerateTechnology',
         'productCode' => 'ProductCode',
         'userConfigDataSourceList' => 'UserConfigDataSourceList',
     ];
@@ -42,6 +48,10 @@ class SaveDataSourceOrderConfigRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+
+        if (null !== $this->generateTechnology) {
+            $res['GenerateTechnology'] = $this->generateTechnology;
         }
 
         if (null !== $this->productCode) {
@@ -71,6 +81,10 @@ class SaveDataSourceOrderConfigRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+
+        if (isset($map['GenerateTechnology'])) {
+            $model->generateTechnology = $map['GenerateTechnology'];
         }
 
         if (isset($map['ProductCode'])) {

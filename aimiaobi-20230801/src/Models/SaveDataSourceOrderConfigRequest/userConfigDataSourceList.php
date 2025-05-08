@@ -14,6 +14,11 @@ class userConfigDataSourceList extends Model
     public $code;
 
     /**
+     * @var bool
+     */
+    public $enable;
+
+    /**
      * @var string
      */
     public $name;
@@ -29,6 +34,7 @@ class userConfigDataSourceList extends Model
     public $type;
     protected $_name = [
         'code' => 'Code',
+        'enable' => 'Enable',
         'name' => 'Name',
         'number' => 'Number',
         'type' => 'Type',
@@ -44,6 +50,10 @@ class userConfigDataSourceList extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
 
         if (null !== $this->name) {
@@ -71,6 +81,10 @@ class userConfigDataSourceList extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
 
         if (isset($map['Name'])) {
