@@ -51,6 +51,11 @@ class ScaleWithAdjustmentRequest extends Model
     public $ownerId;
 
     /**
+     * @var bool
+     */
+    public $parallelTask;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -73,6 +78,7 @@ class ScaleWithAdjustmentRequest extends Model
         'minAdjustmentMagnitude' => 'MinAdjustmentMagnitude',
         'overrides' => 'Overrides',
         'ownerId' => 'OwnerId',
+        'parallelTask' => 'ParallelTask',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scalingGroupId' => 'ScalingGroupId',
         'syncActivity' => 'SyncActivity',
@@ -122,6 +128,10 @@ class ScaleWithAdjustmentRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->parallelTask) {
+            $res['ParallelTask'] = $this->parallelTask;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -177,6 +187,10 @@ class ScaleWithAdjustmentRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ParallelTask'])) {
+            $model->parallelTask = $map['ParallelTask'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

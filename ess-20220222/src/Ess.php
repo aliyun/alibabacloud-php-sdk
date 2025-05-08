@@ -9204,6 +9204,10 @@ class Ess extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->parallelTask) {
+            @$query['ParallelTask'] = $request->parallelTask;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
