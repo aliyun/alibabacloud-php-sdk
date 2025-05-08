@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponseBody\data\chatConfig;
 
 class data extends Model
 {
+    /**
+     * @var chatConfig
+     */
+    public $chatConfig;
+
     /**
      * @var string
      */
@@ -63,6 +69,7 @@ class data extends Model
      */
     public $text;
     protected $_name = [
+        'chatConfig' => 'ChatConfig',
         'createTime' => 'CreateTime',
         'dialogueType' => 'DialogueType',
         'goodText' => 'GoodText',
@@ -78,6 +85,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->chatConfig) {
+            $this->chatConfig->validate();
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -87,6 +97,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chatConfig) {
+            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toArray($noStream) : $this->chatConfig;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -148,6 +162,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChatConfig'])) {
+            $model->chatConfig = chatConfig::fromMap($map['ChatConfig']);
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
