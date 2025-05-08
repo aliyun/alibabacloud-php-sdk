@@ -478,6 +478,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRelatedRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRelatedRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRoutesRequest;
@@ -15465,6 +15467,75 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRoutineCanaryAreasWithOptions($runtime);
+    }
+
+    /**
+     * 查询Routine的代码版本列表.
+     *
+     * @param request - ListRoutineCodeVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRoutineCodeVersionsResponse
+     *
+     * @param ListRoutineCodeVersionsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListRoutineCodeVersionsResponse
+     */
+    public function listRoutineCodeVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchKeyWord) {
+            @$body['SearchKeyWord'] = $request->searchKeyWord;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRoutineCodeVersions',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRoutineCodeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Routine的代码版本列表.
+     *
+     * @param request - ListRoutineCodeVersionsRequest
+     *
+     * @returns ListRoutineCodeVersionsResponse
+     *
+     * @param ListRoutineCodeVersionsRequest $request
+     *
+     * @return ListRoutineCodeVersionsResponse
+     */
+    public function listRoutineCodeVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineCodeVersionsWithOptions($request, $runtime);
     }
 
     /**
