@@ -106,11 +106,8 @@ class IQS extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AiSearchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AiSearchResponse::fromMap($this->execute($params, $req, $runtime));
+        return AiSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -182,11 +179,8 @@ class IQS extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenericAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenericAdvancedSearchResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenericAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -278,11 +272,8 @@ class IQS extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenericSearchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenericSearchResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenericSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -354,11 +345,8 @@ class IQS extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GlobalSearchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GlobalSearchResponse::fromMap($this->execute($params, $req, $runtime));
+        return GlobalSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
