@@ -46,6 +46,11 @@ class GetLoginTokenResponseBody extends Model
     public $nextStage;
 
     /**
+     * @var string
+     */
+    public $nickName;
+
+    /**
      * @var passwordStrategy
      */
     public $passwordStrategy;
@@ -107,6 +112,7 @@ class GetLoginTokenResponseBody extends Model
         'label' => 'Label',
         'loginToken' => 'LoginToken',
         'nextStage' => 'NextStage',
+        'nickName' => 'NickName',
         'passwordStrategy' => 'PasswordStrategy',
         'phone' => 'Phone',
         'props' => 'Props',
@@ -163,6 +169,10 @@ class GetLoginTokenResponseBody extends Model
 
         if (null !== $this->nextStage) {
             $res['NextStage'] = $this->nextStage;
+        }
+
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
         }
 
         if (null !== $this->passwordStrategy) {
@@ -251,6 +261,10 @@ class GetLoginTokenResponseBody extends Model
 
         if (isset($map['NextStage'])) {
             $model->nextStage = $map['NextStage'];
+        }
+
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
         }
 
         if (isset($map['PasswordStrategy'])) {
