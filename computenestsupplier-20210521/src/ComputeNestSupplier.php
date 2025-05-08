@@ -83,6 +83,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRe
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceBillRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceBillResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceLogsRequest;
@@ -2966,6 +2968,91 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 展示服务实例账单.
+     *
+     * @param request - ListServiceInstanceBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceInstanceBillResponse
+     *
+     * @param ListServiceInstanceBillRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListServiceInstanceBillResponse
+     */
+    public function listServiceInstanceBillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
+        }
+
+        if (null !== $request->billingDate) {
+            @$query['BillingDate'] = $request->billingDate;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceInstanceBill',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 展示服务实例账单.
+     *
+     * @param request - ListServiceInstanceBillRequest
+     *
+     * @returns ListServiceInstanceBillResponse
+     *
+     * @param ListServiceInstanceBillRequest $request
+     *
+     * @return ListServiceInstanceBillResponse
+     */
+    public function listServiceInstanceBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceBillWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询服务实例部署详情.
      *
      * @param request - ListServiceInstanceDeployDetailsRequest
@@ -5146,6 +5233,10 @@ class ComputeNestSupplier extends OpenApiClient
 
         if (null !== $request->approvalType) {
             @$query['ApprovalType'] = $request->approvalType;
+        }
+
+        if (null !== $request->buildParameters) {
+            @$query['BuildParameters'] = $request->buildParameters;
         }
 
         if (null !== $request->clientToken) {

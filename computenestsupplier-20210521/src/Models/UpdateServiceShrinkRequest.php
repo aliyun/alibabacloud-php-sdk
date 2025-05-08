@@ -22,6 +22,11 @@ class UpdateServiceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $buildParameters;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -141,6 +146,7 @@ class UpdateServiceShrinkRequest extends Model
     protected $_name = [
         'alarmMetadata' => 'AlarmMetadata',
         'approvalType' => 'ApprovalType',
+        'buildParameters' => 'BuildParameters',
         'clientToken' => 'ClientToken',
         'commodityShrink' => 'Commodity',
         'complianceMetadataShrink' => 'ComplianceMetadata',
@@ -184,6 +190,10 @@ class UpdateServiceShrinkRequest extends Model
 
         if (null !== $this->approvalType) {
             $res['ApprovalType'] = $this->approvalType;
+        }
+
+        if (null !== $this->buildParameters) {
+            $res['BuildParameters'] = $this->buildParameters;
         }
 
         if (null !== $this->clientToken) {
@@ -305,6 +315,10 @@ class UpdateServiceShrinkRequest extends Model
 
         if (isset($map['ApprovalType'])) {
             $model->approvalType = $map['ApprovalType'];
+        }
+
+        if (isset($map['BuildParameters'])) {
+            $model->buildParameters = $map['BuildParameters'];
         }
 
         if (isset($map['ClientToken'])) {

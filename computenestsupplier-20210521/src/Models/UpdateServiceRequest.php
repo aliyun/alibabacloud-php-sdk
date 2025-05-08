@@ -25,6 +25,11 @@ class UpdateServiceRequest extends Model
     /**
      * @var string
      */
+    public $buildParameters;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -144,6 +149,7 @@ class UpdateServiceRequest extends Model
     protected $_name = [
         'alarmMetadata' => 'AlarmMetadata',
         'approvalType' => 'ApprovalType',
+        'buildParameters' => 'BuildParameters',
         'clientToken' => 'ClientToken',
         'commodity' => 'Commodity',
         'complianceMetadata' => 'ComplianceMetadata',
@@ -196,6 +202,10 @@ class UpdateServiceRequest extends Model
 
         if (null !== $this->approvalType) {
             $res['ApprovalType'] = $this->approvalType;
+        }
+
+        if (null !== $this->buildParameters) {
+            $res['BuildParameters'] = $this->buildParameters;
         }
 
         if (null !== $this->clientToken) {
@@ -317,6 +327,10 @@ class UpdateServiceRequest extends Model
 
         if (isset($map['ApprovalType'])) {
             $model->approvalType = $map['ApprovalType'];
+        }
+
+        if (isset($map['BuildParameters'])) {
+            $model->buildParameters = $map['BuildParameters'];
         }
 
         if (isset($map['ClientToken'])) {
