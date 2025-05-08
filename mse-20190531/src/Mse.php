@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneShrinkReques
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreatePluginConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreatePluginConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreatePluginConfigShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateWebFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateWebFlowRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
@@ -154,6 +156,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteSwimmingLaneResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteWebFlowRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteWebFlowRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\EnableHttp2Request;
@@ -342,6 +346,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListWebFlowRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListWebFlowRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZkTrackRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZkTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenRequest;
@@ -514,6 +520,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateServiceSourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateSSLCertResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateWebFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateWebFlowRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterRequest;
@@ -4341,6 +4349,123 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * 创建热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - CreateWebFlowRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWebFlowRuleResponse
+     *
+     * @param CreateWebFlowRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateWebFlowRuleResponse
+     */
+    public function createWebFlowRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->burst) {
+            @$query['Burst'] = $request->burst;
+        }
+
+        if (null !== $request->controlBehavior) {
+            @$query['ControlBehavior'] = $request->controlBehavior;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->maxQueueingTimeMs) {
+            @$query['MaxQueueingTimeMs'] = $request->maxQueueingTimeMs;
+        }
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->paramItem) {
+            @$query['ParamItem'] = $request->paramItem;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceMode) {
+            @$query['ResourceMode'] = $request->resourceMode;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->statIntervalMs) {
+            @$query['StatIntervalMs'] = $request->statIntervalMs;
+        }
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWebFlowRule',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWebFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - CreateWebFlowRuleRequest
+     *
+     * @returns CreateWebFlowRuleResponse
+     *
+     * @param CreateWebFlowRuleRequest $request
+     *
+     * @return CreateWebFlowRuleResponse
+     */
+    public function createWebFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWebFlowRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a znode.
      *
      * @param request - CreateZnodeRequest
@@ -6369,6 +6494,75 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSwimmingLaneGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - DeleteWebFlowRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWebFlowRulesResponse
+     *
+     * @param DeleteWebFlowRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteWebFlowRulesResponse
+     */
+    public function deleteWebFlowRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWebFlowRules',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWebFlowRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - DeleteWebFlowRulesRequest
+     *
+     * @returns DeleteWebFlowRulesResponse
+     *
+     * @param DeleteWebFlowRulesRequest $request
+     *
+     * @return DeleteWebFlowRulesResponse
+     */
+    public function deleteWebFlowRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebFlowRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -13051,6 +13245,91 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * 查询热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - ListWebFlowRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWebFlowRulesResponse
+     *
+     * @param ListWebFlowRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListWebFlowRulesResponse
+     */
+    public function listWebFlowRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceSearchKey) {
+            @$query['ResourceSearchKey'] = $request->resourceSearchKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWebFlowRules',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWebFlowRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - ListWebFlowRulesRequest
+     *
+     * @returns ListWebFlowRulesResponse
+     *
+     * @param ListWebFlowRulesRequest $request
+     *
+     * @return ListWebFlowRulesResponse
+     */
+    public function listWebFlowRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWebFlowRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the track data of a ZooKeeper instance.
      *
      * @param request - ListZkTrackRequest
@@ -19499,6 +19778,119 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateServiceSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - UpdateWebFlowRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWebFlowRuleResponse
+     *
+     * @param UpdateWebFlowRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateWebFlowRuleResponse
+     */
+    public function updateWebFlowRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->burst) {
+            @$query['Burst'] = $request->burst;
+        }
+
+        if (null !== $request->controlBehavior) {
+            @$query['ControlBehavior'] = $request->controlBehavior;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->maxQueueingTimeMs) {
+            @$query['MaxQueueingTimeMs'] = $request->maxQueueingTimeMs;
+        }
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->paramItem) {
+            @$query['ParamItem'] = $request->paramItem;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceMode) {
+            @$query['ResourceMode'] = $request->resourceMode;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->statIntervalMs) {
+            @$query['StatIntervalMs'] = $request->statIntervalMs;
+        }
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWebFlowRule',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWebFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新热点参数防护规则（HTTP 请求）.
+     *
+     * @param request - UpdateWebFlowRuleRequest
+     *
+     * @returns UpdateWebFlowRuleResponse
+     *
+     * @param UpdateWebFlowRuleRequest $request
+     *
+     * @return UpdateWebFlowRuleResponse
+     */
+    public function updateWebFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWebFlowRuleWithOptions($request, $runtime);
     }
 
     /**

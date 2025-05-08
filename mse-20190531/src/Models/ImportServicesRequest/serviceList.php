@@ -34,6 +34,11 @@ class serviceList extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $saeAppId;
+
+    /**
      * @var int
      */
     public $servicePort;
@@ -48,6 +53,7 @@ class serviceList extends Model
         'ips' => 'Ips',
         'name' => 'Name',
         'namespace' => 'Namespace',
+        'saeAppId' => 'SaeAppId',
         'servicePort' => 'ServicePort',
         'serviceProtocol' => 'ServiceProtocol',
     ];
@@ -96,6 +102,10 @@ class serviceList extends Model
 
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->saeAppId) {
+            $res['SaeAppId'] = $this->saeAppId;
         }
 
         if (null !== $this->servicePort) {
@@ -147,6 +157,10 @@ class serviceList extends Model
 
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+
+        if (isset($map['SaeAppId'])) {
+            $model->saeAppId = $map['SaeAppId'];
         }
 
         if (isset($map['ServicePort'])) {

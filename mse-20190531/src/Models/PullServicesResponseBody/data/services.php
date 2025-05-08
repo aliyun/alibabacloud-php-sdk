@@ -26,6 +26,11 @@ class services extends Model
     /**
      * @var string
      */
+    public $saeAppId;
+
+    /**
+     * @var string
+     */
     public $sourceId;
 
     /**
@@ -41,6 +46,7 @@ class services extends Model
         'groupName' => 'GroupName',
         'name' => 'Name',
         'namespace' => 'Namespace',
+        'saeAppId' => 'SaeAppId',
         'sourceId' => 'SourceId',
         'sourceIdList' => 'SourceIdList',
         'sourceType' => 'SourceType',
@@ -67,6 +73,10 @@ class services extends Model
 
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->saeAppId) {
+            $res['SaeAppId'] = $this->saeAppId;
         }
 
         if (null !== $this->sourceId) {
@@ -108,6 +118,10 @@ class services extends Model
 
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+
+        if (isset($map['SaeAppId'])) {
+            $model->saeAppId = $map['SaeAppId'];
         }
 
         if (isset($map['SourceId'])) {
