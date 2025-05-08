@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParameterResponseBody\parameter;
-use AlibabaCloud\Tea\Model;
 
 class GetSecretParameterResponseBody extends Model
 {
     /**
-     * @description The information about the encryption parameter.
-     *
      * @var parameter
      */
     public $parameter;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7F14FB7C-C9BE-44AE-92ED-21ACC02FBFD2
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +25,19 @@ class GetSecretParameterResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->parameter) {
+            $this->parameter->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameter) {
-            $res['Parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
+            $res['Parameter'] = null !== $this->parameter ? $this->parameter->toArray($noStream) : $this->parameter;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class GetSecretParameterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSecretParameterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Parameter'])) {
             $model->parameter = parameter::fromMap($map['Parameter']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

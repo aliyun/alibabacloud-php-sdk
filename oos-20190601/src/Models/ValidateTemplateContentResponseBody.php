@@ -4,86 +4,76 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ValidateTemplateContentResponseBody\tasks;
-use AlibabaCloud\Tea\Model;
 
 class ValidateTemplateContentResponseBody extends Model
 {
     /**
-     * @description The outputs of the template.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $outputs;
 
     /**
-     * @description The parameters of the template.
-     *
-     * @example { "Status": { "Description": "(Required) The status of the Ecs instance.", "Type": "String" } }
-     *
      * @var string
      */
     public $parameters;
 
     /**
-     * @description The RAM role.
-     *
-     * @example OOSServiceRole
-     *
      * @var string
      */
     public $ramRole;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D5EE9591-1F2D-573E-8751-7F08BBB388D4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task defined in the template.
-     *
      * @var tasks[]
      */
     public $tasks;
     protected $_name = [
-        'outputs'    => 'Outputs',
+        'outputs' => 'Outputs',
         'parameters' => 'Parameters',
-        'ramRole'    => 'RamRole',
-        'requestId'  => 'RequestId',
-        'tasks'      => 'Tasks',
+        'ramRole' => 'RamRole',
+        'requestId' => 'RequestId',
+        'tasks' => 'Tasks',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tasks)) {
+            Model::validateArray($this->tasks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
+
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tasks) {
-            $res['Tasks'] = [];
-            if (null !== $this->tasks && \is_array($this->tasks)) {
-                $n = 0;
-                foreach ($this->tasks as $item) {
-                    $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tasks)) {
+                $res['Tasks'] = [];
+                $n1 = 0;
+                foreach ($this->tasks as $item1) {
+                    $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -91,32 +81,36 @@ class ValidateTemplateContentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ValidateTemplateContentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
+
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
+
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n            = 0;
-                foreach ($map['Tasks'] as $item) {
-                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tasks'] as $item1) {
+                    $model->tasks[$n1++] = tasks::fromMap($item1);
                 }
             }
         }

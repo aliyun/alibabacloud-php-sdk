@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStateConfigurationsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 12345B731-0FCE-48BA-8D42-605abcde
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteStateConfigurationsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteStateConfigurationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStateConfigurationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

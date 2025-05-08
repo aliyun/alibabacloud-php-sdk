@@ -1,3 +1,7 @@
+2025-05-08 Version: 2.6.0
+- Support API DeleteOpsItems.
+
+
 2024-12-19 Version: 2.5.1
 - Generated php 2019-06-01 for oos.
 

@@ -4,96 +4,84 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateApplicationGroupRequest extends Model
 {
     /**
-     * @description The application name.
-     *
-     * This parameter is required.
-     * @example MyApplication
-     *
      * @var string
      */
     public $applicationName;
 
     /**
-     * @description The name of the application group.
-     *
-     * This parameter is required.
-     * @example MyApplicationGroup
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The new name of the application group.
-     *
-     * @example UpdateMyApplicationGroup
-     *
      * @var string
      */
     public $newName;
 
     /**
-     * @description The name of the configuration update operation.
-     *
-     * @example /business/v1/product/spus/{spu_id}
-     *
      * @var string
      */
     public $operationName;
 
     /**
-     * @description The JSON string that consists of a set of parameters. Default value: {}.
-     *
-     * @example {"username": "xx"}
-     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
-     * @description The region ID. Set the value to cn-hangzhou.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationName' => 'ApplicationName',
-        'name'            => 'Name',
-        'newName'         => 'NewName',
-        'operationName'   => 'OperationName',
-        'parameters'      => 'Parameters',
-        'regionId'        => 'RegionId',
+        'name' => 'Name',
+        'newName' => 'NewName',
+        'operationName' => 'OperationName',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->newName) {
             $res['NewName'] = $this->newName;
         }
+
         if (null !== $this->operationName) {
             $res['OperationName'] = $this->operationName;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -101,29 +89,39 @@ class UpdateApplicationGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateApplicationGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NewName'])) {
             $model->newName = $map['NewName'];
         }
+
         if (isset($map['OperationName'])) {
             $model->operationName = $map['OperationName'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

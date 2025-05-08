@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSecretParameterRequest extends Model
 {
     /**
-     * @description The name of the encryption parameter. The name must be 1 to 180 characters in length and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
-     *
-     * This parameter is required.
-     * @example MySecretParameter
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,17 +41,18 @@ class DeleteSecretParameterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSecretParameterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

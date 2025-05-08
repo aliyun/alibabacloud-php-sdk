@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupResponseBody\applicationGroup;
-use AlibabaCloud\Tea\Model;
 
 class CreateApplicationGroupResponseBody extends Model
 {
     /**
-     * @description The information about the application group.
-     *
      * @var applicationGroup
      */
     public $applicationGroup;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0E6BEBD3-7F9E-5878-834B-097633AB5F33
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'applicationGroup' => 'ApplicationGroup',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->applicationGroup) {
+            $this->applicationGroup->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationGroup) {
-            $res['ApplicationGroup'] = null !== $this->applicationGroup ? $this->applicationGroup->toMap() : null;
+            $res['ApplicationGroup'] = null !== $this->applicationGroup ? $this->applicationGroup->toArray($noStream) : $this->applicationGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class CreateApplicationGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateApplicationGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationGroup'])) {
             $model->applicationGroup = applicationGroup::fromMap($map['ApplicationGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

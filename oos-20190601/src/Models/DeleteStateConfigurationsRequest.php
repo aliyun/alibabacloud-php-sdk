@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStateConfigurationsRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * @example abcde3OARpx77No54nv6
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The IDs of desired-state configurations.
-     *
-     * This parameter is required.
-     * @example ["sc-asfgdhj12345"]
-     *
      * @var string
      */
     public $stateConfigurationIds;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'regionId'              => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'stateConfigurationIds' => 'StateConfigurationIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->stateConfigurationIds) {
             $res['StateConfigurationIds'] = $this->stateConfigurationIds;
         }
@@ -61,20 +51,22 @@ class DeleteStateConfigurationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStateConfigurationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StateConfigurationIds'])) {
             $model->stateConfigurationIds = $map['StateConfigurationIds'];
         }

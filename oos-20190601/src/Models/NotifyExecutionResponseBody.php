@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NotifyExecutionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 491DF8C2-34C9-4679-9DB3-4C0F49B129AC
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class NotifyExecutionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class NotifyExecutionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NotifyExecutionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

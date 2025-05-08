@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetParametersRequest extends Model
 {
     /**
-     * @description The names of the common parameters.
-     *
-     * This parameter is required.
-     * @example ["parameter1","parameter2"]
-     *
      * @var string
      */
     public $names;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'names'    => 'Names',
+        'names' => 'Names',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->names) {
             $res['Names'] = $this->names;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,17 +41,18 @@ class GetParametersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetParametersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Names'])) {
             $model->names = $map['Names'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
