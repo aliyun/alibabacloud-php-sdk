@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -366,5 +368,61 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->globalSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通晓统一搜索API.
+     *
+     * @param request - UnifiedSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnifiedSearchResponse
+     *
+     * @param UnifiedSearchRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UnifiedSearchResponse
+     */
+    public function unifiedSearchWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UnifiedSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/search/unified',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnifiedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通晓统一搜索API.
+     *
+     * @param request - UnifiedSearchRequest
+     *
+     * @returns UnifiedSearchResponse
+     *
+     * @param UnifiedSearchRequest $request
+     *
+     * @return UnifiedSearchResponse
+     */
+    public function unifiedSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unifiedSearchWithOptions($request, $headers, $runtime);
     }
 }

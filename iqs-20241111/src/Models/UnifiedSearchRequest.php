@@ -9,41 +9,17 @@ use AlibabaCloud\Dara\Model;
 class UnifiedSearchRequest extends Model
 {
     /**
-     * @var string
+     * @var UnifiedSearchInput
      */
-    public $category;
-
-    /**
-     * @var RequestContents
-     */
-    public $contents;
-
-    /**
-     * @var string
-     */
-    public $engineType;
-
-    /**
-     * @var string
-     */
-    public $query;
-
-    /**
-     * @var string
-     */
-    public $timeRange;
+    public $body;
     protected $_name = [
-        'category' => 'category',
-        'contents' => 'contents',
-        'engineType' => 'engineType',
-        'query' => 'query',
-        'timeRange' => 'timeRange',
+        'body' => 'body',
     ];
 
     public function validate()
     {
-        if (null !== $this->contents) {
-            $this->contents->validate();
+        if (null !== $this->body) {
+            $this->body->validate();
         }
         parent::validate();
     }
@@ -51,24 +27,8 @@ class UnifiedSearchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->category) {
-            $res['category'] = $this->category;
-        }
-
-        if (null !== $this->contents) {
-            $res['contents'] = null !== $this->contents ? $this->contents->toArray($noStream) : $this->contents;
-        }
-
-        if (null !== $this->engineType) {
-            $res['engineType'] = $this->engineType;
-        }
-
-        if (null !== $this->query) {
-            $res['query'] = $this->query;
-        }
-
-        if (null !== $this->timeRange) {
-            $res['timeRange'] = $this->timeRange;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
@@ -82,24 +42,8 @@ class UnifiedSearchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['category'])) {
-            $model->category = $map['category'];
-        }
-
-        if (isset($map['contents'])) {
-            $model->contents = RequestContents::fromMap($map['contents']);
-        }
-
-        if (isset($map['engineType'])) {
-            $model->engineType = $map['engineType'];
-        }
-
-        if (isset($map['query'])) {
-            $model->query = $map['query'];
-        }
-
-        if (isset($map['timeRange'])) {
-            $model->timeRange = $map['timeRange'];
+        if (isset($map['body'])) {
+            $model->body = UnifiedSearchInput::fromMap($map['body']);
         }
 
         return $model;
