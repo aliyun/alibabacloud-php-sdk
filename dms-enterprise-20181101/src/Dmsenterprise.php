@@ -535,6 +535,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetWorkflowExtraInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetWorkflowExtraInfoResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SimplyAddInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SimplyAddInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SkipDataCorrectRowCheckRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SkipDataCorrectRowCheckResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\StopTaskFlowInstanceRequest;
@@ -19201,6 +19203,83 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setWorkflowExtraInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加实例.
+     *
+     * @param request - SimplyAddInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SimplyAddInstanceResponse
+     *
+     * @param SimplyAddInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SimplyAddInstanceResponse
+     */
+    public function simplyAddInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->databasePassword) {
+            @$query['DatabasePassword'] = $request->databasePassword;
+        }
+
+        if (null !== $request->databaseUser) {
+            @$query['DatabaseUser'] = $request->databaseUser;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceRegion) {
+            @$query['InstanceRegion'] = $request->instanceRegion;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SimplyAddInstance',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SimplyAddInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加实例.
+     *
+     * @param request - SimplyAddInstanceRequest
+     *
+     * @returns SimplyAddInstanceResponse
+     *
+     * @param SimplyAddInstanceRequest $request
+     *
+     * @return SimplyAddInstanceResponse
+     */
+    public function simplyAddInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->simplyAddInstanceWithOptions($request, $runtime);
     }
 
     /**
