@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody\customSemanticSearchConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody\data;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody\thirdSearchConfig;
 
 class ListDatasetsResponseBody extends Model
 {
@@ -13,6 +15,11 @@ class ListDatasetsResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var customSemanticSearchConfig
+     */
+    public $customSemanticSearchConfig;
 
     /**
      * @var data[]
@@ -50,11 +57,17 @@ class ListDatasetsResponseBody extends Model
     public $success;
 
     /**
+     * @var thirdSearchConfig
+     */
+    public $thirdSearchConfig;
+
+    /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'code' => 'Code',
+        'customSemanticSearchConfig' => 'CustomSemanticSearchConfig',
         'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
@@ -62,13 +75,20 @@ class ListDatasetsResponseBody extends Model
         'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
         'success' => 'Success',
+        'thirdSearchConfig' => 'ThirdSearchConfig',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (null !== $this->customSemanticSearchConfig) {
+            $this->customSemanticSearchConfig->validate();
+        }
         if (\is_array($this->data)) {
             Model::validateArray($this->data);
+        }
+        if (null !== $this->thirdSearchConfig) {
+            $this->thirdSearchConfig->validate();
         }
         parent::validate();
     }
@@ -78,6 +98,10 @@ class ListDatasetsResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->customSemanticSearchConfig) {
+            $res['CustomSemanticSearchConfig'] = null !== $this->customSemanticSearchConfig ? $this->customSemanticSearchConfig->toArray($noStream) : $this->customSemanticSearchConfig;
         }
 
         if (null !== $this->data) {
@@ -114,6 +138,10 @@ class ListDatasetsResponseBody extends Model
             $res['Success'] = $this->success;
         }
 
+        if (null !== $this->thirdSearchConfig) {
+            $res['ThirdSearchConfig'] = null !== $this->thirdSearchConfig ? $this->thirdSearchConfig->toArray($noStream) : $this->thirdSearchConfig;
+        }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -131,6 +159,10 @@ class ListDatasetsResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['CustomSemanticSearchConfig'])) {
+            $model->customSemanticSearchConfig = customSemanticSearchConfig::fromMap($map['CustomSemanticSearchConfig']);
         }
 
         if (isset($map['Data'])) {
@@ -165,6 +197,10 @@ class ListDatasetsResponseBody extends Model
 
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+
+        if (isset($map['ThirdSearchConfig'])) {
+            $model->thirdSearchConfig = thirdSearchConfig::fromMap($map['ThirdSearchConfig']);
         }
 
         if (isset($map['TotalCount'])) {

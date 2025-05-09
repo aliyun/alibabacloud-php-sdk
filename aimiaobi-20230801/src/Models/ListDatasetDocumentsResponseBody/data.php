@@ -20,6 +20,11 @@ class data extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var bool
      */
     public $disableHandleMultimodalMedia;
@@ -87,10 +92,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
     public $url;
     protected $_name = [
         'categoryUuid' => 'CategoryUuid',
         'content' => 'Content',
+        'createTime' => 'CreateTime',
         'disableHandleMultimodalMedia' => 'DisableHandleMultimodalMedia',
         'docId' => 'DocId',
         'docType' => 'DocType',
@@ -104,6 +115,7 @@ class data extends Model
         'status' => 'Status',
         'summary' => 'Summary',
         'title' => 'Title',
+        'updateTime' => 'UpdateTime',
         'url' => 'Url',
     ];
 
@@ -124,6 +136,10 @@ class data extends Model
 
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->disableHandleMultimodalMedia) {
@@ -184,6 +200,10 @@ class data extends Model
             $res['Title'] = $this->title;
         }
 
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -205,6 +225,10 @@ class data extends Model
 
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['DisableHandleMultimodalMedia'])) {
@@ -263,6 +287,10 @@ class data extends Model
 
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         if (isset($map['Url'])) {

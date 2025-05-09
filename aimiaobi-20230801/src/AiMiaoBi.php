@@ -4416,6 +4416,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['EndTime'] = $request->endTime;
         }
 
+        if (null !== $request->includeConfig) {
+            @$body['IncludeConfig'] = $request->includeConfig;
+        }
+
         if (null !== $request->pageNumber) {
             @$body['PageNumber'] = $request->pageNumber;
         }

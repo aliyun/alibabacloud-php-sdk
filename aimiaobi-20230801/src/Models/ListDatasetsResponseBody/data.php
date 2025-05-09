@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $docUsedQuota;
+
+    /**
+     * @var int
+     */
     public $searchDatasetEnable;
     protected $_name = [
         'createTime' => 'CreateTime',
@@ -49,6 +54,7 @@ class data extends Model
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
+        'docUsedQuota' => 'DocUsedQuota',
         'searchDatasetEnable' => 'SearchDatasetEnable',
     ];
 
@@ -82,6 +88,10 @@ class data extends Model
 
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
+        }
+
+        if (null !== $this->docUsedQuota) {
+            $res['DocUsedQuota'] = $this->docUsedQuota;
         }
 
         if (null !== $this->searchDatasetEnable) {
@@ -121,6 +131,10 @@ class data extends Model
 
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
+        }
+
+        if (isset($map['DocUsedQuota'])) {
+            $model->docUsedQuota = $map['DocUsedQuota'];
         }
 
         if (isset($map['SearchDatasetEnable'])) {

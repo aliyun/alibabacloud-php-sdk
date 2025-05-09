@@ -29,6 +29,11 @@ class ListDatasetsRequest extends Model
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $includeConfig;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -57,6 +62,7 @@ class ListDatasetsRequest extends Model
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
         'endTime' => 'EndTime',
+        'includeConfig' => 'IncludeConfig',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'searchDatasetEnable' => 'SearchDatasetEnable',
@@ -86,6 +92,10 @@ class ListDatasetsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->includeConfig) {
+            $res['IncludeConfig'] = $this->includeConfig;
         }
 
         if (null !== $this->pageNumber) {
@@ -133,6 +143,10 @@ class ListDatasetsRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['IncludeConfig'])) {
+            $model->includeConfig = $map['IncludeConfig'];
         }
 
         if (isset($map['PageNumber'])) {
