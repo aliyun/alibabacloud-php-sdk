@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponseBody\addresses;
+namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest\orderItems;
 
 use AlibabaCloud\Dara\Model;
 
-class area extends Model
+class components extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $areaId;
+    public $key;
 
     /**
      * @var string
      */
-    public $areaName;
+    public $value;
     protected $_name = [
-        'areaId' => 'AreaId',
-        'areaName' => 'AreaName',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class area extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->areaId) {
-            $res['AreaId'] = $this->areaId;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
-        if (null !== $this->areaName) {
-            $res['AreaName'] = $this->areaName;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class area extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AreaId'])) {
-            $model->areaId = $map['AreaId'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
-        if (isset($map['AreaName'])) {
-            $model->areaName = $map['AreaName'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -13,21 +13,24 @@ class CreateMultiOrderShrinkRequest extends Model
      * @var orderItems[]
      */
     public $orderItems;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $propertiesShrink;
+
     /**
      * @var int
      */
     public $resellerOwnerUid;
     protected $_name = [
-        'orderItems'       => 'OrderItems',
-        'orderType'        => 'OrderType',
+        'orderItems' => 'OrderItems',
+        'orderType' => 'OrderType',
         'propertiesShrink' => 'Properties',
         'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
@@ -46,7 +49,7 @@ class CreateMultiOrderShrinkRequest extends Model
         if (null !== $this->orderItems) {
             if (\is_array($this->orderItems)) {
                 $res['OrderItems'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->orderItems as $item1) {
                     $res['OrderItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class CreateMultiOrderShrinkRequest extends Model
         if (isset($map['OrderItems'])) {
             if (!empty($map['OrderItems'])) {
                 $model->orderItems = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['OrderItems'] as $item1) {
                     $model->orderItems[$n1++] = orderItems::fromMap($item1);
                 }

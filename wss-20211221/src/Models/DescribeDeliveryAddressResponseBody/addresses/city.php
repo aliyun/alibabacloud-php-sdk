@@ -12,12 +12,13 @@ class city extends Model
      * @var int
      */
     public $cityId;
+
     /**
      * @var string
      */
     public $cityName;
     protected $_name = [
-        'cityId'   => 'CityId',
+        'cityId' => 'CityId',
         'cityName' => 'CityName',
     ];
 

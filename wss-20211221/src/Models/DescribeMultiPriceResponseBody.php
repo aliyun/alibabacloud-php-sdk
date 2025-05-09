@@ -5,27 +5,28 @@
 namespace AlibabaCloud\SDK\Wss\V20211221\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceResponseBody\priceInfo;
 
-class CreateMultiOrderResponseBody extends Model
+class DescribeMultiPriceResponseBody extends Model
 {
     /**
-     * @var int[]
+     * @var priceInfo
      */
-    public $orderIds;
+    public $priceInfo;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderIds' => 'OrderIds',
+        'priceInfo' => 'PriceInfo',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->orderIds)) {
-            Model::validateArray($this->orderIds);
+        if (null !== $this->priceInfo) {
+            $this->priceInfo->validate();
         }
         parent::validate();
     }
@@ -33,14 +34,8 @@ class CreateMultiOrderResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->orderIds) {
-            if (\is_array($this->orderIds)) {
-                $res['OrderIds'] = [];
-                $n1 = 0;
-                foreach ($this->orderIds as $item1) {
-                    $res['OrderIds'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->priceInfo) {
+            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toArray($noStream) : $this->priceInfo;
         }
 
         if (null !== $this->requestId) {
@@ -58,14 +53,8 @@ class CreateMultiOrderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderIds'])) {
-            if (!empty($map['OrderIds'])) {
-                $model->orderIds = [];
-                $n1 = 0;
-                foreach ($map['OrderIds'] as $item1) {
-                    $model->orderIds[$n1++] = $item1;
-                }
-            }
+        if (isset($map['PriceInfo'])) {
+            $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
         }
 
         if (isset($map['RequestId'])) {

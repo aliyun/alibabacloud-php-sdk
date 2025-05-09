@@ -12,12 +12,13 @@ class town extends Model
      * @var int
      */
     public $townId;
+
     /**
      * @var string
      */
     public $townName;
     protected $_name = [
-        'townId'   => 'TownId',
+        'townId' => 'TownId',
         'townName' => 'TownName',
     ];
 

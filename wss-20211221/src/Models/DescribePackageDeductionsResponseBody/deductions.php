@@ -12,68 +12,80 @@ class deductions extends Model
      * @var int
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $desktopId;
+
     /**
      * @var string
      */
     public $desktopName;
+
     /**
      * @var string
      */
     public $desktopType;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceState;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var string
      */
     public $osType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $staTime;
+
     /**
      * @var float
      */
     public $usedCoreTime;
+
     /**
      * @var int
      */
     public $usedTime;
     protected $_name = [
-        'cpu'           => 'Cpu',
-        'desktopId'     => 'DesktopId',
-        'desktopName'   => 'DesktopName',
-        'desktopType'   => 'DesktopType',
-        'endTime'       => 'EndTime',
+        'cpu' => 'Cpu',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'desktopType' => 'DesktopType',
+        'endTime' => 'EndTime',
         'instanceState' => 'InstanceState',
-        'memory'        => 'Memory',
-        'osType'        => 'OsType',
-        'regionId'      => 'RegionId',
-        'resourceType'  => 'ResourceType',
-        'staTime'       => 'StaTime',
-        'usedCoreTime'  => 'UsedCoreTime',
-        'usedTime'      => 'UsedTime',
+        'memory' => 'Memory',
+        'osType' => 'OsType',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'staTime' => 'StaTime',
+        'usedCoreTime' => 'UsedCoreTime',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

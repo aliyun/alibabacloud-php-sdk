@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderShrinkRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\ModifyInstancePropertiesRequest;
@@ -55,6 +57,7 @@ class Wss extends OpenApiClient
     /**
      * @param tmpReq - CreateMultiOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMultiOrderResponse
      *
      * @param CreateMultiOrderRequest $tmpReq
@@ -92,25 +95,23 @@ class Wss extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMultiOrder',
-            'version'     => '2021-12-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMultiOrder',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMultiOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMultiOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMultiOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateMultiOrderRequest
+     *
      * @returns CreateMultiOrderResponse
      *
      * @param CreateMultiOrderRequest $request
@@ -127,6 +128,7 @@ class Wss extends OpenApiClient
     /**
      * @param request - DescribeDeliveryAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDeliveryAddressResponse
      *
      * @param RuntimeOptions $runtime
@@ -135,23 +137,20 @@ class Wss extends OpenApiClient
      */
     public function describeDeliveryAddressWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeDeliveryAddress',
-            'version'     => '2021-12-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDeliveryAddress',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDeliveryAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDeliveryAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDeliveryAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -167,10 +166,76 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeMultiPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMultiPriceResponse
+     *
+     * @param DescribeMultiPriceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMultiPriceResponse
+     */
+    public function describeMultiPriceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderItems) {
+            @$query['OrderItems'] = $request->orderItems;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->packageCode) {
+            @$query['PackageCode'] = $request->packageCode;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMultiPrice',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMultiPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeMultiPriceRequest
+     *
+     * @returns DescribeMultiPriceResponse
+     *
+     * @param DescribeMultiPriceRequest $request
+     *
+     * @return DescribeMultiPriceResponse
+     */
+    public function describeMultiPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMultiPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询核时包抵扣明细.
      *
      * @param request - DescribePackageDeductionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePackageDeductionsResponse
      *
      * @param DescribePackageDeductionsRequest $request
@@ -214,27 +279,25 @@ class Wss extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePackageDeductions',
-            'version'     => '2021-12-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePackageDeductions',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePackageDeductionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePackageDeductionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePackageDeductionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询核时包抵扣明细.
      *
      * @param request - DescribePackageDeductionsRequest
+     *
      * @returns DescribePackageDeductionsResponse
      *
      * @param DescribePackageDeductionsRequest $request
@@ -251,6 +314,7 @@ class Wss extends OpenApiClient
     /**
      * @param request - ModifyInstancePropertiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstancePropertiesResponse
      *
      * @param ModifyInstancePropertiesRequest $request
@@ -286,25 +350,23 @@ class Wss extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceProperties',
-            'version'     => '2021-12-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceProperties',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstancePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstancePropertiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstancePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ModifyInstancePropertiesRequest
+     *
      * @returns ModifyInstancePropertiesResponse
      *
      * @param ModifyInstancePropertiesRequest $request

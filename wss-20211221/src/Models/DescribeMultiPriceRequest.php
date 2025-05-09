@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Wss\V20211221\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest\orderItems;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest\orderItems;
 
-class CreateMultiOrderRequest extends Model
+class DescribeMultiPriceRequest extends Model
 {
     /**
      * @var orderItems[]
@@ -20,9 +20,9 @@ class CreateMultiOrderRequest extends Model
     public $orderType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $properties;
+    public $packageCode;
 
     /**
      * @var int
@@ -31,7 +31,7 @@ class CreateMultiOrderRequest extends Model
     protected $_name = [
         'orderItems' => 'OrderItems',
         'orderType' => 'OrderType',
-        'properties' => 'Properties',
+        'packageCode' => 'PackageCode',
         'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
@@ -39,9 +39,6 @@ class CreateMultiOrderRequest extends Model
     {
         if (\is_array($this->orderItems)) {
             Model::validateArray($this->orderItems);
-        }
-        if (\is_array($this->properties)) {
-            Model::validateArray($this->properties);
         }
         parent::validate();
     }
@@ -63,13 +60,8 @@ class CreateMultiOrderRequest extends Model
             $res['OrderType'] = $this->orderType;
         }
 
-        if (null !== $this->properties) {
-            if (\is_array($this->properties)) {
-                $res['Properties'] = [];
-                foreach ($this->properties as $key1 => $value1) {
-                    $res['Properties'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->packageCode) {
+            $res['PackageCode'] = $this->packageCode;
         }
 
         if (null !== $this->resellerOwnerUid) {
@@ -101,13 +93,8 @@ class CreateMultiOrderRequest extends Model
             $model->orderType = $map['OrderType'];
         }
 
-        if (isset($map['Properties'])) {
-            if (!empty($map['Properties'])) {
-                $model->properties = [];
-                foreach ($map['Properties'] as $key1 => $value1) {
-                    $model->properties[$key1] = $value1;
-                }
-            }
+        if (isset($map['PackageCode'])) {
+            $model->packageCode = $map['PackageCode'];
         }
 
         if (isset($map['ResellerOwnerUid'])) {

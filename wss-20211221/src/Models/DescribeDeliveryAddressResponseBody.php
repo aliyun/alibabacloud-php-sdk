@@ -13,17 +13,19 @@ class DescribeDeliveryAddressResponseBody extends Model
      * @var addresses[]
      */
     public $addresses;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'addresses'  => 'Addresses',
-        'requestId'  => 'RequestId',
+        'addresses' => 'Addresses',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class DescribeDeliveryAddressResponseBody extends Model
         if (null !== $this->addresses) {
             if (\is_array($this->addresses)) {
                 $res['Addresses'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->addresses as $item1) {
                     $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeDeliveryAddressResponseBody extends Model
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
                     $model->addresses[$n1++] = addresses::fromMap($item1);
                 }

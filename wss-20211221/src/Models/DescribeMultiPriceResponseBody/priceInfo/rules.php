@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderShrinkRequest\orderItems;
+namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceResponseBody\priceInfo;
 
 use AlibabaCloud\Dara\Model;
 
-class components extends Model
+class rules extends Model
 {
     /**
      * @var string
      */
-    public $key;
+    public $description;
 
     /**
-     * @var string
+     * @var int
      */
-    public $value;
+    public $ruleId;
     protected $_name = [
-        'key' => 'Key',
-        'value' => 'Value',
+        'description' => 'Description',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class components extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class components extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

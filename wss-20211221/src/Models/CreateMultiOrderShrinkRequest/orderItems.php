@@ -13,47 +13,55 @@ class orderItems extends Model
      * @var int
      */
     public $amount;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var components[]
      */
     public $components;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var string
      */
     public $promotionId;
+
     /**
      * @var string[]
      */
     public $resourceIds;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'amount'       => 'Amount',
-        'autoPay'      => 'AutoPay',
-        'autoRenew'    => 'AutoRenew',
-        'components'   => 'Components',
-        'period'       => 'Period',
-        'periodUnit'   => 'PeriodUnit',
-        'promotionId'  => 'PromotionId',
-        'resourceIds'  => 'ResourceIds',
+        'amount' => 'Amount',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'components' => 'Components',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
     ];
 
@@ -86,7 +94,7 @@ class orderItems extends Model
         if (null !== $this->components) {
             if (\is_array($this->components)) {
                 $res['Components'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->components as $item1) {
                     $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -108,7 +116,7 @@ class orderItems extends Model
         if (null !== $this->resourceIds) {
             if (\is_array($this->resourceIds)) {
                 $res['ResourceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
                     $res['ResourceIds'][$n1++] = $item1;
                 }
@@ -145,7 +153,7 @@ class orderItems extends Model
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Components'] as $item1) {
                     $model->components[$n1++] = components::fromMap($item1);
                 }
@@ -167,7 +175,7 @@ class orderItems extends Model
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
                     $model->resourceIds[$n1++] = $item1;
                 }

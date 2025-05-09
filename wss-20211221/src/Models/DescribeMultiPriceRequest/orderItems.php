@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest;
+namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest\orderItems\components;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest\orderItems\components;
 
 class orderItems extends Model
 {
@@ -15,19 +15,14 @@ class orderItems extends Model
     public $amount;
 
     /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var bool
-     */
-    public $autoRenew;
-
-    /**
      * @var components[]
      */
     public $components;
+
+    /**
+     * @var string[]
+     */
+    public $instanceIds;
 
     /**
      * @var int
@@ -55,9 +50,8 @@ class orderItems extends Model
     public $resourceType;
     protected $_name = [
         'amount' => 'Amount',
-        'autoPay' => 'AutoPay',
-        'autoRenew' => 'AutoRenew',
         'components' => 'Components',
+        'instanceIds' => 'InstanceIds',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
@@ -69,6 +63,9 @@ class orderItems extends Model
     {
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
         }
         if (\is_array($this->resourceIds)) {
             Model::validateArray($this->resourceIds);
@@ -83,20 +80,22 @@ class orderItems extends Model
             $res['Amount'] = $this->amount;
         }
 
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
-        }
-
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
-        }
-
         if (null !== $this->components) {
             if (\is_array($this->components)) {
                 $res['Components'] = [];
                 $n1 = 0;
                 foreach ($this->components as $item1) {
                     $res['Components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
                 }
             }
         }
@@ -142,20 +141,22 @@ class orderItems extends Model
             $model->amount = $map['Amount'];
         }
 
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
-        }
-
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
-        }
-
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
                 $n1 = 0;
                 foreach ($map['Components'] as $item1) {
                     $model->components[$n1++] = components::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
                 }
             }
         }

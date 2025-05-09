@@ -16,48 +16,56 @@ class addresses extends Model
      * @var area
      */
     public $area;
+
     /**
      * @var city
      */
     public $city;
+
     /**
      * @var string
      */
     public $contacts;
+
     /**
      * @var bool
      */
     public $defaultAddress;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $postalCode;
+
     /**
      * @var province
      */
     public $province;
+
     /**
      * @var town
      */
     public $town;
     protected $_name = [
-        'area'           => 'Area',
-        'city'           => 'City',
-        'contacts'       => 'Contacts',
+        'area' => 'Area',
+        'city' => 'City',
+        'contacts' => 'Contacts',
         'defaultAddress' => 'DefaultAddress',
-        'detail'         => 'Detail',
-        'mobile'         => 'Mobile',
-        'postalCode'     => 'PostalCode',
-        'province'       => 'Province',
-        'town'           => 'Town',
+        'detail' => 'Detail',
+        'mobile' => 'Mobile',
+        'postalCode' => 'PostalCode',
+        'province' => 'Province',
+        'town' => 'Town',
     ];
 
     public function validate()

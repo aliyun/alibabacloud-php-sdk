@@ -12,12 +12,13 @@ class province extends Model
      * @var int
      */
     public $provinceId;
+
     /**
      * @var string
      */
     public $provinceName;
     protected $_name = [
-        'provinceId'   => 'ProvinceId',
+        'provinceId' => 'ProvinceId',
         'provinceName' => 'ProvinceName',
     ];
 

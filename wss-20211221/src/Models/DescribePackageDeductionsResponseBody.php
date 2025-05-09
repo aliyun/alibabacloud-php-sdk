@@ -13,38 +13,44 @@ class DescribePackageDeductionsResponseBody extends Model
      * @var deductions[]
      */
     public $deductions;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var float
      */
     public $totalUsedCoreTime;
+
     /**
      * @var int
      */
     public $totalUsedTime;
     protected $_name = [
-        'deductions'        => 'Deductions',
-        'pageNum'           => 'PageNum',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'deductions' => 'Deductions',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'totalUsedCoreTime' => 'TotalUsedCoreTime',
-        'totalUsedTime'     => 'TotalUsedTime',
+        'totalUsedTime' => 'TotalUsedTime',
     ];
 
     public function validate()
@@ -61,7 +67,7 @@ class DescribePackageDeductionsResponseBody extends Model
         if (null !== $this->deductions) {
             if (\is_array($this->deductions)) {
                 $res['Deductions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->deductions as $item1) {
                     $res['Deductions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +112,7 @@ class DescribePackageDeductionsResponseBody extends Model
         if (isset($map['Deductions'])) {
             if (!empty($map['Deductions'])) {
                 $model->deductions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Deductions'] as $item1) {
                     $model->deductions[$n1++] = deductions::fromMap($item1);
                 }
