@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\preCheckDetail\taskCheckDO;
-use AlibabaCloud\Tea\Model;
 
 class preCheckDetail extends Model
 {
@@ -17,17 +17,23 @@ class preCheckDetail extends Model
         'taskCheckDO' => 'TaskCheckDO',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskCheckDO)) {
+            Model::validateArray($this->taskCheckDO);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskCheckDO) {
-            $res['TaskCheckDO'] = [];
-            if (null !== $this->taskCheckDO && \is_array($this->taskCheckDO)) {
-                $n = 0;
-                foreach ($this->taskCheckDO as $item) {
-                    $res['TaskCheckDO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskCheckDO)) {
+                $res['TaskCheckDO'] = [];
+                $n1 = 0;
+                foreach ($this->taskCheckDO as $item1) {
+                    $res['TaskCheckDO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class preCheckDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preCheckDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskCheckDO'])) {
             if (!empty($map['TaskCheckDO'])) {
                 $model->taskCheckDO = [];
-                $n = 0;
-                foreach ($map['TaskCheckDO'] as $item) {
-                    $model->taskCheckDO[$n++] = null !== $item ? taskCheckDO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskCheckDO'] as $item1) {
+                    $model->taskCheckDO[$n1++] = taskCheckDO::fromMap($item1);
                 }
             }
         }

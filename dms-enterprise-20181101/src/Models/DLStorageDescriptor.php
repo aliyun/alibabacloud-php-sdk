@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DLStorageDescriptor extends Model
 {
@@ -82,62 +82,108 @@ class DLStorageDescriptor extends Model
         'sortCols' => 'SortCols',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bucketCols)) {
+            Model::validateArray($this->bucketCols);
+        }
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (\is_array($this->originalColumns)) {
+            Model::validateArray($this->originalColumns);
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (null !== $this->serdeInfo) {
+            $this->serdeInfo->validate();
+        }
+        if (null !== $this->skewedInfo) {
+            $this->skewedInfo->validate();
+        }
+        if (\is_array($this->sortCols)) {
+            Model::validateArray($this->sortCols);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketCols) {
-            $res['BucketCols'] = $this->bucketCols;
-        }
-        if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bucketCols)) {
+                $res['BucketCols'] = [];
+                $n1 = 0;
+                foreach ($this->bucketCols as $item1) {
+                    $res['BucketCols'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->columns) {
+            if (\is_array($this->columns)) {
+                $res['Columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->inputFormat) {
             $res['InputFormat'] = $this->inputFormat;
         }
+
         if (null !== $this->isCompressed) {
             $res['IsCompressed'] = $this->isCompressed;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->numBuckets) {
             $res['NumBuckets'] = $this->numBuckets;
         }
+
         if (null !== $this->originalColumns) {
-            $res['OriginalColumns'] = [];
-            if (null !== $this->originalColumns && \is_array($this->originalColumns)) {
-                $n = 0;
-                foreach ($this->originalColumns as $item) {
-                    $res['OriginalColumns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->originalColumns)) {
+                $res['OriginalColumns'] = [];
+                $n1 = 0;
+                foreach ($this->originalColumns as $item1) {
+                    $res['OriginalColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->outputFormat) {
             $res['OutputFormat'] = $this->outputFormat;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->serdeInfo) {
-            $res['SerdeInfo'] = null !== $this->serdeInfo ? $this->serdeInfo->toMap() : null;
+            $res['SerdeInfo'] = null !== $this->serdeInfo ? $this->serdeInfo->toArray($noStream) : $this->serdeInfo;
         }
+
         if (null !== $this->skewedInfo) {
-            $res['SkewedInfo'] = null !== $this->skewedInfo ? $this->skewedInfo->toMap() : null;
+            $res['SkewedInfo'] = null !== $this->skewedInfo ? $this->skewedInfo->toArray($noStream) : $this->skewedInfo;
         }
+
         if (null !== $this->sortCols) {
-            $res['SortCols'] = [];
-            if (null !== $this->sortCols && \is_array($this->sortCols)) {
-                $n = 0;
-                foreach ($this->sortCols as $item) {
-                    $res['SortCols'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sortCols)) {
+                $res['SortCols'] = [];
+                $n1 = 0;
+                foreach ($this->sortCols as $item1) {
+                    $res['SortCols'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -145,67 +191,87 @@ class DLStorageDescriptor extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DLStorageDescriptor
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketCols'])) {
             if (!empty($map['BucketCols'])) {
-                $model->bucketCols = $map['BucketCols'];
+                $model->bucketCols = [];
+                $n1 = 0;
+                foreach ($map['BucketCols'] as $item1) {
+                    $model->bucketCols[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? DLColumn::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Columns'] as $item1) {
+                    $model->columns[$n1++] = DLColumn::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InputFormat'])) {
             $model->inputFormat = $map['InputFormat'];
         }
+
         if (isset($map['IsCompressed'])) {
             $model->isCompressed = $map['IsCompressed'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['NumBuckets'])) {
             $model->numBuckets = $map['NumBuckets'];
         }
+
         if (isset($map['OriginalColumns'])) {
             if (!empty($map['OriginalColumns'])) {
                 $model->originalColumns = [];
-                $n = 0;
-                foreach ($map['OriginalColumns'] as $item) {
-                    $model->originalColumns[$n++] = null !== $item ? DLColumn::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OriginalColumns'] as $item1) {
+                    $model->originalColumns[$n1++] = DLColumn::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OutputFormat'])) {
             $model->outputFormat = $map['OutputFormat'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SerdeInfo'])) {
             $model->serdeInfo = DLSerdeInfo::fromMap($map['SerdeInfo']);
         }
+
         if (isset($map['SkewedInfo'])) {
             $model->skewedInfo = DLSkewedInfo::fromMap($map['SkewedInfo']);
         }
+
         if (isset($map['SortCols'])) {
             if (!empty($map['SortCols'])) {
                 $model->sortCols = [];
-                $n = 0;
-                foreach ($map['SortCols'] as $item) {
-                    $model->sortCols[$n++] = null !== $item ? DLOrder::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SortCols'] as $item1) {
+                    $model->sortCols[$n1++] = DLOrder::fromMap($item1);
                 }
             }
         }

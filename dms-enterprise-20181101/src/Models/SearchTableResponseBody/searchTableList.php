@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponseBody\searchTableList\searchTable;
-use AlibabaCloud\Tea\Model;
 
 class searchTableList extends Model
 {
@@ -17,17 +17,23 @@ class searchTableList extends Model
         'searchTable' => 'SearchTable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->searchTable)) {
+            Model::validateArray($this->searchTable);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->searchTable) {
-            $res['SearchTable'] = [];
-            if (null !== $this->searchTable && \is_array($this->searchTable)) {
-                $n = 0;
-                foreach ($this->searchTable as $item) {
-                    $res['SearchTable'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->searchTable)) {
+                $res['SearchTable'] = [];
+                $n1 = 0;
+                foreach ($this->searchTable as $item1) {
+                    $res['SearchTable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class searchTableList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchTableList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SearchTable'])) {
             if (!empty($map['SearchTable'])) {
                 $model->searchTable = [];
-                $n = 0;
-                foreach ($map['SearchTable'] as $item) {
-                    $model->searchTable[$n++] = null !== $item ? searchTable::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SearchTable'] as $item1) {
+                    $model->searchTable[$n1++] = searchTable::fromMap($item1);
                 }
             }
         }

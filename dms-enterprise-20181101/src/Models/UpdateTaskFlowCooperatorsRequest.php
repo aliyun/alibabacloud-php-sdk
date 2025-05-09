@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTaskFlowCooperatorsRequest extends Model
 {
     /**
-     * @description The IDs of the users who are involved in the task flow to be updated.
-     *
      * @var string[]
      */
     public $cooperatorIds;
 
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example 11****
-     *
      * @var int
      */
     public $dagId;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -42,17 +28,31 @@ class UpdateTaskFlowCooperatorsRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cooperatorIds)) {
+            Model::validateArray($this->cooperatorIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cooperatorIds) {
-            $res['CooperatorIds'] = $this->cooperatorIds;
+            if (\is_array($this->cooperatorIds)) {
+                $res['CooperatorIds'] = [];
+                $n1 = 0;
+                foreach ($this->cooperatorIds as $item1) {
+                    $res['CooperatorIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -60,22 +60,28 @@ class UpdateTaskFlowCooperatorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTaskFlowCooperatorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CooperatorIds'])) {
             if (!empty($map['CooperatorIds'])) {
-                $model->cooperatorIds = $map['CooperatorIds'];
+                $model->cooperatorIds = [];
+                $n1 = 0;
+                foreach ($map['CooperatorIds'] as $item1) {
+                    $model->cooperatorIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

@@ -4,75 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderRequest\pluginParam;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class config extends Model
 {
     /**
-     * @description The export options for big data. The options are used to filter the big data to be exported. You can leave this parameter empty.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $dataOption;
 
     /**
-     * @description The type of data that you want to export. Valid values:
-     *
-     *   **DATA**: The data of the database is exported.
-     *   **STRUCT**: The schema of the database is exported.
-     *   **DATA_STRUCT**: The data and schema of the database are exported.
-     *
-     * This parameter is required.
-     *
-     * @example DATA
-     *
      * @var string
      */
     public $exportContent;
 
     /**
-     * @description The types of schemas that you want to export.
-     *
      * @var string[]
      */
     public $exportTypes;
 
     /**
-     * @description The extension options of the SQL script. You can leave this parameter empty.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $SQLExtOption;
 
     /**
-     * @description The tables that you want to export.
-     *
      * @var string[]
      */
     public $selectedTables;
 
     /**
-     * @description The conditions used to filter the tables to be exported.
-     *
      * @var string[]
      */
     public $tables;
 
     /**
-     * @description The format in which the database is exported. Valid values:
-     *
-     *   **SQL**
-     *   **CSV**
-     *   **XLSX**
-     *
-     * This parameter is required.
-     *
-     * @example SQL
-     *
      * @var string
      */
     public $targetOption;
@@ -86,29 +52,82 @@ class config extends Model
         'targetOption' => 'TargetOption',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataOption)) {
+            Model::validateArray($this->dataOption);
+        }
+        if (\is_array($this->exportTypes)) {
+            Model::validateArray($this->exportTypes);
+        }
+        if (\is_array($this->SQLExtOption)) {
+            Model::validateArray($this->SQLExtOption);
+        }
+        if (\is_array($this->selectedTables)) {
+            Model::validateArray($this->selectedTables);
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataOption) {
-            $res['DataOption'] = $this->dataOption;
+            if (\is_array($this->dataOption)) {
+                $res['DataOption'] = [];
+                $n1 = 0;
+                foreach ($this->dataOption as $item1) {
+                    $res['DataOption'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->exportContent) {
             $res['ExportContent'] = $this->exportContent;
         }
+
         if (null !== $this->exportTypes) {
-            $res['ExportTypes'] = $this->exportTypes;
+            if (\is_array($this->exportTypes)) {
+                $res['ExportTypes'] = [];
+                $n1 = 0;
+                foreach ($this->exportTypes as $item1) {
+                    $res['ExportTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->SQLExtOption) {
-            $res['SQLExtOption'] = $this->SQLExtOption;
+            if (\is_array($this->SQLExtOption)) {
+                $res['SQLExtOption'] = [];
+                $n1 = 0;
+                foreach ($this->SQLExtOption as $item1) {
+                    $res['SQLExtOption'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->selectedTables) {
-            $res['SelectedTables'] = $this->selectedTables;
+            if (\is_array($this->selectedTables)) {
+                $res['SelectedTables'] = [];
+                $n1 = 0;
+                foreach ($this->selectedTables as $item1) {
+                    $res['SelectedTables'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                foreach ($this->tables as $key1 => $value1) {
+                    $res['Tables'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->targetOption) {
             $res['TargetOption'] = $this->targetOption;
         }
@@ -116,40 +135,67 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataOption'])) {
             if (!empty($map['DataOption'])) {
-                $model->dataOption = $map['DataOption'];
+                $model->dataOption = [];
+                $n1 = 0;
+                foreach ($map['DataOption'] as $item1) {
+                    $model->dataOption[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ExportContent'])) {
             $model->exportContent = $map['ExportContent'];
         }
+
         if (isset($map['ExportTypes'])) {
             if (!empty($map['ExportTypes'])) {
-                $model->exportTypes = $map['ExportTypes'];
+                $model->exportTypes = [];
+                $n1 = 0;
+                foreach ($map['ExportTypes'] as $item1) {
+                    $model->exportTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SQLExtOption'])) {
             if (!empty($map['SQLExtOption'])) {
-                $model->SQLExtOption = $map['SQLExtOption'];
+                $model->SQLExtOption = [];
+                $n1 = 0;
+                foreach ($map['SQLExtOption'] as $item1) {
+                    $model->SQLExtOption[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SelectedTables'])) {
             if (!empty($map['SelectedTables'])) {
-                $model->selectedTables = $map['SelectedTables'];
+                $model->selectedTables = [];
+                $n1 = 0;
+                foreach ($map['SelectedTables'] as $item1) {
+                    $model->selectedTables[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Tables'])) {
-            $model->tables = $map['Tables'];
+            if (!empty($map['Tables'])) {
+                $model->tables = [];
+                foreach ($map['Tables'] as $key1 => $value1) {
+                    $model->tables[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TargetOption'])) {
             $model->targetOption = $map['TargetOption'];
         }

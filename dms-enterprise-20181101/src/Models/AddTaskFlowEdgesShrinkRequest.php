@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddTaskFlowEdgesShrinkRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example 15***
-     *
      * @var int
      */
     public $dagId;
 
     /**
-     * @description The list of edges of the task flow.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $edgesShrink;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -44,17 +28,22 @@ class AddTaskFlowEdgesShrinkRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+
         if (null !== $this->edgesShrink) {
             $res['Edges'] = $this->edgesShrink;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -62,20 +51,22 @@ class AddTaskFlowEdgesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddTaskFlowEdgesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+
         if (isset($map['Edges'])) {
             $model->edgesShrink = $map['Edges'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

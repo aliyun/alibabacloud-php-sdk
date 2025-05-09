@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsResponseBody\dagConstants;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dagConstant extends Model
 {
     /**
-     * @description The constant key.
-     *
-     * @example example
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The constant value.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $value;
@@ -30,14 +22,18 @@ class dagConstant extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -45,17 +41,18 @@ class dagConstant extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dagConstant
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

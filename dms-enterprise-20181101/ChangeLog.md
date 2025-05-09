@@ -1,3 +1,11 @@
+2025-05-09 Version: 1.70.0
+- Support API DescribeDifyAttribute.
+- Support API DescribeDifyRegions.
+- Support API GenerateSqlFromNL.
+- Support API ListDifyInstances.
+- Support API RedeployDifyInstance.
+
+
 2025-03-17 Version: 1.69.2
 - Generated php 2018-11-01 for dms-enterprise.
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicTablesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicTablesResponseBody\logicTableList\logicTable;
-use AlibabaCloud\Tea\Model;
 
 class logicTableList extends Model
 {
@@ -17,17 +17,23 @@ class logicTableList extends Model
         'logicTable' => 'LogicTable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logicTable)) {
+            Model::validateArray($this->logicTable);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicTable) {
-            $res['LogicTable'] = [];
-            if (null !== $this->logicTable && \is_array($this->logicTable)) {
-                $n = 0;
-                foreach ($this->logicTable as $item) {
-                    $res['LogicTable'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logicTable)) {
+                $res['LogicTable'] = [];
+                $n1 = 0;
+                foreach ($this->logicTable as $item1) {
+                    $res['LogicTable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class logicTableList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logicTableList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogicTable'])) {
             if (!empty($map['LogicTable'])) {
                 $model->logicTable = [];
-                $n = 0;
-                foreach ($map['LogicTable'] as $item) {
-                    $model->logicTable[$n++] = null !== $item ? logicTable::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogicTable'] as $item1) {
+                    $model->logicTable[$n1++] = logicTable::fromMap($item1);
                 }
             }
         }

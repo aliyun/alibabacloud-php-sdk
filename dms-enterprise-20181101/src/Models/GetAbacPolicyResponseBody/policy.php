@@ -4,64 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAbacPolicyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class policy extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $authorizedQuantity;
 
     /**
-     * @example 51****
-     *
      * @var int
      */
     public $creatorId;
 
     /**
-     * @example {
-     * "Statement": [
-     * {
-     * "Action": "*",
-     * "Effect": "Allow",
-     * "Resource": "*",
-     * "Condition": {
-     * "StringEqualsIgnoreCase": {
-     * "dms:DbType": [
-     * "redis"
-     * ]
-     * }
-     * }
-     * }
-     * ],
-     * "Version": "1"
-     * }
-     *
      * @var string
      */
     public $policyContent;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $policyDesc;
 
     /**
-     * @example 12****
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @example policy_test
-     *
      * @var string
      */
     public $policyName;
@@ -80,29 +52,38 @@ class policy extends Model
         'policySource' => 'PolicySource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizedQuantity) {
             $res['AuthorizedQuantity'] = $this->authorizedQuantity;
         }
+
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
+
         if (null !== $this->policyContent) {
             $res['PolicyContent'] = $this->policyContent;
         }
+
         if (null !== $this->policyDesc) {
             $res['PolicyDesc'] = $this->policyDesc;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policySource) {
             $res['PolicySource'] = $this->policySource;
         }
@@ -110,32 +91,38 @@ class policy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizedQuantity'])) {
             $model->authorizedQuantity = $map['AuthorizedQuantity'];
         }
+
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
+
         if (isset($map['PolicyContent'])) {
             $model->policyContent = $map['PolicyContent'];
         }
+
         if (isset($map['PolicyDesc'])) {
             $model->policyDesc = $map['PolicyDesc'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicySource'])) {
             $model->policySource = $map['PolicySource'];
         }

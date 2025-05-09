@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataLakeTableResponseBody extends Model
 {
     /**
-     * @example 400
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example Unknown server error
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -48,50 +40,64 @@ class GetDataLakeTableResponseBody extends Model
         'table' => 'Table',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->table) {
+            $this->table->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->table) {
-            $res['Table'] = null !== $this->table ? $this->table->toMap() : null;
+            $res['Table'] = null !== $this->table ? $this->table->toArray($noStream) : $this->table;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataLakeTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Table'])) {
             $model->table = DLTable::fromMap($map['Table']);
         }

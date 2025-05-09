@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RetryDataCorrectPreCheckRequest extends Model
 {
     /**
-     * @description The ID of the data change ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to query the ID of the data change ticket.
-     *
-     * This parameter is required.
-     *
-     * @example 414****
-     *
      * @var int
      */
     public $orderId;
@@ -25,10 +19,6 @@ class RetryDataCorrectPreCheckRequest extends Model
     public $realLoginUserUid;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -38,17 +28,22 @@ class RetryDataCorrectPreCheckRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->realLoginUserUid) {
             $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -56,20 +51,22 @@ class RetryDataCorrectPreCheckRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RetryDataCorrectPreCheckRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RealLoginUserUid'])) {
             $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

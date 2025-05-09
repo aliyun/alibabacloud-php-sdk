@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataArchiveOrderDetailRequest extends Model
 {
     /**
-     * @description The IDs of data archiving tickets.
-     *
-     * This parameter is required.
-     *
-     * @example 868****
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The tenant ID.
-     *
-     * >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
-     *
-     * @example 5***
-     *
      * @var int
      */
     public $tid;
@@ -34,14 +22,18 @@ class GetDataArchiveOrderDetailRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -49,17 +41,18 @@ class GetDataArchiveOrderDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataArchiveOrderDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

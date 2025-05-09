@@ -4,36 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesRequest\slaRuleList;
-use AlibabaCloud\Tea\Model;
 
 class UpdateSLARulesRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example 11****
-     *
      * @var int
      */
     public $dagId;
 
     /**
-     * @description The list of SLA rules.
-     *
      * @var slaRuleList[]
      */
     public $slaRuleList;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -43,23 +29,31 @@ class UpdateSLARulesRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->slaRuleList)) {
+            Model::validateArray($this->slaRuleList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+
         if (null !== $this->slaRuleList) {
-            $res['SlaRuleList'] = [];
-            if (null !== $this->slaRuleList && \is_array($this->slaRuleList)) {
-                $n = 0;
-                foreach ($this->slaRuleList as $item) {
-                    $res['SlaRuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slaRuleList)) {
+                $res['SlaRuleList'] = [];
+                $n1 = 0;
+                foreach ($this->slaRuleList as $item1) {
+                    $res['SlaRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -67,26 +61,28 @@ class UpdateSLARulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSLARulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+
         if (isset($map['SlaRuleList'])) {
             if (!empty($map['SlaRuleList'])) {
                 $model->slaRuleList = [];
-                $n = 0;
-                foreach ($map['SlaRuleList'] as $item) {
-                    $model->slaRuleList[$n++] = null !== $item ? slaRuleList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlaRuleList'] as $item1) {
+                    $model->slaRuleList[$n1++] = slaRuleList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

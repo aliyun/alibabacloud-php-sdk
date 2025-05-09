@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddAuthorityTemplateItemsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $itemsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 15***
-     *
      * @var int
      */
     public $templateId;
 
     /**
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -36,17 +28,22 @@ class AddAuthorityTemplateItemsShrinkRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemsShrink) {
             $res['Items'] = $this->itemsShrink;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -54,20 +51,22 @@ class AddAuthorityTemplateItemsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddAuthorityTemplateItemsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->itemsShrink = $map['Items'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

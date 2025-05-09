@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class selectedTables extends Model
 {
@@ -16,29 +16,45 @@ class selectedTables extends Model
         'selectedTables' => 'SelectedTables',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->selectedTables)) {
+            Model::validateArray($this->selectedTables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->selectedTables) {
-            $res['SelectedTables'] = $this->selectedTables;
+            if (\is_array($this->selectedTables)) {
+                $res['SelectedTables'] = [];
+                $n1 = 0;
+                foreach ($this->selectedTables as $item1) {
+                    $res['SelectedTables'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return selectedTables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SelectedTables'])) {
             if (!empty($map['SelectedTables'])) {
-                $model->selectedTables = $map['SelectedTables'];
+                $model->selectedTables = [];
+                $n1 = 0;
+                foreach ($map['SelectedTables'] as $item1) {
+                    $model->selectedTables[$n1++] = $item1;
+                }
             }
         }
 

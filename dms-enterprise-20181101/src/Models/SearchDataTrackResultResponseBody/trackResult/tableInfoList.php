@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody\trackResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody\trackResult\tableInfoList\columns;
-use AlibabaCloud\Tea\Model;
 
 class tableInfoList extends Model
 {
     /**
-     * @description The information about columns.
-     *
      * @var columns[]
      */
     public $columns;
 
     /**
-     * @description The description of the column.
-     *
-     * @example auto-description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the database.
-     *
-     * @example prod_eb_vas
-     *
      * @var string
      */
     public $schemaName;
 
     /**
-     * @description The name of the table.
-     *
-     * @example import_table_test1
-     *
      * @var string
      */
     public $tableName;
@@ -49,26 +35,35 @@ class tableInfoList extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columns)) {
+                $res['Columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -76,29 +71,32 @@ class tableInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Columns'] as $item1) {
+                    $model->columns[$n1++] = columns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

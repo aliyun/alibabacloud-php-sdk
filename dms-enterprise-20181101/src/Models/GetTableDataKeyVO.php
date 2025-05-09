@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTableDataKeyVO extends Model
 {
@@ -46,26 +46,34 @@ class GetTableDataKeyVO extends Model
         'userName' => 'UserName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->colName) {
             $res['ColName'] = $this->colName;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->mekId) {
             $res['MekId'] = $this->mekId;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tblName) {
             $res['TblName'] = $this->tblName;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -73,29 +81,34 @@ class GetTableDataKeyVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTableDataKeyVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColName'])) {
             $model->colName = $map['ColName'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['MekId'])) {
             $model->mekId = $map['MekId'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TblName'])) {
             $model->tblName = $map['TblName'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

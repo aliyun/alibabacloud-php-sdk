@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowCooperatorsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowCooperatorsResponseBody\cooperatorList\cooperator;
-use AlibabaCloud\Tea\Model;
 
 class cooperatorList extends Model
 {
@@ -17,17 +17,23 @@ class cooperatorList extends Model
         'cooperator' => 'Cooperator',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cooperator)) {
+            Model::validateArray($this->cooperator);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cooperator) {
-            $res['Cooperator'] = [];
-            if (null !== $this->cooperator && \is_array($this->cooperator)) {
-                $n = 0;
-                foreach ($this->cooperator as $item) {
-                    $res['Cooperator'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cooperator)) {
+                $res['Cooperator'] = [];
+                $n1 = 0;
+                foreach ($this->cooperator as $item1) {
+                    $res['Cooperator'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class cooperatorList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cooperatorList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cooperator'])) {
             if (!empty($map['Cooperator'])) {
                 $model->cooperator = [];
-                $n = 0;
-                foreach ($map['Cooperator'] as $item) {
-                    $model->cooperator[$n++] = null !== $item ? cooperator::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Cooperator'] as $item1) {
+                    $model->cooperator[$n1++] = cooperator::fromMap($item1);
                 }
             }
         }
