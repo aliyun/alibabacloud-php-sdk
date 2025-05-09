@@ -12,6 +12,11 @@ class jobList extends Model
     /**
      * @var string
      */
+    public $appExtraInfo;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -74,6 +79,7 @@ class jobList extends Model
      */
     public $taskSustainable;
     protected $_name = [
+        'appExtraInfo' => 'AppExtraInfo',
         'appName' => 'AppName',
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
@@ -100,6 +106,10 @@ class jobList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appExtraInfo) {
+            $res['AppExtraInfo'] = $this->appExtraInfo;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -169,6 +179,10 @@ class jobList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppExtraInfo'])) {
+            $model->appExtraInfo = $map['AppExtraInfo'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

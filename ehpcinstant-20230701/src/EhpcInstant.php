@@ -162,11 +162,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -256,11 +253,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -330,11 +324,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -404,11 +395,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -464,11 +452,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -542,11 +527,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -616,11 +598,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobMetricLastResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -692,11 +671,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAppVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -760,11 +736,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -820,11 +793,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -880,11 +850,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -954,11 +921,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListExecutorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1048,11 +1012,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListImagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1120,11 +1081,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobExecutorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1202,11 +1160,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1276,11 +1231,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1352,11 +1304,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1416,11 +1365,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1484,11 +1430,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1556,11 +1499,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1630,11 +1570,8 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

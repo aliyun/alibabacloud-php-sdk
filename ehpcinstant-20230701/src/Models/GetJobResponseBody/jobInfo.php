@@ -13,6 +13,11 @@ class jobInfo extends Model
     /**
      * @var string
      */
+    public $appExtraInfo;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -60,6 +65,7 @@ class jobInfo extends Model
      */
     public $tasks;
     protected $_name = [
+        'appExtraInfo' => 'AppExtraInfo',
         'createTime' => 'CreateTime',
         'deploymentPolicy' => 'DeploymentPolicy',
         'endTime' => 'EndTime',
@@ -86,6 +92,10 @@ class jobInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appExtraInfo) {
+            $res['AppExtraInfo'] = $this->appExtraInfo;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -143,6 +153,10 @@ class jobInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppExtraInfo'])) {
+            $model->appExtraInfo = $map['AppExtraInfo'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
