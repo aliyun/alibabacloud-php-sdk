@@ -92,6 +92,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeLogStoreInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyRequest;
@@ -100,6 +101,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallTrafficTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainRequest;
@@ -3958,6 +3961,50 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取日志服务信息.
+     *
+     * @param request - DescribeLogStoreInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLogStoreInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeLogStoreInfoResponse
+     */
+    public function describeLogStoreInfoWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeLogStoreInfo',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLogStoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取日志服务信息.
+     *
+     * @returns DescribeLogStoreInfoResponse
+     *
+     * @return DescribeLogStoreInfoResponse
+     */
+    public function describeLogStoreInfo()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogStoreInfoWithOptions($runtime);
+    }
+
+    /**
      * Queries the pagination status of NAT firewalls.
      *
      * @param request - DescribeNatAclPageStatusRequest
@@ -4295,6 +4342,59 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNatFirewallPolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
+     * 概览页-NAT流量趋势
+     *
+     * @param request - DescribeNatFirewallTrafficTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNatFirewallTrafficTrendResponse
+     *
+     * @param DescribeNatFirewallTrafficTrendRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeNatFirewallTrafficTrendResponse
+     */
+    public function describeNatFirewallTrafficTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNatFirewallTrafficTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNatFirewallTrafficTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 概览页-NAT流量趋势
+     *
+     * @param request - DescribeNatFirewallTrafficTrendRequest
+     *
+     * @returns DescribeNatFirewallTrafficTrendResponse
+     *
+     * @param DescribeNatFirewallTrafficTrendRequest $request
+     *
+     * @return DescribeNatFirewallTrafficTrendResponse
+     */
+    public function describeNatFirewallTrafficTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatFirewallTrafficTrendWithOptions($request, $runtime);
     }
 
     /**

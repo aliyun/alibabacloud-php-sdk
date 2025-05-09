@@ -39,6 +39,21 @@ class dataList extends Model
     public $hasAclRecommend;
 
     /**
+     * @var int
+     */
+    public $inBytes;
+
+    /**
+     * @var int
+     */
+    public $memberUid;
+
+    /**
+     * @var int
+     */
+    public $outBytes;
+
+    /**
      * @var string[]
      */
     public $portList;
@@ -76,6 +91,11 @@ class dataList extends Model
     /**
      * @var int
      */
+    public $totalBytes;
+
+    /**
+     * @var int
+     */
     public $totalReplyBytes;
 
     /**
@@ -92,6 +112,11 @@ class dataList extends Model
      * @var string
      */
     public $trafficPercent7Day;
+
+    /**
+     * @var string[]
+     */
+    public $unknownReason;
     protected $_name = [
         'aclRecommendDetail' => 'AclRecommendDetail',
         'assetsInstanceId' => 'AssetsInstanceId',
@@ -99,6 +124,9 @@ class dataList extends Model
         'assetsType' => 'AssetsType',
         'detailNum' => 'DetailNum',
         'hasAclRecommend' => 'HasAclRecommend',
+        'inBytes' => 'InBytes',
+        'memberUid' => 'MemberUid',
+        'outBytes' => 'OutBytes',
         'portList' => 'PortList',
         'publicIp' => 'PublicIp',
         'regionNo' => 'RegionNo',
@@ -106,10 +134,12 @@ class dataList extends Model
         'riskReason' => 'RiskReason',
         'serviceNameList' => 'ServiceNameList',
         'srcIpCnt' => 'SrcIpCnt',
+        'totalBytes' => 'TotalBytes',
         'totalReplyBytes' => 'TotalReplyBytes',
         'trafficPercent1Day' => 'TrafficPercent1Day',
         'trafficPercent30Day' => 'TrafficPercent30Day',
         'trafficPercent7Day' => 'TrafficPercent7Day',
+        'unknownReason' => 'UnknownReason',
     ];
 
     public function validate()
@@ -119,6 +149,9 @@ class dataList extends Model
         }
         if (\is_array($this->serviceNameList)) {
             Model::validateArray($this->serviceNameList);
+        }
+        if (\is_array($this->unknownReason)) {
+            Model::validateArray($this->unknownReason);
         }
         parent::validate();
     }
@@ -148,6 +181,18 @@ class dataList extends Model
 
         if (null !== $this->hasAclRecommend) {
             $res['HasAclRecommend'] = $this->hasAclRecommend;
+        }
+
+        if (null !== $this->inBytes) {
+            $res['InBytes'] = $this->inBytes;
+        }
+
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
+        }
+
+        if (null !== $this->outBytes) {
+            $res['OutBytes'] = $this->outBytes;
         }
 
         if (null !== $this->portList) {
@@ -190,6 +235,10 @@ class dataList extends Model
             $res['SrcIpCnt'] = $this->srcIpCnt;
         }
 
+        if (null !== $this->totalBytes) {
+            $res['TotalBytes'] = $this->totalBytes;
+        }
+
         if (null !== $this->totalReplyBytes) {
             $res['TotalReplyBytes'] = $this->totalReplyBytes;
         }
@@ -204,6 +253,16 @@ class dataList extends Model
 
         if (null !== $this->trafficPercent7Day) {
             $res['TrafficPercent7Day'] = $this->trafficPercent7Day;
+        }
+
+        if (null !== $this->unknownReason) {
+            if (\is_array($this->unknownReason)) {
+                $res['UnknownReason'] = [];
+                $n1 = 0;
+                foreach ($this->unknownReason as $item1) {
+                    $res['UnknownReason'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
@@ -239,6 +298,18 @@ class dataList extends Model
 
         if (isset($map['HasAclRecommend'])) {
             $model->hasAclRecommend = $map['HasAclRecommend'];
+        }
+
+        if (isset($map['InBytes'])) {
+            $model->inBytes = $map['InBytes'];
+        }
+
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
+        }
+
+        if (isset($map['OutBytes'])) {
+            $model->outBytes = $map['OutBytes'];
         }
 
         if (isset($map['PortList'])) {
@@ -281,6 +352,10 @@ class dataList extends Model
             $model->srcIpCnt = $map['SrcIpCnt'];
         }
 
+        if (isset($map['TotalBytes'])) {
+            $model->totalBytes = $map['TotalBytes'];
+        }
+
         if (isset($map['TotalReplyBytes'])) {
             $model->totalReplyBytes = $map['TotalReplyBytes'];
         }
@@ -295,6 +370,16 @@ class dataList extends Model
 
         if (isset($map['TrafficPercent7Day'])) {
             $model->trafficPercent7Day = $map['TrafficPercent7Day'];
+        }
+
+        if (isset($map['UnknownReason'])) {
+            if (!empty($map['UnknownReason'])) {
+                $model->unknownReason = [];
+                $n1 = 0;
+                foreach ($map['UnknownReason'] as $item1) {
+                    $model->unknownReason[$n1++] = $item1;
+                }
+            }
         }
 
         return $model;

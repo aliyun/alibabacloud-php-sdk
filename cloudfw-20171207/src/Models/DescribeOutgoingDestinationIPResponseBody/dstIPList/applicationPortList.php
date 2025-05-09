@@ -17,13 +17,22 @@ class applicationPortList extends Model
      * @var int
      */
     public $port;
+
+    /**
+     * @var string[]
+     */
+    public $unknownReason;
     protected $_name = [
         'applicationName' => 'ApplicationName',
         'port' => 'Port',
+        'unknownReason' => 'UnknownReason',
     ];
 
     public function validate()
     {
+        if (\is_array($this->unknownReason)) {
+            Model::validateArray($this->unknownReason);
+        }
         parent::validate();
     }
 
@@ -36,6 +45,16 @@ class applicationPortList extends Model
 
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->unknownReason) {
+            if (\is_array($this->unknownReason)) {
+                $res['UnknownReason'] = [];
+                $n1 = 0;
+                foreach ($this->unknownReason as $item1) {
+                    $res['UnknownReason'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
@@ -55,6 +74,16 @@ class applicationPortList extends Model
 
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+
+        if (isset($map['UnknownReason'])) {
+            if (!empty($map['UnknownReason'])) {
+                $model->unknownReason = [];
+                $n1 = 0;
+                foreach ($map['UnknownReason'] as $item1) {
+                    $model->unknownReason[$n1++] = $item1;
+                }
+            }
         }
 
         return $model;
