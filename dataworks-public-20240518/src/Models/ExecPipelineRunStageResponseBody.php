@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class AbolishDeploymentResponseBody extends Model
+class ExecPipelineRunStageResponseBody extends Model
 {
     /**
      * @var string

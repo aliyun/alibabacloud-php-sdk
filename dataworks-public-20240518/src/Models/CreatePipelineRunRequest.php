@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateDeploymentRequest extends Model
+class CreatePipelineRunRequest extends Model
 {
     /**
      * @var string

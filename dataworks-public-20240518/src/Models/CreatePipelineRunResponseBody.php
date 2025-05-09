@@ -5,37 +5,33 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsResponseBody\pagingInfo;
 
-class ListDeploymentsResponseBody extends Model
+class CreatePipelineRunResponseBody extends Model
 {
     /**
-     * @var pagingInfo
+     * @var string
      */
-    public $pagingInfo;
+    public $id;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'pagingInfo' => 'PagingInfo',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (null !== $this->pagingInfo) {
-            $this->pagingInfo->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->pagingInfo) {
-            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toArray($noStream) : $this->pagingInfo;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         if (null !== $this->requestId) {
@@ -53,8 +49,8 @@ class ListDeploymentsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PagingInfo'])) {
-            $model->pagingInfo = pagingInfo::fromMap($map['PagingInfo']);
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         if (isset($map['RequestId'])) {

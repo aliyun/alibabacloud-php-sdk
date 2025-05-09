@@ -5,8 +5,8 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
@@ -41,9 +41,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDeploymentRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDeploymentResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDeploymentShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleShrinkRequest;
@@ -61,12 +58,16 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceAdvanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupShrinkRequest;
@@ -131,8 +132,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFrom
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
@@ -158,8 +159,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplate
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobLogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobLogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobRequest;
@@ -178,6 +177,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRequest;
@@ -247,8 +248,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesShrinkRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIAlarmRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIAlarmRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobEventsRequest;
@@ -282,6 +281,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersShrinkRequest;
@@ -420,6 +421,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceAdvanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceRequest;
@@ -515,17 +517,17 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
      *
-     * @param request - AbolishDeploymentRequest
+     * @param request - AbolishPipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @returns AbolishDeploymentResponse
+     * @returns AbolishPipelineRunResponse
      *
-     * @param AbolishDeploymentRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param AbolishPipelineRunRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return AbolishDeploymentResponse
+     * @return AbolishPipelineRunResponse
      */
-    public function abolishDeploymentWithOptions($request, $runtime)
+    public function abolishPipelineRunWithOptions($request, $runtime)
     {
         $request->validate();
         $body = [];
@@ -541,7 +543,7 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'AbolishDeployment',
+            'action' => 'AbolishPipelineRun',
             'version' => '2024-05-18',
             'protocol' => 'HTTPS',
             'pathname' => '/',
@@ -551,29 +553,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AbolishDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AbolishDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return AbolishPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
      *
-     * @param request - AbolishDeploymentRequest
+     * @param request - AbolishPipelineRunRequest
      *
-     * @returns AbolishDeploymentResponse
+     * @returns AbolishPipelineRunResponse
      *
-     * @param AbolishDeploymentRequest $request
+     * @param AbolishPipelineRunRequest $request
      *
-     * @return AbolishDeploymentResponse
+     * @return AbolishPipelineRunResponse
      */
-    public function abolishDeployment($request)
+    public function abolishPipelineRun($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->abolishDeploymentWithOptions($request, $runtime);
+        return $this->abolishPipelineRunWithOptions($request, $runtime);
     }
 
     /**
@@ -619,11 +618,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddEntityIntoMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddEntityIntoMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddEntityIntoMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -688,11 +684,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateProjectToResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateProjectToResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateProjectToResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -767,11 +760,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -840,11 +830,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchUpdateTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchUpdateTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchUpdateTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -912,11 +899,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CloneDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloneDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloneDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1003,11 +987,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1069,11 +1050,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDIAlarmRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1155,11 +1133,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1248,11 +1223,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataAssetTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1372,11 +1344,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1453,11 +1422,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1567,11 +1533,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1657,11 +1620,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1742,11 +1702,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1824,11 +1781,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataSourceSharedRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1852,90 +1806,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataSourceSharedRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * Creates a process for deploying or undeploying an entity in DataStudio.
-     *
-     * @remarks
-     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
-     *
-     * @param tmpReq - CreateDeploymentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDeploymentResponse
-     *
-     * @param CreateDeploymentRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDeploymentResponse
-     */
-    public function createDeploymentWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new CreateDeploymentShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->objectIds) {
-            $request->objectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
-        }
-
-        $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
-        }
-
-        if (null !== $request->objectIdsShrink) {
-            @$body['ObjectIds'] = $request->objectIdsShrink;
-        }
-
-        if (null !== $request->projectId) {
-            @$body['ProjectId'] = $request->projectId;
-        }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'CreateDeployment',
-            'version' => '2024-05-18',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return CreateDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Creates a process for deploying or undeploying an entity in DataStudio.
-     *
-     * @remarks
-     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
-     *
-     * @param request - CreateDeploymentRequest
-     *
-     * @returns CreateDeploymentResponse
-     *
-     * @param CreateDeploymentRequest $request
-     *
-     * @return CreateDeploymentResponse
-     */
-    public function createDeployment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDeploymentWithOptions($request, $runtime);
     }
 
     /**
@@ -1980,11 +1850,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2065,11 +1932,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLineageRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2137,11 +2001,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2212,11 +2073,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2290,11 +2148,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2316,6 +2171,87 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a process for deploying or undeploying an entity in Data Studio.
+     *
+     * @remarks
+     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+     *
+     * @param tmpReq - CreatePipelineRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineRunResponse
+     *
+     * @param CreatePipelineRunRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePipelineRunResponse
+     */
+    public function createPipelineRunWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePipelineRunShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectIds) {
+            $request->objectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->objectIdsShrink) {
+            @$body['ObjectIds'] = $request->objectIdsShrink;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePipelineRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a process for deploying or undeploying an entity in Data Studio.
+     *
+     * @remarks
+     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+     *
+     * @param request - CreatePipelineRunRequest
+     *
+     * @returns CreatePipelineRunResponse
+     *
+     * @param CreatePipelineRunRequest $request
+     *
+     * @return CreatePipelineRunResponse
+     */
+    public function createPipelineRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPipelineRunWithOptions($request, $runtime);
     }
 
     /**
@@ -2387,11 +2323,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2464,11 +2397,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2516,6 +2446,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['ProjectId'] = $request->projectId;
         }
 
+        if (null !== $request->resourceFile) {
+            @$body['ResourceFile'] = $request->resourceFile;
+        }
+
         if (null !== $request->spec) {
             @$body['Spec'] = $request->spec;
         }
@@ -2534,11 +2468,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2560,6 +2491,87 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateResourceAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateResourceResponse
+     */
+    public function createResourceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'dataworks-public',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $createResourceReq = new CreateResourceRequest([]);
+        Utils::convert($request, $createResourceReq);
+        if (null !== $request->resourceFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->resourceFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $createResourceReq->resourceFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->createResourceWithOptions($createResourceReq, $runtime);
     }
 
     /**
@@ -2651,11 +2663,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2726,11 +2735,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2796,11 +2802,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2907,11 +2910,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2965,11 +2965,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3033,11 +3030,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3093,11 +3087,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDIAlarmRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3152,11 +3143,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3228,11 +3216,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataAssetTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3295,11 +3280,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3359,11 +3341,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3423,11 +3402,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3484,11 +3460,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3554,11 +3527,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataSourceSharedRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3626,11 +3596,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3689,11 +3656,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLineageRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3749,11 +3713,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3812,11 +3773,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3882,11 +3840,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3948,11 +3903,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4018,11 +3970,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4088,11 +4037,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4155,11 +4101,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4222,11 +4165,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4292,11 +4232,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4368,11 +4305,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4438,11 +4372,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4515,11 +4446,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4584,11 +4512,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DissociateProjectFromResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DissociateProjectFromResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DissociateProjectFromResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4621,17 +4546,17 @@ class Dataworkspublic extends OpenApiClient
      * >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
      * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
      *
-     * @param request - ExecDeploymentStageRequest
+     * @param request - ExecPipelineRunStageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @returns ExecDeploymentStageResponse
+     * @returns ExecPipelineRunStageResponse
      *
-     * @param ExecDeploymentStageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ExecPipelineRunStageRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ExecDeploymentStageResponse
+     * @return ExecPipelineRunStageResponse
      */
-    public function execDeploymentStageWithOptions($request, $runtime)
+    public function execPipelineRunStageWithOptions($request, $runtime)
     {
         $request->validate();
         $query = [];
@@ -4653,7 +4578,7 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'ExecDeploymentStage',
+            'action' => 'ExecPipelineRunStage',
             'version' => '2024-05-18',
             'protocol' => 'HTTPS',
             'pathname' => '/',
@@ -4663,11 +4588,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecDeploymentStageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecDeploymentStageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecPipelineRunStageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4677,19 +4599,19 @@ class Dataworkspublic extends OpenApiClient
      * >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
      * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
      *
-     * @param request - ExecDeploymentStageRequest
+     * @param request - ExecPipelineRunStageRequest
      *
-     * @returns ExecDeploymentStageResponse
+     * @returns ExecPipelineRunStageResponse
      *
-     * @param ExecDeploymentStageRequest $request
+     * @param ExecPipelineRunStageRequest $request
      *
-     * @return ExecDeploymentStageResponse
+     * @return ExecPipelineRunStageResponse
      */
-    public function execDeploymentStage($request)
+    public function execPipelineRunStage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->execDeploymentStageWithOptions($request, $runtime);
+        return $this->execPipelineRunStageWithOptions($request, $runtime);
     }
 
     /**
@@ -4756,11 +4678,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAdhocWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAdhocWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAdhocWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4815,11 +4734,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4871,11 +4787,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCatalogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4931,11 +4844,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4991,11 +4901,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetColumnResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetColumnResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetColumnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5050,11 +4957,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCreateWorkflowInstancesResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCreateWorkflowInstancesResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCreateWorkflowInstancesResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5112,11 +5016,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5174,11 +5075,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDIJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDIJobLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDIJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5233,11 +5131,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5289,11 +5184,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5348,11 +5240,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5410,11 +5299,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5474,11 +5360,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5535,11 +5418,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5558,62 +5438,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatabaseWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries the information about a process for deploying or undeploying an entity.
-     *
-     * @param request - GetDeploymentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDeploymentResponse
-     *
-     * @param GetDeploymentRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetDeploymentResponse
-     */
-    public function getDeploymentWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetDeployment',
-            'version' => '2024-05-18',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return GetDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Queries the information about a process for deploying or undeploying an entity.
-     *
-     * @param request - GetDeploymentRequest
-     *
-     * @returns GetDeploymentResponse
-     *
-     * @param GetDeploymentRequest $request
-     *
-     * @return GetDeploymentResponse
-     */
-    public function getDeployment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDeploymentWithOptions($request, $runtime);
     }
 
     /**
@@ -5647,11 +5471,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5703,11 +5524,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5759,11 +5577,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLineageRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5815,11 +5630,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5874,11 +5686,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNetworkResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5933,11 +5742,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5989,11 +5795,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPartitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6012,6 +5815,59 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a process for deploying or undeploying an entity.
+     *
+     * @param request - GetPipelineRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPipelineRunResponse
+     *
+     * @param GetPipelineRunRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetPipelineRunResponse
+     */
+    public function getPipelineRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPipelineRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information about a process for deploying or undeploying an entity.
+     *
+     * @param request - GetPipelineRunRequest
+     *
+     * @returns GetPipelineRunResponse
+     *
+     * @param GetPipelineRunRequest $request
+     *
+     * @return GetPipelineRunResponse
+     */
+    public function getPipelineRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPipelineRunWithOptions($request, $runtime);
     }
 
     /**
@@ -6048,11 +5904,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6118,11 +5971,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6188,11 +6038,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6247,11 +6094,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6306,11 +6150,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6368,11 +6209,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6427,11 +6265,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSchemaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6483,11 +6318,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6539,11 +6371,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6598,11 +6427,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6660,11 +6486,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskInstanceLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6722,11 +6545,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6781,11 +6601,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6840,11 +6657,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6920,11 +6734,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantMemberProjectRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6995,11 +6806,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7145,11 +6953,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7244,11 +7049,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7306,11 +7108,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCatalogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7366,11 +7165,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7426,11 +7222,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7477,11 +7270,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCrawlerTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCrawlerTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCrawlerTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7529,11 +7319,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDIAlarmRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7588,11 +7375,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDIJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDIJobEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDIJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7656,11 +7440,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDIJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDIJobMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDIJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7718,11 +7499,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDIJobRunDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDIJobRunDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDIJobRunDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7780,11 +7558,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDIJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7842,11 +7617,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataAssetTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataAssetTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataAssetTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7914,11 +7686,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7976,11 +7745,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8038,11 +7804,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataQualityEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataQualityEvaluationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataQualityEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8098,11 +7861,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataQualityResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataQualityResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataQualityResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8155,11 +7915,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataQualityRuleTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataQualityRuleTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataQualityRuleTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8214,11 +7971,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataQualityRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8278,11 +8032,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataSourceSharedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourceSharedRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourceSharedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8350,11 +8101,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8411,11 +8159,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8434,62 +8179,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDatabasesWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
-     *
-     * @param request - ListDeploymentsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDeploymentsResponse
-     *
-     * @param ListDeploymentsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDeploymentsResponse
-     */
-    public function listDeploymentsWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ListDeployments',
-            'version' => '2024-05-18',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return ListDeploymentsResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
-     *
-     * @param request - ListDeploymentsRequest
-     *
-     * @returns ListDeploymentsResponse
-     *
-     * @param ListDeploymentsRequest $request
-     *
-     * @return ListDeploymentsResponse
-     */
-    public function listDeployments($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDeploymentsWithOptions($request, $runtime);
     }
 
     /**
@@ -8526,11 +8215,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDownstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDownstreamTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDownstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8585,11 +8271,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDownstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDownstreamTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDownstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8641,11 +8324,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEntitiesInMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEntitiesInMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEntitiesInMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8697,11 +8377,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFunctionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8753,11 +8430,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLineageRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLineageRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLineageRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8809,11 +8483,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLineagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8865,11 +8536,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMetaCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMetaCollectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMetaCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8924,11 +8592,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8983,11 +8648,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNodeDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodeDependenciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodeDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9039,11 +8701,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9095,11 +8754,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPartitionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9118,6 +8774,59 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPartitionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
+     *
+     * @param request - ListPipelineRunsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPipelineRunsResponse
+     *
+     * @param ListPipelineRunsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPipelineRunsResponse
+     */
+    public function listPipelineRunsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPipelineRuns',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPipelineRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
+     *
+     * @param request - ListPipelineRunsRequest
+     *
+     * @returns ListPipelineRunsResponse
+     *
+     * @param ListPipelineRunsRequest $request
+     *
+     * @return ListPipelineRunsResponse
+     */
+    public function listPipelineRuns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPipelineRunsWithOptions($request, $runtime);
     }
 
     /**
@@ -9184,11 +8893,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9280,11 +8986,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9393,11 +9096,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9463,11 +9163,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9519,11 +9216,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9578,11 +9272,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9643,11 +9334,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9705,11 +9393,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9765,11 +9450,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTaskInstanceOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskInstanceOperationLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskInstanceOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9914,11 +9596,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9977,11 +9656,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTaskOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskOperationLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10095,11 +9771,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10151,11 +9824,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUpstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUpstreamTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUpstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10210,11 +9880,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUpstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUpstreamTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUpstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10269,11 +9936,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkflowDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkflowDefinitionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkflowDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10374,11 +10038,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10478,11 +10139,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkflowsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10549,11 +10207,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10617,11 +10272,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10685,11 +10337,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10753,11 +10402,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10817,11 +10463,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveEntityFromMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveEntityFromMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveEntityFromMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10896,11 +10539,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveTaskInstanceDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveTaskInstanceDependenciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveTaskInstanceDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10967,11 +10607,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenameFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenameFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenameFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11035,11 +10672,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenameNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenameNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenameNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11103,11 +10737,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenameResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenameResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenameResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11171,11 +10802,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenameWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenameWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenameWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11244,11 +10872,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RerunTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RerunTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RerunTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11320,11 +10945,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResumeTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11400,11 +11022,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeMemberProjectRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11476,11 +11095,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetSuccessTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetSuccessTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetSuccessTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11544,11 +11160,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11620,11 +11233,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11682,11 +11292,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11758,11 +11365,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11834,11 +11438,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11910,11 +11511,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12006,11 +11604,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12081,11 +11676,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TestDataSourceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TestDataSourceConnectivityResponse::fromMap($this->execute($params, $req, $runtime));
+        return TestDataSourceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12158,11 +11750,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TriggerSchedulerTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TriggerSchedulerTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return TriggerSchedulerTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12250,11 +11839,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnTagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnTagDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnTagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12343,11 +11929,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12407,11 +11990,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateColumnBusinessMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateColumnBusinessMetadataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateColumnBusinessMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12473,11 +12053,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDIAlarmRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12550,11 +12127,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12638,11 +12212,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDataAssetTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12766,11 +12337,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12881,11 +12449,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12973,11 +12538,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13054,11 +12616,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13127,11 +12686,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13205,11 +12761,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13273,11 +12826,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13357,11 +12907,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13407,6 +12954,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['ProjectId'] = $request->projectId;
         }
 
+        if (null !== $request->resourceFile) {
+            @$body['ResourceFile'] = $request->resourceFile;
+        }
+
         if (null !== $request->spec) {
             @$body['Spec'] = $request->spec;
         }
@@ -13425,11 +12976,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13448,6 +12996,87 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateResourceAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateResourceResponse
+     */
+    public function updateResourceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'dataworks-public',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $updateResourceReq = new UpdateResourceRequest([]);
+        Utils::convert($request, $updateResourceReq);
+        if (null !== $request->resourceFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->resourceFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $updateResourceReq->resourceFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->updateResourceWithOptions($updateResourceReq, $runtime);
     }
 
     /**
@@ -13500,11 +13129,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13570,11 +13196,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13637,11 +13260,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTableBusinessMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTableBusinessMetadataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTableBusinessMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13803,11 +13423,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13876,11 +13493,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14008,11 +13622,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14082,11 +13693,8 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

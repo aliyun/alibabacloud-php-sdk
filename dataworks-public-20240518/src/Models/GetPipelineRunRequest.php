@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ExecDeploymentStageResponseBody extends Model
+class GetPipelineRunRequest extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $id;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $success;
+    public $projectId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'success' => 'Success',
+        'id' => 'Id',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class ExecDeploymentStageResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class ExecDeploymentStageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

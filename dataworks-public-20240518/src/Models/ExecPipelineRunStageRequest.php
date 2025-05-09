@@ -6,10 +6,15 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateResourceRequest extends Model
+class ExecPipelineRunStageRequest extends Model
 {
     /**
-     * @var int
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
      */
     public $id;
 
@@ -17,21 +22,10 @@ class UpdateResourceRequest extends Model
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var string
-     */
-    public $resourceFile;
-
-    /**
-     * @var string
-     */
-    public $spec;
     protected $_name = [
+        'code' => 'Code',
         'id' => 'Id',
         'projectId' => 'ProjectId',
-        'resourceFile' => 'ResourceFile',
-        'spec' => 'Spec',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class UpdateResourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
 
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-
-        if (null !== $this->resourceFile) {
-            $res['ResourceFile'] = $this->resourceFile;
-        }
-
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class UpdateResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-
-        if (isset($map['ResourceFile'])) {
-            $model->resourceFile = $map['ResourceFile'];
-        }
-
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
         }
 
         return $model;

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentResponseBody\pipeline;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponseBody\pagingInfo\pipelineRuns;
 
 use AlibabaCloud\Dara\Model;
 

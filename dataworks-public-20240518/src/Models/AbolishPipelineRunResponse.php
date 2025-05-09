@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ExecDeploymentStageResponse extends Model
+class AbolishPipelineRunResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ExecDeploymentStageResponse extends Model
     public $statusCode;
 
     /**
-     * @var ExecDeploymentStageResponseBody
+     * @var AbolishPipelineRunResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class ExecDeploymentStageResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ExecDeploymentStageResponseBody::fromMap($map['body']);
+            $model->body = AbolishPipelineRunResponseBody::fromMap($map['body']);
         }
 
         return $model;

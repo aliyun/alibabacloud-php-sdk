@@ -16,9 +16,15 @@ class CreateResourceRequest extends Model
     /**
      * @var string
      */
+    public $resourceFile;
+
+    /**
+     * @var string
+     */
     public $spec;
     protected $_name = [
         'projectId' => 'ProjectId',
+        'resourceFile' => 'ResourceFile',
         'spec' => 'Spec',
     ];
 
@@ -32,6 +38,10 @@ class CreateResourceRequest extends Model
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->resourceFile) {
+            $res['ResourceFile'] = $this->resourceFile;
         }
 
         if (null !== $this->spec) {
@@ -51,6 +61,10 @@ class CreateResourceRequest extends Model
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['ResourceFile'])) {
+            $model->resourceFile = $map['ResourceFile'];
         }
 
         if (isset($map['Spec'])) {

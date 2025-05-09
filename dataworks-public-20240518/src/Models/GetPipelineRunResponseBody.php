@@ -5,33 +5,37 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunResponseBody\pipeline;
 
-class CreateDeploymentResponseBody extends Model
+class GetPipelineRunResponseBody extends Model
 {
     /**
-     * @var string
+     * @var pipeline
      */
-    public $id;
+    public $pipeline;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'id' => 'Id',
+        'pipeline' => 'Pipeline',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->pipeline) {
+            $this->pipeline->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->pipeline) {
+            $res['Pipeline'] = null !== $this->pipeline ? $this->pipeline->toArray($noStream) : $this->pipeline;
         }
 
         if (null !== $this->requestId) {
@@ -49,8 +53,8 @@ class CreateDeploymentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Pipeline'])) {
+            $model->pipeline = pipeline::fromMap($map['Pipeline']);
         }
 
         if (isset($map['RequestId'])) {

@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentResponseBody;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponseBody\pagingInfo;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentResponseBody\pipeline\stages;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponseBody\pagingInfo\pipelineRuns\stages;
 
-class pipeline extends Model
+class pipelineRuns extends Model
 {
     /**
      * @var int
