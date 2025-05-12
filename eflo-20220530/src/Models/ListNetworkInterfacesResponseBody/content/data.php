@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eflo\V20220530\Models\ListNetworkInterfacesResponseBo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\ListNetworkInterfacesResponseBody\content\data\privateIpAddressMacGroup;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\ListNetworkInterfacesResponseBody\content\data\subnetBaseInfo;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\ListNetworkInterfacesResponseBody\content\data\tags;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\ListNetworkInterfacesResponseBody\content\data\vpdBaseInfo;
 
 class data extends Model
@@ -87,6 +88,11 @@ class data extends Model
     public $subnetBaseInfo;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $tenantId;
@@ -116,6 +122,7 @@ class data extends Model
         'serviceMac' => 'ServiceMac',
         'status' => 'Status',
         'subnetBaseInfo' => 'SubnetBaseInfo',
+        'tags' => 'Tags',
         'tenantId' => 'TenantId',
         'vpdBaseInfo' => 'VpdBaseInfo',
         'zoneId' => 'ZoneId',
@@ -131,6 +138,9 @@ class data extends Model
         }
         if (null !== $this->subnetBaseInfo) {
             $this->subnetBaseInfo->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         if (null !== $this->vpdBaseInfo) {
             $this->vpdBaseInfo->validate();
@@ -211,6 +221,16 @@ class data extends Model
 
         if (null !== $this->subnetBaseInfo) {
             $res['SubnetBaseInfo'] = null !== $this->subnetBaseInfo ? $this->subnetBaseInfo->toArray($noStream) : $this->subnetBaseInfo;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->tenantId) {
@@ -306,6 +326,16 @@ class data extends Model
 
         if (isset($map['SubnetBaseInfo'])) {
             $model->subnetBaseInfo = subnetBaseInfo::fromMap($map['SubnetBaseInfo']);
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['TenantId'])) {

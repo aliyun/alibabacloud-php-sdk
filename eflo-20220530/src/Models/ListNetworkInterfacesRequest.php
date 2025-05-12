@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\ListNetworkInterfacesRequest\tag;
 
 class ListNetworkInterfacesRequest extends Model
 {
@@ -54,6 +55,11 @@ class ListNetworkInterfacesRequest extends Model
     public $subnetId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vpdId;
@@ -67,11 +73,15 @@ class ListNetworkInterfacesRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'subnetId' => 'SubnetId',
+        'tag' => 'Tag',
         'vpdId' => 'VpdId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -112,6 +122,16 @@ class ListNetworkInterfacesRequest extends Model
 
         if (null !== $this->subnetId) {
             $res['SubnetId'] = $this->subnetId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->vpdId) {
@@ -163,6 +183,16 @@ class ListNetworkInterfacesRequest extends Model
 
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['VpdId'])) {

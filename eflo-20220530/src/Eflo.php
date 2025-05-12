@@ -569,6 +569,10 @@ class Eflo extends OpenApiClient
             @$body['SecurityGroupId'] = $request->securityGroupId;
         }
 
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
         if (null !== $request->vSwitchId) {
             @$body['VSwitchId'] = $request->vSwitchId;
         }
@@ -3611,6 +3615,10 @@ class Eflo extends OpenApiClient
             @$body['Status'] = $request->status;
         }
 
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
         if (null !== $request->type) {
             @$body['Type'] = $request->type;
         }
@@ -4377,6 +4385,10 @@ class Eflo extends OpenApiClient
 
         if (null !== $request->subnetId) {
             @$body['SubnetId'] = $request->subnetId;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
 
         if (null !== $request->vpdId) {

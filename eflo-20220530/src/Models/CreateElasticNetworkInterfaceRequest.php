@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\CreateElasticNetworkInterfaceRequest\tag;
 
 class CreateElasticNetworkInterfaceRequest extends Model
 {
@@ -44,6 +45,11 @@ class CreateElasticNetworkInterfaceRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -65,6 +71,7 @@ class CreateElasticNetworkInterfaceRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
+        'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
@@ -72,6 +79,9 @@ class CreateElasticNetworkInterfaceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -104,6 +114,16 @@ class CreateElasticNetworkInterfaceRequest extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->vSwitchId) {
@@ -155,6 +175,16 @@ class CreateElasticNetworkInterfaceRequest extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['VSwitchId'])) {

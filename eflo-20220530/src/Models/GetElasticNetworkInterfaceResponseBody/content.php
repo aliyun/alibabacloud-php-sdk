@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eflo\V20220530\Models\GetElasticNetworkInterfaceRespo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\GetElasticNetworkInterfaceResponseBody\content\ipv6Addresses;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\GetElasticNetworkInterfaceResponseBody\content\privateIpAddresses;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\GetElasticNetworkInterfaceResponseBody\content\tags;
 
 class content extends Model
 {
@@ -96,6 +97,11 @@ class content extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $type;
@@ -132,6 +138,7 @@ class content extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'status' => 'Status',
+        'tags' => 'Tags',
         'type' => 'Type',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -145,6 +152,9 @@ class content extends Model
         }
         if (\is_array($this->privateIpAddresses)) {
             Model::validateArray($this->privateIpAddresses);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -230,6 +240,16 @@ class content extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -337,6 +357,16 @@ class content extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Type'])) {

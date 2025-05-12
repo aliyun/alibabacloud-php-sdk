@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\ListElasticNetworkInterfacesRequest\tag;
 
 class ListElasticNetworkInterfacesRequest extends Model
 {
@@ -54,6 +55,11 @@ class ListElasticNetworkInterfacesRequest extends Model
     public $status;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $type;
@@ -82,6 +88,7 @@ class ListElasticNetworkInterfacesRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
+        'tag' => 'Tag',
         'type' => 'Type',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -90,6 +97,9 @@ class ListElasticNetworkInterfacesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -130,6 +140,16 @@ class ListElasticNetworkInterfacesRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -193,6 +213,16 @@ class ListElasticNetworkInterfacesRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Type'])) {
