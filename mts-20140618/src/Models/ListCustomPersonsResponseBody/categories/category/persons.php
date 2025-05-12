@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category\persons\person;
-use AlibabaCloud\Tea\Model;
 
 class persons extends Model
 {
@@ -17,17 +17,23 @@ class persons extends Model
         'person' => 'Person',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->person)) {
+            Model::validateArray($this->person);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->person) {
-            $res['Person'] = [];
-            if (null !== $this->person && \is_array($this->person)) {
-                $n = 0;
-                foreach ($this->person as $item) {
-                    $res['Person'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->person)) {
+                $res['Person'] = [];
+                $n1 = 0;
+                foreach ($this->person as $item1) {
+                    $res['Person'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class persons extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return persons
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Person'])) {
             if (!empty($map['Person'])) {
                 $model->person = [];
-                $n = 0;
-                foreach ($map['Person'] as $item) {
-                    $model->person[$n++] = null !== $item ? person::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Person'] as $item1) {
+                    $model->person[$n1++] = person::fromMap($item1);
                 }
             }
         }

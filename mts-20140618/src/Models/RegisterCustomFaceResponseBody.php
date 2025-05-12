@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegisterCustomFaceResponseBody extends Model
 {
     /**
-     * @description The ID of the face.
-     *
-     * @example c6cc71cb44a9491093818faf9d60****
-     *
      * @var string
      */
     public $faceId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 91AEA76D-25B5-50DF-9126-AA6BB10FDAF4
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class RegisterCustomFaceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class RegisterCustomFaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterCustomFaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

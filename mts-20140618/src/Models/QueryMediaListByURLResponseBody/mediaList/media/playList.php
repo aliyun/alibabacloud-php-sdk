@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListByURLResponseBody\mediaList\media;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListByURLResponseBody\mediaList\media\playList\play;
-use AlibabaCloud\Tea\Model;
 
 class playList extends Model
 {
@@ -17,17 +17,23 @@ class playList extends Model
         'play' => 'Play',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->play)) {
+            Model::validateArray($this->play);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->play) {
-            $res['Play'] = [];
-            if (null !== $this->play && \is_array($this->play)) {
-                $n = 0;
-                foreach ($this->play as $item) {
-                    $res['Play'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->play)) {
+                $res['Play'] = [];
+                $n1 = 0;
+                foreach ($this->play as $item1) {
+                    $res['Play'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class playList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Play'])) {
             if (!empty($map['Play'])) {
                 $model->play = [];
-                $n = 0;
-                foreach ($map['Play'] as $item) {
-                    $model->play[$n++] = null !== $item ? play::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Play'] as $item1) {
+                    $model->play[$n1++] = play::fromMap($item1);
                 }
             }
         }

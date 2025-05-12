@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template;
-use AlibabaCloud\Tea\Model;
 
 class AddTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example FA258E67-09B8-4EAA-8F33-BA567834A2C3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the transcoding template.
-     *
      * @var template
      */
     public $template;
@@ -29,32 +23,40 @@ class AddTemplateResponseBody extends Model
         'template' => 'Template',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->template) {
+            $this->template->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
+            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
         }

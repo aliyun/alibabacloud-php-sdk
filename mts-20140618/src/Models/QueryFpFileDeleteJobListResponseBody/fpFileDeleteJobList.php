@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListResponseBody\fpFileDeleteJobList\fpFileDeleteJob;
-use AlibabaCloud\Tea\Model;
 
 class fpFileDeleteJobList extends Model
 {
@@ -17,17 +17,23 @@ class fpFileDeleteJobList extends Model
         'fpFileDeleteJob' => 'FpFileDeleteJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fpFileDeleteJob)) {
+            Model::validateArray($this->fpFileDeleteJob);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpFileDeleteJob) {
-            $res['FpFileDeleteJob'] = [];
-            if (null !== $this->fpFileDeleteJob && \is_array($this->fpFileDeleteJob)) {
-                $n = 0;
-                foreach ($this->fpFileDeleteJob as $item) {
-                    $res['FpFileDeleteJob'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fpFileDeleteJob)) {
+                $res['FpFileDeleteJob'] = [];
+                $n1 = 0;
+                foreach ($this->fpFileDeleteJob as $item1) {
+                    $res['FpFileDeleteJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class fpFileDeleteJobList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpFileDeleteJobList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpFileDeleteJob'])) {
             if (!empty($map['FpFileDeleteJob'])) {
                 $model->fpFileDeleteJob = [];
-                $n = 0;
-                foreach ($map['FpFileDeleteJob'] as $item) {
-                    $model->fpFileDeleteJob[$n++] = null !== $item ? fpFileDeleteJob::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FpFileDeleteJob'] as $item1) {
+                    $model->fpFileDeleteJob[$n1++] = fpFileDeleteJob::fromMap($item1);
                 }
             }
         }

@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryPipelineListResponseBody\nonExistPids;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryPipelineListResponseBody\pipelineList;
-use AlibabaCloud\Tea\Model;
 
 class QueryPipelineListResponseBody extends Model
 {
     /**
-     * @description The IDs of MPS queues that do not exist.
-     *
      * @var nonExistPids
      */
     public $nonExistPids;
 
     /**
-     * @description The MPS queues.
-     *
      * @var pipelineList
      */
     public $pipelineList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1C538EAA-ACAF-5AD8-B091-A72C63007149
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class QueryPipelineListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->nonExistPids) {
+            $this->nonExistPids->validate();
+        }
+        if (null !== $this->pipelineList) {
+            $this->pipelineList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistPids) {
-            $res['NonExistPids'] = null !== $this->nonExistPids ? $this->nonExistPids->toMap() : null;
+            $res['NonExistPids'] = null !== $this->nonExistPids ? $this->nonExistPids->toArray($noStream) : $this->nonExistPids;
         }
+
         if (null !== $this->pipelineList) {
-            $res['PipelineList'] = null !== $this->pipelineList ? $this->pipelineList->toMap() : null;
+            $res['PipelineList'] = null !== $this->pipelineList ? $this->pipelineList->toArray($noStream) : $this->pipelineList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class QueryPipelineListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryPipelineListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistPids'])) {
             $model->nonExistPids = nonExistPids::fromMap($map['NonExistPids']);
         }
+
         if (isset($map['PipelineList'])) {
             $model->pipelineList = pipelineList::fromMap($map['PipelineList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

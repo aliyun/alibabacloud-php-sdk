@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaCensorJobListResponseBody\mediaCensorJobList\mediaCensorJob;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioCensorResult extends Model
 {
@@ -22,14 +22,18 @@ class audioCensorResult extends Model
         'suggestion' => 'Suggestion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
@@ -37,17 +41,18 @@ class audioCensorResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioCensorResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }

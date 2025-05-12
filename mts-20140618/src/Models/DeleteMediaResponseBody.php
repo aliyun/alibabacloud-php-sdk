@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMediaResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 05F8B913-E9F3-4A6F-9922-48CADA0FFAAD
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteMediaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteMediaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMediaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

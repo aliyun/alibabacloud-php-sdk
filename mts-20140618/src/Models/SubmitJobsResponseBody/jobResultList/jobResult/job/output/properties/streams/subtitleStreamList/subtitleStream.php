@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output\properties\streams\subtitleStreamList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class subtitleStream extends Model
 {
     /**
-     * @description The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $index;
 
     /**
-     * @description The language of the subtitle stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
-     *
-     * @example eng
-     *
      * @var string
      */
     public $lang;
@@ -30,14 +22,18 @@ class subtitleStream extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -45,17 +41,18 @@ class subtitleStream extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subtitleStream
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

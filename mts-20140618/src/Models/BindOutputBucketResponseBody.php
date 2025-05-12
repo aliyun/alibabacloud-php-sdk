@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindOutputBucketResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D0F80646-90D4-402F-9D56-CEFEAA6BCC9B
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class BindOutputBucketResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class BindOutputBucketResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindOutputBucketResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

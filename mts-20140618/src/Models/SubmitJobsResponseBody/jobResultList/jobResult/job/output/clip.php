@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output\clip\timeSpan;
-use AlibabaCloud\Tea\Model;
 
 class clip extends Model
 {
     /**
-     * @description The time span of the clip.
-     *
      * @var timeSpan
      */
     public $timeSpan;
@@ -19,23 +17,29 @@ class clip extends Model
         'timeSpan' => 'TimeSpan',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->timeSpan) {
+            $this->timeSpan->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeSpan) {
-            $res['TimeSpan'] = null !== $this->timeSpan ? $this->timeSpan->toMap() : null;
+            $res['TimeSpan'] = null !== $this->timeSpan ? $this->timeSpan->toArray($noStream) : $this->timeSpan;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clip
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

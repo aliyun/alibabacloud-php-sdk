@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListJobResponseBody\jobList;
-use AlibabaCloud\Tea\Model;
 
 class ListJobResponseBody extends Model
 {
     /**
-     * @description The transcoding jobs.
-     *
      * @var jobList
      */
     public $jobList;
 
     /**
-     * @description The pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example 16f01ad6175e4230ac42bb5182cd****
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example BC860F04-778A-472F-AB39-E1BF329C1EA8
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class ListJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobList) {
+            $this->jobList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobList) {
-            $res['JobList'] = null !== $this->jobList ? $this->jobList->toMap() : null;
+            $res['JobList'] = null !== $this->jobList ? $this->jobList->toArray($noStream) : $this->jobList;
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class ListJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobList'])) {
             $model->jobList = jobList::fromMap($map['JobList']);
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\audioFpShots\fpShot;
-use AlibabaCloud\Tea\Model;
 
 class audioFpShots extends Model
 {
@@ -17,17 +17,23 @@ class audioFpShots extends Model
         'fpShot' => 'FpShot',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fpShot)) {
+            Model::validateArray($this->fpShot);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShot) {
-            $res['FpShot'] = [];
-            if (null !== $this->fpShot && \is_array($this->fpShot)) {
-                $n = 0;
-                foreach ($this->fpShot as $item) {
-                    $res['FpShot'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fpShot)) {
+                $res['FpShot'] = [];
+                $n1 = 0;
+                foreach ($this->fpShot as $item1) {
+                    $res['FpShot'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class audioFpShots extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioFpShots
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShot'])) {
             if (!empty($map['FpShot'])) {
                 $model->fpShot = [];
-                $n = 0;
-                foreach ($map['FpShot'] as $item) {
-                    $model->fpShot[$n++] = null !== $item ? fpShot::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FpShot'] as $item1) {
+                    $model->fpShot[$n1++] = fpShot::fromMap($item1);
                 }
             }
         }

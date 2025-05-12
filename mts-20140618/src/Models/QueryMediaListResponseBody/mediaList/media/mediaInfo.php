@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media\mediaInfo\format;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media\mediaInfo\streams;
-use AlibabaCloud\Tea\Model;
 
 class mediaInfo extends Model
 {
     /**
-     * @description The format information.
-     *
      * @var format
      */
     public $format;
 
     /**
-     * @description The stream information.
-     *
      * @var streams
      */
     public $streams;
@@ -28,32 +24,43 @@ class mediaInfo extends Model
         'streams' => 'Streams',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->format) {
+            $this->format->validate();
+        }
+        if (null !== $this->streams) {
+            $this->streams->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->format) {
-            $res['Format'] = null !== $this->format ? $this->format->toMap() : null;
+            $res['Format'] = null !== $this->format ? $this->format->toArray($noStream) : $this->format;
         }
+
         if (null !== $this->streams) {
-            $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
+            $res['Streams'] = null !== $this->streams ? $this->streams->toArray($noStream) : $this->streams;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Format'])) {
             $model->format = format::fromMap($map['Format']);
         }
+
         if (isset($map['Streams'])) {
             $model->streams = streams::fromMap($map['Streams']);
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\AddMediaResponseBody\media;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class file extends Model
 {
     /**
-     * @description The status of the file. The default value is **Normal**.
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description The URL of the media file.
-     *
-     * @example http://bucket.oss-cn-hangzhou.aliyuncs.com/A/B/C/test.mp4
-     *
      * @var string
      */
     public $URL;
@@ -30,14 +22,18 @@ class file extends Model
         'URL' => 'URL',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
         }
@@ -45,17 +41,18 @@ class file extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return file
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
         }

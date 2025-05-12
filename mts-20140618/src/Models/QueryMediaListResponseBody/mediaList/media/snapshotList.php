@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media\snapshotList\snapshot;
-use AlibabaCloud\Tea\Model;
 
 class snapshotList extends Model
 {
@@ -17,17 +17,23 @@ class snapshotList extends Model
         'snapshot' => 'Snapshot',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snapshot)) {
+            Model::validateArray($this->snapshot);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snapshot) {
-            $res['Snapshot'] = [];
-            if (null !== $this->snapshot && \is_array($this->snapshot)) {
-                $n = 0;
-                foreach ($this->snapshot as $item) {
-                    $res['Snapshot'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snapshot)) {
+                $res['Snapshot'] = [];
+                $n1 = 0;
+                foreach ($this->snapshot as $item1) {
+                    $res['Snapshot'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class snapshotList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshotList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Snapshot'])) {
             if (!empty($map['Snapshot'])) {
                 $model->snapshot = [];
-                $n = 0;
-                foreach ($map['Snapshot'] as $item) {
-                    $model->snapshot[$n++] = null !== $item ? snapshot::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Snapshot'] as $item1) {
+                    $model->snapshot[$n1++] = snapshot::fromMap($item1);
                 }
             }
         }

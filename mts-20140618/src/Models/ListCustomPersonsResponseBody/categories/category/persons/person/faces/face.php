@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category\persons\person\faces;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class face extends Model
 {
     /**
-     * @description The ID of the face.
-     *
-     * @example 15****
-     *
      * @var string
      */
     public $faceId;
 
     /**
-     * @description The URL of the facial image that was registered for the figure.
-     *
-     * @example http://example-****.jpeg
-     *
      * @var string
      */
     public $imageUrl;
@@ -30,14 +22,18 @@ class face extends Model
         'imageUrl' => 'ImageUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -45,17 +41,18 @@ class face extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return face
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\templateList\template\muxConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class segment extends Model
 {
     /**
-     * @description The length of the segment. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var string
      */
     public $duration;
@@ -20,9 +16,12 @@ class segment extends Model
         'duration' => 'Duration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
@@ -32,11 +31,11 @@ class segment extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return segment
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

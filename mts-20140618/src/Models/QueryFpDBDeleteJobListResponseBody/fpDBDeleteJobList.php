@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpDBDeleteJobListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpDBDeleteJobListResponseBody\fpDBDeleteJobList\fpDBDeleteJob;
-use AlibabaCloud\Tea\Model;
 
 class fpDBDeleteJobList extends Model
 {
@@ -17,17 +17,23 @@ class fpDBDeleteJobList extends Model
         'fpDBDeleteJob' => 'FpDBDeleteJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fpDBDeleteJob)) {
+            Model::validateArray($this->fpDBDeleteJob);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpDBDeleteJob) {
-            $res['FpDBDeleteJob'] = [];
-            if (null !== $this->fpDBDeleteJob && \is_array($this->fpDBDeleteJob)) {
-                $n = 0;
-                foreach ($this->fpDBDeleteJob as $item) {
-                    $res['FpDBDeleteJob'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fpDBDeleteJob)) {
+                $res['FpDBDeleteJob'] = [];
+                $n1 = 0;
+                foreach ($this->fpDBDeleteJob as $item1) {
+                    $res['FpDBDeleteJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class fpDBDeleteJobList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpDBDeleteJobList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpDBDeleteJob'])) {
             if (!empty($map['FpDBDeleteJob'])) {
                 $model->fpDBDeleteJob = [];
-                $n = 0;
-                foreach ($map['FpDBDeleteJob'] as $item) {
-                    $model->fpDBDeleteJob[$n++] = null !== $item ? fpDBDeleteJob::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FpDBDeleteJob'] as $item1) {
+                    $model->fpDBDeleteJob[$n1++] = fpDBDeleteJob::fromMap($item1);
                 }
             }
         }

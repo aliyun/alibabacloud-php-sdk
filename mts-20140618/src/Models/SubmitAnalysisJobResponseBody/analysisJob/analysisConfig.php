@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\analysisConfig\propertiesControl;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\analysisConfig\qualityControl;
-use AlibabaCloud\Tea\Model;
 
 class analysisConfig extends Model
 {
     /**
-     * @description The control on the attributes of the job output.
-     *
      * @var propertiesControl
      */
     public $propertiesControl;
 
     /**
-     * @description The quality control on the job output.
-     *
      * @var qualityControl
      */
     public $qualityControl;
@@ -28,32 +24,43 @@ class analysisConfig extends Model
         'qualityControl' => 'QualityControl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->propertiesControl) {
+            $this->propertiesControl->validate();
+        }
+        if (null !== $this->qualityControl) {
+            $this->qualityControl->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertiesControl) {
-            $res['PropertiesControl'] = null !== $this->propertiesControl ? $this->propertiesControl->toMap() : null;
+            $res['PropertiesControl'] = null !== $this->propertiesControl ? $this->propertiesControl->toArray($noStream) : $this->propertiesControl;
         }
+
         if (null !== $this->qualityControl) {
-            $res['QualityControl'] = null !== $this->qualityControl ? $this->qualityControl->toMap() : null;
+            $res['QualityControl'] = null !== $this->qualityControl ? $this->qualityControl->toArray($noStream) : $this->qualityControl;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analysisConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertiesControl'])) {
             $model->propertiesControl = propertiesControl::fromMap($map['PropertiesControl']);
         }
+
         if (isset($map['QualityControl'])) {
             $model->qualityControl = qualityControl::fromMap($map['QualityControl']);
         }

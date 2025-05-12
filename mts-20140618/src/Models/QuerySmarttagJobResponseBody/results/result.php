@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagJobResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example {"title":"example-title-****"}
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @example Meta
-     *
      * @var string
      */
     public $type;
@@ -26,14 +22,18 @@ class result extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

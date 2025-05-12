@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryAnalysisJobListResponseBody\analysisJobList\analysisJob\analysisConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class qualityControl extends Model
 {
     /**
-     * @description The playback mode. Valid values:
-     *
-     *   **network**: online playback.
-     *   **local**: playback on on-premises devices.
-     *   Default value: **network**.
-     *
-     * @example network
-     *
      * @var string
      */
     public $methodStreaming;
 
     /**
-     * @description The quality level of the job output. Default value: **25**.
-     *
-     * @example 25
-     *
      * @var string
      */
     public $rateQuality;
@@ -34,14 +22,18 @@ class qualityControl extends Model
         'rateQuality' => 'RateQuality',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->methodStreaming) {
             $res['MethodStreaming'] = $this->methodStreaming;
         }
+
         if (null !== $this->rateQuality) {
             $res['RateQuality'] = $this->rateQuality;
         }
@@ -49,17 +41,18 @@ class qualityControl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qualityControl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MethodStreaming'])) {
             $model->methodStreaming = $map['MethodStreaming'];
         }
+
         if (isset($map['RateQuality'])) {
             $model->rateQuality = $map['RateQuality'];
         }

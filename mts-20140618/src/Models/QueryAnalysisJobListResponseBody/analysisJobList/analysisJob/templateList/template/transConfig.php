@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryAnalysisJobListResponseBody\analysisJobList\analysisJob\templateList\template;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class transConfig extends Model
 {
     /**
-     * @description The transcoding mode. Default value: **onepass**. Valid values:
-     *
-     *   **onepass**
-     *   **twopass**
-     *   **CBR**
-     *
-     * @example onepass
-     *
      * @var string
      */
     public $transMode;
@@ -24,9 +16,12 @@ class transConfig extends Model
         'transMode' => 'TransMode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transMode) {
@@ -36,11 +31,11 @@ class transConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

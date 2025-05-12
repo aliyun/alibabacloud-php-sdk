@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QuerySnapshotJobListResponseBody\snapshotJobList\snapshotJob;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MNSMessageResult extends Model
 {
     /**
-     * @description The number of snapshots that were taken.
-     *
-     * @example InvalidParameter
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The OSS bucket that stores the input file.
-     *
-     * @example The resource operated InputFile is bad
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the region in which the input OSS bucket is located.
-     *
-     * @example 799454621135656C7F815F198A76****
-     *
      * @var string
      */
     public $messageId;
@@ -40,17 +28,22 @@ class MNSMessageResult extends Model
         'messageId' => 'MessageId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
@@ -58,20 +51,22 @@ class MNSMessageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MNSMessageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }

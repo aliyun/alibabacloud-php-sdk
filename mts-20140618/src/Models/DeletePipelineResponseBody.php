@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePipelineResponseBody extends Model
 {
     /**
-     * @description The ID of the MPS queue that is deleted.
-     *
-     * @example d1ce4d3efcb549419193f50f1fcd****
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 338CA33A-AE83-5DF4-B6F2-C6D3ED8143F5
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class DeletePipelineResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class DeletePipelineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePipelineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

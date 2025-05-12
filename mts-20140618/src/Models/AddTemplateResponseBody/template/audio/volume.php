@@ -4,97 +4,36 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template\audio;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class volume extends Model
 {
     /**
-     * @description The output volume.
-     *
-     * This parameter takes effect only when the value of Method is dynamic.
-     *
-     * Unit: dB.
-     *
-     * Valid values: [-70,-5].
-     *
-     * Default value: -6.
-     *
-     * @example -6
-     *
      * @var string
      */
     public $integratedLoudnessTarget;
 
     /**
-     * @description The volume adjustment range.
-     *
-     *   Default value: **-20**.
-     *   Unit: dB.
-     *
-     * @example -20
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The range of the volume relative to the output volume.
-     *
-     * This parameter takes effect only when the value of Method is dynamic.
-     *
-     * Unit: dB.
-     *
-     * Valid values: [1,20].
-     *
-     * Default value: 8.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $loudnessRangeTarget;
 
     /**
-     * @description The volume adjustment method. Valid values:
-     *
-     *   **auto**: The volume is automatically adjusted.
-     *   **dynamic**: The volume is dynamically adjusted.
-     *   **linear**: The volume is linearly adjusted.
-     *
-     * @example auto
-     *
      * @var string
      */
     public $method;
 
     /**
-     * @description The volume adjustment coefficient.
-     *
-     * This parameter takes effect only when the value of Method is adaptive.
-     *
-     * Valid values: [0,1].
-     *
-     * Default value: 0.9.
-     *
-     * @example 0.9
-     *
      * @var string
      */
     public $peakLevel;
 
     /**
-     * @description The peak volume.
-     *
-     * This parameter takes effect only when the value of Method is dynamic.
-     *
-     * Unit: dB.
-     *
-     * Valid values: [-9,0].
-     *
-     * Default value: -1.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $truePeak;
@@ -107,26 +46,34 @@ class volume extends Model
         'truePeak' => 'TruePeak',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->integratedLoudnessTarget) {
             $res['IntegratedLoudnessTarget'] = $this->integratedLoudnessTarget;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->loudnessRangeTarget) {
             $res['LoudnessRangeTarget'] = $this->loudnessRangeTarget;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->peakLevel) {
             $res['PeakLevel'] = $this->peakLevel;
         }
+
         if (null !== $this->truePeak) {
             $res['TruePeak'] = $this->truePeak;
         }
@@ -134,29 +81,34 @@ class volume extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return volume
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IntegratedLoudnessTarget'])) {
             $model->integratedLoudnessTarget = $map['IntegratedLoudnessTarget'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['LoudnessRangeTarget'])) {
             $model->loudnessRangeTarget = $map['LoudnessRangeTarget'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['PeakLevel'])) {
             $model->peakLevel = $map['PeakLevel'];
         }
+
         if (isset($map['TruePeak'])) {
             $model->truePeak = $map['TruePeak'];
         }

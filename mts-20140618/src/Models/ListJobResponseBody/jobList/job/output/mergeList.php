@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListJobResponseBody\jobList\job\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListJobResponseBody\jobList\job\output\mergeList\merge;
-use AlibabaCloud\Tea\Model;
 
 class mergeList extends Model
 {
@@ -17,17 +17,23 @@ class mergeList extends Model
         'merge' => 'Merge',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->merge)) {
+            Model::validateArray($this->merge);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->merge) {
-            $res['Merge'] = [];
-            if (null !== $this->merge && \is_array($this->merge)) {
-                $n = 0;
-                foreach ($this->merge as $item) {
-                    $res['Merge'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->merge)) {
+                $res['Merge'] = [];
+                $n1 = 0;
+                foreach ($this->merge as $item1) {
+                    $res['Merge'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class mergeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mergeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Merge'])) {
             if (!empty($map['Merge'])) {
                 $model->merge = [];
-                $n = 0;
-                foreach ($map['Merge'] as $item) {
-                    $model->merge[$n++] = null !== $item ? merge::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Merge'] as $item1) {
+                    $model->merge[$n1++] = merge::fromMap($item1);
                 }
             }
         }

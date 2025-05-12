@@ -4,30 +4,24 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\muxConfig\gif;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\muxConfig\segment;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\muxConfig\webp;
-use AlibabaCloud\Tea\Model;
 
 class muxConfig extends Model
 {
     /**
-     * @description The transmuxing configurations for GIF.
-     *
      * @var gif
      */
     public $gif;
 
     /**
-     * @description The segment configurations. The value is a JSON object.
-     *
      * @var segment
      */
     public $segment;
 
     /**
-     * @description The transmuxing configurations for WebP.
-     *
      * @var webp
      */
     public $webp;
@@ -37,38 +31,54 @@ class muxConfig extends Model
         'webp' => 'Webp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->gif) {
+            $this->gif->validate();
+        }
+        if (null !== $this->segment) {
+            $this->segment->validate();
+        }
+        if (null !== $this->webp) {
+            $this->webp->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gif) {
-            $res['Gif'] = null !== $this->gif ? $this->gif->toMap() : null;
+            $res['Gif'] = null !== $this->gif ? $this->gif->toArray($noStream) : $this->gif;
         }
+
         if (null !== $this->segment) {
-            $res['Segment'] = null !== $this->segment ? $this->segment->toMap() : null;
+            $res['Segment'] = null !== $this->segment ? $this->segment->toArray($noStream) : $this->segment;
         }
+
         if (null !== $this->webp) {
-            $res['Webp'] = null !== $this->webp ? $this->webp->toMap() : null;
+            $res['Webp'] = null !== $this->webp ? $this->webp->toArray($noStream) : $this->webp;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return muxConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Gif'])) {
             $model->gif = gif::fromMap($map['Gif']);
         }
+
         if (isset($map['Segment'])) {
             $model->segment = segment::fromMap($map['Segment']);
         }
+
         if (isset($map['Webp'])) {
             $model->webp = webp::fromMap($map['Webp']);
         }

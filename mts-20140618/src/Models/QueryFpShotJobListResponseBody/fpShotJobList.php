@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob;
-use AlibabaCloud\Tea\Model;
 
 class fpShotJobList extends Model
 {
@@ -17,17 +17,23 @@ class fpShotJobList extends Model
         'fpShotJob' => 'FpShotJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fpShotJob)) {
+            Model::validateArray($this->fpShotJob);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShotJob) {
-            $res['FpShotJob'] = [];
-            if (null !== $this->fpShotJob && \is_array($this->fpShotJob)) {
-                $n = 0;
-                foreach ($this->fpShotJob as $item) {
-                    $res['FpShotJob'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fpShotJob)) {
+                $res['FpShotJob'] = [];
+                $n1 = 0;
+                foreach ($this->fpShotJob as $item1) {
+                    $res['FpShotJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class fpShotJobList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpShotJobList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShotJob'])) {
             if (!empty($map['FpShotJob'])) {
                 $model->fpShotJob = [];
-                $n = 0;
-                foreach ($map['FpShotJob'] as $item) {
-                    $model->fpShotJob[$n++] = null !== $item ? fpShotJob::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FpShotJob'] as $item1) {
+                    $model->fpShotJob[$n1++] = fpShotJob::fromMap($item1);
                 }
             }
         }

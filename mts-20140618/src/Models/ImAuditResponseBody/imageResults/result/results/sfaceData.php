@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditResponseBody\imageResults\result\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditResponseBody\imageResults\result\results\sfaceData\faces;
-use AlibabaCloud\Tea\Model;
 
 class sfaceData extends Model
 {
     /**
-     * @description The information about the face detected in the moderated image.
-     *
      * @var faces[]
      */
     public $faces;
 
     /**
-     * @description The height of the face area. Unit: pixel.
-     *
-     * @example 121
-     *
      * @var float
      */
     public $h;
 
     /**
-     * @description The width of the face area. Unit: pixel.
-     *
-     * @example 47
-     *
      * @var float
      */
     public $w;
 
     /**
-     * @description The distance between the upper-left corner of the face area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
-     *
-     * @example 49
-     *
      * @var float
      */
     public $x;
 
     /**
-     * @description The distance between the upper-left corner of the face area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
-     *
-     * @example 39
-     *
      * @var float
      */
     public $y;
@@ -59,29 +41,39 @@ class sfaceData extends Model
         'y' => 'y',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->faces)) {
+            Model::validateArray($this->faces);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faces) {
-            $res['faces'] = [];
-            if (null !== $this->faces && \is_array($this->faces)) {
-                $n = 0;
-                foreach ($this->faces as $item) {
-                    $res['faces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->faces)) {
+                $res['faces'] = [];
+                $n1 = 0;
+                foreach ($this->faces as $item1) {
+                    $res['faces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->h) {
             $res['h'] = $this->h;
         }
+
         if (null !== $this->w) {
             $res['w'] = $this->w;
         }
+
         if (null !== $this->x) {
             $res['x'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['y'] = $this->y;
         }
@@ -89,32 +81,36 @@ class sfaceData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sfaceData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['faces'])) {
             if (!empty($map['faces'])) {
                 $model->faces = [];
-                $n = 0;
-                foreach ($map['faces'] as $item) {
-                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['faces'] as $item1) {
+                    $model->faces[$n1++] = faces::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['h'])) {
             $model->h = $map['h'];
         }
+
         if (isset($map['w'])) {
             $model->w = $map['w'];
         }
+
         if (isset($map['x'])) {
             $model->x = $map['x'];
         }
+
         if (isset($map['y'])) {
             $model->y = $map['y'];
         }

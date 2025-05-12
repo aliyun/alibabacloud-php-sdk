@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomEntitiesResponseBody\customEntities;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customEntity extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $customEntityId;
 
     /**
-     * @example { "finegrainName":"example" }
-     *
      * @var string
      */
     public $customEntityInfo;
 
     /**
-     * @example exampleName
-     *
      * @var string
      */
     public $customEntityName;
@@ -34,17 +28,22 @@ class customEntity extends Model
         'customEntityName' => 'CustomEntityName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customEntityId) {
             $res['CustomEntityId'] = $this->customEntityId;
         }
+
         if (null !== $this->customEntityInfo) {
             $res['CustomEntityInfo'] = $this->customEntityInfo;
         }
+
         if (null !== $this->customEntityName) {
             $res['CustomEntityName'] = $this->customEntityName;
         }
@@ -52,20 +51,22 @@ class customEntity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customEntity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomEntityId'])) {
             $model->customEntityId = $map['CustomEntityId'];
         }
+
         if (isset($map['CustomEntityInfo'])) {
             $model->customEntityInfo = $map['CustomEntityInfo'];
         }
+
         if (isset($map['CustomEntityName'])) {
             $model->customEntityName = $map['CustomEntityName'];
         }

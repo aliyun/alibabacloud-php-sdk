@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagJobResponseBody\results;
-use AlibabaCloud\Tea\Model;
 
 class QuerySmarttagJobResponseBody extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $jobStatus;
@@ -22,8 +20,6 @@ class QuerySmarttagJobResponseBody extends Model
     public $message;
 
     /**
-     * @example 7B117AF5-2A16-412C-B127-FA6175ED1AD0
-     *
      * @var string
      */
     public $requestId;
@@ -34,8 +30,6 @@ class QuerySmarttagJobResponseBody extends Model
     public $results;
 
     /**
-     * @example example UserData ****
-     *
      * @var string
      */
     public $userData;
@@ -47,23 +41,33 @@ class QuerySmarttagJobResponseBody extends Model
         'userData' => 'UserData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->results) {
+            $this->results->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
+            $res['Results'] = null !== $this->results ? $this->results->toArray($noStream) : $this->results;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -71,26 +75,30 @@ class QuerySmarttagJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySmarttagJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Results'])) {
             $model->results = results::fromMap($map['Results']);
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

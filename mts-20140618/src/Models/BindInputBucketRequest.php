@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindInputBucketRequest extends Model
 {
     /**
-     * @description The name of the input media bucket to be bound. The name can be up to 64 bytes in size. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane.
-     *
-     * > The bucket name can contain lowercase letters, digits, and hyphens (-), and cannot start or end with a hyphen (-).
-     *
-     * This parameter is required.
-     *
-     * @example example-bucket-****
-     *
      * @var string
      */
     public $bucket;
@@ -32,10 +24,6 @@ class BindInputBucketRequest extends Model
     public $ownerId;
 
     /**
-     * @description The settings of Object Storage Service (OSS) hotlink protection. For more information, see [Hotlink protection](https://help.aliyun.com/document_detail/31869.html).
-     *
-     * @example http://www.example.com
-     *
      * @var string
      */
     public $referer;
@@ -58,26 +46,34 @@ class BindInputBucketRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->referer) {
             $res['Referer'] = $this->referer;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -85,29 +81,34 @@ class BindInputBucketRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindInputBucketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Referer'])) {
             $model->referer = $map['Referer'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

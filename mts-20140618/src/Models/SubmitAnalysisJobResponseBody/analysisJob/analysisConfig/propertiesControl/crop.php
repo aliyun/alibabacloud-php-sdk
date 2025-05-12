@@ -4,63 +4,31 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\analysisConfig\propertiesControl;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class crop extends Model
 {
     /**
-     * @description The height of the video after the margins were cropped out.
-     *
-     * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $height;
 
     /**
-     * @description The left margin that was cropped out.
-     *
-     * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $left;
 
     /**
-     * @description The cropping mode. Valid values:
-     *
-     *   **Auto**: Cropping was automatically run. This is the default value.
-     *   **Force**: Cropping was forced to run.
-     *   **None**: Cropping was forced not to run.
-     *
-     * @example Auto
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description The top margin that was cropped out.
-     *
-     * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $top;
 
     /**
-     * @description The width of the video after the margins were cropped out.
-     *
-     * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $width;
@@ -72,23 +40,30 @@ class crop extends Model
         'width' => 'Width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->left) {
             $res['Left'] = $this->left;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->top) {
             $res['Top'] = $this->top;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -96,26 +71,30 @@ class crop extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return crop
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['Top'])) {
             $model->top = $map['Top'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

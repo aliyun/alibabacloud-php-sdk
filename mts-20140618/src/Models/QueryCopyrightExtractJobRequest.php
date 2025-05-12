@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCopyrightExtractJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2288c6ca184c0e47098a5b665e2a12****
-     *
      * @var string
      */
     public $jobId;
@@ -20,9 +16,12 @@ class QueryCopyrightExtractJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -32,11 +31,11 @@ class QueryCopyrightExtractJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCopyrightExtractJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

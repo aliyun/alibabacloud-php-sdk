@@ -4,68 +4,42 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditResponseBody\imageResults;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditResponseBody\imageResults\result\results;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The error code. The error code is the same as the HTTP status code. This parameter is not returned if the request is successful.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The ID of the moderated object.
-     *
-     * >  If you set the dataId parameter in the moderation request, the dataId parameter is returned in the response.
-     *
-     * @example uuid-1234-1234-1234
-     *
      * @var string
      */
     public $dataId;
 
     /**
-     * @description The additional information about the image. If ad is specified for the Scenes parameter, the following content may be returned for this parameter: hitLibInfo: the information about the custom text library that is hit by the text in the image. The value of this parameter is an array. For more information about the structure, see [hitLibInfo](https://help.aliyun.com/document_detail/268644.html).
-     *
      * @var mixed[]
      */
     public $extras;
 
     /**
-     * @description The message that is returned for the request.
-     *
-     * @example ok
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @description The returned data. If the call is successful, the array in the returned results contains one or more elements. Each element is a struct.
-     *
      * @var results[]
      */
     public $results;
 
     /**
-     * @description The ID of the moderation task.
-     *
-     * @example img4wlJcb7p4wH4lAP3111111-12****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The URL of the moderated object.
-     *
-     * @example http://example.com/example-****.jpg
-     *
      * @var string
      */
     public $url;
@@ -79,35 +53,55 @@ class result extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->extras)) {
+            Model::validateArray($this->extras);
+        }
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->dataId) {
             $res['dataId'] = $this->dataId;
         }
+
         if (null !== $this->extras) {
-            $res['extras'] = $this->extras;
-        }
-        if (null !== $this->msg) {
-            $res['msg'] = $this->msg;
-        }
-        if (null !== $this->results) {
-            $res['results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extras)) {
+                $res['extras'] = [];
+                foreach ($this->extras as $key1 => $value1) {
+                    $res['extras'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->msg) {
+            $res['msg'] = $this->msg;
+        }
+
+        if (null !== $this->results) {
+            if (\is_array($this->results)) {
+                $res['results'] = [];
+                $n1 = 0;
+                foreach ($this->results as $item1) {
+                    $res['results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -115,38 +109,49 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['dataId'])) {
             $model->dataId = $map['dataId'];
         }
+
         if (isset($map['extras'])) {
-            $model->extras = $map['extras'];
-        }
-        if (isset($map['msg'])) {
-            $model->msg = $map['msg'];
-        }
-        if (isset($map['results'])) {
-            if (!empty($map['results'])) {
-                $model->results = [];
-                $n = 0;
-                foreach ($map['results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+            if (!empty($map['extras'])) {
+                $model->extras = [];
+                foreach ($map['extras'] as $key1 => $value1) {
+                    $model->extras[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['msg'])) {
+            $model->msg = $map['msg'];
+        }
+
+        if (isset($map['results'])) {
+            if (!empty($map['results'])) {
+                $model->results = [];
+                $n1 = 0;
+                foreach ($map['results'] as $item1) {
+                    $model->results[$n1++] = results::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

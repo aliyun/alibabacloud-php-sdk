@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateFpShotDBResponseBody\fpShotDB;
-use AlibabaCloud\Tea\Model;
 
 class CreateFpShotDBResponseBody extends Model
 {
     /**
-     * @description The details of the media fingerprint library.
-     *
      * @var fpShotDB
      */
     public $fpShotDB;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateFpShotDBResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fpShotDB) {
+            $this->fpShotDB->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShotDB) {
-            $res['FpShotDB'] = null !== $this->fpShotDB ? $this->fpShotDB->toMap() : null;
+            $res['FpShotDB'] = null !== $this->fpShotDB ? $this->fpShotDB->toArray($noStream) : $this->fpShotDB;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateFpShotDBResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFpShotDBResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShotDB'])) {
             $model->fpShotDB = fpShotDB::fromMap($map['FpShotDB']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaInfoJobListResponseBody\mediaInfoJobList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaInfoJobListResponseBody\nonExistMediaInfoJobIds;
-use AlibabaCloud\Tea\Model;
 
 class QueryMediaInfoJobListResponseBody extends Model
 {
     /**
-     * @description The details of each returned media information analysis job.
-     *
      * @var mediaInfoJobList
      */
     public $mediaInfoJobList;
 
     /**
-     * @description Nonexistent media information analysis jobs.
-     *
      * @var nonExistMediaInfoJobIds
      */
     public $nonExistMediaInfoJobIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 46A04AA5-B119-41BB-B750-7C5327AC3E7A
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class QueryMediaInfoJobListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaInfoJobList) {
+            $this->mediaInfoJobList->validate();
+        }
+        if (null !== $this->nonExistMediaInfoJobIds) {
+            $this->nonExistMediaInfoJobIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaInfoJobList) {
-            $res['MediaInfoJobList'] = null !== $this->mediaInfoJobList ? $this->mediaInfoJobList->toMap() : null;
+            $res['MediaInfoJobList'] = null !== $this->mediaInfoJobList ? $this->mediaInfoJobList->toArray($noStream) : $this->mediaInfoJobList;
         }
+
         if (null !== $this->nonExistMediaInfoJobIds) {
-            $res['NonExistMediaInfoJobIds'] = null !== $this->nonExistMediaInfoJobIds ? $this->nonExistMediaInfoJobIds->toMap() : null;
+            $res['NonExistMediaInfoJobIds'] = null !== $this->nonExistMediaInfoJobIds ? $this->nonExistMediaInfoJobIds->toArray($noStream) : $this->nonExistMediaInfoJobIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class QueryMediaInfoJobListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMediaInfoJobListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaInfoJobList'])) {
             $model->mediaInfoJobList = mediaInfoJobList::fromMap($map['MediaInfoJobList']);
         }
+
         if (isset($map['NonExistMediaInfoJobIds'])) {
             $model->nonExistMediaInfoJobIds = nonExistMediaInfoJobIds::fromMap($map['NonExistMediaInfoJobIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListByURLResponseBody\mediaList\media\summaryList\summary;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class file extends Model
 {
     /**
-     * @description The status of the media file. Valid values:
-     *
-     *   **Normal**: The file is normal.
-     *   **Deleted**: The file is deleted.
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description The OSS URL of the input file.
-     *
-     * @example http://example-bucket-****.o
-     *
      * @var string
      */
     public $URL;
@@ -33,14 +22,18 @@ class file extends Model
         'URL' => 'URL',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
         }
@@ -48,17 +41,18 @@ class file extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return file
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
         }

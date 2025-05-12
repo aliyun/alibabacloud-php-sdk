@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportFpShotJobResponseBody extends Model
 {
     /**
-     * @description The ID of the import job. We recommend that you save this ID for subsequent operations.
-     *
-     * @example c074b118ace44395a02063a5ab94****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class ImportFpShotJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class ImportFpShotJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportFpShotJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSnapshotJobResponseBody\snapshotJob\snapshotConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timeArray extends Model
 {
@@ -16,29 +16,45 @@ class timeArray extends Model
         'timePointList' => 'TimePointList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->timePointList)) {
+            Model::validateArray($this->timePointList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timePointList) {
-            $res['TimePointList'] = $this->timePointList;
+            if (\is_array($this->timePointList)) {
+                $res['TimePointList'] = [];
+                $n1 = 0;
+                foreach ($this->timePointList as $item1) {
+                    $res['TimePointList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeArray
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimePointList'])) {
             if (!empty($map['TimePointList'])) {
-                $model->timePointList = $map['TimePointList'];
+                $model->timePointList = [];
+                $n1 = 0;
+                foreach ($map['TimePointList'] as $item1) {
+                    $model->timePointList[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob;
-use AlibabaCloud\Tea\Model;
 
 class SubmitAnalysisJobResponseBody extends Model
 {
     /**
-     * @description The information about the preset template analysis job that was submitted.
-     *
      * @var analysisJob
      */
     public $analysisJob;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example B52658D4-07AB-43CD-82B0-210958A65E23
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class SubmitAnalysisJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->analysisJob) {
+            $this->analysisJob->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysisJob) {
-            $res['AnalysisJob'] = null !== $this->analysisJob ? $this->analysisJob->toMap() : null;
+            $res['AnalysisJob'] = null !== $this->analysisJob ? $this->analysisJob->toArray($noStream) : $this->analysisJob;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class SubmitAnalysisJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitAnalysisJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnalysisJob'])) {
             $model->analysisJob = analysisJob::fromMap($map['AnalysisJob']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

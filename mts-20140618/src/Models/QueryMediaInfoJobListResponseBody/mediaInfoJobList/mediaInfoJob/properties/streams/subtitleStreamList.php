@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaInfoJobListResponseBody\mediaInfoJobList\mediaInfoJob\properties\streams;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaInfoJobListResponseBody\mediaInfoJobList\mediaInfoJob\properties\streams\subtitleStreamList\subtitleStream;
-use AlibabaCloud\Tea\Model;
 
 class subtitleStreamList extends Model
 {
@@ -17,17 +17,23 @@ class subtitleStreamList extends Model
         'subtitleStream' => 'SubtitleStream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subtitleStream)) {
+            Model::validateArray($this->subtitleStream);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subtitleStream) {
-            $res['SubtitleStream'] = [];
-            if (null !== $this->subtitleStream && \is_array($this->subtitleStream)) {
-                $n = 0;
-                foreach ($this->subtitleStream as $item) {
-                    $res['SubtitleStream'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subtitleStream)) {
+                $res['SubtitleStream'] = [];
+                $n1 = 0;
+                foreach ($this->subtitleStream as $item1) {
+                    $res['SubtitleStream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class subtitleStreamList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subtitleStreamList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubtitleStream'])) {
             if (!empty($map['SubtitleStream'])) {
                 $model->subtitleStream = [];
-                $n = 0;
-                foreach ($map['SubtitleStream'] as $item) {
-                    $model->subtitleStream[$n++] = null !== $item ? subtitleStream::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubtitleStream'] as $item1) {
+                    $model->subtitleStream[$n1++] = subtitleStream::fromMap($item1);
                 }
             }
         }

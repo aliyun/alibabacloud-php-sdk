@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchPipelineRequest extends Model
 {
@@ -19,22 +19,11 @@ class SearchPipelineRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     *   A maximum of **100** entries can be returned on each page.
-     *   Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -50,15 +39,6 @@ class SearchPipelineRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the MPS queues that you want to query. If you leave this parameter empty, all MPS queues are queried.
-     *
-     *   **All**: queries all MPS queues.
-     *   **Active**: queries the MPS queues that are active.
-     *   **Paused**: queues the MPS queues that are paused.
-     *   Default value: **All**.
-     *
-     * @example Paused
-     *
      * @var string
      */
     public $state;
@@ -72,29 +52,38 @@ class SearchPipelineRequest extends Model
         'state' => 'State',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -102,32 +91,38 @@ class SearchPipelineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchPipelineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category\persons\person;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category\persons\person\faces\face;
-use AlibabaCloud\Tea\Model;
 
 class faces extends Model
 {
@@ -17,17 +17,23 @@ class faces extends Model
         'face' => 'Face',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->face)) {
+            Model::validateArray($this->face);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->face) {
-            $res['Face'] = [];
-            if (null !== $this->face && \is_array($this->face)) {
-                $n = 0;
-                foreach ($this->face as $item) {
-                    $res['Face'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->face)) {
+                $res['Face'] = [];
+                $n1 = 0;
+                foreach ($this->face as $item1) {
+                    $res['Face'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class faces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Face'])) {
             if (!empty($map['Face'])) {
                 $model->face = [];
-                $n = 0;
-                foreach ($map['Face'] as $item) {
-                    $model->face[$n++] = null !== $item ? face::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Face'] as $item1) {
+                    $model->face[$n1++] = face::fromMap($item1);
                 }
             }
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListAllMediaBucketResponseBody\mediaBucketList;
-use AlibabaCloud\Tea\Model;
 
 class ListAllMediaBucketResponseBody extends Model
 {
     /**
-     * @description The media buckets returned.
-     *
      * @var mediaBucketList
      */
     public $mediaBucketList;
 
     /**
-     * @description The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
-     *
-     * @example P2Zqo1PLGhZdygo-ajSsjUX5zrBHCgXy6j4hEvv****
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 79760D91-D3CF-4165-****-B7E2836EF62A
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class ListAllMediaBucketResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaBucketList) {
+            $this->mediaBucketList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaBucketList) {
-            $res['MediaBucketList'] = null !== $this->mediaBucketList ? $this->mediaBucketList->toMap() : null;
+            $res['MediaBucketList'] = null !== $this->mediaBucketList ? $this->mediaBucketList->toArray($noStream) : $this->mediaBucketList;
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class ListAllMediaBucketResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAllMediaBucketResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaBucketList'])) {
             $model->mediaBucketList = mediaBucketList::fromMap($map['MediaBucketList']);
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

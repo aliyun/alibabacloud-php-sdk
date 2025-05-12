@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListMediaWorkflowExecutionsResponseBody\mediaWorkflowExecutionList\mediaWorkflowExecution\activityList\activity;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MNSMessageResult extends Model
 {
     /**
-     * @description The error code returned if the job failed. If the job was successful, this parameter is not returned.
-     *
-     * @example The Topic/Queue config is empty, not send message
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the job failed. If the job was successful, this parameter is not returned.
-     *
-     * @example MessageConfigEmpty
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the success message. If the job failed, this parameter is not returned.
-     *
-     * @example 4f3bc83233de4e2f81c7dade443e****
-     *
      * @var string
      */
     public $messageId;
@@ -40,17 +28,22 @@ class MNSMessageResult extends Model
         'messageId' => 'MessageId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
@@ -58,20 +51,22 @@ class MNSMessageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MNSMessageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }

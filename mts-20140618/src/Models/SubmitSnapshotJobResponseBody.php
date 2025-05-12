@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSnapshotJobResponseBody\snapshotJob;
-use AlibabaCloud\Tea\Model;
 
 class SubmitSnapshotJobResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 19B6D8C5-A5DD-467A-B435-29D393C71E2D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the snapshot job.
-     *
      * @var snapshotJob
      */
     public $snapshotJob;
@@ -29,32 +23,40 @@ class SubmitSnapshotJobResponseBody extends Model
         'snapshotJob' => 'SnapshotJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->snapshotJob) {
+            $this->snapshotJob->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->snapshotJob) {
-            $res['SnapshotJob'] = null !== $this->snapshotJob ? $this->snapshotJob->toMap() : null;
+            $res['SnapshotJob'] = null !== $this->snapshotJob ? $this->snapshotJob->toArray($noStream) : $this->snapshotJob;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitSnapshotJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SnapshotJob'])) {
             $model->snapshotJob = snapshotJob::fromMap($map['SnapshotJob']);
         }

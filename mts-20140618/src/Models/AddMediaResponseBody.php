@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddMediaResponseBody\media;
-use AlibabaCloud\Tea\Model;
 
 class AddMediaResponseBody extends Model
 {
     /**
-     * @description The detailed information about the media file.
-     *
      * @var media
      */
     public $media;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 05F8B913-E9F3-4A6F-9922-48CADA0FFAAD
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class AddMediaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->media) {
+            $this->media->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->media) {
-            $res['Media'] = null !== $this->media ? $this->media->toMap() : null;
+            $res['Media'] = null !== $this->media ? $this->media->toArray($noStream) : $this->media;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class AddMediaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddMediaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Media'])) {
             $model->media = media::fromMap($map['Media']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

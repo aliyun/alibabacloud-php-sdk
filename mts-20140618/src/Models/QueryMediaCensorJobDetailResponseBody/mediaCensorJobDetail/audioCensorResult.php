@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\audioCensorResult\audioDetailResultList;
-use AlibabaCloud\Tea\Model;
 
 class audioCensorResult extends Model
 {
@@ -29,17 +29,25 @@ class audioCensorResult extends Model
         'suggestion' => 'Suggestion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->audioDetailResultList) {
+            $this->audioDetailResultList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioDetailResultList) {
-            $res['AudioDetailResultList'] = null !== $this->audioDetailResultList ? $this->audioDetailResultList->toMap() : null;
+            $res['AudioDetailResultList'] = null !== $this->audioDetailResultList ? $this->audioDetailResultList->toArray($noStream) : $this->audioDetailResultList;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
@@ -47,20 +55,22 @@ class audioCensorResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioCensorResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioDetailResultList'])) {
             $model->audioDetailResultList = audioDetailResultList::fromMap($map['AudioDetailResultList']);
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }

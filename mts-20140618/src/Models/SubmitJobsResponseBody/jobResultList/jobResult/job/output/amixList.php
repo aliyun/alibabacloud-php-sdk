@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output\amixList\amix;
-use AlibabaCloud\Tea\Model;
 
 class amixList extends Model
 {
@@ -17,17 +17,23 @@ class amixList extends Model
         'amix' => 'Amix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->amix)) {
+            Model::validateArray($this->amix);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amix) {
-            $res['Amix'] = [];
-            if (null !== $this->amix && \is_array($this->amix)) {
-                $n = 0;
-                foreach ($this->amix as $item) {
-                    $res['Amix'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->amix)) {
+                $res['Amix'] = [];
+                $n1 = 0;
+                foreach ($this->amix as $item1) {
+                    $res['Amix'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class amixList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return amixList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amix'])) {
             if (!empty($map['Amix'])) {
                 $model->amix = [];
-                $n = 0;
-                foreach ($map['Amix'] as $item) {
-                    $model->amix[$n++] = null !== $item ? amix::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Amix'] as $item1) {
+                    $model->amix[$n1++] = amix::fromMap($item1);
                 }
             }
         }

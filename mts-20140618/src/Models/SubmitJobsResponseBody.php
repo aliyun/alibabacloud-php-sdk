@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList;
-use AlibabaCloud\Tea\Model;
 
 class SubmitJobsResponseBody extends Model
 {
     /**
-     * @description The transcoding jobs that are generated.
-     *
      * @var jobResultList
      */
     public $jobResultList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 25818875-5F78-4A45S71F6-D73936451234
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class SubmitJobsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobResultList) {
+            $this->jobResultList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobResultList) {
-            $res['JobResultList'] = null !== $this->jobResultList ? $this->jobResultList->toMap() : null;
+            $res['JobResultList'] = null !== $this->jobResultList ? $this->jobResultList->toArray($noStream) : $this->jobResultList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class SubmitJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobResultList'])) {
             $model->jobResultList = jobResultList::fromMap($map['JobResultList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

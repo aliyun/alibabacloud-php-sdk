@@ -4,34 +4,22 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\fpShots;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\fpShots\fpShot\fpShotSlices;
-use AlibabaCloud\Tea\Model;
 
 class fpShot extends Model
 {
     /**
-     * @description The video files that have similar fingerprints to the input video in the video fingerprint library.
-     *
      * @var fpShotSlices
      */
     public $fpShotSlices;
 
     /**
-     * @description The unique primary key of the input video.
-     *
-     * @example 498ac941373341599c4777c8d884****
-     *
      * @var string
      */
     public $primaryKey;
 
     /**
-     * @description The overall similarity of the input video against video files that have similar fingerprints to the input video in the video fingerprint library.
-     *
-     * >  The overall similarity is the average value of the similarities of the input video clips with the clips of the video that has a similar fingerprint. If multiple video files that have similar fingerprints to the input video exist in the video fingerprint library, the similarities of the input video against multiple similar video clips are returned.
-     *
-     * @example 0.8914769887924194
-     *
      * @var string
      */
     public $similarity;
@@ -41,17 +29,25 @@ class fpShot extends Model
         'similarity' => 'Similarity',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fpShotSlices) {
+            $this->fpShotSlices->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShotSlices) {
-            $res['FpShotSlices'] = null !== $this->fpShotSlices ? $this->fpShotSlices->toMap() : null;
+            $res['FpShotSlices'] = null !== $this->fpShotSlices ? $this->fpShotSlices->toArray($noStream) : $this->fpShotSlices;
         }
+
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
         }
+
         if (null !== $this->similarity) {
             $res['Similarity'] = $this->similarity;
         }
@@ -59,20 +55,22 @@ class fpShot extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpShot
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShotSlices'])) {
             $model->fpShotSlices = fpShotSlices::fromMap($map['FpShotSlices']);
         }
+
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
         }
+
         if (isset($map['Similarity'])) {
             $model->similarity = $map['Similarity'];
         }

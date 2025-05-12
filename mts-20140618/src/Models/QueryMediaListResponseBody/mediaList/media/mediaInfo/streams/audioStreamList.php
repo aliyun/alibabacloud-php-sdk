@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media\mediaInfo\streams;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media\mediaInfo\streams\audioStreamList\audioStream;
-use AlibabaCloud\Tea\Model;
 
 class audioStreamList extends Model
 {
@@ -17,17 +17,23 @@ class audioStreamList extends Model
         'audioStream' => 'AudioStream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioStream)) {
+            Model::validateArray($this->audioStream);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioStream) {
-            $res['AudioStream'] = [];
-            if (null !== $this->audioStream && \is_array($this->audioStream)) {
-                $n = 0;
-                foreach ($this->audioStream as $item) {
-                    $res['AudioStream'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioStream)) {
+                $res['AudioStream'] = [];
+                $n1 = 0;
+                foreach ($this->audioStream as $item1) {
+                    $res['AudioStream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class audioStreamList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioStreamList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioStream'])) {
             if (!empty($map['AudioStream'])) {
                 $model->audioStream = [];
-                $n = 0;
-                foreach ($map['AudioStream'] as $item) {
-                    $model->audioStream[$n++] = null !== $item ? audioStream::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioStream'] as $item1) {
+                    $model->audioStream[$n1++] = audioStream::fromMap($item1);
                 }
             }
         }

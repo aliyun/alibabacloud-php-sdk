@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteMediaWorkflowResponseBody\mediaWorkflow;
-use AlibabaCloud\Tea\Model;
 
 class DeleteMediaWorkflowResponseBody extends Model
 {
     /**
-     * @description The information about the media workflow.
-     *
      * @var mediaWorkflow
      */
     public $mediaWorkflow;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7D752035-97DA-54E5-88E2-E8405EEA4394
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DeleteMediaWorkflowResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaWorkflow) {
+            $this->mediaWorkflow->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaWorkflow) {
-            $res['MediaWorkflow'] = null !== $this->mediaWorkflow ? $this->mediaWorkflow->toMap() : null;
+            $res['MediaWorkflow'] = null !== $this->mediaWorkflow ? $this->mediaWorkflow->toArray($noStream) : $this->mediaWorkflow;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DeleteMediaWorkflowResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMediaWorkflowResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaWorkflow'])) {
             $model->mediaWorkflow = mediaWorkflow::fromMap($map['MediaWorkflow']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMediaWorkflowRequest extends Model
 {
     /**
-     * @description The ID of the media workflow that you want to update. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
-     *
-     * This parameter is required.
-     *
-     * @example 6307eb0d3f85477882d205aa040f****
-     *
      * @var string
      */
     public $mediaWorkflowId;
@@ -45,45 +39,6 @@ class UpdateMediaWorkflowRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The new topology of the media workflow. The value is a JSON object that contains the activity list and activity dependencies.
-     *
-     * > The Object Storage Service (OSS) bucket must reside in the same region as your MPS service.
-     *
-     * This parameter is required.
-     *
-     * @example {
-     * "Activities": {
-     * "Act-Start": {
-     * "Parameters": {
-     * "PipelineId": "130266f58161436a80bf07cb12c8****",
-     * "InputFile": "{\\"Bucket\\": \\"example-bucket-****\\",\\"Location\\": \\"cn-shanghai\\"}"
-     * },
-     * "Type": "Start"
-     * },
-     * "Act-Report": {
-     * "Parameters": {},
-     * "Type": "Report"
-     * },
-     * "Act-Transcode-M3U8": {
-     * "Parameters": {
-     * "Outputs": "[{\\"Object\\":\\"transcode/{ObjectPrefix}{FileName}\\",\\"TemplateId\\": \\"957d1719ee85ed6527b90cf62726****\\"}]",
-     * "OutputBucket": "example-bucket-****",
-     * "OutputLocation": "cn-shanghai"
-     * },
-     * "Type": "Transcode"
-     * }
-     * },
-     * "Dependencies": {
-     * "Act-Start": [
-     * "Act-Transcode-M3U8"
-     * ],
-     * "Act-Report": [],
-     * "Act-Transcode-M3U8": [
-     * "Act-Report"
-     * ]
-     * }
-     * }
-     *
      * @var string
      */
     public $topology;
@@ -103,32 +58,42 @@ class UpdateMediaWorkflowRequest extends Model
         'triggerMode' => 'TriggerMode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaWorkflowId) {
             $res['MediaWorkflowId'] = $this->mediaWorkflowId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->topology) {
             $res['Topology'] = $this->topology;
         }
+
         if (null !== $this->triggerMode) {
             $res['TriggerMode'] = $this->triggerMode;
         }
@@ -136,35 +101,42 @@ class UpdateMediaWorkflowRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMediaWorkflowRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaWorkflowId'])) {
             $model->mediaWorkflowId = $map['MediaWorkflowId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Topology'])) {
             $model->topology = $map['Topology'];
         }
+
         if (isset($map['TriggerMode'])) {
             $model->triggerMode = $map['TriggerMode'];
         }

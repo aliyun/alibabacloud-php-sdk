@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category\persons;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories\category\persons\person\faces;
-use AlibabaCloud\Tea\Model;
 
 class person extends Model
 {
     /**
-     * @description The array of the faces.
-     *
      * @var faces
      */
     public $faces;
 
     /**
-     * @description The description of the figure.
-     *
-     * @example PersonDescription-****
-     *
      * @var string
      */
     public $personDescription;
 
     /**
-     * @description The ID of the figure.
-     *
-     * @example PersonId-****
-     *
      * @var string
      */
     public $personId;
 
     /**
-     * @description The name of the figure.
-     *
-     * @example PersonName-****
-     *
      * @var string
      */
     public $personName;
@@ -49,20 +35,29 @@ class person extends Model
         'personName' => 'PersonName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->faces) {
+            $this->faces->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faces) {
-            $res['Faces'] = null !== $this->faces ? $this->faces->toMap() : null;
+            $res['Faces'] = null !== $this->faces ? $this->faces->toArray($noStream) : $this->faces;
         }
+
         if (null !== $this->personDescription) {
             $res['PersonDescription'] = $this->personDescription;
         }
+
         if (null !== $this->personId) {
             $res['PersonId'] = $this->personId;
         }
+
         if (null !== $this->personName) {
             $res['PersonName'] = $this->personName;
         }
@@ -70,23 +65,26 @@ class person extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return person
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Faces'])) {
             $model->faces = faces::fromMap($map['Faces']);
         }
+
         if (isset($map['PersonDescription'])) {
             $model->personDescription = $map['PersonDescription'];
         }
+
         if (isset($map['PersonId'])) {
             $model->personId = $map['PersonId'];
         }
+
         if (isset($map['PersonName'])) {
             $model->personName = $map['PersonName'];
         }

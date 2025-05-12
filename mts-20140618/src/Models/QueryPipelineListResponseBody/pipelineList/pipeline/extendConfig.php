@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryPipelineListResponseBody\pipelineList\pipeline;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extendConfig extends Model
 {
@@ -28,17 +28,22 @@ class extendConfig extends Model
         'multiSpeedDowngradePolicy' => 'MultiSpeedDowngradePolicy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isBoostNew) {
             $res['IsBoostNew'] = $this->isBoostNew;
         }
+
         if (null !== $this->maxMultiSpeed) {
             $res['MaxMultiSpeed'] = $this->maxMultiSpeed;
         }
+
         if (null !== $this->multiSpeedDowngradePolicy) {
             $res['MultiSpeedDowngradePolicy'] = $this->multiSpeedDowngradePolicy;
         }
@@ -46,20 +51,22 @@ class extendConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extendConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsBoostNew'])) {
             $model->isBoostNew = $map['IsBoostNew'];
         }
+
         if (isset($map['MaxMultiSpeed'])) {
             $model->maxMultiSpeed = $map['MaxMultiSpeed'];
         }
+
         if (isset($map['MultiSpeedDowngradePolicy'])) {
             $model->multiSpeedDowngradePolicy = $map['MultiSpeedDowngradePolicy'];
         }

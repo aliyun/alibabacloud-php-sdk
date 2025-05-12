@@ -4,27 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryAnalysisJobListResponseBody\analysisJobList\analysisJob\analysisConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryAnalysisJobListResponseBody\analysisJobList\analysisJob\analysisConfig\propertiesControl\crop;
-use AlibabaCloud\Tea\Model;
 
 class propertiesControl extends Model
 {
     /**
-     * @description The cropping configuration of the video image.
-     *
      * @var crop
      */
     public $crop;
 
     /**
-     * @description Specifies whether deinterlacing was forced to run. Valid values:
-     *
-     *   **Auto**: Deinterlacing was automatically run.
-     *   **Force**: Deinterlacing was forced to run.
-     *   **None**: Deinterlacing was forced not to run.
-     *
-     * @example Auto
-     *
      * @var string
      */
     public $deinterlace;
@@ -33,14 +23,21 @@ class propertiesControl extends Model
         'deinterlace' => 'Deinterlace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->crop) {
+            $this->crop->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->crop) {
-            $res['Crop'] = null !== $this->crop ? $this->crop->toMap() : null;
+            $res['Crop'] = null !== $this->crop ? $this->crop->toArray($noStream) : $this->crop;
         }
+
         if (null !== $this->deinterlace) {
             $res['Deinterlace'] = $this->deinterlace;
         }
@@ -48,17 +45,18 @@ class propertiesControl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertiesControl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Crop'])) {
             $model->crop = crop::fromMap($map['Crop']);
         }
+
         if (isset($map['Deinterlace'])) {
             $model->deinterlace = $map['Deinterlace'];
         }

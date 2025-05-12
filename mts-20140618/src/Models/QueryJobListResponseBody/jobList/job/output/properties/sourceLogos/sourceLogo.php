@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList\job\output\properties\sourceLogos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceLogo extends Model
 {
     /**
-     * @description The keyword.
-     *
-     * @example example
-     *
      * @var string
      */
     public $source;
@@ -20,9 +16,12 @@ class sourceLogo extends Model
         'source' => 'Source',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->source) {
@@ -32,11 +31,11 @@ class sourceLogo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceLogo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

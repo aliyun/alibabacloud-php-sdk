@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitImageCopyrightRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example {"Bucket":"abc-test","Location":"oss-cn-shanghai","Object":"out.jpeg"}
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @example {"width":2999, "height":2999, "afa": 3, "type":1, "version":0}
-     *
      * @var string
      */
     public $params;
@@ -34,17 +28,22 @@ class SubmitImageCopyrightRequest extends Model
         'params' => 'Params',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->output) {
             $res['Output'] = $this->output;
         }
+
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
@@ -52,20 +51,22 @@ class SubmitImageCopyrightRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitImageCopyrightRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
         }
+
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }

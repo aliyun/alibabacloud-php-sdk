@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesResponseBody\fpShotFileList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesResponseBody\fpShotFileList\fpShotFile\inputFile;
-use AlibabaCloud\Tea\Model;
 
 class fpShotFile extends Model
 {
     /**
-     * @description The ID of the video file.
-     *
-     * @example 41e6536e4f2250e2e9bf26cdea19****
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @description The information about the input file.
-     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
-     * @description The unique primary key of the input video.
-     *
-     * @example fb712a6890464059b1b2ea7c8647****
-     *
      * @var string
      */
     public $primaryKey;
 
     /**
-     * @description The time when the media fingerprint file was stored. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
-     *
-     * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
-     *
-     * @example 2022-09-08T23:32:56Z
-     *
      * @var string
      */
     public $storeTime;
@@ -51,20 +35,29 @@ class fpShotFile extends Model
         'storeTime' => 'StoreTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->inputFile) {
+            $this->inputFile->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->inputFile) {
-            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
+            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toArray($noStream) : $this->inputFile;
         }
+
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
         }
+
         if (null !== $this->storeTime) {
             $res['StoreTime'] = $this->storeTime;
         }
@@ -72,23 +65,26 @@ class fpShotFile extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpShotFile
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
+
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
         }
+
         if (isset($map['StoreTime'])) {
             $model->storeTime = $map['StoreTime'];
         }

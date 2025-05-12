@@ -4,23 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class container extends Model
 {
     /**
-     * @description The container format.
-     *
-     *   Default value: **mp4**.
-     *   Video formats include FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4).
-     *   Audio formats include MP3, MP4, Ogg, FLAC, and M4A.
-     *   Image formats include GIF and WebP.
-     *   If the container format is GIF, the video codec must be GIF.
-     *   If the container format is WebP, the video codec must be WebP.
-     *   If the container format is FLV, the video codec cannot be H.265.
-     *
-     * @example flv
-     *
      * @var string
      */
     public $format;
@@ -28,9 +16,12 @@ class container extends Model
         'format' => 'Format',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->format) {
@@ -40,11 +31,11 @@ class container extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return container
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

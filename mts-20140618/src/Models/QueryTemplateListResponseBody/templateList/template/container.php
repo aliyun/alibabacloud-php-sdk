@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryTemplateListResponseBody\templateList\template;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class container extends Model
 {
     /**
-     * @description The format of the container. Valid values: flv, mp4, ts, m3u8, gif, mp3, ogg, and flac.
-     *
-     * @example flv
-     *
      * @var string
      */
     public $format;
@@ -20,9 +16,12 @@ class container extends Model
         'format' => 'Format',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->format) {
@@ -32,11 +31,11 @@ class container extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return container
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

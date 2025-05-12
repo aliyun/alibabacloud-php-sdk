@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListResponseBody\waterMarkTemplateList\waterMarkTemplate;
-use AlibabaCloud\Tea\Model;
 
 class waterMarkTemplateList extends Model
 {
@@ -17,17 +17,23 @@ class waterMarkTemplateList extends Model
         'waterMarkTemplate' => 'WaterMarkTemplate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->waterMarkTemplate)) {
+            Model::validateArray($this->waterMarkTemplate);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->waterMarkTemplate) {
-            $res['WaterMarkTemplate'] = [];
-            if (null !== $this->waterMarkTemplate && \is_array($this->waterMarkTemplate)) {
-                $n = 0;
-                foreach ($this->waterMarkTemplate as $item) {
-                    $res['WaterMarkTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->waterMarkTemplate)) {
+                $res['WaterMarkTemplate'] = [];
+                $n1 = 0;
+                foreach ($this->waterMarkTemplate as $item1) {
+                    $res['WaterMarkTemplate'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class waterMarkTemplateList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return waterMarkTemplateList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WaterMarkTemplate'])) {
             if (!empty($map['WaterMarkTemplate'])) {
                 $model->waterMarkTemplate = [];
-                $n = 0;
-                foreach ($map['WaterMarkTemplate'] as $item) {
-                    $model->waterMarkTemplate[$n++] = null !== $item ? waterMarkTemplate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WaterMarkTemplate'] as $item1) {
+                    $model->waterMarkTemplate[$n1++] = waterMarkTemplate::fromMap($item1);
                 }
             }
         }

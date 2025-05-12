@@ -4,127 +4,75 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\analysisConfig;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\inputFile;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\MNSMessageResult;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponseBody\analysisJob\templateList;
-use AlibabaCloud\Tea\Model;
 
 class analysisJob extends Model
 {
     /**
-     * @description The job configurations.
-     *
      * @var analysisConfig
      */
     public $analysisConfig;
 
     /**
-     * @description The error code returned if the job failed. This parameter is not returned if the job was successful.
-     *
-     * @example InvalidParameter.ResourceNotFound
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The time when the job was created.
-     *
-     * @example 2014-01-10T12:00:00Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The ID of the template analysis job.
-     *
-     * @example 57f6aa3f84824309bcba67231b40****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The information about the job input.
-     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
-     * @description The message sent by MNS to notify users of the job result.
-     *
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
 
     /**
-     * @description The error message returned if the job failed.
-     *
-     * @example The resource operated \\"PipelineId\\" cannot be found
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The transcoding progress.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $percent;
 
     /**
-     * @description The ID of the MPS queue to which the analysis job was submitted.
-     *
-     * @example bb558c1cc25b45309aab5be44d19****
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description The priority of the job in the MPS queue to which the job was submitted.
-     *
-     *   Valid values: **1 to 10**. A value of 10 indicates the highest priority.
-     *   Default value: **10**.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $priority;
 
     /**
-     * @description The status of the job. Valid values:
-     *
-     *   **Submitted**: The job is submitted.
-     *   **Analyzing**: The job is being run.
-     *   **Success**: The job is successful.
-     *   **Fail**: The job fails.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description The matched preset templates.
-     *
      * @var templateList
      */
     public $templateList;
 
     /**
-     * @description The custom data.
-     *
-     * @example testid-001
-     *
      * @var string
      */
     public $userData;
@@ -144,47 +92,74 @@ class analysisJob extends Model
         'userData' => 'UserData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->analysisConfig) {
+            $this->analysisConfig->validate();
+        }
+        if (null !== $this->inputFile) {
+            $this->inputFile->validate();
+        }
+        if (null !== $this->MNSMessageResult) {
+            $this->MNSMessageResult->validate();
+        }
+        if (null !== $this->templateList) {
+            $this->templateList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysisConfig) {
-            $res['AnalysisConfig'] = null !== $this->analysisConfig ? $this->analysisConfig->toMap() : null;
+            $res['AnalysisConfig'] = null !== $this->analysisConfig ? $this->analysisConfig->toArray($noStream) : $this->analysisConfig;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->inputFile) {
-            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
+            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toArray($noStream) : $this->inputFile;
         }
+
         if (null !== $this->MNSMessageResult) {
-            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
+            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toArray($noStream) : $this->MNSMessageResult;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
+
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->templateList) {
-            $res['TemplateList'] = null !== $this->templateList ? $this->templateList->toMap() : null;
+            $res['TemplateList'] = null !== $this->templateList ? $this->templateList->toArray($noStream) : $this->templateList;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -192,50 +167,62 @@ class analysisJob extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analysisJob
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnalysisConfig'])) {
             $model->analysisConfig = analysisConfig::fromMap($map['AnalysisConfig']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
+
         if (isset($map['MNSMessageResult'])) {
             $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
+
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['TemplateList'])) {
             $model->templateList = templateList::fromMap($map['TemplateList']);
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

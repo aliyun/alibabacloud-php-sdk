@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomEntitiesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomEntitiesResponseBody\customEntities\customEntity;
-use AlibabaCloud\Tea\Model;
 
 class customEntities extends Model
 {
@@ -17,17 +17,23 @@ class customEntities extends Model
         'customEntity' => 'CustomEntity',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customEntity)) {
+            Model::validateArray($this->customEntity);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customEntity) {
-            $res['CustomEntity'] = [];
-            if (null !== $this->customEntity && \is_array($this->customEntity)) {
-                $n = 0;
-                foreach ($this->customEntity as $item) {
-                    $res['CustomEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customEntity)) {
+                $res['CustomEntity'] = [];
+                $n1 = 0;
+                foreach ($this->customEntity as $item1) {
+                    $res['CustomEntity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class customEntities extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customEntities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomEntity'])) {
             if (!empty($map['CustomEntity'])) {
                 $model->customEntity = [];
-                $n = 0;
-                foreach ($map['CustomEntity'] as $item) {
-                    $model->customEntity[$n++] = null !== $item ? customEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomEntity'] as $item1) {
+                    $model->customEntity[$n1++] = customEntity::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult;
-use AlibabaCloud\Tea\Model;
 
 class jobResultList extends Model
 {
@@ -17,17 +17,23 @@ class jobResultList extends Model
         'jobResult' => 'JobResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->jobResult)) {
+            Model::validateArray($this->jobResult);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobResult) {
-            $res['JobResult'] = [];
-            if (null !== $this->jobResult && \is_array($this->jobResult)) {
-                $n = 0;
-                foreach ($this->jobResult as $item) {
-                    $res['JobResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobResult)) {
+                $res['JobResult'] = [];
+                $n1 = 0;
+                foreach ($this->jobResult as $item1) {
+                    $res['JobResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class jobResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobResult'])) {
             if (!empty($map['JobResult'])) {
                 $model->jobResult = [];
-                $n = 0;
-                foreach ($map['JobResult'] as $item) {
-                    $model->jobResult[$n++] = null !== $item ? jobResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['JobResult'] as $item1) {
+                    $model->jobResult[$n1++] = jobResult::fromMap($item1);
                 }
             }
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryTemplateListResponseBody\templateList\template\video;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bitrateBnd extends Model
 {
     /**
-     * @description The upper limit of the total bitrate. Unit: Kbit/s.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $max;
 
     /**
-     * @description The lower limit of the total bitrate. Unit: Kbit/s.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $min;
@@ -30,14 +22,18 @@ class bitrateBnd extends Model
         'min' => 'Min',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
@@ -45,17 +41,18 @@ class bitrateBnd extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bitrateBnd
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }

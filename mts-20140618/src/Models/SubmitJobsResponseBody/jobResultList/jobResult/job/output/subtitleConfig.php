@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output\subtitleConfig\extSubtitleList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output\subtitleConfig\subtitleList;
-use AlibabaCloud\Tea\Model;
 
 class subtitleConfig extends Model
 {
     /**
-     * @description The external subtitles. The value is a JSON array that contains up to **four** objects.
-     *
      * @var extSubtitleList
      */
     public $extSubtitleList;
 
     /**
-     * @description The subtitles.
-     *
      * @var subtitleList
      */
     public $subtitleList;
@@ -28,32 +24,43 @@ class subtitleConfig extends Model
         'subtitleList' => 'SubtitleList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->extSubtitleList) {
+            $this->extSubtitleList->validate();
+        }
+        if (null !== $this->subtitleList) {
+            $this->subtitleList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extSubtitleList) {
-            $res['ExtSubtitleList'] = null !== $this->extSubtitleList ? $this->extSubtitleList->toMap() : null;
+            $res['ExtSubtitleList'] = null !== $this->extSubtitleList ? $this->extSubtitleList->toArray($noStream) : $this->extSubtitleList;
         }
+
         if (null !== $this->subtitleList) {
-            $res['SubtitleList'] = null !== $this->subtitleList ? $this->subtitleList->toMap() : null;
+            $res['SubtitleList'] = null !== $this->subtitleList ? $this->subtitleList->toArray($noStream) : $this->subtitleList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subtitleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtSubtitleList'])) {
             $model->extSubtitleList = extSubtitleList::fromMap($map['ExtSubtitleList']);
         }
+
         if (isset($map['SubtitleList'])) {
             $model->subtitleList = subtitleList::fromMap($map['SubtitleList']);
         }

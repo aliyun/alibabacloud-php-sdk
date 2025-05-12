@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\textFpShots\textFpShot;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\textFpShots\textFpShot\textFpShotSlices\textFpShotSlice;
-use AlibabaCloud\Tea\Model;
 
 class textFpShotSlices extends Model
 {
@@ -17,17 +17,23 @@ class textFpShotSlices extends Model
         'textFpShotSlice' => 'TextFpShotSlice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->textFpShotSlice)) {
+            Model::validateArray($this->textFpShotSlice);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->textFpShotSlice) {
-            $res['TextFpShotSlice'] = [];
-            if (null !== $this->textFpShotSlice && \is_array($this->textFpShotSlice)) {
-                $n = 0;
-                foreach ($this->textFpShotSlice as $item) {
-                    $res['TextFpShotSlice'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->textFpShotSlice)) {
+                $res['TextFpShotSlice'] = [];
+                $n1 = 0;
+                foreach ($this->textFpShotSlice as $item1) {
+                    $res['TextFpShotSlice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class textFpShotSlices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return textFpShotSlices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TextFpShotSlice'])) {
             if (!empty($map['TextFpShotSlice'])) {
                 $model->textFpShotSlice = [];
-                $n = 0;
-                foreach ($map['TextFpShotSlice'] as $item) {
-                    $model->textFpShotSlice[$n++] = null !== $item ? textFpShotSlice::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TextFpShotSlice'] as $item1) {
+                    $model->textFpShotSlice[$n1++] = textFpShotSlice::fromMap($item1);
                 }
             }
         }

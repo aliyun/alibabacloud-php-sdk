@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\UpdateWaterMarkTemplateResponseBody\waterMarkTemplate;
-use AlibabaCloud\Tea\Model;
 
 class UpdateWaterMarkTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example E558894E-40D9-57C6-B5CC-0F5CDF23614E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the watermark template.
-     *
      * @var waterMarkTemplate
      */
     public $waterMarkTemplate;
@@ -29,32 +23,40 @@ class UpdateWaterMarkTemplateResponseBody extends Model
         'waterMarkTemplate' => 'WaterMarkTemplate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->waterMarkTemplate) {
+            $this->waterMarkTemplate->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->waterMarkTemplate) {
-            $res['WaterMarkTemplate'] = null !== $this->waterMarkTemplate ? $this->waterMarkTemplate->toMap() : null;
+            $res['WaterMarkTemplate'] = null !== $this->waterMarkTemplate ? $this->waterMarkTemplate->toArray($noStream) : $this->waterMarkTemplate;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWaterMarkTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WaterMarkTemplate'])) {
             $model->waterMarkTemplate = waterMarkTemplate::fromMap($map['WaterMarkTemplate']);
         }

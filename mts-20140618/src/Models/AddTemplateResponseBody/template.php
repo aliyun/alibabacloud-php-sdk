@@ -4,76 +4,51 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template\audio;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template\container;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template\muxConfig;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template\transConfig;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddTemplateResponseBody\template\video;
-use AlibabaCloud\Tea\Model;
 
 class template extends Model
 {
     /**
-     * @description The audio codec configurations.
-     *
      * @var audio
      */
     public $audio;
 
     /**
-     * @description The container format settings.
-     *
      * @var container
      */
     public $container;
 
     /**
-     * @description The ID of the transcoding template. We recommend that you keep this ID for subsequent operation calls.
-     *
-     * @example 16f01ad6175e4230ac42bb5182cd****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The transmuxing settings.
-     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
-     * @description The name of the transcoding template.
-     *
-     * @example mps-example
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The status of the template. Valid values:
-     *
-     *   **Normal**: The template is normal.
-     *   **Deleted**: The template is deleted.
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description The general transcoding settings.
-     *
      * @var transConfig
      */
     public $transConfig;
 
     /**
-     * @description The video codec configurations.
-     *
      * @var video
      */
     public $video;
@@ -88,68 +63,100 @@ class template extends Model
         'video' => 'Video',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->audio) {
+            $this->audio->validate();
+        }
+        if (null !== $this->container) {
+            $this->container->validate();
+        }
+        if (null !== $this->muxConfig) {
+            $this->muxConfig->validate();
+        }
+        if (null !== $this->transConfig) {
+            $this->transConfig->validate();
+        }
+        if (null !== $this->video) {
+            $this->video->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audio) {
-            $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
+            $res['Audio'] = null !== $this->audio ? $this->audio->toArray($noStream) : $this->audio;
         }
+
         if (null !== $this->container) {
-            $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
+            $res['Container'] = null !== $this->container ? $this->container->toArray($noStream) : $this->container;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->muxConfig) {
-            $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
+            $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toArray($noStream) : $this->muxConfig;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->transConfig) {
-            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
+            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toArray($noStream) : $this->transConfig;
         }
+
         if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
+            $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return template
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Audio'])) {
             $model->audio = audio::fromMap($map['Audio']);
         }
+
         if (isset($map['Container'])) {
             $model->container = container::fromMap($map['Container']);
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['TransConfig'])) {
             $model->transConfig = transConfig::fromMap($map['TransConfig']);
         }
+
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListMediaWorkflowExecutionsResponseBody\mediaWorkflowExecutionList\mediaWorkflowExecution;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListMediaWorkflowExecutionsResponseBody\mediaWorkflowExecutionList\mediaWorkflowExecution\input\inputFile;
-use AlibabaCloud\Tea\Model;
 
 class input extends Model
 {
     /**
-     * @description The information about the storage location of the input file of the media workflow in OSS.
-     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
-     * @description The custom data.
-     *
-     * @example example data
-     *
      * @var string
      */
     public $userData;
@@ -29,14 +23,21 @@ class input extends Model
         'userData' => 'UserData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->inputFile) {
+            $this->inputFile->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputFile) {
-            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
+            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toArray($noStream) : $this->inputFile;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -44,17 +45,18 @@ class input extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return input
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

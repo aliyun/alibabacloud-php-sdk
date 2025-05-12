@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListResponseBody\fpFileDeleteJobList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListResponseBody\nonExistIds;
-use AlibabaCloud\Tea\Model;
 
 class QueryFpFileDeleteJobListResponseBody extends Model
 {
     /**
-     * @description The jobs of deleting media files from a media fingerprint library. For more information, see the "FpFileDeleteJob" section of the [Data types](https://help.aliyun.com/document_detail/93555.html) topic.
-     *
      * @var fpFileDeleteJobList
      */
     public $fpFileDeleteJobList;
 
     /**
-     * @description The response parameters.
-     *
      * @var nonExistIds
      */
     public $nonExistIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D127C68E-F1A1-4CE5-A874-8FF724881A12
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class QueryFpFileDeleteJobListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fpFileDeleteJobList) {
+            $this->fpFileDeleteJobList->validate();
+        }
+        if (null !== $this->nonExistIds) {
+            $this->nonExistIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpFileDeleteJobList) {
-            $res['FpFileDeleteJobList'] = null !== $this->fpFileDeleteJobList ? $this->fpFileDeleteJobList->toMap() : null;
+            $res['FpFileDeleteJobList'] = null !== $this->fpFileDeleteJobList ? $this->fpFileDeleteJobList->toArray($noStream) : $this->fpFileDeleteJobList;
         }
+
         if (null !== $this->nonExistIds) {
-            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toArray($noStream) : $this->nonExistIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class QueryFpFileDeleteJobListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryFpFileDeleteJobListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpFileDeleteJobList'])) {
             $model->fpFileDeleteJobList = fpFileDeleteJobList::fromMap($map['FpFileDeleteJobList']);
         }
+
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

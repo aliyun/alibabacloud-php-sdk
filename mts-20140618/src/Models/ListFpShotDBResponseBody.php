@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponseBody\fpShotDBList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponseBody\nonExistIds;
-use AlibabaCloud\Tea\Model;
 
 class ListFpShotDBResponseBody extends Model
 {
     /**
-     * @description The media fingerprint libraries.
-     *
      * @var fpShotDBList
      */
     public $fpShotDBList;
 
     /**
-     * @description The IDs of the media fingerprint libraries that do not exist.
-     *
      * @var nonExistIds
      */
     public $nonExistIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class ListFpShotDBResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fpShotDBList) {
+            $this->fpShotDBList->validate();
+        }
+        if (null !== $this->nonExistIds) {
+            $this->nonExistIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShotDBList) {
-            $res['FpShotDBList'] = null !== $this->fpShotDBList ? $this->fpShotDBList->toMap() : null;
+            $res['FpShotDBList'] = null !== $this->fpShotDBList ? $this->fpShotDBList->toArray($noStream) : $this->fpShotDBList;
         }
+
         if (null !== $this->nonExistIds) {
-            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toArray($noStream) : $this->nonExistIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class ListFpShotDBResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFpShotDBResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShotDBList'])) {
             $model->fpShotDBList = fpShotDBList::fromMap($map['FpShotDBList']);
         }
+
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

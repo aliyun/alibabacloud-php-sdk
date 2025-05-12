@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\fpShots\fpShot;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\fpShots\fpShot\fpShotSlices\fpShotSlice;
-use AlibabaCloud\Tea\Model;
 
 class fpShotSlices extends Model
 {
@@ -17,17 +17,23 @@ class fpShotSlices extends Model
         'fpShotSlice' => 'FpShotSlice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fpShotSlice)) {
+            Model::validateArray($this->fpShotSlice);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShotSlice) {
-            $res['FpShotSlice'] = [];
-            if (null !== $this->fpShotSlice && \is_array($this->fpShotSlice)) {
-                $n = 0;
-                foreach ($this->fpShotSlice as $item) {
-                    $res['FpShotSlice'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fpShotSlice)) {
+                $res['FpShotSlice'] = [];
+                $n1 = 0;
+                foreach ($this->fpShotSlice as $item1) {
+                    $res['FpShotSlice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class fpShotSlices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpShotSlices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShotSlice'])) {
             if (!empty($map['FpShotSlice'])) {
                 $model->fpShotSlice = [];
-                $n = 0;
-                foreach ($map['FpShotSlice'] as $item) {
-                    $model->fpShotSlice[$n++] = null !== $item ? fpShotSlice::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FpShotSlice'] as $item1) {
+                    $model->fpShotSlice[$n1++] = fpShotSlice::fromMap($item1);
                 }
             }
         }

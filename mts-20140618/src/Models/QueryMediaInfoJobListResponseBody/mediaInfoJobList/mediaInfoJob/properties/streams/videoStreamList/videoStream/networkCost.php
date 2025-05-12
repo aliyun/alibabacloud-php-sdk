@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaInfoJobListResponseBody\mediaInfoJobList\mediaInfoJob\properties\streams\videoStreamList\videoStream;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkCost extends Model
 {
     /**
-     * @description The average bitrate of the video stream.
-     *
-     * @example 300.34
-     *
      * @var string
      */
     public $avgBitrate;
 
     /**
-     * @description The maximum bandwidth that is consumed.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $costBandwidth;
 
     /**
-     * @description The time consumed to preload the video.
-     *
-     * @example 8
-     *
      * @var string
      */
     public $preloadTime;
@@ -40,17 +28,22 @@ class networkCost extends Model
         'preloadTime' => 'PreloadTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avgBitrate) {
             $res['AvgBitrate'] = $this->avgBitrate;
         }
+
         if (null !== $this->costBandwidth) {
             $res['CostBandwidth'] = $this->costBandwidth;
         }
+
         if (null !== $this->preloadTime) {
             $res['PreloadTime'] = $this->preloadTime;
         }
@@ -58,20 +51,22 @@ class networkCost extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkCost
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvgBitrate'])) {
             $model->avgBitrate = $map['AvgBitrate'];
         }
+
         if (isset($map['CostBandwidth'])) {
             $model->costBandwidth = $map['CostBandwidth'];
         }
+
         if (isset($map['PreloadTime'])) {
             $model->preloadTime = $map['PreloadTime'];
         }

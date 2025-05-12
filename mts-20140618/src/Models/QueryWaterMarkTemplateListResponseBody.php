@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListResponseBody\nonExistWids;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListResponseBody\waterMarkTemplateList;
-use AlibabaCloud\Tea\Model;
 
 class QueryWaterMarkTemplateListResponseBody extends Model
 {
     /**
-     * @description The IDs of the templates that do not exist.
-     *
      * @var nonExistWids
      */
     public $nonExistWids;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 17079AF5-6276-51A9-B755-D26594C93F3C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the watermark templates.
-     *
      * @var waterMarkTemplateList
      */
     public $waterMarkTemplateList;
@@ -38,38 +30,51 @@ class QueryWaterMarkTemplateListResponseBody extends Model
         'waterMarkTemplateList' => 'WaterMarkTemplateList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->nonExistWids) {
+            $this->nonExistWids->validate();
+        }
+        if (null !== $this->waterMarkTemplateList) {
+            $this->waterMarkTemplateList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistWids) {
-            $res['NonExistWids'] = null !== $this->nonExistWids ? $this->nonExistWids->toMap() : null;
+            $res['NonExistWids'] = null !== $this->nonExistWids ? $this->nonExistWids->toArray($noStream) : $this->nonExistWids;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->waterMarkTemplateList) {
-            $res['WaterMarkTemplateList'] = null !== $this->waterMarkTemplateList ? $this->waterMarkTemplateList->toMap() : null;
+            $res['WaterMarkTemplateList'] = null !== $this->waterMarkTemplateList ? $this->waterMarkTemplateList->toArray($noStream) : $this->waterMarkTemplateList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryWaterMarkTemplateListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistWids'])) {
             $model->nonExistWids = nonExistWids::fromMap($map['NonExistWids']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WaterMarkTemplateList'])) {
             $model->waterMarkTemplateList = waterMarkTemplateList::fromMap($map['WaterMarkTemplateList']);
         }

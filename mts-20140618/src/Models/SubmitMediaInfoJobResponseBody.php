@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaInfoJobResponseBody\mediaInfoJob;
-use AlibabaCloud\Tea\Model;
 
 class SubmitMediaInfoJobResponseBody extends Model
 {
     /**
-     * @description The details of the media information analysis job.
-     *
      * @var mediaInfoJob
      */
     public $mediaInfoJob;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 62D9BE16-B7D5-550C-A482-7A0F60E09877
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class SubmitMediaInfoJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaInfoJob) {
+            $this->mediaInfoJob->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaInfoJob) {
-            $res['MediaInfoJob'] = null !== $this->mediaInfoJob ? $this->mediaInfoJob->toMap() : null;
+            $res['MediaInfoJob'] = null !== $this->mediaInfoJob ? $this->mediaInfoJob->toArray($noStream) : $this->mediaInfoJob;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class SubmitMediaInfoJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitMediaInfoJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaInfoJob'])) {
             $model->mediaInfoJob = mediaInfoJob::fromMap($map['MediaInfoJob']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

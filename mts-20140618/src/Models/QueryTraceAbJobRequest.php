@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryTraceAbJobRequest extends Model
 {
     /**
-     * @example 31fa3c9ca8134fb4b0b0f7878301****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @example 3e6149d5a8c944c09b1a8d2dc3e4****
-     *
      * @var string
      */
     public $mediaId;
@@ -26,14 +22,18 @@ class QueryTraceAbJobRequest extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -41,17 +41,18 @@ class QueryTraceAbJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTraceAbJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

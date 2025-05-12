@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\UpdateTemplateResponseBody\template\muxConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class webp extends Model
 {
     /**
-     * @description The transmuxing configurations for GIF.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $loop;
@@ -20,9 +16,12 @@ class webp extends Model
         'loop' => 'Loop',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loop) {
@@ -32,11 +31,11 @@ class webp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return webp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

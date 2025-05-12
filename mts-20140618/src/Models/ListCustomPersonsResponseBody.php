@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponseBody\categories;
-use AlibabaCloud\Tea\Model;
 
 class ListCustomPersonsResponseBody extends Model
 {
     /**
-     * @description The array of the figure libraries.
-     *
      * @var categories
      */
     public $categories;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example FD4DED6B-0C26-5A8B-A6BE-4FA542AE4D57
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class ListCustomPersonsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->categories) {
+            $this->categories->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categories) {
-            $res['Categories'] = null !== $this->categories ? $this->categories->toMap() : null;
+            $res['Categories'] = null !== $this->categories ? $this->categories->toArray($noStream) : $this->categories;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class ListCustomPersonsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomPersonsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             $model->categories = categories::fromMap($map['Categories']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

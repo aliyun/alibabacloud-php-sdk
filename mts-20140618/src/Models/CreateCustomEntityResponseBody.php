@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCustomEntityResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $customEntityId;
 
     /**
-     * @example 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateCustomEntityResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customEntityId) {
             $res['CustomEntityId'] = $this->customEntityId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateCustomEntityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomEntityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomEntityId'])) {
             $model->customEntityId = $map['CustomEntityId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

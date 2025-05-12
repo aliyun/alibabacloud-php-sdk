@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageCopyrightResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example bfb786c639894f4d80648792021e****
-     *
      * @var string
      */
     public $jobId;
@@ -18,9 +16,12 @@ class data extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -30,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

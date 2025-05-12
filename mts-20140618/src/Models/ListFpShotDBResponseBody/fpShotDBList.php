@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponseBody\fpShotDBList\fpShotDB;
-use AlibabaCloud\Tea\Model;
 
 class fpShotDBList extends Model
 {
@@ -17,17 +17,23 @@ class fpShotDBList extends Model
         'fpShotDB' => 'FpShotDB',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fpShotDB)) {
+            Model::validateArray($this->fpShotDB);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fpShotDB) {
-            $res['FpShotDB'] = [];
-            if (null !== $this->fpShotDB && \is_array($this->fpShotDB)) {
-                $n = 0;
-                foreach ($this->fpShotDB as $item) {
-                    $res['FpShotDB'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fpShotDB)) {
+                $res['FpShotDB'] = [];
+                $n1 = 0;
+                foreach ($this->fpShotDB as $item1) {
+                    $res['FpShotDB'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class fpShotDBList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fpShotDBList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FpShotDB'])) {
             if (!empty($map['FpShotDB'])) {
                 $model->fpShotDB = [];
-                $n = 0;
-                foreach ($map['FpShotDB'] as $item) {
-                    $model->fpShotDB[$n++] = null !== $item ? fpShotDB::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FpShotDB'] as $item1) {
+                    $model->fpShotDB[$n1++] = fpShotDB::fromMap($item1);
                 }
             }
         }

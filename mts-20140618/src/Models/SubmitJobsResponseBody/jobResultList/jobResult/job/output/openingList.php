@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsResponseBody\jobResultList\jobResult\job\output\openingList\opening;
-use AlibabaCloud\Tea\Model;
 
 class openingList extends Model
 {
@@ -17,17 +17,23 @@ class openingList extends Model
         'opening' => 'Opening',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->opening)) {
+            Model::validateArray($this->opening);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opening) {
-            $res['Opening'] = [];
-            if (null !== $this->opening && \is_array($this->opening)) {
-                $n = 0;
-                foreach ($this->opening as $item) {
-                    $res['Opening'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->opening)) {
+                $res['Opening'] = [];
+                $n1 = 0;
+                foreach ($this->opening as $item1) {
+                    $res['Opening'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class openingList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return openingList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Opening'])) {
             if (!empty($map['Opening'])) {
                 $model->opening = [];
-                $n = 0;
-                foreach ($map['Opening'] as $item) {
-                    $model->opening[$n++] = null !== $item ? opening::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Opening'] as $item1) {
+                    $model->opening[$n1++] = opening::fromMap($item1);
                 }
             }
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListResponseBody\mediaList\media\mediaInfo\streams\videoStreamList\videoStream;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkCost extends Model
 {
     /**
-     * @description The average bitrate.
-     *
-     * @example 2659.326
-     *
      * @var string
      */
     public $avgBitrate;
 
     /**
-     * @description The maximum bandwidth that was consumed.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $costBandwidth;
 
     /**
-     * @description The amount of preload time.
-     *
-     * @example 0.01
-     *
      * @var string
      */
     public $preloadTime;
@@ -40,17 +28,22 @@ class networkCost extends Model
         'preloadTime' => 'PreloadTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avgBitrate) {
             $res['AvgBitrate'] = $this->avgBitrate;
         }
+
         if (null !== $this->costBandwidth) {
             $res['CostBandwidth'] = $this->costBandwidth;
         }
+
         if (null !== $this->preloadTime) {
             $res['PreloadTime'] = $this->preloadTime;
         }
@@ -58,20 +51,22 @@ class networkCost extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkCost
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvgBitrate'])) {
             $model->avgBitrate = $map['AvgBitrate'];
         }
+
         if (isset($map['CostBandwidth'])) {
             $model->costBandwidth = $map['CostBandwidth'];
         }
+
         if (isset($map['PreloadTime'])) {
             $model->preloadTime = $map['PreloadTime'];
         }

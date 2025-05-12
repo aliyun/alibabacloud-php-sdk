@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaWorkflowListResponseBody\mediaWorkflowList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaWorkflowListResponseBody\nonExistMediaWorkflowIds;
-use AlibabaCloud\Tea\Model;
 
 class QueryMediaWorkflowListResponseBody extends Model
 {
     /**
-     * @description The media workflows.
-     *
      * @var mediaWorkflowList
      */
     public $mediaWorkflowList;
 
     /**
-     * @description The workflows that do not exist.
-     *
      * @var nonExistMediaWorkflowIds
      */
     public $nonExistMediaWorkflowIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16CD0CDD-457E-420D-1234-8385075A618B
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class QueryMediaWorkflowListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaWorkflowList) {
+            $this->mediaWorkflowList->validate();
+        }
+        if (null !== $this->nonExistMediaWorkflowIds) {
+            $this->nonExistMediaWorkflowIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaWorkflowList) {
-            $res['MediaWorkflowList'] = null !== $this->mediaWorkflowList ? $this->mediaWorkflowList->toMap() : null;
+            $res['MediaWorkflowList'] = null !== $this->mediaWorkflowList ? $this->mediaWorkflowList->toArray($noStream) : $this->mediaWorkflowList;
         }
+
         if (null !== $this->nonExistMediaWorkflowIds) {
-            $res['NonExistMediaWorkflowIds'] = null !== $this->nonExistMediaWorkflowIds ? $this->nonExistMediaWorkflowIds->toMap() : null;
+            $res['NonExistMediaWorkflowIds'] = null !== $this->nonExistMediaWorkflowIds ? $this->nonExistMediaWorkflowIds->toArray($noStream) : $this->nonExistMediaWorkflowIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class QueryMediaWorkflowListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMediaWorkflowListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaWorkflowList'])) {
             $model->mediaWorkflowList = mediaWorkflowList::fromMap($map['MediaWorkflowList']);
         }
+
         if (isset($map['NonExistMediaWorkflowIds'])) {
             $model->nonExistMediaWorkflowIds = nonExistMediaWorkflowIds::fromMap($map['NonExistMediaWorkflowIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

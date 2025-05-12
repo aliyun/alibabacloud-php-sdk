@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditResponseBody\imageResults\result\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hintWordsInfo extends Model
 {
     /**
-     * @description The term hit by the detected text.
-     *
-     * @example Sensitive words
-     *
      * @var string
      */
     public $context;
@@ -20,9 +16,12 @@ class hintWordsInfo extends Model
         'context' => 'context',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
@@ -32,11 +31,11 @@ class hintWordsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hintWordsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

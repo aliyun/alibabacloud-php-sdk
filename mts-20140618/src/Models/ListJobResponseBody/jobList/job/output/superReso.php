@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\ListJobResponseBody\jobList\job\output;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class superReso extends Model
 {
     /**
-     * @description Indicates whether parameters related to the sampling rate are obtained. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var string
      */
     public $isHalfSample;
@@ -23,9 +16,12 @@ class superReso extends Model
         'isHalfSample' => 'IsHalfSample',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isHalfSample) {
@@ -35,11 +31,11 @@ class superReso extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return superReso
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

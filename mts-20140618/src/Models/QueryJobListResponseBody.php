@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\jobList;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryJobListResponseBody\nonExistJobIds;
-use AlibabaCloud\Tea\Model;
 
 class QueryJobListResponseBody extends Model
 {
     /**
-     * @description The transcoding jobs.
-     *
      * @var jobList
      */
     public $jobList;
 
     /**
-     * @description The list of nonexistent job IDs. If all queried job IDs exist, the response does not contain this parameter.
-     *
      * @var nonExistJobIds
      */
     public $nonExistJobIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 197ADF44-104C-514C-9F92-D8924CB34E2A
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class QueryJobListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobList) {
+            $this->jobList->validate();
+        }
+        if (null !== $this->nonExistJobIds) {
+            $this->nonExistJobIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobList) {
-            $res['JobList'] = null !== $this->jobList ? $this->jobList->toMap() : null;
+            $res['JobList'] = null !== $this->jobList ? $this->jobList->toArray($noStream) : $this->jobList;
         }
+
         if (null !== $this->nonExistJobIds) {
-            $res['NonExistJobIds'] = null !== $this->nonExistJobIds ? $this->nonExistJobIds->toMap() : null;
+            $res['NonExistJobIds'] = null !== $this->nonExistJobIds ? $this->nonExistJobIds->toArray($noStream) : $this->nonExistJobIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class QueryJobListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryJobListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobList'])) {
             $model->jobList = jobList::fromMap($map['JobList']);
         }
+
         if (isset($map['NonExistJobIds'])) {
             $model->nonExistJobIds = nonExistJobIds::fromMap($map['NonExistJobIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

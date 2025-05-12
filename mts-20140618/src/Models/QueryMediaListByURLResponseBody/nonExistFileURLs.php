@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryMediaListByURLResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nonExistFileURLs extends Model
 {
@@ -16,29 +16,45 @@ class nonExistFileURLs extends Model
         'fileURL' => 'FileURL',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileURL)) {
+            Model::validateArray($this->fileURL);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileURL) {
-            $res['FileURL'] = $this->fileURL;
+            if (\is_array($this->fileURL)) {
+                $res['FileURL'] = [];
+                $n1 = 0;
+                foreach ($this->fileURL as $item1) {
+                    $res['FileURL'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nonExistFileURLs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileURL'])) {
             if (!empty($map['FileURL'])) {
-                $model->fileURL = $map['FileURL'];
+                $model->fileURL = [];
+                $n1 = 0;
+                foreach ($map['FileURL'] as $item1) {
+                    $model->fileURL[$n1++] = $item1;
+                }
             }
         }
 
