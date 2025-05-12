@@ -153,6 +153,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGroupRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGroupResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceLabelRequest;
@@ -508,7 +510,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * Creates an application service.
+     * Creates an application service to obtain the inference capabilities of large models.
      *
      * @param request - CreateAppServiceRequest
      * @param headers - map
@@ -580,7 +582,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * Creates an application service.
+     * Creates an application service to obtain the inference capabilities of large models.
      *
      * @param request - CreateAppServiceRequest
      *
@@ -5998,6 +6000,71 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->updateGatewayWithOptions($GatewayId, $ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the specific fields of a service group.
+     *
+     * @param request - UpdateGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGroupResponse
+     *
+     * @param string             $ClusterId
+     * @param string             $GroupName
+     * @param UpdateGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateGroupResponse
+     */
+    public function updateGroupWithOptions($ClusterId, $GroupName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->trafficMode) {
+            @$body['TrafficMode'] = $request->trafficMode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGroup',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the specific fields of a service group.
+     *
+     * @param request - UpdateGroupRequest
+     *
+     * @returns UpdateGroupResponse
+     *
+     * @param string             $ClusterId
+     * @param string             $GroupName
+     * @param UpdateGroupRequest $request
+     *
+     * @return UpdateGroupResponse
+     */
+    public function updateGroup($ClusterId, $GroupName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGroupWithOptions($ClusterId, $GroupName, $request, $headers, $runtime);
     }
 
     /**
