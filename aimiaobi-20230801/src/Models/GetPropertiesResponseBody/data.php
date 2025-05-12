@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\consoleConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\intelligentSearchConfig;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\searchSourceList;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\searchSources;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\userInfo;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\wanxiangImageSizeConfig;
@@ -33,6 +34,11 @@ class data extends Model
      * @var intelligentSearchConfig
      */
     public $intelligentSearchConfig;
+
+    /**
+     * @var searchSourceList[]
+     */
+    public $searchSourceList;
 
     /**
      * @var searchSources[]
@@ -63,6 +69,7 @@ class data extends Model
         'consoleConfig' => 'ConsoleConfig',
         'generalConfigMap' => 'GeneralConfigMap',
         'intelligentSearchConfig' => 'IntelligentSearchConfig',
+        'searchSourceList' => 'SearchSourceList',
         'searchSources' => 'SearchSources',
         'slrAuthorized' => 'SlrAuthorized',
         'userInfo' => 'UserInfo',
@@ -83,6 +90,9 @@ class data extends Model
         }
         if (null !== $this->intelligentSearchConfig) {
             $this->intelligentSearchConfig->validate();
+        }
+        if (\is_array($this->searchSourceList)) {
+            Model::validateArray($this->searchSourceList);
         }
         if (\is_array($this->searchSources)) {
             Model::validateArray($this->searchSources);
@@ -126,6 +136,16 @@ class data extends Model
 
         if (null !== $this->intelligentSearchConfig) {
             $res['IntelligentSearchConfig'] = null !== $this->intelligentSearchConfig ? $this->intelligentSearchConfig->toArray($noStream) : $this->intelligentSearchConfig;
+        }
+
+        if (null !== $this->searchSourceList) {
+            if (\is_array($this->searchSourceList)) {
+                $res['SearchSourceList'] = [];
+                $n1 = 0;
+                foreach ($this->searchSourceList as $item1) {
+                    $res['SearchSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->searchSources) {
@@ -201,6 +221,16 @@ class data extends Model
 
         if (isset($map['IntelligentSearchConfig'])) {
             $model->intelligentSearchConfig = intelligentSearchConfig::fromMap($map['IntelligentSearchConfig']);
+        }
+
+        if (isset($map['SearchSourceList'])) {
+            if (!empty($map['SearchSourceList'])) {
+                $model->searchSourceList = [];
+                $n1 = 0;
+                foreach ($map['SearchSourceList'] as $item1) {
+                    $model->searchSourceList[$n1++] = searchSourceList::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['SearchSources'])) {

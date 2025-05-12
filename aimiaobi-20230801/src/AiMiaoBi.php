@@ -107,6 +107,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetStyleLearningResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetStyleLearningResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskRequest;
@@ -191,6 +193,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWebReviewPointsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWebReviewPointsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWritingStylesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWritingStylesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
@@ -263,6 +267,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationShrinkReque
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2Request;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2Response;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2ShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigRequest;
@@ -3444,6 +3451,69 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 获取文体学习分析结果.
+     *
+     * @param request - GetStyleLearningResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStyleLearningResultResponse
+     *
+     * @param GetStyleLearningResultRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetStyleLearningResultResponse
+     */
+    public function getStyleLearningResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetStyleLearningResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文体学习分析结果.
+     *
+     * @param request - GetStyleLearningResultRequest
+     *
+     * @returns GetStyleLearningResultResponse
+     *
+     * @param GetStyleLearningResultRequest $request
+     *
+     * @return GetStyleLearningResultResponse
+     */
+    public function getStyleLearningResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStyleLearningResultWithOptions($request, $runtime);
+    }
+
+    /**
      * 根据ID获取热点事件信息.
      *
      * @param request - GetTopicByIdRequest
@@ -6312,6 +6382,77 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 获取文体列表.
+     *
+     * @param request - ListWritingStylesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWritingStylesResponse
+     *
+     * @param ListWritingStylesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListWritingStylesResponse
+     */
+    public function listWritingStylesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->scene) {
+            @$body['Scene'] = $request->scene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWritingStyles',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWritingStylesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文体列表.
+     *
+     * @param request - ListWritingStylesRequest
+     *
+     * @returns ListWritingStylesResponse
+     *
+     * @param ListWritingStylesRequest $request
+     *
+     * @return ListWritingStylesResponse
+     */
+    public function listWritingStyles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWritingStylesWithOptions($request, $runtime);
+    }
+
+    /**
      * 根据taskId查询异步任务状态
      *
      * @param request - QueryAsyncTaskRequest
@@ -8629,6 +8770,169 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runWritingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 直接写作.
+     *
+     * @param tmpReq - RunWritingV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunWritingV2Response
+     *
+     * @param RunWritingV2Request $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RunWritingV2Response
+     */
+    public function runWritingV2WithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunWritingV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->articles) {
+            $request->articlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->articles, 'Articles', 'json');
+        }
+
+        if (null !== $tmpReq->keywords) {
+            $request->keywordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
+        }
+
+        if (null !== $tmpReq->miniDocs) {
+            $request->miniDocsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->miniDocs, 'MiniDocs', 'json');
+        }
+
+        if (null !== $tmpReq->outlines) {
+            $request->outlinesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outlines, 'Outlines', 'json');
+        }
+
+        if (null !== $tmpReq->searchSources) {
+            $request->searchSourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchSources, 'SearchSources', 'json');
+        }
+
+        if (null !== $tmpReq->summarization) {
+            $request->summarizationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->summarization, 'Summarization', 'json');
+        }
+
+        if (null !== $tmpReq->writingParams) {
+            $request->writingParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->writingParams, 'WritingParams', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->articlesShrink) {
+            @$body['Articles'] = $request->articlesShrink;
+        }
+
+        if (null !== $request->distributeWriting) {
+            @$body['DistributeWriting'] = $request->distributeWriting;
+        }
+
+        if (null !== $request->gcNumberSize) {
+            @$body['GcNumberSize'] = $request->gcNumberSize;
+        }
+
+        if (null !== $request->gcNumberSizeTag) {
+            @$body['GcNumberSizeTag'] = $request->gcNumberSizeTag;
+        }
+
+        if (null !== $request->keywordsShrink) {
+            @$body['Keywords'] = $request->keywordsShrink;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->miniDocsShrink) {
+            @$body['MiniDocs'] = $request->miniDocsShrink;
+        }
+
+        if (null !== $request->outlinesShrink) {
+            @$body['Outlines'] = $request->outlinesShrink;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->promptMode) {
+            @$body['PromptMode'] = $request->promptMode;
+        }
+
+        if (null !== $request->searchSourcesShrink) {
+            @$body['SearchSources'] = $request->searchSourcesShrink;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->step) {
+            @$body['Step'] = $request->step;
+        }
+
+        if (null !== $request->summarizationShrink) {
+            @$body['Summarization'] = $request->summarizationShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->useSearch) {
+            @$body['UseSearch'] = $request->useSearch;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->writingParamsShrink) {
+            @$body['WritingParams'] = $request->writingParamsShrink;
+        }
+
+        if (null !== $request->writingScene) {
+            @$body['WritingScene'] = $request->writingScene;
+        }
+
+        if (null !== $request->writingStyle) {
+            @$body['WritingStyle'] = $request->writingStyle;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunWritingV2',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunWritingV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 直接写作.
+     *
+     * @param request - RunWritingV2Request
+     *
+     * @returns RunWritingV2Response
+     *
+     * @param RunWritingV2Request $request
+     *
+     * @return RunWritingV2Response
+     */
+    public function runWritingV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runWritingV2WithOptions($request, $runtime);
     }
 
     /**
