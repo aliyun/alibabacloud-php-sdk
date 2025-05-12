@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsResponseBody\data\fileAttr;
 
 class data extends Model
 {
@@ -42,6 +43,16 @@ class data extends Model
      * @var string
      */
     public $externalUrl;
+
+    /**
+     * @var fileAttr
+     */
+    public $fileAttr;
+
+    /**
+     * @var string
+     */
+    public $fileKey;
 
     /**
      * @var string
@@ -120,6 +131,8 @@ class data extends Model
         'docKeywords' => 'DocKeywords',
         'docType' => 'DocType',
         'externalUrl' => 'ExternalUrl',
+        'fileAttr' => 'FileAttr',
+        'fileKey' => 'FileKey',
         'htmlContent' => 'HtmlContent',
         'id' => 'Id',
         'pubTime' => 'PubTime',
@@ -140,6 +153,9 @@ class data extends Model
     {
         if (\is_array($this->docKeywords)) {
             Model::validateArray($this->docKeywords);
+        }
+        if (null !== $this->fileAttr) {
+            $this->fileAttr->validate();
         }
         parent::validate();
     }
@@ -179,6 +195,14 @@ class data extends Model
 
         if (null !== $this->externalUrl) {
             $res['ExternalUrl'] = $this->externalUrl;
+        }
+
+        if (null !== $this->fileAttr) {
+            $res['FileAttr'] = null !== $this->fileAttr ? $this->fileAttr->toArray($noStream) : $this->fileAttr;
+        }
+
+        if (null !== $this->fileKey) {
+            $res['FileKey'] = $this->fileKey;
         }
 
         if (null !== $this->htmlContent) {
@@ -280,6 +304,14 @@ class data extends Model
 
         if (isset($map['ExternalUrl'])) {
             $model->externalUrl = $map['ExternalUrl'];
+        }
+
+        if (isset($map['FileAttr'])) {
+            $model->fileAttr = fileAttr::fromMap($map['FileAttr']);
+        }
+
+        if (isset($map['FileKey'])) {
+            $model->fileKey = $map['FileKey'];
         }
 
         if (isset($map['HtmlContent'])) {

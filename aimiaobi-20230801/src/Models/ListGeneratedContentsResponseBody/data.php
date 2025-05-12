@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponseBody\data\fileAttr;
 
 class data extends Model
 {
@@ -37,6 +38,16 @@ class data extends Model
      * @var string
      */
     public $deviceId;
+
+    /**
+     * @var fileAttr
+     */
+    public $fileAttr;
+
+    /**
+     * @var string
+     */
+    public $fileKey;
 
     /**
      * @var int
@@ -89,6 +100,8 @@ class data extends Model
         'createTime' => 'CreateTime',
         'createUser' => 'CreateUser',
         'deviceId' => 'DeviceId',
+        'fileAttr' => 'FileAttr',
+        'fileKey' => 'FileKey',
         'id' => 'Id',
         'keywordList' => 'KeywordList',
         'keywords' => 'Keywords',
@@ -102,6 +115,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->fileAttr) {
+            $this->fileAttr->validate();
+        }
         if (\is_array($this->keywordList)) {
             Model::validateArray($this->keywordList);
         }
@@ -133,6 +149,14 @@ class data extends Model
 
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+
+        if (null !== $this->fileAttr) {
+            $res['FileAttr'] = null !== $this->fileAttr ? $this->fileAttr->toArray($noStream) : $this->fileAttr;
+        }
+
+        if (null !== $this->fileKey) {
+            $res['FileKey'] = $this->fileKey;
         }
 
         if (null !== $this->id) {
@@ -210,6 +234,14 @@ class data extends Model
 
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+
+        if (isset($map['FileAttr'])) {
+            $model->fileAttr = fileAttr::fromMap($map['FileAttr']);
+        }
+
+        if (isset($map['FileKey'])) {
+            $model->fileKey = $map['FileKey'];
         }
 
         if (isset($map['Id'])) {

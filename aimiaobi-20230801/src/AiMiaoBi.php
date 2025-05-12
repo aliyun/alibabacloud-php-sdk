@@ -4755,6 +4755,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['Current'] = $request->current;
         }
 
+        if (null !== $request->dataType) {
+            @$body['DataType'] = $request->dataType;
+        }
+
         if (null !== $request->endTime) {
             @$body['EndTime'] = $request->endTime;
         }

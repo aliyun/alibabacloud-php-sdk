@@ -26,6 +26,11 @@ class ListGeneratedContentsRequest extends Model
     /**
      * @var string
      */
+    public $dataType;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -56,6 +61,7 @@ class ListGeneratedContentsRequest extends Model
         'agentKey' => 'AgentKey',
         'contentDomain' => 'ContentDomain',
         'current' => 'Current',
+        'dataType' => 'DataType',
         'endTime' => 'EndTime',
         'query' => 'Query',
         'size' => 'Size',
@@ -82,6 +88,10 @@ class ListGeneratedContentsRequest extends Model
 
         if (null !== $this->current) {
             $res['Current'] = $this->current;
+        }
+
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
         }
 
         if (null !== $this->endTime) {
@@ -129,6 +139,10 @@ class ListGeneratedContentsRequest extends Model
 
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
+        }
+
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
         }
 
         if (isset($map['EndTime'])) {
