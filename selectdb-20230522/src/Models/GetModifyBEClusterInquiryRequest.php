@@ -39,6 +39,11 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $dbInstanceId;
 
     /**
+     * @var bool
+     */
+    public $modifyClusterChargeType;
+
+    /**
      * @var int
      */
     public $preCacheSize;
@@ -74,6 +79,7 @@ class GetModifyBEClusterInquiryRequest extends Model
         'commodityCode' => 'CommodityCode',
         'computeSize' => 'ComputeSize',
         'dbInstanceId' => 'DbInstanceId',
+        'modifyClusterChargeType' => 'ModifyClusterChargeType',
         'preCacheSize' => 'PreCacheSize',
         'preComputeSize' => 'PreComputeSize',
         'pricingCycle' => 'PricingCycle',
@@ -112,6 +118,10 @@ class GetModifyBEClusterInquiryRequest extends Model
 
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
+        }
+
+        if (null !== $this->modifyClusterChargeType) {
+            $res['ModifyClusterChargeType'] = $this->modifyClusterChargeType;
         }
 
         if (null !== $this->preCacheSize) {
@@ -171,6 +181,10 @@ class GetModifyBEClusterInquiryRequest extends Model
 
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
+        }
+
+        if (isset($map['ModifyClusterChargeType'])) {
+            $model->modifyClusterChargeType = $map['ModifyClusterChargeType'];
         }
 
         if (isset($map['PreCacheSize'])) {

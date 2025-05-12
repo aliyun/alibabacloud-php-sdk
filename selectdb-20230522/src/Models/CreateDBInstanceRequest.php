@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceRequest\tag;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addVPCIPs;
+
+    /**
      * @var int
      */
     public $cacheSize;
@@ -110,6 +115,7 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'addVPCIPs' => 'AddVPCIPs',
         'cacheSize' => 'CacheSize',
         'chargeType' => 'ChargeType',
         'clientToken' => 'ClientToken',
@@ -146,6 +152,10 @@ class CreateDBInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addVPCIPs) {
+            $res['AddVPCIPs'] = $this->addVPCIPs;
+        }
+
         if (null !== $this->cacheSize) {
             $res['CacheSize'] = $this->cacheSize;
         }
@@ -249,6 +259,10 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddVPCIPs'])) {
+            $model->addVPCIPs = $map['AddVPCIPs'];
+        }
+
         if (isset($map['CacheSize'])) {
             $model->cacheSize = $map['CacheSize'];
         }

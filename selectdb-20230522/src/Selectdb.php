@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\CheckCreateDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CheckCreateDBInstanceResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CheckServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterBindingRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterBindingResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateElasticRuleRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateElasticRuleResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterBindingRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterBindingResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceRequest;
@@ -165,11 +169,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -289,11 +290,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckCreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -353,11 +351,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -470,11 +465,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -496,6 +488,85 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a binding relationship for clusters. If the zone-redundant storage (ZRS) deployment method is used, you can create a binding relationship between two clusters.
+     *
+     * @remarks
+     * This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
+     * *   The instance clusters reside in different zones.
+     * *   The billing method of the instance clusters is consistent.
+     *
+     * @param request - CreateDBClusterBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDBClusterBindingResponse
+     *
+     * @param CreateDBClusterBindingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDBClusterBindingResponse
+     */
+    public function createDBClusterBindingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBClusterIdBak) {
+            @$query['DBClusterIdBak'] = $request->DBClusterIdBak;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDBClusterBinding',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDBClusterBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a binding relationship for clusters. If the zone-redundant storage (ZRS) deployment method is used, you can create a binding relationship between two clusters.
+     *
+     * @remarks
+     * This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
+     * *   The instance clusters reside in different zones.
+     * *   The billing method of the instance clusters is consistent.
+     *
+     * @param request - CreateDBClusterBindingRequest
+     *
+     * @returns CreateDBClusterBindingResponse
+     *
+     * @param CreateDBClusterBindingRequest $request
+     *
+     * @return CreateDBClusterBindingResponse
+     */
+    public function createDBClusterBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBClusterBindingWithOptions($request, $runtime);
     }
 
     /**
@@ -525,6 +596,10 @@ class Selectdb extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->addVPCIPs) {
+            @$query['AddVPCIPs'] = $request->addVPCIPs;
+        }
+
         if (null !== $request->cacheSize) {
             @$query['CacheSize'] = $request->cacheSize;
         }
@@ -621,11 +696,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -705,11 +777,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateElasticRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -769,11 +838,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceLinkedRoleForSelectDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceLinkedRoleForSelectDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceLinkedRoleForSelectDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -795,7 +861,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * 释放实例下集群.
+     * Deletes a cluster from an instance.
      *
      * @param request - DeleteDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -847,15 +913,12 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 释放实例下集群.
+     * Deletes a cluster from an instance.
      *
      * @param request - DeleteDBClusterRequest
      *
@@ -870,6 +933,75 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the binding relationship between two clusters for mutual backup.
+     *
+     * @param request - DeleteDBClusterBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDBClusterBindingResponse
+     *
+     * @param DeleteDBClusterBindingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDBClusterBindingResponse
+     */
+    public function deleteDBClusterBindingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBClusterIdBak) {
+            @$query['DBClusterIdBak'] = $request->DBClusterIdBak;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDBClusterBinding',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDBClusterBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the binding relationship between two clusters for mutual backup.
+     *
+     * @param request - DeleteDBClusterBindingRequest
+     *
+     * @returns DeleteDBClusterBindingResponse
+     *
+     * @param DeleteDBClusterBindingRequest $request
+     *
+     * @return DeleteDBClusterBindingResponse
+     */
+    public function deleteDBClusterBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBClusterBindingWithOptions($request, $runtime);
     }
 
     /**
@@ -917,11 +1049,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -997,11 +1126,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteElasticRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1061,11 +1187,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAllDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAllDBInstanceClassResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAllDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1133,11 +1256,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1213,11 +1333,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1281,11 +1398,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1349,11 +1463,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceNetInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1447,11 +1558,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1503,11 +1611,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeElasticRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeElasticRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeElasticRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1559,11 +1664,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1627,11 +1729,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityIPListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1707,11 +1806,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnDisableScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnDisableScalingRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnDisableScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1763,11 +1859,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCreateBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCreateBEClusterInquiryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCreateBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1819,11 +1912,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetModifyBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModifyBEClusterInquiryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModifyBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1899,11 +1989,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBEClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBEClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBEClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1983,11 +2070,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2067,11 +2151,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2143,11 +2224,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2235,11 +2313,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyElasticRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2315,11 +2390,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityIPListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2387,11 +2459,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2443,11 +2512,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2525,11 +2591,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2597,11 +2660,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartBEClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2669,11 +2729,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopBEClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2749,11 +2806,8 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

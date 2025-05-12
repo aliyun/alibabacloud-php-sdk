@@ -16,9 +16,15 @@ class data extends Model
     /**
      * @var string
      */
+    public $refundAmount;
+
+    /**
+     * @var string
+     */
     public $tradeAmount;
     protected $_name = [
         'currency' => 'Currency',
+        'refundAmount' => 'RefundAmount',
         'tradeAmount' => 'TradeAmount',
     ];
 
@@ -32,6 +38,10 @@ class data extends Model
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
+        }
+
+        if (null !== $this->refundAmount) {
+            $res['RefundAmount'] = $this->refundAmount;
         }
 
         if (null !== $this->tradeAmount) {
@@ -51,6 +61,10 @@ class data extends Model
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
+        }
+
+        if (isset($map['RefundAmount'])) {
+            $model->refundAmount = $map['RefundAmount'];
         }
 
         if (isset($map['TradeAmount'])) {
