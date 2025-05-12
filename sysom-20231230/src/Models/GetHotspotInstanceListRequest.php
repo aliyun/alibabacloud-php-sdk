@@ -12,18 +12,20 @@ class GetHotspotInstanceListRequest extends Model
      * @var int
      */
     public $begEnd;
+
     /**
      * @var int
      */
     public $begStart;
+
     /**
      * @var string
      */
     public $table;
     protected $_name = [
-        'begEnd'   => 'beg_end',
+        'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
-        'table'    => 'table',
+        'table' => 'table',
     ];
 
     public function validate()

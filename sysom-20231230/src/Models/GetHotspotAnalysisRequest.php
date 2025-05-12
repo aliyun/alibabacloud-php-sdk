@@ -12,33 +12,38 @@ class GetHotspotAnalysisRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var int
      */
     public $begEnd;
+
     /**
      * @var int
      */
     public $begStart;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var string
      */
     public $table;
     protected $_name = [
-        'appType'  => 'appType',
-        'begEnd'   => 'beg_end',
+        'appType' => 'appType',
+        'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
         'instance' => 'instance',
-        'pid'      => 'pid',
-        'table'    => 'table',
+        'pid' => 'pid',
+        'table' => 'table',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class ListPodsOfInstanceRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'clusterId' => 'cluster_id',
-        'current'   => 'current',
-        'instance'  => 'instance',
-        'pageSize'  => 'pageSize',
+        'current' => 'current',
+        'instance' => 'instance',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

@@ -13,18 +13,20 @@ class UninstallAgentRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentVersion;
+
     /**
      * @var instances[]
      */
     public $instances;
     protected $_name = [
-        'agentId'      => 'agent_id',
+        'agentId' => 'agent_id',
         'agentVersion' => 'agent_version',
-        'instances'    => 'instances',
+        'instances' => 'instances',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class UninstallAgentRequest extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class UninstallAgentRequest extends Model
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['instances'] as $item1) {
                     $model->instances[$n1++] = instances::fromMap($item1);
                 }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data\opts\result;
 
 class opts extends Model
 {
@@ -12,22 +13,27 @@ class opts extends Model
      * @var string
      */
     public $label;
+
     /**
-     * @var string
+     * @var result
      */
-    public $params;
+    public $result;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'label'  => 'label',
-        'params' => 'params',
-        'type'   => 'type',
+        'label' => 'label',
+        'result' => 'result',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
         parent::validate();
     }
 
@@ -38,8 +44,8 @@ class opts extends Model
             $res['label'] = $this->label;
         }
 
-        if (null !== $this->params) {
-            $res['params'] = $this->params;
+        if (null !== $this->result) {
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         if (null !== $this->type) {
@@ -61,8 +67,8 @@ class opts extends Model
             $model->label = $map['label'];
         }
 
-        if (isset($map['params'])) {
-            $model->params = $map['params'];
+        if (isset($map['result'])) {
+            $model->result = result::fromMap($map['result']);
         }
 
         if (isset($map['type'])) {

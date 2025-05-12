@@ -12,22 +12,25 @@ class GenerateCopilotResponseResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $massage;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'code',
-        'data'      => 'data',
-        'massage'   => 'massage',
+        'code' => 'code',
+        'data' => 'data',
+        'massage' => 'massage',
         'requestId' => 'requestId',
     ];
 

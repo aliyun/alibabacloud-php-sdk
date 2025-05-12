@@ -13,18 +13,26 @@ class ListAbnormalyEventsResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'code'    => 'code',
-        'data'    => 'data',
+        'code' => 'code',
+        'data' => 'data',
         'message' => 'message',
+        'total' => 'total',
     ];
 
     public function validate()
@@ -45,7 +53,7 @@ class ListAbnormalyEventsResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -54,6 +62,10 @@ class ListAbnormalyEventsResponseBody extends Model
 
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+
+        if (null !== $this->total) {
+            $res['total'] = $this->total;
         }
 
         return $res;
@@ -74,7 +86,7 @@ class ListAbnormalyEventsResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }
@@ -83,6 +95,10 @@ class ListAbnormalyEventsResponseBody extends Model
 
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+
+        if (isset($map['total'])) {
+            $model->total = $map['total'];
         }
 
         return $model;

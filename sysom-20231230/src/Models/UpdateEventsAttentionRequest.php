@@ -5,31 +5,47 @@
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionRequest\body;
 
 class UpdateEventsAttentionRequest extends Model
 {
     /**
-     * @var body
+     * @var int
      */
-    public $body;
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $range;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'body' => 'body',
+        'mode' => 'mode',
+        'range' => 'range',
+        'uuid' => 'uuid',
     ];
 
     public function validate()
     {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
+        }
+
+        if (null !== $this->range) {
+            $res['range'] = $this->range;
+        }
+
+        if (null !== $this->uuid) {
+            $res['uuid'] = $this->uuid;
         }
 
         return $res;
@@ -43,8 +59,16 @@ class UpdateEventsAttentionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = body::fromMap($map['body']);
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
+        }
+
+        if (isset($map['range'])) {
+            $model->range = $map['range'];
+        }
+
+        if (isset($map['uuid'])) {
+            $model->uuid = $map['uuid'];
         }
 
         return $model;

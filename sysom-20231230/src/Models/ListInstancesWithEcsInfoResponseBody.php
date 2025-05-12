@@ -13,28 +13,32 @@ class ListInstancesWithEcsInfoResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'      => 'code',
-        'data'      => 'data',
-        'message'   => 'message',
+        'code' => 'code',
+        'data' => 'data',
+        'message' => 'message',
         'requestId' => 'request_id',
-        'total'     => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class ListInstancesWithEcsInfoResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class ListInstancesWithEcsInfoResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

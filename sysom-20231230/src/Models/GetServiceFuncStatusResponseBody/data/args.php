@@ -12,37 +12,43 @@ class args extends Model
      * @var string
      */
     public $addCmd;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $javaStorePath;
+
     /**
      * @var string
      */
     public $locks;
+
     /**
      * @var int
      */
     public $loop;
+
     /**
      * @var string
      */
     public $mem;
+
     /**
      * @var string
      */
     public $systemProfiling;
     protected $_name = [
-        'addCmd'          => 'add_cmd',
-        'cpu'             => 'cpu',
-        'javaStorePath'   => 'java_store_path',
-        'locks'           => 'locks',
-        'loop'            => 'loop',
-        'mem'             => 'mem',
+        'addCmd' => 'add_cmd',
+        'cpu' => 'cpu',
+        'javaStorePath' => 'java_store_path',
+        'locks' => 'locks',
+        'loop' => 'loop',
+        'mem' => 'mem',
         'systemProfiling' => 'system_profiling',
     ];
 

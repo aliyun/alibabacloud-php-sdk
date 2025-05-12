@@ -12,12 +12,13 @@ class GetInstantScoreRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var string
      */
     public $instance;
     protected $_name = [
-        'cluster'  => 'cluster',
+        'cluster' => 'cluster',
         'instance' => 'instance',
     ];
 

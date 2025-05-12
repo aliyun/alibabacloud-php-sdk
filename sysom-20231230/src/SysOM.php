@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\SysOM\V20231230;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotStreamResponseRequest;
@@ -98,7 +100,6 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionResponse;
-use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionShrinkRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordShrinkRequest;
@@ -151,6 +152,7 @@ class SysOM extends OpenApiClient
      * @param request - AuthDiagnosisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AuthDiagnosisResponse
      *
      * @param AuthDiagnosisRequest $request
@@ -177,30 +179,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AuthDiagnosis',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/diagnosis/auth',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AuthDiagnosis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/diagnosis/auth',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AuthDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthDiagnosisResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 授权 SysOM 对某个机器进行诊断.
      *
      * @param request - AuthDiagnosisRequest
+     *
      * @returns AuthDiagnosisResponse
      *
      * @param AuthDiagnosisRequest $request
@@ -216,11 +216,77 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 检查目标实例是否被 SysOM 支持
+     *
+     * @param request - CheckInstanceSupportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckInstanceSupportResponse
+     *
+     * @param CheckInstanceSupportRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckInstanceSupportResponse
+     */
+    public function checkInstanceSupportWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        if (null !== $request->region) {
+            @$body['region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckInstanceSupport',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/supportInstanceList/checkInstanceSupport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckInstanceSupportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查目标实例是否被 SysOM 支持
+     *
+     * @param request - CheckInstanceSupportRequest
+     *
+     * @returns CheckInstanceSupportResponse
+     *
+     * @param CheckInstanceSupportRequest $request
+     *
+     * @return CheckInstanceSupportResponse
+     */
+    public function checkInstanceSupport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkInstanceSupportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取copilot服务的返回结果.
      *
      * @param request - GenerateCopilotResponseRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateCopilotResponseResponse
      *
      * @param GenerateCopilotResponseRequest $request
@@ -239,30 +305,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateCopilotResponse',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/copilot/generate_copilot_response',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenerateCopilotResponse',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/copilot/generate_copilot_response',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateCopilotResponseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateCopilotResponseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateCopilotResponseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取copilot服务的返回结果.
      *
      * @param request - GenerateCopilotResponseRequest
+     *
      * @returns GenerateCopilotResponseResponse
      *
      * @param GenerateCopilotResponseRequest $request
@@ -283,6 +347,7 @@ class SysOM extends OpenApiClient
      * @param request - GenerateCopilotStreamResponseRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateCopilotStreamResponseResponse
      *
      * @param GenerateCopilotStreamResponseRequest $request
@@ -301,30 +366,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateCopilotStreamResponse',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/copilot/generate_copilot_stream_response',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenerateCopilotStreamResponse',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/copilot/generate_copilot_stream_response',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateCopilotStreamResponseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateCopilotStreamResponseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateCopilotStreamResponseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 流式copilot服务接口.
      *
      * @param request - GenerateCopilotStreamResponseRequest
+     *
      * @returns GenerateCopilotStreamResponseResponse
      *
      * @param GenerateCopilotStreamResponseRequest $request
@@ -345,6 +408,7 @@ class SysOM extends OpenApiClient
      * @param request - GetAIQueryResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAIQueryResultResponse
      *
      * @param GetAIQueryResultRequest $request
@@ -363,30 +427,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAIQueryResult',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/app_observ/aiAnalysis/query_result',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAIQueryResult',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/app_observ/aiAnalysis/query_result',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAIQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAIQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAIQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查看AI Infra分析结果.
      *
      * @param request - GetAIQueryResultRequest
+     *
      * @returns GetAIQueryResultResponse
      *
      * @param GetAIQueryResultRequest $request
@@ -407,6 +469,7 @@ class SysOM extends OpenApiClient
      * @param request - GetAbnormalEventsCountRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAbnormalEventsCountResponse
      *
      * @param GetAbnormalEventsCountRequest $request
@@ -449,30 +512,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAbnormalEventsCount',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/abnormaly_events_count',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAbnormalEventsCount',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/abnormaly_events_count',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAbnormalEventsCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAbnormalEventsCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAbnormalEventsCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取节点/Pod不同等级异常事件的数量.
      *
      * @param request - GetAbnormalEventsCountRequest
+     *
      * @returns GetAbnormalEventsCountResponse
      *
      * @param GetAbnormalEventsCountRequest $request
@@ -493,6 +554,7 @@ class SysOM extends OpenApiClient
      * @param request - GetAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentResponse
      *
      * @param GetAgentRequest $request
@@ -511,30 +573,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgent',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/get_agent',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAgent',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/get_agent',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取某个组件的详情.
      *
      * @param request - GetAgentRequest
+     *
      * @returns GetAgentResponse
      *
      * @param GetAgentRequest $request
@@ -555,6 +615,7 @@ class SysOM extends OpenApiClient
      * @param request - GetAgentTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentTaskResponse
      *
      * @param GetAgentTaskRequest $request
@@ -573,30 +634,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentTask',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/get_agent_task',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAgentTask',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/get_agent_task',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取Agent安装任务执行状态
      *
      * @param request - GetAgentTaskRequest
+     *
      * @returns GetAgentTaskResponse
      *
      * @param GetAgentTaskRequest $request
@@ -617,6 +676,7 @@ class SysOM extends OpenApiClient
      * @param request - GetCopilotHistoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCopilotHistoryResponse
      *
      * @param GetCopilotHistoryRequest $request
@@ -635,30 +695,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCopilotHistory',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/copilot/get_copilot_history',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCopilotHistory',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/copilot/get_copilot_history',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCopilotHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCopilotHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCopilotHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取copilot历史聊天记录.
      *
      * @param request - GetCopilotHistoryRequest
+     *
      * @returns GetCopilotHistoryResponse
      *
      * @param GetCopilotHistoryRequest $request
@@ -679,6 +737,7 @@ class SysOM extends OpenApiClient
      * @param request - GetDiagnosisResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDiagnosisResultResponse
      *
      * @param GetDiagnosisResultRequest $request
@@ -697,30 +756,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDiagnosisResult',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/diagnosis/get_diagnosis_results',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDiagnosisResult',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/diagnosis/get_diagnosis_results',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDiagnosisResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDiagnosisResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDiagnosisResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取诊断结果.
      *
      * @param request - GetDiagnosisResultRequest
+     *
      * @returns GetDiagnosisResultResponse
      *
      * @param GetDiagnosisResultRequest $request
@@ -741,6 +798,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHealthPercentageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHealthPercentageResponse
      *
      * @param GetHealthPercentageRequest $request
@@ -771,30 +829,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHealthPercentage',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/health_percentage',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHealthPercentage',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/health_percentage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHealthPercentageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHealthPercentageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHealthPercentageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取一段时间的节点/pod健康度比例.
      *
      * @param request - GetHealthPercentageRequest
+     *
      * @returns GetHealthPercentageResponse
      *
      * @param GetHealthPercentageRequest $request
@@ -815,6 +871,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHostCountRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHostCountResponse
      *
      * @param GetHostCountRequest $request
@@ -845,30 +902,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHostCount',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/host_count',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHostCount',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/host_count',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHostCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHostCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHostCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取集群节点数量.
      *
      * @param request - GetHostCountRequest
+     *
      * @returns GetHostCountResponse
      *
      * @param GetHostCountRequest $request
@@ -889,6 +944,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHotSpotUniqListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotSpotUniqListResponse
      *
      * @param GetHotSpotUniqListRequest $request
@@ -927,30 +983,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotSpotUniqList',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/livetrace_proxy/hotspot_uniq_list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotSpotUniqList',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/livetrace_proxy/hotspot_uniq_list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotSpotUniqListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotSpotUniqListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotSpotUniqListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取实例下的某个字段列表.
      *
      * @param request - GetHotSpotUniqListRequest
+     *
      * @returns GetHotSpotUniqListResponse
      *
      * @param GetHotSpotUniqListRequest $request
@@ -971,6 +1025,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHotspotAnalysisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotspotAnalysisResponse
      *
      * @param GetHotspotAnalysisRequest $request
@@ -1009,30 +1064,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotAnalysis',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/livetrace_hotspot_analysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotspotAnalysis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/livetrace_hotspot_analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotspotAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotspotAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotspotAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取热定分析结果.
      *
      * @param request - GetHotspotAnalysisRequest
+     *
      * @returns GetHotspotAnalysisResponse
      *
      * @param GetHotspotAnalysisRequest $request
@@ -1053,6 +1106,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHotspotCompareRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotspotCompareResponse
      *
      * @param GetHotspotCompareRequest $request
@@ -1107,30 +1161,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotCompare',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/livetrace_hotspot_compare',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotspotCompare',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/livetrace_hotspot_compare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotspotCompareResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotspotCompareResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotspotCompareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 热点对比.
      *
      * @param request - GetHotspotCompareRequest
+     *
      * @returns GetHotspotCompareResponse
      *
      * @param GetHotspotCompareRequest $request
@@ -1151,6 +1203,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHotspotInstanceListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotspotInstanceListResponse
      *
      * @param GetHotspotInstanceListRequest $request
@@ -1177,30 +1230,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotInstanceList',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/livetrace_hotspot_instance_list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotspotInstanceList',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/livetrace_hotspot_instance_list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotspotInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotspotInstanceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotspotInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取热点实例列表.
      *
      * @param request - GetHotspotInstanceListRequest
+     *
      * @returns GetHotspotInstanceListResponse
      *
      * @param GetHotspotInstanceListRequest $request
@@ -1221,6 +1272,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHotspotPidListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotspotPidListResponse
      *
      * @param GetHotspotPidListRequest $request
@@ -1251,30 +1303,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotPidList',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/livetrace_hotspot_pid_list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotspotPidList',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/livetrace_hotspot_pid_list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotspotPidListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotspotPidListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotspotPidListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取某个实例的pid列表.
      *
      * @param request - GetHotspotPidListRequest
+     *
      * @returns GetHotspotPidListResponse
      *
      * @param GetHotspotPidListRequest $request
@@ -1295,6 +1345,7 @@ class SysOM extends OpenApiClient
      * @param request - GetHotspotTrackingRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotspotTrackingResponse
      *
      * @param GetHotspotTrackingRequest $request
@@ -1333,30 +1384,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotTracking',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/livetrace_hotspot_tracking',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotspotTracking',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/livetrace_hotspot_tracking',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotspotTrackingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotspotTrackingResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotspotTrackingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 发起热点追踪.
      *
      * @param request - GetHotspotTrackingRequest
+     *
      * @returns GetHotspotTrackingResponse
      *
      * @param GetHotspotTrackingRequest $request
@@ -1377,6 +1426,7 @@ class SysOM extends OpenApiClient
      * @param request - GetInstantScoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstantScoreResponse
      *
      * @param GetInstantScoreRequest $request
@@ -1399,30 +1449,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstantScore',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/instant/score',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstantScore',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/instant/score',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstantScoreResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstantScoreResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstantScoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取实时集群/节点健康度分数.
      *
      * @param request - GetInstantScoreRequest
+     *
      * @returns GetInstantScoreResponse
      *
      * @param GetInstantScoreRequest $request
@@ -1443,6 +1491,7 @@ class SysOM extends OpenApiClient
      * @param request - GetListRecordRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetListRecordResponse
      *
      * @param GetListRecordRequest $request
@@ -1465,30 +1514,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetListRecord',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/app_observ/aiAnalysis/list_record',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetListRecord',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/app_observ/aiAnalysis/list_record',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetListRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetListRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetListRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * AI Infra获取分析记录列表.
      *
      * @param request - GetListRecordRequest
+     *
      * @returns GetListRecordResponse
      *
      * @param GetListRecordRequest $request
@@ -1509,6 +1556,7 @@ class SysOM extends OpenApiClient
      * @param request - GetProblemPercentageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetProblemPercentageResponse
      *
      * @param GetProblemPercentageRequest $request
@@ -1539,30 +1587,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProblemPercentage',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/problem_percentage',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProblemPercentage',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/problem_percentage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProblemPercentageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProblemPercentageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProblemPercentageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取一定时间内集群中节点/节点中pod异常问题占比.
      *
      * @param request - GetProblemPercentageRequest
+     *
      * @returns GetProblemPercentageResponse
      *
      * @param GetProblemPercentageRequest $request
@@ -1583,6 +1629,7 @@ class SysOM extends OpenApiClient
      * @param request - GetRangeScoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRangeScoreResponse
      *
      * @param GetRangeScoreRequest $request
@@ -1613,30 +1660,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRangeScore',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/score',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRangeScore',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/score',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRangeScoreResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRangeScoreResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRangeScoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取健康分趋势
      *
      * @param request - GetRangeScoreRequest
+     *
      * @returns GetRangeScoreResponse
      *
      * @param GetRangeScoreRequest $request
@@ -1657,6 +1702,7 @@ class SysOM extends OpenApiClient
      * @param request - GetResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourcesResponse
      *
      * @param GetResourcesRequest $request
@@ -1683,30 +1729,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResources',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/instant/resource',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetResources',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/instant/resource',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取集群/节点资源实时使用情况.
      *
      * @param request - GetResourcesRequest
+     *
      * @returns GetResourcesResponse
      *
      * @param GetResourcesRequest $request
@@ -1727,6 +1771,7 @@ class SysOM extends OpenApiClient
      * @param tmpReq - GetServiceFuncStatusRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetServiceFuncStatusResponse
      *
      * @param GetServiceFuncStatusRequest $tmpReq
@@ -1759,30 +1804,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceFuncStatus',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/func-switch/get-service-func-status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetServiceFuncStatus',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/func-switch/get-service-func-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetServiceFuncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceFuncStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceFuncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取功能模块配置.
      *
      * @param request - GetServiceFuncStatusRequest
+     *
      * @returns GetServiceFuncStatusResponse
      *
      * @param GetServiceFuncStatusRequest $request
@@ -1803,6 +1846,7 @@ class SysOM extends OpenApiClient
      * @param request - InitialSysomRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitialSysomResponse
      *
      * @param InitialSysomRequest $request
@@ -1821,30 +1865,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InitialSysom',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/initial',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InitialSysom',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/initial',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitialSysomResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitialSysomResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitialSysomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 初始化SysOM，确保角色存在.
      *
      * @param request - InitialSysomRequest
+     *
      * @returns InitialSysomResponse
      *
      * @param InitialSysomRequest $request
@@ -1865,6 +1907,7 @@ class SysOM extends OpenApiClient
      * @param request - InstallAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InstallAgentResponse
      *
      * @param InstallAgentRequest $request
@@ -1895,30 +1938,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InstallAgent',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/install_agent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InstallAgent',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/install_agent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InstallAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InstallAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return InstallAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 在指定的实例上安装 Agent.
      *
      * @param request - InstallAgentRequest
+     *
      * @returns InstallAgentResponse
      *
      * @param InstallAgentRequest $request
@@ -1939,6 +1980,7 @@ class SysOM extends OpenApiClient
      * @param request - InstallAgentForClusterRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InstallAgentForClusterResponse
      *
      * @param InstallAgentForClusterRequest $request
@@ -1969,30 +2011,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InstallAgentForCluster',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/install_agent_by_cluster',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InstallAgentForCluster',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/install_agent_by_cluster',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InstallAgentForClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InstallAgentForClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return InstallAgentForClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 给集群安装组件.
      *
      * @param request - InstallAgentForClusterRequest
+     *
      * @returns InstallAgentForClusterResponse
      *
      * @param InstallAgentForClusterRequest $request
@@ -2013,6 +2053,7 @@ class SysOM extends OpenApiClient
      * @param request - InvokeAnomalyDiagnosisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InvokeAnomalyDiagnosisResponse
      *
      * @param InvokeAnomalyDiagnosisRequest $request
@@ -2031,30 +2072,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvokeAnomalyDiagnosis',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/diagnosis/invoke_anomaly_diagnose',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvokeAnomalyDiagnosis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/diagnosis/invoke_anomaly_diagnose',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InvokeAnomalyDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InvokeAnomalyDiagnosisResponse::fromMap($this->execute($params, $req, $runtime));
+        return InvokeAnomalyDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 异常项诊断跳转.
      *
      * @param request - InvokeAnomalyDiagnosisRequest
+     *
      * @returns InvokeAnomalyDiagnosisResponse
      *
      * @param InvokeAnomalyDiagnosisRequest $request
@@ -2075,6 +2114,7 @@ class SysOM extends OpenApiClient
      * @param request - InvokeDiagnosisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InvokeDiagnosisResponse
      *
      * @param InvokeDiagnosisRequest $request
@@ -2101,30 +2141,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvokeDiagnosis',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/diagnosis/invoke_diagnosis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvokeDiagnosis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/diagnosis/invoke_diagnosis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InvokeDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InvokeDiagnosisResponse::fromMap($this->execute($params, $req, $runtime));
+        return InvokeDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 发起诊断.
      *
      * @param request - InvokeDiagnosisRequest
+     *
      * @returns InvokeDiagnosisResponse
      *
      * @param InvokeDiagnosisRequest $request
@@ -2145,6 +2183,7 @@ class SysOM extends OpenApiClient
      * @param request - ListAbnormalyEventsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAbnormalyEventsResponse
      *
      * @param ListAbnormalyEventsRequest $request
@@ -2199,30 +2238,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAbnormalyEvents',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/abnormaly_events',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAbnormalyEvents',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/abnormaly_events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAbnormalyEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAbnormalyEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAbnormalyEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取一定时间段内的异常事件.
      *
      * @param request - ListAbnormalyEventsRequest
+     *
      * @returns ListAbnormalyEventsResponse
      *
      * @param ListAbnormalyEventsRequest $request
@@ -2243,6 +2280,7 @@ class SysOM extends OpenApiClient
      * @param request - ListAgentInstallRecordsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAgentInstallRecordsResponse
      *
      * @param ListAgentInstallRecordsRequest $request
@@ -2281,30 +2319,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgentInstallRecords',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/list_agent_install_list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAgentInstallRecords',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/list_agent_install_list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAgentInstallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAgentInstallRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAgentInstallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列出 Agent 的安装记录.
      *
      * @param request - ListAgentInstallRecordsRequest
+     *
      * @returns ListAgentInstallRecordsResponse
      *
      * @param ListAgentInstallRecordsRequest $request
@@ -2325,6 +2361,7 @@ class SysOM extends OpenApiClient
      * @param request - ListAgentsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAgentsResponse
      *
      * @param ListAgentsRequest $request
@@ -2355,30 +2392,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgents',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/list_agents',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAgents',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/list_agents',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAgentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取 Agent 列表.
      *
      * @param request - ListAgentsRequest
+     *
      * @returns ListAgentsResponse
      *
      * @param ListAgentsRequest $request
@@ -2399,6 +2434,7 @@ class SysOM extends OpenApiClient
      * @param request - ListClusterAgentInstallRecordsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClusterAgentInstallRecordsResponse
      *
      * @param ListClusterAgentInstallRecordsRequest $request
@@ -2433,30 +2469,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusterAgentInstallRecords',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/list_cluster_agent_install_list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListClusterAgentInstallRecords',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/list_cluster_agent_install_list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListClusterAgentInstallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClusterAgentInstallRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClusterAgentInstallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取集群组件安装记录.
      *
      * @param request - ListClusterAgentInstallRecordsRequest
+     *
      * @returns ListClusterAgentInstallRecordsResponse
      *
      * @param ListClusterAgentInstallRecordsRequest $request
@@ -2477,6 +2511,7 @@ class SysOM extends OpenApiClient
      * @param request - ListClustersRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClustersResponse
      *
      * @param ListClustersRequest $request
@@ -2519,30 +2554,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/cluster/list_clusters',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListClusters',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/cluster/list_clusters',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取当前用户的所有集群.
      *
      * @param request - ListClustersRequest
+     *
      * @returns ListClustersResponse
      *
      * @param ListClustersRequest $request
@@ -2563,6 +2596,7 @@ class SysOM extends OpenApiClient
      * @param request - ListDiagnosisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDiagnosisResponse
      *
      * @param ListDiagnosisRequest $request
@@ -2597,30 +2631,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDiagnosis',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/diagnosis/list_diagnosis',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDiagnosis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/diagnosis/list_diagnosis',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDiagnosisResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取诊断历史记录列表.
      *
      * @param request - ListDiagnosisRequest
+     *
      * @returns ListDiagnosisResponse
      *
      * @param ListDiagnosisRequest $request
@@ -2641,6 +2673,7 @@ class SysOM extends OpenApiClient
      * @param request - ListInstanceHealthRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceHealthResponse
      *
      * @param ListInstanceHealthRequest $request
@@ -2679,30 +2712,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceHealth',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/cluster_health/range/instance_health_list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstanceHealth',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/cluster_health/range/instance_health_list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceHealthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取一定时间内集群节点/Pod健康度列表.
      *
      * @param request - ListInstanceHealthRequest
+     *
      * @returns ListInstanceHealthResponse
      *
      * @param ListInstanceHealthRequest $request
@@ -2723,6 +2754,7 @@ class SysOM extends OpenApiClient
      * @param request - ListInstanceStatusRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceStatusResponse
      *
      * @param ListInstanceStatusRequest $request
@@ -2757,30 +2789,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceStatus',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/instance/list_instance_status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstanceStatus',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/list_instance_status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取实例状态
      *
      * @param request - ListInstanceStatusRequest
+     *
      * @returns ListInstanceStatusResponse
      *
      * @param ListInstanceStatusRequest $request
@@ -2801,6 +2831,7 @@ class SysOM extends OpenApiClient
      * @param request - ListInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -2839,30 +2870,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/instance/list_instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/list_instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取实例列表.
      *
      * @param request - ListInstancesRequest
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -2883,6 +2912,7 @@ class SysOM extends OpenApiClient
      * @param request - ListInstancesEcsInfoListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesEcsInfoListResponse
      *
      * @param ListInstancesEcsInfoListRequest $request
@@ -2917,30 +2947,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstancesEcsInfoList',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/instance/listInstancesEcsInfoList',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstancesEcsInfoList',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/listInstancesEcsInfoList',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesEcsInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesEcsInfoListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesEcsInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取ecs信息的列表，如标签列表，公网ip列表等.
      *
      * @param request - ListInstancesEcsInfoListRequest
+     *
      * @returns ListInstancesEcsInfoListResponse
      *
      * @param ListInstancesEcsInfoListRequest $request
@@ -2961,6 +2989,7 @@ class SysOM extends OpenApiClient
      * @param tmpReq - ListInstancesWithEcsInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesWithEcsInfoResponse
      *
      * @param ListInstancesWithEcsInfoRequest $tmpReq
@@ -3041,30 +3070,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstancesWithEcsInfo',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/instance/listInstancesWithEcsInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstancesWithEcsInfo',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/listInstancesWithEcsInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesWithEcsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesWithEcsInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesWithEcsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取已纳管/未纳管实例信息，信息中包含ECS信息.
      *
      * @param request - ListInstancesWithEcsInfoRequest
+     *
      * @returns ListInstancesWithEcsInfoResponse
      *
      * @param ListInstancesWithEcsInfoRequest $request
@@ -3085,6 +3112,7 @@ class SysOM extends OpenApiClient
      * @param request - ListPluginsInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPluginsInstancesResponse
      *
      * @param ListPluginsInstancesRequest $request
@@ -3127,30 +3155,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPluginsInstances',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/listPluginsInstances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPluginsInstances',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/listPluginsInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPluginsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPluginsInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPluginsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取插件的安装/更新/卸载实例列表.
      *
      * @param request - ListPluginsInstancesRequest
+     *
      * @returns ListPluginsInstancesResponse
      *
      * @param ListPluginsInstancesRequest $request
@@ -3171,6 +3197,7 @@ class SysOM extends OpenApiClient
      * @param request - ListPodsOfInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPodsOfInstanceResponse
      *
      * @param ListPodsOfInstanceRequest $request
@@ -3201,30 +3228,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPodsOfInstance',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/instance/list_pod_of_instance',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPodsOfInstance',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/list_pod_of_instance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPodsOfInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPodsOfInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPodsOfInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取实例中的pod列表.
      *
      * @param request - ListPodsOfInstanceRequest
+     *
      * @returns ListPodsOfInstanceResponse
      *
      * @param ListPodsOfInstanceRequest $request
@@ -3244,6 +3269,7 @@ class SysOM extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRegionsResponse
      *
      * @param string[]       $headers
@@ -3257,21 +3283,18 @@ class SysOM extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListRegions',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/instance/list_regions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRegions',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/list_regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3295,6 +3318,7 @@ class SysOM extends OpenApiClient
      * @param request - StartAIAnalysisRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartAIAnalysisResponse
      *
      * @param StartAIAnalysisRequest $request
@@ -3337,30 +3361,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartAIAnalysis',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/start_ai_analysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartAIAnalysis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/start_ai_analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartAIAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAIAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAIAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 启动AI作业分析.
      *
      * @param request - StartAIAnalysisRequest
+     *
      * @returns StartAIAnalysisResponse
      *
      * @param StartAIAnalysisRequest $request
@@ -3381,6 +3403,7 @@ class SysOM extends OpenApiClient
      * @param request - UninstallAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UninstallAgentResponse
      *
      * @param UninstallAgentRequest $request
@@ -3407,30 +3430,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UninstallAgent',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/uninstall_agent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UninstallAgent',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/uninstall_agent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UninstallAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UninstallAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UninstallAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 卸载 SysOM Agent.
      *
      * @param request - UninstallAgentRequest
+     *
      * @returns UninstallAgentResponse
      *
      * @param UninstallAgentRequest $request
@@ -3451,6 +3472,7 @@ class SysOM extends OpenApiClient
      * @param request - UninstallAgentForClusterRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UninstallAgentForClusterResponse
      *
      * @param UninstallAgentForClusterRequest $request
@@ -3477,30 +3499,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UninstallAgentForCluster',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/uninstall_agent_by_cluster',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UninstallAgentForCluster',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/uninstall_agent_by_cluster',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UninstallAgentForClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UninstallAgentForClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return UninstallAgentForClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 给集群卸载组件.
      *
      * @param request - UninstallAgentForClusterRequest
+     *
      * @returns UninstallAgentForClusterResponse
      *
      * @param UninstallAgentForClusterRequest $request
@@ -3518,57 +3538,58 @@ class SysOM extends OpenApiClient
     /**
      * 异常项关注度更新.
      *
-     * @param tmpReq - UpdateEventsAttentionRequest
+     * @param request - UpdateEventsAttentionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateEventsAttentionResponse
      *
-     * @param UpdateEventsAttentionRequest $tmpReq
+     * @param UpdateEventsAttentionRequest $request
      * @param string[]                     $headers
      * @param RuntimeOptions               $runtime
      *
      * @return UpdateEventsAttentionResponse
      */
-    public function updateEventsAttentionWithOptions($tmpReq, $headers, $runtime)
+    public function updateEventsAttentionWithOptions($request, $headers, $runtime)
     {
-        $tmpReq->validate();
-        $request = new UpdateEventsAttentionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->body) {
-            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        $request->validate();
+        $body = [];
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
         }
 
-        $query = [];
-        if (null !== $request->bodyShrink) {
-            @$query['body'] = $request->bodyShrink;
+        if (null !== $request->range) {
+            @$body['range'] = $request->range;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['uuid'] = $request->uuid;
         }
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEventsAttention',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/openapi/proxy/post/cluster_update_events_attention',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateEventsAttention',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/post/cluster_update_events_attention',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEventsAttentionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEventsAttentionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEventsAttentionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 异常项关注度更新.
      *
      * @param request - UpdateEventsAttentionRequest
+     *
      * @returns UpdateEventsAttentionResponse
      *
      * @param UpdateEventsAttentionRequest $request
@@ -3589,6 +3610,7 @@ class SysOM extends OpenApiClient
      * @param tmpReq - UpdateFuncSwitchRecordRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFuncSwitchRecordResponse
      *
      * @param UpdateFuncSwitchRecordRequest $tmpReq
@@ -3621,30 +3643,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFuncSwitchRecord',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/func-switch/update-service-func-switch',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFuncSwitchRecord',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/func-switch/update-service-func-switch',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFuncSwitchRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFuncSwitchRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFuncSwitchRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取功能模块配置.
      *
      * @param request - UpdateFuncSwitchRecordRequest
+     *
      * @returns UpdateFuncSwitchRecordResponse
      *
      * @param UpdateFuncSwitchRecordRequest $request
@@ -3665,6 +3685,7 @@ class SysOM extends OpenApiClient
      * @param request - UpgradeAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeAgentResponse
      *
      * @param UpgradeAgentRequest $request
@@ -3691,30 +3712,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeAgent',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/upgrade_agent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpgradeAgent',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/upgrade_agent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新 SysOM Agent.
      *
      * @param request - UpgradeAgentRequest
+     *
      * @returns UpgradeAgentResponse
      *
      * @param UpgradeAgentRequest $request
@@ -3735,6 +3754,7 @@ class SysOM extends OpenApiClient
      * @param request - UpgradeAgentForClusterRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeAgentForClusterResponse
      *
      * @param UpgradeAgentForClusterRequest $request
@@ -3761,30 +3781,28 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeAgentForCluster',
-            'version'     => '2023-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/am/agent/upgrade_agent_by_cluster',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpgradeAgentForCluster',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/upgrade_agent_by_cluster',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeAgentForClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeAgentForClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeAgentForClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 给集群更新组件.
      *
      * @param request - UpgradeAgentForClusterRequest
+     *
      * @returns UpgradeAgentForClusterResponse
      *
      * @param UpgradeAgentForClusterRequest $request

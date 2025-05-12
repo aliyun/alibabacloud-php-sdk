@@ -12,13 +12,14 @@ class instances extends Model
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $region;
     protected $_name = [
         'instance' => 'instance',
-        'region'   => 'region',
+        'region' => 'region',
     ];
 
     public function validate()

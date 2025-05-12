@@ -12,12 +12,13 @@ class instanceTag extends Model
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'tag_key',
+        'tagKey' => 'tag_key',
         'tagValue' => 'tag_value',
     ];
 

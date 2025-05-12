@@ -12,27 +12,31 @@ class ListClusterAgentInstallRecordsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $current;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pluginId;
+
     /**
      * @var string
      */
     public $pluginVersion;
     protected $_name = [
-        'clusterId'     => 'cluster_id',
-        'current'       => 'current',
-        'pageSize'      => 'pageSize',
-        'pluginId'      => 'plugin_id',
+        'clusterId' => 'cluster_id',
+        'current' => 'current',
+        'pageSize' => 'pageSize',
+        'pluginId' => 'plugin_id',
         'pluginVersion' => 'plugin_version',
     ];
 

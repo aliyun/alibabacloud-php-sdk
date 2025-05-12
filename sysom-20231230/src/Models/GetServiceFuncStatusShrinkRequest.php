@@ -12,18 +12,20 @@ class GetServiceFuncStatusShrinkRequest extends Model
      * @var string
      */
     public $channel;
+
     /**
      * @var string
      */
     public $paramsShrink;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'channel'      => 'channel',
+        'channel' => 'channel',
         'paramsShrink' => 'params',
-        'serviceName'  => 'service_name',
+        'serviceName' => 'service_name',
     ];
 
     public function validate()

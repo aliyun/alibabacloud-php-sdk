@@ -12,23 +12,26 @@ class ListRegionsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
         'requestId' => 'RequestId',
-        'code'      => 'code',
-        'data'      => 'data',
-        'message'   => 'message',
+        'code' => 'code',
+        'data' => 'data',
+        'message' => 'message',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class ListRegionsResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class ListRegionsResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = $item1;
                 }

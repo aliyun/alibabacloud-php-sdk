@@ -12,33 +12,38 @@ class GetHotSpotUniqListRequest extends Model
      * @var int
      */
     public $begEnd;
+
     /**
      * @var int
      */
     public $begStart;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var string
      */
     public $table;
+
     /**
      * @var string
      */
     public $uniq;
     protected $_name = [
-        'begEnd'   => 'beg_end',
+        'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
         'instance' => 'instance',
-        'pid'      => 'pid',
-        'table'    => 'table',
-        'uniq'     => 'uniq',
+        'pid' => 'pid',
+        'table' => 'table',
+        'uniq' => 'uniq',
     ];
 
     public function validate()

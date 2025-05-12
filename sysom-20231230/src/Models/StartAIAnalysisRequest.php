@@ -12,38 +12,44 @@ class StartAIAnalysisRequest extends Model
      * @var string
      */
     public $analysisTool;
+
     /**
      * @var string
      */
     public $channel;
+
     /**
      * @var string
      */
     public $comms;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $pids;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
         'analysisTool' => 'analysisTool',
-        'channel'      => 'channel',
-        'comms'        => 'comms',
-        'instance'     => 'instance',
-        'pids'         => 'pids',
-        'region'       => 'region',
-        'timeout'      => 'timeout',
+        'channel' => 'channel',
+        'comms' => 'comms',
+        'instance' => 'instance',
+        'pids' => 'pids',
+        'region' => 'region',
+        'timeout' => 'timeout',
     ];
 
     public function validate()

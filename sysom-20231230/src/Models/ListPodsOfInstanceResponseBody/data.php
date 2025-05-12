@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $pod;
     protected $_name = [
         'namespace' => 'namespace',
-        'pod'       => 'pod',
+        'pod' => 'pod',
     ];
 
     public function validate()

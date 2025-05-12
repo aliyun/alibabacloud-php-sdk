@@ -12,38 +12,44 @@ class GetAbnormalEventsCountRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var float
      */
     public $end;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $pod;
+
     /**
      * @var int
      */
     public $showPod;
+
     /**
      * @var float
      */
     public $start;
     protected $_name = [
-        'cluster'   => 'cluster',
-        'end'       => 'end',
-        'instance'  => 'instance',
+        'cluster' => 'cluster',
+        'end' => 'end',
+        'instance' => 'instance',
         'namespace' => 'namespace',
-        'pod'       => 'pod',
-        'showPod'   => 'showPod',
-        'start'     => 'start',
+        'pod' => 'pod',
+        'showPod' => 'showPod',
+        'start' => 'start',
     ];
 
     public function validate()

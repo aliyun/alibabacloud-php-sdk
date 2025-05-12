@@ -13,28 +13,32 @@ class GetHotspotCompareResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'code',
-        'data'      => 'data',
-        'message'   => 'message',
+        'code' => 'code',
+        'data' => 'data',
+        'message' => 'message',
         'requestId' => 'requestId',
-        'success'   => 'success',
+        'success' => 'success',
     ];
 
     public function validate()

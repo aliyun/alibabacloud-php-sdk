@@ -12,43 +12,50 @@ class data extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterStatus;
+
     /**
      * @var string
      */
     public $clusterType;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $updatedAt;
     protected $_name = [
-        'clusterId'     => 'cluster_id',
+        'clusterId' => 'cluster_id',
         'clusterStatus' => 'cluster_status',
-        'clusterType'   => 'cluster_type',
-        'createdAt'     => 'created_at',
-        'id'            => 'id',
-        'name'          => 'name',
-        'region'        => 'region',
-        'updatedAt'     => 'updated_at',
+        'clusterType' => 'cluster_type',
+        'createdAt' => 'created_at',
+        'id' => 'id',
+        'name' => 'name',
+        'region' => 'region',
+        'updatedAt' => 'updated_at',
     ];
 
     public function validate()

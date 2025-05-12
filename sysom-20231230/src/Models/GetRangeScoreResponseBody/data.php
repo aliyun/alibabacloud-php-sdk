@@ -9,20 +9,22 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
-     * @var float
+     * @var int
      */
     public $time;
+
     /**
      * @var string
      */
     public $type;
+
     /**
-     * @var float
+     * @var int
      */
     public $value;
     protected $_name = [
-        'time'  => 'time',
-        'type'  => 'type',
+        'time' => 'time',
+        'type' => 'type',
         'value' => 'value',
     ];
 

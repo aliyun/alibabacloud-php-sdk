@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'instance' => 'instance',
-        'region'   => 'region',
-        'status'   => 'status',
+        'region' => 'region',
+        'status' => 'status',
     ];
 
     public function validate()

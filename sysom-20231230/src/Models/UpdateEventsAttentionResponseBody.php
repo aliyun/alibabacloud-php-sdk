@@ -13,23 +13,26 @@ class UpdateEventsAttentionResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
         'requestId' => 'RequestId',
-        'code'      => 'code',
-        'data'      => 'data',
-        'message'   => 'message',
+        'code' => 'code',
+        'data' => 'data',
+        'message' => 'message',
     ];
 
     public function validate()

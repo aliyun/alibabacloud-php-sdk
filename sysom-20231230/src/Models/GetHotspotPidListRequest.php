@@ -12,23 +12,26 @@ class GetHotspotPidListRequest extends Model
      * @var int
      */
     public $begEnd;
+
     /**
      * @var int
      */
     public $begStart;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $table;
     protected $_name = [
-        'begEnd'   => 'beg_end',
+        'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
         'instance' => 'instance',
-        'table'    => 'table',
+        'table' => 'table',
     ];
 
     public function validate()

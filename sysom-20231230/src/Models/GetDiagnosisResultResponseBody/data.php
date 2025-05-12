@@ -12,58 +12,68 @@ class data extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var mixed
      */
     public $command;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $errMsg;
+
     /**
      * @var mixed
      */
     public $params;
+
     /**
      * @var mixed
      */
     public $result;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $updatedAt;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'code'        => 'code',
-        'command'     => 'command',
-        'createdAt'   => 'created_at',
-        'errMsg'      => 'err_msg',
-        'params'      => 'params',
-        'result'      => 'result',
+        'code' => 'code',
+        'command' => 'command',
+        'createdAt' => 'created_at',
+        'errMsg' => 'err_msg',
+        'params' => 'params',
+        'result' => 'result',
         'serviceName' => 'service_name',
-        'status'      => 'status',
-        'taskId'      => 'task_id',
-        'updatedAt'   => 'updated_at',
-        'url'         => 'url',
+        'status' => 'status',
+        'taskId' => 'task_id',
+        'updatedAt' => 'updated_at',
+        'url' => 'url',
     ];
 
     public function validate()

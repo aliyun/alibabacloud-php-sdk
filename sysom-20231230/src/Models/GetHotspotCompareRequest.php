@@ -12,53 +12,62 @@ class GetHotspotCompareRequest extends Model
      * @var int
      */
     public $beg1End;
+
     /**
      * @var int
      */
     public $beg1Start;
+
     /**
      * @var int
      */
     public $beg2End;
+
     /**
      * @var int
      */
     public $beg2Start;
+
     /**
      * @var string
      */
     public $hotType;
+
     /**
      * @var string
      */
     public $instance1;
+
     /**
      * @var string
      */
     public $instance2;
+
     /**
      * @var int
      */
     public $pid1;
+
     /**
      * @var int
      */
     public $pid2;
+
     /**
      * @var string
      */
     public $table;
     protected $_name = [
-        'beg1End'   => 'beg1_end',
+        'beg1End' => 'beg1_end',
         'beg1Start' => 'beg1_start',
-        'beg2End'   => 'beg2_end',
+        'beg2End' => 'beg2_end',
         'beg2Start' => 'beg2_start',
-        'hotType'   => 'hot_type',
+        'hotType' => 'hot_type',
         'instance1' => 'instance1',
         'instance2' => 'instance2',
-        'pid1'      => 'pid1',
-        'pid2'      => 'pid2',
-        'table'     => 'table',
+        'pid1' => 'pid1',
+        'pid2' => 'pid2',
+        'table' => 'table',
     ];
 
     public function validate()

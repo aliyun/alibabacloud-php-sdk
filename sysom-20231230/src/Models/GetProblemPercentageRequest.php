@@ -12,23 +12,26 @@ class GetProblemPercentageRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var float
      */
     public $end;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var float
      */
     public $start;
     protected $_name = [
-        'cluster'  => 'cluster',
-        'end'      => 'end',
+        'cluster' => 'cluster',
+        'end' => 'end',
         'instance' => 'instance',
-        'start'    => 'start',
+        'start' => 'start',
     ];
 
     public function validate()

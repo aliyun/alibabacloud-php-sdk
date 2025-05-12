@@ -12,12 +12,13 @@ class GetListRecordRequest extends Model
      * @var int
      */
     public $current;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'current'  => 'current',
+        'current' => 'current',
         'pageSize' => 'pageSize',
     ];
 

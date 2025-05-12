@@ -15,16 +15,18 @@ class data extends Model
      * @var flame
      */
     public $flame;
+
     /**
      * @var seriesInstance1
      */
     public $seriesInstance1;
+
     /**
      * @var seriesInstance2
      */
     public $seriesInstance2;
     protected $_name = [
-        'flame'           => 'flame',
+        'flame' => 'flame',
         'seriesInstance1' => 'series_instance1',
         'seriesInstance2' => 'series_instance2',
     ];

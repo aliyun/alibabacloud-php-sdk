@@ -13,28 +13,38 @@ class params extends Model
      * @var args
      */
     public $args;
+
     /**
      * @var string
      */
     public $functionName;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $op;
+
+    /**
+     * @var string
+     */
+    public $region;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'args'         => 'args',
+        'args' => 'args',
         'functionName' => 'function_name',
-        'instance'     => 'instance',
-        'op'           => 'op',
-        'uid'          => 'uid',
+        'instance' => 'instance',
+        'op' => 'op',
+        'region' => 'region',
+        'uid' => 'uid',
     ];
 
     public function validate()
@@ -62,6 +72,10 @@ class params extends Model
 
         if (null !== $this->op) {
             $res['op'] = $this->op;
+        }
+
+        if (null !== $this->region) {
+            $res['region'] = $this->region;
         }
 
         if (null !== $this->uid) {
@@ -93,6 +107,10 @@ class params extends Model
 
         if (isset($map['op'])) {
             $model->op = $map['op'];
+        }
+
+        if (isset($map['region'])) {
+            $model->region = $map['region'];
         }
 
         if (isset($map['uid'])) {

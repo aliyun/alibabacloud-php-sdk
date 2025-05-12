@@ -12,33 +12,38 @@ class ListAgentInstallRecordsRequest extends Model
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pluginId;
+
     /**
      * @var string
      */
     public $pluginVersion;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'current'       => 'current',
-        'instanceId'    => 'instance_id',
-        'pageSize'      => 'pageSize',
-        'pluginId'      => 'plugin_id',
+        'current' => 'current',
+        'instanceId' => 'instance_id',
+        'pageSize' => 'pageSize',
+        'pluginId' => 'plugin_id',
         'pluginVersion' => 'plugin_version',
-        'status'        => 'status',
+        'status' => 'status',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class ListInstanceHealthRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var int
      */
     public $current;
+
     /**
      * @var float
      */
     public $end;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var float
      */
     public $start;
     protected $_name = [
-        'cluster'  => 'cluster',
-        'current'  => 'current',
-        'end'      => 'end',
+        'cluster' => 'cluster',
+        'current' => 'current',
+        'end' => 'end',
         'instance' => 'instance',
         'pageSize' => 'pageSize',
-        'start'    => 'start',
+        'start' => 'start',
     ];
 
     public function validate()

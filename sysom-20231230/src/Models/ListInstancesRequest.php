@@ -12,33 +12,38 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'clusterId' => 'cluster_id',
-        'current'   => 'current',
-        'instance'  => 'instance',
-        'pageSize'  => 'pageSize',
-        'region'    => 'region',
-        'status'    => 'status',
+        'current' => 'current',
+        'instance' => 'instance',
+        'pageSize' => 'pageSize',
+        'region' => 'region',
+        'status' => 'status',
     ];
 
     public function validate()

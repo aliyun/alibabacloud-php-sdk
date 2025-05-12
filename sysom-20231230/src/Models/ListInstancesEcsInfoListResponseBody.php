@@ -13,17 +13,19 @@ class ListInstancesEcsInfoListResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'code'    => 'code',
-        'data'    => 'data',
+        'code' => 'code',
+        'data' => 'data',
         'message' => 'message',
     ];
 
@@ -45,7 +47,7 @@ class ListInstancesEcsInfoListResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListInstancesEcsInfoListResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

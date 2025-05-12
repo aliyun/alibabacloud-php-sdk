@@ -12,28 +12,32 @@ class data extends Model
      * @var float
      */
     public $error;
+
     /**
      * @var float
      */
     public $latency;
+
     /**
      * @var float
      */
     public $load;
+
     /**
      * @var float
      */
     public $saturation;
+
     /**
      * @var float
      */
     public $total;
     protected $_name = [
-        'error'      => 'error',
-        'latency'    => 'latency',
-        'load'       => 'load',
+        'error' => 'error',
+        'latency' => 'latency',
+        'load' => 'load',
         'saturation' => 'saturation',
-        'total'      => 'total',
+        'total' => 'total',
     ];
 
     public function validate()

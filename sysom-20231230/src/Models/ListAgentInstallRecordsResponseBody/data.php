@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $pluginId;
+
     /**
      * @var string
      */
     public $pluginVersion;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updatedAt;
     protected $_name = [
-        'createdAt'     => 'created_at',
-        'instanceId'    => 'instance_id',
-        'pluginId'      => 'plugin_id',
+        'createdAt' => 'created_at',
+        'instanceId' => 'instance_id',
+        'pluginId' => 'plugin_id',
         'pluginVersion' => 'plugin_version',
-        'status'        => 'status',
-        'updatedAt'     => 'updated_at',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
     ];
 
     public function validate()

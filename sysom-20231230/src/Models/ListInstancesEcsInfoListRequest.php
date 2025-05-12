@@ -12,28 +12,32 @@ class ListInstancesEcsInfoListRequest extends Model
      * @var string
      */
     public $infoType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $managedType;
+
     /**
      * @var string
      */
     public $pluginId;
+
     /**
      * @var string
      */
     public $region;
     protected $_name = [
-        'infoType'    => 'info_type',
-        'instanceId'  => 'instance_id',
+        'infoType' => 'info_type',
+        'instanceId' => 'instance_id',
         'managedType' => 'managed_type',
-        'pluginId'    => 'plugin_id',
-        'region'      => 'region',
+        'pluginId' => 'plugin_id',
+        'region' => 'region',
     ];
 
     public function validate()

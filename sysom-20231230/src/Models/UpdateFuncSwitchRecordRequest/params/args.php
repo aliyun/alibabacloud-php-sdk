@@ -12,37 +12,55 @@ class args extends Model
      * @var string
      */
     public $addCmd;
+
     /**
      * @var string
      */
     public $cpu;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
     /**
      * @var string
      */
     public $javaStorePath;
+
     /**
      * @var string
      */
     public $locks;
+
     /**
      * @var int
      */
     public $loop;
+
     /**
      * @var string
      */
     public $mem;
+
+    /**
+     * @var int
+     */
+    public $pid;
+
     /**
      * @var string
      */
     public $systemProfiling;
     protected $_name = [
-        'addCmd'          => 'add_cmd',
-        'cpu'             => 'cpu',
-        'javaStorePath'   => 'java_store_path',
-        'locks'           => 'locks',
-        'loop'            => 'loop',
-        'mem'             => 'mem',
+        'addCmd' => 'add_cmd',
+        'cpu' => 'cpu',
+        'duration' => 'duration',
+        'javaStorePath' => 'java_store_path',
+        'locks' => 'locks',
+        'loop' => 'loop',
+        'mem' => 'mem',
+        'pid' => 'pid',
         'systemProfiling' => 'system_profiling',
     ];
 
@@ -62,6 +80,10 @@ class args extends Model
             $res['cpu'] = $this->cpu;
         }
 
+        if (null !== $this->duration) {
+            $res['duration'] = $this->duration;
+        }
+
         if (null !== $this->javaStorePath) {
             $res['java_store_path'] = $this->javaStorePath;
         }
@@ -76,6 +98,10 @@ class args extends Model
 
         if (null !== $this->mem) {
             $res['mem'] = $this->mem;
+        }
+
+        if (null !== $this->pid) {
+            $res['pid'] = $this->pid;
         }
 
         if (null !== $this->systemProfiling) {
@@ -101,6 +127,10 @@ class args extends Model
             $model->cpu = $map['cpu'];
         }
 
+        if (isset($map['duration'])) {
+            $model->duration = $map['duration'];
+        }
+
         if (isset($map['java_store_path'])) {
             $model->javaStorePath = $map['java_store_path'];
         }
@@ -115,6 +145,10 @@ class args extends Model
 
         if (isset($map['mem'])) {
             $model->mem = $map['mem'];
+        }
+
+        if (isset($map['pid'])) {
+            $model->pid = $map['pid'];
         }
 
         if (isset($map['system_profiling'])) {

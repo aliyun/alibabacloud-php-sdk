@@ -12,38 +12,44 @@ class ListPluginsInstancesRequest extends Model
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $instanceIdName;
+
     /**
      * @var string
      */
     public $instanceTag;
+
     /**
      * @var string
      */
     public $operationType;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pluginId;
+
     /**
      * @var string
      */
     public $region;
     protected $_name = [
-        'current'        => 'current',
+        'current' => 'current',
         'instanceIdName' => 'instance_id_name',
-        'instanceTag'    => 'instance_tag',
-        'operationType'  => 'operation_type',
-        'pageSize'       => 'pageSize',
-        'pluginId'       => 'plugin_id',
-        'region'         => 'region',
+        'instanceTag' => 'instance_tag',
+        'operationType' => 'operation_type',
+        'pageSize' => 'pageSize',
+        'pluginId' => 'plugin_id',
+        'region' => 'region',
     ];
 
     public function validate()

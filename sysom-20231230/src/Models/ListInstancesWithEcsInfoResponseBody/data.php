@@ -13,63 +13,80 @@ class data extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var instanceTag[]
      */
     public $instanceTag;
+
+    /**
+     * @var string
+     */
+    public $kernelVersion;
+
     /**
      * @var string
      */
     public $osArch;
+
     /**
      * @var string
      */
     public $osHealthScore;
+
     /**
      * @var string
      */
     public $osName;
+
     /**
      * @var string
      */
     public $privateIp;
+
     /**
      * @var string
      */
     public $publicIp;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'clusterId'         => 'cluster_id',
-        'instanceId'        => 'instance_id',
-        'instanceName'      => 'instance_name',
-        'instanceTag'       => 'instance_tag',
-        'osArch'            => 'os_arch',
-        'osHealthScore'     => 'os_health_score',
-        'osName'            => 'os_name',
-        'privateIp'         => 'private_ip',
-        'publicIp'          => 'public_ip',
-        'resourceGroupId'   => 'resource_group_id',
+        'clusterId' => 'cluster_id',
+        'instanceId' => 'instance_id',
+        'instanceName' => 'instance_name',
+        'instanceTag' => 'instance_tag',
+        'kernelVersion' => 'kernel_version',
+        'osArch' => 'os_arch',
+        'osHealthScore' => 'os_health_score',
+        'osName' => 'os_name',
+        'privateIp' => 'private_ip',
+        'publicIp' => 'public_ip',
+        'resourceGroupId' => 'resource_group_id',
         'resourceGroupName' => 'resource_group_name',
-        'status'            => 'status',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -98,11 +115,15 @@ class data extends Model
         if (null !== $this->instanceTag) {
             if (\is_array($this->instanceTag)) {
                 $res['instance_tag'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->instanceTag as $item1) {
                     $res['instance_tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->kernelVersion) {
+            $res['kernel_version'] = $this->kernelVersion;
         }
 
         if (null !== $this->osArch) {
@@ -163,11 +184,15 @@ class data extends Model
         if (isset($map['instance_tag'])) {
             if (!empty($map['instance_tag'])) {
                 $model->instanceTag = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['instance_tag'] as $item1) {
                     $model->instanceTag[$n1++] = instanceTag::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['kernel_version'])) {
+            $model->kernelVersion = $map['kernel_version'];
         }
 
         if (isset($map['os_arch'])) {

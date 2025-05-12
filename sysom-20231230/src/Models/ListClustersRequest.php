@@ -12,38 +12,44 @@ class ListClustersRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterStatus;
+
     /**
      * @var string
      */
     public $clusterType;
+
     /**
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'     => 'cluster_id',
+        'clusterId' => 'cluster_id',
         'clusterStatus' => 'cluster_status',
-        'clusterType'   => 'cluster_type',
-        'current'       => 'current',
-        'id'            => 'id',
-        'name'          => 'name',
-        'pageSize'      => 'pageSize',
+        'clusterType' => 'cluster_type',
+        'current' => 'current',
+        'id' => 'id',
+        'name' => 'name',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

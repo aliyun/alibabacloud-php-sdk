@@ -13,12 +13,13 @@ class data extends Model
      * @var jobs[]
      */
     public $jobs;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'jobs'   => 'jobs',
+        'jobs' => 'jobs',
         'taskId' => 'task_id',
     ];
 
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->jobs) {
             if (\is_array($this->jobs)) {
                 $res['jobs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->jobs as $item1) {
                     $res['jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['jobs'])) {
             if (!empty($map['jobs'])) {
                 $model->jobs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['jobs'] as $item1) {
                     $model->jobs[$n1++] = jobs::fromMap($item1);
                 }

@@ -13,43 +13,50 @@ class data extends Model
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $supportArch;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updatedAt;
+
     /**
      * @var versions[]
      */
     public $versions;
     protected $_name = [
-        'createdAt'   => 'created_at',
+        'createdAt' => 'created_at',
         'description' => 'description',
-        'id'          => 'id',
-        'name'        => 'name',
+        'id' => 'id',
+        'name' => 'name',
         'supportArch' => 'support_arch',
-        'type'        => 'type',
-        'updatedAt'   => 'updated_at',
-        'versions'    => 'versions',
+        'type' => 'type',
+        'updatedAt' => 'updated_at',
+        'versions' => 'versions',
     ];
 
     public function validate()
@@ -94,7 +101,7 @@ class data extends Model
         if (null !== $this->versions) {
             if (\is_array($this->versions)) {
                 $res['versions'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->versions as $item1) {
                     $res['versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +150,7 @@ class data extends Model
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
                 $model->versions = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['versions'] as $item1) {
                     $model->versions[$n1++] = versions::fromMap($item1);
                 }

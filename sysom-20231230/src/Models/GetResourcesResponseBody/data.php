@@ -12,17 +12,19 @@ class data extends Model
      * @var float
      */
     public $total;
+
     /**
      * @var string
      */
     public $unit;
+
     /**
      * @var float
      */
     public $usage;
     protected $_name = [
         'total' => 'total',
-        'unit'  => 'unit',
+        'unit' => 'unit',
         'usage' => 'usage',
     ];
 

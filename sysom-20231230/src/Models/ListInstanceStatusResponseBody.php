@@ -13,28 +13,32 @@ class ListInstanceStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'requestId' => 'RequestId',
-        'code'      => 'code',
-        'data'      => 'data',
-        'message'   => 'message',
-        'total'     => 'total',
+        'code' => 'code',
+        'data' => 'data',
+        'message' => 'message',
+        'total' => 'total',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class ListInstanceStatusResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListInstanceStatusResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

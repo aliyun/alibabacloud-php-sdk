@@ -12,63 +12,74 @@ class data extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $kernelVersion;
+
     /**
      * @var mixed
      */
     public $meta;
+
     /**
      * @var string
      */
     public $osArch;
+
     /**
      * @var string
      */
     public $osHealthScore;
+
     /**
      * @var string
      */
     public $osName;
+
     /**
      * @var string
      */
     public $osNameId;
+
     /**
      * @var string
      */
     public $osVersion;
+
     /**
      * @var string
      */
     public $osVersionId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'clusterId'     => 'cluster_id',
-        'instance'      => 'instance',
+        'clusterId' => 'cluster_id',
+        'instance' => 'instance',
         'kernelVersion' => 'kernel_version',
-        'meta'          => 'meta',
-        'osArch'        => 'os_arch',
+        'meta' => 'meta',
+        'osArch' => 'os_arch',
         'osHealthScore' => 'os_health_score',
-        'osName'        => 'os_name',
-        'osNameId'      => 'os_name_id',
-        'osVersion'     => 'os_version',
-        'osVersionId'   => 'os_version_id',
-        'region'        => 'region',
-        'status'        => 'status',
+        'osName' => 'os_name',
+        'osNameId' => 'os_name_id',
+        'osVersion' => 'os_version',
+        'osVersionId' => 'os_version_id',
+        'region' => 'region',
+        'status' => 'status',
     ];
 
     public function validate()

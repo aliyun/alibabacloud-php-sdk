@@ -13,78 +13,92 @@ class ListInstancesWithEcsInfoRequest extends Model
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceIdName;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var instanceTag
      */
     public $instanceTag;
+
     /**
      * @var int
      */
     public $isManaged;
+
     /**
      * @var string
      */
     public $osName;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $privateIp;
+
     /**
      * @var string
      */
     public $publicIp;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceGroupIdName;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'current'             => 'current',
-        'healthStatus'        => 'health_status',
-        'instanceId'          => 'instance_id',
-        'instanceIdName'      => 'instance_id_name',
-        'instanceName'        => 'instance_name',
-        'instanceTag'         => 'instance_tag',
-        'isManaged'           => 'is_managed',
-        'osName'              => 'os_name',
-        'pageSize'            => 'pageSize',
-        'privateIp'           => 'private_ip',
-        'publicIp'            => 'public_ip',
-        'region'              => 'region',
-        'resourceGroupId'     => 'resource_group_id',
+        'current' => 'current',
+        'healthStatus' => 'health_status',
+        'instanceId' => 'instance_id',
+        'instanceIdName' => 'instance_id_name',
+        'instanceName' => 'instance_name',
+        'instanceTag' => 'instance_tag',
+        'isManaged' => 'is_managed',
+        'osName' => 'os_name',
+        'pageSize' => 'pageSize',
+        'privateIp' => 'private_ip',
+        'publicIp' => 'public_ip',
+        'region' => 'region',
+        'resourceGroupId' => 'resource_group_id',
         'resourceGroupIdName' => 'resource_group_id_name',
-        'resourceGroupName'   => 'resource_group_name',
+        'resourceGroupName' => 'resource_group_name',
     ];
 
     public function validate()

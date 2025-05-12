@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $analysisId;
+
     /**
      * @var string
      */
     public $analysisTime;
+
     /**
      * @var string
      */
     public $arguments;
+
     /**
      * @var string
      */
     public $failedLog;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'analysisId'   => 'analysisId',
+        'analysisId' => 'analysisId',
         'analysisTime' => 'analysisTime',
-        'arguments'    => 'arguments',
-        'failedLog'    => 'failedLog',
-        'status'       => 'status',
+        'arguments' => 'arguments',
+        'failedLog' => 'failedLog',
+        'status' => 'status',
     ];
 
     public function validate()

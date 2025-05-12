@@ -12,28 +12,32 @@ class ListDiagnosisRequest extends Model
      * @var int
      */
     public $current;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'current'     => 'current',
-        'pageSize'    => 'pageSize',
-        'params'      => 'params',
+        'current' => 'current',
+        'pageSize' => 'pageSize',
+        'params' => 'params',
         'serviceName' => 'service_name',
-        'status'      => 'status',
+        'status' => 'status',
     ];
 
     public function validate()

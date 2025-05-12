@@ -12,13 +12,14 @@ class data extends Model
      * @var string[]
      */
     public $columns;
+
     /**
      * @var string[]
      */
     public $values;
     protected $_name = [
         'columns' => 'columns',
-        'values'  => 'values',
+        'values' => 'values',
     ];
 
     public function validate()
@@ -38,7 +39,7 @@ class data extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['columns'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class data extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     $res['values'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class data extends Model
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['columns'] as $item1) {
                     $model->columns[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class data extends Model
         if (isset($map['values'])) {
             if (!empty($map['values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['values'] as $item1) {
                     $model->values[$n1++] = $item1;
                 }

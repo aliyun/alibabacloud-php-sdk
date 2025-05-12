@@ -13,47 +13,55 @@ class data extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var instanceTag[]
      */
     public $instanceTag;
+
     /**
      * @var string
      */
     public $osName;
+
     /**
      * @var string
      */
     public $privateIp;
+
     /**
      * @var string
      */
     public $publicIp;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'instanceId'        => 'instance_id',
-        'instanceName'      => 'instance_name',
-        'instanceTag'       => 'instance_tag',
-        'osName'            => 'os_name',
-        'privateIp'         => 'private_ip',
-        'publicIp'          => 'public_ip',
-        'region'            => 'region',
-        'resourceGroupId'   => 'resource_group_id',
+        'instanceId' => 'instance_id',
+        'instanceName' => 'instance_name',
+        'instanceTag' => 'instance_tag',
+        'osName' => 'os_name',
+        'privateIp' => 'private_ip',
+        'publicIp' => 'public_ip',
+        'region' => 'region',
+        'resourceGroupId' => 'resource_group_id',
         'resourceGroupName' => 'resource_group_name',
     ];
 
@@ -79,7 +87,7 @@ class data extends Model
         if (null !== $this->instanceTag) {
             if (\is_array($this->instanceTag)) {
                 $res['instance_tag'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->instanceTag as $item1) {
                     $res['instance_tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -132,7 +140,7 @@ class data extends Model
         if (isset($map['instance_tag'])) {
             if (!empty($map['instance_tag'])) {
                 $model->instanceTag = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['instance_tag'] as $item1) {
                     $model->instanceTag[$n1++] = instanceTag::fromMap($item1);
                 }

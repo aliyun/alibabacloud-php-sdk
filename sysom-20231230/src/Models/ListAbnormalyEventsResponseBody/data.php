@@ -10,52 +10,89 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data
 class data extends Model
 {
     /**
-     * @var float
+     * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $description;
+
     /**
-     * @var string
+     * @var int
      */
-    public $id;
+    public $diagStatus;
+
+    /**
+     * @var int
+     */
+    public $endAt;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $item;
+
     /**
-     * @var opts
+     * @var string
+     */
+    public $level;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var opts[]
      */
     public $opts;
+
+    /**
+     * @var string
+     */
+    public $pod;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
-        'createdAt'   => 'created_at',
+        'createdAt' => 'created_at',
         'description' => 'description',
-        'id'          => 'id',
-        'instance'    => 'instance',
-        'item'        => 'item',
-        'opts'        => 'opts',
-        'regionId'    => 'region_id',
-        'type'        => 'type',
+        'diagStatus' => 'diag_status',
+        'endAt' => 'end_at',
+        'instance' => 'instance',
+        'item' => 'item',
+        'level' => 'level',
+        'namespace' => 'namespace',
+        'opts' => 'opts',
+        'pod' => 'pod',
+        'regionId' => 'region_id',
+        'type' => 'type',
+        'uuid' => 'uuid',
     ];
 
     public function validate()
     {
-        if (null !== $this->opts) {
-            $this->opts->validate();
+        if (\is_array($this->opts)) {
+            Model::validateArray($this->opts);
         }
         parent::validate();
     }
@@ -71,8 +108,12 @@ class data extends Model
             $res['description'] = $this->description;
         }
 
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->diagStatus) {
+            $res['diag_status'] = $this->diagStatus;
+        }
+
+        if (null !== $this->endAt) {
+            $res['end_at'] = $this->endAt;
         }
 
         if (null !== $this->instance) {
@@ -83,8 +124,26 @@ class data extends Model
             $res['item'] = $this->item;
         }
 
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
+        }
+
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
+        }
+
         if (null !== $this->opts) {
-            $res['opts'] = null !== $this->opts ? $this->opts->toArray($noStream) : $this->opts;
+            if (\is_array($this->opts)) {
+                $res['opts'] = [];
+                $n1 = 0;
+                foreach ($this->opts as $item1) {
+                    $res['opts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->pod) {
+            $res['pod'] = $this->pod;
         }
 
         if (null !== $this->regionId) {
@@ -93,6 +152,10 @@ class data extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->uuid) {
+            $res['uuid'] = $this->uuid;
         }
 
         return $res;
@@ -114,8 +177,12 @@ class data extends Model
             $model->description = $map['description'];
         }
 
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['diag_status'])) {
+            $model->diagStatus = $map['diag_status'];
+        }
+
+        if (isset($map['end_at'])) {
+            $model->endAt = $map['end_at'];
         }
 
         if (isset($map['instance'])) {
@@ -126,8 +193,26 @@ class data extends Model
             $model->item = $map['item'];
         }
 
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
+        }
+
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
+        }
+
         if (isset($map['opts'])) {
-            $model->opts = opts::fromMap($map['opts']);
+            if (!empty($map['opts'])) {
+                $model->opts = [];
+                $n1 = 0;
+                foreach ($map['opts'] as $item1) {
+                    $model->opts[$n1++] = opts::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['pod'])) {
+            $model->pod = $map['pod'];
         }
 
         if (isset($map['region_id'])) {
@@ -136,6 +221,10 @@ class data extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['uuid'])) {
+            $model->uuid = $map['uuid'];
         }
 
         return $model;

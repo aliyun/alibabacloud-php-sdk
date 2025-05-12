@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $grayscaleConfig;
+
     /**
      * @var string
      */
     public $pluginId;
+
     /**
      * @var string
      */
     public $pluginVersion;
+
     /**
      * @var string
      */
     public $updatedAt;
     protected $_name = [
-        'clusterId'       => 'cluster_id',
-        'createdAt'       => 'created_at',
+        'clusterId' => 'cluster_id',
+        'createdAt' => 'created_at',
         'grayscaleConfig' => 'grayscale_config',
-        'pluginId'        => 'plugin_id',
-        'pluginVersion'   => 'plugin_version',
-        'updatedAt'       => 'updated_at',
+        'pluginId' => 'plugin_id',
+        'pluginVersion' => 'plugin_version',
+        'updatedAt' => 'updated_at',
     ];
 
     public function validate()

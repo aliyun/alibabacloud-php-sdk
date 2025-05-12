@@ -12,38 +12,44 @@ class data extends Model
      * @var string[]
      */
     public $images;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $pod;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var float
      */
     public $score;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'images'    => 'images',
-        'instance'  => 'instance',
+        'images' => 'images',
+        'instance' => 'instance',
         'namespace' => 'namespace',
-        'pod'       => 'pod',
-        'regionId'  => 'region_id',
-        'score'     => 'score',
-        'status'    => 'status',
+        'pod' => 'pod',
+        'regionId' => 'region_id',
+        'score' => 'score',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -60,7 +66,7 @@ class data extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['images'][$n1++] = $item1;
                 }
@@ -105,7 +111,7 @@ class data extends Model
         if (isset($map['images'])) {
             if (!empty($map['images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['images'] as $item1) {
                     $model->images[$n1++] = $item1;
                 }

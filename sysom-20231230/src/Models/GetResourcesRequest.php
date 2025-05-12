@@ -12,18 +12,20 @@ class GetResourcesRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'cluster'  => 'cluster',
+        'cluster' => 'cluster',
         'instance' => 'instance',
-        'type'     => 'type',
+        'type' => 'type',
     ];
 
     public function validate()

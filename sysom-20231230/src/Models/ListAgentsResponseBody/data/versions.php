@@ -12,33 +12,38 @@ class versions extends Model
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $installScript;
+
     /**
      * @var string
      */
     public $uninstallScript;
+
     /**
      * @var string
      */
     public $updatedAt;
+
     /**
      * @var string
      */
     public $upgradeScript;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'createdAt'       => 'created_at',
-        'installScript'   => 'install_script',
+        'createdAt' => 'created_at',
+        'installScript' => 'install_script',
         'uninstallScript' => 'uninstall_script',
-        'updatedAt'       => 'updated_at',
-        'upgradeScript'   => 'upgrade_script',
-        'version'         => 'version',
+        'updatedAt' => 'updated_at',
+        'upgradeScript' => 'upgrade_script',
+        'version' => 'version',
     ];
 
     public function validate()

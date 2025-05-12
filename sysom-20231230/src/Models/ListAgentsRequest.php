@@ -12,23 +12,26 @@ class ListAgentsRequest extends Model
      * @var int
      */
     public $current;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'current'  => 'current',
-        'name'     => 'name',
+        'current' => 'current',
+        'name' => 'name',
         'pageSize' => 'pageSize',
-        'type'     => 'type',
+        'type' => 'type',
     ];
 
     public function validate()

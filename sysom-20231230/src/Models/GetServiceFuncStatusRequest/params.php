@@ -12,18 +12,20 @@ class params extends Model
      * @var string
      */
     public $functionName;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
         'functionName' => 'function_name',
-        'instance'     => 'instance',
-        'uid'          => 'uid',
+        'instance' => 'instance',
+        'uid' => 'uid',
     ];
 
     public function validate()

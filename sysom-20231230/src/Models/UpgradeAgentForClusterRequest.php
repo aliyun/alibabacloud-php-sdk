@@ -12,18 +12,20 @@ class UpgradeAgentForClusterRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentVersion;
+
     /**
      * @var string
      */
     public $clusterId;
     protected $_name = [
-        'agentId'      => 'agent_id',
+        'agentId' => 'agent_id',
         'agentVersion' => 'agent_version',
-        'clusterId'    => 'cluster_id',
+        'clusterId' => 'cluster_id',
     ];
 
     public function validate()

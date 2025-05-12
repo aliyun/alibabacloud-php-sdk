@@ -13,17 +13,19 @@ class UpdateFuncSwitchRecordRequest extends Model
      * @var string
      */
     public $channel;
+
     /**
      * @var params
      */
     public $params;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'channel'     => 'channel',
-        'params'      => 'params',
+        'channel' => 'channel',
+        'params' => 'params',
         'serviceName' => 'service_name',
     ];
 

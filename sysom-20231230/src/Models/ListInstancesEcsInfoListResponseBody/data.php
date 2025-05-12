@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'ip'       => 'ip',
-        'tagKey'   => 'tag_key',
+        'ip' => 'ip',
+        'tagKey' => 'tag_key',
         'tagValue' => 'tag_value',
-        'type'     => 'type',
+        'type' => 'type',
     ];
 
     public function validate()

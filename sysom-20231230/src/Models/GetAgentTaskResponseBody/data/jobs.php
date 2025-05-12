@@ -12,33 +12,38 @@ class jobs extends Model
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var mixed
      */
     public $params;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'error'    => 'error',
+        'error' => 'error',
         'instance' => 'instance',
-        'params'   => 'params',
-        'region'   => 'region',
-        'result'   => 'result',
-        'status'   => 'status',
+        'params' => 'params',
+        'region' => 'region',
+        'result' => 'result',
+        'status' => 'status',
     ];
 
     public function validate()

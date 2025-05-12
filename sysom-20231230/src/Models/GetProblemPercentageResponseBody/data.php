@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $value;
     protected $_name = [
-        'type'  => 'type',
+        'type' => 'type',
         'value' => 'value',
     ];
 

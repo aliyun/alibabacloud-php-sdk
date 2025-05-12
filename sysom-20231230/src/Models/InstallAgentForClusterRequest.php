@@ -12,22 +12,25 @@ class InstallAgentForClusterRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentVersion;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $grayscaleConfig;
     protected $_name = [
-        'agentId'         => 'agent_id',
-        'agentVersion'    => 'agent_version',
-        'clusterId'       => 'cluster_id',
+        'agentId' => 'agent_id',
+        'agentVersion' => 'agent_version',
+        'clusterId' => 'cluster_id',
         'grayscaleConfig' => 'grayscale_config',
     ];
 

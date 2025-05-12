@@ -12,53 +12,62 @@ class ListAbnormalyEventsRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var int
      */
     public $current;
+
     /**
      * @var float
      */
     public $end;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pod;
+
     /**
      * @var int
      */
     public $showPod;
+
     /**
      * @var float
      */
     public $start;
     protected $_name = [
-        'cluster'   => 'cluster',
-        'current'   => 'current',
-        'end'       => 'end',
-        'instance'  => 'instance',
-        'level'     => 'level',
+        'cluster' => 'cluster',
+        'current' => 'current',
+        'end' => 'end',
+        'instance' => 'instance',
+        'level' => 'level',
         'namespace' => 'namespace',
-        'pageSize'  => 'pageSize',
-        'pod'       => 'pod',
-        'showPod'   => 'showPod',
-        'start'     => 'start',
+        'pageSize' => 'pageSize',
+        'pod' => 'pod',
+        'showPod' => 'showPod',
+        'start' => 'start',
     ];
 
     public function validate()

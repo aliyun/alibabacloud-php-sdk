@@ -12,33 +12,38 @@ class GetHotspotTrackingRequest extends Model
      * @var int
      */
     public $begEnd;
+
     /**
      * @var int
      */
     public $begStart;
+
     /**
      * @var string
      */
     public $hotType;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var string
      */
     public $table;
     protected $_name = [
-        'begEnd'   => 'beg_end',
+        'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
-        'hotType'  => 'hot_type',
+        'hotType' => 'hot_type',
         'instance' => 'instance',
-        'pid'      => 'pid',
-        'table'    => 'table',
+        'pid' => 'pid',
+        'table' => 'table',
     ];
 
     public function validate()
