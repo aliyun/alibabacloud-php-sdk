@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeModificationPriceRequest\resourceSpecs;
 
 class DescribeModificationPriceRequest extends Model
 {
@@ -34,6 +35,11 @@ class DescribeModificationPriceRequest extends Model
     public $resellerOwnerUid;
 
     /**
+     * @var resourceSpecs[]
+     */
+    public $resourceSpecs;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -53,6 +59,7 @@ class DescribeModificationPriceRequest extends Model
         'instanceType' => 'InstanceType',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
+        'resourceSpecs' => 'ResourceSpecs',
         'resourceType' => 'ResourceType',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskSizeGib' => 'UserDiskSizeGib',
@@ -60,6 +67,9 @@ class DescribeModificationPriceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceSpecs)) {
+            Model::validateArray($this->resourceSpecs);
+        }
         parent::validate();
     }
 
@@ -84,6 +94,16 @@ class DescribeModificationPriceRequest extends Model
 
         if (null !== $this->resellerOwnerUid) {
             $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
+        if (null !== $this->resourceSpecs) {
+            if (\is_array($this->resourceSpecs)) {
+                $res['ResourceSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->resourceSpecs as $item1) {
+                    $res['ResourceSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->resourceType) {
@@ -127,6 +147,16 @@ class DescribeModificationPriceRequest extends Model
 
         if (isset($map['ResellerOwnerUid'])) {
             $model->resellerOwnerUid = $map['ResellerOwnerUid'];
+        }
+
+        if (isset($map['ResourceSpecs'])) {
+            if (!empty($map['ResourceSpecs'])) {
+                $model->resourceSpecs = [];
+                $n1 = 0;
+                foreach ($map['ResourceSpecs'] as $item1) {
+                    $model->resourceSpecs[$n1++] = resourceSpecs::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['ResourceType'])) {

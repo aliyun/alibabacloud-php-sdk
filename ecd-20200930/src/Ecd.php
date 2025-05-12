@@ -3132,7 +3132,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建无地域策略.
+     * Creates a center policy.
      *
      * @param request - CreateCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3571,7 +3571,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建无地域策略.
+     * Creates a center policy.
      *
      * @param request - CreateCenterPolicyRequest
      *
@@ -9722,6 +9722,10 @@ class Ecd extends OpenApiClient
             @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
+        if (null !== $request->resourceSpecs) {
+            @$query['ResourceSpecs'] = $request->resourceSpecs;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
@@ -12423,7 +12427,7 @@ class Ecd extends OpenApiClient
      * Obtains the credential that is used to connect to a cloud desktop.
      *
      * @remarks
-     * The cloud computer must be in the Running state.
+     * The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12501,7 +12505,7 @@ class Ecd extends OpenApiClient
      * Obtains the credential that is used to connect to a cloud desktop.
      *
      * @remarks
-     * The cloud computer must be in the Running state.
+     * The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
      *
      * @param request - GetConnectionTicketRequest
      *
