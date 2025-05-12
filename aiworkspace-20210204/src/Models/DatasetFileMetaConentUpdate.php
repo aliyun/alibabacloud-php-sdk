@@ -36,6 +36,11 @@ class DatasetFileMetaConentUpdate extends Model
     /**
      * @var string
      */
+    public $fileFingerPrint;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -73,6 +78,7 @@ class DatasetFileMetaConentUpdate extends Model
         'dataSize' => 'DataSize',
         'datasetFileMetaId' => 'DatasetFileMetaId',
         'fileCreateTime' => 'FileCreateTime',
+        'fileFingerPrint' => 'FileFingerPrint',
         'fileName' => 'FileName',
         'fileType' => 'FileType',
         'fileUpdateTime' => 'FileUpdateTime',
@@ -108,6 +114,10 @@ class DatasetFileMetaConentUpdate extends Model
 
         if (null !== $this->fileCreateTime) {
             $res['FileCreateTime'] = $this->fileCreateTime;
+        }
+
+        if (null !== $this->fileFingerPrint) {
+            $res['FileFingerPrint'] = $this->fileFingerPrint;
         }
 
         if (null !== $this->fileName) {
@@ -167,6 +177,10 @@ class DatasetFileMetaConentUpdate extends Model
 
         if (isset($map['FileCreateTime'])) {
             $model->fileCreateTime = $map['FileCreateTime'];
+        }
+
+        if (isset($map['FileFingerPrint'])) {
+            $model->fileFingerPrint = $map['FileFingerPrint'];
         }
 
         if (isset($map['FileName'])) {

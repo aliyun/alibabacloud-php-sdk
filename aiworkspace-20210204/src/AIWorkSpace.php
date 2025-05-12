@@ -3391,7 +3391,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取配置.
+     * Obtains a workspace configuration item.
      *
      * @param request - GetConfigRequest
      * @param headers - map
@@ -3442,7 +3442,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取配置.
+     * Obtains a workspace configuration item.
      *
      * @param request - GetConfigRequest
      *
@@ -4496,7 +4496,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取配置.
+     * Obtains a list of workspace configurations.
      *
      * @param request - ListConfigsRequest
      * @param headers - map
@@ -4551,7 +4551,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取配置.
+     * Obtains a list of workspace configurations.
      *
      * @param request - ListConfigsRequest
      *
@@ -7064,7 +7064,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新配置.
+     * Updates or adds a workspace configuration item.
      *
      * @param request - UpdateConfigRequest
      * @param headers - map
@@ -7119,7 +7119,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新配置.
+     * Updates or adds a workspace configuration item.
      *
      * @param request - UpdateConfigRequest
      *
@@ -7139,7 +7139,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新配置.
+     * Updates or adds workspace configurations in batches.
      *
      * @param request - UpdateConfigsRequest
      * @param headers - map
@@ -7182,7 +7182,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新配置.
+     * Updates or adds workspace configurations in batches.
      *
      * @param request - UpdateConfigsRequest
      *
