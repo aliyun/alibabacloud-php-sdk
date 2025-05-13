@@ -158,6 +158,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\GetWebshellTokenRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetWebshellTokenResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsForSwimmingLaneRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsForSwimmingLaneResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppServicesPageRequest;
@@ -6699,6 +6701,75 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->listApplicationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取应用列表，供全链路灰度拉取应用列表.
+     *
+     * @param request - ListApplicationsForSwimmingLaneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationsForSwimmingLaneResponse
+     *
+     * @param ListApplicationsForSwimmingLaneRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListApplicationsForSwimmingLaneResponse
+     */
+    public function listApplicationsForSwimmingLaneWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationsForSwimmingLane',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/listApplicationsForSwimmingLane',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationsForSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用列表，供全链路灰度拉取应用列表.
+     *
+     * @param request - ListApplicationsForSwimmingLaneRequest
+     *
+     * @returns ListApplicationsForSwimmingLaneResponse
+     *
+     * @param ListApplicationsForSwimmingLaneRequest $request
+     *
+     * @return ListApplicationsForSwimmingLaneResponse
+     */
+    public function listApplicationsForSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApplicationsForSwimmingLaneWithOptions($request, $headers, $runtime);
     }
 
     /**
