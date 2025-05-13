@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListGroupsResponseBody\data\appGroups;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The applications and their details.
-     *
      * @var appGroups[]
      */
     public $appGroups;
@@ -21,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->appGroups)) {
+            Model::validateArray($this->appGroups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appGroups) {
-            $res['AppGroups'] = [];
-            if (null !== $this->appGroups && \is_array($this->appGroups)) {
-                $n = 0;
-                foreach ($this->appGroups as $item) {
-                    $res['AppGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appGroups)) {
+                $res['AppGroups'] = [];
+                $n1 = 0;
+                foreach ($this->appGroups as $item1) {
+                    $res['AppGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppGroups'])) {
             if (!empty($map['AppGroups'])) {
                 $model->appGroups = [];
-                $n                = 0;
-                foreach ($map['AppGroups'] as $item) {
-                    $model->appGroups[$n++] = null !== $item ? appGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppGroups'] as $item1) {
+                    $model->appGroups[$n1++] = appGroups::fromMap($item1);
                 }
             }
         }

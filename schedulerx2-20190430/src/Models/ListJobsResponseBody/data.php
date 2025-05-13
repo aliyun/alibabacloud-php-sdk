@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListJobsResponseBody\data\jobs;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The jobs and their details.
-     *
      * @var jobs[]
      */
     public $jobs;
@@ -21,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->jobs)) {
+            Model::validateArray($this->jobs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobs) {
-            $res['Jobs'] = [];
-            if (null !== $this->jobs && \is_array($this->jobs)) {
-                $n = 0;
-                foreach ($this->jobs as $item) {
-                    $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobs)) {
+                $res['Jobs'] = [];
+                $n1 = 0;
+                foreach ($this->jobs as $item1) {
+                    $res['Jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n           = 0;
-                foreach ($map['Jobs'] as $item) {
-                    $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Jobs'] as $item1) {
+                    $model->jobs[$n1++] = jobs::fromMap($item1);
                 }
             }
         }

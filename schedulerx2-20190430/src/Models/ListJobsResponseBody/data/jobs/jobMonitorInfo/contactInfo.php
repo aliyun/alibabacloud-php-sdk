@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListJobsResponseBody\data\jobs\jobMonitorInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contactInfo extends Model
 {
     /**
-     * @description The webhook URL of the DingTalk chatbot.
-     *
-     * @example https://oapi.dingtalk.com/robot/send?access_token=**********
-     *
      * @var string
      */
     public $ding;
 
     /**
-     * @description The email address of the user.
-     *
-     * @example user@mail.com
-     *
      * @var string
      */
     public $userMail;
 
     /**
-     * @description The username.
-     *
-     * @example userA
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @description The mobile number of the user.
-     *
-     * @example 1381111****
-     *
      * @var string
      */
     public $userPhone;
     protected $_name = [
-        'ding'      => 'Ding',
-        'userMail'  => 'UserMail',
-        'userName'  => 'UserName',
+        'ding' => 'Ding',
+        'userMail' => 'UserMail',
+        'userName' => 'UserName',
         'userPhone' => 'UserPhone',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ding) {
             $res['Ding'] = $this->ding;
         }
+
         if (null !== $this->userMail) {
             $res['UserMail'] = $this->userMail;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userPhone) {
             $res['UserPhone'] = $this->userPhone;
         }
@@ -73,23 +61,26 @@ class contactInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ding'])) {
             $model->ding = $map['Ding'];
         }
+
         if (isset($map['UserMail'])) {
             $model->userMail = $map['UserMail'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserPhone'])) {
             $model->userPhone = $map['UserPhone'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The UID of the namespace.
-     *
-     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
-     *
      * @var string
      */
     public $namespaceUid;
@@ -22,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceUid) {
@@ -34,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
