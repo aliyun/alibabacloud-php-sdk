@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\TaskCallInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class model_ extends Model
 {
     /**
-     * @example 75
-     *
      * @var int
      */
     public $finishTotal;
 
     /**
-     * @example 59
-     *
      * @var int
      */
     public $total;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $unCallTotal;
     protected $_name = [
         'finishTotal' => 'FinishTotal',
-        'total'       => 'Total',
+        'total' => 'Total',
         'unCallTotal' => 'UnCallTotal',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finishTotal) {
             $res['FinishTotal'] = $this->finishTotal;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
+
         if (null !== $this->unCallTotal) {
             $res['UnCallTotal'] = $this->unCallTotal;
         }
@@ -54,20 +51,22 @@ class model_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FinishTotal'])) {
             $model->finishTotal = $map['FinishTotal'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
+
         if (isset($map['UnCallTotal'])) {
             $model->unCallTotal = $map['UnCallTotal'];
         }

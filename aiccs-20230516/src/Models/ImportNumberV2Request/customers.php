@@ -2,21 +2,26 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\UpdateTaskCustomerRequest;
+namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2Request;
 
 use AlibabaCloud\Dara\Model;
 
 class customers extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $cancel;
+    public $clientUrl;
 
     /**
      * @var string
      */
     public $number;
+
+    /**
+     * @var string
+     */
+    public $numberMD5;
 
     /**
      * @var mixed[]
@@ -28,8 +33,9 @@ class customers extends Model
      */
     public $tag;
     protected $_name = [
-        'cancel' => 'Cancel',
+        'clientUrl' => 'ClientUrl',
         'number' => 'Number',
+        'numberMD5' => 'NumberMD5',
         'properties' => 'Properties',
         'tag' => 'Tag',
     ];
@@ -45,12 +51,16 @@ class customers extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cancel) {
-            $res['Cancel'] = $this->cancel;
+        if (null !== $this->clientUrl) {
+            $res['ClientUrl'] = $this->clientUrl;
         }
 
         if (null !== $this->number) {
             $res['Number'] = $this->number;
+        }
+
+        if (null !== $this->numberMD5) {
+            $res['NumberMD5'] = $this->numberMD5;
         }
 
         if (null !== $this->properties) {
@@ -77,12 +87,16 @@ class customers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cancel'])) {
-            $model->cancel = $map['Cancel'];
+        if (isset($map['ClientUrl'])) {
+            $model->clientUrl = $map['ClientUrl'];
         }
 
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
+        }
+
+        if (isset($map['NumberMD5'])) {
+            $model->numberMD5 = $map['NumberMD5'];
         }
 
         if (isset($map['Properties'])) {

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberResponseBody;
+namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2ResponseBody;
 
 use AlibabaCloud\Dara\Model;
 

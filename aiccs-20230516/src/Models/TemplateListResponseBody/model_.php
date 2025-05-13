@@ -4,90 +4,99 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\TemplateListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class model_ extends Model
 {
     /**
-     * @description 意向标签
-     *
      * @var mixed[][]
      */
     public $intentTags;
 
     /**
-     * @description 个性标签
-     *
      * @var string[]
      */
     public $personalityTags;
 
     /**
-     * @description 话术所需参数
-     *
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $properties;
 
     /**
-     * @description AI话术ID
-     *
-     * @example 59
-     *
      * @var int
      */
     public $templateId;
 
     /**
-     * @description 话术模板名称
-     *
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 模板类型
-     *
-     * @example 55
-     *
      * @var int
      */
     public $templateType;
     protected $_name = [
-        'intentTags'      => 'IntentTags',
+        'intentTags' => 'IntentTags',
         'personalityTags' => 'PersonalityTags',
-        'properties'      => 'Properties',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
-        'templateType'    => 'TemplateType',
+        'properties' => 'Properties',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->intentTags)) {
+            Model::validateArray($this->intentTags);
+        }
+        if (\is_array($this->personalityTags)) {
+            Model::validateArray($this->personalityTags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->intentTags) {
-            $res['IntentTags'] = $this->intentTags;
+            if (\is_array($this->intentTags)) {
+                $res['IntentTags'] = [];
+                $n1 = 0;
+                foreach ($this->intentTags as $item1) {
+                    if (\is_array($item1)) {
+                        $res['IntentTags'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['IntentTags'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->personalityTags) {
-            $res['PersonalityTags'] = $this->personalityTags;
+            if (\is_array($this->personalityTags)) {
+                $res['PersonalityTags'] = [];
+                $n1 = 0;
+                foreach ($this->personalityTags as $item1) {
+                    $res['PersonalityTags'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -95,33 +104,51 @@ class model_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IntentTags'])) {
             if (!empty($map['IntentTags'])) {
-                $model->intentTags = $map['IntentTags'];
+                $model->intentTags = [];
+                $n1 = 0;
+                foreach ($map['IntentTags'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->intentTags[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->intentTags[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['PersonalityTags'])) {
             if (!empty($map['PersonalityTags'])) {
-                $model->personalityTags = $map['PersonalityTags'];
+                $model->personalityTags = [];
+                $n1 = 0;
+                foreach ($map['PersonalityTags'] as $item1) {
+                    $model->personalityTags[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }

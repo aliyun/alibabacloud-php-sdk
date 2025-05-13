@@ -4,71 +4,74 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customers extends Model
 {
     /**
-     * @example http://test.com
-     *
      * @var string
      */
     public $clientUrl;
 
     /**
-     * @example 13541251222,18665214444
-     *
      * @var string
      */
     public $number;
 
     /**
-     * @example 示例值
-     *
      * @var string
      */
     public $numberMD5;
 
     /**
-     * @example {"testt":"123"}
-     *
      * @var mixed[]
      */
     public $properties;
 
     /**
-     * @example tag1
-     *
      * @var string
      */
     public $tag;
     protected $_name = [
-        'clientUrl'  => 'ClientUrl',
-        'number'     => 'Number',
-        'numberMD5'  => 'NumberMD5',
+        'clientUrl' => 'ClientUrl',
+        'number' => 'Number',
+        'numberMD5' => 'NumberMD5',
         'properties' => 'Properties',
-        'tag'        => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientUrl) {
             $res['ClientUrl'] = $this->clientUrl;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->numberMD5) {
             $res['NumberMD5'] = $this->numberMD5;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                foreach ($this->properties as $key1 => $value1) {
+                    $res['Properties'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -76,26 +79,35 @@ class customers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientUrl'])) {
             $model->clientUrl = $map['ClientUrl'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['NumberMD5'])) {
             $model->numberMD5 = $map['NumberMD5'];
         }
+
         if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                foreach ($map['Properties'] as $key1 => $value1) {
+                    $model->properties[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }

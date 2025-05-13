@@ -4,40 +4,45 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sendSmsPlan extends Model
 {
     /**
-     * @description 意向标签
-     *
      * @var string[]
      */
     public $intentTags;
 
     /**
-     * @description 短信模板ID
-     *
-     * @example 71
-     *
      * @var int
      */
     public $smsTemplateId;
     protected $_name = [
-        'intentTags'    => 'IntentTags',
+        'intentTags' => 'IntentTags',
         'smsTemplateId' => 'SmsTemplateId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->intentTags)) {
+            Model::validateArray($this->intentTags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->intentTags) {
-            $res['IntentTags'] = $this->intentTags;
+            if (\is_array($this->intentTags)) {
+                $res['IntentTags'] = [];
+                $n1 = 0;
+                foreach ($this->intentTags as $item1) {
+                    $res['IntentTags'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->smsTemplateId) {
             $res['SmsTemplateId'] = $this->smsTemplateId;
         }
@@ -45,19 +50,24 @@ class sendSmsPlan extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sendSmsPlan
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IntentTags'])) {
             if (!empty($map['IntentTags'])) {
-                $model->intentTags = $map['IntentTags'];
+                $model->intentTags = [];
+                $n1 = 0;
+                foreach ($map['IntentTags'] as $item1) {
+                    $model->intentTags[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SmsTemplateId'])) {
             $model->smsTemplateId = $map['SmsTemplateId'];
         }

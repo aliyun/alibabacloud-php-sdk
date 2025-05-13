@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateTaskCustomerShrinkRequest extends Model
+class ImportNumberV2ShrinkRequest extends Model
 {
     /**
      * @var string
      */
     public $customersShrink;
+
+    /**
+     * @var int
+     */
+    public $failReturn;
+
+    /**
+     * @var string
+     */
+    public $outId;
 
     /**
      * @var int
@@ -34,6 +44,8 @@ class UpdateTaskCustomerShrinkRequest extends Model
     public $taskId;
     protected $_name = [
         'customersShrink' => 'Customers',
+        'failReturn' => 'FailReturn',
+        'outId' => 'OutId',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -50,6 +62,14 @@ class UpdateTaskCustomerShrinkRequest extends Model
         $res = [];
         if (null !== $this->customersShrink) {
             $res['Customers'] = $this->customersShrink;
+        }
+
+        if (null !== $this->failReturn) {
+            $res['FailReturn'] = $this->failReturn;
+        }
+
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
 
         if (null !== $this->ownerId) {
@@ -81,6 +101,14 @@ class UpdateTaskCustomerShrinkRequest extends Model
         $model = new self();
         if (isset($map['Customers'])) {
             $model->customersShrink = $map['Customers'];
+        }
+
+        if (isset($map['FailReturn'])) {
+            $model->failReturn = $map['FailReturn'];
+        }
+
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
 
         if (isset($map['OwnerId'])) {

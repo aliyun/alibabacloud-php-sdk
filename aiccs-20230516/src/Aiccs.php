@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistShrinkRequest;
@@ -27,6 +26,9 @@ use AlibabaCloud\SDK\Aiccs\V20230516\Models\EditTaskShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2Request;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2Response;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2ShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\PageRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\PageResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\PageShrinkRequest;
@@ -56,11 +58,10 @@ use AlibabaCloud\SDK\Aiccs\V20230516\Models\UpdateAgentStatusResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\UpdateTaskCustomerRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\UpdateTaskCustomerResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\UpdateTaskCustomerShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Aiccs extends OpenApiClient
 {
@@ -85,75 +86,92 @@ class Aiccs extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加黑名单接口
-     *  *
-     * @param AddBlacklistRequest $tmpReq  AddBlacklistRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 添加黑名单接口.
      *
-     * @return AddBlacklistResponse AddBlacklistResponse
+     * @param tmpReq - AddBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddBlacklistResponse
+     *
+     * @param AddBlacklistRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddBlacklistResponse
      */
     public function addBlacklistWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddBlacklistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->expiredDay)) {
-            $query['ExpiredDay'] = $request->expiredDay;
+        if (null !== $request->expiredDay) {
+            @$query['ExpiredDay'] = $request->expiredDay;
         }
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddBlacklist',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddBlacklist',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加黑名单接口
-     *  *
-     * @param AddBlacklistRequest $request AddBlacklistRequest
+     * 添加黑名单接口.
      *
-     * @return AddBlacklistResponse AddBlacklistResponse
+     * @param request - AddBlacklistRequest
+     *
+     * @returns AddBlacklistResponse
+     *
+     * @param AddBlacklistRequest $request
+     *
+     * @return AddBlacklistResponse
      */
     public function addBlacklist($request)
     {
@@ -163,121 +181,156 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 创建任务接口
-     *  *
-     * @param AddTaskRequest $tmpReq  AddTaskRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 创建任务接口.
      *
-     * @return AddTaskResponse AddTaskResponse
+     * @param tmpReq - AddTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTaskResponse
+     *
+     * @param AddTaskRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddTaskResponse
      */
     public function addTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->callTimeList)) {
-            $request->callTimeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callTimeList) {
+            $request->callTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->repeatReason)) {
-            $request->repeatReasonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repeatReason, 'RepeatReason', 'json');
+
+        if (null !== $tmpReq->repeatReason) {
+            $request->repeatReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repeatReason, 'RepeatReason', 'json');
         }
-        if (!Utils::isUnset($tmpReq->repeatTimes)) {
-            $request->repeatTimesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repeatTimes, 'RepeatTimes', 'json');
+
+        if (null !== $tmpReq->repeatTimes) {
+            $request->repeatTimesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repeatTimes, 'RepeatTimes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sendSmsPlan)) {
-            $request->sendSmsPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sendSmsPlan, 'SendSmsPlan', 'json');
+
+        if (null !== $tmpReq->sendSmsPlan) {
+            $request->sendSmsPlanShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sendSmsPlan, 'SendSmsPlan', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->callTimeListShrink)) {
-            $query['CallTimeList'] = $request->callTimeListShrink;
+        if (null !== $request->callTimeListShrink) {
+            @$query['CallTimeList'] = $request->callTimeListShrink;
         }
-        if (!Utils::isUnset($request->callbackUrl)) {
-            $query['CallbackUrl'] = $request->callbackUrl;
+
+        if (null !== $request->callbackUrl) {
+            @$query['CallbackUrl'] = $request->callbackUrl;
         }
-        if (!Utils::isUnset($request->flashSmsTemplateId)) {
-            $query['FlashSmsTemplateId'] = $request->flashSmsTemplateId;
+
+        if (null !== $request->flashSmsTemplateId) {
+            @$query['FlashSmsTemplateId'] = $request->flashSmsTemplateId;
         }
-        if (!Utils::isUnset($request->flashSmsType)) {
-            $query['FlashSmsType'] = $request->flashSmsType;
+
+        if (null !== $request->flashSmsType) {
+            @$query['FlashSmsType'] = $request->flashSmsType;
         }
-        if (!Utils::isUnset($request->maxConcurrency)) {
-            $query['MaxConcurrency'] = $request->maxConcurrency;
+
+        if (null !== $request->maxConcurrency) {
+            @$query['MaxConcurrency'] = $request->maxConcurrency;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playSleepVal)) {
-            $query['PlaySleepVal'] = $request->playSleepVal;
+
+        if (null !== $request->playSleepVal) {
+            @$query['PlaySleepVal'] = $request->playSleepVal;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->recallType)) {
-            $query['RecallType'] = $request->recallType;
+
+        if (null !== $request->recallType) {
+            @$query['RecallType'] = $request->recallType;
         }
-        if (!Utils::isUnset($request->recordPath)) {
-            $query['RecordPath'] = $request->recordPath;
+
+        if (null !== $request->recordPath) {
+            @$query['RecordPath'] = $request->recordPath;
         }
-        if (!Utils::isUnset($request->repeatCount)) {
-            $query['RepeatCount'] = $request->repeatCount;
+
+        if (null !== $request->repeatCount) {
+            @$query['RepeatCount'] = $request->repeatCount;
         }
-        if (!Utils::isUnset($request->repeatInterval)) {
-            $query['RepeatInterval'] = $request->repeatInterval;
+
+        if (null !== $request->repeatInterval) {
+            @$query['RepeatInterval'] = $request->repeatInterval;
         }
-        if (!Utils::isUnset($request->repeatReasonShrink)) {
-            $query['RepeatReason'] = $request->repeatReasonShrink;
+
+        if (null !== $request->repeatReasonShrink) {
+            @$query['RepeatReason'] = $request->repeatReasonShrink;
         }
-        if (!Utils::isUnset($request->repeatTimesShrink)) {
-            $query['RepeatTimes'] = $request->repeatTimesShrink;
+
+        if (null !== $request->repeatTimesShrink) {
+            @$query['RepeatTimes'] = $request->repeatTimesShrink;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendSmsPlanShrink)) {
-            $query['SendSmsPlan'] = $request->sendSmsPlanShrink;
+
+        if (null !== $request->sendSmsPlanShrink) {
+            @$query['SendSmsPlan'] = $request->sendSmsPlanShrink;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddTask',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTask',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建任务接口
-     *  *
-     * @param AddTaskRequest $request AddTaskRequest
+     * 创建任务接口.
      *
-     * @return AddTaskResponse AddTaskResponse
+     * @param request - AddTaskRequest
+     *
+     * @returns AddTaskResponse
+     *
+     * @param AddTaskRequest $request
+     *
+     * @return AddTaskResponse
      */
     public function addTask($request)
     {
@@ -287,70 +340,88 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 坐席取消号码外呼
-     *  *
-     * @param AgentCancelCallRequest $tmpReq  AgentCancelCallRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 坐席取消号码外呼
      *
-     * @return AgentCancelCallResponse AgentCancelCallResponse
+     * @param tmpReq - AgentCancelCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AgentCancelCallResponse
+     *
+     * @param AgentCancelCallRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AgentCancelCallResponse
      */
     public function agentCancelCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AgentCancelCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentTag)) {
-            $query['AgentTag'] = $request->agentTag;
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
         }
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AgentCancelCall',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AgentCancelCall',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AgentCancelCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 坐席取消号码外呼
-     *  *
-     * @param AgentCancelCallRequest $request AgentCancelCallRequest
+     * 坐席取消号码外呼
      *
-     * @return AgentCancelCallResponse AgentCancelCallResponse
+     * @param request - AgentCancelCallRequest
+     *
+     * @returns AgentCancelCallResponse
+     *
+     * @param AgentCancelCallRequest $request
+     *
+     * @return AgentCancelCallResponse
      */
     public function agentCancelCall($request)
     {
@@ -360,76 +431,96 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 坐席任务恢复号码
-     *  *
-     * @param AgentRecoverCallRequest $tmpReq  AgentRecoverCallRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 坐席任务恢复号码
      *
-     * @return AgentRecoverCallResponse AgentRecoverCallResponse
+     * @param tmpReq - AgentRecoverCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AgentRecoverCallResponse
+     *
+     * @param AgentRecoverCallRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AgentRecoverCallResponse
      */
     public function agentRecoverCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AgentRecoverCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentTag)) {
-            $query['AgentTag'] = $request->agentTag;
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
         }
-        if (!Utils::isUnset($request->beginImportTime)) {
-            $query['BeginImportTime'] = $request->beginImportTime;
+
+        if (null !== $request->beginImportTime) {
+            @$query['BeginImportTime'] = $request->beginImportTime;
         }
-        if (!Utils::isUnset($request->endImportTime)) {
-            $query['EndImportTime'] = $request->endImportTime;
+
+        if (null !== $request->endImportTime) {
+            @$query['EndImportTime'] = $request->endImportTime;
         }
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AgentRecoverCall',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AgentRecoverCall',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AgentRecoverCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 坐席任务恢复号码
-     *  *
-     * @param AgentRecoverCallRequest $request AgentRecoverCallRequest
+     * 坐席任务恢复号码
      *
-     * @return AgentRecoverCallResponse AgentRecoverCallResponse
+     * @param request - AgentRecoverCallRequest
+     *
+     * @returns AgentRecoverCallResponse
+     *
+     * @param AgentRecoverCallRequest $request
+     *
+     * @return AgentRecoverCallResponse
      */
     public function agentRecoverCall($request)
     {
@@ -439,79 +530,100 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary AI批量任务查询号码状态接口
-     *  *
-     * @param DetailsRequest $tmpReq  DetailsRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * AI批量任务查询号码状态接口.
      *
-     * @return DetailsResponse DetailsResponse
+     * @param tmpReq - DetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetailsResponse
+     *
+     * @param DetailsRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return DetailsResponse
      */
     public function detailsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetailsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->batchId)) {
-            $query['BatchId'] = $request->batchId;
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->numberStatus)) {
-            $query['NumberStatus'] = $request->numberStatus;
+
+        if (null !== $request->numberStatus) {
+            @$query['NumberStatus'] = $request->numberStatus;
         }
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Details',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Details',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary AI批量任务查询号码状态接口
-     *  *
-     * @param DetailsRequest $request DetailsRequest
+     * AI批量任务查询号码状态接口.
      *
-     * @return DetailsResponse DetailsResponse
+     * @param request - DetailsRequest
+     *
+     * @returns DetailsResponse
+     *
+     * @param DetailsRequest $request
+     *
+     * @return DetailsResponse
      */
     public function details($request)
     {
@@ -521,121 +633,156 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 编辑任务接口
-     *  *
-     * @param EditTaskRequest $tmpReq  EditTaskRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 编辑任务接口.
      *
-     * @return EditTaskResponse EditTaskResponse
+     * @param tmpReq - EditTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditTaskResponse
+     *
+     * @param EditTaskRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return EditTaskResponse
      */
     public function editTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EditTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->callTimeList)) {
-            $request->callTimeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callTimeList) {
+            $request->callTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->repeatReason)) {
-            $request->repeatReasonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repeatReason, 'RepeatReason', 'json');
+
+        if (null !== $tmpReq->repeatReason) {
+            $request->repeatReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repeatReason, 'RepeatReason', 'json');
         }
-        if (!Utils::isUnset($tmpReq->repeatTimes)) {
-            $request->repeatTimesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repeatTimes, 'RepeatTimes', 'json');
+
+        if (null !== $tmpReq->repeatTimes) {
+            $request->repeatTimesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repeatTimes, 'RepeatTimes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sendSmsPlan)) {
-            $request->sendSmsPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sendSmsPlan, 'SendSmsPlan', 'json');
+
+        if (null !== $tmpReq->sendSmsPlan) {
+            $request->sendSmsPlanShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sendSmsPlan, 'SendSmsPlan', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->callTimeListShrink)) {
-            $query['CallTimeList'] = $request->callTimeListShrink;
+        if (null !== $request->callTimeListShrink) {
+            @$query['CallTimeList'] = $request->callTimeListShrink;
         }
-        if (!Utils::isUnset($request->callbackUrl)) {
-            $query['CallbackUrl'] = $request->callbackUrl;
+
+        if (null !== $request->callbackUrl) {
+            @$query['CallbackUrl'] = $request->callbackUrl;
         }
-        if (!Utils::isUnset($request->flashSmsTemplateId)) {
-            $query['FlashSmsTemplateId'] = $request->flashSmsTemplateId;
+
+        if (null !== $request->flashSmsTemplateId) {
+            @$query['FlashSmsTemplateId'] = $request->flashSmsTemplateId;
         }
-        if (!Utils::isUnset($request->flashSmsType)) {
-            $query['FlashSmsType'] = $request->flashSmsType;
+
+        if (null !== $request->flashSmsType) {
+            @$query['FlashSmsType'] = $request->flashSmsType;
         }
-        if (!Utils::isUnset($request->maxConcurrency)) {
-            $query['MaxConcurrency'] = $request->maxConcurrency;
+
+        if (null !== $request->maxConcurrency) {
+            @$query['MaxConcurrency'] = $request->maxConcurrency;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playSleepVal)) {
-            $query['PlaySleepVal'] = $request->playSleepVal;
+
+        if (null !== $request->playSleepVal) {
+            @$query['PlaySleepVal'] = $request->playSleepVal;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->recallType)) {
-            $query['RecallType'] = $request->recallType;
+
+        if (null !== $request->recallType) {
+            @$query['RecallType'] = $request->recallType;
         }
-        if (!Utils::isUnset($request->recordPath)) {
-            $query['RecordPath'] = $request->recordPath;
+
+        if (null !== $request->recordPath) {
+            @$query['RecordPath'] = $request->recordPath;
         }
-        if (!Utils::isUnset($request->repeatCount)) {
-            $query['RepeatCount'] = $request->repeatCount;
+
+        if (null !== $request->repeatCount) {
+            @$query['RepeatCount'] = $request->repeatCount;
         }
-        if (!Utils::isUnset($request->repeatInterval)) {
-            $query['RepeatInterval'] = $request->repeatInterval;
+
+        if (null !== $request->repeatInterval) {
+            @$query['RepeatInterval'] = $request->repeatInterval;
         }
-        if (!Utils::isUnset($request->repeatReasonShrink)) {
-            $query['RepeatReason'] = $request->repeatReasonShrink;
+
+        if (null !== $request->repeatReasonShrink) {
+            @$query['RepeatReason'] = $request->repeatReasonShrink;
         }
-        if (!Utils::isUnset($request->repeatTimesShrink)) {
-            $query['RepeatTimes'] = $request->repeatTimesShrink;
+
+        if (null !== $request->repeatTimesShrink) {
+            @$query['RepeatTimes'] = $request->repeatTimesShrink;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendSmsPlanShrink)) {
-            $query['SendSmsPlan'] = $request->sendSmsPlanShrink;
+
+        if (null !== $request->sendSmsPlanShrink) {
+            @$query['SendSmsPlan'] = $request->sendSmsPlanShrink;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EditTask',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditTask',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EditTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑任务接口
-     *  *
-     * @param EditTaskRequest $request EditTaskRequest
+     * 编辑任务接口.
      *
-     * @return EditTaskResponse EditTaskResponse
+     * @param request - EditTaskRequest
+     *
+     * @returns EditTaskResponse
+     *
+     * @param EditTaskRequest $request
+     *
+     * @return EditTaskResponse
      */
     public function editTask($request)
     {
@@ -645,67 +792,84 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 导入号码
-     *  *
-     * @param ImportNumberRequest $tmpReq  ImportNumberRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 导入号码
      *
-     * @return ImportNumberResponse ImportNumberResponse
+     * @param tmpReq - ImportNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportNumberResponse
+     *
+     * @param ImportNumberRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ImportNumberResponse
      */
     public function importNumberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ImportNumberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customers)) {
-            $request->customersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customers, 'Customers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customers) {
+            $request->customersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customers, 'Customers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->customersShrink)) {
-            $query['Customers'] = $request->customersShrink;
+        if (null !== $request->customersShrink) {
+            @$query['Customers'] = $request->customersShrink;
         }
-        if (!Utils::isUnset($request->failReturn)) {
-            $query['FailReturn'] = $request->failReturn;
+
+        if (null !== $request->failReturn) {
+            @$query['FailReturn'] = $request->failReturn;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportNumber',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportNumber',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 导入号码
-     *  *
-     * @param ImportNumberRequest $request ImportNumberRequest
+     * 导入号码
      *
-     * @return ImportNumberResponse ImportNumberResponse
+     * @param request - ImportNumberRequest
+     *
+     * @returns ImportNumberResponse
+     *
+     * @param ImportNumberRequest $request
+     *
+     * @return ImportNumberResponse
      */
     public function importNumber($request)
     {
@@ -715,64 +879,167 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询企业黑名单
-     *  *
-     * @param PageRequest    $tmpReq  PageRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 导入号码
      *
-     * @return PageResponse PageResponse
+     * @param tmpReq - ImportNumberV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportNumberV2Response
+     *
+     * @param ImportNumberV2Request $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ImportNumberV2Response
+     */
+    public function importNumberV2WithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ImportNumberV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customers) {
+            $request->customersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customers, 'Customers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->customersShrink) {
+            @$query['Customers'] = $request->customersShrink;
+        }
+
+        if (null !== $request->failReturn) {
+            @$query['FailReturn'] = $request->failReturn;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportNumberV2',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportNumberV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入号码
+     *
+     * @param request - ImportNumberV2Request
+     *
+     * @returns ImportNumberV2Response
+     *
+     * @param ImportNumberV2Request $request
+     *
+     * @return ImportNumberV2Response
+     */
+    public function importNumberV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importNumberV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询企业黑名单.
+     *
+     * @param tmpReq - PageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PageResponse
+     *
+     * @param PageRequest    $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return PageResponse
      */
     public function pageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Page',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Page',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询企业黑名单
-     *  *
-     * @param PageRequest $request PageRequest
+     * 查询企业黑名单.
      *
-     * @return PageResponse PageResponse
+     * @param request - PageRequest
+     *
+     * @returns PageResponse
+     *
+     * @param PageRequest $request
+     *
+     * @return PageResponse
      */
     public function page($request)
     {
@@ -782,65 +1049,82 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 短信模板创建
-     *  *
-     * @param SmsTemplateCreateRequest $request SmsTemplateCreateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 短信模板创建.
      *
-     * @return SmsTemplateCreateResponse SmsTemplateCreateResponse
+     * @param request - SmsTemplateCreateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SmsTemplateCreateResponse
+     *
+     * @param SmsTemplateCreateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SmsTemplateCreateResponse
      */
     public function smsTemplateCreateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sign)) {
-            $query['Sign'] = $request->sign;
+
+        if (null !== $request->sign) {
+            @$query['Sign'] = $request->sign;
         }
-        if (!Utils::isUnset($request->smsType)) {
-            $query['SmsType'] = $request->smsType;
+
+        if (null !== $request->smsType) {
+            @$query['SmsType'] = $request->smsType;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmsTemplateCreate',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmsTemplateCreate',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SmsTemplateCreateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 短信模板创建
-     *  *
-     * @param SmsTemplateCreateRequest $request SmsTemplateCreateRequest
+     * 短信模板创建.
      *
-     * @return SmsTemplateCreateResponse SmsTemplateCreateResponse
+     * @param request - SmsTemplateCreateRequest
+     *
+     * @returns SmsTemplateCreateResponse
+     *
+     * @param SmsTemplateCreateRequest $request
+     *
+     * @return SmsTemplateCreateResponse
      */
     public function smsTemplateCreate($request)
     {
@@ -850,71 +1134,90 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 短信模板列表查询
-     *  *
-     * @param SmsTemplatePageListRequest $request SmsTemplatePageListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 短信模板列表查询.
      *
-     * @return SmsTemplatePageListResponse SmsTemplatePageListResponse
+     * @param request - SmsTemplatePageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SmsTemplatePageListResponse
+     *
+     * @param SmsTemplatePageListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SmsTemplatePageListResponse
      */
     public function smsTemplatePageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sign)) {
-            $query['Sign'] = $request->sign;
+
+        if (null !== $request->sign) {
+            @$query['Sign'] = $request->sign;
         }
-        if (!Utils::isUnset($request->smsType)) {
-            $query['SmsType'] = $request->smsType;
+
+        if (null !== $request->smsType) {
+            @$query['SmsType'] = $request->smsType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmsTemplatePageList',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmsTemplatePageList',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SmsTemplatePageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 短信模板列表查询
-     *  *
-     * @param SmsTemplatePageListRequest $request SmsTemplatePageListRequest
+     * 短信模板列表查询.
      *
-     * @return SmsTemplatePageListResponse SmsTemplatePageListResponse
+     * @param request - SmsTemplatePageListRequest
+     *
+     * @returns SmsTemplatePageListResponse
+     *
+     * @param SmsTemplatePageListRequest $request
+     *
+     * @return SmsTemplatePageListResponse
      */
     public function smsTemplatePageList($request)
     {
@@ -924,62 +1227,78 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询聊天记录接口
-     *  *
-     * @param TaskCallChatsRequest $request TaskCallChatsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询聊天记录接口.
      *
-     * @return TaskCallChatsResponse TaskCallChatsResponse
+     * @param request - TaskCallChatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskCallChatsResponse
+     *
+     * @param TaskCallChatsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TaskCallChatsResponse
      */
     public function taskCallChatsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentTag)) {
-            $query['AgentTag'] = $request->agentTag;
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskCallChats',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskCallChats',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskCallChatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询聊天记录接口
-     *  *
-     * @param TaskCallChatsRequest $request TaskCallChatsRequest
+     * 查询聊天记录接口.
      *
-     * @return TaskCallChatsResponse TaskCallChatsResponse
+     * @param request - TaskCallChatsRequest
+     *
+     * @returns TaskCallChatsResponse
+     *
+     * @param TaskCallChatsRequest $request
+     *
+     * @return TaskCallChatsResponse
      */
     public function taskCallChats($request)
     {
@@ -989,53 +1308,66 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务外呼情况接口
-     *  *
-     * @param TaskCallInfoRequest $request TaskCallInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取任务外呼情况接口.
      *
-     * @return TaskCallInfoResponse TaskCallInfoResponse
+     * @param request - TaskCallInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskCallInfoResponse
+     *
+     * @param TaskCallInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TaskCallInfoResponse
      */
     public function taskCallInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskCallInfo',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskCallInfo',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskCallInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务外呼情况接口
-     *  *
-     * @param TaskCallInfoRequest $request TaskCallInfoRequest
+     * 获取任务外呼情况接口.
      *
-     * @return TaskCallInfoResponse TaskCallInfoResponse
+     * @param request - TaskCallInfoRequest
+     *
+     * @returns TaskCallInfoResponse
+     *
+     * @param TaskCallInfoRequest $request
+     *
+     * @return TaskCallInfoResponse
      */
     public function taskCallInfo($request)
     {
@@ -1045,82 +1377,104 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary AI批量任务查询外呼记录接口
-     *  *
-     * @param TaskCallListRequest $tmpReq  TaskCallListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * AI批量任务查询外呼记录接口.
      *
-     * @return TaskCallListResponse TaskCallListResponse
+     * @param tmpReq - TaskCallListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskCallListResponse
+     *
+     * @param TaskCallListRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TaskCallListResponse
      */
     public function taskCallListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TaskCallListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->intentTags)) {
-            $request->intentTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentTags, 'IntentTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentTags) {
+            $request->intentTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentTags, 'IntentTags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->batchId)) {
-            $query['BatchId'] = $request->batchId;
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
         }
-        if (!Utils::isUnset($request->callDate)) {
-            $query['CallDate'] = $request->callDate;
+
+        if (null !== $request->callDate) {
+            @$query['CallDate'] = $request->callDate;
         }
-        if (!Utils::isUnset($request->endCallDate)) {
-            $query['EndCallDate'] = $request->endCallDate;
+
+        if (null !== $request->endCallDate) {
+            @$query['EndCallDate'] = $request->endCallDate;
         }
-        if (!Utils::isUnset($request->intentTagsShrink)) {
-            $query['IntentTags'] = $request->intentTagsShrink;
+
+        if (null !== $request->intentTagsShrink) {
+            @$query['IntentTags'] = $request->intentTagsShrink;
         }
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskCallList',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskCallList',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskCallListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary AI批量任务查询外呼记录接口
-     *  *
-     * @param TaskCallListRequest $request TaskCallListRequest
+     * AI批量任务查询外呼记录接口.
      *
-     * @return TaskCallListResponse TaskCallListResponse
+     * @param request - TaskCallListRequest
+     *
+     * @returns TaskCallListResponse
+     *
+     * @param TaskCallListRequest $request
+     *
+     * @return TaskCallListResponse
      */
     public function taskCallList($request)
     {
@@ -1130,67 +1484,84 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 批量任务取消号码外呼
-     *  *
-     * @param TaskCancelCallRequest $tmpReq  TaskCancelCallRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 批量任务取消号码外呼
      *
-     * @return TaskCancelCallResponse TaskCancelCallResponse
+     * @param tmpReq - TaskCancelCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskCancelCallResponse
+     *
+     * @param TaskCancelCallRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TaskCancelCallResponse
      */
     public function taskCancelCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TaskCancelCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskCancelCall',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskCancelCall',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskCancelCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量任务取消号码外呼
-     *  *
-     * @param TaskCancelCallRequest $request TaskCancelCallRequest
+     * 批量任务取消号码外呼
      *
-     * @return TaskCancelCallResponse TaskCancelCallResponse
+     * @param request - TaskCancelCallRequest
+     *
+     * @returns TaskCancelCallResponse
+     *
+     * @param TaskCancelCallRequest $request
+     *
+     * @return TaskCancelCallResponse
      */
     public function taskCancelCall($request)
     {
@@ -1200,62 +1571,78 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务列表接口
-     *  *
-     * @param TaskListRequest $request TaskListRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 查询任务列表接口.
      *
-     * @return TaskListResponse TaskListResponse
+     * @param request - TaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskListResponse
+     *
+     * @param TaskListRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return TaskListResponse
      */
     public function taskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTime)) {
-            $query['CreateTime'] = $request->createTime;
+        if (null !== $request->createTime) {
+            @$query['CreateTime'] = $request->createTime;
         }
-        if (!Utils::isUnset($request->lastCallTime)) {
-            $query['LastCallTime'] = $request->lastCallTime;
+
+        if (null !== $request->lastCallTime) {
+            @$query['LastCallTime'] = $request->lastCallTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskList',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskList',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务列表接口
-     *  *
-     * @param TaskListRequest $request TaskListRequest
+     * 查询任务列表接口.
      *
-     * @return TaskListResponse TaskListResponse
+     * @param request - TaskListRequest
+     *
+     * @returns TaskListResponse
+     *
+     * @param TaskListRequest $request
+     *
+     * @return TaskListResponse
      */
     public function taskList($request)
     {
@@ -1265,73 +1652,92 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 批量任务恢复号码
-     *  *
-     * @param TaskRecoverCallRequest $tmpReq  TaskRecoverCallRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 批量任务恢复号码
      *
-     * @return TaskRecoverCallResponse TaskRecoverCallResponse
+     * @param tmpReq - TaskRecoverCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskRecoverCallResponse
+     *
+     * @param TaskRecoverCallRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TaskRecoverCallResponse
      */
     public function taskRecoverCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TaskRecoverCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->numbers)) {
-            $request->numbersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->beginImportTime)) {
-            $query['BeginImportTime'] = $request->beginImportTime;
+        if (null !== $request->beginImportTime) {
+            @$query['BeginImportTime'] = $request->beginImportTime;
         }
-        if (!Utils::isUnset($request->endImportTime)) {
-            $query['EndImportTime'] = $request->endImportTime;
+
+        if (null !== $request->endImportTime) {
+            @$query['EndImportTime'] = $request->endImportTime;
         }
-        if (!Utils::isUnset($request->numbersShrink)) {
-            $query['Numbers'] = $request->numbersShrink;
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TaskRecoverCall',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TaskRecoverCall',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TaskRecoverCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量任务恢复号码
-     *  *
-     * @param TaskRecoverCallRequest $request TaskRecoverCallRequest
+     * 批量任务恢复号码
      *
-     * @return TaskRecoverCallResponse TaskRecoverCallResponse
+     * @param request - TaskRecoverCallRequest
+     *
+     * @returns TaskRecoverCallResponse
+     *
+     * @param TaskRecoverCallRequest $request
+     *
+     * @return TaskRecoverCallResponse
      */
     public function taskRecoverCall($request)
     {
@@ -1341,53 +1747,66 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 话术模板列表查询接口
-     *  *
-     * @param TemplateListRequest $request TemplateListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 话术模板列表查询接口.
      *
-     * @return TemplateListResponse TemplateListResponse
+     * @param request - TemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TemplateListResponse
+     *
+     * @param TemplateListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TemplateListResponse
      */
     public function templateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TemplateList',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TemplateList',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 话术模板列表查询接口
-     *  *
-     * @param TemplateListRequest $request TemplateListRequest
+     * 话术模板列表查询接口.
      *
-     * @return TemplateListResponse TemplateListResponse
+     * @param request - TemplateListRequest
+     *
+     * @returns TemplateListResponse
+     *
+     * @param TemplateListRequest $request
+     *
+     * @return TemplateListResponse
      */
     public function templateList($request)
     {
@@ -1397,59 +1816,74 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 修改坐席状态
-     *  *
-     * @param UpdateAgentStatusRequest $request UpdateAgentStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 修改坐席状态
      *
-     * @return UpdateAgentStatusResponse UpdateAgentStatusResponse
+     * @param request - UpdateAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentStatusResponse
+     *
+     * @param UpdateAgentStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAgentStatusResponse
      */
     public function updateAgentStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentStatus)) {
-            $query['AgentStatus'] = $request->agentStatus;
+
+        if (null !== $request->agentStatus) {
+            @$query['AgentStatus'] = $request->agentStatus;
         }
-        if (!Utils::isUnset($request->agentTag)) {
-            $query['AgentTag'] = $request->agentTag;
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAgentStatus',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAgentStatus',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改坐席状态
-     *  *
-     * @param UpdateAgentStatusRequest $request UpdateAgentStatusRequest
+     * 修改坐席状态
      *
-     * @return UpdateAgentStatusResponse UpdateAgentStatusResponse
+     * @param request - UpdateAgentStatusRequest
+     *
+     * @returns UpdateAgentStatusResponse
+     *
+     * @param UpdateAgentStatusRequest $request
+     *
+     * @return UpdateAgentStatusResponse
      */
     public function updateAgentStatus($request)
     {
@@ -1459,61 +1893,76 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 更新当天导入的号码
-     *  *
-     * @param UpdateTaskCustomerRequest $tmpReq  UpdateTaskCustomerRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 更新当天导入的号码
      *
-     * @return UpdateTaskCustomerResponse UpdateTaskCustomerResponse
+     * @param tmpReq - UpdateTaskCustomerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTaskCustomerResponse
+     *
+     * @param UpdateTaskCustomerRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateTaskCustomerResponse
      */
     public function updateTaskCustomerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTaskCustomerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customers)) {
-            $request->customersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customers, 'Customers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customers) {
+            $request->customersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customers, 'Customers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->customersShrink)) {
-            $query['Customers'] = $request->customersShrink;
+        if (null !== $request->customersShrink) {
+            @$query['Customers'] = $request->customersShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTaskCustomer',
-            'version'     => '2023-05-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTaskCustomer',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTaskCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新当天导入的号码
-     *  *
-     * @param UpdateTaskCustomerRequest $request UpdateTaskCustomerRequest
+     * 更新当天导入的号码
      *
-     * @return UpdateTaskCustomerResponse UpdateTaskCustomerResponse
+     * @param request - UpdateTaskCustomerRequest
+     *
+     * @returns UpdateTaskCustomerResponse
+     *
+     * @param UpdateTaskCustomerRequest $request
+     *
+     * @return UpdateTaskCustomerResponse
      */
     public function updateTaskCustomer($request)
     {

@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2ResponseBody\model_;
 
-class UpdateAgentStatusResponseBody extends Model
+class ImportNumberV2ResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
     /**
      * @var int
      */
@@ -19,7 +25,7 @@ class UpdateAgentStatusResponseBody extends Model
     public $message;
 
     /**
-     * @var mixed[]
+     * @var model_
      */
     public $model;
 
@@ -38,6 +44,7 @@ class UpdateAgentStatusResponseBody extends Model
      */
     public $timestamp;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
         'message' => 'Message',
         'model' => 'Model',
@@ -48,8 +55,8 @@ class UpdateAgentStatusResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->model)) {
-            Model::validateArray($this->model);
+        if (null !== $this->model) {
+            $this->model->validate();
         }
         parent::validate();
     }
@@ -57,6 +64,10 @@ class UpdateAgentStatusResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -66,12 +77,7 @@ class UpdateAgentStatusResponseBody extends Model
         }
 
         if (null !== $this->model) {
-            if (\is_array($this->model)) {
-                $res['Model'] = [];
-                foreach ($this->model as $key1 => $value1) {
-                    $res['Model'][$key1] = $value1;
-                }
-            }
+            $res['Model'] = null !== $this->model ? $this->model->toArray($noStream) : $this->model;
         }
 
         if (null !== $this->requestId) {
@@ -97,6 +103,10 @@ class UpdateAgentStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -106,12 +116,7 @@ class UpdateAgentStatusResponseBody extends Model
         }
 
         if (isset($map['Model'])) {
-            if (!empty($map['Model'])) {
-                $model->model = [];
-                foreach ($map['Model'] as $key1 => $value1) {
-                    $model->model[$key1] = $value1;
-                }
-            }
+            $model->model = model_::fromMap($map['Model']);
         }
 
         if (isset($map['RequestId'])) {

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class callTimeList extends Model
 {
@@ -18,29 +18,43 @@ class callTimeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->callTime)) {
+            Model::validateArray($this->callTime);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callTime) {
-            $res['CallTime'] = $this->callTime;
+            if (\is_array($this->callTime)) {
+                $res['CallTime'] = [];
+                $n1 = 0;
+                foreach ($this->callTime as $item1) {
+                    $res['CallTime'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callTimeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallTime'])) {
             if (!empty($map['CallTime'])) {
-                $model->callTime = $map['CallTime'];
+                $model->callTime = [];
+                $n1 = 0;
+                foreach ($map['CallTime'] as $item1) {
+                    $model->callTime[$n1++] = $item1;
+                }
             }
         }
 

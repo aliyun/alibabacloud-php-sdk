@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddBlacklistShrinkRequest extends Model
 {
     /**
-     * @description 有效天数
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $expiredDay;
 
     /**
-     * @description 号码列表
-     *
-     * This parameter is required.
      * @var string
      */
     public $numbersShrink;
@@ -32,11 +24,6 @@ class AddBlacklistShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description 备注
-     *
-     * This parameter is required.
-     * @example 示例值
-     *
      * @var string
      */
     public $remark;
@@ -51,36 +38,42 @@ class AddBlacklistShrinkRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'expiredDay'           => 'ExpiredDay',
-        'numbersShrink'        => 'Numbers',
-        'ownerId'              => 'OwnerId',
-        'remark'               => 'Remark',
+        'expiredDay' => 'ExpiredDay',
+        'numbersShrink' => 'Numbers',
+        'ownerId' => 'OwnerId',
+        'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiredDay) {
             $res['ExpiredDay'] = $this->expiredDay;
         }
+
         if (null !== $this->numbersShrink) {
             $res['Numbers'] = $this->numbersShrink;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -88,29 +81,34 @@ class AddBlacklistShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddBlacklistShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpiredDay'])) {
             $model->expiredDay = $map['ExpiredDay'];
         }
+
         if (isset($map['Numbers'])) {
             $model->numbersShrink = $map['Numbers'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

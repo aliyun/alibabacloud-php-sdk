@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskListRequest extends Model
 {
     /**
-     * @description 创建时间
-     *
-     * @example 2023-04-05 12:11:11
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 最后外呼时间
-     *
-     * @example 2023-04-05 12:11:11
-     *
      * @var string
      */
     public $lastCallTime;
@@ -42,57 +34,56 @@ class TaskListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 任务状态。1 未启用，2 启用中，4 已停止
-     *
-     * @example 2
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 任务ID
-     *
-     * @example 2
-     *
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'createTime'           => 'CreateTime',
-        'lastCallTime'         => 'LastCallTime',
-        'ownerId'              => 'OwnerId',
+        'createTime' => 'CreateTime',
+        'lastCallTime' => 'LastCallTime',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->lastCallTime) {
             $res['LastCallTime'] = $this->lastCallTime;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -100,32 +91,38 @@ class TaskListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['LastCallTime'])) {
             $model->lastCallTime = $map['LastCallTime'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

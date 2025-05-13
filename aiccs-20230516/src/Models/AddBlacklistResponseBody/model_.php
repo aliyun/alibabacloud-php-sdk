@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class model_ extends Model
 {
     /**
-     * @description 错误手机号
-     *
      * @var string[]
      */
     public $unHandleNumbers;
@@ -20,29 +18,43 @@ class model_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->unHandleNumbers)) {
+            Model::validateArray($this->unHandleNumbers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->unHandleNumbers) {
-            $res['UnHandleNumbers'] = $this->unHandleNumbers;
+            if (\is_array($this->unHandleNumbers)) {
+                $res['UnHandleNumbers'] = [];
+                $n1 = 0;
+                foreach ($this->unHandleNumbers as $item1) {
+                    $res['UnHandleNumbers'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UnHandleNumbers'])) {
             if (!empty($map['UnHandleNumbers'])) {
-                $model->unHandleNumbers = $map['UnHandleNumbers'];
+                $model->unHandleNumbers = [];
+                $n1 = 0;
+                foreach ($map['UnHandleNumbers'] as $item1) {
+                    $model->unHandleNumbers[$n1++] = $item1;
+                }
             }
         }
 

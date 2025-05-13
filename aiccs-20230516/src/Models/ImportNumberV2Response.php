@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class AgentRecoverCallResponse extends Model
+class ImportNumberV2Response extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AgentRecoverCallResponse extends Model
     public $statusCode;
 
     /**
-     * @var AgentRecoverCallResponseBody
+     * @var ImportNumberV2ResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class AgentRecoverCallResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = AgentRecoverCallResponseBody::fromMap($map['body']);
+            $model->body = ImportNumberV2ResponseBody::fromMap($map['body']);
         }
 
         return $model;

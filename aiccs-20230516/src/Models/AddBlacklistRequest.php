@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddBlacklistRequest extends Model
 {
     /**
-     * @description 有效天数
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $expiredDay;
 
     /**
-     * @description 号码列表
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $numbers;
@@ -32,11 +24,6 @@ class AddBlacklistRequest extends Model
     public $ownerId;
 
     /**
-     * @description 备注
-     *
-     * This parameter is required.
-     * @example 示例值
-     *
      * @var string
      */
     public $remark;
@@ -51,36 +38,51 @@ class AddBlacklistRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'expiredDay'           => 'ExpiredDay',
-        'numbers'              => 'Numbers',
-        'ownerId'              => 'OwnerId',
-        'remark'               => 'Remark',
+        'expiredDay' => 'ExpiredDay',
+        'numbers' => 'Numbers',
+        'ownerId' => 'OwnerId',
+        'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->numbers)) {
+            Model::validateArray($this->numbers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiredDay) {
             $res['ExpiredDay'] = $this->expiredDay;
         }
+
         if (null !== $this->numbers) {
-            $res['Numbers'] = $this->numbers;
+            if (\is_array($this->numbers)) {
+                $res['Numbers'] = [];
+                $n1 = 0;
+                foreach ($this->numbers as $item1) {
+                    $res['Numbers'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -88,31 +90,40 @@ class AddBlacklistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddBlacklistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpiredDay'])) {
             $model->expiredDay = $map['ExpiredDay'];
         }
+
         if (isset($map['Numbers'])) {
             if (!empty($map['Numbers'])) {
-                $model->numbers = $map['Numbers'];
+                $model->numbers = [];
+                $n1 = 0;
+                foreach ($map['Numbers'] as $item1) {
+                    $model->numbers[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
