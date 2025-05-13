@@ -901,18 +901,6 @@ class Aiccs extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->customersShrink) {
-            @$query['Customers'] = $request->customersShrink;
-        }
-
-        if (null !== $request->failReturn) {
-            @$query['FailReturn'] = $request->failReturn;
-        }
-
-        if (null !== $request->outId) {
-            @$query['OutId'] = $request->outId;
-        }
-
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -925,12 +913,26 @@ class Aiccs extends OpenApiClient
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
+        $body = [];
+        if (null !== $request->customersShrink) {
+            @$body['Customers'] = $request->customersShrink;
+        }
+
+        if (null !== $request->failReturn) {
+            @$body['FailReturn'] = $request->failReturn;
+        }
+
+        if (null !== $request->outId) {
+            @$body['OutId'] = $request->outId;
+        }
+
         if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+            @$body['TaskId'] = $request->taskId;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportNumberV2',
