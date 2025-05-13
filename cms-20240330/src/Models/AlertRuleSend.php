@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AlertRuleSend extends Model
 {
@@ -18,38 +18,47 @@ class AlertRuleSend extends Model
      */
     public $notification;
     protected $_name = [
-        'action'       => 'action',
+        'action' => 'action',
         'notification' => 'notification',
     ];
 
     public function validate()
     {
+        if (null !== $this->action) {
+            $this->action->validate();
+        }
+        if (null !== $this->notification) {
+            $this->notification->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
-            $res['action'] = null !== $this->action ? $this->action->toMap() : null;
+            $res['action'] = null !== $this->action ? $this->action->toArray($noStream) : $this->action;
         }
+
         if (null !== $this->notification) {
-            $res['notification'] = null !== $this->notification ? $this->notification->toMap() : null;
+            $res['notification'] = null !== $this->notification ? $this->notification->toArray($noStream) : $this->notification;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleSend
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['action'])) {
             $model->action = AlertRuleAction::fromMap($map['action']);
         }
+
         if (isset($map['notification'])) {
             $model->notification = AlertRuleNotification::fromMap($map['notification']);
         }

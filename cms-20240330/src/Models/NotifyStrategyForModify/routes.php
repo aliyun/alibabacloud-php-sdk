@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForModify;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\FilterSetting;
 use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForModify\routes\channels;
 use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForModify\routes\effectTimeRange;
-use AlibabaCloud\Tea\Model;
 
 class routes extends Model
 {
@@ -31,67 +31,96 @@ class routes extends Model
      */
     public $severities;
     protected $_name = [
-        'channels'        => 'channels',
+        'channels' => 'channels',
         'effectTimeRange' => 'effectTimeRange',
-        'filterSetting'   => 'filterSetting',
-        'severities'      => 'severities',
+        'filterSetting' => 'filterSetting',
+        'severities' => 'severities',
     ];
 
     public function validate()
     {
+        if (\is_array($this->channels)) {
+            Model::validateArray($this->channels);
+        }
+        if (null !== $this->effectTimeRange) {
+            $this->effectTimeRange->validate();
+        }
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
+        if (\is_array($this->severities)) {
+            Model::validateArray($this->severities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channels) {
-            $res['channels'] = [];
-            if (null !== $this->channels && \is_array($this->channels)) {
-                $n = 0;
-                foreach ($this->channels as $item) {
-                    $res['channels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->channels)) {
+                $res['channels'] = [];
+                $n1 = 0;
+                foreach ($this->channels as $item1) {
+                    $res['channels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->effectTimeRange) {
-            $res['effectTimeRange'] = null !== $this->effectTimeRange ? $this->effectTimeRange->toMap() : null;
+            $res['effectTimeRange'] = null !== $this->effectTimeRange ? $this->effectTimeRange->toArray($noStream) : $this->effectTimeRange;
         }
+
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
         }
+
         if (null !== $this->severities) {
-            $res['severities'] = $this->severities;
+            if (\is_array($this->severities)) {
+                $res['severities'] = [];
+                $n1 = 0;
+                foreach ($this->severities as $item1) {
+                    $res['severities'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channels'])) {
             if (!empty($map['channels'])) {
                 $model->channels = [];
-                $n               = 0;
-                foreach ($map['channels'] as $item) {
-                    $model->channels[$n++] = null !== $item ? channels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['channels'] as $item1) {
+                    $model->channels[$n1++] = channels::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['effectTimeRange'])) {
             $model->effectTimeRange = effectTimeRange::fromMap($map['effectTimeRange']);
         }
+
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
+
         if (isset($map['severities'])) {
             if (!empty($map['severities'])) {
-                $model->severities = $map['severities'];
+                $model->severities = [];
+                $n1 = 0;
+                foreach ($map['severities'] as $item1) {
+                    $model->severities[$n1++] = $item1;
+                }
             }
         }
 

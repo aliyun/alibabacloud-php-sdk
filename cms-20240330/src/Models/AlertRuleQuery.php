@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries;
-use AlibabaCloud\Tea\Model;
 
 class AlertRuleQuery extends Model
 {
+    /**
+     * @var bool
+     */
+    public $checkAfterDataComplete;
+
     /**
      * @var int
      */
@@ -45,57 +50,85 @@ class AlertRuleQuery extends Model
     public $secondJoin;
 
     /**
-     * @description 查询类型
-     *
-     * This parameter is required.
      * @var string
      */
     public $type;
     protected $_name = [
-        'duration'       => 'duration',
-        'expr'           => 'expr',
-        'firstJoin'      => 'firstJoin',
+        'checkAfterDataComplete' => 'checkAfterDataComplete',
+        'duration' => 'duration',
+        'expr' => 'expr',
+        'firstJoin' => 'firstJoin',
         'groupFieldList' => 'groupFieldList',
-        'groupType'      => 'groupType',
-        'queries'        => 'queries',
-        'secondJoin'     => 'secondJoin',
-        'type'           => 'type',
+        'groupType' => 'groupType',
+        'queries' => 'queries',
+        'secondJoin' => 'secondJoin',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->firstJoin) {
+            $this->firstJoin->validate();
+        }
+        if (\is_array($this->groupFieldList)) {
+            Model::validateArray($this->groupFieldList);
+        }
+        if (\is_array($this->queries)) {
+            Model::validateArray($this->queries);
+        }
+        if (null !== $this->secondJoin) {
+            $this->secondJoin->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->checkAfterDataComplete) {
+            $res['checkAfterDataComplete'] = $this->checkAfterDataComplete;
+        }
+
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
         }
+
         if (null !== $this->expr) {
             $res['expr'] = $this->expr;
         }
+
         if (null !== $this->firstJoin) {
-            $res['firstJoin'] = null !== $this->firstJoin ? $this->firstJoin->toMap() : null;
+            $res['firstJoin'] = null !== $this->firstJoin ? $this->firstJoin->toArray($noStream) : $this->firstJoin;
         }
+
         if (null !== $this->groupFieldList) {
-            $res['groupFieldList'] = $this->groupFieldList;
-        }
-        if (null !== $this->groupType) {
-            $res['groupType'] = $this->groupType;
-        }
-        if (null !== $this->queries) {
-            $res['queries'] = [];
-            if (null !== $this->queries && \is_array($this->queries)) {
-                $n = 0;
-                foreach ($this->queries as $item) {
-                    $res['queries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupFieldList)) {
+                $res['groupFieldList'] = [];
+                $n1 = 0;
+                foreach ($this->groupFieldList as $item1) {
+                    $res['groupFieldList'][$n1++] = $item1;
                 }
             }
         }
-        if (null !== $this->secondJoin) {
-            $res['secondJoin'] = null !== $this->secondJoin ? $this->secondJoin->toMap() : null;
+
+        if (null !== $this->groupType) {
+            $res['groupType'] = $this->groupType;
         }
+
+        if (null !== $this->queries) {
+            if (\is_array($this->queries)) {
+                $res['queries'] = [];
+                $n1 = 0;
+                foreach ($this->queries as $item1) {
+                    $res['queries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->secondJoin) {
+            $res['secondJoin'] = null !== $this->secondJoin ? $this->secondJoin->toArray($noStream) : $this->secondJoin;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -103,43 +136,58 @@ class AlertRuleQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['checkAfterDataComplete'])) {
+            $model->checkAfterDataComplete = $map['checkAfterDataComplete'];
+        }
+
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
         }
+
         if (isset($map['expr'])) {
             $model->expr = $map['expr'];
         }
+
         if (isset($map['firstJoin'])) {
             $model->firstJoin = AlertRuleSlsQueryJoin::fromMap($map['firstJoin']);
         }
+
         if (isset($map['groupFieldList'])) {
             if (!empty($map['groupFieldList'])) {
-                $model->groupFieldList = $map['groupFieldList'];
-            }
-        }
-        if (isset($map['groupType'])) {
-            $model->groupType = $map['groupType'];
-        }
-        if (isset($map['queries'])) {
-            if (!empty($map['queries'])) {
-                $model->queries = [];
-                $n              = 0;
-                foreach ($map['queries'] as $item) {
-                    $model->queries[$n++] = null !== $item ? queries::fromMap($item) : $item;
+                $model->groupFieldList = [];
+                $n1 = 0;
+                foreach ($map['groupFieldList'] as $item1) {
+                    $model->groupFieldList[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['groupType'])) {
+            $model->groupType = $map['groupType'];
+        }
+
+        if (isset($map['queries'])) {
+            if (!empty($map['queries'])) {
+                $model->queries = [];
+                $n1 = 0;
+                foreach ($map['queries'] as $item1) {
+                    $model->queries[$n1++] = queries::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['secondJoin'])) {
             $model->secondJoin = AlertRuleSlsQueryJoin::fromMap($map['secondJoin']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

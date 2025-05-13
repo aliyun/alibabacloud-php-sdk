@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AlertRuleAlertMetricInput extends Model
 {
@@ -29,39 +29,49 @@ class AlertRuleAlertMetricInput extends Model
     public $paramValues;
     protected $_name = [
         'filterValues' => 'filterValues',
-        'groupId'      => 'groupId',
-        'metricId'     => 'metricId',
-        'paramValues'  => 'paramValues',
+        'groupId' => 'groupId',
+        'metricId' => 'metricId',
+        'paramValues' => 'paramValues',
     ];
 
     public function validate()
     {
+        if (\is_array($this->filterValues)) {
+            Model::validateArray($this->filterValues);
+        }
+        if (\is_array($this->paramValues)) {
+            Model::validateArray($this->paramValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filterValues) {
-            $res['filterValues'] = [];
-            if (null !== $this->filterValues && \is_array($this->filterValues)) {
-                $n = 0;
-                foreach ($this->filterValues as $item) {
-                    $res['filterValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filterValues)) {
+                $res['filterValues'] = [];
+                $n1 = 0;
+                foreach ($this->filterValues as $item1) {
+                    $res['filterValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
+
         if (null !== $this->metricId) {
             $res['metricId'] = $this->metricId;
         }
+
         if (null !== $this->paramValues) {
-            $res['paramValues'] = [];
-            if (null !== $this->paramValues && \is_array($this->paramValues)) {
-                $n = 0;
-                foreach ($this->paramValues as $item) {
-                    $res['paramValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->paramValues)) {
+                $res['paramValues'] = [];
+                $n1 = 0;
+                foreach ($this->paramValues as $item1) {
+                    $res['paramValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -69,35 +79,38 @@ class AlertRuleAlertMetricInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleAlertMetricInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filterValues'])) {
             if (!empty($map['filterValues'])) {
                 $model->filterValues = [];
-                $n                   = 0;
-                foreach ($map['filterValues'] as $item) {
-                    $model->filterValues[$n++] = null !== $item ? AlertRuleAlertMetricInputFilterValue::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['filterValues'] as $item1) {
+                    $model->filterValues[$n1++] = AlertRuleAlertMetricInputFilterValue::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
+
         if (isset($map['metricId'])) {
             $model->metricId = $map['metricId'];
         }
+
         if (isset($map['paramValues'])) {
             if (!empty($map['paramValues'])) {
                 $model->paramValues = [];
-                $n                  = 0;
-                foreach ($map['paramValues'] as $item) {
-                    $model->paramValues[$n++] = null !== $item ? AlertRuleAlertMetricInputParamValue::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['paramValues'] as $item1) {
+                    $model->paramValues[$n1++] = AlertRuleAlertMetricInputParamValue::fromMap($item1);
                 }
             }
         }

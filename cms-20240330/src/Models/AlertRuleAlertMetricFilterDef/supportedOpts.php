@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleAlertMetricFilterDef;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedOpts extends Model
 {
@@ -25,22 +25,25 @@ class supportedOpts extends Model
     protected $_name = [
         'displayNameCn' => 'displayNameCn',
         'displayNameEn' => 'displayNameEn',
-        'value'         => 'value',
+        'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayNameCn) {
             $res['displayNameCn'] = $this->displayNameCn;
         }
+
         if (null !== $this->displayNameEn) {
             $res['displayNameEn'] = $this->displayNameEn;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -48,20 +51,22 @@ class supportedOpts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedOpts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['displayNameCn'])) {
             $model->displayNameCn = $map['displayNameCn'];
         }
+
         if (isset($map['displayNameEn'])) {
             $model->displayNameEn = $map['displayNameEn'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\MaintainWindowForModify\effectTimeRange;
 
 class MaintainWindowForModify extends Model
 {
@@ -12,6 +13,11 @@ class MaintainWindowForModify extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var effectTimeRange
+     */
+    public $effectTimeRange;
 
     /**
      * @var string
@@ -29,8 +35,6 @@ class MaintainWindowForModify extends Model
     public $filterSetting;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $maintainWindowName;
@@ -40,36 +44,53 @@ class MaintainWindowForModify extends Model
      */
     public $startTime;
     protected $_name = [
-        'description'        => 'description',
-        'effective'          => 'effective',
-        'endTime'            => 'endTime',
-        'filterSetting'      => 'filterSetting',
+        'description' => 'description',
+        'effectTimeRange' => 'effectTimeRange',
+        'effective' => 'effective',
+        'endTime' => 'endTime',
+        'filterSetting' => 'filterSetting',
         'maintainWindowName' => 'maintainWindowName',
-        'startTime'          => 'startTime',
+        'startTime' => 'startTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->effectTimeRange) {
+            $this->effectTimeRange->validate();
+        }
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
+        if (null !== $this->effectTimeRange) {
+            $res['effectTimeRange'] = null !== $this->effectTimeRange ? $this->effectTimeRange->toArray($noStream) : $this->effectTimeRange;
+        }
+
         if (null !== $this->effective) {
             $res['effective'] = $this->effective;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
         }
+
         if (null !== $this->maintainWindowName) {
             $res['maintainWindowName'] = $this->maintainWindowName;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -77,29 +98,38 @@ class MaintainWindowForModify extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MaintainWindowForModify
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
+        if (isset($map['effectTimeRange'])) {
+            $model->effectTimeRange = effectTimeRange::fromMap($map['effectTimeRange']);
+        }
+
         if (isset($map['effective'])) {
             $model->effective = $map['effective'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
+
         if (isset($map['maintainWindowName'])) {
             $model->maintainWindowName = $map['maintainWindowName'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponseBody\alertActions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mnsParam extends Model
 {
@@ -23,24 +23,27 @@ class mnsParam extends Model
      */
     public $regionId;
     protected $_name = [
-        'mnsType'  => 'mnsType',
-        'name'     => 'name',
+        'mnsType' => 'mnsType',
+        'name' => 'name',
         'regionId' => 'regionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mnsType) {
             $res['mnsType'] = $this->mnsType;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -48,20 +51,22 @@ class mnsParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mnsParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mnsType'])) {
             $model->mnsType = $map['mnsType'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleDataSource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dsList extends Model
 {
@@ -28,28 +28,32 @@ class dsList extends Model
      */
     public $type;
     protected $_name = [
-        'project'  => 'project',
+        'project' => 'project',
         'regionId' => 'regionId',
-        'store'    => 'store',
-        'type'     => 'type',
+        'store' => 'store',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->store) {
             $res['store'] = $this->store;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -57,23 +61,26 @@ class dsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['store'])) {
             $model->store = $map['store'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

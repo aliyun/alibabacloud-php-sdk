@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleAlertMetricParamDef;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class values extends Model
 {
@@ -25,22 +25,25 @@ class values extends Model
     protected $_name = [
         'labelCn' => 'labelCn',
         'labelEn' => 'labelEn',
-        'value'   => 'value',
+        'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelCn) {
             $res['labelCn'] = $this->labelCn;
         }
+
         if (null !== $this->labelEn) {
             $res['labelEn'] = $this->labelEn;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -48,20 +51,22 @@ class values extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['labelCn'])) {
             $model->labelCn = $map['labelCn'];
         }
+
         if (isset($map['labelEn'])) {
             $model->labelEn = $map['labelEn'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
