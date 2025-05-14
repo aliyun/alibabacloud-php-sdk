@@ -31,6 +31,11 @@ class LlmSmartCallRequest extends Model
     /**
      * @var string
      */
+    public $extension;
+
+    /**
+     * @var string
+     */
     public $outId;
 
     /**
@@ -47,6 +52,7 @@ class LlmSmartCallRequest extends Model
         'bizParam' => 'BizParam',
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
+        'extension' => 'Extension',
         'outId' => 'OutId',
         'promptParam' => 'PromptParam',
         'startWordParam' => 'StartWordParam',
@@ -88,6 +94,10 @@ class LlmSmartCallRequest extends Model
 
         if (null !== $this->callerNumber) {
             $res['CallerNumber'] = $this->callerNumber;
+        }
+
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
 
         if (null !== $this->outId) {
@@ -142,6 +152,10 @@ class LlmSmartCallRequest extends Model
 
         if (isset($map['CallerNumber'])) {
             $model->callerNumber = $map['CallerNumber'];
+        }
+
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
 
         if (isset($map['OutId'])) {

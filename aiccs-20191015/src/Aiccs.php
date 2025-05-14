@@ -7980,6 +7980,10 @@ class Aiccs extends OpenApiClient
             @$query['CallerNumber'] = $request->callerNumber;
         }
 
+        if (null !== $request->extension) {
+            @$query['Extension'] = $request->extension;
+        }
+
         if (null !== $request->outId) {
             @$query['OutId'] = $request->outId;
         }
