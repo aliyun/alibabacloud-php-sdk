@@ -665,6 +665,10 @@ class Eflo extends OpenApiClient
             @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -4053,6 +4057,10 @@ class Eflo extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
 
         $req = new OpenApiRequest([

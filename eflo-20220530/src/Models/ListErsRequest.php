@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\ListErsRequest\tag;
 
 class ListErsRequest extends Model
 {
@@ -57,6 +58,11 @@ class ListErsRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'enablePage' => 'EnablePage',
         'erId' => 'ErId',
@@ -68,10 +74,14 @@ class ListErsRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -116,6 +126,16 @@ class ListErsRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -167,6 +187,16 @@ class ListErsRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         return $model;

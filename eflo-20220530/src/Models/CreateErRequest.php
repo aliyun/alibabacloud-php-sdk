@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\CreateErRequest\tag;
 
 class CreateErRequest extends Model
 {
@@ -32,16 +33,25 @@ class CreateErRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'description' => 'Description',
         'erName' => 'ErName',
         'masterZoneId' => 'MasterZoneId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -66,6 +76,16 @@ class CreateErRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -97,6 +117,16 @@ class CreateErRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         return $model;
