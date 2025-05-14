@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisResponseBody\payload;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisResponseBody\payload\output\articles;
 
 class output extends Model
 {
+    /**
+     * @var articles[]
+     */
+    public $articles;
+
     /**
      * @var string[]
      */
@@ -38,6 +44,7 @@ class output extends Model
      */
     public $topicId;
     protected $_name = [
+        'articles' => 'Articles',
         'askUser' => 'AskUser',
         'asyncTaskId' => 'AsyncTaskId',
         'attitude' => 'Attitude',
@@ -48,6 +55,9 @@ class output extends Model
 
     public function validate()
     {
+        if (\is_array($this->articles)) {
+            Model::validateArray($this->articles);
+        }
         if (\is_array($this->askUser)) {
             Model::validateArray($this->askUser);
         }
@@ -57,6 +67,16 @@ class output extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->articles) {
+            if (\is_array($this->articles)) {
+                $res['Articles'] = [];
+                $n1 = 0;
+                foreach ($this->articles as $item1) {
+                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->askUser) {
             if (\is_array($this->askUser)) {
                 $res['AskUser'] = [];
@@ -98,6 +118,16 @@ class output extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Articles'])) {
+            if (!empty($map['Articles'])) {
+                $model->articles = [];
+                $n1 = 0;
+                foreach ($map['Articles'] as $item1) {
+                    $model->articles[$n1++] = articles::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['AskUser'])) {
             if (!empty($map['AskUser'])) {
                 $model->askUser = [];
