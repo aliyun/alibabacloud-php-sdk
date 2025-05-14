@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RealtimeDialogAssistRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RealtimeDialogAssistResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RealTimeDialogRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RealTimeDialogResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RebuildTaskRequest;
@@ -198,11 +200,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAnnualDocSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAnnualDocSummaryTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAnnualDocSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -288,11 +287,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDialogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDialogResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -370,11 +366,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDialogAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDialogAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDialogAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -448,11 +441,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDocsSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDocsSummaryTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDocsSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -542,11 +532,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFinReportSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFinReportSummaryTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFinReportSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -616,11 +603,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLibraryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -698,11 +682,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePdfTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePdfTranslateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePdfTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -776,11 +757,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePredefinedDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePredefinedDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePredefinedDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -862,11 +840,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateQualityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateQualityCheckTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateQualityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -932,11 +907,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +970,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLibraryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1064,11 +1033,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EvictTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EvictTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return EvictTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1138,11 +1104,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenDocQaResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenDocQaResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenDocQaResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1195,11 +1158,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAppConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1262,11 +1222,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetChatQuestionRespResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetChatQuestionRespResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetChatQuestionRespResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1344,11 +1301,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDialogAnalysisResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDialogAnalysisResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDialogAnalysisResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1410,11 +1364,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDialogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDialogDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDialogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1504,11 +1455,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocumentChunkListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentChunkListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentChunkListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1582,11 +1530,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocumentListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1648,11 +1593,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocumentUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1738,11 +1680,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFilterDocumentListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFilterDocumentListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFilterDocumentListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1816,11 +1755,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHistoryListByBizTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHistoryListByBizTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHistoryListByBizTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1882,11 +1818,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLibraryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1956,11 +1889,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLibraryListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLibraryListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLibraryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2030,11 +1960,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetParseResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetParseResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetParseResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2096,11 +2023,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityCheckTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityCheckTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityCheckTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2162,11 +2086,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSummaryTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSummaryTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSummaryTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2228,11 +2149,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2294,11 +2212,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2364,11 +2279,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InvokePluginResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InvokePluginResponse::fromMap($this->execute($params, $req, $runtime));
+        return InvokePluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2430,11 +2342,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PreviewDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreviewDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreviewDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2496,11 +2405,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2602,11 +2508,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RealTimeDialogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RealTimeDialogResponse::fromMap($this->execute($params, $req, $runtime));
+        return RealTimeDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2627,6 +2530,97 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->realTimeDialogWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 实时会话辅助.
+     *
+     * @param request - RealtimeDialogAssistRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RealtimeDialogAssistResponse
+     *
+     * @param string                      $workspaceId
+     * @param RealtimeDialogAssistRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RealtimeDialogAssistResponse
+     */
+    public function realtimeDialogAssistWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->analysis) {
+            @$body['analysis'] = $request->analysis;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['bizType'] = $request->bizType;
+        }
+
+        if (null !== $request->conversationModel) {
+            @$body['conversationModel'] = $request->conversationModel;
+        }
+
+        if (null !== $request->dialogMemoryTurns) {
+            @$body['dialogMemoryTurns'] = $request->dialogMemoryTurns;
+        }
+
+        if (null !== $request->hangUpDialog) {
+            @$body['hangUpDialog'] = $request->hangUpDialog;
+        }
+
+        if (null !== $request->metaData) {
+            @$body['metaData'] = $request->metaData;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RealtimeDialogAssist',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/realtime/dialog/assist',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RealtimeDialogAssistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实时会话辅助.
+     *
+     * @param request - RealtimeDialogAssistRequest
+     *
+     * @returns RealtimeDialogAssistResponse
+     *
+     * @param string                      $workspaceId
+     * @param RealtimeDialogAssistRequest $request
+     *
+     * @return RealtimeDialogAssistResponse
+     */
+    public function realtimeDialogAssist($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->realtimeDialogAssistWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2668,11 +2662,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RebuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RebuildTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return RebuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2746,11 +2737,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecallDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecallDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecallDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2844,11 +2832,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecognizeIntentionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecognizeIntentionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecognizeIntentionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2934,11 +2919,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3020,11 +3002,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunChatResultGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunChatResultGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunChatResultGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3154,11 +3133,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunLibraryChatGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunLibraryChatGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunLibraryChatGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3240,11 +3216,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitChatQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitChatQuestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitChatQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3318,11 +3291,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3388,11 +3358,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDocumentChunkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDocumentChunkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDocumentChunkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3466,11 +3433,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLibraryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3540,11 +3504,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateQaLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateQaLibraryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateQaLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3618,11 +3579,8 @@ class DianJin extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
