@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest;
@@ -197,6 +199,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWritingStylesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWritingStylesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionRequest;
@@ -288,6 +292,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobShrinkRequest;
@@ -503,6 +509,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消审核任务
+     *
+     * @param request - CancelAuditTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAuditTaskResponse
+     *
+     * @param CancelAuditTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelAuditTaskResponse
+     */
+    public function cancelAuditTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->articleId) {
+            @$body['ArticleId'] = $request->articleId;
+        }
+
+        if (null !== $request->contentAuditTaskId) {
+            @$body['ContentAuditTaskId'] = $request->contentAuditTaskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAuditTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAuditTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消审核任务
+     *
+     * @param request - CancelAuditTaskRequest
+     *
+     * @returns CancelAuditTaskResponse
+     *
+     * @param CancelAuditTaskRequest $request
+     *
+     * @return CancelAuditTaskResponse
+     */
+    public function cancelAuditTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAuditTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -6516,6 +6587,71 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 查询审核结果.
+     *
+     * @param request - QueryAuditTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAuditTaskResponse
+     *
+     * @param QueryAuditTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryAuditTaskResponse
+     */
+    public function queryAuditTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->articleId) {
+            @$body['ArticleId'] = $request->articleId;
+        }
+
+        if (null !== $request->contentAuditTaskId) {
+            @$body['ContentAuditTaskId'] = $request->contentAuditTaskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAuditTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAuditTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询审核结果.
+     *
+     * @param request - QueryAuditTaskRequest
+     *
+     * @returns QueryAuditTaskResponse
+     *
+     * @param QueryAuditTaskRequest $request
+     *
+     * @return QueryAuditTaskResponse
+     */
+    public function queryAuditTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAuditTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 内容缩写.
      *
      * @param request - RunAbbreviationContentRequest
@@ -9534,6 +9670,79 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交审核任务
+     *
+     * @param request - SubmitAuditTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAuditTaskResponse
+     *
+     * @param SubmitAuditTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitAuditTaskResponse
+     */
+    public function submitAuditTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->articleId) {
+            @$body['ArticleId'] = $request->articleId;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->htmlContent) {
+            @$body['HtmlContent'] = $request->htmlContent;
+        }
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAuditTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAuditTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交审核任务
+     *
+     * @param request - SubmitAuditTaskRequest
+     *
+     * @returns SubmitAuditTaskResponse
+     *
+     * @param SubmitAuditTaskRequest $request
+     *
+     * @return SubmitAuditTaskResponse
+     */
+    public function submitAuditTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAuditTaskWithOptions($request, $runtime);
     }
 
     /**
