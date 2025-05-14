@@ -11,6 +11,21 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationSlbsResponseBody\da
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @var internet[]
      */
     public $internet;
@@ -60,6 +75,9 @@ class data extends Model
      */
     public $intranetSlbId;
     protected $_name = [
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'internet' => 'Internet',
         'internetIp' => 'InternetIp',
         'internetSlbChargeType' => 'InternetSlbChargeType',
@@ -86,6 +104,18 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
         if (null !== $this->internet) {
             if (\is_array($this->internet)) {
                 $res['Internet'] = [];
@@ -149,6 +179,18 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
         if (isset($map['Internet'])) {
             if (!empty($map['Internet'])) {
                 $model->internet = [];

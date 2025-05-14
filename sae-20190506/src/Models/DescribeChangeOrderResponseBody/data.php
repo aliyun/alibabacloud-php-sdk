@@ -20,6 +20,16 @@ class data extends Model
     public $appName;
 
     /**
+     * @var bool
+     */
+    public $applicationEnableGreyTagRoute;
+
+    /**
+     * @var string
+     */
+    public $applicationUpdateStrategy;
+
+    /**
      * @var string
      */
     public $approvalId;
@@ -101,6 +111,8 @@ class data extends Model
     protected $_name = [
         'appId' => 'AppId',
         'appName' => 'AppName',
+        'applicationEnableGreyTagRoute' => 'ApplicationEnableGreyTagRoute',
+        'applicationUpdateStrategy' => 'ApplicationUpdateStrategy',
         'approvalId' => 'ApprovalId',
         'auto' => 'Auto',
         'batchCount' => 'BatchCount',
@@ -136,6 +148,14 @@ class data extends Model
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->applicationEnableGreyTagRoute) {
+            $res['ApplicationEnableGreyTagRoute'] = $this->applicationEnableGreyTagRoute;
+        }
+
+        if (null !== $this->applicationUpdateStrategy) {
+            $res['ApplicationUpdateStrategy'] = $this->applicationUpdateStrategy;
         }
 
         if (null !== $this->approvalId) {
@@ -225,6 +245,14 @@ class data extends Model
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['ApplicationEnableGreyTagRoute'])) {
+            $model->applicationEnableGreyTagRoute = $map['ApplicationEnableGreyTagRoute'];
+        }
+
+        if (isset($map['ApplicationUpdateStrategy'])) {
+            $model->applicationUpdateStrategy = $map['ApplicationUpdateStrategy'];
         }
 
         if (isset($map['ApprovalId'])) {

@@ -54,6 +54,11 @@ class data extends Model
     public $packageVersion;
 
     /**
+     * @var string
+     */
+    public $packageVersionId;
+
+    /**
      * @var int
      */
     public $replicas;
@@ -77,6 +82,7 @@ class data extends Model
         'packageType' => 'PackageType',
         'packageUrl' => 'PackageUrl',
         'packageVersion' => 'PackageVersion',
+        'packageVersionId' => 'PackageVersionId',
         'replicas' => 'Replicas',
         'runningInstances' => 'RunningInstances',
         'webContainer' => 'WebContainer',
@@ -124,6 +130,10 @@ class data extends Model
 
         if (null !== $this->packageVersion) {
             $res['PackageVersion'] = $this->packageVersion;
+        }
+
+        if (null !== $this->packageVersionId) {
+            $res['PackageVersionId'] = $this->packageVersionId;
         }
 
         if (null !== $this->replicas) {
@@ -183,6 +193,10 @@ class data extends Model
 
         if (isset($map['PackageVersion'])) {
             $model->packageVersion = $map['PackageVersion'];
+        }
+
+        if (isset($map['PackageVersionId'])) {
+            $model->packageVersionId = $map['PackageVersionId'];
         }
 
         if (isset($map['Replicas'])) {
