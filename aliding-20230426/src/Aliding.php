@@ -25,6 +25,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMultiDimTableHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMultiDimTableRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMultiDimTableResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMultiDimTableShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMultiDimTableShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionResponse;
@@ -166,6 +171,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMultiDimTableFieldHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMultiDimTableFieldRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMultiDimTableFieldResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMultiDimTableFieldShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMultiDimTableFieldShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateResponse;
@@ -287,6 +297,16 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableFieldHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableFieldRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableFieldResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableFieldShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableFieldShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableRecordsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableRecordsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableRecordsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableRecordsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMultiDimTableRecordsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionResponse;
@@ -325,6 +345,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentResponse;
@@ -649,6 +674,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeResponse;
@@ -1077,6 +1107,21 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableFieldHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableFieldRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableFieldResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableFieldShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableFieldShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRecordsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRecordsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRecordsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRecordsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRecordsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMultiDimTableShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionResponse;
@@ -1559,6 +1604,104 @@ class Aliding extends OpenApiClient
         $headers = new AddMeetingRoomsHeaders([]);
 
         return $this->addMeetingRoomsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 新增数据表.
+     *
+     * @param tmpReq - AddMultiDimTableRequest
+     * @param tmpHeader - AddMultiDimTableHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddMultiDimTableResponse
+     *
+     * @param AddMultiDimTableRequest $tmpReq
+     * @param AddMultiDimTableHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddMultiDimTableResponse
+     */
+    public function addMultiDimTableWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddMultiDimTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new AddMultiDimTableShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->fields) {
+            $request->fieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fields, 'Fields', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->fieldsShrink) {
+            @$body['Fields'] = $request->fieldsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddMultiDimTable',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/addMultiDimTable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddMultiDimTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增数据表.
+     *
+     * @param request - AddMultiDimTableRequest
+     *
+     * @returns AddMultiDimTableResponse
+     *
+     * @param AddMultiDimTableRequest $request
+     *
+     * @return AddMultiDimTableResponse
+     */
+    public function addMultiDimTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddMultiDimTableHeaders([]);
+
+        return $this->addMultiDimTableWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4528,6 +4671,112 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 创建字段.
+     *
+     * @param tmpReq - CreateMultiDimTableFieldRequest
+     * @param tmpHeader - CreateMultiDimTableFieldHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultiDimTableFieldResponse
+     *
+     * @param CreateMultiDimTableFieldRequest $tmpReq
+     * @param CreateMultiDimTableFieldHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateMultiDimTableFieldResponse
+     */
+    public function createMultiDimTableFieldWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMultiDimTableFieldShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new CreateMultiDimTableFieldShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->property) {
+            $request->propertyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->property, 'Property', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->propertyShrink) {
+            @$body['Property'] = $request->propertyShrink;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultiDimTableField',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/createMultiDimTableField',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultiDimTableFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建字段.
+     *
+     * @param request - CreateMultiDimTableFieldRequest
+     *
+     * @returns CreateMultiDimTableFieldResponse
+     *
+     * @param CreateMultiDimTableFieldRequest $request
+     *
+     * @return CreateMultiDimTableFieldResponse
+     */
+    public function createMultiDimTableField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateMultiDimTableFieldHeaders([]);
+
+        return $this->createMultiDimTableFieldWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 新增或更新表单实例.
      *
      * @param request - CreateOrUpdateFormDataRequest
@@ -7168,6 +7417,198 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 删除字段.
+     *
+     * @param tmpReq - DeleteMultiDimTableFieldRequest
+     * @param tmpHeader - DeleteMultiDimTableFieldHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultiDimTableFieldResponse
+     *
+     * @param DeleteMultiDimTableFieldRequest $tmpReq
+     * @param DeleteMultiDimTableFieldHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteMultiDimTableFieldResponse
+     */
+    public function deleteMultiDimTableFieldWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteMultiDimTableFieldShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DeleteMultiDimTableFieldShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->fieldIdOrName) {
+            @$body['FieldIdOrName'] = $request->fieldIdOrName;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMultiDimTableField',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/deleteMultiDimTableField',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMultiDimTableFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除字段.
+     *
+     * @param request - DeleteMultiDimTableFieldRequest
+     *
+     * @returns DeleteMultiDimTableFieldResponse
+     *
+     * @param DeleteMultiDimTableFieldRequest $request
+     *
+     * @return DeleteMultiDimTableFieldResponse
+     */
+    public function deleteMultiDimTableField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteMultiDimTableFieldHeaders([]);
+
+        return $this->deleteMultiDimTableFieldWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除多行记录.
+     *
+     * @param tmpReq - DeleteMultiDimTableRecordsRequest
+     * @param tmpHeader - DeleteMultiDimTableRecordsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultiDimTableRecordsResponse
+     *
+     * @param DeleteMultiDimTableRecordsRequest $tmpReq
+     * @param DeleteMultiDimTableRecordsHeaders $tmpHeader
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteMultiDimTableRecordsResponse
+     */
+    public function deleteMultiDimTableRecordsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteMultiDimTableRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DeleteMultiDimTableRecordsShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->recordIds) {
+            $request->recordIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordIds, 'RecordIds', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->recordIdsShrink) {
+            @$body['RecordIds'] = $request->recordIdsShrink;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMultiDimTableRecords',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/deleteMultiDimTableRecords',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMultiDimTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除多行记录.
+     *
+     * @param request - DeleteMultiDimTableRecordsRequest
+     *
+     * @returns DeleteMultiDimTableRecordsResponse
+     *
+     * @param DeleteMultiDimTableRecordsRequest $request
+     *
+     * @return DeleteMultiDimTableRecordsResponse
+     */
+    public function deleteMultiDimTableRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteMultiDimTableRecordsHeaders([]);
+
+        return $this->deleteMultiDimTableRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 删除文件权限.
      *
      * @param tmpReq - DeletePermissionRequest
@@ -7889,6 +8330,104 @@ class Aliding extends OpenApiClient
         $headers = new DeleteWorkspaceMembersHeaders([]);
 
         return $this->deleteWorkspaceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询块元素.
+     *
+     * @param tmpReq - DocBlocksQueryRequest
+     * @param tmpHeader - DocBlocksQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocBlocksQueryResponse
+     *
+     * @param DocBlocksQueryRequest $tmpReq
+     * @param DocBlocksQueryHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DocBlocksQueryResponse
+     */
+    public function docBlocksQueryWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DocBlocksQueryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DocBlocksQueryShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->blockType) {
+            @$body['BlockType'] = $request->blockType;
+        }
+
+        if (null !== $request->docKey) {
+            @$body['DocKey'] = $request->docKey;
+        }
+
+        if (null !== $request->endIndex) {
+            @$body['EndIndex'] = $request->endIndex;
+        }
+
+        if (null !== $request->startIndex) {
+            @$body['StartIndex'] = $request->startIndex;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocBlocksQuery',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/docBlocksQuery',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocBlocksQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询块元素.
+     *
+     * @param request - DocBlocksQueryRequest
+     *
+     * @returns DocBlocksQueryResponse
+     *
+     * @param DocBlocksQueryRequest $request
+     *
+     * @return DocBlocksQueryResponse
+     */
+    public function docBlocksQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DocBlocksQueryHeaders([]);
+
+        return $this->docBlocksQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -14535,6 +15074,104 @@ class Aliding extends OpenApiClient
         $headers = new InsertColumnsBeforeHeaders([]);
 
         return $this->insertColumnsBeforeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 新增记录.
+     *
+     * @param tmpReq - InsertMultiDimTableRecordRequest
+     * @param tmpHeader - InsertMultiDimTableRecordHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsertMultiDimTableRecordResponse
+     *
+     * @param InsertMultiDimTableRecordRequest $tmpReq
+     * @param InsertMultiDimTableRecordHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return InsertMultiDimTableRecordResponse
+     */
+    public function insertMultiDimTableRecordWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InsertMultiDimTableRecordShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new InsertMultiDimTableRecordShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->records) {
+            $request->recordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->recordsShrink) {
+            @$body['Records'] = $request->recordsShrink;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InsertMultiDimTableRecord',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/insertMultiDimTableRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InsertMultiDimTableRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增记录.
+     *
+     * @param request - InsertMultiDimTableRecordRequest
+     *
+     * @returns InsertMultiDimTableRecordResponse
+     *
+     * @param InsertMultiDimTableRecordRequest $request
+     *
+     * @return InsertMultiDimTableRecordResponse
+     */
+    public function insertMultiDimTableRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsertMultiDimTableRecordHeaders([]);
+
+        return $this->insertMultiDimTableRecordWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -23275,6 +23912,304 @@ class Aliding extends OpenApiClient
         $headers = new UpdateMeetingRoomGroupHeaders([]);
 
         return $this->updateMeetingRoomGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新数据表.
+     *
+     * @param tmpReq - UpdateMultiDimTableRequest
+     * @param tmpHeader - UpdateMultiDimTableHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultiDimTableResponse
+     *
+     * @param UpdateMultiDimTableRequest $tmpReq
+     * @param UpdateMultiDimTableHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateMultiDimTableResponse
+     */
+    public function updateMultiDimTableWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMultiDimTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UpdateMultiDimTableShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultiDimTable',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/updateMultiDimTable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultiDimTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据表.
+     *
+     * @param request - UpdateMultiDimTableRequest
+     *
+     * @returns UpdateMultiDimTableResponse
+     *
+     * @param UpdateMultiDimTableRequest $request
+     *
+     * @return UpdateMultiDimTableResponse
+     */
+    public function updateMultiDimTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateMultiDimTableHeaders([]);
+
+        return $this->updateMultiDimTableWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新字段.
+     *
+     * @param tmpReq - UpdateMultiDimTableFieldRequest
+     * @param tmpHeader - UpdateMultiDimTableFieldHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultiDimTableFieldResponse
+     *
+     * @param UpdateMultiDimTableFieldRequest $tmpReq
+     * @param UpdateMultiDimTableFieldHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateMultiDimTableFieldResponse
+     */
+    public function updateMultiDimTableFieldWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMultiDimTableFieldShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UpdateMultiDimTableFieldShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->property) {
+            $request->propertyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->property, 'Property', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->fieldIdOrName) {
+            @$body['FieldIdOrName'] = $request->fieldIdOrName;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->propertyShrink) {
+            @$body['Property'] = $request->propertyShrink;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultiDimTableField',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/updateMultiDimTableField',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultiDimTableFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新字段.
+     *
+     * @param request - UpdateMultiDimTableFieldRequest
+     *
+     * @returns UpdateMultiDimTableFieldResponse
+     *
+     * @param UpdateMultiDimTableFieldRequest $request
+     *
+     * @return UpdateMultiDimTableFieldResponse
+     */
+    public function updateMultiDimTableField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateMultiDimTableFieldHeaders([]);
+
+        return $this->updateMultiDimTableFieldWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新多行记录.
+     *
+     * @param tmpReq - UpdateMultiDimTableRecordsRequest
+     * @param tmpHeader - UpdateMultiDimTableRecordsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultiDimTableRecordsResponse
+     *
+     * @param UpdateMultiDimTableRecordsRequest $tmpReq
+     * @param UpdateMultiDimTableRecordsHeaders $tmpHeader
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateMultiDimTableRecordsResponse
+     */
+    public function updateMultiDimTableRecordsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMultiDimTableRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UpdateMultiDimTableRecordsShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->recordIds) {
+            $request->recordIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordIds, 'RecordIds', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->baseId) {
+            @$body['BaseId'] = $request->baseId;
+        }
+
+        if (null !== $request->recordIdsShrink) {
+            @$body['RecordIds'] = $request->recordIdsShrink;
+        }
+
+        if (null !== $request->sheetIdOrName) {
+            @$body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultiDimTableRecords',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/updateMultiDimTableRecords',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultiDimTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新多行记录.
+     *
+     * @param request - UpdateMultiDimTableRecordsRequest
+     *
+     * @returns UpdateMultiDimTableRecordsResponse
+     *
+     * @param UpdateMultiDimTableRecordsRequest $request
+     *
+     * @return UpdateMultiDimTableRecordsResponse
+     */
+    public function updateMultiDimTableRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateMultiDimTableRecordsHeaders([]);
+
+        return $this->updateMultiDimTableRecordsWithOptions($request, $headers, $runtime);
     }
 
     /**
