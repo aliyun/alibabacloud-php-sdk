@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\operationPolicy\clusterAutoUpgrade;
-use AlibabaCloud\Tea\Model;
 
 class operationPolicy extends Model
 {
     /**
-     * @description The configurations of automatic update.
-     *
      * @var clusterAutoUpgrade
      */
     public $clusterAutoUpgrade;
@@ -19,23 +17,29 @@ class operationPolicy extends Model
         'clusterAutoUpgrade' => 'cluster_auto_upgrade',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->clusterAutoUpgrade) {
+            $this->clusterAutoUpgrade->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterAutoUpgrade) {
-            $res['cluster_auto_upgrade'] = null !== $this->clusterAutoUpgrade ? $this->clusterAutoUpgrade->toMap() : null;
+            $res['cluster_auto_upgrade'] = null !== $this->clusterAutoUpgrade ? $this->clusterAutoUpgrade->toArray($noStream) : $this->clusterAutoUpgrade;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operationPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

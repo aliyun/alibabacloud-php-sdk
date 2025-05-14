@@ -4,59 +4,31 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveNodePoolNodesRequest extends Model
 {
     /**
-     * @description Whether to remove concurrently.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $concurrency;
 
     /**
-     * @description Specifies whether to drain the nodes that you want to remove. Valid values:
-     *
-     *   true: drain the nodes that you want to remove.
-     *   false: do not drain the nodes that you want to remove.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $drainNode;
 
     /**
-     * @description A list of instances that you want to remove.
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description This parameter is deprecated.
-     *
-     * A list of nodes that you want to remove.
-     *
-     * >  This parameter is deprecated. Use instance_ids instead.
-     *
-     * @deprecated
-     *
      * @var string[]
      */
     public $nodes;
 
     /**
-     * @description Specifies whether to release the nodes after they are removed. Valid values:
-     *
-     *   true: release the nodes after they are removed.
-     *   false: do not release the nodes after they are removed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $releaseNode;
@@ -68,23 +40,48 @@ class RemoveNodePoolNodesRequest extends Model
         'releaseNode' => 'release_node',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->concurrency) {
             $res['concurrency'] = $this->concurrency;
         }
+
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
         }
+
         if (null !== $this->instanceIds) {
-            $res['instance_ids'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['instance_ids'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['instance_ids'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nodes) {
-            $res['nodes'] = $this->nodes;
+            if (\is_array($this->nodes)) {
+                $res['nodes'] = [];
+                $n1 = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['nodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->releaseNode) {
             $res['release_node'] = $this->releaseNode;
         }
@@ -92,30 +89,42 @@ class RemoveNodePoolNodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveNodePoolNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['concurrency'])) {
             $model->concurrency = $map['concurrency'];
         }
+
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
         }
+
         if (isset($map['instance_ids'])) {
             if (!empty($map['instance_ids'])) {
-                $model->instanceIds = $map['instance_ids'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['instance_ids'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
-                $model->nodes = $map['nodes'];
+                $model->nodes = [];
+                $n1 = 0;
+                foreach ($map['nodes'] as $item1) {
+                    $model->nodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['release_node'])) {
             $model->releaseNode = $map['release_node'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operations extends Model
 {
     /**
-     * @description The parameters of a repair operation.
-     *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The ID of a repair operation.
-     *
-     * @example remove.containerdContainer
-     *
      * @var string
      */
     public $operationId;
@@ -28,14 +22,27 @@ class operations extends Model
         'operationId' => 'operation_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->args)) {
+            Model::validateArray($this->args);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->args) {
-            $res['args'] = $this->args;
+            if (\is_array($this->args)) {
+                $res['args'] = [];
+                $n1 = 0;
+                foreach ($this->args as $item1) {
+                    $res['args'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->operationId) {
             $res['operation_id'] = $this->operationId;
         }
@@ -43,19 +50,24 @@ class operations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['args'])) {
             if (!empty($map['args'])) {
-                $model->args = $map['args'];
+                $model->args = [];
+                $n1 = 0;
+                foreach ($map['args'] as $item1) {
+                    $model->args[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['operation_id'])) {
             $model->operationId = $map['operation_id'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScanClusterVulsResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example 687C5BAA-D103-4993-884B-C35E4314A1E1
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Task ID.
-     *
-     * @example T-xascadasd*****
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class ScanClusterVulsResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class ScanClusterVulsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScanClusterVulsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

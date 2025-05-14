@@ -4,84 +4,36 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class body extends Model
 {
     /**
-     * @description The ID of the cluster on which you want to grant permissions to the RAM role or RAM role.
-     *
-     *   Set this parameter to an empty string if `role_type` is set to `all-clusters`.
-     *
-     * This parameter is required.
-     *
-     * @example c796c60***
-     *
      * @var string
      */
     public $cluster;
 
     /**
-     * @description Specifies whether to assign a custom role to the RAM user or RAM role. If you want to assign a custom role to the RAM user or RAM role, set `role_name` to the name of the custom role.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isCustom;
 
     /**
-     * @description Specifies whether to use a RAM role to grant permissions.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isRamRole;
 
     /**
-     * @description The namespace that you want to authorize the RAM user or RAM role to manage. This parameter is required only if you set role_type to namespace.
-     *
-     * @example test
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The predefined role name. Valid values:
-     *
-     *   `admin`: administrator
-     *   `admin-view`: read-only administrator
-     *   `ops`: O\\&M engineer
-     *   `dev`: developer
-     *   `restricted`: restricted user
-     *   Custom role
-     *
-     * Note:
-     *
-     *   You cannot grant namespace-level permissions to the `admin`, `admin-view`, and `ops` roles.
-     *   You cannot grant all cluster-level permissions to the `admin-view` role.
-     *
-     * This parameter is required.
-     *
-     * @example ops
-     *
      * @var string
      */
     public $roleName;
 
     /**
-     * @description The authorization type. Valid values:
-     *
-     *   `cluster`: authorizes the RAM user or RAM role to manage the specified clusters.
-     *   `namespace`: authorizes the RAM user or RAM role to manage the specified namespaces.
-     *   `all-clusters`: authorizes the RAM user or RAM role to manage all clusters.
-     *
-     * This parameter is required.
-     *
-     * @example cluster
-     *
      * @var string
      */
     public $roleType;
@@ -94,26 +46,34 @@ class body extends Model
         'roleType' => 'role_type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
+
         if (null !== $this->isCustom) {
             $res['is_custom'] = $this->isCustom;
         }
+
         if (null !== $this->isRamRole) {
             $res['is_ram_role'] = $this->isRamRole;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->roleName) {
             $res['role_name'] = $this->roleName;
         }
+
         if (null !== $this->roleType) {
             $res['role_type'] = $this->roleType;
         }
@@ -121,29 +81,34 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
+
         if (isset($map['is_custom'])) {
             $model->isCustom = $map['is_custom'];
         }
+
         if (isset($map['is_ram_role'])) {
             $model->isRamRole = $map['is_ram_role'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['role_name'])) {
             $model->roleName = $map['role_name'];
         }
+
         if (isset($map['role_type'])) {
             $model->roleType = $map['role_type'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyInstanceResponseBody extends Model
 {
     /**
-     * @description A list of policy instances.
-     *
      * @var string[]
      */
     public $instances;
@@ -18,29 +16,45 @@ class DeletePolicyInstanceResponseBody extends Model
         'instances' => 'instances',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['instances'] = $this->instances;
+            if (\is_array($this->instances)) {
+                $res['instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['instances'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
-                $model->instances = $map['instances'];
+                $model->instances = [];
+                $n1 = 0;
+                foreach ($map['instances'] as $item1) {
+                    $model->instances[$n1++] = $item1;
+                }
             }
         }
 

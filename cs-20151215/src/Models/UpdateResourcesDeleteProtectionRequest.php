@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourcesDeleteProtectionRequest extends Model
 {
     /**
-     * @description Specifies whether to enable deletion protection. Set the value to true to enable deletion protection and set the value to false to disable deletion protection.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The namespace to which the resource belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The type of resource for which deletion protection is enabled or disabled. You can specify namespaces or Services.
-     *
-     * @example services
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The resources list.
-     *
      * @var string[]
      */
     public $resources;
@@ -48,47 +34,69 @@ class UpdateResourcesDeleteProtectionRequest extends Model
         'resources' => 'resources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->resourceType) {
             $res['resource_type'] = $this->resourceType;
         }
+
         if (null !== $this->resources) {
-            $res['resources'] = $this->resources;
+            if (\is_array($this->resources)) {
+                $res['resources'] = [];
+                $n1 = 0;
+                foreach ($this->resources as $item1) {
+                    $res['resources'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourcesDeleteProtectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['resource_type'])) {
             $model->resourceType = $map['resource_type'];
         }
+
         if (isset($map['resources'])) {
             if (!empty($map['resources'])) {
-                $model->resources = $map['resources'];
+                $model->resources = [];
+                $n1 = 0;
+                foreach ($map['resources'] as $item1) {
+                    $model->resources[$n1++] = $item1;
+                }
             }
         }
 

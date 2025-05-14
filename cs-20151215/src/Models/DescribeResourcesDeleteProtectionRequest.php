@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeResourcesDeleteProtectionRequest extends Model
 {
     /**
-     * @description The namespace to which the resource belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The name of the resource that you want to query. Separate multiple resource names with commas (,).
-     *
-     * @example test1,test2
-     *
      * @var string
      */
     public $resources;
@@ -30,14 +22,18 @@ class DescribeResourcesDeleteProtectionRequest extends Model
         'resources' => 'resources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->resources) {
             $res['resources'] = $this->resources;
         }
@@ -45,17 +41,18 @@ class DescribeResourcesDeleteProtectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeResourcesDeleteProtectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['resources'])) {
             $model->resources = $map['resources'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\KubeletConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tracing extends Model
 {
     /**
-     * @example localhost:4317
-     *
      * @var string
      */
     public $endpoint;
@@ -24,14 +22,18 @@ class tracing extends Model
         'samplingRatePerMillion' => 'samplingRatePerMillion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
+
         if (null !== $this->samplingRatePerMillion) {
             $res['samplingRatePerMillion'] = $this->samplingRatePerMillion;
         }
@@ -39,17 +41,18 @@ class tracing extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tracing
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
+
         if (isset($map['samplingRatePerMillion'])) {
             $model->samplingRatePerMillion = $map['samplingRatePerMillion'];
         }

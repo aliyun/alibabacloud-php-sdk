@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserKubeConfigStatesRequest extends Model
 {
     /**
-     * @description The page number.
-     *
-     *   Valid values: ≥ 1.
-     *   Default value: 1.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     *   Value values: 1 to 100.
-     *   Default value: 50.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -36,14 +22,18 @@ class ListUserKubeConfigStatesRequest extends Model
         'pageSize' => 'page_size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['page_number'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['page_size'] = $this->pageSize;
         }
@@ -51,17 +41,18 @@ class ListUserKubeConfigStatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserKubeConfigStatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page_number'])) {
             $model->pageNumber = $map['page_number'];
         }
+
         if (isset($map['page_size'])) {
             $model->pageSize = $map['page_size'];
         }

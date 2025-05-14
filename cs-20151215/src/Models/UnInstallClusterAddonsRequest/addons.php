@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addons extends Model
 {
     /**
-     * @description Specifies whether to clear cloud resources.
-     *
-     *   true: clears the data and cloud resources.
-     *   false: retains the data and cloud resources.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $cleanupCloudResources;
 
     /**
-     * @description The name of the component.
-     *
-     * @example ack-node-problem-detector
-     *
      * @var string
      */
     public $name;
@@ -33,14 +22,18 @@ class addons extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cleanupCloudResources) {
             $res['cleanup_cloud_resources'] = $this->cleanupCloudResources;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -48,17 +41,18 @@ class addons extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addons
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cleanup_cloud_resources'])) {
             $model->cleanupCloudResources = $map['cleanup_cloud_resources'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

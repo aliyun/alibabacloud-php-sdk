@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterTasksResponseBody\tasks\error;
-use AlibabaCloud\Tea\Model;
 
 class tasks extends Model
 {
     /**
-     * @description The time when the task was created.
-     *
-     * @example 2022-08-03T10:11:33+08:00
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description The error returned for the task.
-     *
      * @var error
      */
     public $error;
 
     /**
-     * @description The status of the task.
-     *
-     * @example success
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description The task ID.
-     *
-     * @example install-addons-c3xxxxxx
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The type of task.
-     *
-     * @example cluster_addon_install
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description The time when the task was updated.
-     *
-     * @example 2022-08-03T10:12:03.482+08:00
-     *
      * @var string
      */
     public $updated;
@@ -69,26 +47,37 @@ class tasks extends Model
         'updated' => 'updated',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->error) {
+            $this->error->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
+
         if (null !== $this->error) {
-            $res['error'] = null !== $this->error ? $this->error->toMap() : null;
+            $res['error'] = null !== $this->error ? $this->error->toArray($noStream) : $this->error;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
+
         if (null !== $this->taskType) {
             $res['task_type'] = $this->taskType;
         }
+
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
         }
@@ -96,29 +85,34 @@ class tasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
+
         if (isset($map['error'])) {
             $model->error = error::fromMap($map['error']);
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }
+
         if (isset($map['task_type'])) {
             $model->taskType = $map['task_type'];
         }
+
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
         }

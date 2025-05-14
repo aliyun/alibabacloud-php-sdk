@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MigrateClusterRequest extends Model
 {
     /**
-     * @description The endpoint of the OSS bucket.
-     *
-     * @example *******.oss-cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $ossBucketEndpoint;
 
     /**
-     * @description The name of the Object Storage Service (OSS) bucket.
-     *
-     * @example bucket-****
-     *
      * @var string
      */
     public $ossBucketName;
@@ -30,14 +22,18 @@ class MigrateClusterRequest extends Model
         'ossBucketName' => 'oss_bucket_name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ossBucketEndpoint) {
             $res['oss_bucket_endpoint'] = $this->ossBucketEndpoint;
         }
+
         if (null !== $this->ossBucketName) {
             $res['oss_bucket_name'] = $this->ossBucketName;
         }
@@ -45,17 +41,18 @@ class MigrateClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MigrateClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['oss_bucket_endpoint'])) {
             $model->ossBucketEndpoint = $map['oss_bucket_endpoint'];
         }
+
         if (isset($map['oss_bucket_name'])) {
             $model->ossBucketName = $map['oss_bucket_name'];
         }

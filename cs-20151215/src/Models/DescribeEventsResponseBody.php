@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsResponseBody\events;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEventsResponseBody extends Model
 {
     /**
-     * @description The details of the events.
-     *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
@@ -28,44 +24,55 @@ class DescribeEventsResponseBody extends Model
         'pageInfo' => 'page_info',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->events) {
-            $res['events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['events'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->events)) {
+                $res['events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['events'])) {
             if (!empty($map['events'])) {
                 $model->events = [];
-                $n = 0;
-                foreach ($map['events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['events'] as $item1) {
+                    $model->events[$n1++] = events::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['page_info'])) {
             $model->pageInfo = pageInfo::fromMap($map['page_info']);
         }

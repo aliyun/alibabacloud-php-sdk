@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponseBody\nodes;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponseBody\page;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterNodesResponseBody extends Model
 {
     /**
-     * @description The details of the nodes in the cluster.
-     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description The pagination information.
-     *
      * @var page
      */
     public $page;
@@ -28,44 +24,55 @@ class DescribeClusterNodesResponseBody extends Model
         'page' => 'page',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodes) {
-            $res['nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['nodes'] = [];
+                $n1 = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->page) {
-            $res['page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
                 $model->nodes = [];
-                $n = 0;
-                foreach ($map['nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['nodes'] as $item1) {
+                    $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['page'])) {
             $model->page = page::fromMap($map['page']);
         }

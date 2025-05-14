@@ -4,220 +4,126 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class controlPlaneConfig extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the node.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description The auto-renewal duration for the node.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
-     * @description The billing method of the node.
-     *
-     * @example PrePaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description Specifies whether to install CloudMonitor on the node.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
-     * @description The CPU management policy of the node.
-     *
-     * @example none
-     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
-     * @description The ID of the deployment set.
-     *
-     * @example ds-bp10b35imuam5amw****
-     *
      * @var string
      */
     public $deploymentsetId;
 
     /**
-     * @description The image ID.
-     *
-     * @example aliyun_3_x64_20G_alibase_20240819.vhd
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The type of the OS image.
-     *
-     * @example AliyunLinux3
-     *
      * @var string
      */
     public $imageType;
 
     /**
-     * @description The instance types of the nodes.
-     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
-     * @description The name of the key pair. You must set this parameter or login_password.
-     *
-     * @example ack
-     *
      * @var string
      */
     public $keyPair;
 
     /**
-     * @description The SSH logon password. The password must be 8 to 30 characters in length and contain a minimum of three of the following character types: uppercase letters, lowercase letters, digits, and special characters. You must set this parameter or key_pair.
-     *
-     * @example ack@Test
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description The node port range.
-     *
-     * @example 30000-32767
-     *
      * @var string
      */
     public $nodePortRange;
 
     /**
-     * @description The subscription duration of the node.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The unit of the subscription duration of the node.
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The container runtime.
-     *
-     * @example containerd
-     *
      * @var string
      */
     public $runtime;
 
     /**
-     * @description Specifies whether to enable Alibaba Cloud Linux Security Hardening.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $securityHardeningOs;
 
     /**
-     * @description The number of control plane nodes.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description Specifies whether to enable MLPS security hardening.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $socEnabled;
 
     /**
-     * @description Specifies whether to enable the burst feature for the system disk.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The system disk category for the node.
-     *
-     * @example cloud_essd
-     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
-     * @description The PL of the system disk that you want to use for the node. This parameter takes effect only for ESSDs.
-     *
-     * @example PL1
-     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
-     * @description The preset read/write IOPS of the system disk.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $systemDiskProvisionedIops;
 
     /**
-     * @description The system disk size of the node. The value must be at least 40 GB.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
-     * @description The automatic snapshot policy of the node.
-     *
-     * @example sp-2zej1nogjvovnz4z****
-     *
      * @var string
      */
     public $systemDiskSnapshotPolicyId;
@@ -248,80 +154,115 @@ class controlPlaneConfig extends Model
         'systemDiskSnapshotPolicyId' => 'system_disk_snapshot_policy_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['auto_renew'] = $this->autoRenew;
         }
+
         if (null !== $this->autoRenewPeriod) {
             $res['auto_renew_period'] = $this->autoRenewPeriod;
         }
+
         if (null !== $this->chargeType) {
             $res['charge_type'] = $this->chargeType;
         }
+
         if (null !== $this->cloudMonitorFlags) {
             $res['cloud_monitor_flags'] = $this->cloudMonitorFlags;
         }
+
         if (null !== $this->cpuPolicy) {
             $res['cpu_policy'] = $this->cpuPolicy;
         }
+
         if (null !== $this->deploymentsetId) {
             $res['deploymentset_id'] = $this->deploymentsetId;
         }
+
         if (null !== $this->imageId) {
             $res['image_id'] = $this->imageId;
         }
+
         if (null !== $this->imageType) {
             $res['image_type'] = $this->imageType;
         }
+
         if (null !== $this->instanceTypes) {
-            $res['instance_types'] = $this->instanceTypes;
+            if (\is_array($this->instanceTypes)) {
+                $res['instance_types'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['instance_types'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->keyPair) {
             $res['key_pair'] = $this->keyPair;
         }
+
         if (null !== $this->loginPassword) {
             $res['login_password'] = $this->loginPassword;
         }
+
         if (null !== $this->nodePortRange) {
             $res['node_port_range'] = $this->nodePortRange;
         }
+
         if (null !== $this->period) {
             $res['period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['period_unit'] = $this->periodUnit;
         }
+
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
         }
+
         if (null !== $this->securityHardeningOs) {
             $res['security_hardening_os'] = $this->securityHardeningOs;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->socEnabled) {
             $res['soc_enabled'] = $this->socEnabled;
         }
+
         if (null !== $this->systemDiskBurstingEnabled) {
             $res['system_disk_bursting_enabled'] = $this->systemDiskBurstingEnabled;
         }
+
         if (null !== $this->systemDiskCategory) {
             $res['system_disk_category'] = $this->systemDiskCategory;
         }
+
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['system_disk_performance_level'] = $this->systemDiskPerformanceLevel;
         }
+
         if (null !== $this->systemDiskProvisionedIops) {
             $res['system_disk_provisioned_iops'] = $this->systemDiskProvisionedIops;
         }
+
         if (null !== $this->systemDiskSize) {
             $res['system_disk_size'] = $this->systemDiskSize;
         }
+
         if (null !== $this->systemDiskSnapshotPolicyId) {
             $res['system_disk_snapshot_policy_id'] = $this->systemDiskSnapshotPolicyId;
         }
@@ -329,85 +270,112 @@ class controlPlaneConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return controlPlaneConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_renew'])) {
             $model->autoRenew = $map['auto_renew'];
         }
+
         if (isset($map['auto_renew_period'])) {
             $model->autoRenewPeriod = $map['auto_renew_period'];
         }
+
         if (isset($map['charge_type'])) {
             $model->chargeType = $map['charge_type'];
         }
+
         if (isset($map['cloud_monitor_flags'])) {
             $model->cloudMonitorFlags = $map['cloud_monitor_flags'];
         }
+
         if (isset($map['cpu_policy'])) {
             $model->cpuPolicy = $map['cpu_policy'];
         }
+
         if (isset($map['deploymentset_id'])) {
             $model->deploymentsetId = $map['deploymentset_id'];
         }
+
         if (isset($map['image_id'])) {
             $model->imageId = $map['image_id'];
         }
+
         if (isset($map['image_type'])) {
             $model->imageType = $map['image_type'];
         }
+
         if (isset($map['instance_types'])) {
             if (!empty($map['instance_types'])) {
-                $model->instanceTypes = $map['instance_types'];
+                $model->instanceTypes = [];
+                $n1 = 0;
+                foreach ($map['instance_types'] as $item1) {
+                    $model->instanceTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['key_pair'])) {
             $model->keyPair = $map['key_pair'];
         }
+
         if (isset($map['login_password'])) {
             $model->loginPassword = $map['login_password'];
         }
+
         if (isset($map['node_port_range'])) {
             $model->nodePortRange = $map['node_port_range'];
         }
+
         if (isset($map['period'])) {
             $model->period = $map['period'];
         }
+
         if (isset($map['period_unit'])) {
             $model->periodUnit = $map['period_unit'];
         }
+
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
         }
+
         if (isset($map['security_hardening_os'])) {
             $model->securityHardeningOs = $map['security_hardening_os'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['soc_enabled'])) {
             $model->socEnabled = $map['soc_enabled'];
         }
+
         if (isset($map['system_disk_bursting_enabled'])) {
             $model->systemDiskBurstingEnabled = $map['system_disk_bursting_enabled'];
         }
+
         if (isset($map['system_disk_category'])) {
             $model->systemDiskCategory = $map['system_disk_category'];
         }
+
         if (isset($map['system_disk_performance_level'])) {
             $model->systemDiskPerformanceLevel = $map['system_disk_performance_level'];
         }
+
         if (isset($map['system_disk_provisioned_iops'])) {
             $model->systemDiskProvisionedIops = $map['system_disk_provisioned_iops'];
         }
+
         if (isset($map['system_disk_size'])) {
             $model->systemDiskSize = $map['system_disk_size'];
         }
+
         if (isset($map['system_disk_snapshot_policy_id'])) {
             $model->systemDiskSnapshotPolicyId = $map['system_disk_snapshot_policy_id'];
         }

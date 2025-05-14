@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Taint extends Model
 {
     /**
-     * @example NoSchedule
-     *
      * @var string
      */
     public $effect;
 
     /**
-     * @example key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @example value
-     *
      * @var string
      */
     public $value;
@@ -34,17 +28,22 @@ class Taint extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effect) {
             $res['effect'] = $this->effect;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -52,20 +51,22 @@ class Taint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Taint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['effect'])) {
             $model->effect = $map['effect'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

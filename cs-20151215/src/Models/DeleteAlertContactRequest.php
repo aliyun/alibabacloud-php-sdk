@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAlertContactRequest extends Model
 {
     /**
-     * @description The list of alert contact IDs.
-     *
-     * This parameter is required.
-     *
      * @var int[]
      */
     public $contactIds;
@@ -20,29 +16,45 @@ class DeleteAlertContactRequest extends Model
         'contactIds' => 'contact_ids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contactIds)) {
+            Model::validateArray($this->contactIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactIds) {
-            $res['contact_ids'] = $this->contactIds;
+            if (\is_array($this->contactIds)) {
+                $res['contact_ids'] = [];
+                $n1 = 0;
+                foreach ($this->contactIds as $item1) {
+                    $res['contact_ids'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAlertContactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contact_ids'])) {
             if (!empty($map['contact_ids'])) {
-                $model->contactIds = $map['contact_ids'];
+                $model->contactIds = [];
+                $n1 = 0;
+                foreach ($map['contact_ids'] as $item1) {
+                    $model->contactIds[$n1++] = $item1;
+                }
             }
         }
 

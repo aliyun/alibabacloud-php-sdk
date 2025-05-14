@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListOperationPlansRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example c29ced64b3dfe4f33b57ca0aa9f68****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The operation plan type.
-     *
-     * @example cluster_upgrade
-     *
      * @var string
      */
     public $type;
@@ -30,14 +22,18 @@ class ListOperationPlansRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -45,17 +41,18 @@ class ListOperationPlansRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOperationPlansRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClustersRequest extends Model
 {
     /**
-     * @description The cluster type.
-     *
-     * @example ManagedKubernetes
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description The cluster name based on which the system performs fuzzy searches among the clusters that belong to the current Alibaba Cloud account.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -36,17 +28,22 @@ class DescribeClustersRequest extends Model
         'resourceGroupId' => 'resource_group_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterType) {
             $res['clusterType'] = $this->clusterType;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
         }
@@ -54,20 +51,22 @@ class DescribeClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clusterType'])) {
             $model->clusterType = $map['clusterType'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse\body;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associatedObject extends Model
 {
     /**
-     * @description The Kubernetes object type.
-     *
-     * @example Service
-     *
      * @var string
      */
     public $kind;
 
     /**
-     * @description The namespace in which the Kubernetes object resides.
-     *
-     * @example kube-system
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The Kubernetes object name.
-     *
-     * @example nginx-ingress-lb
-     *
      * @var string
      */
     public $name;
@@ -40,17 +28,22 @@ class associatedObject extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kind) {
             $res['kind'] = $this->kind;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -58,20 +51,22 @@ class associatedObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['kind'])) {
             $model->kind = $map['kind'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

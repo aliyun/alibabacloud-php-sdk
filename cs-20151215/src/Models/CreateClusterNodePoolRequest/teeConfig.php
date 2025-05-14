@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class teeConfig extends Model
 {
     /**
-     * @description Specifies whether to enable confidential computing for the cluster.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $teeEnable;
@@ -20,9 +16,12 @@ class teeConfig extends Model
         'teeEnable' => 'tee_enable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->teeEnable) {
@@ -32,11 +31,11 @@ class teeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return teeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

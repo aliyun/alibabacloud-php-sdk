@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\totalViolations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class warn extends Model
 {
     /**
-     * @description The severity level of the policy.
-     *
-     * @example low
-     *
      * @var string
      */
     public $severity;
 
     /**
-     * @description The number of alerting events that are triggered.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $violations;
@@ -30,14 +22,18 @@ class warn extends Model
         'violations' => 'violations',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->severity) {
             $res['severity'] = $this->severity;
         }
+
         if (null !== $this->violations) {
             $res['violations'] = $this->violations;
         }
@@ -45,17 +41,18 @@ class warn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['severity'])) {
             $model->severity = $map['severity'];
         }
+
         if (isset($map['violations'])) {
             $model->violations = $map['violations'];
         }

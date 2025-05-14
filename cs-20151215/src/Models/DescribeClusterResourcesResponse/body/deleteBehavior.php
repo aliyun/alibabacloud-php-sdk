@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse\body;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deleteBehavior extends Model
 {
     /**
-     * @description Specifies whether to delete the resource by default when the cluster is deleted.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $deleteByDefault;
 
     /**
-     * @description Specifies whether the default behavior returned in delete_by_default can be changed.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $changeable;
@@ -30,14 +22,18 @@ class deleteBehavior extends Model
         'changeable' => 'changeable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteByDefault) {
             $res['delete_by_default'] = $this->deleteByDefault;
         }
+
         if (null !== $this->changeable) {
             $res['changeable'] = $this->changeable;
         }
@@ -45,17 +41,18 @@ class deleteBehavior extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deleteBehavior
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['delete_by_default'])) {
             $model->deleteByDefault = $map['delete_by_default'];
         }
+
         if (isset($map['changeable'])) {
             $model->changeable = $map['changeable'];
         }

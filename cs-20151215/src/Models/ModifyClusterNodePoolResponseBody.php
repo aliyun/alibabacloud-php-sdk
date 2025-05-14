@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterNodePoolResponseBody extends Model
 {
     /**
-     * @description The node pool ID.
-     *
-     * @example np737c3ac1ac684703b9e10673aa2c****
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 687C5BAA-D103-4993-884B-C35E4314****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example T-5fd211e924e1d00787000293
-     *
      * @var string
      */
     public $taskId;
@@ -40,17 +28,22 @@ class ModifyClusterNodePoolResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -58,20 +51,22 @@ class ModifyClusterNodePoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterNodePoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }
