@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFeatureViewOnlineFeaturesResponseBody extends Model
 {
@@ -14,26 +14,35 @@ class ListFeatureViewOnlineFeaturesResponseBody extends Model
     public $onlineFeatures;
 
     /**
-     * @example BF349686-C932-55B5-9B31-DAFA395C0E06
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'onlineFeatures' => 'OnlineFeatures',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->onlineFeatures)) {
+            Model::validateArray($this->onlineFeatures);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onlineFeatures) {
-            $res['OnlineFeatures'] = $this->onlineFeatures;
+            if (\is_array($this->onlineFeatures)) {
+                $res['OnlineFeatures'] = [];
+                $n1 = 0;
+                foreach ($this->onlineFeatures as $item1) {
+                    $res['OnlineFeatures'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,19 +50,24 @@ class ListFeatureViewOnlineFeaturesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFeatureViewOnlineFeaturesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnlineFeatures'])) {
             if (!empty($map['OnlineFeatures'])) {
-                $model->onlineFeatures = $map['OnlineFeatures'];
+                $model->onlineFeatures = [];
+                $n1 = 0;
+                foreach ($map['OnlineFeatures'] as $item1) {
+                    $model->onlineFeatures[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

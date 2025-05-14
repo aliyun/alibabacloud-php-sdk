@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WriteFeatureViewTableResponseBody extends Model
 {
     /**
-     * @example 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
-     *
      * @var string
      */
     public $requestId;
@@ -21,19 +19,21 @@ class WriteFeatureViewTableResponseBody extends Model
     public $taskId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -41,17 +41,18 @@ class WriteFeatureViewTableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WriteFeatureViewTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

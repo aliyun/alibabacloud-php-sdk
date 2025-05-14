@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateModelFeatureResponseBody extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $modelFeatureId;
 
     /**
-     * @example 37D19490-AB69-567D-A852-407C94E510E9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'modelFeatureId' => 'ModelFeatureId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelFeatureId) {
             $res['ModelFeatureId'] = $this->modelFeatureId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateModelFeatureResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateModelFeatureResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelFeatureId'])) {
             $model->modelFeatureId = $map['ModelFeatureId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

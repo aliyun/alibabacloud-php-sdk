@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFeatureEntityRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example user_id
-     *
      * @var string
      */
     public $joinId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example feature_entity_1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $projectId;
     protected $_name = [
-        'joinId'    => 'JoinId',
-        'name'      => 'Name',
+        'joinId' => 'JoinId',
+        'name' => 'Name',
         'projectId' => 'ProjectId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->joinId) {
             $res['JoinId'] = $this->joinId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -60,20 +51,22 @@ class CreateFeatureEntityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFeatureEntityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JoinId'])) {
             $model->joinId = $map['JoinId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

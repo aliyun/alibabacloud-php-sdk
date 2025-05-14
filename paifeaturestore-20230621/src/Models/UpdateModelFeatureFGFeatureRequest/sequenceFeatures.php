@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureRequest\sequenceFeatures\subFeatures;
-use AlibabaCloud\Tea\Model;
 
 class sequenceFeatures extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example #
-     *
      * @var string
      */
     public $attributeDelim;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example item_id
-     *
      * @var string
      */
     public $featureName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ;
-     *
      * @var string
      */
     public $sequenceDelim;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $sequenceLength;
@@ -51,37 +35,45 @@ class sequenceFeatures extends Model
     public $subFeatures;
     protected $_name = [
         'attributeDelim' => 'AttributeDelim',
-        'featureName'    => 'FeatureName',
-        'sequenceDelim'  => 'SequenceDelim',
+        'featureName' => 'FeatureName',
+        'sequenceDelim' => 'SequenceDelim',
         'sequenceLength' => 'SequenceLength',
-        'subFeatures'    => 'SubFeatures',
+        'subFeatures' => 'SubFeatures',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subFeatures)) {
+            Model::validateArray($this->subFeatures);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeDelim) {
             $res['AttributeDelim'] = $this->attributeDelim;
         }
+
         if (null !== $this->featureName) {
             $res['FeatureName'] = $this->featureName;
         }
+
         if (null !== $this->sequenceDelim) {
             $res['SequenceDelim'] = $this->sequenceDelim;
         }
+
         if (null !== $this->sequenceLength) {
             $res['SequenceLength'] = $this->sequenceLength;
         }
+
         if (null !== $this->subFeatures) {
-            $res['SubFeatures'] = [];
-            if (null !== $this->subFeatures && \is_array($this->subFeatures)) {
-                $n = 0;
-                foreach ($this->subFeatures as $item) {
-                    $res['SubFeatures'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subFeatures)) {
+                $res['SubFeatures'] = [];
+                $n1 = 0;
+                foreach ($this->subFeatures as $item1) {
+                    $res['SubFeatures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -89,32 +81,36 @@ class sequenceFeatures extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sequenceFeatures
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeDelim'])) {
             $model->attributeDelim = $map['AttributeDelim'];
         }
+
         if (isset($map['FeatureName'])) {
             $model->featureName = $map['FeatureName'];
         }
+
         if (isset($map['SequenceDelim'])) {
             $model->sequenceDelim = $map['SequenceDelim'];
         }
+
         if (isset($map['SequenceLength'])) {
             $model->sequenceLength = $map['SequenceLength'];
         }
+
         if (isset($map['SubFeatures'])) {
             if (!empty($map['SubFeatures'])) {
                 $model->subFeatures = [];
-                $n                  = 0;
-                foreach ($map['SubFeatures'] as $item) {
-                    $model->subFeatures[$n++] = null !== $item ? subFeatures::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubFeatures'] as $item1) {
+                    $model->subFeatures[$n1++] = subFeatures::fromMap($item1);
                 }
             }
         }

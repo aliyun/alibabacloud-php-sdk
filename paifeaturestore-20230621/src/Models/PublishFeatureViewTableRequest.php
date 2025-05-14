@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishFeatureViewTableRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example 2021-12-15T23:24:33.132+08:00
-     *
      * @var string
      */
     public $eventTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Overwrite
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $offlineToOnline;
@@ -45,61 +33,83 @@ class PublishFeatureViewTableRequest extends Model
      */
     public $partitions;
     protected $_name = [
-        'config'          => 'Config',
-        'eventTime'       => 'EventTime',
-        'mode'            => 'Mode',
+        'config' => 'Config',
+        'eventTime' => 'EventTime',
+        'mode' => 'Mode',
         'offlineToOnline' => 'OfflineToOnline',
-        'partitions'      => 'Partitions',
+        'partitions' => 'Partitions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->partitions)) {
+            Model::validateArray($this->partitions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->eventTime) {
             $res['EventTime'] = $this->eventTime;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->offlineToOnline) {
             $res['OfflineToOnline'] = $this->offlineToOnline;
         }
+
         if (null !== $this->partitions) {
-            $res['Partitions'] = $this->partitions;
+            if (\is_array($this->partitions)) {
+                $res['Partitions'] = [];
+                foreach ($this->partitions as $key1 => $value1) {
+                    $res['Partitions'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishFeatureViewTableRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['EventTime'])) {
             $model->eventTime = $map['EventTime'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['OfflineToOnline'])) {
             $model->offlineToOnline = $map['OfflineToOnline'];
         }
+
         if (isset($map['Partitions'])) {
-            $model->partitions = $map['Partitions'];
+            if (!empty($map['Partitions'])) {
+                $model->partitions = [];
+                foreach ($map['Partitions'] as $key1 => $value1) {
+                    $model->partitions[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

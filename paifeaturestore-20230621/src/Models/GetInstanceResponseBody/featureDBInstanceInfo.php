@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class featureDBInstanceInfo extends Model
 {
@@ -18,9 +18,10 @@ class featureDBInstanceInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
@@ -30,11 +31,11 @@ class featureDBInstanceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return featureDBInstanceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableFeaturesResponseBody\avaliableFeatures;
-use AlibabaCloud\Tea\Model;
 
 class ListModelFeatureAvailableFeaturesResponseBody extends Model
 {
@@ -15,43 +15,45 @@ class ListModelFeatureAvailableFeaturesResponseBody extends Model
     public $avaliableFeatures;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example ED4DEA2F-F216-57F0-AE28-08D791233280
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'avaliableFeatures' => 'AvaliableFeatures',
-        'totalCount'        => 'TotalCount',
-        'requestId'         => 'requestId',
+        'totalCount' => 'TotalCount',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->avaliableFeatures)) {
+            Model::validateArray($this->avaliableFeatures);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avaliableFeatures) {
-            $res['AvaliableFeatures'] = [];
-            if (null !== $this->avaliableFeatures && \is_array($this->avaliableFeatures)) {
-                $n = 0;
-                foreach ($this->avaliableFeatures as $item) {
-                    $res['AvaliableFeatures'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->avaliableFeatures)) {
+                $res['AvaliableFeatures'] = [];
+                $n1 = 0;
+                foreach ($this->avaliableFeatures as $item1) {
+                    $res['AvaliableFeatures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -59,26 +61,28 @@ class ListModelFeatureAvailableFeaturesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListModelFeatureAvailableFeaturesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvaliableFeatures'])) {
             if (!empty($map['AvaliableFeatures'])) {
                 $model->avaliableFeatures = [];
-                $n                        = 0;
-                foreach ($map['AvaliableFeatures'] as $item) {
-                    $model->avaliableFeatures[$n++] = null !== $item ? avaliableFeatures::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvaliableFeatures'] as $item1) {
+                    $model->avaliableFeatures[$n1++] = avaliableFeatures::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

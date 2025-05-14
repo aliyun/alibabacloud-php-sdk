@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckInstanceDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckInstanceDatasourceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateDatasourceRequest;
@@ -93,11 +93,10 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\WriteFeatureViewTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\WriteFeatureViewTableResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class PaiFeatureStore extends OpenApiClient
 {
@@ -122,68 +121,79 @@ class PaiFeatureStore extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 检测资源连接状态。
-     *  *
-     * @param string                         $InstanceId
-     * @param CheckInstanceDatasourceRequest $request    CheckInstanceDatasourceRequest
-     * @param string[]                       $headers    map
-     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
+     * 检测资源连接状态。
      *
-     * @return CheckInstanceDatasourceResponse CheckInstanceDatasourceResponse
+     * @param request - CheckInstanceDatasourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckInstanceDatasourceResponse
+     *
+     * @param string                         $InstanceId
+     * @param CheckInstanceDatasourceRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckInstanceDatasourceResponse
      */
     public function checkInstanceDatasourceWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckInstanceDatasource',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/action/checkdatasource',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckInstanceDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
 
-        return CheckInstanceDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->uri) {
+            @$body['Uri'] = $request->uri;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckInstanceDatasource',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/action/checkdatasource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckInstanceDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 检测资源连接状态。
-     *  *
-     * @param string                         $InstanceId
-     * @param CheckInstanceDatasourceRequest $request    CheckInstanceDatasourceRequest
+     * 检测资源连接状态。
      *
-     * @return CheckInstanceDatasourceResponse CheckInstanceDatasourceResponse
+     * @param request - CheckInstanceDatasourceRequest
+     *
+     * @returns CheckInstanceDatasourceResponse
+     *
+     * @param string                         $InstanceId
+     * @param CheckInstanceDatasourceRequest $request
+     *
+     * @return CheckInstanceDatasourceResponse
      */
     public function checkInstanceDatasource($InstanceId, $request)
     {
@@ -194,63 +204,75 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据源。
-     *  *
-     * @param string                  $InstanceId
-     * @param CreateDatasourceRequest $request    CreateDatasourceRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * 创建数据源。
      *
-     * @return CreateDatasourceResponse CreateDatasourceResponse
+     * @param request - CreateDatasourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasourceResponse
+     *
+     * @param string                  $InstanceId
+     * @param CreateDatasourceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDatasourceResponse
      */
     public function createDatasourceWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDatasource',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
 
-        return CreateDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->uri) {
+            @$body['Uri'] = $request->uri;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatasource',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建数据源。
-     *  *
-     * @param string                  $InstanceId
-     * @param CreateDatasourceRequest $request    CreateDatasourceRequest
+     * 创建数据源。
      *
-     * @return CreateDatasourceResponse CreateDatasourceResponse
+     * @param request - CreateDatasourceRequest
+     *
+     * @returns CreateDatasourceResponse
+     *
+     * @param string                  $InstanceId
+     * @param CreateDatasourceRequest $request
+     *
+     * @return CreateDatasourceResponse
      */
     public function createDatasource($InstanceId, $request)
     {
@@ -261,57 +283,67 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建特征实体
-     *  *
-     * @param string                     $InstanceId
-     * @param CreateFeatureEntityRequest $request    CreateFeatureEntityRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * 创建特征实体.
      *
-     * @return CreateFeatureEntityResponse CreateFeatureEntityResponse
+     * @param request - CreateFeatureEntityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFeatureEntityResponse
+     *
+     * @param string                     $InstanceId
+     * @param CreateFeatureEntityRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateFeatureEntityResponse
      */
     public function createFeatureEntityWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->joinId)) {
-            $body['JoinId'] = $request->joinId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateFeatureEntity',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureentities',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->joinId) {
+            @$body['JoinId'] = $request->joinId;
         }
 
-        return CreateFeatureEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFeatureEntity',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureentities',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建特征实体
-     *  *
-     * @param string                     $InstanceId
-     * @param CreateFeatureEntityRequest $request    CreateFeatureEntityRequest
+     * 创建特征实体.
      *
-     * @return CreateFeatureEntityResponse CreateFeatureEntityResponse
+     * @param request - CreateFeatureEntityRequest
+     *
+     * @returns CreateFeatureEntityResponse
+     *
+     * @param string                     $InstanceId
+     * @param CreateFeatureEntityRequest $request
+     *
+     * @return CreateFeatureEntityResponse
      */
     public function createFeatureEntity($InstanceId, $request)
     {
@@ -322,87 +354,107 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建特征视图。
-     *  *
-     * @param string                   $InstanceId
-     * @param CreateFeatureViewRequest $request    CreateFeatureViewRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * 创建特征视图。
      *
-     * @return CreateFeatureViewResponse CreateFeatureViewResponse
+     * @param request - CreateFeatureViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFeatureViewResponse
+     *
+     * @param string                   $InstanceId
+     * @param CreateFeatureViewRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateFeatureViewResponse
      */
     public function createFeatureViewWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->featureEntityId)) {
-            $body['FeatureEntityId'] = $request->featureEntityId;
-        }
-        if (!Utils::isUnset($request->fields)) {
-            $body['Fields'] = $request->fields;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->registerDatasourceId)) {
-            $body['RegisterDatasourceId'] = $request->registerDatasourceId;
-        }
-        if (!Utils::isUnset($request->registerTable)) {
-            $body['RegisterTable'] = $request->registerTable;
-        }
-        if (!Utils::isUnset($request->syncOnlineTable)) {
-            $body['SyncOnlineTable'] = $request->syncOnlineTable;
-        }
-        if (!Utils::isUnset($request->TTL)) {
-            $body['TTL'] = $request->TTL;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->writeMethod)) {
-            $body['WriteMethod'] = $request->writeMethod;
-        }
-        if (!Utils::isUnset($request->writeToFeatureDB)) {
-            $body['WriteToFeatureDB'] = $request->writeToFeatureDB;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateFeatureView',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
 
-        return CreateFeatureViewResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->featureEntityId) {
+            @$body['FeatureEntityId'] = $request->featureEntityId;
+        }
+
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->registerDatasourceId) {
+            @$body['RegisterDatasourceId'] = $request->registerDatasourceId;
+        }
+
+        if (null !== $request->registerTable) {
+            @$body['RegisterTable'] = $request->registerTable;
+        }
+
+        if (null !== $request->syncOnlineTable) {
+            @$body['SyncOnlineTable'] = $request->syncOnlineTable;
+        }
+
+        if (null !== $request->TTL) {
+            @$body['TTL'] = $request->TTL;
+        }
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->writeMethod) {
+            @$body['WriteMethod'] = $request->writeMethod;
+        }
+
+        if (null !== $request->writeToFeatureDB) {
+            @$body['WriteToFeatureDB'] = $request->writeToFeatureDB;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFeatureView',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建特征视图。
-     *  *
-     * @param string                   $InstanceId
-     * @param CreateFeatureViewRequest $request    CreateFeatureViewRequest
+     * 创建特征视图。
      *
-     * @return CreateFeatureViewResponse CreateFeatureViewResponse
+     * @param request - CreateFeatureViewRequest
+     *
+     * @returns CreateFeatureViewResponse
+     *
+     * @param string                   $InstanceId
+     * @param CreateFeatureViewRequest $request
+     *
+     * @return CreateFeatureViewResponse
      */
     public function createFeatureView($InstanceId, $request)
     {
@@ -413,49 +465,57 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建Feature Store实例。
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建Feature Store实例。
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstance',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建Feature Store实例。
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * 创建Feature Store实例。
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -466,60 +526,71 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建label表
-     *  *
-     * @param string                  $InstanceId
-     * @param CreateLabelTableRequest $request    CreateLabelTableRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * 创建label表.
      *
-     * @return CreateLabelTableResponse CreateLabelTableResponse
+     * @param request - CreateLabelTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLabelTableResponse
+     *
+     * @param string                  $InstanceId
+     * @param CreateLabelTableRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateLabelTableResponse
      */
     public function createLabelTableWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasourceId)) {
-            $body['DatasourceId'] = $request->datasourceId;
-        }
-        if (!Utils::isUnset($request->fields)) {
-            $body['Fields'] = $request->fields;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateLabelTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labeltables',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->datasourceId) {
+            @$body['DatasourceId'] = $request->datasourceId;
         }
 
-        return CreateLabelTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLabelTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/labeltables',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建label表
-     *  *
-     * @param string                  $InstanceId
-     * @param CreateLabelTableRequest $request    CreateLabelTableRequest
+     * 创建label表.
      *
-     * @return CreateLabelTableResponse CreateLabelTableResponse
+     * @param request - CreateLabelTableRequest
+     *
+     * @returns CreateLabelTableResponse
+     *
+     * @param string                  $InstanceId
+     * @param CreateLabelTableRequest $request
+     *
+     * @return CreateLabelTableResponse
      */
     public function createLabelTable($InstanceId, $request)
     {
@@ -530,66 +601,79 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建模型特征。
-     *  *
-     * @param string                    $InstanceId
-     * @param CreateModelFeatureRequest $request    CreateModelFeatureRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * 创建模型特征。
      *
-     * @return CreateModelFeatureResponse CreateModelFeatureResponse
+     * @param request - CreateModelFeatureRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelFeatureResponse
+     *
+     * @param string                    $InstanceId
+     * @param CreateModelFeatureRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateModelFeatureResponse
      */
     public function createModelFeatureWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->features)) {
-            $body['Features'] = $request->features;
-        }
-        if (!Utils::isUnset($request->labelPriorityLevel)) {
-            $body['LabelPriorityLevel'] = $request->labelPriorityLevel;
-        }
-        if (!Utils::isUnset($request->labelTableId)) {
-            $body['LabelTableId'] = $request->labelTableId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->sequenceFeatureViewIds)) {
-            $body['SequenceFeatureViewIds'] = $request->sequenceFeatureViewIds;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateModelFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->features) {
+            @$body['Features'] = $request->features;
         }
 
-        return CreateModelFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->labelPriorityLevel) {
+            @$body['LabelPriorityLevel'] = $request->labelPriorityLevel;
+        }
+
+        if (null !== $request->labelTableId) {
+            @$body['LabelTableId'] = $request->labelTableId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sequenceFeatureViewIds) {
+            @$body['SequenceFeatureViewIds'] = $request->sequenceFeatureViewIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建模型特征。
-     *  *
-     * @param string                    $InstanceId
-     * @param CreateModelFeatureRequest $request    CreateModelFeatureRequest
+     * 创建模型特征。
      *
-     * @return CreateModelFeatureResponse CreateModelFeatureResponse
+     * @param request - CreateModelFeatureRequest
+     *
+     * @returns CreateModelFeatureResponse
+     *
+     * @param string                    $InstanceId
+     * @param CreateModelFeatureRequest $request
+     *
+     * @return CreateModelFeatureResponse
      */
     public function createModelFeature($InstanceId, $request)
     {
@@ -600,66 +684,79 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建FeatureStore项目
-     *  *
-     * @param string               $InstanceId
-     * @param CreateProjectRequest $request    CreateProjectRequest
-     * @param string[]             $headers    map
-     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
+     * 创建FeatureStore项目.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param string               $InstanceId
+     * @param CreateProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
      */
     public function createProjectWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->offlineDatasourceId)) {
-            $body['OfflineDatasourceId'] = $request->offlineDatasourceId;
-        }
-        if (!Utils::isUnset($request->offlineLifeCycle)) {
-            $body['OfflineLifeCycle'] = $request->offlineLifeCycle;
-        }
-        if (!Utils::isUnset($request->onlineDatasourceId)) {
-            $body['OnlineDatasourceId'] = $request->onlineDatasourceId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateProject',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
 
-        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->offlineDatasourceId) {
+            @$body['OfflineDatasourceId'] = $request->offlineDatasourceId;
+        }
+
+        if (null !== $request->offlineLifeCycle) {
+            @$body['OfflineLifeCycle'] = $request->offlineLifeCycle;
+        }
+
+        if (null !== $request->onlineDatasourceId) {
+            @$body['OnlineDatasourceId'] = $request->onlineDatasourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProject',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建FeatureStore项目
-     *  *
-     * @param string               $InstanceId
-     * @param CreateProjectRequest $request    CreateProjectRequest
+     * 创建FeatureStore项目.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param string               $InstanceId
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
      */
     public function createProject($InstanceId, $request)
     {
@@ -670,49 +767,57 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建feature store服务账户角色
-     *  *
-     * @param CreateServiceIdentityRoleRequest $request CreateServiceIdentityRoleRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 创建feature store服务账户角色.
      *
-     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
+     * @param request - CreateServiceIdentityRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceIdentityRoleResponse
+     *
+     * @param CreateServiceIdentityRoleRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateServiceIdentityRoleResponse
      */
     public function createServiceIdentityRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $body['RoleName'] = $request->roleName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateServiceIdentityRole',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/serviceidentityroles',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateServiceIdentityRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->roleName) {
+            @$body['RoleName'] = $request->roleName;
         }
 
-        return CreateServiceIdentityRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceIdentityRole',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/serviceidentityroles',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceIdentityRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建feature store服务账户角色
-     *  *
-     * @param CreateServiceIdentityRoleRequest $request CreateServiceIdentityRoleRequest
+     * 创建feature store服务账户角色.
      *
-     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
+     * @param request - CreateServiceIdentityRoleRequest
+     *
+     * @returns CreateServiceIdentityRoleResponse
+     *
+     * @param CreateServiceIdentityRoleRequest $request
+     *
+     * @return CreateServiceIdentityRoleResponse
      */
     public function createServiceIdentityRole($request)
     {
@@ -723,14 +828,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定数据源。
-     *  *
+     * 删除指定数据源。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasourceResponse
+     *
      * @param string         $InstanceId
      * @param string         $DatasourceId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteDatasourceResponse DeleteDatasourceResponse
+     * @return DeleteDatasourceResponse
      */
     public function deleteDatasourceWithOptions($InstanceId, $DatasourceId, $headers, $runtime)
     {
@@ -738,30 +848,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasource',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources/' . OpenApiUtilClient::getEncodeParam($DatasourceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasource',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources/' . Url::percentEncode($DatasourceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定数据源。
-     *  *
+     * 删除指定数据源。
+     *
+     * @returns DeleteDatasourceResponse
+     *
      * @param string $InstanceId
      * @param string $DatasourceId
      *
-     * @return DeleteDatasourceResponse DeleteDatasourceResponse
+     * @return DeleteDatasourceResponse
      */
     public function deleteDatasource($InstanceId, $DatasourceId)
     {
@@ -772,14 +881,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定特征实体
-     *  *
+     * 删除指定特征实体.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFeatureEntityResponse
+     *
      * @param string         $InstanceId
      * @param string         $FeatureEntityId
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFeatureEntityResponse DeleteFeatureEntityResponse
+     * @return DeleteFeatureEntityResponse
      */
     public function deleteFeatureEntityWithOptions($InstanceId, $FeatureEntityId, $headers, $runtime)
     {
@@ -787,30 +901,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFeatureEntity',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureentities/' . OpenApiUtilClient::getEncodeParam($FeatureEntityId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFeatureEntity',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureentities/' . Url::percentEncode($FeatureEntityId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFeatureEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定特征实体
-     *  *
+     * 删除指定特征实体.
+     *
+     * @returns DeleteFeatureEntityResponse
+     *
      * @param string $InstanceId
      * @param string $FeatureEntityId
      *
-     * @return DeleteFeatureEntityResponse DeleteFeatureEntityResponse
+     * @return DeleteFeatureEntityResponse
      */
     public function deleteFeatureEntity($InstanceId, $FeatureEntityId)
     {
@@ -821,14 +934,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定特征视图。
-     *  *
+     * 删除指定特征视图。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFeatureViewResponse
+     *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFeatureViewResponse DeleteFeatureViewResponse
+     * @return DeleteFeatureViewResponse
      */
     public function deleteFeatureViewWithOptions($InstanceId, $FeatureViewId, $headers, $runtime)
     {
@@ -836,30 +954,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFeatureView',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFeatureView',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFeatureViewResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定特征视图。
-     *  *
+     * 删除指定特征视图。
+     *
+     * @returns DeleteFeatureViewResponse
+     *
      * @param string $InstanceId
      * @param string $FeatureViewId
      *
-     * @return DeleteFeatureViewResponse DeleteFeatureViewResponse
+     * @return DeleteFeatureViewResponse
      */
     public function deleteFeatureView($InstanceId, $FeatureViewId)
     {
@@ -870,14 +987,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 删除label表
-     *  *
+     * 删除label表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLabelTableResponse
+     *
      * @param string         $InstanceId
      * @param string         $LabelTableId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteLabelTableResponse DeleteLabelTableResponse
+     * @return DeleteLabelTableResponse
      */
     public function deleteLabelTableWithOptions($InstanceId, $LabelTableId, $headers, $runtime)
     {
@@ -885,30 +1007,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteLabelTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labeltables/' . OpenApiUtilClient::getEncodeParam($LabelTableId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteLabelTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/labeltables/' . Url::percentEncode($LabelTableId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLabelTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除label表
-     *  *
+     * 删除label表.
+     *
+     * @returns DeleteLabelTableResponse
+     *
      * @param string $InstanceId
      * @param string $LabelTableId
      *
-     * @return DeleteLabelTableResponse DeleteLabelTableResponse
+     * @return DeleteLabelTableResponse
      */
     public function deleteLabelTable($InstanceId, $LabelTableId)
     {
@@ -919,14 +1040,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定模型特征。
-     *  *
+     * 删除指定模型特征。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelFeatureResponse
+     *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteModelFeatureResponse DeleteModelFeatureResponse
+     * @return DeleteModelFeatureResponse
      */
     public function deleteModelFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -934,30 +1060,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteModelFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteModelFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteModelFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定模型特征。
-     *  *
+     * 删除指定模型特征。
+     *
+     * @returns DeleteModelFeatureResponse
+     *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return DeleteModelFeatureResponse DeleteModelFeatureResponse
+     * @return DeleteModelFeatureResponse
      */
     public function deleteModelFeature($InstanceId, $ModelFeatureId)
     {
@@ -968,14 +1093,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定Feature Store项目。
-     *  *
+     * 删除指定Feature Store项目。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @return DeleteProjectResponse
      */
     public function deleteProjectWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -983,30 +1113,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteProject',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteProject',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects/' . Url::percentEncode($ProjectId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定Feature Store项目。
-     *  *
+     * 删除指定Feature Store项目。
+     *
+     * @returns DeleteProjectResponse
+     *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @return DeleteProjectResponse
      */
     public function deleteProject($InstanceId, $ProjectId)
     {
@@ -1017,65 +1146,77 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 导出训练集表。
-     *  *
+     * 导出训练集表。
+     *
+     * @param request - ExportModelFeatureTrainingSetTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportModelFeatureTrainingSetTableResponse
+     *
      * @param string                                    $InstanceId
      * @param string                                    $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetTableRequest $request        ExportModelFeatureTrainingSetTableRequest
-     * @param string[]                                  $headers        map
-     * @param RuntimeOptions                            $runtime        runtime options for this request RuntimeOptions
+     * @param ExportModelFeatureTrainingSetTableRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
      *
-     * @return ExportModelFeatureTrainingSetTableResponse ExportModelFeatureTrainingSetTableResponse
+     * @return ExportModelFeatureTrainingSetTableResponse
      */
     public function exportModelFeatureTrainingSetTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->featureViewConfig)) {
-            $body['FeatureViewConfig'] = $request->featureViewConfig;
-        }
-        if (!Utils::isUnset($request->labelInputConfig)) {
-            $body['LabelInputConfig'] = $request->labelInputConfig;
-        }
-        if (!Utils::isUnset($request->realTimeIterateInterval)) {
-            $body['RealTimeIterateInterval'] = $request->realTimeIterateInterval;
-        }
-        if (!Utils::isUnset($request->realTimePartitionCountValue)) {
-            $body['RealTimePartitionCountValue'] = $request->realTimePartitionCountValue;
-        }
-        if (!Utils::isUnset($request->trainingSetConfig)) {
-            $body['TrainingSetConfig'] = $request->trainingSetConfig;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExportModelFeatureTrainingSetTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/action/exporttrainingsettable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExportModelFeatureTrainingSetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->featureViewConfig) {
+            @$body['FeatureViewConfig'] = $request->featureViewConfig;
         }
 
-        return ExportModelFeatureTrainingSetTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->labelInputConfig) {
+            @$body['LabelInputConfig'] = $request->labelInputConfig;
+        }
+
+        if (null !== $request->realTimeIterateInterval) {
+            @$body['RealTimeIterateInterval'] = $request->realTimeIterateInterval;
+        }
+
+        if (null !== $request->realTimePartitionCountValue) {
+            @$body['RealTimePartitionCountValue'] = $request->realTimePartitionCountValue;
+        }
+
+        if (null !== $request->trainingSetConfig) {
+            @$body['TrainingSetConfig'] = $request->trainingSetConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportModelFeatureTrainingSetTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '/action/exporttrainingsettable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportModelFeatureTrainingSetTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出训练集表。
-     *  *
+     * 导出训练集表。
+     *
+     * @param request - ExportModelFeatureTrainingSetTableRequest
+     *
+     * @returns ExportModelFeatureTrainingSetTableResponse
+     *
      * @param string                                    $InstanceId
      * @param string                                    $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetTableRequest $request        ExportModelFeatureTrainingSetTableRequest
+     * @param ExportModelFeatureTrainingSetTableRequest $request
      *
-     * @return ExportModelFeatureTrainingSetTableResponse ExportModelFeatureTrainingSetTableResponse
+     * @return ExportModelFeatureTrainingSetTableResponse
      */
     public function exportModelFeatureTrainingSetTable($InstanceId, $ModelFeatureId, $request)
     {
@@ -1086,14 +1227,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源详细信息。
-     *  *
+     * 获取数据源详细信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasourceResponse
+     *
      * @param string         $InstanceId
      * @param string         $DatasourceId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDatasourceResponse GetDatasourceResponse
+     * @return GetDatasourceResponse
      */
     public function getDatasourceWithOptions($InstanceId, $DatasourceId, $headers, $runtime)
     {
@@ -1101,30 +1247,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDatasource',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources/' . OpenApiUtilClient::getEncodeParam($DatasourceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatasource',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources/' . Url::percentEncode($DatasourceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源详细信息。
-     *  *
+     * 获取数据源详细信息。
+     *
+     * @returns GetDatasourceResponse
+     *
      * @param string $InstanceId
      * @param string $DatasourceId
      *
-     * @return GetDatasourceResponse GetDatasourceResponse
+     * @return GetDatasourceResponse
      */
     public function getDatasource($InstanceId, $DatasourceId)
     {
@@ -1135,15 +1280,20 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源下指定表的详细信息。
-     *  *
+     * 获取数据源下指定表的详细信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasourceTableResponse
+     *
      * @param string         $InstanceId
      * @param string         $DatasourceId
      * @param string         $TableName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDatasourceTableResponse GetDatasourceTableResponse
+     * @return GetDatasourceTableResponse
      */
     public function getDatasourceTableWithOptions($InstanceId, $DatasourceId, $TableName, $headers, $runtime)
     {
@@ -1151,31 +1301,30 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDatasourceTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources/' . OpenApiUtilClient::getEncodeParam($DatasourceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($TableName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatasourceTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources/' . Url::percentEncode($DatasourceId) . '/tables/' . Url::percentEncode($TableName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDatasourceTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasourceTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasourceTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源下指定表的详细信息。
-     *  *
+     * 获取数据源下指定表的详细信息。
+     *
+     * @returns GetDatasourceTableResponse
+     *
      * @param string $InstanceId
      * @param string $DatasourceId
      * @param string $TableName
      *
-     * @return GetDatasourceTableResponse GetDatasourceTableResponse
+     * @return GetDatasourceTableResponse
      */
     public function getDatasourceTable($InstanceId, $DatasourceId, $TableName)
     {
@@ -1186,14 +1335,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征实体详细信息
-     *  *
+     * 获取特征实体详细信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFeatureEntityResponse
+     *
      * @param string         $InstanceId
      * @param string         $FeatureEntityId
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFeatureEntityResponse GetFeatureEntityResponse
+     * @return GetFeatureEntityResponse
      */
     public function getFeatureEntityWithOptions($InstanceId, $FeatureEntityId, $headers, $runtime)
     {
@@ -1201,30 +1355,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetFeatureEntity',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureentities/' . OpenApiUtilClient::getEncodeParam($FeatureEntityId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFeatureEntity',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureentities/' . Url::percentEncode($FeatureEntityId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFeatureEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征实体详细信息
-     *  *
+     * 获取特征实体详细信息.
+     *
+     * @returns GetFeatureEntityResponse
+     *
      * @param string $InstanceId
      * @param string $FeatureEntityId
      *
-     * @return GetFeatureEntityResponse GetFeatureEntityResponse
+     * @return GetFeatureEntityResponse
      */
     public function getFeatureEntity($InstanceId, $FeatureEntityId)
     {
@@ -1235,14 +1388,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征视图详细信息。
-     *  *
+     * 获取特征视图详细信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFeatureViewResponse
+     *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFeatureViewResponse GetFeatureViewResponse
+     * @return GetFeatureViewResponse
      */
     public function getFeatureViewWithOptions($InstanceId, $FeatureViewId, $headers, $runtime)
     {
@@ -1250,30 +1408,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetFeatureView',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFeatureView',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFeatureViewResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征视图详细信息。
-     *  *
+     * 获取特征视图详细信息。
+     *
+     * @returns GetFeatureViewResponse
+     *
      * @param string $InstanceId
      * @param string $FeatureViewId
      *
-     * @return GetFeatureViewResponse GetFeatureViewResponse
+     * @return GetFeatureViewResponse
      */
     public function getFeatureView($InstanceId, $FeatureViewId)
     {
@@ -1284,13 +1441,18 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例详细信息
-     *  *
-     * @param string         $InstanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * 获取实例详细信息.
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInstanceResponse
      */
     public function getInstanceWithOptions($InstanceId, $headers, $runtime)
     {
@@ -1298,29 +1460,28 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstance',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实例详细信息
-     *  *
+     * 获取实例详细信息.
+     *
+     * @returns GetInstanceResponse
+     *
      * @param string $InstanceId
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @return GetInstanceResponse
      */
     public function getInstance($InstanceId)
     {
@@ -1331,14 +1492,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取Label表详细信息。
-     *  *
+     * 获取Label表详细信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLabelTableResponse
+     *
      * @param string         $InstanceId
      * @param string         $LabelTableId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLabelTableResponse GetLabelTableResponse
+     * @return GetLabelTableResponse
      */
     public function getLabelTableWithOptions($InstanceId, $LabelTableId, $headers, $runtime)
     {
@@ -1346,30 +1512,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetLabelTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labeltables/' . OpenApiUtilClient::getEncodeParam($LabelTableId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLabelTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/labeltables/' . Url::percentEncode($LabelTableId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLabelTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Label表详细信息。
-     *  *
+     * 获取Label表详细信息。
+     *
+     * @returns GetLabelTableResponse
+     *
      * @param string $InstanceId
      * @param string $LabelTableId
      *
-     * @return GetLabelTableResponse GetLabelTableResponse
+     * @return GetLabelTableResponse
      */
     public function getLabelTable($InstanceId, $LabelTableId)
     {
@@ -1380,14 +1545,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取模型特征详情。
-     *  *
+     * 获取模型特征详情。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelFeatureResponse
+     *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetModelFeatureResponse GetModelFeatureResponse
+     * @return GetModelFeatureResponse
      */
     public function getModelFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -1395,30 +1565,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetModelFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetModelFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModelFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取模型特征详情。
-     *  *
+     * 获取模型特征详情。
+     *
+     * @returns GetModelFeatureResponse
+     *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return GetModelFeatureResponse GetModelFeatureResponse
+     * @return GetModelFeatureResponse
      */
     public function getModelFeature($InstanceId, $ModelFeatureId)
     {
@@ -1429,14 +1598,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取模型特征的FG特征配置信息。
-     *  *
+     * 获取模型特征的FG特征配置信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelFeatureFGFeatureResponse
+     *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetModelFeatureFGFeatureResponse GetModelFeatureFGFeatureResponse
+     * @return GetModelFeatureFGFeatureResponse
      */
     public function getModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -1444,30 +1618,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetModelFeatureFGFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fgfeature',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetModelFeatureFGFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '/fgfeature',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModelFeatureFGFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取模型特征的FG特征配置信息。
-     *  *
+     * 获取模型特征的FG特征配置信息。
+     *
+     * @returns GetModelFeatureFGFeatureResponse
+     *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return GetModelFeatureFGFeatureResponse GetModelFeatureFGFeatureResponse
+     * @return GetModelFeatureFGFeatureResponse
      */
     public function getModelFeatureFGFeature($InstanceId, $ModelFeatureId)
     {
@@ -1478,14 +1651,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取模型特征的fg.json文件配置信息。
-     *  *
+     * 获取模型特征的fg.json文件配置信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelFeatureFGInfoResponse
+     *
      * @param string         $InstanceId
      * @param string         $ModelFeatureId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetModelFeatureFGInfoResponse GetModelFeatureFGInfoResponse
+     * @return GetModelFeatureFGInfoResponse
      */
     public function getModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
     {
@@ -1493,30 +1671,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetModelFeatureFGInfo',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fginfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetModelFeatureFGInfo',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '/fginfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetModelFeatureFGInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModelFeatureFGInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModelFeatureFGInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取模型特征的fg.json文件配置信息。
-     *  *
+     * 获取模型特征的fg.json文件配置信息。
+     *
+     * @returns GetModelFeatureFGInfoResponse
+     *
      * @param string $InstanceId
      * @param string $ModelFeatureId
      *
-     * @return GetModelFeatureFGInfoResponse GetModelFeatureFGInfoResponse
+     * @return GetModelFeatureFGInfoResponse
      */
     public function getModelFeatureFGInfo($InstanceId, $ModelFeatureId)
     {
@@ -1527,14 +1704,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定Feature Store项目详细信息。
-     *  *
+     * 获取指定Feature Store项目详细信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectResponse
+     *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @return GetProjectResponse
      */
     public function getProjectWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -1542,30 +1724,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetProject',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProject',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects/' . Url::percentEncode($ProjectId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定Feature Store项目详细信息。
-     *  *
+     * 获取指定Feature Store项目详细信息。
+     *
+     * @returns GetProjectResponse
+     *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @return GetProjectResponse
      */
     public function getProject($InstanceId, $ProjectId)
     {
@@ -1576,15 +1757,20 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目下特征实体详细信息
-     *  *
+     * 获取项目下特征实体详细信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectFeatureEntityResponse
+     *
      * @param string         $InstanceId
      * @param string         $ProjectId
      * @param string         $FeatureEntityName
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetProjectFeatureEntityResponse GetProjectFeatureEntityResponse
+     * @return GetProjectFeatureEntityResponse
      */
     public function getProjectFeatureEntityWithOptions($InstanceId, $ProjectId, $FeatureEntityName, $headers, $runtime)
     {
@@ -1592,31 +1778,30 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetProjectFeatureEntity',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureentities/' . OpenApiUtilClient::getEncodeParam($FeatureEntityName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProjectFeatureEntity',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects/' . Url::percentEncode($ProjectId) . '/featureentities/' . Url::percentEncode($FeatureEntityName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetProjectFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectFeatureEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectFeatureEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目下特征实体详细信息
-     *  *
+     * 获取项目下特征实体详细信息.
+     *
+     * @returns GetProjectFeatureEntityResponse
+     *
      * @param string $InstanceId
      * @param string $ProjectId
      * @param string $FeatureEntityName
      *
-     * @return GetProjectFeatureEntityResponse GetProjectFeatureEntityResponse
+     * @return GetProjectFeatureEntityResponse
      */
     public function getProjectFeatureEntity($InstanceId, $ProjectId, $FeatureEntityName)
     {
@@ -1627,13 +1812,18 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取feature store服务账户角色。
-     *  *
-     * @param string         $RoleName
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * 获取feature store服务账户角色。
      *
-     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceIdentityRoleResponse
+     *
+     * @param string         $RoleName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetServiceIdentityRoleResponse
      */
     public function getServiceIdentityRoleWithOptions($RoleName, $headers, $runtime)
     {
@@ -1641,29 +1831,28 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetServiceIdentityRole',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/serviceidentityroles/' . OpenApiUtilClient::getEncodeParam($RoleName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetServiceIdentityRole',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/serviceidentityroles/' . Url::percentEncode($RoleName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetServiceIdentityRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceIdentityRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceIdentityRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取feature store服务账户角色。
-     *  *
+     * 获取feature store服务账户角色。
+     *
+     * @returns GetServiceIdentityRoleResponse
+     *
      * @param string $RoleName
      *
-     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
+     * @return GetServiceIdentityRoleResponse
      */
     public function getServiceIdentityRole($RoleName)
     {
@@ -1674,14 +1863,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务详情
-     *  *
+     * 获取任务详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
      * @param string         $InstanceId
      * @param string         $TaskId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @return GetTaskResponse
      */
     public function getTaskWithOptions($InstanceId, $TaskId, $headers, $runtime)
     {
@@ -1689,30 +1883,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTask',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTask',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/tasks/' . Url::percentEncode($TaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务详情
-     *  *
+     * 获取任务详情.
+     *
+     * @returns GetTaskResponse
+     *
      * @param string $InstanceId
      * @param string $TaskId
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @return GetTaskResponse
      */
     public function getTask($InstanceId, $TaskId)
     {
@@ -1723,53 +1916,61 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源下所有表。
-     *  *
+     * 获取数据源下所有表。
+     *
+     * @param request - ListDatasourceTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasourceTablesResponse
+     *
      * @param string                      $InstanceId
      * @param string                      $DatasourceId
-     * @param ListDatasourceTablesRequest $request      ListDatasourceTablesRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * @param ListDatasourceTablesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListDatasourceTablesResponse ListDatasourceTablesResponse
+     * @return ListDatasourceTablesResponse
      */
     public function listDatasourceTablesWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDatasourceTables',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources/' . OpenApiUtilClient::getEncodeParam($DatasourceId) . '/tables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDatasourceTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
 
-        return ListDatasourceTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasourceTables',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources/' . Url::percentEncode($DatasourceId) . '/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasourceTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源下所有表。
-     *  *
+     * 获取数据源下所有表。
+     *
+     * @param request - ListDatasourceTablesRequest
+     *
+     * @returns ListDatasourceTablesResponse
+     *
      * @param string                      $InstanceId
      * @param string                      $DatasourceId
-     * @param ListDatasourceTablesRequest $request      ListDatasourceTablesRequest
+     * @param ListDatasourceTablesRequest $request
      *
-     * @return ListDatasourceTablesResponse ListDatasourceTablesResponse
+     * @return ListDatasourceTablesResponse
      */
     public function listDatasourceTables($InstanceId, $DatasourceId, $request)
     {
@@ -1780,69 +1981,83 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源列表。
-     *  *
-     * @param string                 $InstanceId
-     * @param ListDatasourcesRequest $request    ListDatasourcesRequest
-     * @param string[]               $headers    map
-     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
+     * 获取数据源列表。
      *
-     * @return ListDatasourcesResponse ListDatasourcesResponse
+     * @param request - ListDatasourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasourcesResponse
+     *
+     * @param string                 $InstanceId
+     * @param ListDatasourcesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDatasourcesResponse
      */
     public function listDatasourcesWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDatasources',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDatasourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
 
-        return ListDatasourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasources',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源列表。
-     *  *
-     * @param string                 $InstanceId
-     * @param ListDatasourcesRequest $request    ListDatasourcesRequest
+     * 获取数据源列表。
      *
-     * @return ListDatasourcesResponse ListDatasourcesResponse
+     * @param request - ListDatasourcesRequest
+     *
+     * @returns ListDatasourcesResponse
+     *
+     * @param string                 $InstanceId
+     * @param ListDatasourcesRequest $request
+     *
+     * @return ListDatasourcesResponse
      */
     public function listDatasources($InstanceId, $request)
     {
@@ -1853,77 +2068,93 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建特征实体列表
-     *  *
-     * @param string                     $InstanceId
-     * @param ListFeatureEntitiesRequest $tmpReq     ListFeatureEntitiesRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * 创建特征实体列表.
      *
-     * @return ListFeatureEntitiesResponse ListFeatureEntitiesResponse
+     * @param tmpReq - ListFeatureEntitiesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeatureEntitiesResponse
+     *
+     * @param string                     $InstanceId
+     * @param ListFeatureEntitiesRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListFeatureEntitiesResponse
      */
     public function listFeatureEntitiesWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListFeatureEntitiesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->featureEntityIds)) {
-            $request->featureEntityIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->featureEntityIds, 'FeatureEntityIds', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->featureEntityIdsShrink)) {
-            $query['FeatureEntityIds'] = $request->featureEntityIdsShrink;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListFeatureEntities',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureentities',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListFeatureEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->featureEntityIds) {
+            $request->featureEntityIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->featureEntityIds, 'FeatureEntityIds', 'simple');
         }
 
-        return ListFeatureEntitiesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->featureEntityIdsShrink) {
+            @$query['FeatureEntityIds'] = $request->featureEntityIdsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFeatureEntities',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureentities',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFeatureEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建特征实体列表
-     *  *
-     * @param string                     $InstanceId
-     * @param ListFeatureEntitiesRequest $request    ListFeatureEntitiesRequest
+     * 创建特征实体列表.
      *
-     * @return ListFeatureEntitiesResponse ListFeatureEntitiesResponse
+     * @param request - ListFeatureEntitiesRequest
+     *
+     * @returns ListFeatureEntitiesResponse
+     *
+     * @param string                     $InstanceId
+     * @param ListFeatureEntitiesRequest $request
+     *
+     * @return ListFeatureEntitiesResponse
      */
     public function listFeatureEntities($InstanceId, $request)
     {
@@ -1934,15 +2165,20 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征字段血缘关系。
-     *  *
+     * 获取特征字段血缘关系。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeatureViewFieldRelationshipsResponse
+     *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
      * @param string         $FieldName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListFeatureViewFieldRelationshipsResponse ListFeatureViewFieldRelationshipsResponse
+     * @return ListFeatureViewFieldRelationshipsResponse
      */
     public function listFeatureViewFieldRelationshipsWithOptions($InstanceId, $FeatureViewId, $FieldName, $headers, $runtime)
     {
@@ -1950,31 +2186,30 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListFeatureViewFieldRelationships',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '/fields/' . OpenApiUtilClient::getEncodeParam($FieldName) . '/relationships',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFeatureViewFieldRelationships',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '/fields/' . Url::percentEncode($FieldName) . '/relationships',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListFeatureViewFieldRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFeatureViewFieldRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFeatureViewFieldRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征字段血缘关系。
-     *  *
+     * 获取特征字段血缘关系。
+     *
+     * @returns ListFeatureViewFieldRelationshipsResponse
+     *
      * @param string $InstanceId
      * @param string $FeatureViewId
      * @param string $FieldName
      *
-     * @return ListFeatureViewFieldRelationshipsResponse ListFeatureViewFieldRelationshipsResponse
+     * @return ListFeatureViewFieldRelationshipsResponse
      */
     public function listFeatureViewFieldRelationships($InstanceId, $FeatureViewId, $FieldName)
     {
@@ -1985,58 +2220,67 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征视图下的在线特征数据。
-     *  *
+     * 获取特征视图下的在线特征数据。
+     *
+     * @param tmpReq - ListFeatureViewOnlineFeaturesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeatureViewOnlineFeaturesResponse
+     *
      * @param string                               $InstanceId
      * @param string                               $FeatureViewId
-     * @param ListFeatureViewOnlineFeaturesRequest $tmpReq        ListFeatureViewOnlineFeaturesRequest
-     * @param string[]                             $headers       map
-     * @param RuntimeOptions                       $runtime       runtime options for this request RuntimeOptions
+     * @param ListFeatureViewOnlineFeaturesRequest $tmpReq
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListFeatureViewOnlineFeaturesResponse ListFeatureViewOnlineFeaturesResponse
+     * @return ListFeatureViewOnlineFeaturesResponse
      */
     public function listFeatureViewOnlineFeaturesWithOptions($InstanceId, $FeatureViewId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListFeatureViewOnlineFeaturesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->joinIds)) {
-            $request->joinIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->joinIds, 'JoinIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->joinIdsShrink)) {
-            $query['JoinIds'] = $request->joinIdsShrink;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListFeatureViewOnlineFeatures',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '/onlinefeatures',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListFeatureViewOnlineFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->joinIds) {
+            $request->joinIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->joinIds, 'JoinIds', 'json');
         }
 
-        return ListFeatureViewOnlineFeaturesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->joinIdsShrink) {
+            @$query['JoinIds'] = $request->joinIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFeatureViewOnlineFeatures',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '/onlinefeatures',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFeatureViewOnlineFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征视图下的在线特征数据。
-     *  *
+     * 获取特征视图下的在线特征数据。
+     *
+     * @param request - ListFeatureViewOnlineFeaturesRequest
+     *
+     * @returns ListFeatureViewOnlineFeaturesResponse
+     *
      * @param string                               $InstanceId
      * @param string                               $FeatureViewId
-     * @param ListFeatureViewOnlineFeaturesRequest $request       ListFeatureViewOnlineFeaturesRequest
+     * @param ListFeatureViewOnlineFeaturesRequest $request
      *
-     * @return ListFeatureViewOnlineFeaturesResponse ListFeatureViewOnlineFeaturesResponse
+     * @return ListFeatureViewOnlineFeaturesResponse
      */
     public function listFeatureViewOnlineFeatures($InstanceId, $FeatureViewId, $request)
     {
@@ -2047,14 +2291,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征视图血缘关系。
-     *  *
+     * 获取特征视图血缘关系。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeatureViewRelationshipsResponse
+     *
      * @param string         $InstanceId
      * @param string         $FeatureViewId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListFeatureViewRelationshipsResponse ListFeatureViewRelationshipsResponse
+     * @return ListFeatureViewRelationshipsResponse
      */
     public function listFeatureViewRelationshipsWithOptions($InstanceId, $FeatureViewId, $headers, $runtime)
     {
@@ -2062,30 +2311,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListFeatureViewRelationships',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '/relationships',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFeatureViewRelationships',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '/relationships',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListFeatureViewRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFeatureViewRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFeatureViewRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征视图血缘关系。
-     *  *
+     * 获取特征视图血缘关系。
+     *
+     * @returns ListFeatureViewRelationshipsResponse
+     *
      * @param string $InstanceId
      * @param string $FeatureViewId
      *
-     * @return ListFeatureViewRelationshipsResponse ListFeatureViewRelationshipsResponse
+     * @return ListFeatureViewRelationshipsResponse
      */
     public function listFeatureViewRelationships($InstanceId, $FeatureViewId)
     {
@@ -2096,86 +2344,105 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征视图列表。
-     *  *
-     * @param string                  $InstanceId
-     * @param ListFeatureViewsRequest $tmpReq     ListFeatureViewsRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * 获取特征视图列表。
      *
-     * @return ListFeatureViewsResponse ListFeatureViewsResponse
+     * @param tmpReq - ListFeatureViewsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeatureViewsResponse
+     *
+     * @param string                  $InstanceId
+     * @param ListFeatureViewsRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListFeatureViewsResponse
      */
     public function listFeatureViewsWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListFeatureViewsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->featureViewIds)) {
-            $request->featureViewIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->featureViewIds, 'FeatureViewIds', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
-        }
-        if (!Utils::isUnset($request->featureViewIdsShrink)) {
-            $query['FeatureViewIds'] = $request->featureViewIdsShrink;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListFeatureViews',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListFeatureViewsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->featureViewIds) {
+            $request->featureViewIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->featureViewIds, 'FeatureViewIds', 'simple');
         }
 
-        return ListFeatureViewsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
+        }
+
+        if (null !== $request->featureViewIdsShrink) {
+            @$query['FeatureViewIds'] = $request->featureViewIdsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFeatureViews',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFeatureViewsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征视图列表。
-     *  *
-     * @param string                  $InstanceId
-     * @param ListFeatureViewsRequest $request    ListFeatureViewsRequest
+     * 获取特征视图列表。
      *
-     * @return ListFeatureViewsResponse ListFeatureViewsResponse
+     * @param request - ListFeatureViewsRequest
+     *
+     * @returns ListFeatureViewsResponse
+     *
+     * @param string                  $InstanceId
+     * @param ListFeatureViewsRequest $request
+     *
+     * @return ListFeatureViewsResponse
      */
     public function listFeatureViews($InstanceId, $request)
     {
@@ -2186,61 +2453,73 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取Feature Store实例列表。
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取Feature Store实例列表。
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstances',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Feature Store实例列表。
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * 获取Feature Store实例列表。
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -2251,77 +2530,93 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取Label表列表。
-     *  *
-     * @param string                 $InstanceId
-     * @param ListLabelTablesRequest $tmpReq     ListLabelTablesRequest
-     * @param string[]               $headers    map
-     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
+     * 获取Label表列表。
      *
-     * @return ListLabelTablesResponse ListLabelTablesResponse
+     * @param tmpReq - ListLabelTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLabelTablesResponse
+     *
+     * @param string                 $InstanceId
+     * @param ListLabelTablesRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListLabelTablesResponse
      */
     public function listLabelTablesWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListLabelTablesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->labelTableIds)) {
-            $request->labelTableIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelTableIds, 'LabelTableIds', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->labelTableIdsShrink)) {
-            $query['LabelTableIds'] = $request->labelTableIdsShrink;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListLabelTables',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labeltables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLabelTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelTableIds) {
+            $request->labelTableIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelTableIds, 'LabelTableIds', 'simple');
         }
 
-        return ListLabelTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->labelTableIdsShrink) {
+            @$query['LabelTableIds'] = $request->labelTableIdsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLabelTables',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/labeltables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLabelTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Label表列表。
-     *  *
-     * @param string                 $InstanceId
-     * @param ListLabelTablesRequest $request    ListLabelTablesRequest
+     * 获取Label表列表。
      *
-     * @return ListLabelTablesResponse ListLabelTablesResponse
+     * @param request - ListLabelTablesRequest
+     *
+     * @returns ListLabelTablesResponse
+     *
+     * @param string                 $InstanceId
+     * @param ListLabelTablesRequest $request
+     *
+     * @return ListLabelTablesResponse
      */
     public function listLabelTables($InstanceId, $request)
     {
@@ -2332,53 +2627,61 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取注册FG特征时模型特征下可选的所有特征。
-     *  *
+     * 获取注册FG特征时模型特征下可选的所有特征。
+     *
+     * @param request - ListModelFeatureAvailableFeaturesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelFeatureAvailableFeaturesResponse
+     *
      * @param string                                   $InstanceId
      * @param string                                   $ModelFeatureId
-     * @param ListModelFeatureAvailableFeaturesRequest $request        ListModelFeatureAvailableFeaturesRequest
-     * @param string[]                                 $headers        map
-     * @param RuntimeOptions                           $runtime        runtime options for this request RuntimeOptions
+     * @param ListModelFeatureAvailableFeaturesRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
      *
-     * @return ListModelFeatureAvailableFeaturesResponse ListModelFeatureAvailableFeaturesResponse
+     * @return ListModelFeatureAvailableFeaturesResponse
      */
     public function listModelFeatureAvailableFeaturesWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListModelFeatureAvailableFeatures',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/availablefeatures',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListModelFeatureAvailableFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
         }
 
-        return ListModelFeatureAvailableFeaturesResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelFeatureAvailableFeatures',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '/availablefeatures',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelFeatureAvailableFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取注册FG特征时模型特征下可选的所有特征。
-     *  *
+     * 获取注册FG特征时模型特征下可选的所有特征。
+     *
+     * @param request - ListModelFeatureAvailableFeaturesRequest
+     *
+     * @returns ListModelFeatureAvailableFeaturesResponse
+     *
      * @param string                                   $InstanceId
      * @param string                                   $ModelFeatureId
-     * @param ListModelFeatureAvailableFeaturesRequest $request        ListModelFeatureAvailableFeaturesRequest
+     * @param ListModelFeatureAvailableFeaturesRequest $request
      *
-     * @return ListModelFeatureAvailableFeaturesResponse ListModelFeatureAvailableFeaturesResponse
+     * @return ListModelFeatureAvailableFeaturesResponse
      */
     public function listModelFeatureAvailableFeatures($InstanceId, $ModelFeatureId, $request)
     {
@@ -2389,77 +2692,93 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取模型特征列表。
-     *  *
-     * @param string                   $InstanceId
-     * @param ListModelFeaturesRequest $tmpReq     ListModelFeaturesRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * 获取模型特征列表。
      *
-     * @return ListModelFeaturesResponse ListModelFeaturesResponse
+     * @param tmpReq - ListModelFeaturesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelFeaturesResponse
+     *
+     * @param string                   $InstanceId
+     * @param ListModelFeaturesRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListModelFeaturesResponse
      */
     public function listModelFeaturesWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListModelFeaturesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->modelFeatureIds)) {
-            $request->modelFeatureIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->modelFeatureIds, 'ModelFeatureIds', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->modelFeatureIdsShrink)) {
-            $query['ModelFeatureIds'] = $request->modelFeatureIdsShrink;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListModelFeatures',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListModelFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->modelFeatureIds) {
+            $request->modelFeatureIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelFeatureIds, 'ModelFeatureIds', 'simple');
         }
 
-        return ListModelFeaturesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->modelFeatureIdsShrink) {
+            @$query['ModelFeatureIds'] = $request->modelFeatureIdsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelFeatures',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取模型特征列表。
-     *  *
-     * @param string                   $InstanceId
-     * @param ListModelFeaturesRequest $request    ListModelFeaturesRequest
+     * 获取模型特征列表。
      *
-     * @return ListModelFeaturesResponse ListModelFeaturesResponse
+     * @param request - ListModelFeaturesRequest
+     *
+     * @returns ListModelFeaturesResponse
+     *
+     * @param string                   $InstanceId
+     * @param ListModelFeaturesRequest $request
+     *
+     * @return ListModelFeaturesResponse
      */
     public function listModelFeatures($InstanceId, $request)
     {
@@ -2470,14 +2789,19 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目下的所有特征视图、特征信息。
-     *  *
+     * 获取项目下的所有特征视图、特征信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectFeatureViewsResponse
+     *
      * @param string         $InstanceId
      * @param string         $ProjectId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListProjectFeatureViewsResponse ListProjectFeatureViewsResponse
+     * @return ListProjectFeatureViewsResponse
      */
     public function listProjectFeatureViewsWithOptions($InstanceId, $ProjectId, $headers, $runtime)
     {
@@ -2485,30 +2809,29 @@ class PaiFeatureStore extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListProjectFeatureViews',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/featureviews',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListProjectFeatureViews',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects/' . Url::percentEncode($ProjectId) . '/featureviews',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProjectFeatureViewsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectFeatureViewsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectFeatureViewsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目下的所有特征视图、特征信息。
-     *  *
+     * 获取项目下的所有特征视图、特征信息。
+     *
+     * @returns ListProjectFeatureViewsResponse
+     *
      * @param string $InstanceId
      * @param string $ProjectId
      *
-     * @return ListProjectFeatureViewsResponse ListProjectFeatureViewsResponse
+     * @return ListProjectFeatureViewsResponse
      */
     public function listProjectFeatureViews($InstanceId, $ProjectId)
     {
@@ -2519,77 +2842,93 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取Feature Store项目列表。
-     *  *
-     * @param string              $InstanceId
-     * @param ListProjectsRequest $tmpReq     ListProjectsRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     * 获取Feature Store项目列表。
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param tmpReq - ListProjectsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param string              $InstanceId
+     * @param ListProjectsRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
      */
     public function listProjectsWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->projectIds)) {
-            $request->projectIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->projectIds, 'ProjectIds', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectIdsShrink)) {
-            $query['ProjectIds'] = $request->projectIdsShrink;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListProjects',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->projectIds) {
+            $request->projectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->projectIds, 'ProjectIds', 'simple');
         }
 
-        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectIdsShrink) {
+            @$query['ProjectIds'] = $request->projectIdsShrink;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjects',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Feature Store项目列表。
-     *  *
-     * @param string              $InstanceId
-     * @param ListProjectsRequest $request    ListProjectsRequest
+     * 获取Feature Store项目列表。
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param string              $InstanceId
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
      */
     public function listProjects($InstanceId, $request)
     {
@@ -2600,56 +2939,65 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务日志列表
-     *  *
+     * 获取任务日志列表.
+     *
+     * @param request - ListTaskLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTaskLogsResponse
+     *
      * @param string              $InstanceId
      * @param string              $TaskId
-     * @param ListTaskLogsRequest $request    ListTaskLogsRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     * @param ListTaskLogsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return ListTaskLogsResponse ListTaskLogsResponse
+     * @return ListTaskLogsResponse
      */
     public function listTaskLogsWithOptions($InstanceId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTaskLogs',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/logs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
 
-        return ListTaskLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTaskLogs',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/tasks/' . Url::percentEncode($TaskId) . '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTaskLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务日志列表
-     *  *
+     * 获取任务日志列表.
+     *
+     * @param request - ListTaskLogsRequest
+     *
+     * @returns ListTaskLogsResponse
+     *
      * @param string              $InstanceId
      * @param string              $TaskId
-     * @param ListTaskLogsRequest $request    ListTaskLogsRequest
+     * @param ListTaskLogsRequest $request
      *
-     * @return ListTaskLogsResponse ListTaskLogsResponse
+     * @return ListTaskLogsResponse
      */
     public function listTaskLogs($InstanceId, $TaskId, $request)
     {
@@ -2660,77 +3008,93 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务列表
-     *  *
-     * @param string           $InstanceId
-     * @param ListTasksRequest $tmpReq     ListTasksRequest
-     * @param string[]         $headers    map
-     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
+     * 获取任务列表.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param tmpReq - ListTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $InstanceId
+     * @param ListTasksRequest $tmpReq
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
     public function listTasksWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTasksShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIds)) {
-            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
-        }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskIdsShrink)) {
-            $query['TaskIds'] = $request->taskIdsShrink;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'simple');
         }
 
-        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskIdsShrink) {
+            @$query['TaskIds'] = $request->taskIdsShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTasks',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务列表
-     *  *
-     * @param string           $InstanceId
-     * @param ListTasksRequest $request    ListTasksRequest
+     * 获取任务列表.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $InstanceId
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($InstanceId, $request)
     {
@@ -2741,65 +3105,77 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 将特征视图的离线数据发布/同步到线上。
-     *  *
+     * 将特征视图的离线数据发布/同步到线上。
+     *
+     * @param request - PublishFeatureViewTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishFeatureViewTableResponse
+     *
      * @param string                         $InstanceId
      * @param string                         $FeatureViewId
-     * @param PublishFeatureViewTableRequest $request       PublishFeatureViewTableRequest
-     * @param string[]                       $headers       map
-     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     * @param PublishFeatureViewTableRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return PublishFeatureViewTableResponse PublishFeatureViewTableResponse
+     * @return PublishFeatureViewTableResponse
      */
     public function publishFeatureViewTableWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->eventTime)) {
-            $body['EventTime'] = $request->eventTime;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            $body['Mode'] = $request->mode;
-        }
-        if (!Utils::isUnset($request->offlineToOnline)) {
-            $body['OfflineToOnline'] = $request->offlineToOnline;
-        }
-        if (!Utils::isUnset($request->partitions)) {
-            $body['Partitions'] = $request->partitions;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PublishFeatureViewTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '/action/publishtable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PublishFeatureViewTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
 
-        return PublishFeatureViewTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->eventTime) {
+            @$body['EventTime'] = $request->eventTime;
+        }
+
+        if (null !== $request->mode) {
+            @$body['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->offlineToOnline) {
+            @$body['OfflineToOnline'] = $request->offlineToOnline;
+        }
+
+        if (null !== $request->partitions) {
+            @$body['Partitions'] = $request->partitions;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishFeatureViewTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '/action/publishtable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishFeatureViewTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 将特征视图的离线数据发布/同步到线上。
-     *  *
+     * 将特征视图的离线数据发布/同步到线上。
+     *
+     * @param request - PublishFeatureViewTableRequest
+     *
+     * @returns PublishFeatureViewTableResponse
+     *
      * @param string                         $InstanceId
      * @param string                         $FeatureViewId
-     * @param PublishFeatureViewTableRequest $request       PublishFeatureViewTableRequest
+     * @param PublishFeatureViewTableRequest $request
      *
-     * @return PublishFeatureViewTableResponse PublishFeatureViewTableResponse
+     * @return PublishFeatureViewTableResponse
      */
     public function publishFeatureViewTable($InstanceId, $FeatureViewId, $request)
     {
@@ -2810,59 +3186,69 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据源信息。
-     *  *
+     * 更新数据源信息。
+     *
+     * @param request - UpdateDatasourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasourceResponse
+     *
      * @param string                  $InstanceId
      * @param string                  $DatasourceId
-     * @param UpdateDatasourceRequest $request      UpdateDatasourceRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateDatasourceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateDatasourceResponse UpdateDatasourceResponse
+     * @return UpdateDatasourceResponse
      */
     public function updateDatasourceWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDatasource',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/datasources/' . OpenApiUtilClient::getEncodeParam($DatasourceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
 
-        return UpdateDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->uri) {
+            @$body['Uri'] = $request->uri;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDatasource',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources/' . Url::percentEncode($DatasourceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新数据源信息。
-     *  *
+     * 更新数据源信息。
+     *
+     * @param request - UpdateDatasourceRequest
+     *
+     * @returns UpdateDatasourceResponse
+     *
      * @param string                  $InstanceId
      * @param string                  $DatasourceId
-     * @param UpdateDatasourceRequest $request      UpdateDatasourceRequest
+     * @param UpdateDatasourceRequest $request
      *
-     * @return UpdateDatasourceResponse UpdateDatasourceResponse
+     * @return UpdateDatasourceResponse
      */
     public function updateDatasource($InstanceId, $DatasourceId, $request)
     {
@@ -2873,59 +3259,69 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 更新label表。
-     *  *
+     * 更新label表。
+     *
+     * @param request - UpdateLabelTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLabelTableResponse
+     *
      * @param string                  $InstanceId
      * @param string                  $LabelTableId
-     * @param UpdateLabelTableRequest $request      UpdateLabelTableRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateLabelTableRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateLabelTableResponse UpdateLabelTableResponse
+     * @return UpdateLabelTableResponse
      */
     public function updateLabelTableWithOptions($InstanceId, $LabelTableId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasourceId)) {
-            $body['DatasourceId'] = $request->datasourceId;
-        }
-        if (!Utils::isUnset($request->fields)) {
-            $body['Fields'] = $request->fields;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateLabelTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/labeltables/' . OpenApiUtilClient::getEncodeParam($LabelTableId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->datasourceId) {
+            @$body['DatasourceId'] = $request->datasourceId;
         }
 
-        return UpdateLabelTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLabelTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/labeltables/' . Url::percentEncode($LabelTableId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLabelTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新label表。
-     *  *
+     * 更新label表。
+     *
+     * @param request - UpdateLabelTableRequest
+     *
+     * @returns UpdateLabelTableResponse
+     *
      * @param string                  $InstanceId
      * @param string                  $LabelTableId
-     * @param UpdateLabelTableRequest $request      UpdateLabelTableRequest
+     * @param UpdateLabelTableRequest $request
      *
-     * @return UpdateLabelTableResponse UpdateLabelTableResponse
+     * @return UpdateLabelTableResponse
      */
     public function updateLabelTable($InstanceId, $LabelTableId, $request)
     {
@@ -2936,62 +3332,73 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 更新模型特征。
-     *  *
+     * 更新模型特征。
+     *
+     * @param request - UpdateModelFeatureRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelFeatureResponse
+     *
      * @param string                    $InstanceId
      * @param string                    $ModelFeatureId
-     * @param UpdateModelFeatureRequest $request        UpdateModelFeatureRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateModelFeatureRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateModelFeatureResponse UpdateModelFeatureResponse
+     * @return UpdateModelFeatureResponse
      */
     public function updateModelFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->features)) {
-            $body['Features'] = $request->features;
-        }
-        if (!Utils::isUnset($request->labelPriorityLevel)) {
-            $body['LabelPriorityLevel'] = $request->labelPriorityLevel;
-        }
-        if (!Utils::isUnset($request->labelTableId)) {
-            $body['LabelTableId'] = $request->labelTableId;
-        }
-        if (!Utils::isUnset($request->sequenceFeatureViewIds)) {
-            $body['SequenceFeatureViewIds'] = $request->sequenceFeatureViewIds;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateModelFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->features) {
+            @$body['Features'] = $request->features;
         }
 
-        return UpdateModelFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->labelPriorityLevel) {
+            @$body['LabelPriorityLevel'] = $request->labelPriorityLevel;
+        }
+
+        if (null !== $request->labelTableId) {
+            @$body['LabelTableId'] = $request->labelTableId;
+        }
+
+        if (null !== $request->sequenceFeatureViewIds) {
+            @$body['SequenceFeatureViewIds'] = $request->sequenceFeatureViewIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新模型特征。
-     *  *
+     * 更新模型特征。
+     *
+     * @param request - UpdateModelFeatureRequest
+     *
+     * @returns UpdateModelFeatureResponse
+     *
      * @param string                    $InstanceId
      * @param string                    $ModelFeatureId
-     * @param UpdateModelFeatureRequest $request        UpdateModelFeatureRequest
+     * @param UpdateModelFeatureRequest $request
      *
-     * @return UpdateModelFeatureResponse UpdateModelFeatureResponse
+     * @return UpdateModelFeatureResponse
      */
     public function updateModelFeature($InstanceId, $ModelFeatureId, $request)
     {
@@ -3002,62 +3409,73 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 更新模型特征的FG特征配置信息。
-     *  *
+     * 更新模型特征的FG特征配置信息。
+     *
+     * @param request - UpdateModelFeatureFGFeatureRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelFeatureFGFeatureResponse
+     *
      * @param string                             $InstanceId
      * @param string                             $ModelFeatureId
-     * @param UpdateModelFeatureFGFeatureRequest $request        UpdateModelFeatureFGFeatureRequest
-     * @param string[]                           $headers        map
-     * @param RuntimeOptions                     $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateModelFeatureFGFeatureRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return UpdateModelFeatureFGFeatureResponse UpdateModelFeatureFGFeatureResponse
+     * @return UpdateModelFeatureFGFeatureResponse
      */
     public function updateModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->lookupFeatures)) {
-            $body['LookupFeatures'] = $request->lookupFeatures;
-        }
-        if (!Utils::isUnset($request->rawFeatures)) {
-            $body['RawFeatures'] = $request->rawFeatures;
-        }
-        if (!Utils::isUnset($request->reserves)) {
-            $body['Reserves'] = $request->reserves;
-        }
-        if (!Utils::isUnset($request->sequenceFeatures)) {
-            $body['SequenceFeatures'] = $request->sequenceFeatures;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateModelFeatureFGFeature',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fgfeature',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->lookupFeatures) {
+            @$body['LookupFeatures'] = $request->lookupFeatures;
         }
 
-        return UpdateModelFeatureFGFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->rawFeatures) {
+            @$body['RawFeatures'] = $request->rawFeatures;
+        }
+
+        if (null !== $request->reserves) {
+            @$body['Reserves'] = $request->reserves;
+        }
+
+        if (null !== $request->sequenceFeatures) {
+            @$body['SequenceFeatures'] = $request->sequenceFeatures;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelFeatureFGFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '/fgfeature',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新模型特征的FG特征配置信息。
-     *  *
+     * 更新模型特征的FG特征配置信息。
+     *
+     * @param request - UpdateModelFeatureFGFeatureRequest
+     *
+     * @returns UpdateModelFeatureFGFeatureResponse
+     *
      * @param string                             $InstanceId
      * @param string                             $ModelFeatureId
-     * @param UpdateModelFeatureFGFeatureRequest $request        UpdateModelFeatureFGFeatureRequest
+     * @param UpdateModelFeatureFGFeatureRequest $request
      *
-     * @return UpdateModelFeatureFGFeatureResponse UpdateModelFeatureFGFeatureResponse
+     * @return UpdateModelFeatureFGFeatureResponse
      */
     public function updateModelFeatureFGFeature($InstanceId, $ModelFeatureId, $request)
     {
@@ -3068,56 +3486,65 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 更新指定Feature Store项目信息。
-     *  *
+     * 更新指定Feature Store项目信息。
+     *
+     * @param request - UpdateProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectResponse
+     *
      * @param string               $InstanceId
      * @param string               $ProjectId
-     * @param UpdateProjectRequest $request    UpdateProjectRequest
-     * @param string[]             $headers    map
-     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @return UpdateProjectResponse
      */
     public function updateProjectWithOptions($InstanceId, $ProjectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateProject',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
 
-        return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProject',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects/' . Url::percentEncode($ProjectId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新指定Feature Store项目信息。
-     *  *
+     * 更新指定Feature Store项目信息。
+     *
+     * @param request - UpdateProjectRequest
+     *
+     * @returns UpdateProjectResponse
+     *
      * @param string               $InstanceId
      * @param string               $ProjectId
-     * @param UpdateProjectRequest $request    UpdateProjectRequest
+     * @param UpdateProjectRequest $request
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @return UpdateProjectResponse
      */
     public function updateProject($InstanceId, $ProjectId, $request)
     {
@@ -3128,59 +3555,69 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 获取特征视图血缘关系。
-     *  *
+     * 获取特征视图血缘关系。
+     *
+     * @param request - WriteFeatureViewTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WriteFeatureViewTableResponse
+     *
      * @param string                       $InstanceId
      * @param string                       $FeatureViewId
-     * @param WriteFeatureViewTableRequest $request       WriteFeatureViewTableRequest
-     * @param string[]                     $headers       map
-     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
+     * @param WriteFeatureViewTableRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return WriteFeatureViewTableResponse WriteFeatureViewTableResponse
+     * @return WriteFeatureViewTableResponse
      */
     public function writeFeatureViewTableWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->mode)) {
-            $body['Mode'] = $request->mode;
-        }
-        if (!Utils::isUnset($request->partitions)) {
-            $body['Partitions'] = $request->partitions;
-        }
-        if (!Utils::isUnset($request->urlDatasource)) {
-            $body['UrlDatasource'] = $request->urlDatasource;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'WriteFeatureViewTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/featureviews/' . OpenApiUtilClient::getEncodeParam($FeatureViewId) . '/action/writetable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return WriteFeatureViewTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->mode) {
+            @$body['Mode'] = $request->mode;
         }
 
-        return WriteFeatureViewTableResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->partitions) {
+            @$body['Partitions'] = $request->partitions;
+        }
+
+        if (null !== $request->urlDatasource) {
+            @$body['UrlDatasource'] = $request->urlDatasource;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'WriteFeatureViewTable',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '/action/writetable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return WriteFeatureViewTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取特征视图血缘关系。
-     *  *
+     * 获取特征视图血缘关系。
+     *
+     * @param request - WriteFeatureViewTableRequest
+     *
+     * @returns WriteFeatureViewTableResponse
+     *
      * @param string                       $InstanceId
      * @param string                       $FeatureViewId
-     * @param WriteFeatureViewTableRequest $request       WriteFeatureViewTableRequest
+     * @param WriteFeatureViewTableRequest $request
      *
-     * @return WriteFeatureViewTableResponse WriteFeatureViewTableResponse
+     * @return WriteFeatureViewTableResponse
      */
     public function writeFeatureViewTable($InstanceId, $FeatureViewId, $request)
     {

@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetServiceIdentityRoleResponseBody extends Model
 {
     /**
-     * @example {
-     * }
      * @var string
      */
     public $policy;
 
     /**
-     * @example 6F629E92-F64D-502D-85AA-A9C54894CA3D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example AliyunServiceRoleForPaiFeatureStore
-     *
      * @var string
      */
     public $roleName;
     protected $_name = [
-        'policy'    => 'Policy',
+        'policy' => 'Policy',
         'requestId' => 'RequestId',
-        'roleName'  => 'RoleName',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -54,20 +51,22 @@ class GetServiceIdentityRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceIdentityRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

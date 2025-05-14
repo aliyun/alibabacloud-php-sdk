@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewsResponseBody\featureViews\features;
-use AlibabaCloud\Tea\Model;
 
 class featureViews extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $featureViewId;
@@ -22,8 +20,6 @@ class featureViews extends Model
     public $features;
 
     /**
-     * @example feature_view1
-     *
      * @var string
      */
     public $name;
@@ -34,33 +30,40 @@ class featureViews extends Model
     public $type;
     protected $_name = [
         'featureViewId' => 'FeatureViewId',
-        'features'      => 'Features',
-        'name'          => 'Name',
-        'type'          => 'Type',
+        'features' => 'Features',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->features)) {
+            Model::validateArray($this->features);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureViewId) {
             $res['FeatureViewId'] = $this->featureViewId;
         }
+
         if (null !== $this->features) {
-            $res['Features'] = [];
-            if (null !== $this->features && \is_array($this->features)) {
-                $n = 0;
-                foreach ($this->features as $item) {
-                    $res['Features'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->features)) {
+                $res['Features'] = [];
+                $n1 = 0;
+                foreach ($this->features as $item1) {
+                    $res['Features'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -68,29 +71,32 @@ class featureViews extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return featureViews
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureViewId'])) {
             $model->featureViewId = $map['FeatureViewId'];
         }
+
         if (isset($map['Features'])) {
             if (!empty($map['Features'])) {
                 $model->features = [];
-                $n               = 0;
-                foreach ($map['Features'] as $item) {
-                    $model->features[$n++] = null !== $item ? features::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Features'] as $item1) {
+                    $model->features[$n1++] = features::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

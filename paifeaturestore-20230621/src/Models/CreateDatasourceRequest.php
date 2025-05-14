@@ -4,79 +4,66 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDatasourceRequest extends Model
 {
     /**
-     * @example {"address": ""}
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example datasource1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Hologres
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example igraph_instance1
-     *
      * @var string
      */
     public $uri;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 234
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'config'      => 'Config',
-        'name'        => 'Name',
-        'type'        => 'Type',
-        'uri'         => 'Uri',
+        'config' => 'Config',
+        'name' => 'Name',
+        'type' => 'Type',
+        'uri' => 'Uri',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -84,26 +71,30 @@ class CreateDatasourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatasourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
