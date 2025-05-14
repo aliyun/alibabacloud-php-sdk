@@ -29,12 +29,12 @@ class SubmitTraceAbJobShrinkRequest extends Model
     public $outputShrink;
 
     /**
-     * @var string
+     * @var int
      */
     public $startTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $totalTime;
 

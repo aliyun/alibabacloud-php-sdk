@@ -39,12 +39,12 @@ class SubmitCopyrightJobShrinkRequest extends Model
     public $params;
 
     /**
-     * @var string
+     * @var int
      */
     public $startTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $totalTime;
 

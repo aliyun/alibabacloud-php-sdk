@@ -31,12 +31,12 @@ class SubmitTraceAbJobRequest extends Model
     public $output;
 
     /**
-     * @var string
+     * @var int
      */
     public $startTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $totalTime;
 
