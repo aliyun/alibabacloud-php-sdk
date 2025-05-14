@@ -1459,7 +1459,7 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * 获取ECS规格列表.
+     * Queries a list of specifications of ECS instances.
      *
      * @param request - ListEcsSpecsRequest
      * @param headers - map
@@ -1517,7 +1517,7 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * 获取ECS规格列表.
+     * Queries a list of specifications of ECS instances.
      *
      * @param request - ListEcsSpecsRequest
      *
