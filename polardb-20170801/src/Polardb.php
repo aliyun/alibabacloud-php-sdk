@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDataNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderRequest;
@@ -71,6 +73,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBNodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesRequest;
@@ -153,6 +157,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDataNetworkListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDataNetworkListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRequest;
@@ -2253,6 +2259,99 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 创建全球数据网络.
+     *
+     * @param request - CreateGlobalDataNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGlobalDataNetworkResponse
+     *
+     * @param CreateGlobalDataNetworkRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateGlobalDataNetworkResponse
+     */
+    public function createGlobalDataNetworkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->destinationFileSystemPath) {
+            @$query['DestinationFileSystemPath'] = $request->destinationFileSystemPath;
+        }
+
+        if (null !== $request->destinationId) {
+            @$query['DestinationId'] = $request->destinationId;
+        }
+
+        if (null !== $request->destinationRegion) {
+            @$query['DestinationRegion'] = $request->destinationRegion;
+        }
+
+        if (null !== $request->destinationType) {
+            @$query['DestinationType'] = $request->destinationType;
+        }
+
+        if (null !== $request->freezeSourceDuringSync) {
+            @$query['FreezeSourceDuringSync'] = $request->freezeSourceDuringSync;
+        }
+
+        if (null !== $request->sourceFileSystemPath) {
+            @$query['SourceFileSystemPath'] = $request->sourceFileSystemPath;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->sourceRegion) {
+            @$query['SourceRegion'] = $request->sourceRegion;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGlobalDataNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGlobalDataNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建全球数据网络.
+     *
+     * @param request - CreateGlobalDataNetworkRequest
+     *
+     * @returns CreateGlobalDataNetworkResponse
+     *
+     * @param CreateGlobalDataNetworkRequest $request
+     *
+     * @return CreateGlobalDataNetworkResponse
+     */
+    public function createGlobalDataNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGlobalDataNetworkWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a global database network (GDN).
      *
      * @remarks
@@ -2282,6 +2381,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->GDNDescription) {
             @$query['GDNDescription'] = $request->GDNDescription;
+        }
+
+        if (null !== $request->GDNVersion) {
+            @$query['GDNVersion'] = $request->GDNVersion;
         }
 
         if (null !== $request->ownerAccount) {
@@ -3434,6 +3537,63 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteGlobalDataNetwork.
+     *
+     * @param request - DeleteGlobalDataNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGlobalDataNetworkResponse
+     *
+     * @param DeleteGlobalDataNetworkRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteGlobalDataNetworkResponse
+     */
+    public function deleteGlobalDataNetworkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkId) {
+            @$query['NetworkId'] = $request->networkId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGlobalDataNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGlobalDataNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteGlobalDataNetwork.
+     *
+     * @param request - DeleteGlobalDataNetworkRequest
+     *
+     * @returns DeleteGlobalDataNetworkResponse
+     *
+     * @param DeleteGlobalDataNetworkRequest $request
+     *
+     * @return DeleteGlobalDataNetworkResponse
+     */
+    public function deleteGlobalDataNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGlobalDataNetworkWithOptions($request, $runtime);
     }
 
     /**
@@ -6850,6 +7010,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDetachedBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeGlobalDataNetworkList.
+     *
+     * @param request - DescribeGlobalDataNetworkListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGlobalDataNetworkListResponse
+     *
+     * @param DescribeGlobalDataNetworkListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeGlobalDataNetworkListResponse
+     */
+    public function describeGlobalDataNetworkListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGlobalDataNetworkList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGlobalDataNetworkListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeGlobalDataNetworkList.
+     *
+     * @param request - DescribeGlobalDataNetworkListRequest
+     *
+     * @returns DescribeGlobalDataNetworkListResponse
+     *
+     * @param DescribeGlobalDataNetworkListRequest $request
+     *
+     * @return DescribeGlobalDataNetworkListResponse
+     */
+    public function describeGlobalDataNetworkList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalDataNetworkListWithOptions($request, $runtime);
     }
 
     /**
@@ -13282,6 +13503,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
 
         if (null !== $request->GDNId) {

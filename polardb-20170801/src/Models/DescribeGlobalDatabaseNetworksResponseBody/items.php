@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetwor
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksResponseBody\items\DBClusters;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksResponseBody\items\labels;
 
 class items extends Model
 {
@@ -43,6 +44,11 @@ class items extends Model
      * @var string
      */
     public $GDNStatus;
+
+    /**
+     * @var labels
+     */
+    public $labels;
     protected $_name = [
         'createTime' => 'CreateTime',
         'DBClusters' => 'DBClusters',
@@ -51,12 +57,16 @@ class items extends Model
         'GDNDescription' => 'GDNDescription',
         'GDNId' => 'GDNId',
         'GDNStatus' => 'GDNStatus',
+        'labels' => 'Labels',
     ];
 
     public function validate()
     {
         if (\is_array($this->DBClusters)) {
             Model::validateArray($this->DBClusters);
+        }
+        if (null !== $this->labels) {
+            $this->labels->validate();
         }
         parent::validate();
     }
@@ -96,6 +106,10 @@ class items extends Model
 
         if (null !== $this->GDNStatus) {
             $res['GDNStatus'] = $this->GDNStatus;
+        }
+
+        if (null !== $this->labels) {
+            $res['Labels'] = null !== $this->labels ? $this->labels->toArray($noStream) : $this->labels;
         }
 
         return $res;
@@ -141,6 +155,10 @@ class items extends Model
 
         if (isset($map['GDNStatus'])) {
             $model->GDNStatus = $map['GDNStatus'];
+        }
+
+        if (isset($map['Labels'])) {
+            $model->labels = labels::fromMap($map['Labels']);
         }
 
         return $model;

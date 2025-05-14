@@ -14,6 +14,11 @@ class RemoveDBClusterFromGDNRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $GDNId;
@@ -44,6 +49,7 @@ class RemoveDBClusterFromGDNRequest extends Model
     public $securityToken;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'force' => 'Force',
         'GDNId' => 'GDNId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -62,6 +68,10 @@ class RemoveDBClusterFromGDNRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
 
         if (null !== $this->GDNId) {
@@ -101,6 +111,10 @@ class RemoveDBClusterFromGDNRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
 
         if (isset($map['GDNId'])) {

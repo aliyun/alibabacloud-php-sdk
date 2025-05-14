@@ -26,6 +26,11 @@ class CreateGlobalDatabaseNetworkRequest extends Model
     /**
      * @var string
      */
+    public $GDNVersion;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -56,6 +61,7 @@ class CreateGlobalDatabaseNetworkRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'enableGlobalDomainName' => 'EnableGlobalDomainName',
         'GDNDescription' => 'GDNDescription',
+        'GDNVersion' => 'GDNVersion',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -82,6 +88,10 @@ class CreateGlobalDatabaseNetworkRequest extends Model
 
         if (null !== $this->GDNDescription) {
             $res['GDNDescription'] = $this->GDNDescription;
+        }
+
+        if (null !== $this->GDNVersion) {
+            $res['GDNVersion'] = $this->GDNVersion;
         }
 
         if (null !== $this->ownerAccount) {
@@ -129,6 +139,10 @@ class CreateGlobalDatabaseNetworkRequest extends Model
 
         if (isset($map['GDNDescription'])) {
             $model->GDNDescription = $map['GDNDescription'];
+        }
+
+        if (isset($map['GDNVersion'])) {
+            $model->GDNVersion = $map['GDNVersion'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponseBody\connections;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponseBody\DBClusters;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponseBody\labels;
 
 class DescribeGlobalDatabaseNetworkResponseBody extends Model
 {
@@ -61,6 +62,11 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     public $globalDomainName;
 
     /**
+     * @var labels
+     */
+    public $labels;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -80,6 +86,7 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
         'GDNId' => 'GDNId',
         'GDNStatus' => 'GDNStatus',
         'globalDomainName' => 'GlobalDomainName',
+        'labels' => 'Labels',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -91,6 +98,9 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
         }
         if (\is_array($this->DBClusters)) {
             Model::validateArray($this->DBClusters);
+        }
+        if (null !== $this->labels) {
+            $this->labels->validate();
         }
         parent::validate();
     }
@@ -148,6 +158,10 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
 
         if (null !== $this->globalDomainName) {
             $res['GlobalDomainName'] = $this->globalDomainName;
+        }
+
+        if (null !== $this->labels) {
+            $res['Labels'] = null !== $this->labels ? $this->labels->toArray($noStream) : $this->labels;
         }
 
         if (null !== $this->requestId) {
@@ -219,6 +233,10 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
 
         if (isset($map['GlobalDomainName'])) {
             $model->globalDomainName = $map['GlobalDomainName'];
+        }
+
+        if (isset($map['Labels'])) {
+            $model->labels = labels::fromMap($map['Labels']);
         }
 
         if (isset($map['RequestId'])) {
