@@ -30,6 +30,11 @@ class videoSettings extends Model
     public $videoCodecSetting;
 
     /**
+     * @var string
+     */
+    public $videoCodecType;
+
+    /**
      * @var int
      */
     public $width;
@@ -38,6 +43,7 @@ class videoSettings extends Model
         'name' => 'Name',
         'videoCodec' => 'VideoCodec',
         'videoCodecSetting' => 'VideoCodecSetting',
+        'videoCodecType' => 'VideoCodecType',
         'width' => 'Width',
     ];
 
@@ -66,6 +72,10 @@ class videoSettings extends Model
 
         if (null !== $this->videoCodecSetting) {
             $res['VideoCodecSetting'] = null !== $this->videoCodecSetting ? $this->videoCodecSetting->toArray($noStream) : $this->videoCodecSetting;
+        }
+
+        if (null !== $this->videoCodecType) {
+            $res['VideoCodecType'] = $this->videoCodecType;
         }
 
         if (null !== $this->width) {
@@ -97,6 +107,10 @@ class videoSettings extends Model
 
         if (isset($map['VideoCodecSetting'])) {
             $model->videoCodecSetting = videoCodecSetting::fromMap($map['VideoCodecSetting']);
+        }
+
+        if (isset($map['VideoCodecType'])) {
+            $model->videoCodecType = $map['VideoCodecType'];
         }
 
         if (isset($map['Width'])) {
