@@ -95,7 +95,7 @@ class result extends Model
     /**
      * @var int
      */
-    public $endtime;
+    public $endTime;
 
     /**
      * @var mixed[]
@@ -316,7 +316,7 @@ class result extends Model
         'enableKibanaPrivateNetwork' => 'enableKibanaPrivateNetwork',
         'enableKibanaPublicNetwork' => 'enableKibanaPublicNetwork',
         'enablePublic' => 'enablePublic',
-        'endtime' => 'endtime',
+        'endTime' => 'endTime',
         'esConfig' => 'esConfig',
         'esIPBlacklist' => 'esIPBlacklist',
         'esIPWhitelist' => 'esIPWhitelist',
@@ -502,8 +502,8 @@ class result extends Model
             $res['enablePublic'] = $this->enablePublic;
         }
 
-        if (null !== $this->endtime) {
-            $res['endtime'] = $this->endtime;
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
         }
 
         if (null !== $this->esConfig) {
@@ -825,8 +825,8 @@ class result extends Model
             $model->enablePublic = $map['enablePublic'];
         }
 
-        if (isset($map['endtime'])) {
-            $model->endtime = $map['endtime'];
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
         }
 
         if (isset($map['esConfig'])) {

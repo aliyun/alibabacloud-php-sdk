@@ -472,6 +472,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Connects Elasticsearch clusters.
+     *
      * @param request - AddConnectableClusterRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -514,6 +516,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Connects Elasticsearch clusters.
+     *
      * @param request - AddConnectableClusterRequest
      *
      * @returns AddConnectableClusterResponse
