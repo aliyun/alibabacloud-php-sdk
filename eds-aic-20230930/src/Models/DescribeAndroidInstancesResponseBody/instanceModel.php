@@ -157,6 +157,11 @@ class instanceModel extends Model
     public $publicIpv6Address;
 
     /**
+     * @var string
+     */
+    public $qosRuleId;
+
+    /**
      * @var int
      */
     public $rate;
@@ -210,6 +215,7 @@ class instanceModel extends Model
         'policyGroupId' => 'PolicyGroupId',
         'publicIpAddress' => 'PublicIpAddress',
         'publicIpv6Address' => 'PublicIpv6Address',
+        'qosRuleId' => 'QosRuleId',
         'rate' => 'Rate',
         'regionId' => 'RegionId',
         'renderingType' => 'RenderingType',
@@ -354,6 +360,10 @@ class instanceModel extends Model
 
         if (null !== $this->publicIpv6Address) {
             $res['PublicIpv6Address'] = $this->publicIpv6Address;
+        }
+
+        if (null !== $this->qosRuleId) {
+            $res['QosRuleId'] = $this->qosRuleId;
         }
 
         if (null !== $this->rate) {
@@ -513,6 +523,10 @@ class instanceModel extends Model
 
         if (isset($map['PublicIpv6Address'])) {
             $model->publicIpv6Address = $map['PublicIpv6Address'];
+        }
+
+        if (isset($map['QosRuleId'])) {
+            $model->qosRuleId = $map['QosRuleId'];
         }
 
         if (isset($map['Rate'])) {

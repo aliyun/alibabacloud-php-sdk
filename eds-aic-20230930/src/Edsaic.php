@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
@@ -99,6 +101,9 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyCloudPhoneNodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyCloudPhoneNodeResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameRequest;
@@ -1881,6 +1886,10 @@ class Edsaic extends OpenApiClient
             @$query['OfficeSiteIds'] = $request->officeSiteIds;
         }
 
+        if (null !== $request->qosRuleIds) {
+            @$query['QosRuleIds'] = $request->qosRuleIds;
+        }
+
         if (null !== $request->saleMode) {
             @$query['SaleMode'] = $request->saleMode;
         }
@@ -2212,6 +2221,63 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudPhoneNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询显示设置.
+     *
+     * @param request - DescribeDisplayConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDisplayConfigResponse
+     *
+     * @param DescribeDisplayConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDisplayConfigResponse
+     */
+    public function describeDisplayConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDisplayConfig',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDisplayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询显示设置.
+     *
+     * @param request - DescribeDisplayConfigRequest
+     *
+     * @returns DescribeDisplayConfigResponse
+     *
+     * @param DescribeDisplayConfigRequest $request
+     *
+     * @return DescribeDisplayConfigResponse
+     */
+    public function describeDisplayConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDisplayConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3695,6 +3761,73 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCloudPhoneNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改显示设置.
+     *
+     * @param tmpReq - ModifyDisplayConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDisplayConfigResponse
+     *
+     * @param ModifyDisplayConfigRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDisplayConfigResponse
+     */
+    public function modifyDisplayConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyDisplayConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->displayConfig) {
+            $request->displayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->displayConfig, 'DisplayConfig', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+
+        if (null !== $request->displayConfigShrink) {
+            @$body['DisplayConfig'] = $request->displayConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDisplayConfig',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDisplayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改显示设置.
+     *
+     * @param request - ModifyDisplayConfigRequest
+     *
+     * @returns ModifyDisplayConfigResponse
+     *
+     * @param ModifyDisplayConfigRequest $request
+     *
+     * @return ModifyDisplayConfigResponse
+     */
+    public function modifyDisplayConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDisplayConfigWithOptions($request, $runtime);
     }
 
     /**

@@ -80,6 +80,11 @@ class DescribeAndroidInstancesRequest extends Model
     public $officeSiteIds;
 
     /**
+     * @var string[]
+     */
+    public $qosRuleIds;
+
+    /**
      * @var string
      */
     public $saleMode;
@@ -108,6 +113,7 @@ class DescribeAndroidInstancesRequest extends Model
         'nodeId' => 'NodeId',
         'nodeName' => 'NodeName',
         'officeSiteIds' => 'OfficeSiteIds',
+        'qosRuleIds' => 'QosRuleIds',
         'saleMode' => 'SaleMode',
         'status' => 'Status',
         'tag' => 'Tag',
@@ -123,6 +129,9 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (\is_array($this->officeSiteIds)) {
             Model::validateArray($this->officeSiteIds);
+        }
+        if (\is_array($this->qosRuleIds)) {
+            Model::validateArray($this->qosRuleIds);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -203,6 +212,16 @@ class DescribeAndroidInstancesRequest extends Model
                 $n1 = 0;
                 foreach ($this->officeSiteIds as $item1) {
                     $res['OfficeSiteIds'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->qosRuleIds) {
+            if (\is_array($this->qosRuleIds)) {
+                $res['QosRuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->qosRuleIds as $item1) {
+                    $res['QosRuleIds'][$n1++] = $item1;
                 }
             }
         }
@@ -306,6 +325,16 @@ class DescribeAndroidInstancesRequest extends Model
                 $n1 = 0;
                 foreach ($map['OfficeSiteIds'] as $item1) {
                     $model->officeSiteIds[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['QosRuleIds'])) {
+            if (!empty($map['QosRuleIds'])) {
+                $model->qosRuleIds = [];
+                $n1 = 0;
+                foreach ($map['QosRuleIds'] as $item1) {
+                    $model->qosRuleIds[$n1++] = $item1;
                 }
             }
         }
