@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetUserInformationResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceCategoriesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceBillRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceBillResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRequest;
@@ -1568,6 +1570,83 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServiceCategoriesWithOptions($runtime);
+    }
+
+    /**
+     * 展示服务实例账单.
+     *
+     * @param request - ListServiceInstanceBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceInstanceBillResponse
+     *
+     * @param ListServiceInstanceBillRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListServiceInstanceBillResponse
+     */
+    public function listServiceInstanceBillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
+        }
+
+        if (null !== $request->billingDate) {
+            @$query['BillingDate'] = $request->billingDate;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceInstanceBill',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 展示服务实例账单.
+     *
+     * @param request - ListServiceInstanceBillRequest
+     *
+     * @returns ListServiceInstanceBillResponse
+     *
+     * @param ListServiceInstanceBillRequest $request
+     *
+     * @return ListServiceInstanceBillResponse
+     */
+    public function listServiceInstanceBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceBillWithOptions($request, $runtime);
     }
 
     /**
