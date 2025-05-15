@@ -26,6 +26,11 @@ class DescribeLogStoreInfoResponseBody extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -41,6 +46,7 @@ class DescribeLogStoreInfoResponseBody extends Model
         'logStoreName' => 'LogStoreName',
         'projectName' => 'ProjectName',
         'quota' => 'Quota',
+        'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'ttl' => 'Ttl',
         'used' => 'Used',
@@ -64,6 +70,10 @@ class DescribeLogStoreInfoResponseBody extends Model
 
         if (null !== $this->quota) {
             $res['Quota'] = $this->quota;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->requestId) {
@@ -99,6 +109,10 @@ class DescribeLogStoreInfoResponseBody extends Model
 
         if (isset($map['Quota'])) {
             $model->quota = $map['Quota'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['RequestId'])) {

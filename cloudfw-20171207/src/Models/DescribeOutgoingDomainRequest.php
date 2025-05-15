@@ -21,12 +21,22 @@ class DescribeOutgoingDomainRequest extends Model
     /**
      * @var string
      */
+    public $dataType;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $isAITraffic;
 
     /**
      * @var string
@@ -65,8 +75,10 @@ class DescribeOutgoingDomainRequest extends Model
     protected $_name = [
         'categoryId' => 'CategoryId',
         'currentPage' => 'CurrentPage',
+        'dataType' => 'DataType',
         'domain' => 'Domain',
         'endTime' => 'EndTime',
+        'isAITraffic' => 'IsAITraffic',
         'lang' => 'Lang',
         'order' => 'Order',
         'pageSize' => 'PageSize',
@@ -92,12 +104,20 @@ class DescribeOutgoingDomainRequest extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
 
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
+        }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->isAITraffic) {
+            $res['IsAITraffic'] = $this->isAITraffic;
         }
 
         if (null !== $this->lang) {
@@ -147,12 +167,20 @@ class DescribeOutgoingDomainRequest extends Model
             $model->currentPage = $map['CurrentPage'];
         }
 
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
+        }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['IsAITraffic'])) {
+            $model->isAITraffic = $map['IsAITraffic'];
         }
 
         if (isset($map['Lang'])) {

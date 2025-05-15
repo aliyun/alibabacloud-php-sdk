@@ -4531,12 +4531,20 @@ class Cloudfw extends OpenApiClient
             @$query['CurrentPage'] = $request->currentPage;
         }
 
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
+        }
+
         if (null !== $request->domain) {
             @$query['Domain'] = $request->domain;
         }
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->isAITraffic) {
+            @$query['IsAITraffic'] = $request->isAITraffic;
         }
 
         if (null !== $request->lang) {
