@@ -2,24 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesResponseBody;
+namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class GetFileContentLengthRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $code;
+    public $docName;
 
     /**
      * @var string
      */
     public $fileUrl;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'code' => 'Code',
+        'docName' => 'DocName',
         'fileUrl' => 'FileUrl',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -30,12 +36,16 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->docName) {
+            $res['DocName'] = $this->docName;
         }
 
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -49,12 +59,16 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['DocName'])) {
+            $model->docName = $map['DocName'];
         }
 
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

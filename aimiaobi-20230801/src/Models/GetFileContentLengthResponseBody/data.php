@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesResponseBody;
+namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFileContentLengthResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
@@ -11,15 +11,9 @@ class data extends Model
     /**
      * @var int
      */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $fileUrl;
+    public $wordNum;
     protected $_name = [
-        'code' => 'Code',
-        'fileUrl' => 'FileUrl',
+        'wordNum' => 'WordNum',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
+        if (null !== $this->wordNum) {
+            $res['WordNum'] = $this->wordNum;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
+        if (isset($map['WordNum'])) {
+            $model->wordNum = $map['WordNum'];
         }
 
         return $model;

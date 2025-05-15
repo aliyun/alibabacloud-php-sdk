@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RunDocSmartCardRequest extends Model
+class RunBookBrainmapRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $cleanCache;
+
     /**
      * @var string
      */
     public $docId;
+
+    /**
+     * @var int
+     */
+    public $nodeNumber;
 
     /**
      * @var string
@@ -24,13 +34,21 @@ class RunDocSmartCardRequest extends Model
     public $sessionId;
 
     /**
+     * @var int
+     */
+    public $wordNumber;
+
+    /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
+        'cleanCache' => 'CleanCache',
         'docId' => 'DocId',
+        'nodeNumber' => 'NodeNumber',
         'prompt' => 'Prompt',
         'sessionId' => 'SessionId',
+        'wordNumber' => 'WordNumber',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -42,8 +60,16 @@ class RunDocSmartCardRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cleanCache) {
+            $res['CleanCache'] = $this->cleanCache;
+        }
+
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
+        }
+
+        if (null !== $this->nodeNumber) {
+            $res['NodeNumber'] = $this->nodeNumber;
         }
 
         if (null !== $this->prompt) {
@@ -52,6 +78,10 @@ class RunDocSmartCardRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->wordNumber) {
+            $res['WordNumber'] = $this->wordNumber;
         }
 
         if (null !== $this->workspaceId) {
@@ -69,8 +99,16 @@ class RunDocSmartCardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CleanCache'])) {
+            $model->cleanCache = $map['CleanCache'];
+        }
+
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
+        }
+
+        if (isset($map['NodeNumber'])) {
+            $model->nodeNumber = $map['NodeNumber'];
         }
 
         if (isset($map['Prompt'])) {
@@ -79,6 +117,10 @@ class RunDocSmartCardRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['WordNumber'])) {
+            $model->wordNumber = $map['WordNumber'];
         }
 
         if (isset($map['WorkspaceId'])) {

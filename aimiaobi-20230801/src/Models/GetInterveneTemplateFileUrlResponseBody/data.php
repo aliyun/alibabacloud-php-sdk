@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $fileUrl;
     protected $_name = [
+        'code' => 'Code',
         'fileUrl' => 'FileUrl',
     ];
 
@@ -24,6 +30,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -39,6 +49,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

@@ -90,6 +90,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFileContentLengthRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFileContentLengthResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastRequest;
@@ -203,6 +205,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookBrainmapRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookBrainmapResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookSmartCardRequest;
@@ -2916,6 +2920,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEnterpriseVocAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 妙读获得文档字数.
+     *
+     * @param request - GetFileContentLengthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileContentLengthResponse
+     *
+     * @param GetFileContentLengthRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetFileContentLengthResponse
+     */
+    public function getFileContentLengthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docName) {
+            @$body['DocName'] = $request->docName;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileContentLength',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileContentLengthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 妙读获得文档字数.
+     *
+     * @param request - GetFileContentLengthRequest
+     *
+     * @returns GetFileContentLengthResponse
+     *
+     * @param GetFileContentLengthRequest $request
+     *
+     * @return GetFileContentLengthResponse
+     */
+    public function getFileContentLength($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileContentLengthWithOptions($request, $runtime);
     }
 
     /**
@@ -6713,6 +6782,87 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 妙读生成书籍脑图.
+     *
+     * @param request - RunBookBrainmapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunBookBrainmapResponse
+     *
+     * @param RunBookBrainmapRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RunBookBrainmapResponse
+     */
+    public function runBookBrainmapWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cleanCache) {
+            @$body['CleanCache'] = $request->cleanCache;
+        }
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
+        }
+
+        if (null !== $request->nodeNumber) {
+            @$body['NodeNumber'] = $request->nodeNumber;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->wordNumber) {
+            @$body['WordNumber'] = $request->wordNumber;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunBookBrainmap',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunBookBrainmapResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 妙读生成书籍脑图.
+     *
+     * @param request - RunBookBrainmapRequest
+     *
+     * @returns RunBookBrainmapResponse
+     *
+     * @param RunBookBrainmapRequest $request
+     *
+     * @return RunBookBrainmapResponse
+     */
+    public function runBookBrainmap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runBookBrainmapWithOptions($request, $runtime);
+    }
+
+    /**
      * 书籍导读接口.
      *
      * @param request - RunBookIntroductionRequest
@@ -7484,6 +7634,10 @@ class AiMiaoBi extends OpenApiClient
         $body = [];
         if (null !== $request->docId) {
             @$body['DocId'] = $request->docId;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
 
         if (null !== $request->sessionId) {

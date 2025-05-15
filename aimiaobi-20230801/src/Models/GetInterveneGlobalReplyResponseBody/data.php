@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyResponseBo
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var replyMessagList[]
      */
     public $replyMessagList;
     protected $_name = [
+        'code' => 'Code',
         'replyMessagList' => 'ReplyMessagList',
     ];
 
@@ -28,6 +34,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
         if (null !== $this->replyMessagList) {
             if (\is_array($this->replyMessagList)) {
                 $res['ReplyMessagList'] = [];
@@ -49,6 +59,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
         if (isset($map['ReplyMessagList'])) {
             if (!empty($map['ReplyMessagList'])) {
                 $model->replyMessagList = [];

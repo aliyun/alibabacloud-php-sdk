@@ -12,6 +12,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $code;
+
+    /**
+     * @var int
+     */
     public $pageIndex;
 
     /**
@@ -29,6 +34,7 @@ class data extends Model
      */
     public $totalSize;
     protected $_name = [
+        'code' => 'Code',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
         'statusList' => 'StatusList',
@@ -46,6 +52,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
@@ -79,6 +89,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }

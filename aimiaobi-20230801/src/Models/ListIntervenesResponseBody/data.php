@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesResponseBody\data\i
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var interveneList[]
      */
     public $interveneList;
@@ -29,6 +34,7 @@ class data extends Model
      */
     public $totalSize;
     protected $_name = [
+        'code' => 'Code',
         'interveneList' => 'InterveneList',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
@@ -46,6 +52,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
         if (null !== $this->interveneList) {
             if (\is_array($this->interveneList)) {
                 $res['InterveneList'] = [];
@@ -79,6 +89,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
         if (isset($map['InterveneList'])) {
             if (!empty($map['InterveneList'])) {
                 $model->interveneList = [];

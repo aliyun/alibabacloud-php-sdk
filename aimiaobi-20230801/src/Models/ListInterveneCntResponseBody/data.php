@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $code;
+
+    /**
+     * @var int
+     */
     public $pageCnt;
 
     /**
@@ -29,6 +34,7 @@ class data extends Model
     public $pageSize;
     protected $_name = [
         'cntList' => 'CntList',
+        'code' => 'Code',
         'pageCnt' => 'PageCnt',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
@@ -53,6 +59,10 @@ class data extends Model
                     $res['CntList'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
 
         if (null !== $this->pageCnt) {
@@ -86,6 +96,10 @@ class data extends Model
                     $model->cntList[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
 
         if (isset($map['PageCnt'])) {
