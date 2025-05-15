@@ -22,10 +22,16 @@ class models extends Model
      * @var string
      */
     public $modelType;
+
+    /**
+     * @var bool
+     */
+    public $toolCall;
     protected $_name = [
         'displayName' => 'DisplayName',
         'model' => 'Model',
         'modelType' => 'ModelType',
+        'toolCall' => 'ToolCall',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class models extends Model
 
         if (null !== $this->modelType) {
             $res['ModelType'] = $this->modelType;
+        }
+
+        if (null !== $this->toolCall) {
+            $res['ToolCall'] = $this->toolCall;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class models extends Model
 
         if (isset($map['ModelType'])) {
             $model->modelType = $map['ModelType'];
+        }
+
+        if (isset($map['ToolCall'])) {
+            $model->toolCall = $map['ToolCall'];
         }
 
         return $model;

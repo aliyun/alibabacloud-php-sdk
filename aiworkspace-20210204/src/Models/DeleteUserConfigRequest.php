@@ -12,8 +12,14 @@ class DeleteUserConfigRequest extends Model
      * @var string
      */
     public $configKey;
+
+    /**
+     * @var string
+     */
+    public $scope;
     protected $_name = [
         'configKey' => 'ConfigKey',
+        'scope' => 'Scope',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteUserConfigRequest extends Model
         $res = [];
         if (null !== $this->configKey) {
             $res['ConfigKey'] = $this->configKey;
+        }
+
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteUserConfigRequest extends Model
         $model = new self();
         if (isset($map['ConfigKey'])) {
             $model->configKey = $map['ConfigKey'];
+        }
+
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         return $model;

@@ -3166,6 +3166,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['ConfigKey'] = $request->configKey;
         }
 
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
