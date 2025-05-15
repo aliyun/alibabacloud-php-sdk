@@ -41,6 +41,11 @@ class UpdateWorkflowRequest extends Model
     /**
      * @var string
      */
+    public $instanceMode;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -78,6 +83,7 @@ class UpdateWorkflowRequest extends Model
         'description' => 'Description',
         'envType' => 'EnvType',
         'id' => 'Id',
+        'instanceMode' => 'InstanceMode',
         'name' => 'Name',
         'outputs' => 'Outputs',
         'owner' => 'Owner',
@@ -134,6 +140,10 @@ class UpdateWorkflowRequest extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->instanceMode) {
+            $res['InstanceMode'] = $this->instanceMode;
         }
 
         if (null !== $this->name) {
@@ -211,6 +221,10 @@ class UpdateWorkflowRequest extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['InstanceMode'])) {
+            $model->instanceMode = $map['InstanceMode'];
         }
 
         if (isset($map['Name'])) {

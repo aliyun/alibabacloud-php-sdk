@@ -13580,6 +13580,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['Id'] = $request->id;
         }
 
+        if (null !== $request->instanceMode) {
+            @$body['InstanceMode'] = $request->instanceMode;
+        }
+
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
         }
