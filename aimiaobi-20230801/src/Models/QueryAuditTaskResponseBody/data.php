@@ -20,6 +20,11 @@ class data extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $htmlContent;
+
+    /**
      * @var response
      */
     public $response;
@@ -33,12 +38,19 @@ class data extends Model
      * @var int
      */
     public $taskStatus;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
         'auditTime' => 'AuditTime',
         'content' => 'Content',
+        'htmlContent' => 'HtmlContent',
         'response' => 'Response',
         'status' => 'Status',
         'taskStatus' => 'TaskStatus',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -60,6 +72,10 @@ class data extends Model
             $res['Content'] = $this->content;
         }
 
+        if (null !== $this->htmlContent) {
+            $res['HtmlContent'] = $this->htmlContent;
+        }
+
         if (null !== $this->response) {
             $res['Response'] = null !== $this->response ? $this->response->toArray($noStream) : $this->response;
         }
@@ -70,6 +86,10 @@ class data extends Model
 
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -91,6 +111,10 @@ class data extends Model
             $model->content = $map['Content'];
         }
 
+        if (isset($map['HtmlContent'])) {
+            $model->htmlContent = $map['HtmlContent'];
+        }
+
         if (isset($map['Response'])) {
             $model->response = response::fromMap($map['Response']);
         }
@@ -101,6 +125,10 @@ class data extends Model
 
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

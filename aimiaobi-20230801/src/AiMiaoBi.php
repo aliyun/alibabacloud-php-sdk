@@ -41,6 +41,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteStyleLearningResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteStyleLearningResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
@@ -1471,6 +1473,69 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMaterialByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定自定义文体.
+     *
+     * @param request - DeleteStyleLearningResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStyleLearningResultResponse
+     *
+     * @param DeleteStyleLearningResultRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteStyleLearningResultResponse
+     */
+    public function deleteStyleLearningResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStyleLearningResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定自定义文体.
+     *
+     * @param request - DeleteStyleLearningResultRequest
+     *
+     * @returns DeleteStyleLearningResultResponse
+     *
+     * @param DeleteStyleLearningResultRequest $request
+     *
+     * @return DeleteStyleLearningResultResponse
+     */
+    public function deleteStyleLearningResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStyleLearningResultWithOptions($request, $runtime);
     }
 
     /**
