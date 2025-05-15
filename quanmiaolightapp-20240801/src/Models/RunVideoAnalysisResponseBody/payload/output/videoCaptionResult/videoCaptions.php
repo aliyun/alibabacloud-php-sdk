@@ -19,6 +19,11 @@ class videoCaptions extends Model
     public $endTimeFormat;
 
     /**
+     * @var string
+     */
+    public $speaker;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -35,6 +40,7 @@ class videoCaptions extends Model
     protected $_name = [
         'endTime' => 'endTime',
         'endTimeFormat' => 'endTimeFormat',
+        'speaker' => 'speaker',
         'startTime' => 'startTime',
         'startTimeFormat' => 'startTimeFormat',
         'text' => 'text',
@@ -54,6 +60,10 @@ class videoCaptions extends Model
 
         if (null !== $this->endTimeFormat) {
             $res['endTimeFormat'] = $this->endTimeFormat;
+        }
+
+        if (null !== $this->speaker) {
+            $res['speaker'] = $this->speaker;
         }
 
         if (null !== $this->startTime) {
@@ -85,6 +95,10 @@ class videoCaptions extends Model
 
         if (isset($map['endTimeFormat'])) {
             $model->endTimeFormat = $map['endTimeFormat'];
+        }
+
+        if (isset($map['speaker'])) {
+            $model->speaker = $map['speaker'];
         }
 
         if (isset($map['startTime'])) {

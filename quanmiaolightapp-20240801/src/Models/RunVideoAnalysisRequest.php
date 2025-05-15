@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\frameSampleMethod;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\textProcessTasks;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\videoCaptionInfo;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\videoRoles;
 
 class RunVideoAnalysisRequest extends Model
@@ -77,6 +78,11 @@ class RunVideoAnalysisRequest extends Model
     public $textProcessTasks;
 
     /**
+     * @var videoCaptionInfo
+     */
+    public $videoCaptionInfo;
+
+    /**
      * @var string
      */
     public $videoExtraInfo;
@@ -119,6 +125,7 @@ class RunVideoAnalysisRequest extends Model
         'splitInterval' => 'splitInterval',
         'taskId' => 'taskId',
         'textProcessTasks' => 'textProcessTasks',
+        'videoCaptionInfo' => 'videoCaptionInfo',
         'videoExtraInfo' => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
         'videoModelId' => 'videoModelId',
@@ -140,6 +147,9 @@ class RunVideoAnalysisRequest extends Model
         }
         if (\is_array($this->textProcessTasks)) {
             Model::validateArray($this->textProcessTasks);
+        }
+        if (null !== $this->videoCaptionInfo) {
+            $this->videoCaptionInfo->validate();
         }
         if (\is_array($this->videoRoles)) {
             Model::validateArray($this->videoRoles);
@@ -218,6 +228,10 @@ class RunVideoAnalysisRequest extends Model
                     $res['textProcessTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->videoCaptionInfo) {
+            $res['videoCaptionInfo'] = null !== $this->videoCaptionInfo ? $this->videoCaptionInfo->toArray($noStream) : $this->videoCaptionInfo;
         }
 
         if (null !== $this->videoExtraInfo) {
@@ -329,6 +343,10 @@ class RunVideoAnalysisRequest extends Model
                     $model->textProcessTasks[$n1++] = textProcessTasks::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['videoCaptionInfo'])) {
+            $model->videoCaptionInfo = videoCaptionInfo::fromMap($map['videoCaptionInfo']);
         }
 
         if (isset($map['videoExtraInfo'])) {

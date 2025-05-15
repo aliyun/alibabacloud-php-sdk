@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskR
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListAnalysisTagDetailByTaskIdRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListAnalysisTagDetailByTaskIdResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisRequest;
@@ -70,6 +72,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRe
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -635,6 +639,77 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->getVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取挖掘分析结果明细列表.
+     *
+     * @param request - ListAnalysisTagDetailByTaskIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnalysisTagDetailByTaskIdResponse
+     *
+     * @param string                               $workspaceId
+     * @param ListAnalysisTagDetailByTaskIdRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListAnalysisTagDetailByTaskIdResponse
+     */
+    public function listAnalysisTagDetailByTaskIdWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAnalysisTagDetailByTaskId',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/listAnalysisTagDetailByTaskId',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取挖掘分析结果明细列表.
+     *
+     * @param request - ListAnalysisTagDetailByTaskIdRequest
+     *
+     * @returns ListAnalysisTagDetailByTaskIdResponse
+     *
+     * @param string                               $workspaceId
+     * @param ListAnalysisTagDetailByTaskIdRequest $request
+     *
+     * @return ListAnalysisTagDetailByTaskIdResponse
+     */
+    public function listAnalysisTagDetailByTaskId($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAnalysisTagDetailByTaskIdWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1811,6 +1886,10 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->textProcessTasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->textProcessTasks, 'textProcessTasks', 'json');
         }
 
+        if (null !== $tmpReq->videoCaptionInfo) {
+            $request->videoCaptionInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoCaptionInfo, 'videoCaptionInfo', 'json');
+        }
+
         if (null !== $tmpReq->videoRoles) {
             $request->videoRolesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
@@ -1866,6 +1945,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->textProcessTasksShrink) {
             @$body['textProcessTasks'] = $request->textProcessTasksShrink;
+        }
+
+        if (null !== $request->videoCaptionInfoShrink) {
+            @$body['videoCaptionInfo'] = $request->videoCaptionInfoShrink;
         }
 
         if (null !== $request->videoExtraInfo) {
@@ -2186,6 +2269,10 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->textProcessTasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->textProcessTasks, 'textProcessTasks', 'json');
         }
 
+        if (null !== $tmpReq->videoCaptionInfo) {
+            $request->videoCaptionInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoCaptionInfo, 'videoCaptionInfo', 'json');
+        }
+
         if (null !== $tmpReq->videoRoles) {
             $request->videoRolesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
@@ -2237,6 +2324,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->textProcessTasksShrink) {
             @$body['textProcessTasks'] = $request->textProcessTasksShrink;
+        }
+
+        if (null !== $request->videoCaptionInfoShrink) {
+            @$body['videoCaptionInfo'] = $request->videoCaptionInfoShrink;
         }
 
         if (null !== $request->videoExtraInfo) {
@@ -2363,5 +2454,72 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->updateVideoAnalysisConfigWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 视频理解-修改任务状态
+     *
+     * @param request - UpdateVideoAnalysisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoAnalysisTaskResponse
+     *
+     * @param string                         $workspaceId
+     * @param UpdateVideoAnalysisTaskRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateVideoAnalysisTaskResponse
+     */
+    public function updateVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['taskStatus'] = $request->taskStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVideoAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisTask',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 视频理解-修改任务状态
+     *
+     * @param request - UpdateVideoAnalysisTaskRequest
+     *
+     * @returns UpdateVideoAnalysisTaskResponse
+     *
+     * @param string                         $workspaceId
+     * @param UpdateVideoAnalysisTaskRequest $request
+     *
+     * @return UpdateVideoAnalysisTaskResponse
+     */
+    public function updateVideoAnalysisTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }

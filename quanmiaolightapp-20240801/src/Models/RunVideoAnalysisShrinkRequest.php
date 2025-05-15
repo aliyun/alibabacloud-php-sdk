@@ -76,6 +76,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $videoCaptionInfoShrink;
+
+    /**
+     * @var string
+     */
     public $videoExtraInfo;
 
     /**
@@ -116,6 +121,7 @@ class RunVideoAnalysisShrinkRequest extends Model
         'splitInterval' => 'splitInterval',
         'taskId' => 'taskId',
         'textProcessTasksShrink' => 'textProcessTasks',
+        'videoCaptionInfoShrink' => 'videoCaptionInfo',
         'videoExtraInfo' => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
         'videoModelId' => 'videoModelId',
@@ -182,6 +188,10 @@ class RunVideoAnalysisShrinkRequest extends Model
 
         if (null !== $this->textProcessTasksShrink) {
             $res['textProcessTasks'] = $this->textProcessTasksShrink;
+        }
+
+        if (null !== $this->videoCaptionInfoShrink) {
+            $res['videoCaptionInfo'] = $this->videoCaptionInfoShrink;
         }
 
         if (null !== $this->videoExtraInfo) {
@@ -269,6 +279,10 @@ class RunVideoAnalysisShrinkRequest extends Model
 
         if (isset($map['textProcessTasks'])) {
             $model->textProcessTasksShrink = $map['textProcessTasks'];
+        }
+
+        if (isset($map['videoCaptionInfo'])) {
+            $model->videoCaptionInfoShrink = $map['videoCaptionInfo'];
         }
 
         if (isset($map['videoExtraInfo'])) {

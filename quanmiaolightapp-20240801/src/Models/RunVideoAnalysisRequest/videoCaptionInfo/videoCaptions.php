@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoCaptionResult;
+namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\videoCaptionInfo;
 
 use AlibabaCloud\Dara\Model;
 
@@ -12,11 +12,6 @@ class videoCaptions extends Model
      * @var int
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $endTimeFormat;
 
     /**
      * @var string
@@ -31,18 +26,11 @@ class videoCaptions extends Model
     /**
      * @var string
      */
-    public $startTimeFormat;
-
-    /**
-     * @var string
-     */
     public $text;
     protected $_name = [
         'endTime' => 'endTime',
-        'endTimeFormat' => 'endTimeFormat',
         'speaker' => 'speaker',
         'startTime' => 'startTime',
-        'startTimeFormat' => 'startTimeFormat',
         'text' => 'text',
     ];
 
@@ -58,20 +46,12 @@ class videoCaptions extends Model
             $res['endTime'] = $this->endTime;
         }
 
-        if (null !== $this->endTimeFormat) {
-            $res['endTimeFormat'] = $this->endTimeFormat;
-        }
-
         if (null !== $this->speaker) {
             $res['speaker'] = $this->speaker;
         }
 
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
-        }
-
-        if (null !== $this->startTimeFormat) {
-            $res['startTimeFormat'] = $this->startTimeFormat;
         }
 
         if (null !== $this->text) {
@@ -93,20 +73,12 @@ class videoCaptions extends Model
             $model->endTime = $map['endTime'];
         }
 
-        if (isset($map['endTimeFormat'])) {
-            $model->endTimeFormat = $map['endTimeFormat'];
-        }
-
         if (isset($map['speaker'])) {
             $model->speaker = $map['speaker'];
         }
 
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
-        }
-
-        if (isset($map['startTimeFormat'])) {
-            $model->startTimeFormat = $map['startTimeFormat'];
         }
 
         if (isset($map['text'])) {
