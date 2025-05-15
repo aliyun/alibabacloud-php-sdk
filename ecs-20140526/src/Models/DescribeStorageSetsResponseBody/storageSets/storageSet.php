@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageSetsResponseBody\storageSets;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageSetsResponseBody\storageSets\storageSet\tags;
 
 class storageSet extends Model
 {
@@ -26,6 +27,11 @@ class storageSet extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $storageSetId;
 
     /**
@@ -39,6 +45,11 @@ class storageSet extends Model
     public $storageSetPartitionNumber;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -46,14 +57,19 @@ class storageSet extends Model
         'creationTime' => 'CreationTime',
         'description' => 'Description',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'storageSetId' => 'StorageSetId',
         'storageSetName' => 'StorageSetName',
         'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
+        'tags' => 'Tags',
         'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
         parent::validate();
     }
 
@@ -72,6 +88,10 @@ class storageSet extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->storageSetId) {
             $res['StorageSetId'] = $this->storageSetId;
         }
@@ -82,6 +102,10 @@ class storageSet extends Model
 
         if (null !== $this->storageSetPartitionNumber) {
             $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         if (null !== $this->zoneId) {
@@ -111,6 +135,10 @@ class storageSet extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['StorageSetId'])) {
             $model->storageSetId = $map['StorageSetId'];
         }
@@ -121,6 +149,10 @@ class storageSet extends Model
 
         if (isset($map['StorageSetPartitionNumber'])) {
             $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         if (isset($map['ZoneId'])) {

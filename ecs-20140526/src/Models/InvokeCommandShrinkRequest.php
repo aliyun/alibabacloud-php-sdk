@@ -119,6 +119,11 @@ class InvokeCommandShrinkRequest extends Model
      * @var string
      */
     public $windowsPasswordName;
+
+    /**
+     * @var string
+     */
+    public $workingDir;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'commandId' => 'CommandId',
@@ -142,6 +147,7 @@ class InvokeCommandShrinkRequest extends Model
         'timeout' => 'Timeout',
         'username' => 'Username',
         'windowsPasswordName' => 'WindowsPasswordName',
+        'workingDir' => 'WorkingDir',
     ];
 
     public function validate()
@@ -267,6 +273,10 @@ class InvokeCommandShrinkRequest extends Model
             $res['WindowsPasswordName'] = $this->windowsPasswordName;
         }
 
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
+        }
+
         return $res;
     }
 
@@ -382,6 +392,10 @@ class InvokeCommandShrinkRequest extends Model
 
         if (isset($map['WindowsPasswordName'])) {
             $model->windowsPasswordName = $map['WindowsPasswordName'];
+        }
+
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

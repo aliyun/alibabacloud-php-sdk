@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateStorageSetRequest\tag;
 
 class CreateStorageSetRequest extends Model
 {
@@ -54,6 +55,11 @@ class CreateStorageSetRequest extends Model
     public $storageSetName;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -67,11 +73,15 @@ class CreateStorageSetRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'storageSetName' => 'StorageSetName',
+        'tag' => 'Tag',
         'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -112,6 +122,16 @@ class CreateStorageSetRequest extends Model
 
         if (null !== $this->storageSetName) {
             $res['StorageSetName'] = $this->storageSetName;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->zoneId) {
@@ -163,6 +183,16 @@ class CreateStorageSetRequest extends Model
 
         if (isset($map['StorageSetName'])) {
             $model->storageSetName = $map['StorageSetName'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['ZoneId'])) {
