@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanRequest;
@@ -17,12 +16,16 @@ use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanTemplateShrink
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateResourceShrinkRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\DeleteExperimentPlanRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\DeleteExperimentPlanResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\DeleteExperimentPlanTemplateRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\DeleteExperimentPlanTemplateResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\DeleteExperimentRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\DeleteExperimentResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentPlanRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentPlanResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentPlanTemplateRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentPlanTemplateResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResultDataRequest;
@@ -40,18 +43,28 @@ use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListExperimentPlanTemplatesRequest
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListExperimentPlanTemplatesResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListExperimentsRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListExperimentsResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListWorkloadsRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ListWorkloadsResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\StopExperimentRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\StopExperimentResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UpdateExperimentPlanRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UpdateExperimentPlanResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UpdateExperimentPlanTemplateRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UpdateExperimentPlanTemplateResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\UpdateExperimentPlanTemplateShrinkRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ValidateResourceRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ValidateResourceResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ValidateResourceShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eflocnp extends OpenApiClient
 {
@@ -76,61 +89,78 @@ class Eflocnp extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 资源转组
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Change resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 资源转组
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Change resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -140,58 +170,80 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Create Experiment Plan
-     *  *
-     * @param CreateExperimentPlanRequest $tmpReq  CreateExperimentPlanRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Create Experiment Plan.
      *
-     * @return CreateExperimentPlanResponse CreateExperimentPlanResponse
+     * @param tmpReq - CreateExperimentPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentPlanResponse
+     *
+     * @param CreateExperimentPlanRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateExperimentPlanResponse
      */
     public function createExperimentPlanWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateExperimentPlanShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->externalParams)) {
-            $request->externalParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalParams, 'ExternalParams', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->externalParams) {
+            $request->externalParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalParams, 'ExternalParams', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->externalParamsShrink)) {
-            $query['ExternalParams'] = $request->externalParamsShrink;
+        if (null !== $request->externalParamsShrink) {
+            @$query['ExternalParams'] = $request->externalParamsShrink;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->planTemplateName) {
+            @$query['PlanTemplateName'] = $request->planTemplateName;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExperimentPlan',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExperimentPlan',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Create Experiment Plan
-     *  *
-     * @param CreateExperimentPlanRequest $request CreateExperimentPlanRequest
+     * Create Experiment Plan.
      *
-     * @return CreateExperimentPlanResponse CreateExperimentPlanResponse
+     * @param request - CreateExperimentPlanRequest
+     *
+     * @returns CreateExperimentPlanResponse
+     *
+     * @param CreateExperimentPlanRequest $request
+     *
+     * @return CreateExperimentPlanResponse
      */
     public function createExperimentPlan($request)
     {
@@ -201,63 +253,78 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 创建/更新测试计划模板
-     *  *
-     * @param CreateExperimentPlanTemplateRequest $tmpReq  CreateExperimentPlanTemplateRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Create/Update Test Plan Template.
      *
-     * @return CreateExperimentPlanTemplateResponse CreateExperimentPlanTemplateResponse
+     * @param tmpReq - CreateExperimentPlanTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentPlanTemplateResponse
+     *
+     * @param CreateExperimentPlanTemplateRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateExperimentPlanTemplateResponse
      */
     public function createExperimentPlanTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateExperimentPlanTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->templatePipeline)) {
-            $request->templatePipelineShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templatePipeline, 'TemplatePipeline', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templatePipeline) {
+            $request->templatePipelineShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templatePipeline, 'TemplatePipeline', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->privacyLevel)) {
-            $query['PrivacyLevel'] = $request->privacyLevel;
+        if (null !== $request->privacyLevel) {
+            @$query['PrivacyLevel'] = $request->privacyLevel;
         }
-        if (!Utils::isUnset($request->templateDescription)) {
-            $query['TemplateDescription'] = $request->templateDescription;
+
+        if (null !== $request->templateDescription) {
+            @$query['TemplateDescription'] = $request->templateDescription;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templatePipelineShrink)) {
-            $body['TemplatePipeline'] = $request->templatePipelineShrink;
+        if (null !== $request->templatePipelineShrink) {
+            @$body['TemplatePipeline'] = $request->templatePipelineShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExperimentPlanTemplate',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExperimentPlanTemplate',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateExperimentPlanTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建/更新测试计划模板
-     *  *
-     * @param CreateExperimentPlanTemplateRequest $request CreateExperimentPlanTemplateRequest
+     * Create/Update Test Plan Template.
      *
-     * @return CreateExperimentPlanTemplateResponse CreateExperimentPlanTemplateResponse
+     * @param request - CreateExperimentPlanTemplateRequest
+     *
+     * @returns CreateExperimentPlanTemplateResponse
+     *
+     * @param CreateExperimentPlanTemplateRequest $request
+     *
+     * @return CreateExperimentPlanTemplateResponse
      */
     public function createExperimentPlanTemplate($request)
     {
@@ -267,72 +334,82 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Create Evaluation Resource
-     *  *
-     * @param CreateResourceRequest $tmpReq  CreateResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Create Evaluation Resource.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @param tmpReq - CreateResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateResourceResponse
      */
     public function createResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->machineTypes)) {
-            $request->machineTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->machineTypes, 'MachineTypes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->machineTypes) {
+            $request->machineTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->machineTypes, 'MachineTypes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userAccessParam)) {
-            $request->userAccessParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userAccessParam, 'UserAccessParam', 'json');
+
+        if (null !== $tmpReq->userAccessParam) {
+            $request->userAccessParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userAccessParam, 'UserAccessParam', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterDesc)) {
-            $query['ClusterDesc'] = $request->clusterDesc;
+        if (null !== $request->clusterDesc) {
+            @$query['ClusterDesc'] = $request->clusterDesc;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
+
         $body = [];
-        if (!Utils::isUnset($request->machineTypesShrink)) {
-            $body['MachineTypes'] = $request->machineTypesShrink;
+        if (null !== $request->machineTypesShrink) {
+            @$body['MachineTypes'] = $request->machineTypesShrink;
         }
-        if (!Utils::isUnset($request->userAccessParamShrink)) {
-            $body['UserAccessParam'] = $request->userAccessParamShrink;
+
+        if (null !== $request->userAccessParamShrink) {
+            @$body['UserAccessParam'] = $request->userAccessParamShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateResource',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResource',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Create Evaluation Resource
-     *  *
-     * @param CreateResourceRequest $request CreateResourceRequest
+     * Create Evaluation Resource.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @param request - CreateResourceRequest
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $request
+     *
+     * @return CreateResourceResponse
      */
     public function createResource($request)
     {
@@ -342,44 +419,58 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 删除实验
-     *  *
-     * @param DeleteExperimentRequest $request DeleteExperimentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Delete Experiment.
      *
-     * @return DeleteExperimentResponse DeleteExperimentResponse
+     * @param request - DeleteExperimentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentResponse
+     *
+     * @param DeleteExperimentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteExperimentResponse
      */
     public function deleteExperimentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->experimentId)) {
-            $query['ExperimentId'] = $request->experimentId;
+        if (null !== $request->experimentId) {
+            @$query['ExperimentId'] = $request->experimentId;
         }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExperiment',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExperiment',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除实验
-     *  *
-     * @param DeleteExperimentRequest $request DeleteExperimentRequest
+     * Delete Experiment.
      *
-     * @return DeleteExperimentResponse DeleteExperimentResponse
+     * @param request - DeleteExperimentRequest
+     *
+     * @returns DeleteExperimentResponse
+     *
+     * @param DeleteExperimentRequest $request
+     *
+     * @return DeleteExperimentResponse
      */
     public function deleteExperiment($request)
     {
@@ -389,44 +480,111 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 删除测试计划模板
-     *  *
-     * @param DeleteExperimentPlanTemplateRequest $request DeleteExperimentPlanTemplateRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 获取实验计划详情.
      *
-     * @return DeleteExperimentPlanTemplateResponse DeleteExperimentPlanTemplateResponse
+     * @param request - DeleteExperimentPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentPlanResponse
+     *
+     * @param DeleteExperimentPlanRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteExperimentPlanResponse
+     */
+    public function deleteExperimentPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteExperimentPlan',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实验计划详情.
+     *
+     * @param request - DeleteExperimentPlanRequest
+     *
+     * @returns DeleteExperimentPlanResponse
+     *
+     * @param DeleteExperimentPlanRequest $request
+     *
+     * @return DeleteExperimentPlanResponse
+     */
+    public function deleteExperimentPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExperimentPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Test Plan Template.
+     *
+     * @param request - DeleteExperimentPlanTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentPlanTemplateResponse
+     *
+     * @param DeleteExperimentPlanTemplateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteExperimentPlanTemplateResponse
      */
     public function deleteExperimentPlanTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExperimentPlanTemplate',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExperimentPlanTemplate',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExperimentPlanTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除测试计划模板
-     *  *
-     * @param DeleteExperimentPlanTemplateRequest $request DeleteExperimentPlanTemplateRequest
+     * Delete Test Plan Template.
      *
-     * @return DeleteExperimentPlanTemplateResponse DeleteExperimentPlanTemplateResponse
+     * @param request - DeleteExperimentPlanTemplateRequest
+     *
+     * @returns DeleteExperimentPlanTemplateResponse
+     *
+     * @param DeleteExperimentPlanTemplateRequest $request
+     *
+     * @return DeleteExperimentPlanTemplateResponse
      */
     public function deleteExperimentPlanTemplate($request)
     {
@@ -436,44 +594,58 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验详情
-     *  *
-     * @param GetExperimentRequest $request GetExperimentRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Get Experiment Details.
      *
-     * @return GetExperimentResponse GetExperimentResponse
+     * @param request - GetExperimentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentResponse
+     *
+     * @param GetExperimentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetExperimentResponse
      */
     public function getExperimentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->experimentId)) {
-            $query['ExperimentId'] = $request->experimentId;
+        if (null !== $request->experimentId) {
+            @$query['ExperimentId'] = $request->experimentId;
         }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperiment',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExperiment',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验详情
-     *  *
-     * @param GetExperimentRequest $request GetExperimentRequest
+     * Get Experiment Details.
      *
-     * @return GetExperimentResponse GetExperimentResponse
+     * @param request - GetExperimentRequest
+     *
+     * @returns GetExperimentResponse
+     *
+     * @param GetExperimentRequest $request
+     *
+     * @return GetExperimentResponse
      */
     public function getExperiment($request)
     {
@@ -483,44 +655,54 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Get Experiment Plan Details
-     *  *
-     * @param GetExperimentPlanRequest $request GetExperimentPlanRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Get Experiment Plan Details.
      *
-     * @return GetExperimentPlanResponse GetExperimentPlanResponse
+     * @param request - GetExperimentPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentPlanResponse
+     *
+     * @param GetExperimentPlanRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetExperimentPlanResponse
      */
     public function getExperimentPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentPlan',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExperimentPlan',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Experiment Plan Details
-     *  *
-     * @param GetExperimentPlanRequest $request GetExperimentPlanRequest
+     * Get Experiment Plan Details.
      *
-     * @return GetExperimentPlanResponse GetExperimentPlanResponse
+     * @param request - GetExperimentPlanRequest
+     *
+     * @returns GetExperimentPlanResponse
+     *
+     * @param GetExperimentPlanRequest $request
+     *
+     * @return GetExperimentPlanResponse
      */
     public function getExperimentPlan($request)
     {
@@ -530,50 +712,123 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验结果数据
-     *  *
-     * @param GetExperimentResultDataRequest $request GetExperimentResultDataRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Query Test Plan Template Details.
      *
-     * @return GetExperimentResultDataResponse GetExperimentResultDataResponse
+     * @param request - GetExperimentPlanTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentPlanTemplateResponse
+     *
+     * @param GetExperimentPlanTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetExperimentPlanTemplateResponse
+     */
+    public function getExperimentPlanTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetExperimentPlanTemplate',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetExperimentPlanTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Test Plan Template Details.
+     *
+     * @param request - GetExperimentPlanTemplateRequest
+     *
+     * @returns GetExperimentPlanTemplateResponse
+     *
+     * @param GetExperimentPlanTemplateRequest $request
+     *
+     * @return GetExperimentPlanTemplateResponse
+     */
+    public function getExperimentPlanTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getExperimentPlanTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Fetch Experiment Result Data.
+     *
+     * @param request - GetExperimentResultDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentResultDataResponse
+     *
+     * @param GetExperimentResultDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetExperimentResultDataResponse
      */
     public function getExperimentResultDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->experimentId)) {
-            $query['ExperimentId'] = $request->experimentId;
+        if (null !== $request->experimentId) {
+            @$query['ExperimentId'] = $request->experimentId;
         }
-        if (!Utils::isUnset($request->hostname)) {
-            $query['Hostname'] = $request->hostname;
+
+        if (null !== $request->hostname) {
+            @$query['Hostname'] = $request->hostname;
         }
-        if (!Utils::isUnset($request->workloadType)) {
-            $query['WorkloadType'] = $request->workloadType;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
+        if (null !== $request->workloadType) {
+            @$query['WorkloadType'] = $request->workloadType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentResultData',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExperimentResultData',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentResultDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验结果数据
-     *  *
-     * @param GetExperimentResultDataRequest $request GetExperimentResultDataRequest
+     * Fetch Experiment Result Data.
      *
-     * @return GetExperimentResultDataResponse GetExperimentResultDataResponse
+     * @param request - GetExperimentResultDataRequest
+     *
+     * @returns GetExperimentResultDataResponse
+     *
+     * @param GetExperimentResultDataRequest $request
+     *
+     * @return GetExperimentResultDataResponse
      */
     public function getExperimentResultData($request)
     {
@@ -583,44 +838,54 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Get Resource Information
-     *  *
-     * @param GetResourceRequest $request GetResourceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Get Resource Information.
      *
-     * @return GetResourceResponse GetResourceResponse
+     * @param request - GetResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceResponse
+     *
+     * @param GetResourceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetResourceResponse
      */
     public function getResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResource',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResource',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Resource Information
-     *  *
-     * @param GetResourceRequest $request GetResourceRequest
+     * Get Resource Information.
      *
-     * @return GetResourceResponse GetResourceResponse
+     * @param request - GetResourceRequest
+     *
+     * @returns GetResourceResponse
+     *
+     * @param GetResourceRequest $request
+     *
+     * @return GetResourceResponse
      */
     public function getResource($request)
     {
@@ -630,47 +895,58 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 查询测试计划模板资源预测结果
-     *  *
-     * @param GetResourcePredictResultRequest $request GetResourcePredictResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Query the resource prediction results of the test plan template.
      *
-     * @return GetResourcePredictResultResponse GetResourcePredictResultResponse
+     * @param request - GetResourcePredictResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourcePredictResultResponse
+     *
+     * @param GetResourcePredictResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetResourcePredictResultResponse
      */
     public function getResourcePredictResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourcePredictResult',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourcePredictResult',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetResourcePredictResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询测试计划模板资源预测结果
-     *  *
-     * @param GetResourcePredictResultRequest $request GetResourcePredictResultRequest
+     * Query the resource prediction results of the test plan template.
      *
-     * @return GetResourcePredictResultResponse GetResourcePredictResultResponse
+     * @param request - GetResourcePredictResultRequest
+     *
+     * @returns GetResourcePredictResultResponse
+     *
+     * @param GetResourcePredictResultRequest $request
+     *
+     * @return GetResourcePredictResultResponse
      */
     public function getResourcePredictResult($request)
     {
@@ -680,44 +956,54 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 通过id获取负载信息
-     *  *
-     * @param GetWorkloadRequest $request GetWorkloadRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Retrieve workload information by ID.
      *
-     * @return GetWorkloadResponse GetWorkloadResponse
+     * @param request - GetWorkloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkloadResponse
+     *
+     * @param GetWorkloadRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetWorkloadResponse
      */
     public function getWorkloadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workloadId)) {
-            $query['WorkloadId'] = $request->workloadId;
+        if (null !== $request->workloadId) {
+            @$query['WorkloadId'] = $request->workloadId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWorkload',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWorkload',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetWorkloadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过id获取负载信息
-     *  *
-     * @param GetWorkloadRequest $request GetWorkloadRequest
+     * Retrieve workload information by ID.
      *
-     * @return GetWorkloadResponse GetWorkloadResponse
+     * @param request - GetWorkloadRequest
+     *
+     * @returns GetWorkloadResponse
+     *
+     * @param GetWorkloadRequest $request
+     *
+     * @return GetWorkloadResponse
      */
     public function getWorkload($request)
     {
@@ -727,44 +1013,54 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Query Test Plan Template List
-     *  *
-     * @param ListExperimentPlanTemplatesRequest $request ListExperimentPlanTemplatesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Query Test Plan Template List.
      *
-     * @return ListExperimentPlanTemplatesResponse ListExperimentPlanTemplatesResponse
+     * @param request - ListExperimentPlanTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExperimentPlanTemplatesResponse
+     *
+     * @param ListExperimentPlanTemplatesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListExperimentPlanTemplatesResponse
      */
     public function listExperimentPlanTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->privacyLevel)) {
-            $query['PrivacyLevel'] = $request->privacyLevel;
+        if (null !== $request->privacyLevel) {
+            @$query['PrivacyLevel'] = $request->privacyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExperimentPlanTemplates',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExperimentPlanTemplates',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListExperimentPlanTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query Test Plan Template List
-     *  *
-     * @param ListExperimentPlanTemplatesRequest $request ListExperimentPlanTemplatesRequest
+     * Query Test Plan Template List.
      *
-     * @return ListExperimentPlanTemplatesResponse ListExperimentPlanTemplatesResponse
+     * @param request - ListExperimentPlanTemplatesRequest
+     *
+     * @returns ListExperimentPlanTemplatesResponse
+     *
+     * @param ListExperimentPlanTemplatesRequest $request
+     *
+     * @return ListExperimentPlanTemplatesResponse
      */
     public function listExperimentPlanTemplates($request)
     {
@@ -774,75 +1070,110 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Query Experiment Plan List
-     *  *
-     * @param ListExperimentPlansRequest $tmpReq  ListExperimentPlansRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Query Experiment Plan List.
      *
-     * @return ListExperimentPlansResponse ListExperimentPlansResponse
+     * @param tmpReq - ListExperimentPlansRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExperimentPlansResponse
+     *
+     * @param ListExperimentPlansRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListExperimentPlansResponse
      */
     public function listExperimentPlansWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListExperimentPlansShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->planTaskStatus)) {
-            $request->planTaskStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->planTaskStatus, 'PlanTaskStatus', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->planTaskStatus) {
+            $request->planTaskStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->planTaskStatus, 'PlanTaskStatus', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceName)) {
-            $request->resourceNameShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceName, 'ResourceName', 'json');
+
+        if (null !== $tmpReq->resourceName) {
+            $request->resourceNameShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceName, 'ResourceName', 'json');
         }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->creatTimeOrder)) {
-            $query['CreatTimeOrder'] = $request->creatTimeOrder;
+        if (null !== $request->creatTimeOrder) {
+            @$query['CreatTimeOrder'] = $request->creatTimeOrder;
         }
-        if (!Utils::isUnset($request->endTimeOrder)) {
-            $query['EndTimeOrder'] = $request->endTimeOrder;
+
+        if (null !== $request->endTimeOrder) {
+            @$query['EndTimeOrder'] = $request->endTimeOrder;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->startTimeOrder)) {
-            $query['StartTimeOrder'] = $request->startTimeOrder;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
+
+        if (null !== $request->startTimeOrder) {
+            @$query['StartTimeOrder'] = $request->startTimeOrder;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->planTaskStatusShrink)) {
-            $body['PlanTaskStatus'] = $request->planTaskStatusShrink;
+        if (null !== $request->planTaskStatusShrink) {
+            @$body['PlanTaskStatus'] = $request->planTaskStatusShrink;
         }
-        if (!Utils::isUnset($request->resourceNameShrink)) {
-            $body['ResourceName'] = $request->resourceNameShrink;
+
+        if (null !== $request->resourceNameShrink) {
+            @$body['ResourceName'] = $request->resourceNameShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListExperimentPlans',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExperimentPlans',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListExperimentPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query Experiment Plan List
-     *  *
-     * @param ListExperimentPlansRequest $request ListExperimentPlansRequest
+     * Query Experiment Plan List.
      *
-     * @return ListExperimentPlansResponse ListExperimentPlansResponse
+     * @param request - ListExperimentPlansRequest
+     *
+     * @returns ListExperimentPlansResponse
+     *
+     * @param ListExperimentPlansRequest $request
+     *
+     * @return ListExperimentPlansResponse
      */
     public function listExperimentPlans($request)
     {
@@ -852,47 +1183,62 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Query the experiment list based on the plan ID
-     *  *
-     * @param ListExperimentsRequest $request ListExperimentsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Query the experiment list based on the plan ID.
      *
-     * @return ListExperimentsResponse ListExperimentsResponse
+     * @param request - ListExperimentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExperimentsResponse
+     *
+     * @param ListExperimentsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListExperimentsResponse
      */
     public function listExperimentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExperiments',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExperiments',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListExperimentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the experiment list based on the plan ID
-     *  *
-     * @param ListExperimentsRequest $request ListExperimentsRequest
+     * Query the experiment list based on the plan ID.
      *
-     * @return ListExperimentsResponse ListExperimentsResponse
+     * @param request - ListExperimentsRequest
+     *
+     * @returns ListExperimentsResponse
+     *
+     * @param ListExperimentsRequest $request
+     *
+     * @return ListExperimentsResponse
      */
     public function listExperiments($request)
     {
@@ -902,44 +1248,123 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 获取负载列表
-     *  *
-     * @param ListWorkloadsRequest $request ListWorkloadsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Query Resource Tags.
      *
-     * @return ListWorkloadsResponse ListWorkloadsResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Resource Tags.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get Workload List.
+     *
+     * @param request - ListWorkloadsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkloadsResponse
+     *
+     * @param ListWorkloadsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkloadsResponse
      */
     public function listWorkloadsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWorkloads',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListWorkloads',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListWorkloadsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取负载列表
-     *  *
-     * @param ListWorkloadsRequest $request ListWorkloadsRequest
+     * Get Workload List.
      *
-     * @return ListWorkloadsResponse ListWorkloadsResponse
+     * @param request - ListWorkloadsRequest
+     *
+     * @returns ListWorkloadsResponse
+     *
+     * @param ListWorkloadsRequest $request
+     *
+     * @return ListWorkloadsResponse
      */
     public function listWorkloads($request)
     {
@@ -949,44 +1374,58 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary 停止实验
-     *  *
-     * @param StopExperimentRequest $request StopExperimentRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Stop Experiment.
      *
-     * @return StopExperimentResponse StopExperimentResponse
+     * @param request - StopExperimentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopExperimentResponse
+     *
+     * @param StopExperimentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopExperimentResponse
      */
     public function stopExperimentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->experimentId)) {
-            $query['ExperimentId'] = $request->experimentId;
+        if (null !== $request->experimentId) {
+            @$query['ExperimentId'] = $request->experimentId;
         }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopExperiment',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopExperiment',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止实验
-     *  *
-     * @param StopExperimentRequest $request StopExperimentRequest
+     * Stop Experiment.
      *
-     * @return StopExperimentResponse StopExperimentResponse
+     * @param request - StopExperimentRequest
+     *
+     * @returns StopExperimentResponse
+     *
+     * @param StopExperimentRequest $request
+     *
+     * @return StopExperimentResponse
      */
     public function stopExperiment($request)
     {
@@ -996,54 +1435,330 @@ class Eflocnp extends OpenApiClient
     }
 
     /**
-     * @summary Resource Connectivity Test
-     *  *
-     * @param ValidateResourceRequest $tmpReq  ValidateResourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Tag Resources with User Labels.
      *
-     * @return ValidateResourceResponse ValidateResourceResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Tag Resources with User Labels.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Remove User Tags from Resources.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Remove User Tags from Resources.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update Experiment Plan.
+     *
+     * @param request - UpdateExperimentPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentPlanResponse
+     *
+     * @param UpdateExperimentPlanRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateExperimentPlanResponse
+     */
+    public function updateExperimentPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
+        }
+
+        if (null !== $request->planTemplateName) {
+            @$query['PlanTemplateName'] = $request->planTemplateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateExperimentPlan',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Experiment Plan.
+     *
+     * @param request - UpdateExperimentPlanRequest
+     *
+     * @returns UpdateExperimentPlanResponse
+     *
+     * @param UpdateExperimentPlanRequest $request
+     *
+     * @return UpdateExperimentPlanResponse
+     */
+    public function updateExperimentPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateExperimentPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update Test Plan Template.
+     *
+     * @param tmpReq - UpdateExperimentPlanTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentPlanTemplateResponse
+     *
+     * @param UpdateExperimentPlanTemplateRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateExperimentPlanTemplateResponse
+     */
+    public function updateExperimentPlanTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateExperimentPlanTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templatePipeline) {
+            $request->templatePipelineShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templatePipeline, 'TemplatePipeline', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $body = [];
+        if (null !== $request->templatePipelineShrink) {
+            @$body['TemplatePipeline'] = $request->templatePipelineShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateExperimentPlanTemplate',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateExperimentPlanTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Test Plan Template.
+     *
+     * @param request - UpdateExperimentPlanTemplateRequest
+     *
+     * @returns UpdateExperimentPlanTemplateResponse
+     *
+     * @param UpdateExperimentPlanTemplateRequest $request
+     *
+     * @return UpdateExperimentPlanTemplateResponse
+     */
+    public function updateExperimentPlanTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateExperimentPlanTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Resource Connectivity Test.
+     *
+     * @param tmpReq - ValidateResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateResourceResponse
+     *
+     * @param ValidateResourceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ValidateResourceResponse
      */
     public function validateResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ValidateResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userAccessParam)) {
-            $request->userAccessParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userAccessParam, 'UserAccessParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userAccessParam) {
+            $request->userAccessParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userAccessParam, 'UserAccessParam', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->userAccessParamShrink)) {
-            $body['UserAccessParam'] = $request->userAccessParamShrink;
+        if (null !== $request->userAccessParamShrink) {
+            @$body['UserAccessParam'] = $request->userAccessParamShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ValidateResource',
-            'version'     => '2023-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValidateResource',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ValidateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resource Connectivity Test
-     *  *
-     * @param ValidateResourceRequest $request ValidateResourceRequest
+     * Resource Connectivity Test.
      *
-     * @return ValidateResourceResponse ValidateResourceResponse
+     * @param request - ValidateResourceRequest
+     *
+     * @returns ValidateResourceResponse
+     *
+     * @param ValidateResourceRequest $request
+     *
+     * @return ValidateResourceResponse
      */
     public function validateResource($request)
     {

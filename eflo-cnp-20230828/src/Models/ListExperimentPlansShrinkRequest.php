@@ -4,154 +4,183 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListExperimentPlansShrinkRequest extends Model
 {
     /**
-     * @description Creation Time Sorting Rule
-     *
-     * @example desc
-     *
      * @var string
      */
     public $creatTimeOrder;
 
     /**
-     * @description End Time Sorting Rule
-     *
-     * @example desc
-     *
      * @var string
      */
     public $endTimeOrder;
 
     /**
-     * @description Page Number
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description Execution Status
-     *
      * @var string
      */
     public $planTaskStatusShrink;
 
     /**
-     * @description Resource Group ID
-     *
-     * @example rg-aekzij65sf2rr5i
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description Resource
-     *
+     * @var int
+     */
+    public $resourceId;
+
+    /**
      * @var string
      */
     public $resourceNameShrink;
 
     /**
-     * @description Number of Items
-     *
-     * @example 100
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description Start Time Sorting Rule
-     *
-     * @example desc
-     *
      * @var string
      */
     public $startTimeOrder;
+
+    /**
+     * @var string
+     */
+    public $tagShrink;
+
+    /**
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
-        'creatTimeOrder'       => 'CreatTimeOrder',
-        'endTimeOrder'         => 'EndTimeOrder',
-        'page'                 => 'Page',
+        'creatTimeOrder' => 'CreatTimeOrder',
+        'endTimeOrder' => 'EndTimeOrder',
+        'page' => 'Page',
         'planTaskStatusShrink' => 'PlanTaskStatus',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceNameShrink'   => 'ResourceName',
-        'size'                 => 'Size',
-        'startTimeOrder'       => 'StartTimeOrder',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
+        'resourceNameShrink' => 'ResourceName',
+        'size' => 'Size',
+        'startTimeOrder' => 'StartTimeOrder',
+        'tagShrink' => 'Tag',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creatTimeOrder) {
             $res['CreatTimeOrder'] = $this->creatTimeOrder;
         }
+
         if (null !== $this->endTimeOrder) {
             $res['EndTimeOrder'] = $this->endTimeOrder;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->planTaskStatusShrink) {
             $res['PlanTaskStatus'] = $this->planTaskStatusShrink;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+
         if (null !== $this->resourceNameShrink) {
             $res['ResourceName'] = $this->resourceNameShrink;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->startTimeOrder) {
             $res['StartTimeOrder'] = $this->startTimeOrder;
+        }
+
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExperimentPlansShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatTimeOrder'])) {
             $model->creatTimeOrder = $map['CreatTimeOrder'];
         }
+
         if (isset($map['EndTimeOrder'])) {
             $model->endTimeOrder = $map['EndTimeOrder'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PlanTaskStatus'])) {
             $model->planTaskStatusShrink = $map['PlanTaskStatus'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+
         if (isset($map['ResourceName'])) {
             $model->resourceNameShrink = $map['ResourceName'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['StartTimeOrder'])) {
             $model->startTimeOrder = $map['StartTimeOrder'];
+        }
+
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

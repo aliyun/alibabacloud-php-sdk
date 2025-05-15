@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetExperimentPlanRequest extends Model
 {
     /**
-     * @description Plan ID
-     *
-     * @example 189
-     *
      * @var int
      */
     public $planId;
@@ -22,9 +18,10 @@ class GetExperimentPlanRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->planId) {
@@ -34,11 +31,11 @@ class GetExperimentPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExperimentPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

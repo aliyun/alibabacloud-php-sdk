@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourcePredictResultRequest extends Model
 {
     /**
-     * @example 36
-     *
      * @var int
      */
     public $resourceId;
 
     /**
-     * @example 315797
-     *
      * @var int
      */
     public $templateId;
@@ -28,14 +24,16 @@ class GetResourcePredictResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -43,17 +41,18 @@ class GetResourcePredictResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourcePredictResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

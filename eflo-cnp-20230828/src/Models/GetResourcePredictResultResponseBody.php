@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourcePredictResultResponseBody extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $data;
 
     /**
-     * @example 5514CB39-B7C0-5B89-8534-2DE1E0F2B7AB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'data'       => 'Data',
-        'requestId'  => 'RequestId',
+        'data' => 'Data',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -54,20 +51,22 @@ class GetResourcePredictResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourcePredictResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

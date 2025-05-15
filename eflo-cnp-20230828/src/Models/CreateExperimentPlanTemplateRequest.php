@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanTemplateRequest\templatePipeline;
-use AlibabaCloud\Tea\Model;
 
 class CreateExperimentPlanTemplateRequest extends Model
 {
     /**
-     * @example private
-     *
      * @var string
      */
     public $privacyLevel;
 
     /**
-     * @example The template installs jdk and tomcat on a new ECS instance.
-     *
      * @var string
      */
     public $templateDescription;
 
     /**
-     * @example 4724
-     *
      * @var int
      */
     public $templateId;
@@ -40,38 +34,46 @@ class CreateExperimentPlanTemplateRequest extends Model
      */
     public $templatePipeline;
     protected $_name = [
-        'privacyLevel'        => 'PrivacyLevel',
+        'privacyLevel' => 'PrivacyLevel',
         'templateDescription' => 'TemplateDescription',
-        'templateId'          => 'TemplateId',
-        'templateName'        => 'TemplateName',
-        'templatePipeline'    => 'TemplatePipeline',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'templatePipeline' => 'TemplatePipeline',
     ];
 
     public function validate()
     {
+        if (\is_array($this->templatePipeline)) {
+            Model::validateArray($this->templatePipeline);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privacyLevel) {
             $res['PrivacyLevel'] = $this->privacyLevel;
         }
+
         if (null !== $this->templateDescription) {
             $res['TemplateDescription'] = $this->templateDescription;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->templatePipeline) {
-            $res['TemplatePipeline'] = [];
-            if (null !== $this->templatePipeline && \is_array($this->templatePipeline)) {
-                $n = 0;
-                foreach ($this->templatePipeline as $item) {
-                    $res['TemplatePipeline'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templatePipeline)) {
+                $res['TemplatePipeline'] = [];
+                $n1 = 0;
+                foreach ($this->templatePipeline as $item1) {
+                    $res['TemplatePipeline'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -79,32 +81,36 @@ class CreateExperimentPlanTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentPlanTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivacyLevel'])) {
             $model->privacyLevel = $map['PrivacyLevel'];
         }
+
         if (isset($map['TemplateDescription'])) {
             $model->templateDescription = $map['TemplateDescription'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TemplatePipeline'])) {
             if (!empty($map['TemplatePipeline'])) {
                 $model->templatePipeline = [];
-                $n                       = 0;
-                foreach ($map['TemplatePipeline'] as $item) {
-                    $model->templatePipeline[$n++] = null !== $item ? templatePipeline::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TemplatePipeline'] as $item1) {
+                    $model->templatePipeline[$n1++] = templatePipeline::fromMap($item1);
                 }
             }
         }

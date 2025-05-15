@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExperimentPlanTemplateShrinkRequest extends Model
 {
     /**
-     * @example private
-     *
      * @var string
      */
     public $privacyLevel;
 
     /**
-     * @example The template installs jdk and tomcat on a new ECS instance.
-     *
      * @var string
      */
     public $templateDescription;
 
     /**
-     * @example 4724
-     *
      * @var int
      */
     public $templateId;
@@ -39,32 +33,37 @@ class CreateExperimentPlanTemplateShrinkRequest extends Model
      */
     public $templatePipelineShrink;
     protected $_name = [
-        'privacyLevel'           => 'PrivacyLevel',
-        'templateDescription'    => 'TemplateDescription',
-        'templateId'             => 'TemplateId',
-        'templateName'           => 'TemplateName',
+        'privacyLevel' => 'PrivacyLevel',
+        'templateDescription' => 'TemplateDescription',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
         'templatePipelineShrink' => 'TemplatePipeline',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privacyLevel) {
             $res['PrivacyLevel'] = $this->privacyLevel;
         }
+
         if (null !== $this->templateDescription) {
             $res['TemplateDescription'] = $this->templateDescription;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->templatePipelineShrink) {
             $res['TemplatePipeline'] = $this->templatePipelineShrink;
         }
@@ -72,26 +71,30 @@ class CreateExperimentPlanTemplateShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentPlanTemplateShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivacyLevel'])) {
             $model->privacyLevel = $map['PrivacyLevel'];
         }
+
         if (isset($map['TemplateDescription'])) {
             $model->templateDescription = $map['TemplateDescription'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TemplatePipeline'])) {
             $model->templatePipelineShrink = $map['TemplatePipeline'];
         }

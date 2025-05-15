@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteExperimentResponseBody extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @example []
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @example 5514CB39-B7C0-5B89-8534-2DE1E0F2B7AB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'data'               => 'Data',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'data' => 'Data',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,23 +61,26 @@ class DeleteExperimentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteExperimentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,62 +4,71 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListExperimentsRequest extends Model
 {
     /**
-     * @description Order
-     *
-     * @example 1
-     *
      * @var int
      */
     public $order;
 
     /**
-     * @description Plan ID
-     *
-     * @example 189
-     *
      * @var int
      */
     public $planId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'order'  => 'Order',
+        'order' => 'Order',
         'planId' => 'PlanId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExperimentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

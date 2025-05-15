@@ -4,68 +4,94 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanRequest\tag;
 
 class CreateExperimentPlanRequest extends Model
 {
     /**
-     * @description Additional parameters
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $externalParams;
 
     /**
-     * @description Resource group ID
-     *
-     * @example rg-aekzij65sf2rr5i
-     *
+     * @var string
+     */
+    public $planTemplateName;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description Resource ID
-     *
-     * @example 189
-     *
      * @var int
      */
     public $resourceId;
 
     /**
-     * @description Template ID
-     *
-     * @example 349623
-     *
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'externalParams'  => 'ExternalParams',
+        'externalParams' => 'ExternalParams',
+        'planTemplateName' => 'PlanTemplateName',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'templateId'      => 'TemplateId',
+        'resourceId' => 'ResourceId',
+        'tag' => 'Tag',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->externalParams)) {
+            Model::validateArray($this->externalParams);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->externalParams) {
-            $res['ExternalParams'] = $this->externalParams;
+            if (\is_array($this->externalParams)) {
+                $res['ExternalParams'] = [];
+                foreach ($this->externalParams as $key1 => $value1) {
+                    $res['ExternalParams'][$key1] = $value1;
+                }
+            }
         }
+
+        if (null !== $this->planTemplateName) {
+            $res['PlanTemplateName'] = $this->planTemplateName;
+        }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -73,23 +99,45 @@ class CreateExperimentPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalParams'])) {
-            $model->externalParams = $map['ExternalParams'];
+            if (!empty($map['ExternalParams'])) {
+                $model->externalParams = [];
+                foreach ($map['ExternalParams'] as $key1 => $value1) {
+                    $model->externalParams[$key1] = $value1;
+                }
+            }
         }
+
+        if (isset($map['PlanTemplateName'])) {
+            $model->planTemplateName = $map['PlanTemplateName'];
+        }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

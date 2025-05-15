@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody\data\resource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceNodes extends Model
 {
     /**
-     * @example InputCheck
-     *
      * @var string
      */
     public $nodeName;
@@ -20,9 +18,10 @@ class resourceNodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeName) {
@@ -32,11 +31,11 @@ class resourceNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

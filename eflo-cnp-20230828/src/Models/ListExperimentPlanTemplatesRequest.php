@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListExperimentPlanTemplatesRequest extends Model
 {
     /**
-     * @description The sharing level of the template, default is private, options are public and private.
-     *
-     * @example private
-     *
      * @var string
      */
     public $privacyLevel;
@@ -22,9 +18,10 @@ class ListExperimentPlanTemplatesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privacyLevel) {
@@ -34,11 +31,11 @@ class ListExperimentPlanTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExperimentPlanTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

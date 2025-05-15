@@ -4,25 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody\data\envParams;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody\data\resource;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody\data\results;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody\data\task;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\GetExperimentResponseBody\data\workload;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 2024-11-29 02:16:35
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 2024-11-29 02:26:35
-     *
      * @var string
      */
     public $endTime;
@@ -33,22 +29,16 @@ class data extends Model
     public $envParams;
 
     /**
-     * @example 1726882991828688898
-     *
      * @var int
      */
     public $experimentId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $experimentName;
 
     /**
-     * @example AI
-     *
      * @var string
      */
     public $experimentType;
@@ -64,8 +54,6 @@ class data extends Model
     public $resource;
 
     /**
-     * @example cifnews-guoyuan
-     *
      * @var string
      */
     public $resourceName;
@@ -81,15 +69,11 @@ class data extends Model
     public $setParams;
 
     /**
-     * @example 2024-11-29 02:16:35
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
@@ -100,8 +84,6 @@ class data extends Model
     public $task;
 
     /**
-     * @example 2024-11-29 02:16:35
-     *
      * @var int
      */
     public $updateTime;
@@ -112,86 +94,132 @@ class data extends Model
     public $workload;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'endTime'        => 'EndTime',
-        'envParams'      => 'EnvParams',
-        'experimentId'   => 'ExperimentId',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'envParams' => 'EnvParams',
+        'experimentId' => 'ExperimentId',
         'experimentName' => 'ExperimentName',
         'experimentType' => 'ExperimentType',
-        'getParams'      => 'GetParams',
-        'resource'       => 'Resource',
-        'resourceName'   => 'ResourceName',
-        'results'        => 'Results',
-        'setParams'      => 'SetParams',
-        'startTime'      => 'StartTime',
-        'status'         => 'Status',
-        'task'           => 'Task',
-        'updateTime'     => 'UpdateTime',
-        'workload'       => 'Workload',
-        'workloadName'   => 'WorkloadName',
+        'getParams' => 'GetParams',
+        'resource' => 'Resource',
+        'resourceName' => 'ResourceName',
+        'results' => 'Results',
+        'setParams' => 'SetParams',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'task' => 'Task',
+        'updateTime' => 'UpdateTime',
+        'workload' => 'Workload',
+        'workloadName' => 'WorkloadName',
     ];
 
     public function validate()
     {
+        if (null !== $this->envParams) {
+            $this->envParams->validate();
+        }
+        if (\is_array($this->getParams)) {
+            Model::validateArray($this->getParams);
+        }
+        if (null !== $this->resource) {
+            $this->resource->validate();
+        }
+        if (null !== $this->results) {
+            $this->results->validate();
+        }
+        if (\is_array($this->setParams)) {
+            Model::validateArray($this->setParams);
+        }
+        if (null !== $this->task) {
+            $this->task->validate();
+        }
+        if (null !== $this->workload) {
+            $this->workload->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->envParams) {
-            $res['EnvParams'] = null !== $this->envParams ? $this->envParams->toMap() : null;
+            $res['EnvParams'] = null !== $this->envParams ? $this->envParams->toArray($noStream) : $this->envParams;
         }
+
         if (null !== $this->experimentId) {
             $res['ExperimentId'] = $this->experimentId;
         }
+
         if (null !== $this->experimentName) {
             $res['ExperimentName'] = $this->experimentName;
         }
+
         if (null !== $this->experimentType) {
             $res['ExperimentType'] = $this->experimentType;
         }
+
         if (null !== $this->getParams) {
-            $res['GetParams'] = $this->getParams;
+            if (\is_array($this->getParams)) {
+                $res['GetParams'] = [];
+                foreach ($this->getParams as $key1 => $value1) {
+                    $res['GetParams'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->resource) {
-            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+            $res['Resource'] = null !== $this->resource ? $this->resource->toArray($noStream) : $this->resource;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
+            $res['Results'] = null !== $this->results ? $this->results->toArray($noStream) : $this->results;
         }
+
         if (null !== $this->setParams) {
-            $res['SetParams'] = $this->setParams;
+            if (\is_array($this->setParams)) {
+                $res['SetParams'] = [];
+                foreach ($this->setParams as $key1 => $value1) {
+                    $res['SetParams'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->task) {
-            $res['Task'] = null !== $this->task ? $this->task->toMap() : null;
+            $res['Task'] = null !== $this->task ? $this->task->toArray($noStream) : $this->task;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->workload) {
-            $res['Workload'] = null !== $this->workload ? $this->workload->toMap() : null;
+            $res['Workload'] = null !== $this->workload ? $this->workload->toArray($noStream) : $this->workload;
         }
+
         if (null !== $this->workloadName) {
             $res['WorkloadName'] = $this->workloadName;
         }
@@ -199,62 +227,88 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['EnvParams'])) {
             $model->envParams = envParams::fromMap($map['EnvParams']);
         }
+
         if (isset($map['ExperimentId'])) {
             $model->experimentId = $map['ExperimentId'];
         }
+
         if (isset($map['ExperimentName'])) {
             $model->experimentName = $map['ExperimentName'];
         }
+
         if (isset($map['ExperimentType'])) {
             $model->experimentType = $map['ExperimentType'];
         }
+
         if (isset($map['GetParams'])) {
-            $model->getParams = $map['GetParams'];
+            if (!empty($map['GetParams'])) {
+                $model->getParams = [];
+                foreach ($map['GetParams'] as $key1 => $value1) {
+                    $model->getParams[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
         if (isset($map['Results'])) {
             $model->results = results::fromMap($map['Results']);
         }
+
         if (isset($map['SetParams'])) {
-            $model->setParams = $map['SetParams'];
+            if (!empty($map['SetParams'])) {
+                $model->setParams = [];
+                foreach ($map['SetParams'] as $key1 => $value1) {
+                    $model->setParams[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Task'])) {
             $model->task = task::fromMap($map['Task']);
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['Workload'])) {
             $model->workload = workload::fromMap($map['Workload']);
         }
+
         if (isset($map['WorkloadName'])) {
             $model->workloadName = $map['WorkloadName'];
         }

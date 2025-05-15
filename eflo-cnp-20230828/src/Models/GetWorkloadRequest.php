@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocnp\V20230828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetWorkloadRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 13
-     *
      * @var int
      */
     public $workloadId;
@@ -22,9 +18,10 @@ class GetWorkloadRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workloadId) {
@@ -34,11 +31,11 @@ class GetWorkloadRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWorkloadRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
