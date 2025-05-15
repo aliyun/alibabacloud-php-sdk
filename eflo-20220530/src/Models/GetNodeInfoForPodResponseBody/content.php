@@ -57,6 +57,21 @@ class content extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var int
+     */
+    public $hdeniIpv6SipQuota;
+
+    /**
+     * @var int
+     */
+    public $hdeniSipQuota;
+
+    /**
+     * @var int
+     */
+    public $leniIpv6SipQuota;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'hdeniQuota' => 'HdeniQuota',
@@ -68,6 +83,9 @@ class content extends Model
         'vSwitches' => 'VSwitches',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
+        'hdeniIpv6SipQuota' => 'hdeniIpv6SipQuota',
+        'hdeniSipQuota' => 'hdeniSipQuota',
+        'leniIpv6SipQuota' => 'leniIpv6SipQuota',
     ];
 
     public function validate()
@@ -127,6 +145,18 @@ class content extends Model
             $res['ZoneId'] = $this->zoneId;
         }
 
+        if (null !== $this->hdeniIpv6SipQuota) {
+            $res['hdeniIpv6SipQuota'] = $this->hdeniIpv6SipQuota;
+        }
+
+        if (null !== $this->hdeniSipQuota) {
+            $res['hdeniSipQuota'] = $this->hdeniSipQuota;
+        }
+
+        if (null !== $this->leniIpv6SipQuota) {
+            $res['leniIpv6SipQuota'] = $this->leniIpv6SipQuota;
+        }
+
         return $res;
     }
 
@@ -182,6 +212,18 @@ class content extends Model
 
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+
+        if (isset($map['hdeniIpv6SipQuota'])) {
+            $model->hdeniIpv6SipQuota = $map['hdeniIpv6SipQuota'];
+        }
+
+        if (isset($map['hdeniSipQuota'])) {
+            $model->hdeniSipQuota = $map['hdeniSipQuota'];
+        }
+
+        if (isset($map['leniIpv6SipQuota'])) {
+            $model->leniIpv6SipQuota = $map['leniIpv6SipQuota'];
         }
 
         return $model;
