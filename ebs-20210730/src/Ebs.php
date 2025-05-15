@@ -3171,6 +3171,10 @@ class Ebs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
