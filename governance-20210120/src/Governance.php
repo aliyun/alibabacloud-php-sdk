@@ -128,11 +128,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchEnrollAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -204,11 +201,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -268,11 +262,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -374,11 +365,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnrollAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnrollAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnrollAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -442,11 +430,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -506,11 +491,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEnrolledAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEnrolledAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEnrolledAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,11 +568,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAccountFactoryBaselineItemsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -654,11 +633,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAccountFactoryBaselinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -722,11 +698,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEnrolledAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEnrolledAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEnrolledAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -768,6 +741,10 @@ class Governance extends OpenApiClient
             @$query['Language'] = $request->language;
         }
 
+        if (null !== $request->lensCode) {
+            @$query['LensCode'] = $request->lensCode;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -786,11 +763,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEvaluationMetadataResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -870,11 +844,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEvaluationMetricDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -920,6 +891,10 @@ class Governance extends OpenApiClient
             @$query['Filters'] = $request->filters;
         }
 
+        if (null !== $request->lensCode) {
+            @$query['LensCode'] = $request->lensCode;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -946,11 +921,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1018,11 +990,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEvaluationScoreHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1096,11 +1065,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1172,11 +1138,8 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

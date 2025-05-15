@@ -22,6 +22,11 @@ class ListEvaluationResultsRequest extends Model
     /**
      * @var string
      */
+    public $lensCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -36,6 +41,7 @@ class ListEvaluationResultsRequest extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'filters' => 'Filters',
+        'lensCode' => 'LensCode',
         'regionId' => 'RegionId',
         'scope' => 'Scope',
         'snapshotId' => 'SnapshotId',
@@ -64,6 +70,10 @@ class ListEvaluationResultsRequest extends Model
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->lensCode) {
+            $res['LensCode'] = $this->lensCode;
         }
 
         if (null !== $this->regionId) {
@@ -101,6 +111,10 @@ class ListEvaluationResultsRequest extends Model
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['LensCode'])) {
+            $model->lensCode = $map['LensCode'];
         }
 
         if (isset($map['RegionId'])) {

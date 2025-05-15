@@ -16,9 +16,15 @@ class ListEvaluationMetadataRequest extends Model
     /**
      * @var string
      */
+    public $lensCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'language' => 'Language',
+        'lensCode' => 'LensCode',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class ListEvaluationMetadataRequest extends Model
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->lensCode) {
+            $res['LensCode'] = $this->lensCode;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class ListEvaluationMetadataRequest extends Model
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['LensCode'])) {
+            $model->lensCode = $map['LensCode'];
         }
 
         if (isset($map['RegionId'])) {
