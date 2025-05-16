@@ -16,6 +16,16 @@ class patientLevelResult extends Model
     /**
      * @var float
      */
+    public $benignProb;
+
+    /**
+     * @var float
+     */
+    public $calcProb;
+
+    /**
+     * @var float
+     */
     public $cystProb;
 
     /**
@@ -27,11 +37,19 @@ class patientLevelResult extends Model
      * @var float
      */
     public $malignantNonHCCProb;
+
+    /**
+     * @var float
+     */
+    public $malignantProb;
     protected $_name = [
         'benignNonCystProb' => 'BenignNonCystProb',
+        'benignProb' => 'BenignProb',
+        'calcProb' => 'CalcProb',
         'cystProb' => 'CystProb',
         'HCCProb' => 'HCCProb',
         'malignantNonHCCProb' => 'MalignantNonHCCProb',
+        'malignantProb' => 'MalignantProb',
     ];
 
     public function validate()
@@ -46,6 +64,14 @@ class patientLevelResult extends Model
             $res['BenignNonCystProb'] = $this->benignNonCystProb;
         }
 
+        if (null !== $this->benignProb) {
+            $res['BenignProb'] = $this->benignProb;
+        }
+
+        if (null !== $this->calcProb) {
+            $res['CalcProb'] = $this->calcProb;
+        }
+
         if (null !== $this->cystProb) {
             $res['CystProb'] = $this->cystProb;
         }
@@ -56,6 +82,10 @@ class patientLevelResult extends Model
 
         if (null !== $this->malignantNonHCCProb) {
             $res['MalignantNonHCCProb'] = $this->malignantNonHCCProb;
+        }
+
+        if (null !== $this->malignantProb) {
+            $res['MalignantProb'] = $this->malignantProb;
         }
 
         return $res;
@@ -73,6 +103,14 @@ class patientLevelResult extends Model
             $model->benignNonCystProb = $map['BenignNonCystProb'];
         }
 
+        if (isset($map['BenignProb'])) {
+            $model->benignProb = $map['BenignProb'];
+        }
+
+        if (isset($map['CalcProb'])) {
+            $model->calcProb = $map['CalcProb'];
+        }
+
         if (isset($map['CystProb'])) {
             $model->cystProb = $map['CystProb'];
         }
@@ -83,6 +121,10 @@ class patientLevelResult extends Model
 
         if (isset($map['MalignantNonHCCProb'])) {
             $model->malignantNonHCCProb = $map['MalignantNonHCCProb'];
+        }
+
+        if (isset($map['MalignantProb'])) {
+            $model->malignantProb = $map['MalignantProb'];
         }
 
         return $model;

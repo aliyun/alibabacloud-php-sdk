@@ -26,6 +26,11 @@ class lesion extends Model
     public $mask;
 
     /**
+     * @var float
+     */
+    public $patientLevelProb;
+
+    /**
      * @var patientLevelResult
      */
     public $patientLevelResult;
@@ -33,6 +38,7 @@ class lesion extends Model
         'lesionList' => 'LesionList',
         'liverVolume' => 'LiverVolume',
         'mask' => 'Mask',
+        'patientLevelProb' => 'PatientLevelProb',
         'patientLevelResult' => 'PatientLevelResult',
     ];
 
@@ -68,6 +74,10 @@ class lesion extends Model
             $res['Mask'] = $this->mask;
         }
 
+        if (null !== $this->patientLevelProb) {
+            $res['PatientLevelProb'] = $this->patientLevelProb;
+        }
+
         if (null !== $this->patientLevelResult) {
             $res['PatientLevelResult'] = null !== $this->patientLevelResult ? $this->patientLevelResult->toArray($noStream) : $this->patientLevelResult;
         }
@@ -99,6 +109,10 @@ class lesion extends Model
 
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
+        }
+
+        if (isset($map['PatientLevelProb'])) {
+            $model->patientLevelProb = $map['PatientLevelProb'];
         }
 
         if (isset($map['PatientLevelResult'])) {

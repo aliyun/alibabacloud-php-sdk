@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenLCResponseBody\data\lesion;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenLCResponseBody\data\lesion\lesionList\scoreAllClassesProb;
 
 class lesionList extends Model
 {
@@ -29,6 +30,11 @@ class lesionList extends Model
     public $recistEndpoints;
 
     /**
+     * @var scoreAllClassesProb
+     */
+    public $scoreAllClassesProb;
+
+    /**
      * @var string
      */
     public $type;
@@ -42,6 +48,7 @@ class lesionList extends Model
         'keySlice' => 'KeySlice',
         'malignancy' => 'Malignancy',
         'recistEndpoints' => 'RecistEndpoints',
+        'scoreAllClassesProb' => 'ScoreAllClassesProb',
         'type' => 'Type',
         'volume' => 'Volume',
     ];
@@ -53,6 +60,9 @@ class lesionList extends Model
         }
         if (\is_array($this->recistEndpoints)) {
             Model::validateArray($this->recistEndpoints);
+        }
+        if (null !== $this->scoreAllClassesProb) {
+            $this->scoreAllClassesProb->validate();
         }
         parent::validate();
     }
@@ -86,6 +96,10 @@ class lesionList extends Model
                     $res['RecistEndpoints'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->scoreAllClassesProb) {
+            $res['ScoreAllClassesProb'] = null !== $this->scoreAllClassesProb ? $this->scoreAllClassesProb->toArray($noStream) : $this->scoreAllClassesProb;
         }
 
         if (null !== $this->type) {
@@ -133,6 +147,10 @@ class lesionList extends Model
                     $model->recistEndpoints[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['ScoreAllClassesProb'])) {
+            $model->scoreAllClassesProb = scoreAllClassesProb::fromMap($map['ScoreAllClassesProb']);
         }
 
         if (isset($map['Type'])) {

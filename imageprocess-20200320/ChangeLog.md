@@ -1,3 +1,16 @@
+2025-05-16 Version: 2.2.2
+- Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.PatientLevelProb.
+- Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.LesionList.$.ScoreAllClasses.
+- Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.PatientLevelResult.BenignProb.
+- Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.PatientLevelResult.CalcProb.
+- Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.PatientLevelResult.MalignantProb.
+- Update API ScreenLC: add response parameters Body.Data.Lesion.PatientLevelProb.
+- Update API ScreenLC: add response parameters Body.Data.Lesion.LesionList.$.ScoreAllClassesProb.
+- Update API ScreenLC: add response parameters Body.Data.Lesion.PatientLevelResult.BenignProb.
+- Update API ScreenLC: add response parameters Body.Data.Lesion.PatientLevelResult.CalcProb.
+- Update API ScreenLC: add response parameters Body.Data.Lesion.PatientLevelResult.MalignantProb.
+
+
 2025-03-25 Version: 2.2.1
 - Update API PredictCVD: add response parameters Body.Data.Lesion.ImagesURL.
 - Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.AortaMaxDiam.

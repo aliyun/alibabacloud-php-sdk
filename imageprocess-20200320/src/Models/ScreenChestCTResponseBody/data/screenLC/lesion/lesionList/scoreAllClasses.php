@@ -2,53 +2,35 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenLC\lesion;
+namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenLC\lesion\lesionList;
 
 use AlibabaCloud\Dara\Model;
 
-class patientLevelResult extends Model
+class scoreAllClasses extends Model
 {
     /**
-     * @var string
-     */
-    public $benignNonCystProb;
-
-    /**
-     * @var string
+     * @var float
      */
     public $benignProb;
 
     /**
-     * @var string
+     * @var float
      */
     public $calcProb;
 
     /**
-     * @var string
+     * @var float
      */
     public $cystProb;
 
     /**
-     * @var string
-     */
-    public $HCCProb;
-
-    /**
-     * @var string
-     */
-    public $malignantNonHCCProb;
-
-    /**
-     * @var string
+     * @var float
      */
     public $malignantProb;
     protected $_name = [
-        'benignNonCystProb' => 'BenignNonCystProb',
         'benignProb' => 'BenignProb',
         'calcProb' => 'CalcProb',
         'cystProb' => 'CystProb',
-        'HCCProb' => 'HCCProb',
-        'malignantNonHCCProb' => 'MalignantNonHCCProb',
         'malignantProb' => 'MalignantProb',
     ];
 
@@ -60,10 +42,6 @@ class patientLevelResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->benignNonCystProb) {
-            $res['BenignNonCystProb'] = $this->benignNonCystProb;
-        }
-
         if (null !== $this->benignProb) {
             $res['BenignProb'] = $this->benignProb;
         }
@@ -74,14 +52,6 @@ class patientLevelResult extends Model
 
         if (null !== $this->cystProb) {
             $res['CystProb'] = $this->cystProb;
-        }
-
-        if (null !== $this->HCCProb) {
-            $res['HCCProb'] = $this->HCCProb;
-        }
-
-        if (null !== $this->malignantNonHCCProb) {
-            $res['MalignantNonHCCProb'] = $this->malignantNonHCCProb;
         }
 
         if (null !== $this->malignantProb) {
@@ -99,10 +69,6 @@ class patientLevelResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BenignNonCystProb'])) {
-            $model->benignNonCystProb = $map['BenignNonCystProb'];
-        }
-
         if (isset($map['BenignProb'])) {
             $model->benignProb = $map['BenignProb'];
         }
@@ -113,14 +79,6 @@ class patientLevelResult extends Model
 
         if (isset($map['CystProb'])) {
             $model->cystProb = $map['CystProb'];
-        }
-
-        if (isset($map['HCCProb'])) {
-            $model->HCCProb = $map['HCCProb'];
-        }
-
-        if (isset($map['MalignantNonHCCProb'])) {
-            $model->malignantNonHCCProb = $map['MalignantNonHCCProb'];
         }
 
         if (isset($map['MalignantProb'])) {
