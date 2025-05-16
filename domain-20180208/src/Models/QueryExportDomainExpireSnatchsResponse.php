@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryAuctionsResponse extends Model
+class QueryExportDomainExpireSnatchsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class QueryAuctionsResponse extends Model
     public $statusCode;
 
     /**
-     * @var QueryAuctionsResponseBody
+     * @var QueryExportDomainExpireSnatchsResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class QueryAuctionsResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = QueryAuctionsResponseBody::fromMap($map['body']);
+            $model->body = QueryExportDomainExpireSnatchsResponseBody::fromMap($map['body']);
         }
 
         return $model;

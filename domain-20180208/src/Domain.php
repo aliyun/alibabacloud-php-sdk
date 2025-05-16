@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptDemandResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BidDomainRequest;
@@ -44,6 +43,8 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RecordDemandRequest;
@@ -62,11 +63,10 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Domain extends OpenApiClient
 {
@@ -91,54 +91,66 @@ class Domain extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AcceptDemandRequest $request AcceptDemandRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - AcceptDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AcceptDemandResponse AcceptDemandResponse
+     * @returns AcceptDemandResponse
+     *
+     * @param AcceptDemandRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AcceptDemandResponse
      */
     public function acceptDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AcceptDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AcceptDemandRequest $request AcceptDemandRequest
+     * @param request - AcceptDemandRequest
      *
-     * @return AcceptDemandResponse AcceptDemandResponse
+     * @returns AcceptDemandResponse
+     *
+     * @param AcceptDemandRequest $request
+     *
+     * @return AcceptDemandResponse
      */
     public function acceptDemand($request)
     {
@@ -148,46 +160,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param BidDomainRequest $request BidDomainRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - BidDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return BidDomainResponse BidDomainResponse
+     * @returns BidDomainResponse
+     *
+     * @param BidDomainRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return BidDomainResponse
      */
     public function bidDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auctionId)) {
-            $body['AuctionId'] = $request->auctionId;
+        if (null !== $request->auctionId) {
+            @$body['AuctionId'] = $request->auctionId;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $body['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->maxBid)) {
-            $body['MaxBid'] = $request->maxBid;
+
+        if (null !== $request->maxBid) {
+            @$body['MaxBid'] = $request->maxBid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BidDomain',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BidDomain',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BidDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param BidDomainRequest $request BidDomainRequest
+     * @param request - BidDomainRequest
      *
-     * @return BidDomainResponse BidDomainResponse
+     * @returns BidDomainResponse
+     *
+     * @param BidDomainRequest $request
+     *
+     * @return BidDomainResponse
      */
     public function bidDomain($request)
     {
@@ -197,40 +221,50 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ChangeAuctionRequest $request ChangeAuctionRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeAuctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeAuctionResponse ChangeAuctionResponse
+     * @returns ChangeAuctionResponse
+     *
+     * @param ChangeAuctionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ChangeAuctionResponse
      */
     public function changeAuctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auctionList)) {
-            $body['AuctionList'] = $request->auctionList;
+        if (null !== $request->auctionList) {
+            @$body['AuctionList'] = $request->auctionList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeAuction',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeAuction',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeAuctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeAuctionRequest $request ChangeAuctionRequest
+     * @param request - ChangeAuctionRequest
      *
-     * @return ChangeAuctionResponse ChangeAuctionResponse
+     * @returns ChangeAuctionResponse
+     *
+     * @param ChangeAuctionRequest $request
+     *
+     * @return ChangeAuctionResponse
      */
     public function changeAuction($request)
     {
@@ -240,41 +274,50 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 校验域名在售状态
-     *  *
-     * @param CheckDomainStatusRequest $request CheckDomainStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 校验域名在售状态
      *
-     * @return CheckDomainStatusResponse CheckDomainStatusResponse
+     * @param request - CheckDomainStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDomainStatusResponse
+     *
+     * @param CheckDomainStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckDomainStatusResponse
      */
     public function checkDomainStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDomainStatus',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDomainStatus',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckDomainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验域名在售状态
-     *  *
-     * @param CheckDomainStatusRequest $request CheckDomainStatusRequest
+     * 校验域名在售状态
      *
-     * @return CheckDomainStatusResponse CheckDomainStatusResponse
+     * @param request - CheckDomainStatusRequest
+     *
+     * @returns CheckDomainStatusResponse
+     *
+     * @param CheckDomainStatusRequest $request
+     *
+     * @return CheckDomainStatusResponse
      */
     public function checkDomainStatus($request)
     {
@@ -284,44 +327,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 一口价严选询价接口
-     *  *
-     * @param CheckSelectedDomainStatusRequest $request CheckSelectedDomainStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 一口价严选询价接口.
      *
-     * @return CheckSelectedDomainStatusResponse CheckSelectedDomainStatusResponse
+     * @param request - CheckSelectedDomainStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSelectedDomainStatusResponse
+     *
+     * @param CheckSelectedDomainStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CheckSelectedDomainStatusResponse
      */
     public function checkSelectedDomainStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckSelectedDomainStatus',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckSelectedDomainStatus',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckSelectedDomainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 一口价严选询价接口
-     *  *
-     * @param CheckSelectedDomainStatusRequest $request CheckSelectedDomainStatusRequest
+     * 一口价严选询价接口.
      *
-     * @return CheckSelectedDomainStatusResponse CheckSelectedDomainStatusResponse
+     * @param request - CheckSelectedDomainStatusRequest
+     *
+     * @returns CheckSelectedDomainStatusResponse
+     *
+     * @param CheckSelectedDomainStatusRequest $request
+     *
+     * @return CheckSelectedDomainStatusResponse
      */
     public function checkSelectedDomainStatus($request)
     {
@@ -331,53 +384,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 创建一口价需求单
-     *  *
-     * @param CreateFixedPriceDemandOrderRequest $request CreateFixedPriceDemandOrderRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 创建一口价需求单.
      *
-     * @return CreateFixedPriceDemandOrderResponse CreateFixedPriceDemandOrderResponse
+     * @param request - CreateFixedPriceDemandOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFixedPriceDemandOrderResponse
+     *
+     * @param CreateFixedPriceDemandOrderRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateFixedPriceDemandOrderResponse
      */
     public function createFixedPriceDemandOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFixedPriceDemandOrder',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFixedPriceDemandOrder',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFixedPriceDemandOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一口价需求单
-     *  *
-     * @param CreateFixedPriceDemandOrderRequest $request CreateFixedPriceDemandOrderRequest
+     * 创建一口价需求单.
      *
-     * @return CreateFixedPriceDemandOrderResponse CreateFixedPriceDemandOrderResponse
+     * @param request - CreateFixedPriceDemandOrderRequest
+     *
+     * @returns CreateFixedPriceDemandOrderResponse
+     *
+     * @param CreateFixedPriceDemandOrderRequest $request
+     *
+     * @return CreateFixedPriceDemandOrderResponse
      */
     public function createFixedPriceDemandOrder($request)
     {
@@ -387,56 +453,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
-     *  *
-     * @param CreateFixedPriceSelectedOrderRequest $request CreateFixedPriceSelectedOrderRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 一口价严选下单购买接口，阿里云账户余额直接扣费.
      *
-     * @return CreateFixedPriceSelectedOrderResponse CreateFixedPriceSelectedOrderResponse
+     * @param request - CreateFixedPriceSelectedOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFixedPriceSelectedOrderResponse
+     *
+     * @param CreateFixedPriceSelectedOrderRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateFixedPriceSelectedOrderResponse
      */
     public function createFixedPriceSelectedOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->expectedPrice)) {
-            $query['ExpectedPrice'] = $request->expectedPrice;
+
+        if (null !== $request->expectedPrice) {
+            @$query['ExpectedPrice'] = $request->expectedPrice;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFixedPriceSelectedOrder',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFixedPriceSelectedOrder',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFixedPriceSelectedOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 一口价严选下单购买接口，阿里云账户余额直接扣费
-     *  *
-     * @param CreateFixedPriceSelectedOrderRequest $request CreateFixedPriceSelectedOrderRequest
+     * 一口价严选下单购买接口，阿里云账户余额直接扣费.
      *
-     * @return CreateFixedPriceSelectedOrderResponse CreateFixedPriceSelectedOrderResponse
+     * @param request - CreateFixedPriceSelectedOrderRequest
+     *
+     * @returns CreateFixedPriceSelectedOrderResponse
+     *
+     * @param CreateFixedPriceSelectedOrderRequest $request
+     *
+     * @return CreateFixedPriceSelectedOrderResponse
      */
     public function createFixedPriceSelectedOrder($request)
     {
@@ -446,43 +526,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FailDemandRequest $request FailDemandRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - FailDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return FailDemandResponse FailDemandResponse
+     * @returns FailDemandResponse
+     *
+     * @param FailDemandRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return FailDemandResponse
      */
     public function failDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FailDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FailDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FailDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param FailDemandRequest $request FailDemandRequest
+     * @param request - FailDemandRequest
      *
-     * @return FailDemandResponse FailDemandResponse
+     * @returns FailDemandResponse
+     *
+     * @param FailDemandRequest $request
+     *
+     * @return FailDemandResponse
      */
     public function failDemand($request)
     {
@@ -492,43 +583,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param FinishDemandRequest $request FinishDemandRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - FinishDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return FinishDemandResponse FinishDemandResponse
+     * @returns FinishDemandResponse
+     *
+     * @param FinishDemandRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return FinishDemandResponse
      */
     public function finishDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FinishDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FinishDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FinishDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param FinishDemandRequest $request FinishDemandRequest
+     * @param request - FinishDemandRequest
      *
-     * @return FinishDemandResponse FinishDemandResponse
+     * @returns FinishDemandResponse
+     *
+     * @param FinishDemandRequest $request
+     *
+     * @return FinishDemandResponse
      */
     public function finishDemand($request)
     {
@@ -538,30 +640,37 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - GetIntlDomainDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetIntlDomainDownloadUrlResponse GetIntlDomainDownloadUrlResponse
+     * @returns GetIntlDomainDownloadUrlResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetIntlDomainDownloadUrlResponse
      */
     public function getIntlDomainDownloadUrlWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetIntlDomainDownloadUrl',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIntlDomainDownloadUrl',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetIntlDomainDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return GetIntlDomainDownloadUrlResponse GetIntlDomainDownloadUrlResponse
+     * @returns GetIntlDomainDownloadUrlResponse
+     *
+     * @return GetIntlDomainDownloadUrlResponse
      */
     public function getIntlDomainDownloadUrl()
     {
@@ -571,30 +680,37 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - GetReserveDomainUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetReserveDomainUrlResponse GetReserveDomainUrlResponse
+     * @returns GetReserveDomainUrlResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetReserveDomainUrlResponse
      */
     public function getReserveDomainUrlWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetReserveDomainUrl',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetReserveDomainUrl',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetReserveDomainUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return GetReserveDomainUrlResponse GetReserveDomainUrlResponse
+     * @returns GetReserveDomainUrlResponse
+     *
+     * @return GetReserveDomainUrlResponse
      */
     public function getReserveDomainUrl()
     {
@@ -604,50 +720,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 购买国际站预释放域名
-     *  *
-     * @param PurchaseIntlDomainRequest $request PurchaseIntlDomainRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 购买国际站预释放域名.
      *
-     * @return PurchaseIntlDomainResponse PurchaseIntlDomainResponse
+     * @param request - PurchaseIntlDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PurchaseIntlDomainResponse
+     *
+     * @param PurchaseIntlDomainRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PurchaseIntlDomainResponse
      */
     public function purchaseIntlDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auctionId)) {
-            $body['AuctionId'] = $request->auctionId;
+        if (null !== $request->auctionId) {
+            @$body['AuctionId'] = $request->auctionId;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $body['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->price)) {
-            $body['Price'] = $request->price;
+
+        if (null !== $request->price) {
+            @$body['Price'] = $request->price;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PurchaseIntlDomain',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PurchaseIntlDomain',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PurchaseIntlDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 购买国际站预释放域名
-     *  *
-     * @param PurchaseIntlDomainRequest $request PurchaseIntlDomainRequest
+     * 购买国际站预释放域名.
      *
-     * @return PurchaseIntlDomainResponse PurchaseIntlDomainResponse
+     * @param request - PurchaseIntlDomainRequest
+     *
+     * @returns PurchaseIntlDomainResponse
+     *
+     * @param PurchaseIntlDomainRequest $request
+     *
+     * @return PurchaseIntlDomainResponse
      */
     public function purchaseIntlDomain($request)
     {
@@ -657,40 +785,50 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAuctionDetailRequest $request QueryAuctionDetailRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryAuctionDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryAuctionDetailResponse QueryAuctionDetailResponse
+     * @returns QueryAuctionDetailResponse
+     *
+     * @param QueryAuctionDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryAuctionDetailResponse
      */
     public function queryAuctionDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auctionId)) {
-            $body['AuctionId'] = $request->auctionId;
+        if (null !== $request->auctionId) {
+            @$body['AuctionId'] = $request->auctionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryAuctionDetail',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAuctionDetail',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAuctionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryAuctionDetailRequest $request QueryAuctionDetailRequest
+     * @param request - QueryAuctionDetailRequest
      *
-     * @return QueryAuctionDetailResponse QueryAuctionDetailResponse
+     * @returns QueryAuctionDetailResponse
+     *
+     * @param QueryAuctionDetailRequest $request
+     *
+     * @return QueryAuctionDetailResponse
      */
     public function queryAuctionDetail($request)
     {
@@ -700,52 +838,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryAuctionsRequest $request QueryAuctionsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryAuctionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryAuctionsResponse QueryAuctionsResponse
+     * @returns QueryAuctionsResponse
+     *
+     * @param QueryAuctionsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryAuctionsResponse
      */
     public function queryAuctionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auctionEndTimeOrder)) {
-            $body['AuctionEndTimeOrder'] = $request->auctionEndTimeOrder;
+        if (null !== $request->auctionEndTimeOrder) {
+            @$body['AuctionEndTimeOrder'] = $request->auctionEndTimeOrder;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->statuses)) {
-            $body['Statuses'] = $request->statuses;
+
+        if (null !== $request->statuses) {
+            @$body['Statuses'] = $request->statuses;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryAuctions',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAuctions',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAuctionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryAuctionsRequest $request QueryAuctionsRequest
+     * @param request - QueryAuctionsRequest
      *
-     * @return QueryAuctionsResponse QueryAuctionsResponse
+     * @returns QueryAuctionsResponse
+     *
+     * @param QueryAuctionsRequest $request
+     *
+     * @return QueryAuctionsResponse
      */
     public function queryAuctions($request)
     {
@@ -755,46 +907,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBidRecordsRequest $request QueryBidRecordsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryBidRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryBidRecordsResponse QueryBidRecordsResponse
+     * @returns QueryBidRecordsResponse
+     *
+     * @param QueryBidRecordsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryBidRecordsResponse
      */
     public function queryBidRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->auctionId)) {
-            $body['AuctionId'] = $request->auctionId;
+        if (null !== $request->auctionId) {
+            @$body['AuctionId'] = $request->auctionId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryBidRecords',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBidRecords',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBidRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryBidRecordsRequest $request QueryBidRecordsRequest
+     * @param request - QueryBidRecordsRequest
      *
-     * @return QueryBidRecordsResponse QueryBidRecordsResponse
+     * @returns QueryBidRecordsResponse
+     *
+     * @param QueryBidRecordsRequest $request
+     *
+     * @return QueryBidRecordsResponse
      */
     public function queryBidRecords($request)
     {
@@ -804,40 +968,50 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBookingDomainInfoRequest $request QueryBookingDomainInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryBookingDomainInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryBookingDomainInfoResponse QueryBookingDomainInfoResponse
+     * @returns QueryBookingDomainInfoResponse
+     *
+     * @param QueryBookingDomainInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryBookingDomainInfoResponse
      */
     public function queryBookingDomainInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryBookingDomainInfo',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBookingDomainInfo',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBookingDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryBookingDomainInfoRequest $request QueryBookingDomainInfoRequest
+     * @param request - QueryBookingDomainInfoRequest
      *
-     * @return QueryBookingDomainInfoResponse QueryBookingDomainInfoResponse
+     * @returns QueryBookingDomainInfoResponse
+     *
+     * @param QueryBookingDomainInfoRequest $request
+     *
+     * @return QueryBookingDomainInfoResponse
      */
     public function queryBookingDomainInfo($request)
     {
@@ -847,53 +1021,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 查询回购订单列表
-     *  *
-     * @param QueryBrokerDemandRequest $request QueryBrokerDemandRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询回购订单列表.
      *
-     * @return QueryBrokerDemandResponse QueryBrokerDemandResponse
+     * @param request - QueryBrokerDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBrokerDemandResponse
+     *
+     * @param QueryBrokerDemandRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryBrokerDemandResponse
      */
     public function queryBrokerDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryBrokerDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBrokerDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBrokerDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询回购订单列表
-     *  *
-     * @param QueryBrokerDemandRequest $request QueryBrokerDemandRequest
+     * 查询回购订单列表.
      *
-     * @return QueryBrokerDemandResponse QueryBrokerDemandResponse
+     * @param request - QueryBrokerDemandRequest
+     *
+     * @returns QueryBrokerDemandResponse
+     *
+     * @param QueryBrokerDemandRequest $request
+     *
+     * @return QueryBrokerDemandResponse
      */
     public function queryBrokerDemand($request)
     {
@@ -903,46 +1090,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryBrokerDemandRecordRequest $request QueryBrokerDemandRecordRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryBrokerDemandRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryBrokerDemandRecordResponse QueryBrokerDemandRecordResponse
+     * @returns QueryBrokerDemandRecordResponse
+     *
+     * @param QueryBrokerDemandRecordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryBrokerDemandRecordResponse
      */
     public function queryBrokerDemandRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryBrokerDemandRecord',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBrokerDemandRecord',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBrokerDemandRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryBrokerDemandRecordRequest $request QueryBrokerDemandRecordRequest
+     * @param request - QueryBrokerDemandRecordRequest
      *
-     * @return QueryBrokerDemandRecordResponse QueryBrokerDemandRecordResponse
+     * @returns QueryBrokerDemandRecordResponse
+     *
+     * @param QueryBrokerDemandRecordRequest $request
+     *
+     * @return QueryBrokerDemandRecordResponse
      */
     public function queryBrokerDemandRecord($request)
     {
@@ -952,40 +1151,50 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainTransferStatusRequest $request QueryDomainTransferStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDomainTransferStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainTransferStatusResponse QueryDomainTransferStatusResponse
+     * @returns QueryDomainTransferStatusResponse
+     *
+     * @param QueryDomainTransferStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryDomainTransferStatusResponse
      */
     public function queryDomainTransferStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainTransferStatus',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainTransferStatus',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainTransferStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDomainTransferStatusRequest $request QueryDomainTransferStatusRequest
+     * @param request - QueryDomainTransferStatusRequest
      *
-     * @return QueryDomainTransferStatusResponse QueryDomainTransferStatusResponse
+     * @returns QueryDomainTransferStatusResponse
+     *
+     * @param QueryDomainTransferStatusRequest $request
+     *
+     * @return QueryDomainTransferStatusResponse
      */
     public function queryDomainTransferStatus($request)
     {
@@ -995,47 +1204,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 查询汇率
-     *  *
-     * @param QueryExchangeRateRequest $request QueryExchangeRateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询汇率.
      *
-     * @return QueryExchangeRateResponse QueryExchangeRateResponse
+     * @param request - QueryExchangeRateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryExchangeRateResponse
+     *
+     * @param QueryExchangeRateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryExchangeRateResponse
      */
     public function queryExchangeRateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fromCurrency)) {
-            $query['FromCurrency'] = $request->fromCurrency;
+        if (null !== $request->fromCurrency) {
+            @$query['FromCurrency'] = $request->fromCurrency;
         }
-        if (!Utils::isUnset($request->toCurrency)) {
-            $query['ToCurrency'] = $request->toCurrency;
+
+        if (null !== $request->toCurrency) {
+            @$query['ToCurrency'] = $request->toCurrency;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryExchangeRate',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryExchangeRate',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryExchangeRateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询汇率
-     *  *
-     * @param QueryExchangeRateRequest $request QueryExchangeRateRequest
+     * 查询汇率.
      *
-     * @return QueryExchangeRateResponse QueryExchangeRateResponse
+     * @param request - QueryExchangeRateRequest
+     *
+     * @returns QueryExchangeRateResponse
+     *
+     * @param QueryExchangeRateRequest $request
+     *
+     * @return QueryExchangeRateResponse
      */
     public function queryExchangeRate($request)
     {
@@ -1045,64 +1265,151 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryPurchasedDomainsRequest $request QueryPurchasedDomainsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询导出的抢注域名.
      *
-     * @return QueryPurchasedDomainsResponse QueryPurchasedDomainsResponse
+     * @param request - QueryExportDomainExpireSnatchsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryExportDomainExpireSnatchsResponse
+     *
+     * @param QueryExportDomainExpireSnatchsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryExportDomainExpireSnatchsResponse
+     */
+    public function queryExportDomainExpireSnatchsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentId) {
+            @$query['CurrentId'] = $request->currentId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryExportDomainExpireSnatchs',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryExportDomainExpireSnatchsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询导出的抢注域名.
+     *
+     * @param request - QueryExportDomainExpireSnatchsRequest
+     *
+     * @returns QueryExportDomainExpireSnatchsResponse
+     *
+     * @param QueryExportDomainExpireSnatchsRequest $request
+     *
+     * @return QueryExportDomainExpireSnatchsResponse
+     */
+    public function queryExportDomainExpireSnatchs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryExportDomainExpireSnatchsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - QueryPurchasedDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPurchasedDomainsResponse
+     *
+     * @param QueryPurchasedDomainsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryPurchasedDomainsResponse
      */
     public function queryPurchasedDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endOperationTime)) {
-            $body['EndOperationTime'] = $request->endOperationTime;
+
+        if (null !== $request->endOperationTime) {
+            @$body['EndOperationTime'] = $request->endOperationTime;
         }
-        if (!Utils::isUnset($request->opTimeOrder)) {
-            $body['OpTimeOrder'] = $request->opTimeOrder;
+
+        if (null !== $request->opTimeOrder) {
+            @$body['OpTimeOrder'] = $request->opTimeOrder;
         }
-        if (!Utils::isUnset($request->operationStatus)) {
-            $body['OperationStatus'] = $request->operationStatus;
+
+        if (null !== $request->operationStatus) {
+            @$body['OperationStatus'] = $request->operationStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->startOperationTime)) {
-            $body['StartOperationTime'] = $request->startOperationTime;
+
+        if (null !== $request->startOperationTime) {
+            @$body['StartOperationTime'] = $request->startOperationTime;
         }
-        if (!Utils::isUnset($request->updateTimeOrder)) {
-            $body['UpdateTimeOrder'] = $request->updateTimeOrder;
+
+        if (null !== $request->updateTimeOrder) {
+            @$body['UpdateTimeOrder'] = $request->updateTimeOrder;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryPurchasedDomains',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPurchasedDomains',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPurchasedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryPurchasedDomainsRequest $request QueryPurchasedDomainsRequest
+     * @param request - QueryPurchasedDomainsRequest
      *
-     * @return QueryPurchasedDomainsResponse QueryPurchasedDomainsResponse
+     * @returns QueryPurchasedDomainsResponse
+     *
+     * @param QueryPurchasedDomainsRequest $request
+     *
+     * @return QueryPurchasedDomainsResponse
      */
     public function queryPurchasedDomains($request)
     {
@@ -1112,43 +1419,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RecordDemandRequest $request RecordDemandRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - RecordDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RecordDemandResponse RecordDemandResponse
+     * @returns RecordDemandResponse
+     *
+     * @param RecordDemandRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RecordDemandResponse
      */
     public function recordDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecordDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecordDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecordDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RecordDemandRequest $request RecordDemandRequest
+     * @param request - RecordDemandRequest
      *
-     * @return RecordDemandResponse RecordDemandResponse
+     * @returns RecordDemandResponse
+     *
+     * @param RecordDemandRequest $request
+     *
+     * @return RecordDemandResponse
      */
     public function recordDemand($request)
     {
@@ -1158,43 +1476,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RefuseDemandRequest $request RefuseDemandRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - RefuseDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RefuseDemandResponse RefuseDemandResponse
+     * @returns RefuseDemandResponse
+     *
+     * @param RefuseDemandRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RefuseDemandResponse
      */
     public function refuseDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefuseDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefuseDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefuseDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RefuseDemandRequest $request RefuseDemandRequest
+     * @param request - RefuseDemandRequest
      *
-     * @return RefuseDemandResponse RefuseDemandResponse
+     * @returns RefuseDemandResponse
+     *
+     * @param RefuseDemandRequest $request
+     *
+     * @return RefuseDemandResponse
      */
     public function refuseDemand($request)
     {
@@ -1204,52 +1533,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param RequestPayDemandRequest $request RequestPayDemandRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - RequestPayDemandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RequestPayDemandResponse RequestPayDemandResponse
+     * @returns RequestPayDemandResponse
+     *
+     * @param RequestPayDemandRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RequestPayDemandResponse
      */
     public function requestPayDemandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->price)) {
-            $query['Price'] = $request->price;
+
+        if (null !== $request->price) {
+            @$query['Price'] = $request->price;
         }
-        if (!Utils::isUnset($request->produceType)) {
-            $query['ProduceType'] = $request->produceType;
+
+        if (null !== $request->produceType) {
+            @$query['ProduceType'] = $request->produceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RequestPayDemand',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RequestPayDemand',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RequestPayDemandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RequestPayDemandRequest $request RequestPayDemandRequest
+     * @param request - RequestPayDemandRequest
      *
-     * @return RequestPayDemandResponse RequestPayDemandResponse
+     * @returns RequestPayDemandResponse
+     *
+     * @param RequestPayDemandRequest $request
+     *
+     * @return RequestPayDemandResponse
      */
     public function requestPayDemand($request)
     {
@@ -1259,43 +1602,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ReserveDomainRequest $request ReserveDomainRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ReserveDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReserveDomainResponse ReserveDomainResponse
+     * @returns ReserveDomainResponse
+     *
+     * @param ReserveDomainRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ReserveDomainResponse
      */
     public function reserveDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->channels)) {
-            $body['Channels'] = $request->channels;
+        if (null !== $request->channels) {
+            @$body['Channels'] = $request->channels;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReserveDomain',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReserveDomain',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReserveDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ReserveDomainRequest $request ReserveDomainRequest
+     * @param request - ReserveDomainRequest
      *
-     * @return ReserveDomainResponse ReserveDomainResponse
+     * @returns ReserveDomainResponse
+     *
+     * @param ReserveDomainRequest $request
+     *
+     * @return ReserveDomainResponse
      */
     public function reserveDomain($request)
     {
@@ -1305,40 +1659,50 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ReserveIntlDomainRequest $request ReserveIntlDomainRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ReserveIntlDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReserveIntlDomainResponse ReserveIntlDomainResponse
+     * @returns ReserveIntlDomainResponse
+     *
+     * @param ReserveIntlDomainRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReserveIntlDomainResponse
      */
     public function reserveIntlDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReserveIntlDomain',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReserveIntlDomain',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReserveIntlDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ReserveIntlDomainRequest $request ReserveIntlDomainRequest
+     * @param request - ReserveIntlDomainRequest
      *
-     * @return ReserveIntlDomainResponse ReserveIntlDomainResponse
+     * @returns ReserveIntlDomainResponse
+     *
+     * @param ReserveIntlDomainRequest $request
+     *
+     * @return ReserveIntlDomainResponse
      */
     public function reserveIntlDomain($request)
     {
@@ -1348,44 +1712,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
-     *  *
-     * @param SelectedDomainListRequest $request SelectedDomainListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名.
      *
-     * @return SelectedDomainListResponse SelectedDomainListResponse
+     * @param request - SelectedDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SelectedDomainListResponse
+     *
+     * @param SelectedDomainListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SelectedDomainListResponse
      */
     public function selectedDomainListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listDate)) {
-            $query['ListDate'] = $request->listDate;
+        if (null !== $request->listDate) {
+            @$query['ListDate'] = $request->listDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SelectedDomainList',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SelectedDomainList',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SelectedDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名
-     *  *
-     * @param SelectedDomainListRequest $request SelectedDomainListRequest
+     * 严选列表导出，明日凌晨2点前生成文件，导出凌晨1点前所有在售严选域名.
      *
-     * @return SelectedDomainListResponse SelectedDomainListResponse
+     * @param request - SelectedDomainListRequest
+     *
+     * @returns SelectedDomainListResponse
+     *
+     * @param SelectedDomainListRequest $request
+     *
+     * @return SelectedDomainListResponse
      */
     public function selectedDomainList($request)
     {
@@ -1395,53 +1769,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 提交采购信息
-     *  *
-     * @param SubmitPurchaseInfoRequest $request SubmitPurchaseInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 提交采购信息.
      *
-     * @return SubmitPurchaseInfoResponse SubmitPurchaseInfoResponse
+     * @param request - SubmitPurchaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitPurchaseInfoResponse
+     *
+     * @param SubmitPurchaseInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitPurchaseInfoResponse
      */
     public function submitPurchaseInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $body['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->purchaseCurrency)) {
-            $body['PurchaseCurrency'] = $request->purchaseCurrency;
+
+        if (null !== $request->purchaseCurrency) {
+            @$body['PurchaseCurrency'] = $request->purchaseCurrency;
         }
-        if (!Utils::isUnset($request->purchasePrice)) {
-            $body['PurchasePrice'] = $request->purchasePrice;
+
+        if (null !== $request->purchasePrice) {
+            @$body['PurchasePrice'] = $request->purchasePrice;
         }
-        if (!Utils::isUnset($request->purchaseProofs)) {
-            $body['PurchaseProofs'] = $request->purchaseProofs;
+
+        if (null !== $request->purchaseProofs) {
+            @$body['PurchaseProofs'] = $request->purchaseProofs;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitPurchaseInfo',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitPurchaseInfo',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitPurchaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交采购信息
-     *  *
-     * @param SubmitPurchaseInfoRequest $request SubmitPurchaseInfoRequest
+     * 提交采购信息.
      *
-     * @return SubmitPurchaseInfoResponse SubmitPurchaseInfoResponse
+     * @param request - SubmitPurchaseInfoRequest
+     *
+     * @returns SubmitPurchaseInfoResponse
+     *
+     * @param SubmitPurchaseInfoRequest $request
+     *
+     * @return SubmitPurchaseInfoResponse
      */
     public function submitPurchaseInfo($request)
     {
@@ -1451,53 +1838,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 合作方同步报价
-     *  *
-     * @param UpdatePartnerReservePriceRequest $request UpdatePartnerReservePriceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 合作方同步报价.
      *
-     * @return UpdatePartnerReservePriceResponse UpdatePartnerReservePriceResponse
+     * @param request - UpdatePartnerReservePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePartnerReservePriceResponse
+     *
+     * @param UpdatePartnerReservePriceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdatePartnerReservePriceResponse
      */
     public function updatePartnerReservePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->biddingId)) {
-            $body['BiddingId'] = $request->biddingId;
+        if (null !== $request->biddingId) {
+            @$body['BiddingId'] = $request->biddingId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->partnerType)) {
-            $body['PartnerType'] = $request->partnerType;
+
+        if (null !== $request->partnerType) {
+            @$body['PartnerType'] = $request->partnerType;
         }
-        if (!Utils::isUnset($request->reservePrice)) {
-            $body['ReservePrice'] = $request->reservePrice;
+
+        if (null !== $request->reservePrice) {
+            @$body['ReservePrice'] = $request->reservePrice;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePartnerReservePrice',
-            'version'     => '2018-02-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePartnerReservePrice',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdatePartnerReservePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 合作方同步报价
-     *  *
-     * @param UpdatePartnerReservePriceRequest $request UpdatePartnerReservePriceRequest
+     * 合作方同步报价.
      *
-     * @return UpdatePartnerReservePriceResponse UpdatePartnerReservePriceResponse
+     * @param request - UpdatePartnerReservePriceRequest
+     *
+     * @returns UpdatePartnerReservePriceResponse
+     *
+     * @param UpdatePartnerReservePriceRequest $request
+     *
+     * @return UpdatePartnerReservePriceResponse
      */
     public function updatePartnerReservePrice($request)
     {

@@ -6,25 +6,31 @@ namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryBidRecordsRequest extends Model
+class QueryExportDomainExpireSnatchsRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $auctionId;
+    public $currentId;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'auctionId' => 'AuctionId',
-        'currentPage' => 'CurrentPage',
+        'currentId' => 'CurrentId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
     ];
 
@@ -36,12 +42,16 @@ class QueryBidRecordsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->auctionId) {
-            $res['AuctionId'] = $this->auctionId;
+        if (null !== $this->currentId) {
+            $res['CurrentId'] = $this->currentId;
         }
 
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageSize) {
@@ -59,12 +69,16 @@ class QueryBidRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuctionId'])) {
-            $model->auctionId = $map['AuctionId'];
+        if (isset($map['CurrentId'])) {
+            $model->currentId = $map['CurrentId'];
         }
 
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageSize'])) {

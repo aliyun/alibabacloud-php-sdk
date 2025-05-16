@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFixedPriceDemandOrderRequest extends Model
 {
@@ -28,28 +28,32 @@ class CreateFixedPriceDemandOrderRequest extends Model
      */
     public $source;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'contactId' => 'ContactId',
-        'domain'    => 'Domain',
-        'source'    => 'Source',
+        'domain' => 'Domain',
+        'source' => 'Source',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -57,23 +61,26 @@ class CreateFixedPriceDemandOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFixedPriceDemandOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

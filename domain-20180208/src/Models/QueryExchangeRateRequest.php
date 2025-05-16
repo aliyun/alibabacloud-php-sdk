@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryExchangeRateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example USD
-     *
      * @var string
      */
     public $fromCurrency;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CNY
-     *
      * @var string
      */
     public $toCurrency;
     protected $_name = [
         'fromCurrency' => 'FromCurrency',
-        'toCurrency'   => 'ToCurrency',
+        'toCurrency' => 'ToCurrency',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromCurrency) {
             $res['FromCurrency'] = $this->fromCurrency;
         }
+
         if (null !== $this->toCurrency) {
             $res['ToCurrency'] = $this->toCurrency;
         }
@@ -47,17 +41,18 @@ class QueryExchangeRateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryExchangeRateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromCurrency'])) {
             $model->fromCurrency = $map['FromCurrency'];
         }
+
         if (isset($map['ToCurrency'])) {
             $model->toCurrency = $map['ToCurrency'];
         }

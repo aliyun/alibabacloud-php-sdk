@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AcceptDemandResponseBody extends Model
 {
@@ -14,26 +14,26 @@ class AcceptDemandResponseBody extends Model
     public $bindUrl;
 
     /**
-     * @example 497F7522-82B0-4BD4-84FE-AE8749E4C2F9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'bindUrl'   => 'BindUrl',
+        'bindUrl' => 'BindUrl',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindUrl) {
             $res['BindUrl'] = $this->bindUrl;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class AcceptDemandResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AcceptDemandResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindUrl'])) {
             $model->bindUrl = $map['BindUrl'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

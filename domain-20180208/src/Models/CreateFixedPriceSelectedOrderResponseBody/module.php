@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\CreateFixedPriceSelectedOrderResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class module extends Model
 {
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
@@ -21,41 +19,50 @@ class module extends Model
     public $domainBlockTrade;
 
     /**
-     * @example 31199295f2074ce895645d386cb22c36
-     *
      * @var string
      */
     public $orderNo;
 
     /**
-     * @example 20.00
-     *
      * @var int
      */
     public $price;
     protected $_name = [
-        'domain'           => 'Domain',
+        'domain' => 'Domain',
         'domainBlockTrade' => 'DomainBlockTrade',
-        'orderNo'          => 'OrderNo',
-        'price'            => 'Price',
+        'orderNo' => 'OrderNo',
+        'price' => 'Price',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainBlockTrade)) {
+            Model::validateArray($this->domainBlockTrade);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->domainBlockTrade) {
-            $res['DomainBlockTrade'] = $this->domainBlockTrade;
+            if (\is_array($this->domainBlockTrade)) {
+                $res['DomainBlockTrade'] = [];
+                $n1 = 0;
+                foreach ($this->domainBlockTrade as $item1) {
+                    $res['DomainBlockTrade'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->orderNo) {
             $res['OrderNo'] = $this->orderNo;
         }
+
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
@@ -63,25 +70,32 @@ class module extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return module
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['DomainBlockTrade'])) {
             if (!empty($map['DomainBlockTrade'])) {
-                $model->domainBlockTrade = $map['DomainBlockTrade'];
+                $model->domainBlockTrade = [];
+                $n1 = 0;
+                foreach ($map['DomainBlockTrade'] as $item1) {
+                    $model->domainBlockTrade[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OrderNo'])) {
             $model->orderNo = $map['OrderNo'];
         }
+
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }

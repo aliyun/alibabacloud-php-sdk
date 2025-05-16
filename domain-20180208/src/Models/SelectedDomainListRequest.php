@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SelectedDomainListRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 20231109
-     *
      * @var string
      */
     public $listDate;
@@ -22,9 +18,10 @@ class SelectedDomainListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listDate) {
@@ -34,11 +31,11 @@ class SelectedDomainListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SelectedDomainListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
