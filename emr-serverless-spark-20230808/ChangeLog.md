@@ -1,3 +1,6 @@
+2025-05-16 Version: 1.11.1
+- Generated php 2023-08-08 for emr-serverless-spark.
+
 2025-04-30 Version: 1.11.0
 - Support API EditWorkspaceQueue.
 
