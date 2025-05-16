@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateCodeSourceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateConnectionRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateConnectionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetJobConfigRequest;
@@ -54,6 +56,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConnectionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetJobConfigRequest;
@@ -85,6 +88,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConnectionRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConnectionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetaRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetaResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetasStatisticsRequest;
@@ -116,6 +121,9 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConfigsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConfigsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConnectionsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConnectionsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConnectionsShrinkRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasShrinkRequest;
@@ -178,6 +186,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConnectionRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConnectionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetJobConfigRequest;
@@ -691,6 +701,99 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->createCodeSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建连接.
+     *
+     * @param request - CreateConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConnectionResponse
+     *
+     * @param CreateConnectionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateConnectionResponse
+     */
+    public function createConnectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->configs) {
+            @$body['Configs'] = $request->configs;
+        }
+
+        if (null !== $request->connectionName) {
+            @$body['ConnectionName'] = $request->connectionName;
+        }
+
+        if (null !== $request->connectionType) {
+            @$body['ConnectionType'] = $request->connectionType;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->models) {
+            @$body['Models'] = $request->models;
+        }
+
+        if (null !== $request->resourceMeta) {
+            @$body['ResourceMeta'] = $request->resourceMeta;
+        }
+
+        if (null !== $request->secrets) {
+            @$body['Secrets'] = $request->secrets;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConnection',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/connections',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建连接.
+     *
+     * @param request - CreateConnectionRequest
+     *
+     * @returns CreateConnectionResponse
+     *
+     * @param CreateConnectionRequest $request
+     *
+     * @return CreateConnectionResponse
+     */
+    public function createConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConnectionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2219,6 +2322,57 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Deletes a connection.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnectionResponse
+     *
+     * @param string         $ConnectionId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteConnectionResponse
+     */
+    public function deleteConnectionWithOptions($ConnectionId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConnection',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/connections/' . Url::percentEncode($ConnectionId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a connection.
+     *
+     * @returns DeleteConnectionResponse
+     *
+     * @param string $ConnectionId
+     *
+     * @return DeleteConnectionResponse
+     */
+    public function deleteConnection($ConnectionId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConnectionWithOptions($ConnectionId, $headers, $runtime);
+    }
+
+    /**
      * Deletes a dataset.
      *
      * @param headers - map
@@ -3466,6 +3620,69 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * 获取连接.
+     *
+     * @param request - GetConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectionResponse
+     *
+     * @param string               $ConnectionId
+     * @param GetConnectionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetConnectionResponse
+     */
+    public function getConnectionWithOptions($ConnectionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->encryptOption) {
+            @$query['EncryptOption'] = $request->encryptOption;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConnection',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/connections/' . Url::percentEncode($ConnectionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取连接.
+     *
+     * @param request - GetConnectionRequest
+     *
+     * @returns GetConnectionResponse
+     *
+     * @param string               $ConnectionId
+     * @param GetConnectionRequest $request
+     *
+     * @return GetConnectionResponse
+     */
+    public function getConnection($ConnectionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConnectionWithOptions($ConnectionId, $request, $headers, $runtime);
+    }
+
+    /**
      * Obtains a dataset.
      *
      * @param headers - map
@@ -4572,6 +4789,125 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->listConfigsWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Lists connections.
+     *
+     * @param tmpReq - ListConnectionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConnectionsResponse
+     *
+     * @param ListConnectionsRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConnectionsResponse
+     */
+    public function listConnectionsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListConnectionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->connectionIds) {
+            $request->connectionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->connectionIds, 'ConnectionIds', 'simple');
+        }
+
+        if (null !== $tmpReq->connectionTypes) {
+            $request->connectionTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->connectionTypes, 'ConnectionTypes', 'simple');
+        }
+
+        if (null !== $tmpReq->modelTypes) {
+            $request->modelTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelTypes, 'ModelTypes', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->connectionIdsShrink) {
+            @$query['ConnectionIds'] = $request->connectionIdsShrink;
+        }
+
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
+        }
+
+        if (null !== $request->connectionTypesShrink) {
+            @$query['ConnectionTypes'] = $request->connectionTypesShrink;
+        }
+
+        if (null !== $request->encryptOption) {
+            @$query['EncryptOption'] = $request->encryptOption;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->modelTypesShrink) {
+            @$query['ModelTypes'] = $request->modelTypesShrink;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->toolCall) {
+            @$query['ToolCall'] = $request->toolCall;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConnections',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/connections',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists connections.
+     *
+     * @param request - ListConnectionsRequest
+     *
+     * @returns ListConnectionsResponse
+     *
+     * @param ListConnectionsRequest $request
+     *
+     * @return ListConnectionsResponse
+     */
+    public function listConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConnectionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7203,6 +7539,81 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateConfigsWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a connection.
+     *
+     * @param request - UpdateConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnectionResponse
+     *
+     * @param string                  $ConnectionId
+     * @param UpdateConnectionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateConnectionResponse
+     */
+    public function updateConnectionWithOptions($ConnectionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configs) {
+            @$body['Configs'] = $request->configs;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->models) {
+            @$body['Models'] = $request->models;
+        }
+
+        if (null !== $request->secrets) {
+            @$body['Secrets'] = $request->secrets;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConnection',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/connections/' . Url::percentEncode($ConnectionId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a connection.
+     *
+     * @param request - UpdateConnectionRequest
+     *
+     * @returns UpdateConnectionResponse
+     *
+     * @param string                  $ConnectionId
+     * @param UpdateConnectionRequest $request
+     *
+     * @return UpdateConnectionResponse
+     */
+    public function updateConnection($ConnectionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConnectionWithOptions($ConnectionId, $request, $headers, $runtime);
     }
 
     /**
