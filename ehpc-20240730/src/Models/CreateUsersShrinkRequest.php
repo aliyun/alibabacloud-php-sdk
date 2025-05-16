@@ -12,12 +12,13 @@ class CreateUsersShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $userShrink;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'userShrink' => 'User',
     ];
 

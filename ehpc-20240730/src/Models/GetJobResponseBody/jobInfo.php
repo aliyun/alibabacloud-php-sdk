@@ -15,103 +15,122 @@ class jobInfo extends Model
      * @var string
      */
     public $arrayJobId;
+
     /**
      * @var string
      */
     public $arrayJobSubId;
+
     /**
      * @var string
      */
     public $arrayRequest;
+
     /**
      * @var string
      */
     public $commandLine;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $errorLog;
+
     /**
      * @var string
      */
     public $extraInfo;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobQueue;
+
     /**
      * @var string
      */
     public $lastModifyTime;
+
     /**
      * @var string
      */
     public $nodeList;
+
     /**
      * @var string
      */
     public $outputLog;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var resources
      */
     public $resources;
+
     /**
      * @var resourcesUsed
      */
     public $resourcesUsed;
+
     /**
      * @var string
      */
     public $runasUser;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var variables[]
      */
     public $variables;
     protected $_name = [
-        'arrayJobId'     => 'ArrayJobId',
-        'arrayJobSubId'  => 'ArrayJobSubId',
-        'arrayRequest'   => 'ArrayRequest',
-        'commandLine'    => 'CommandLine',
-        'createTime'     => 'CreateTime',
-        'errorLog'       => 'ErrorLog',
-        'extraInfo'      => 'ExtraInfo',
-        'jobId'          => 'JobId',
-        'jobName'        => 'JobName',
-        'jobQueue'       => 'JobQueue',
+        'arrayJobId' => 'ArrayJobId',
+        'arrayJobSubId' => 'ArrayJobSubId',
+        'arrayRequest' => 'ArrayRequest',
+        'commandLine' => 'CommandLine',
+        'createTime' => 'CreateTime',
+        'errorLog' => 'ErrorLog',
+        'extraInfo' => 'ExtraInfo',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'jobQueue' => 'JobQueue',
         'lastModifyTime' => 'LastModifyTime',
-        'nodeList'       => 'NodeList',
-        'outputLog'      => 'OutputLog',
-        'priority'       => 'Priority',
-        'resources'      => 'Resources',
-        'resourcesUsed'  => 'ResourcesUsed',
-        'runasUser'      => 'RunasUser',
-        'startTime'      => 'StartTime',
-        'state'          => 'State',
-        'variables'      => 'Variables',
+        'nodeList' => 'NodeList',
+        'outputLog' => 'OutputLog',
+        'priority' => 'Priority',
+        'resources' => 'Resources',
+        'resourcesUsed' => 'ResourcesUsed',
+        'runasUser' => 'RunasUser',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'variables' => 'Variables',
     ];
 
     public function validate()
@@ -210,7 +229,7 @@ class jobInfo extends Model
         if (null !== $this->variables) {
             if (\is_array($this->variables)) {
                 $res['Variables'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->variables as $item1) {
                     $res['Variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -307,7 +326,7 @@ class jobInfo extends Model
         if (isset($map['Variables'])) {
             if (!empty($map['Variables'])) {
                 $model->variables = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Variables'] as $item1) {
                     $model->variables[$n1++] = variables::fromMap($item1);
                 }

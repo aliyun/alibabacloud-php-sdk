@@ -16,128 +16,152 @@ class GetClusterResponseBody extends Model
      * @var string
      */
     public $clientVersion;
+
     /**
      * @var string
      */
     public $clusterCategory;
+
     /**
      * @var string
      */
     public $clusterCreateTime;
+
     /**
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterModifyTime;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterStatus;
+
     /**
      * @var string
      */
     public $clusterVSwitchId;
+
     /**
      * @var string
      */
     public $clusterVpcId;
+
     /**
      * @var string
      */
     public $deleteProtection;
+
     /**
      * @var string
      */
     public $ehpcVersion;
+
     /**
      * @var bool
      */
     public $enableScaleIn;
+
     /**
      * @var bool
      */
     public $enableScaleOut;
+
     /**
      * @var int
      */
     public $growInterval;
+
     /**
      * @var int
      */
     public $idleInterval;
+
     /**
      * @var manager
      */
     public $manager;
+
     /**
      * @var string
      */
     public $maxCoreCount;
+
     /**
      * @var string
      */
     public $maxCount;
+
     /**
      * @var monitorSpec
      */
     public $monitorSpec;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var schedulerSpec
      */
     public $schedulerSpec;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'clientVersion'              => 'ClientVersion',
-        'clusterCategory'            => 'ClusterCategory',
-        'clusterCreateTime'          => 'ClusterCreateTime',
+        'clientVersion' => 'ClientVersion',
+        'clusterCategory' => 'ClusterCategory',
+        'clusterCreateTime' => 'ClusterCreateTime',
         'clusterCustomConfiguration' => 'ClusterCustomConfiguration',
-        'clusterId'                  => 'ClusterId',
-        'clusterMode'                => 'ClusterMode',
-        'clusterModifyTime'          => 'ClusterModifyTime',
-        'clusterName'                => 'ClusterName',
-        'clusterStatus'              => 'ClusterStatus',
-        'clusterVSwitchId'           => 'ClusterVSwitchId',
-        'clusterVpcId'               => 'ClusterVpcId',
-        'deleteProtection'           => 'DeleteProtection',
-        'ehpcVersion'                => 'EhpcVersion',
-        'enableScaleIn'              => 'EnableScaleIn',
-        'enableScaleOut'             => 'EnableScaleOut',
-        'growInterval'               => 'GrowInterval',
-        'idleInterval'               => 'IdleInterval',
-        'manager'                    => 'Manager',
-        'maxCoreCount'               => 'MaxCoreCount',
-        'maxCount'                   => 'MaxCount',
-        'monitorSpec'                => 'MonitorSpec',
-        'requestId'                  => 'RequestId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'schedulerSpec'              => 'SchedulerSpec',
-        'securityGroupId'            => 'SecurityGroupId',
+        'clusterId' => 'ClusterId',
+        'clusterMode' => 'ClusterMode',
+        'clusterModifyTime' => 'ClusterModifyTime',
+        'clusterName' => 'ClusterName',
+        'clusterStatus' => 'ClusterStatus',
+        'clusterVSwitchId' => 'ClusterVSwitchId',
+        'clusterVpcId' => 'ClusterVpcId',
+        'deleteProtection' => 'DeleteProtection',
+        'ehpcVersion' => 'EhpcVersion',
+        'enableScaleIn' => 'EnableScaleIn',
+        'enableScaleOut' => 'EnableScaleOut',
+        'growInterval' => 'GrowInterval',
+        'idleInterval' => 'IdleInterval',
+        'manager' => 'Manager',
+        'maxCoreCount' => 'MaxCoreCount',
+        'maxCount' => 'MaxCount',
+        'monitorSpec' => 'MonitorSpec',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'schedulerSpec' => 'SchedulerSpec',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()

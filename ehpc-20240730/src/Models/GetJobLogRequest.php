@@ -12,28 +12,32 @@ class GetJobLogRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
     public $offset;
+
     /**
      * @var string
      */
     public $size;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'jobId'     => 'JobId',
-        'logType'   => 'LogType',
-        'offset'    => 'Offset',
-        'size'      => 'Size',
+        'jobId' => 'JobId',
+        'logType' => 'LogType',
+        'offset' => 'Offset',
+        'size' => 'Size',
     ];
 
     public function validate()

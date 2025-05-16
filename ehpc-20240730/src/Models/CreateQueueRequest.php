@@ -12,13 +12,14 @@ class CreateQueueRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var QueueTemplate
      */
     public $queue;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'queue'     => 'Queue',
+        'queue' => 'Queue',
     ];
 
     public function validate()

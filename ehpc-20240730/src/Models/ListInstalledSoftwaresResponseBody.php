@@ -13,28 +13,32 @@ class ListInstalledSoftwaresResponseBody extends Model
      * @var additionalPackages
      */
     public $additionalPackages;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'additionalPackages' => 'AdditionalPackages',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

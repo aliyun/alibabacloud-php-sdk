@@ -12,38 +12,44 @@ class additionalPackageInfos extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $icon;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'category'    => 'Category',
-        'createTime'  => 'CreateTime',
+        'category' => 'Category',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'icon'        => 'Icon',
-        'name'        => 'Name',
-        'status'      => 'Status',
-        'version'     => 'Version',
+        'icon' => 'Icon',
+        'name' => 'Name',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

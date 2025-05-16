@@ -12,38 +12,44 @@ class stages extends Model
      * @var string
      */
     public $logLevel;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $target;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'logLevel'  => 'LogLevel',
-        'message'   => 'Message',
-        'method'    => 'Method',
+        'logLevel' => 'LogLevel',
+        'message' => 'Message',
+        'method' => 'Method',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
-        'target'    => 'Target',
-        'time'      => 'Time',
+        'status' => 'Status',
+        'target' => 'Target',
+        'time' => 'Time',
     ];
 
     public function validate()

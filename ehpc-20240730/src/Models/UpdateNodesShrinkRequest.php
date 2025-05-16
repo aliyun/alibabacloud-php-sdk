@@ -12,12 +12,13 @@ class UpdateNodesShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instancesShrink;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'instancesShrink' => 'Instances',
     ];
 

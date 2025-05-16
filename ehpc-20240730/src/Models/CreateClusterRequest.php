@@ -18,108 +18,128 @@ class CreateClusterRequest extends Model
      * @var additionalPackages[]
      */
     public $additionalPackages;
+
     /**
      * @var addons[]
      */
     public $addons;
+
     /**
      * @var string
      */
     public $clientVersion;
+
     /**
      * @var string
      */
     public $clusterCategory;
+
     /**
      * @var clusterCredentials
      */
     public $clusterCredentials;
+
     /**
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
+
     /**
      * @var string
      */
     public $clusterDescription;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterVSwitchId;
+
     /**
      * @var string
      */
     public $clusterVpcId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
+
     /**
      * @var manager
      */
     public $manager;
+
     /**
      * @var int
      */
     public $maxCoreCount;
+
     /**
      * @var int
      */
     public $maxCount;
+
     /**
      * @var QueueTemplate[]
      */
     public $queues;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var SharedStorageTemplate[]
      */
     public $sharedStorages;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'additionalPackages'         => 'AdditionalPackages',
-        'addons'                     => 'Addons',
-        'clientVersion'              => 'ClientVersion',
-        'clusterCategory'            => 'ClusterCategory',
-        'clusterCredentials'         => 'ClusterCredentials',
+        'additionalPackages' => 'AdditionalPackages',
+        'addons' => 'Addons',
+        'clientVersion' => 'ClientVersion',
+        'clusterCategory' => 'ClusterCategory',
+        'clusterCredentials' => 'ClusterCredentials',
         'clusterCustomConfiguration' => 'ClusterCustomConfiguration',
-        'clusterDescription'         => 'ClusterDescription',
-        'clusterMode'                => 'ClusterMode',
-        'clusterName'                => 'ClusterName',
-        'clusterVSwitchId'           => 'ClusterVSwitchId',
-        'clusterVpcId'               => 'ClusterVpcId',
-        'deletionProtection'         => 'DeletionProtection',
-        'isEnterpriseSecurityGroup'  => 'IsEnterpriseSecurityGroup',
-        'manager'                    => 'Manager',
-        'maxCoreCount'               => 'MaxCoreCount',
-        'maxCount'                   => 'MaxCount',
-        'queues'                     => 'Queues',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'securityGroupId'            => 'SecurityGroupId',
-        'sharedStorages'             => 'SharedStorages',
-        'tags'                       => 'Tags',
+        'clusterDescription' => 'ClusterDescription',
+        'clusterMode' => 'ClusterMode',
+        'clusterName' => 'ClusterName',
+        'clusterVSwitchId' => 'ClusterVSwitchId',
+        'clusterVpcId' => 'ClusterVpcId',
+        'deletionProtection' => 'DeletionProtection',
+        'isEnterpriseSecurityGroup' => 'IsEnterpriseSecurityGroup',
+        'manager' => 'Manager',
+        'maxCoreCount' => 'MaxCoreCount',
+        'maxCount' => 'MaxCount',
+        'queues' => 'Queues',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
+        'sharedStorages' => 'SharedStorages',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -157,7 +177,7 @@ class CreateClusterRequest extends Model
         if (null !== $this->additionalPackages) {
             if (\is_array($this->additionalPackages)) {
                 $res['AdditionalPackages'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->additionalPackages as $item1) {
                     $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -167,7 +187,7 @@ class CreateClusterRequest extends Model
         if (null !== $this->addons) {
             if (\is_array($this->addons)) {
                 $res['Addons'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->addons as $item1) {
                     $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -233,7 +253,7 @@ class CreateClusterRequest extends Model
         if (null !== $this->queues) {
             if (\is_array($this->queues)) {
                 $res['Queues'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->queues as $item1) {
                     $res['Queues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -251,7 +271,7 @@ class CreateClusterRequest extends Model
         if (null !== $this->sharedStorages) {
             if (\is_array($this->sharedStorages)) {
                 $res['SharedStorages'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->sharedStorages as $item1) {
                     $res['SharedStorages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -261,7 +281,7 @@ class CreateClusterRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -282,7 +302,7 @@ class CreateClusterRequest extends Model
         if (isset($map['AdditionalPackages'])) {
             if (!empty($map['AdditionalPackages'])) {
                 $model->additionalPackages = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AdditionalPackages'] as $item1) {
                     $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
                 }
@@ -292,7 +312,7 @@ class CreateClusterRequest extends Model
         if (isset($map['Addons'])) {
             if (!empty($map['Addons'])) {
                 $model->addons = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
                     $model->addons[$n1++] = addons::fromMap($item1);
                 }
@@ -358,7 +378,7 @@ class CreateClusterRequest extends Model
         if (isset($map['Queues'])) {
             if (!empty($map['Queues'])) {
                 $model->queues = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Queues'] as $item1) {
                     $model->queues[$n1++] = QueueTemplate::fromMap($item1);
                 }
@@ -376,7 +396,7 @@ class CreateClusterRequest extends Model
         if (isset($map['SharedStorages'])) {
             if (!empty($map['SharedStorages'])) {
                 $model->sharedStorages = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SharedStorages'] as $item1) {
                     $model->sharedStorages[$n1++] = SharedStorageTemplate::fromMap($item1);
                 }
@@ -386,7 +406,7 @@ class CreateClusterRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

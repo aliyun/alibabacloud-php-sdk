@@ -12,18 +12,20 @@ class sortBy extends Model
      * @var string
      */
     public $executeOrder;
+
     /**
      * @var string
      */
     public $pendOrder;
+
     /**
      * @var string
      */
     public $submitOrder;
     protected $_name = [
         'executeOrder' => 'ExecuteOrder',
-        'pendOrder'    => 'PendOrder',
-        'submitOrder'  => 'SubmitOrder',
+        'pendOrder' => 'PendOrder',
+        'submitOrder' => 'SubmitOrder',
     ];
 
     public function validate()

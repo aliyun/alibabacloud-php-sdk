@@ -12,38 +12,44 @@ class addons extends Model
      * @var string
      */
     public $addonId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $installTime;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'addonId'     => 'AddonId',
+        'addonId' => 'AddonId',
         'description' => 'Description',
         'installTime' => 'InstallTime',
-        'label'       => 'Label',
-        'name'        => 'Name',
-        'status'      => 'Status',
-        'version'     => 'Version',
+        'label' => 'Label',
+        'name' => 'Name',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

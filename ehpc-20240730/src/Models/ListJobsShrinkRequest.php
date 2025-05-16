@@ -12,23 +12,26 @@ class ListJobsShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $jobFilterShrink;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'jobFilterShrink' => 'JobFilter',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class UninstallSoftwaresShrinkRequest extends Model
      * @var string
      */
     public $additionalPackagesShrink;
+
     /**
      * @var string
      */
     public $clusterId;
     protected $_name = [
         'additionalPackagesShrink' => 'AdditionalPackages',
-        'clusterId'                => 'ClusterId',
+        'clusterId' => 'ClusterId',
     ];
 
     public function validate()

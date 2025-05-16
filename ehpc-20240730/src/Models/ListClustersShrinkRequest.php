@@ -12,23 +12,26 @@ class ListClustersShrinkRequest extends Model
      * @var string
      */
     public $clusterIdsShrink;
+
     /**
      * @var string
      */
     public $clusterNamesShrink;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'clusterIdsShrink'   => 'ClusterIds',
+        'clusterIdsShrink' => 'ClusterIds',
         'clusterNamesShrink' => 'ClusterNames',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

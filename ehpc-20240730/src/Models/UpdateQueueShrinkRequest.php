@@ -12,12 +12,13 @@ class UpdateQueueShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $queueShrink;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'queueShrink' => 'Queue',
     ];
 

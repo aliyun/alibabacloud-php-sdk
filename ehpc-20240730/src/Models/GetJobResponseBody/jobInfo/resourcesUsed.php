@@ -12,18 +12,20 @@ class resourcesUsed extends Model
      * @var string
      */
     public $cores;
+
     /**
      * @var string
      */
     public $memory;
+
     /**
      * @var string
      */
     public $nodes;
     protected $_name = [
-        'cores'  => 'Cores',
+        'cores' => 'Cores',
         'memory' => 'Memory',
-        'nodes'  => 'Nodes',
+        'nodes' => 'Nodes',
     ];
 
     public function validate()

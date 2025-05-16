@@ -13,33 +13,38 @@ class ListSoftwaresRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var osInfos[]
      */
     public $osInfos;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'category'   => 'Category',
-        'clusterId'  => 'ClusterId',
-        'name'       => 'Name',
-        'osInfos'    => 'OsInfos',
+        'category' => 'Category',
+        'clusterId' => 'ClusterId',
+        'name' => 'Name',
+        'osInfos' => 'OsInfos',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class ListSoftwaresRequest extends Model
         if (null !== $this->osInfos) {
             if (\is_array($this->osInfos)) {
                 $res['OsInfos'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->osInfos as $item1) {
                     $res['OsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class ListSoftwaresRequest extends Model
         if (isset($map['OsInfos'])) {
             if (!empty($map['OsInfos'])) {
                 $model->osInfos = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['OsInfos'] as $item1) {
                     $model->osInfos[$n1++] = osInfos::fromMap($item1);
                 }

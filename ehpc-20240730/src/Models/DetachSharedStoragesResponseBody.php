@@ -12,10 +12,12 @@ class DetachSharedStoragesResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DetachSharedStoragesResponseBody extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

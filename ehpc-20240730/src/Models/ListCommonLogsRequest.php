@@ -12,63 +12,74 @@ class ListCommonLogsRequest extends Model
      * @var string[]
      */
     public $actionName;
+
     /**
      * @var string
      */
     public $actionStatus;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var bool
      */
     public $isReverse;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
     public $operatorUid;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var int
      */
     public $to;
     protected $_name = [
-        'actionName'   => 'ActionName',
+        'actionName' => 'ActionName',
         'actionStatus' => 'ActionStatus',
-        'clusterId'    => 'ClusterId',
-        'from'         => 'From',
-        'isReverse'    => 'IsReverse',
+        'clusterId' => 'ClusterId',
+        'from' => 'From',
+        'isReverse' => 'IsReverse',
         'logRequestId' => 'LogRequestId',
-        'logType'      => 'LogType',
-        'operatorUid'  => 'OperatorUid',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'resource'     => 'Resource',
-        'to'           => 'To',
+        'logType' => 'LogType',
+        'operatorUid' => 'OperatorUid',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resource' => 'Resource',
+        'to' => 'To',
     ];
 
     public function validate()
@@ -85,7 +96,7 @@ class ListCommonLogsRequest extends Model
         if (null !== $this->actionName) {
             if (\is_array($this->actionName)) {
                 $res['ActionName'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->actionName as $item1) {
                     $res['ActionName'][$n1++] = $item1;
                 }
@@ -150,7 +161,7 @@ class ListCommonLogsRequest extends Model
         if (isset($map['ActionName'])) {
             if (!empty($map['ActionName'])) {
                 $model->actionName = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ActionName'] as $item1) {
                     $model->actionName[$n1++] = $item1;
                 }

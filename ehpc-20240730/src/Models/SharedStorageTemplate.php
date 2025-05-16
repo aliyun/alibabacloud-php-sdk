@@ -12,33 +12,38 @@ class SharedStorageTemplate extends Model
      * @var string
      */
     public $fileSystemId;
+
     /**
      * @var string
      */
     public $mountDirectory;
+
     /**
      * @var string
      */
     public $mountOptions;
+
     /**
      * @var string
      */
     public $mountTargetDomain;
+
     /**
      * @var string
      */
     public $NASDirectory;
+
     /**
      * @var string
      */
     public $protocolType;
     protected $_name = [
-        'fileSystemId'      => 'FileSystemId',
-        'mountDirectory'    => 'MountDirectory',
-        'mountOptions'      => 'MountOptions',
+        'fileSystemId' => 'FileSystemId',
+        'mountDirectory' => 'MountDirectory',
+        'mountOptions' => 'MountOptions',
         'mountTargetDomain' => 'MountTargetDomain',
-        'NASDirectory'      => 'NASDirectory',
-        'protocolType'      => 'ProtocolType',
+        'NASDirectory' => 'NASDirectory',
+        'protocolType' => 'ProtocolType',
     ];
 
     public function validate()

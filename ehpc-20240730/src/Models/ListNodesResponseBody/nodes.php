@@ -13,98 +13,116 @@ class nodes extends Model
      * @var string
      */
     public $addTime;
+
     /**
      * @var string
      */
     public $deploymentSetId;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var bool
      */
     public $htEnabled;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var bool
      */
     public $keepAlive;
+
     /**
      * @var string
      */
     public $publicIpAddress;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $spotStrategy;
+
     /**
      * @var string
      */
     public $stateInSched;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var totalResources
      */
     public $totalResources;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'addTime'         => 'AddTime',
+        'addTime' => 'AddTime',
         'deploymentSetId' => 'DeploymentSetId',
-        'expiredTime'     => 'ExpiredTime',
-        'hostname'        => 'Hostname',
-        'htEnabled'       => 'HtEnabled',
-        'id'              => 'Id',
-        'imageId'         => 'ImageId',
-        'instanceType'    => 'InstanceType',
-        'ipAddress'       => 'IpAddress',
-        'keepAlive'       => 'KeepAlive',
+        'expiredTime' => 'ExpiredTime',
+        'hostname' => 'Hostname',
+        'htEnabled' => 'HtEnabled',
+        'id' => 'Id',
+        'imageId' => 'ImageId',
+        'instanceType' => 'InstanceType',
+        'ipAddress' => 'IpAddress',
+        'keepAlive' => 'KeepAlive',
         'publicIpAddress' => 'PublicIpAddress',
-        'queueName'       => 'QueueName',
-        'spotStrategy'    => 'SpotStrategy',
-        'stateInSched'    => 'StateInSched',
-        'status'          => 'Status',
-        'totalResources'  => 'TotalResources',
-        'vSwitchId'       => 'VSwitchId',
-        'vpcId'           => 'VpcId',
-        'zoneId'          => 'ZoneId',
+        'queueName' => 'QueueName',
+        'spotStrategy' => 'SpotStrategy',
+        'stateInSched' => 'StateInSched',
+        'status' => 'Status',
+        'totalResources' => 'TotalResources',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class images extends Model
      * @var string
      */
     public $architecture;
+
     /**
      * @var string
      */
     public $bootMode;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageName;
+
     /**
      * @var string
      */
     public $imageOwnerAlias;
+
     /**
      * @var string
      */
     public $OSName;
+
     /**
      * @var string
      */
     public $OSNameEn;
+
     /**
      * @var string
      */
     public $platform;
+
     /**
      * @var string
      */
     public $size;
     protected $_name = [
-        'architecture'    => 'Architecture',
-        'bootMode'        => 'BootMode',
-        'description'     => 'Description',
-        'imageId'         => 'ImageId',
-        'imageName'       => 'ImageName',
+        'architecture' => 'Architecture',
+        'bootMode' => 'BootMode',
+        'description' => 'Description',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'imageOwnerAlias' => 'ImageOwnerAlias',
-        'OSName'          => 'OSName',
-        'OSNameEn'        => 'OSNameEn',
-        'platform'        => 'Platform',
-        'size'            => 'Size',
+        'OSName' => 'OSName',
+        'OSNameEn' => 'OSNameEn',
+        'platform' => 'Platform',
+        'size' => 'Size',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class ListAvailableImagesShrinkRequest extends Model
      * @var string
      */
     public $directoryServiceShrink;
+
     /**
      * @var bool
      */
     public $enableHT;
+
     /**
      * @var string
      */
     public $HPCInterConnect;
+
     /**
      * @var string
      */
     public $imageOwnerAlias;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isPublic;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $schedulerShrink;
     protected $_name = [
         'directoryServiceShrink' => 'DirectoryService',
-        'enableHT'               => 'EnableHT',
-        'HPCInterConnect'        => 'HPCInterConnect',
-        'imageOwnerAlias'        => 'ImageOwnerAlias',
-        'instanceType'           => 'InstanceType',
-        'isPublic'               => 'IsPublic',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'schedulerShrink'        => 'Scheduler',
+        'enableHT' => 'EnableHT',
+        'HPCInterConnect' => 'HPCInterConnect',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'instanceType' => 'InstanceType',
+        'isPublic' => 'IsPublic',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'schedulerShrink' => 'Scheduler',
     ];
 
     public function validate()

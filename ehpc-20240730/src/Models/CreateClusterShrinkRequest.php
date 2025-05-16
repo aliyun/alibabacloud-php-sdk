@@ -12,108 +12,128 @@ class CreateClusterShrinkRequest extends Model
      * @var string
      */
     public $additionalPackagesShrink;
+
     /**
      * @var string
      */
     public $addonsShrink;
+
     /**
      * @var string
      */
     public $clientVersion;
+
     /**
      * @var string
      */
     public $clusterCategory;
+
     /**
      * @var string
      */
     public $clusterCredentialsShrink;
+
     /**
      * @var string
      */
     public $clusterCustomConfigurationShrink;
+
     /**
      * @var string
      */
     public $clusterDescription;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterVSwitchId;
+
     /**
      * @var string
      */
     public $clusterVpcId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
+
     /**
      * @var string
      */
     public $managerShrink;
+
     /**
      * @var int
      */
     public $maxCoreCount;
+
     /**
      * @var int
      */
     public $maxCount;
+
     /**
      * @var string
      */
     public $queuesShrink;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $sharedStoragesShrink;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
-        'additionalPackagesShrink'         => 'AdditionalPackages',
-        'addonsShrink'                     => 'Addons',
-        'clientVersion'                    => 'ClientVersion',
-        'clusterCategory'                  => 'ClusterCategory',
-        'clusterCredentialsShrink'         => 'ClusterCredentials',
+        'additionalPackagesShrink' => 'AdditionalPackages',
+        'addonsShrink' => 'Addons',
+        'clientVersion' => 'ClientVersion',
+        'clusterCategory' => 'ClusterCategory',
+        'clusterCredentialsShrink' => 'ClusterCredentials',
         'clusterCustomConfigurationShrink' => 'ClusterCustomConfiguration',
-        'clusterDescription'               => 'ClusterDescription',
-        'clusterMode'                      => 'ClusterMode',
-        'clusterName'                      => 'ClusterName',
-        'clusterVSwitchId'                 => 'ClusterVSwitchId',
-        'clusterVpcId'                     => 'ClusterVpcId',
-        'deletionProtection'               => 'DeletionProtection',
-        'isEnterpriseSecurityGroup'        => 'IsEnterpriseSecurityGroup',
-        'managerShrink'                    => 'Manager',
-        'maxCoreCount'                     => 'MaxCoreCount',
-        'maxCount'                         => 'MaxCount',
-        'queuesShrink'                     => 'Queues',
-        'resourceGroupId'                  => 'ResourceGroupId',
-        'securityGroupId'                  => 'SecurityGroupId',
-        'sharedStoragesShrink'             => 'SharedStorages',
-        'tagsShrink'                       => 'Tags',
+        'clusterDescription' => 'ClusterDescription',
+        'clusterMode' => 'ClusterMode',
+        'clusterName' => 'ClusterName',
+        'clusterVSwitchId' => 'ClusterVSwitchId',
+        'clusterVpcId' => 'ClusterVpcId',
+        'deletionProtection' => 'DeletionProtection',
+        'isEnterpriseSecurityGroup' => 'IsEnterpriseSecurityGroup',
+        'managerShrink' => 'Manager',
+        'maxCoreCount' => 'MaxCoreCount',
+        'maxCount' => 'MaxCount',
+        'queuesShrink' => 'Queues',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
+        'sharedStoragesShrink' => 'SharedStorages',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class clusterCredentials extends Model
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $password;
     protected $_name = [
         'keyPairName' => 'KeyPairName',
-        'password'    => 'Password',
+        'password' => 'Password',
     ];
 
     public function validate()

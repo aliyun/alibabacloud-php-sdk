@@ -12,12 +12,13 @@ class DNS extends Model
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'type'    => 'Type',
+        'type' => 'Type',
         'version' => 'Version',
     ];
 

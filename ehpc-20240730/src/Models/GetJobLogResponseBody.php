@@ -12,38 +12,44 @@ class GetJobLogResponseBody extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $stderrLog;
+
     /**
      * @var string
      */
     public $stderrLogSize;
+
     /**
      * @var string
      */
     public $stdoutLog;
+
     /**
      * @var string
      */
     public $stdoutLogSize;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'jobId'         => 'JobId',
-        'requestId'     => 'RequestId',
-        'stderrLog'     => 'StderrLog',
+        'jobId' => 'JobId',
+        'requestId' => 'RequestId',
+        'stderrLog' => 'StderrLog',
         'stderrLogSize' => 'StderrLogSize',
-        'stdoutLog'     => 'StdoutLog',
+        'stdoutLog' => 'StdoutLog',
         'stdoutLogSize' => 'StdoutLogSize',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

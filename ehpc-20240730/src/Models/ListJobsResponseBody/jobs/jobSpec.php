@@ -14,93 +14,110 @@ class jobSpec extends Model
      * @var string
      */
     public $arrayJobId;
+
     /**
      * @var string
      */
     public $arrayJobSubId;
+
     /**
      * @var string
      */
     public $arrayRequest;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $jobQueue;
+
     /**
      * @var string
      */
     public $lastModifyTime;
+
     /**
      * @var string
      */
     public $nodeList;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var resources
      */
     public $resources;
+
     /**
      * @var resourcesActualOccupied
      */
     public $resourcesActualOccupied;
+
     /**
      * @var string
      */
     public $runasUser;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $stderrPath;
+
     /**
      * @var string
      */
     public $stdoutPath;
+
     /**
      * @var string
      */
     public $submitTime;
+
     /**
      * @var string
      */
     public $variables;
     protected $_name = [
-        'arrayJobId'              => 'ArrayJobId',
-        'arrayJobSubId'           => 'ArrayJobSubId',
-        'arrayRequest'            => 'ArrayRequest',
-        'comment'                 => 'Comment',
-        'id'                      => 'Id',
-        'jobQueue'                => 'JobQueue',
-        'lastModifyTime'          => 'LastModifyTime',
-        'nodeList'                => 'NodeList',
-        'priority'                => 'Priority',
-        'resources'               => 'Resources',
+        'arrayJobId' => 'ArrayJobId',
+        'arrayJobSubId' => 'ArrayJobSubId',
+        'arrayRequest' => 'ArrayRequest',
+        'comment' => 'Comment',
+        'id' => 'Id',
+        'jobQueue' => 'JobQueue',
+        'lastModifyTime' => 'LastModifyTime',
+        'nodeList' => 'NodeList',
+        'priority' => 'Priority',
+        'resources' => 'Resources',
         'resourcesActualOccupied' => 'ResourcesActualOccupied',
-        'runasUser'               => 'RunasUser',
-        'startTime'               => 'StartTime',
-        'state'                   => 'State',
-        'stderrPath'              => 'StderrPath',
-        'stdoutPath'              => 'StdoutPath',
-        'submitTime'              => 'SubmitTime',
-        'variables'               => 'Variables',
+        'runasUser' => 'RunasUser',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'stderrPath' => 'StderrPath',
+        'stdoutPath' => 'StdoutPath',
+        'submitTime' => 'SubmitTime',
+        'variables' => 'Variables',
     ];
 
     public function validate()

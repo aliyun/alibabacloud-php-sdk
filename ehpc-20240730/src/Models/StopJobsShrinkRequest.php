@@ -12,12 +12,13 @@ class StopJobsShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $jobIdsShrink;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'jobIdsShrink' => 'JobIds',
     ];
 

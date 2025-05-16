@@ -13,23 +13,26 @@ class ListJobsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var jobFilter
      */
     public $jobFilter;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'jobFilter'  => 'JobFilter',
+        'clusterId' => 'ClusterId',
+        'jobFilter' => 'JobFilter',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

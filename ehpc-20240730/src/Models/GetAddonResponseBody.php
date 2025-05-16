@@ -13,12 +13,13 @@ class GetAddonResponseBody extends Model
      * @var addon
      */
     public $addon;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'addon'     => 'Addon',
+        'addon' => 'Addon',
         'requestId' => 'RequestId',
     ];
 

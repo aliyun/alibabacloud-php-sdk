@@ -12,17 +12,19 @@ class diagnosis extends Model
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var string
      */
     public $threshold;
     protected $_name = [
-        'operator'  => 'Operator',
-        'option'    => 'Option',
+        'operator' => 'Operator',
+        'option' => 'Option',
         'threshold' => 'Threshold',
     ];
 

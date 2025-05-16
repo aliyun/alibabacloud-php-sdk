@@ -13,23 +13,26 @@ class sharedStorages extends Model
      * @var string
      */
     public $fileSystemId;
+
     /**
      * @var string
      */
     public $fileSystemProtocol;
+
     /**
      * @var string
      */
     public $fileSystemType;
+
     /**
      * @var mountInfo[]
      */
     public $mountInfo;
     protected $_name = [
-        'fileSystemId'       => 'FileSystemId',
+        'fileSystemId' => 'FileSystemId',
         'fileSystemProtocol' => 'FileSystemProtocol',
-        'fileSystemType'     => 'FileSystemType',
-        'mountInfo'          => 'MountInfo',
+        'fileSystemType' => 'FileSystemType',
+        'mountInfo' => 'MountInfo',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class sharedStorages extends Model
         if (null !== $this->mountInfo) {
             if (\is_array($this->mountInfo)) {
                 $res['MountInfo'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->mountInfo as $item1) {
                     $res['MountInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class sharedStorages extends Model
         if (isset($map['MountInfo'])) {
             if (!empty($map['MountInfo'])) {
                 $model->mountInfo = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['MountInfo'] as $item1) {
                     $model->mountInfo[$n1++] = mountInfo::fromMap($item1);
                 }

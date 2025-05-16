@@ -12,43 +12,50 @@ class sharedStorages extends Model
      * @var string
      */
     public $fileSystemId;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $mountDirectory;
+
     /**
      * @var string
      */
     public $mountOptions;
+
     /**
      * @var string
      */
     public $mountTarget;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var string
      */
     public $storageDirectory;
+
     /**
      * @var string
      */
     public $volumeType;
     protected $_name = [
-        'fileSystemId'     => 'FileSystemId',
-        'location'         => 'Location',
-        'mountDirectory'   => 'MountDirectory',
-        'mountOptions'     => 'MountOptions',
-        'mountTarget'      => 'MountTarget',
-        'protocolType'     => 'ProtocolType',
+        'fileSystemId' => 'FileSystemId',
+        'location' => 'Location',
+        'mountDirectory' => 'MountDirectory',
+        'mountOptions' => 'MountOptions',
+        'mountTarget' => 'MountTarget',
+        'protocolType' => 'ProtocolType',
         'storageDirectory' => 'StorageDirectory',
-        'volumeType'       => 'VolumeType',
+        'volumeType' => 'VolumeType',
     ];
 
     public function validate()

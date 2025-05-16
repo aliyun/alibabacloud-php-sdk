@@ -12,23 +12,26 @@ class dataDisks extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'category'           => 'Category',
+        'category' => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
-        'level'              => 'Level',
-        'size'               => 'Size',
+        'level' => 'Level',
+        'size' => 'Size',
     ];
 
     public function validate()

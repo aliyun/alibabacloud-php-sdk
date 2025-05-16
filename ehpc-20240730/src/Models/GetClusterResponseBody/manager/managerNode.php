@@ -12,23 +12,26 @@ class managerNode extends Model
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
     protected $_name = [
-        'expiredTime'        => 'ExpiredTime',
+        'expiredTime' => 'ExpiredTime',
         'instanceChargeType' => 'InstanceChargeType',
-        'instanceId'         => 'InstanceId',
-        'instanceType'       => 'InstanceType',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
     ];
 
     public function validate()

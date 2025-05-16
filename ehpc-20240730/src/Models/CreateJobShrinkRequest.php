@@ -12,17 +12,19 @@ class CreateJobShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobSpecShrink;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'jobName'       => 'JobName',
+        'clusterId' => 'ClusterId',
+        'jobName' => 'JobName',
         'jobSpecShrink' => 'JobSpec',
     ];
 

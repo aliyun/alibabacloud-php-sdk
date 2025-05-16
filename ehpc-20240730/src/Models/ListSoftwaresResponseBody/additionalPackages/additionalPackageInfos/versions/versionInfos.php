@@ -13,18 +13,20 @@ class versionInfos extends Model
      * @var string
      */
     public $latest;
+
     /**
      * @var supportOs
      */
     public $supportOs;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'latest'    => 'Latest',
+        'latest' => 'Latest',
         'supportOs' => 'SupportOs',
-        'version'   => 'Version',
+        'version' => 'Version',
     ];
 
     public function validate()

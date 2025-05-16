@@ -31,7 +31,7 @@ class versions extends Model
         if (null !== $this->versionInfos) {
             if (\is_array($this->versionInfos)) {
                 $res['VersionInfos'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->versionInfos as $item1) {
                     $res['VersionInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class versions extends Model
         if (isset($map['VersionInfos'])) {
             if (!empty($map['VersionInfos'])) {
                 $model->versionInfos = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['VersionInfos'] as $item1) {
                     $model->versionInfos[$n1++] = versionInfos::fromMap($item1);
                 }

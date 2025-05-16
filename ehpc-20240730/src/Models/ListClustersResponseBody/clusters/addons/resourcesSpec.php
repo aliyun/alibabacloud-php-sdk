@@ -12,6 +12,7 @@ class resourcesSpec extends Model
      * @var string
      */
     public $ecsInstanceId;
+
     /**
      * @var string
      */

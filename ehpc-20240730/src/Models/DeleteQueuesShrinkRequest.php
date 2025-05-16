@@ -12,12 +12,13 @@ class DeleteQueuesShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $queueNamesShrink;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'queueNamesShrink' => 'QueueNames',
     ];
 

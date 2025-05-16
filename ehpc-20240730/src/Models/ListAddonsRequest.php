@@ -12,23 +12,26 @@ class ListAddonsRequest extends Model
      * @var string[]
      */
     public $addonIds;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'addonIds'   => 'AddonIds',
-        'clusterId'  => 'ClusterId',
+        'addonIds' => 'AddonIds',
+        'clusterId' => 'ClusterId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -45,7 +48,7 @@ class ListAddonsRequest extends Model
         if (null !== $this->addonIds) {
             if (\is_array($this->addonIds)) {
                 $res['AddonIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->addonIds as $item1) {
                     $res['AddonIds'][$n1++] = $item1;
                 }
@@ -78,7 +81,7 @@ class ListAddonsRequest extends Model
         if (isset($map['AddonIds'])) {
             if (!empty($map['AddonIds'])) {
                 $model->addonIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['AddonIds'] as $item1) {
                     $model->addonIds[$n1++] = $item1;
                 }

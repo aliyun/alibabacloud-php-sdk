@@ -12,18 +12,20 @@ class servicesSpec extends Model
      * @var string
      */
     public $serviceAccessType;
+
     /**
      * @var string
      */
     public $serviceAccessUrl;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
         'serviceAccessType' => 'ServiceAccessType',
-        'serviceAccessUrl'  => 'ServiceAccessUrl',
-        'serviceName'       => 'ServiceName',
+        'serviceAccessUrl' => 'ServiceAccessUrl',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()

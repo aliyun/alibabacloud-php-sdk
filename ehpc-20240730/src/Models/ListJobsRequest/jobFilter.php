@@ -14,48 +14,56 @@ class jobFilter extends Model
      * @var string
      */
     public $createTimeEnd;
+
     /**
      * @var string
      */
     public $createTimeStart;
+
     /**
      * @var diagnosis[]
      */
     public $diagnosis;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobStatus;
+
     /**
      * @var string[]
      */
     public $nodes;
+
     /**
      * @var string[]
      */
     public $queues;
+
     /**
      * @var sortBy
      */
     public $sortBy;
+
     /**
      * @var string[]
      */
     public $users;
     protected $_name = [
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'diagnosis'       => 'Diagnosis',
-        'jobName'         => 'JobName',
-        'jobStatus'       => 'JobStatus',
-        'nodes'           => 'Nodes',
-        'queues'          => 'Queues',
-        'sortBy'          => 'SortBy',
-        'users'           => 'Users',
+        'diagnosis' => 'Diagnosis',
+        'jobName' => 'JobName',
+        'jobStatus' => 'JobStatus',
+        'nodes' => 'Nodes',
+        'queues' => 'Queues',
+        'sortBy' => 'SortBy',
+        'users' => 'Users',
     ];
 
     public function validate()
@@ -92,7 +100,7 @@ class jobFilter extends Model
         if (null !== $this->diagnosis) {
             if (\is_array($this->diagnosis)) {
                 $res['Diagnosis'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->diagnosis as $item1) {
                     $res['Diagnosis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -110,7 +118,7 @@ class jobFilter extends Model
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     $res['Nodes'][$n1++] = $item1;
                 }
@@ -120,7 +128,7 @@ class jobFilter extends Model
         if (null !== $this->queues) {
             if (\is_array($this->queues)) {
                 $res['Queues'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->queues as $item1) {
                     $res['Queues'][$n1++] = $item1;
                 }
@@ -134,7 +142,7 @@ class jobFilter extends Model
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->users as $item1) {
                     $res['Users'][$n1++] = $item1;
                 }
@@ -163,7 +171,7 @@ class jobFilter extends Model
         if (isset($map['Diagnosis'])) {
             if (!empty($map['Diagnosis'])) {
                 $model->diagnosis = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Diagnosis'] as $item1) {
                     $model->diagnosis[$n1++] = diagnosis::fromMap($item1);
                 }
@@ -181,7 +189,7 @@ class jobFilter extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
                     $model->nodes[$n1++] = $item1;
                 }
@@ -191,7 +199,7 @@ class jobFilter extends Model
         if (isset($map['Queues'])) {
             if (!empty($map['Queues'])) {
                 $model->queues = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Queues'] as $item1) {
                     $model->queues[$n1++] = $item1;
                 }
@@ -205,7 +213,7 @@ class jobFilter extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Users'] as $item1) {
                     $model->users[$n1++] = $item1;
                 }

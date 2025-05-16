@@ -12,12 +12,13 @@ class DeleteQueuesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $queueNames;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'queueNames' => 'QueueNames',
     ];
 
@@ -39,7 +40,7 @@ class DeleteQueuesRequest extends Model
         if (null !== $this->queueNames) {
             if (\is_array($this->queueNames)) {
                 $res['QueueNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->queueNames as $item1) {
                     $res['QueueNames'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DeleteQueuesRequest extends Model
         if (isset($map['QueueNames'])) {
             if (!empty($map['QueueNames'])) {
                 $model->queueNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['QueueNames'] as $item1) {
                     $model->queueNames[$n1++] = $item1;
                 }

@@ -12,21 +12,24 @@ class user extends Model
      * @var string
      */
     public $authKey;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'authKey'  => 'AuthKey',
-        'group'    => 'Group',
+        'authKey' => 'AuthKey',
+        'group' => 'Group',
         'password' => 'Password',
         'userName' => 'UserName',
     ];

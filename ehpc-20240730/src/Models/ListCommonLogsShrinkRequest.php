@@ -12,63 +12,74 @@ class ListCommonLogsShrinkRequest extends Model
      * @var string
      */
     public $actionNameShrink;
+
     /**
      * @var string
      */
     public $actionStatus;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var bool
      */
     public $isReverse;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
     public $operatorUid;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var int
      */
     public $to;
     protected $_name = [
         'actionNameShrink' => 'ActionName',
-        'actionStatus'     => 'ActionStatus',
-        'clusterId'        => 'ClusterId',
-        'from'             => 'From',
-        'isReverse'        => 'IsReverse',
-        'logRequestId'     => 'LogRequestId',
-        'logType'          => 'LogType',
-        'operatorUid'      => 'OperatorUid',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'resource'         => 'Resource',
-        'to'               => 'To',
+        'actionStatus' => 'ActionStatus',
+        'clusterId' => 'ClusterId',
+        'from' => 'From',
+        'isReverse' => 'IsReverse',
+        'logRequestId' => 'LogRequestId',
+        'logType' => 'LogType',
+        'operatorUid' => 'OperatorUid',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resource' => 'Resource',
+        'to' => 'To',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class addons extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
         'description' => 'Description',
-        'label'       => 'Label',
-        'name'        => 'Name',
-        'version'     => 'Version',
+        'label' => 'Label',
+        'name' => 'Name',
+        'version' => 'Version',
     ];
 
     public function validate()

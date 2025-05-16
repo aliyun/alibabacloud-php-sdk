@@ -12,27 +12,31 @@ class mountInfo extends Model
      * @var string
      */
     public $mountDirectory;
+
     /**
      * @var string
      */
     public $mountOptions;
+
     /**
      * @var string
      */
     public $mountTarget;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var string
      */
     public $storageDirectory;
     protected $_name = [
-        'mountDirectory'   => 'MountDirectory',
-        'mountOptions'     => 'MountOptions',
-        'mountTarget'      => 'MountTarget',
-        'protocolType'     => 'ProtocolType',
+        'mountDirectory' => 'MountDirectory',
+        'mountOptions' => 'MountOptions',
+        'mountTarget' => 'MountTarget',
+        'protocolType' => 'ProtocolType',
         'storageDirectory' => 'StorageDirectory',
     ];
 

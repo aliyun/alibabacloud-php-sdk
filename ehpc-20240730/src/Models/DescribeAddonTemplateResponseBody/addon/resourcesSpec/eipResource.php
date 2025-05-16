@@ -12,26 +12,30 @@ class eipResource extends Model
      * @var bool
      */
     public $autoCreate;
+
     /**
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $eipInstanceId;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $internetChargeType;
     protected $_name = [
-        'autoCreate'         => 'AutoCreate',
-        'bandwidth'          => 'Bandwidth',
-        'eipInstanceId'      => 'EipInstanceId',
+        'autoCreate' => 'AutoCreate',
+        'bandwidth' => 'Bandwidth',
+        'eipInstanceId' => 'EipInstanceId',
         'instanceChargeType' => 'InstanceChargeType',
         'internetChargeType' => 'InternetChargeType',
     ];

@@ -14,28 +14,32 @@ class servicesSpec extends Model
      * @var inputParams[]
      */
     public $inputParams;
+
     /**
      * @var networkACL[]
      */
     public $networkACL;
+
     /**
      * @var string
      */
     public $serviceAccessType;
+
     /**
      * @var string
      */
     public $serviceAccessUrl;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'inputParams'       => 'InputParams',
-        'networkACL'        => 'NetworkACL',
+        'inputParams' => 'InputParams',
+        'networkACL' => 'NetworkACL',
         'serviceAccessType' => 'ServiceAccessType',
-        'serviceAccessUrl'  => 'ServiceAccessUrl',
-        'serviceName'       => 'ServiceName',
+        'serviceAccessUrl' => 'ServiceAccessUrl',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class servicesSpec extends Model
         if (null !== $this->inputParams) {
             if (\is_array($this->inputParams)) {
                 $res['InputParams'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->inputParams as $item1) {
                     $res['InputParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +69,7 @@ class servicesSpec extends Model
         if (null !== $this->networkACL) {
             if (\is_array($this->networkACL)) {
                 $res['NetworkACL'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->networkACL as $item1) {
                     $res['NetworkACL'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -98,7 +102,7 @@ class servicesSpec extends Model
         if (isset($map['InputParams'])) {
             if (!empty($map['InputParams'])) {
                 $model->inputParams = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InputParams'] as $item1) {
                     $model->inputParams[$n1++] = inputParams::fromMap($item1);
                 }
@@ -108,7 +112,7 @@ class servicesSpec extends Model
         if (isset($map['NetworkACL'])) {
             if (!empty($map['NetworkACL'])) {
                 $model->networkACL = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NetworkACL'] as $item1) {
                     $model->networkACL[$n1++] = networkACL::fromMap($item1);
                 }

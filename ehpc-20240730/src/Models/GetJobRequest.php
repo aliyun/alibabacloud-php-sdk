@@ -12,13 +12,14 @@ class GetJobRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

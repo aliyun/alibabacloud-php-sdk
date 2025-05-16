@@ -13,32 +13,37 @@ class ListQueuesResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var queues[]
      */
     public $queues;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queues'     => 'Queues',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'queues' => 'Queues',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -68,7 +73,7 @@ class ListQueuesResponseBody extends Model
         if (null !== $this->queues) {
             if (\is_array($this->queues)) {
                 $res['Queues'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->queues as $item1) {
                     $res['Queues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class ListQueuesResponseBody extends Model
         if (isset($map['Queues'])) {
             if (!empty($map['Queues'])) {
                 $model->queues = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Queues'] as $item1) {
                     $model->queues[$n1++] = queues::fromMap($item1);
                 }

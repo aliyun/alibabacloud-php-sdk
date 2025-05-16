@@ -13,83 +13,98 @@ class queue extends Model
      * @var string
      */
     public $allocationStrategy;
+
     /**
      * @var NodeTemplate[]
      */
     public $computeNodes;
+
     /**
      * @var bool
      */
     public $enableScaleIn;
+
     /**
      * @var bool
      */
     public $enableScaleOut;
+
     /**
      * @var string
      */
     public $hostnamePrefix;
+
     /**
      * @var string
      */
     public $hostnameSuffix;
+
     /**
      * @var int
      */
     public $initialCount;
+
     /**
      * @var string
      */
     public $interConnect;
+
     /**
      * @var string[]
      */
     public $keepAliveNodes;
+
     /**
      * @var int
      */
     public $maxCount;
+
     /**
      * @var int
      */
     public $maxCountPerCycle;
+
     /**
      * @var int
      */
     public $minCount;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $ramRole;
+
     /**
      * @var string
      */
     public $reservedNodePoolId;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
         'allocationStrategy' => 'AllocationStrategy',
-        'computeNodes'       => 'ComputeNodes',
-        'enableScaleIn'      => 'EnableScaleIn',
-        'enableScaleOut'     => 'EnableScaleOut',
-        'hostnamePrefix'     => 'HostnamePrefix',
-        'hostnameSuffix'     => 'HostnameSuffix',
-        'initialCount'       => 'InitialCount',
-        'interConnect'       => 'InterConnect',
-        'keepAliveNodes'     => 'KeepAliveNodes',
-        'maxCount'           => 'MaxCount',
-        'maxCountPerCycle'   => 'MaxCountPerCycle',
-        'minCount'           => 'MinCount',
-        'queueName'          => 'QueueName',
-        'ramRole'            => 'RamRole',
+        'computeNodes' => 'ComputeNodes',
+        'enableScaleIn' => 'EnableScaleIn',
+        'enableScaleOut' => 'EnableScaleOut',
+        'hostnamePrefix' => 'HostnamePrefix',
+        'hostnameSuffix' => 'HostnameSuffix',
+        'initialCount' => 'InitialCount',
+        'interConnect' => 'InterConnect',
+        'keepAliveNodes' => 'KeepAliveNodes',
+        'maxCount' => 'MaxCount',
+        'maxCountPerCycle' => 'MaxCountPerCycle',
+        'minCount' => 'MinCount',
+        'queueName' => 'QueueName',
+        'ramRole' => 'RamRole',
         'reservedNodePoolId' => 'ReservedNodePoolId',
-        'vSwitchIds'         => 'VSwitchIds',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
@@ -116,7 +131,7 @@ class queue extends Model
         if (null !== $this->computeNodes) {
             if (\is_array($this->computeNodes)) {
                 $res['ComputeNodes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->computeNodes as $item1) {
                     $res['ComputeNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -150,7 +165,7 @@ class queue extends Model
         if (null !== $this->keepAliveNodes) {
             if (\is_array($this->keepAliveNodes)) {
                 $res['KeepAliveNodes'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->keepAliveNodes as $item1) {
                     $res['KeepAliveNodes'][$n1++] = $item1;
                 }
@@ -184,7 +199,7 @@ class queue extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -209,7 +224,7 @@ class queue extends Model
         if (isset($map['ComputeNodes'])) {
             if (!empty($map['ComputeNodes'])) {
                 $model->computeNodes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ComputeNodes'] as $item1) {
                     $model->computeNodes[$n1++] = NodeTemplate::fromMap($item1);
                 }
@@ -243,7 +258,7 @@ class queue extends Model
         if (isset($map['KeepAliveNodes'])) {
             if (!empty($map['KeepAliveNodes'])) {
                 $model->keepAliveNodes = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['KeepAliveNodes'] as $item1) {
                     $model->keepAliveNodes[$n1++] = $item1;
                 }
@@ -277,7 +292,7 @@ class queue extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

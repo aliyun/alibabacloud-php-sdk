@@ -13,13 +13,14 @@ class UpdateQueueRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var queue
      */
     public $queue;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'queue'     => 'Queue',
+        'queue' => 'Queue',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class inputParams extends Model
      * @var string
      */
     public $helpText;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'helpText' => 'HelpText',
-        'label'    => 'Label',
-        'name'     => 'Name',
-        'type'     => 'Type',
-        'value'    => 'Value',
+        'label' => 'Label',
+        'name' => 'Name',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

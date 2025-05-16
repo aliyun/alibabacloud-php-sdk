@@ -13,28 +13,32 @@ class ListAvailableFileSystemsResponseBody extends Model
      * @var fileSystemList[]
      */
     public $fileSystemList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'fileSystemList' => 'FileSystemList',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class ListAvailableFileSystemsResponseBody extends Model
         if (null !== $this->fileSystemList) {
             if (\is_array($this->fileSystemList)) {
                 $res['FileSystemList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->fileSystemList as $item1) {
                     $res['FileSystemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListAvailableFileSystemsResponseBody extends Model
         if (isset($map['FileSystemList'])) {
             if (!empty($map['FileSystemList'])) {
                 $model->fileSystemList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['FileSystemList'] as $item1) {
                     $model->fileSystemList[$n1++] = fileSystemList::fromMap($item1);
                 }

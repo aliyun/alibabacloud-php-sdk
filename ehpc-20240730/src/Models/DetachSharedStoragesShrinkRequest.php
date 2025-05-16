@@ -12,12 +12,13 @@ class DetachSharedStoragesShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $sharedStoragesShrink;
     protected $_name = [
-        'clusterId'            => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'sharedStoragesShrink' => 'SharedStorages',
     ];
 

@@ -12,12 +12,13 @@ class DeleteNodesShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceIdsShrink;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'instanceIdsShrink' => 'InstanceIds',
     ];
 

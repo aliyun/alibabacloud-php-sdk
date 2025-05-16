@@ -14,68 +14,80 @@ class NodeTemplate extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewPeriod;
+
     /**
      * @var dataDisks[]
      */
     public $dataDisks;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var bool
      */
     public $enableHT;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var float
      */
     public $spotPriceLimit;
+
     /**
      * @var string
      */
     public $spotStrategy;
+
     /**
      * @var systemDisk
      */
     public $systemDisk;
     protected $_name = [
-        'autoRenew'          => 'AutoRenew',
-        'autoRenewPeriod'    => 'AutoRenewPeriod',
-        'dataDisks'          => 'DataDisks',
-        'duration'           => 'Duration',
-        'enableHT'           => 'EnableHT',
-        'imageId'            => 'ImageId',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewPeriod' => 'AutoRenewPeriod',
+        'dataDisks' => 'DataDisks',
+        'duration' => 'Duration',
+        'enableHT' => 'EnableHT',
+        'imageId' => 'ImageId',
         'instanceChargeType' => 'InstanceChargeType',
-        'instanceType'       => 'InstanceType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'spotPriceLimit'     => 'SpotPriceLimit',
-        'spotStrategy'       => 'SpotStrategy',
-        'systemDisk'         => 'SystemDisk',
+        'instanceType' => 'InstanceType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'spotPriceLimit' => 'SpotPriceLimit',
+        'spotStrategy' => 'SpotStrategy',
+        'systemDisk' => 'SystemDisk',
     ];
 
     public function validate()
@@ -103,7 +115,7 @@ class NodeTemplate extends Model
         if (null !== $this->dataDisks) {
             if (\is_array($this->dataDisks)) {
                 $res['DataDisks'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->dataDisks as $item1) {
                     $res['DataDisks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -172,7 +184,7 @@ class NodeTemplate extends Model
         if (isset($map['DataDisks'])) {
             if (!empty($map['DataDisks'])) {
                 $model->dataDisks = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DataDisks'] as $item1) {
                     $model->dataDisks[$n1++] = dataDisks::fromMap($item1);
                 }

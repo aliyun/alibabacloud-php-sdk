@@ -12,18 +12,20 @@ class CreateJobResponseBody extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

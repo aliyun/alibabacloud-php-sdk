@@ -12,6 +12,7 @@ class GetQueueRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */

@@ -12,33 +12,38 @@ class DescribeAddonTemplateRequest extends Model
      * @var string
      */
     public $addonName;
+
     /**
      * @var string
      */
     public $addonVersion;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'addonName'    => 'AddonName',
+        'addonName' => 'AddonName',
         'addonVersion' => 'AddonVersion',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'zoneId'       => 'ZoneId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

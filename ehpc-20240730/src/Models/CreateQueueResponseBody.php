@@ -12,12 +12,13 @@ class CreateQueueResponseBody extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'requestId' => 'RequestId',
     ];
 

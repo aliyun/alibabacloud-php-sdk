@@ -16,23 +16,26 @@ class manager extends Model
      * @var DNS
      */
     public $DNS;
+
     /**
      * @var directoryService
      */
     public $directoryService;
+
     /**
      * @var managerNode
      */
     public $managerNode;
+
     /**
      * @var scheduler
      */
     public $scheduler;
     protected $_name = [
-        'DNS'              => 'DNS',
+        'DNS' => 'DNS',
         'directoryService' => 'DirectoryService',
-        'managerNode'      => 'ManagerNode',
-        'scheduler'        => 'Scheduler',
+        'managerNode' => 'ManagerNode',
+        'scheduler' => 'Scheduler',
     ];
 
     public function validate()

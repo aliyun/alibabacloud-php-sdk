@@ -12,13 +12,14 @@ class StopJobsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $jobIds;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'jobIds'    => 'JobIds',
+        'jobIds' => 'JobIds',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class StopJobsRequest extends Model
         if (null !== $this->jobIds) {
             if (\is_array($this->jobIds)) {
                 $res['JobIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->jobIds as $item1) {
                     $res['JobIds'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class StopJobsRequest extends Model
         if (isset($map['JobIds'])) {
             if (!empty($map['JobIds'])) {
                 $model->jobIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['JobIds'] as $item1) {
                     $model->jobIds[$n1++] = $item1;
                 }

@@ -12,12 +12,13 @@ class GetAddonRequest extends Model
      * @var string
      */
     public $addonId;
+
     /**
      * @var string
      */
     public $clusterId;
     protected $_name = [
-        'addonId'   => 'AddonId',
+        'addonId' => 'AddonId',
         'clusterId' => 'ClusterId',
     ];
 

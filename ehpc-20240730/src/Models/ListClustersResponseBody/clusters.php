@@ -18,123 +18,146 @@ class clusters extends Model
      * @var additionalPackages[]
      */
     public $additionalPackages;
+
     /**
      * @var addons[]
      */
     public $addons;
+
     /**
      * @var string
      */
     public $clusterCategory;
+
     /**
      * @var string
      */
     public $clusterCreateTime;
+
     /**
      * @var string[]
      */
     public $clusterCredentials;
+
     /**
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
+
     /**
      * @var string
      */
     public $clusterDescription;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterModifyTime;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterStatus;
+
     /**
      * @var float
      */
     public $clusterUsedCoreTime;
+
     /**
      * @var string
      */
     public $clusterVSwitchId;
+
     /**
      * @var string
      */
     public $clusterVpcId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $ehpcVersion;
+
     /**
      * @var manager
      */
     public $manager;
+
     /**
      * @var int
      */
     public $maxCoreCount;
+
     /**
      * @var int
      */
     public $maxCount;
+
     /**
      * @var nodes
      */
     public $nodes;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var users
      */
     public $users;
     protected $_name = [
-        'additionalPackages'         => 'AdditionalPackages',
-        'addons'                     => 'Addons',
-        'clusterCategory'            => 'ClusterCategory',
-        'clusterCreateTime'          => 'ClusterCreateTime',
-        'clusterCredentials'         => 'ClusterCredentials',
+        'additionalPackages' => 'AdditionalPackages',
+        'addons' => 'Addons',
+        'clusterCategory' => 'ClusterCategory',
+        'clusterCreateTime' => 'ClusterCreateTime',
+        'clusterCredentials' => 'ClusterCredentials',
         'clusterCustomConfiguration' => 'ClusterCustomConfiguration',
-        'clusterDescription'         => 'ClusterDescription',
-        'clusterId'                  => 'ClusterId',
-        'clusterMode'                => 'ClusterMode',
-        'clusterModifyTime'          => 'ClusterModifyTime',
-        'clusterName'                => 'ClusterName',
-        'clusterStatus'              => 'ClusterStatus',
-        'clusterUsedCoreTime'        => 'ClusterUsedCoreTime',
-        'clusterVSwitchId'           => 'ClusterVSwitchId',
-        'clusterVpcId'               => 'ClusterVpcId',
-        'deletionProtection'         => 'DeletionProtection',
-        'ehpcVersion'                => 'EhpcVersion',
-        'manager'                    => 'Manager',
-        'maxCoreCount'               => 'MaxCoreCount',
-        'maxCount'                   => 'MaxCount',
-        'nodes'                      => 'Nodes',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'securityGroupId'            => 'SecurityGroupId',
-        'users'                      => 'Users',
+        'clusterDescription' => 'ClusterDescription',
+        'clusterId' => 'ClusterId',
+        'clusterMode' => 'ClusterMode',
+        'clusterModifyTime' => 'ClusterModifyTime',
+        'clusterName' => 'ClusterName',
+        'clusterStatus' => 'ClusterStatus',
+        'clusterUsedCoreTime' => 'ClusterUsedCoreTime',
+        'clusterVSwitchId' => 'ClusterVSwitchId',
+        'clusterVpcId' => 'ClusterVpcId',
+        'deletionProtection' => 'DeletionProtection',
+        'ehpcVersion' => 'EhpcVersion',
+        'manager' => 'Manager',
+        'maxCoreCount' => 'MaxCoreCount',
+        'maxCount' => 'MaxCount',
+        'nodes' => 'Nodes',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
+        'users' => 'Users',
     ];
 
     public function validate()
@@ -169,7 +192,7 @@ class clusters extends Model
         if (null !== $this->additionalPackages) {
             if (\is_array($this->additionalPackages)) {
                 $res['AdditionalPackages'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->additionalPackages as $item1) {
                     $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -179,7 +202,7 @@ class clusters extends Model
         if (null !== $this->addons) {
             if (\is_array($this->addons)) {
                 $res['Addons'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->addons as $item1) {
                     $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -197,7 +220,7 @@ class clusters extends Model
         if (null !== $this->clusterCredentials) {
             if (\is_array($this->clusterCredentials)) {
                 $res['ClusterCredentials'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->clusterCredentials as $item1) {
                     $res['ClusterCredentials'][$n1++] = $item1;
                 }
@@ -294,7 +317,7 @@ class clusters extends Model
         if (isset($map['AdditionalPackages'])) {
             if (!empty($map['AdditionalPackages'])) {
                 $model->additionalPackages = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AdditionalPackages'] as $item1) {
                     $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
                 }
@@ -304,7 +327,7 @@ class clusters extends Model
         if (isset($map['Addons'])) {
             if (!empty($map['Addons'])) {
                 $model->addons = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
                     $model->addons[$n1++] = addons::fromMap($item1);
                 }
@@ -322,7 +345,7 @@ class clusters extends Model
         if (isset($map['ClusterCredentials'])) {
             if (!empty($map['ClusterCredentials'])) {
                 $model->clusterCredentials = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ClusterCredentials'] as $item1) {
                     $model->clusterCredentials[$n1++] = $item1;
                 }

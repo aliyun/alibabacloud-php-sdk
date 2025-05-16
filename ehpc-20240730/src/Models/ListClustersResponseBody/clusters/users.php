@@ -12,13 +12,14 @@ class users extends Model
      * @var int
      */
     public $normalCounts;
+
     /**
      * @var int
      */
     public $sudoCounts;
     protected $_name = [
         'normalCounts' => 'NormalCounts',
-        'sudoCounts'   => 'SudoCounts',
+        'sudoCounts' => 'SudoCounts',
     ];
 
     public function validate()

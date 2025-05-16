@@ -15,18 +15,20 @@ class manager extends Model
      * @var DNS
      */
     public $DNS;
+
     /**
      * @var directoryService
      */
     public $directoryService;
+
     /**
      * @var scheduler
      */
     public $scheduler;
     protected $_name = [
-        'DNS'              => 'DNS',
+        'DNS' => 'DNS',
         'directoryService' => 'DirectoryService',
-        'scheduler'        => 'Scheduler',
+        'scheduler' => 'Scheduler',
     ];
 
     public function validate()

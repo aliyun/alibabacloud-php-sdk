@@ -12,13 +12,14 @@ class supportOsInfos extends Model
      * @var string
      */
     public $architecture;
+
     /**
      * @var string
      */
     public $osTag;
     protected $_name = [
         'architecture' => 'Architecture',
-        'osTag'        => 'OsTag',
+        'osTag' => 'OsTag',
     ];
 
     public function validate()

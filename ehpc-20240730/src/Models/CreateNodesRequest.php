@@ -12,63 +12,74 @@ class CreateNodesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var NodeTemplate
      */
     public $computeNode;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $deploymentSetId;
+
     /**
      * @var string
      */
     public $HPCInterConnect;
+
     /**
      * @var string
      */
     public $hostnamePrefix;
+
     /**
      * @var string
      */
     public $hostnameSuffix;
+
     /**
      * @var string
      */
     public $keepAlive;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $ramRole;
+
     /**
      * @var string
      */
     public $reservedNodePoolId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'computeNode'        => 'ComputeNode',
-        'count'              => 'Count',
-        'deploymentSetId'    => 'DeploymentSetId',
-        'HPCInterConnect'    => 'HPCInterConnect',
-        'hostnamePrefix'     => 'HostnamePrefix',
-        'hostnameSuffix'     => 'HostnameSuffix',
-        'keepAlive'          => 'KeepAlive',
-        'queueName'          => 'QueueName',
-        'ramRole'            => 'RamRole',
+        'clusterId' => 'ClusterId',
+        'computeNode' => 'ComputeNode',
+        'count' => 'Count',
+        'deploymentSetId' => 'DeploymentSetId',
+        'HPCInterConnect' => 'HPCInterConnect',
+        'hostnamePrefix' => 'HostnamePrefix',
+        'hostnameSuffix' => 'HostnameSuffix',
+        'keepAlive' => 'KeepAlive',
+        'queueName' => 'QueueName',
+        'ramRole' => 'RamRole',
         'reservedNodePoolId' => 'ReservedNodePoolId',
-        'vSwitchId'          => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

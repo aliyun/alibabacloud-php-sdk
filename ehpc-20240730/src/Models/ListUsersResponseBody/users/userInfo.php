@@ -12,27 +12,31 @@ class userInfo extends Model
      * @var string
      */
     public $addTime;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'addTime'  => 'AddTime',
-        'group'    => 'Group',
-        'groupId'  => 'GroupId',
-        'userId'   => 'UserId',
+        'addTime' => 'AddTime',
+        'group' => 'Group',
+        'groupId' => 'GroupId',
+        'userId' => 'UserId',
         'userName' => 'UserName',
     ];
 

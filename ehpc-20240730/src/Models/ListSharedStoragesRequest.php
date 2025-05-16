@@ -12,17 +12,19 @@ class ListSharedStoragesRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $fileSystemId;
+
     /**
      * @var string
      */
     public $fileSystemType;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'fileSystemId'   => 'FileSystemId',
+        'clusterId' => 'ClusterId',
+        'fileSystemId' => 'FileSystemId',
         'fileSystemType' => 'FileSystemType',
     ];
 

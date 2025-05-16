@@ -12,18 +12,20 @@ class DeleteNodesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskId'    => 'TaskId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

@@ -14,13 +14,14 @@ class resourcesSpec extends Model
      * @var AddonNodeTemplate[]
      */
     public $ecsResources;
+
     /**
      * @var eipResource
      */
     public $eipResource;
     protected $_name = [
         'ecsResources' => 'EcsResources',
-        'eipResource'  => 'EipResource',
+        'eipResource' => 'EipResource',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class resourcesSpec extends Model
         if (null !== $this->ecsResources) {
             if (\is_array($this->ecsResources)) {
                 $res['EcsResources'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ecsResources as $item1) {
                     $res['EcsResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class resourcesSpec extends Model
         if (isset($map['EcsResources'])) {
             if (!empty($map['EcsResources'])) {
                 $model->ecsResources = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['EcsResources'] as $item1) {
                     $model->ecsResources[$n1++] = AddonNodeTemplate::fromMap($item1);
                 }

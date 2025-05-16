@@ -12,23 +12,26 @@ class ListAddonsShrinkRequest extends Model
      * @var string
      */
     public $addonIdsShrink;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'addonIdsShrink' => 'AddonIds',
-        'clusterId'      => 'ClusterId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'clusterId' => 'ClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

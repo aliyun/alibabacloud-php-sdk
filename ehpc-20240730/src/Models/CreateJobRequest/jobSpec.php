@@ -13,63 +13,74 @@ class jobSpec extends Model
      * @var string
      */
     public $arrayRequest;
+
     /**
      * @var string
      */
     public $commandLine;
+
     /**
      * @var string
      */
     public $jobQueue;
+
     /**
      * @var string
      */
     public $postCmdLine;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var resources
      */
     public $resources;
+
     /**
      * @var string
      */
     public $runasUser;
+
     /**
      * @var string
      */
     public $runasUserPassword;
+
     /**
      * @var string
      */
     public $stderrPath;
+
     /**
      * @var string
      */
     public $stdoutPath;
+
     /**
      * @var string
      */
     public $variables;
+
     /**
      * @var string
      */
     public $wallTime;
     protected $_name = [
-        'arrayRequest'      => 'ArrayRequest',
-        'commandLine'       => 'CommandLine',
-        'jobQueue'          => 'JobQueue',
-        'postCmdLine'       => 'PostCmdLine',
-        'priority'          => 'Priority',
-        'resources'         => 'Resources',
-        'runasUser'         => 'RunasUser',
+        'arrayRequest' => 'ArrayRequest',
+        'commandLine' => 'CommandLine',
+        'jobQueue' => 'JobQueue',
+        'postCmdLine' => 'PostCmdLine',
+        'priority' => 'Priority',
+        'resources' => 'Resources',
+        'runasUser' => 'RunasUser',
         'runasUserPassword' => 'RunasUserPassword',
-        'stderrPath'        => 'StderrPath',
-        'stdoutPath'        => 'StdoutPath',
-        'variables'         => 'Variables',
-        'wallTime'          => 'WallTime',
+        'stderrPath' => 'StderrPath',
+        'stdoutPath' => 'StdoutPath',
+        'variables' => 'Variables',
+        'wallTime' => 'WallTime',
     ];
 
     public function validate()

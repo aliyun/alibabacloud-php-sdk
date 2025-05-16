@@ -12,18 +12,20 @@ class nodes extends Model
      * @var int
      */
     public $creatingCounts;
+
     /**
      * @var int
      */
     public $exceptionCounts;
+
     /**
      * @var int
      */
     public $runningCounts;
     protected $_name = [
-        'creatingCounts'  => 'CreatingCounts',
+        'creatingCounts' => 'CreatingCounts',
         'exceptionCounts' => 'ExceptionCounts',
-        'runningCounts'   => 'RunningCounts',
+        'runningCounts' => 'RunningCounts',
     ];
 
     public function validate()

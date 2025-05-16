@@ -12,28 +12,32 @@ class mountTargetList extends Model
      * @var string
      */
     public $mountTargetDomain;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'mountTargetDomain' => 'MountTargetDomain',
-        'networkType'       => 'NetworkType',
-        'status'            => 'Status',
-        'vSwitchId'         => 'VSwitchId',
-        'vpcId'             => 'VpcId',
+        'networkType' => 'NetworkType',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

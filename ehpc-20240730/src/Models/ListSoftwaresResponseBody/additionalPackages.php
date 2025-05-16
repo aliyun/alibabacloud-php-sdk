@@ -31,7 +31,7 @@ class additionalPackages extends Model
         if (null !== $this->additionalPackageInfos) {
             if (\is_array($this->additionalPackageInfos)) {
                 $res['AdditionalPackageInfos'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->additionalPackageInfos as $item1) {
                     $res['AdditionalPackageInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class additionalPackages extends Model
         if (isset($map['AdditionalPackageInfos'])) {
             if (!empty($map['AdditionalPackageInfos'])) {
                 $model->additionalPackageInfos = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['AdditionalPackageInfos'] as $item1) {
                     $model->additionalPackageInfos[$n1++] = additionalPackageInfos::fromMap($item1);
                 }

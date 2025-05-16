@@ -12,38 +12,44 @@ class dataDisks extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $device;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $mountDir;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $snapshotId;
     protected $_name = [
-        'category'           => 'Category',
+        'category' => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
-        'device'             => 'Device',
-        'level'              => 'Level',
-        'mountDir'           => 'MountDir',
-        'size'               => 'Size',
-        'snapshotId'         => 'SnapshotId',
+        'device' => 'Device',
+        'level' => 'Level',
+        'mountDir' => 'MountDir',
+        'size' => 'Size',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class logDetail extends Model
      * @var string
      */
     public $stageName;
+
     /**
      * @var stages[]
      */
     public $stages;
     protected $_name = [
         'stageName' => 'StageName',
-        'stages'    => 'Stages',
+        'stages' => 'Stages',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class logDetail extends Model
         if (null !== $this->stages) {
             if (\is_array($this->stages)) {
                 $res['Stages'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->stages as $item1) {
                     $res['Stages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class logDetail extends Model
         if (isset($map['Stages'])) {
             if (!empty($map['Stages'])) {
                 $model->stages = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Stages'] as $item1) {
                     $model->stages[$n1++] = stages::fromMap($item1);
                 }

@@ -12,48 +12,56 @@ class logs extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $operatorUid;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $target;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'action'      => 'Action',
-        'clusterId'   => 'ClusterId',
-        'logType'     => 'LogType',
-        'message'     => 'Message',
+        'action' => 'Action',
+        'clusterId' => 'ClusterId',
+        'logType' => 'LogType',
+        'message' => 'Message',
         'operatorUid' => 'OperatorUid',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
-        'target'      => 'Target',
-        'time'        => 'Time',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'target' => 'Target',
+        'time' => 'Time',
     ];
 
     public function validate()

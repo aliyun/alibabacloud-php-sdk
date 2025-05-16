@@ -13,27 +13,31 @@ class ListAddonTemplatesResponseBody extends Model
      * @var addons[]
      */
     public $addons;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'addons'     => 'Addons',
+        'addons' => 'Addons',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class ListAddonTemplatesResponseBody extends Model
         if (null !== $this->addons) {
             if (\is_array($this->addons)) {
                 $res['Addons'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->addons as $item1) {
                     $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListAddonTemplatesResponseBody extends Model
         if (isset($map['Addons'])) {
             if (!empty($map['Addons'])) {
                 $model->addons = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
                     $model->addons[$n1++] = addons::fromMap($item1);
                 }

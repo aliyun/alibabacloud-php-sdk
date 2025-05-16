@@ -12,17 +12,19 @@ class scheduler extends Model
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'status'  => 'Status',
-        'type'    => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
         'version' => 'Version',
     ];
 

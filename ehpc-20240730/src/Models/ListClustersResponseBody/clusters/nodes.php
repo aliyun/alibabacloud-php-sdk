@@ -12,10 +12,12 @@ class nodes extends Model
      * @var int
      */
     public $abnormalCounts;
+
     /**
      * @var int
      */
     public $creatingCounts;
+
     /**
      * @var int
      */
@@ -23,7 +25,7 @@ class nodes extends Model
     protected $_name = [
         'abnormalCounts' => 'AbnormalCounts',
         'creatingCounts' => 'CreatingCounts',
-        'runningCounts'  => 'RunningCounts',
+        'runningCounts' => 'RunningCounts',
     ];
 
     public function validate()

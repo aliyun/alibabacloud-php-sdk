@@ -12,28 +12,32 @@ class ListAddonTemplatesRequest extends Model
      * @var string[]
      */
     public $addonNames;
+
     /**
      * @var string
      */
     public $clusterCategory;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'addonNames'      => 'AddonNames',
+        'addonNames' => 'AddonNames',
         'clusterCategory' => 'ClusterCategory',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class ListAddonTemplatesRequest extends Model
         if (null !== $this->addonNames) {
             if (\is_array($this->addonNames)) {
                 $res['AddonNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->addonNames as $item1) {
                     $res['AddonNames'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class ListAddonTemplatesRequest extends Model
         if (isset($map['AddonNames'])) {
             if (!empty($map['AddonNames'])) {
                 $model->addonNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AddonNames'] as $item1) {
                     $model->addonNames[$n1++] = $item1;
                 }

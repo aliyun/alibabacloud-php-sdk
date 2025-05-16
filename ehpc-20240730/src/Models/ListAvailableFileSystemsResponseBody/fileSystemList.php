@@ -13,43 +13,50 @@ class fileSystemList extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $fileSystemId;
+
     /**
      * @var string
      */
     public $fileSystemType;
+
     /**
      * @var mountTargetList[]
      */
     public $mountTargetList;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'fileSystemId'    => 'FileSystemId',
-        'fileSystemType'  => 'FileSystemType',
+        'createTime' => 'CreateTime',
+        'fileSystemId' => 'FileSystemId',
+        'fileSystemType' => 'FileSystemType',
         'mountTargetList' => 'MountTargetList',
-        'protocolType'    => 'ProtocolType',
-        'status'          => 'Status',
-        'storageType'     => 'StorageType',
-        'vpcId'           => 'VpcId',
+        'protocolType' => 'ProtocolType',
+        'status' => 'Status',
+        'storageType' => 'StorageType',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -78,7 +85,7 @@ class fileSystemList extends Model
         if (null !== $this->mountTargetList) {
             if (\is_array($this->mountTargetList)) {
                 $res['MountTargetList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->mountTargetList as $item1) {
                     $res['MountTargetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -127,7 +134,7 @@ class fileSystemList extends Model
         if (isset($map['MountTargetList'])) {
             if (!empty($map['MountTargetList'])) {
                 $model->mountTargetList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['MountTargetList'] as $item1) {
                     $model->mountTargetList[$n1++] = mountTargetList::fromMap($item1);
                 }

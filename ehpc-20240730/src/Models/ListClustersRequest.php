@@ -12,23 +12,26 @@ class ListClustersRequest extends Model
      * @var string[]
      */
     public $clusterIds;
+
     /**
      * @var string[]
      */
     public $clusterNames;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'clusterIds'   => 'ClusterIds',
+        'clusterIds' => 'ClusterIds',
         'clusterNames' => 'ClusterNames',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -48,7 +51,7 @@ class ListClustersRequest extends Model
         if (null !== $this->clusterIds) {
             if (\is_array($this->clusterIds)) {
                 $res['ClusterIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->clusterIds as $item1) {
                     $res['ClusterIds'][$n1++] = $item1;
                 }
@@ -58,7 +61,7 @@ class ListClustersRequest extends Model
         if (null !== $this->clusterNames) {
             if (\is_array($this->clusterNames)) {
                 $res['ClusterNames'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->clusterNames as $item1) {
                     $res['ClusterNames'][$n1++] = $item1;
                 }
@@ -87,7 +90,7 @@ class ListClustersRequest extends Model
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
                 $model->clusterIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ClusterIds'] as $item1) {
                     $model->clusterIds[$n1++] = $item1;
                 }
@@ -97,7 +100,7 @@ class ListClustersRequest extends Model
         if (isset($map['ClusterNames'])) {
             if (!empty($map['ClusterNames'])) {
                 $model->clusterNames = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ClusterNames'] as $item1) {
                     $model->clusterNames[$n1++] = $item1;
                 }

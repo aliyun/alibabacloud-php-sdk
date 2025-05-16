@@ -12,12 +12,13 @@ class clusterCustomConfiguration extends Model
      * @var string
      */
     public $args;
+
     /**
      * @var string
      */
     public $script;
     protected $_name = [
-        'args'   => 'Args',
+        'args' => 'Args',
         'script' => 'Script',
     ];
 

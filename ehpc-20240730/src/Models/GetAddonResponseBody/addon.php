@@ -14,53 +14,62 @@ class addon extends Model
      * @var string
      */
     public $addonId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $icon;
+
     /**
      * @var string
      */
     public $installTime;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var resourcesSpec
      */
     public $resourcesSpec;
+
     /**
      * @var servicesSpec[]
      */
     public $servicesSpec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'addonId'       => 'AddonId',
-        'description'   => 'Description',
-        'icon'          => 'Icon',
-        'installTime'   => 'InstallTime',
-        'label'         => 'Label',
-        'name'          => 'Name',
+        'addonId' => 'AddonId',
+        'description' => 'Description',
+        'icon' => 'Icon',
+        'installTime' => 'InstallTime',
+        'label' => 'Label',
+        'name' => 'Name',
         'resourcesSpec' => 'ResourcesSpec',
-        'servicesSpec'  => 'ServicesSpec',
-        'status'        => 'Status',
-        'version'       => 'Version',
+        'servicesSpec' => 'ServicesSpec',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -108,7 +117,7 @@ class addon extends Model
         if (null !== $this->servicesSpec) {
             if (\is_array($this->servicesSpec)) {
                 $res['ServicesSpec'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->servicesSpec as $item1) {
                     $res['ServicesSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -165,7 +174,7 @@ class addon extends Model
         if (isset($map['ServicesSpec'])) {
             if (!empty($map['ServicesSpec'])) {
                 $model->servicesSpec = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ServicesSpec'] as $item1) {
                     $model->servicesSpec[$n1++] = servicesSpec::fromMap($item1);
                 }

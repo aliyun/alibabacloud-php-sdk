@@ -13,18 +13,20 @@ class CreateJobRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var jobSpec
      */
     public $jobSpec;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'jobName'   => 'JobName',
-        'jobSpec'   => 'JobSpec',
+        'jobName' => 'JobName',
+        'jobSpec' => 'JobSpec',
     ];
 
     public function validate()

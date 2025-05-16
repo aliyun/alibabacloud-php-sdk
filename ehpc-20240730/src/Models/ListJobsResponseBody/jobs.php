@@ -13,6 +13,7 @@ class jobs extends Model
      * @var string
      */
     public $jobName;
+
     /**
      * @var jobSpec
      */

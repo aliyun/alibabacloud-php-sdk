@@ -12,14 +12,17 @@ class CreateClusterResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class CreateClusterResponseBody extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskId'    => 'TaskId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

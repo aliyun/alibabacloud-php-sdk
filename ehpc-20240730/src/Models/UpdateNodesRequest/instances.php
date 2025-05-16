@@ -12,13 +12,14 @@ class instances extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $keepAlive;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'keepAlive'  => 'KeepAlive',
+        'keepAlive' => 'KeepAlive',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class networkACL extends Model
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var float
      */
     public $port;
+
     /**
      * @var string
      */
     public $sourceCidrIp;
     protected $_name = [
-        'ipProtocol'   => 'IpProtocol',
-        'port'         => 'Port',
+        'ipProtocol' => 'IpProtocol',
+        'port' => 'Port',
         'sourceCidrIp' => 'SourceCidrIp',
     ];
 

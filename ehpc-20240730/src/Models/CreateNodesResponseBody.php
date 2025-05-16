@@ -12,18 +12,20 @@ class CreateNodesResponseBody extends Model
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class CreateNodesResponseBody extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
                     $res['InstanceIds'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class CreateNodesResponseBody extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
                     $model->instanceIds[$n1++] = $item1;
                 }

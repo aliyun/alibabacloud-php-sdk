@@ -14,63 +14,74 @@ class queues extends Model
      * @var NodeTemplate[]
      */
     public $computeNodes;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $enableScaleIn;
+
     /**
      * @var bool
      */
     public $enableScaleOut;
+
     /**
      * @var int
      */
     public $maxCount;
+
     /**
      * @var int
      */
     public $maxCountPerCycle;
+
     /**
      * @var int
      */
     public $minCount;
+
     /**
      * @var nodes
      */
     public $nodes;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var int
      */
     public $totalCores;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
-        'computeNodes'     => 'ComputeNodes',
-        'createTime'       => 'CreateTime',
-        'enableScaleIn'    => 'EnableScaleIn',
-        'enableScaleOut'   => 'EnableScaleOut',
-        'maxCount'         => 'MaxCount',
+        'computeNodes' => 'ComputeNodes',
+        'createTime' => 'CreateTime',
+        'enableScaleIn' => 'EnableScaleIn',
+        'enableScaleOut' => 'EnableScaleOut',
+        'maxCount' => 'MaxCount',
         'maxCountPerCycle' => 'MaxCountPerCycle',
-        'minCount'         => 'MinCount',
-        'nodes'            => 'Nodes',
-        'queueName'        => 'QueueName',
-        'totalCores'       => 'TotalCores',
-        'updateTime'       => 'UpdateTime',
-        'vSwitchIds'       => 'VSwitchIds',
+        'minCount' => 'MinCount',
+        'nodes' => 'Nodes',
+        'queueName' => 'QueueName',
+        'totalCores' => 'TotalCores',
+        'updateTime' => 'UpdateTime',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
@@ -93,7 +104,7 @@ class queues extends Model
         if (null !== $this->computeNodes) {
             if (\is_array($this->computeNodes)) {
                 $res['ComputeNodes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->computeNodes as $item1) {
                     $res['ComputeNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +154,7 @@ class queues extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -164,7 +175,7 @@ class queues extends Model
         if (isset($map['ComputeNodes'])) {
             if (!empty($map['ComputeNodes'])) {
                 $model->computeNodes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ComputeNodes'] as $item1) {
                     $model->computeNodes[$n1++] = NodeTemplate::fromMap($item1);
                 }
@@ -214,7 +225,7 @@ class queues extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

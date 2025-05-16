@@ -31,7 +31,7 @@ class supportOs extends Model
         if (null !== $this->supportOsInfos) {
             if (\is_array($this->supportOsInfos)) {
                 $res['SupportOsInfos'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->supportOsInfos as $item1) {
                     $res['SupportOsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class supportOs extends Model
         if (isset($map['SupportOsInfos'])) {
             if (!empty($map['SupportOsInfos'])) {
                 $model->supportOsInfos = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SupportOsInfos'] as $item1) {
                     $model->supportOsInfos[$n1++] = supportOsInfos::fromMap($item1);
                 }

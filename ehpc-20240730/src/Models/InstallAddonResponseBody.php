@@ -12,16 +12,18 @@ class InstallAddonResponseBody extends Model
      * @var string
      */
     public $addonId;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'addonId'   => 'AddonId',
+        'addonId' => 'AddonId',
         'clusterId' => 'ClusterId',
         'requestId' => 'RequestId',
     ];

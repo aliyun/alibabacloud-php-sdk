@@ -12,73 +12,86 @@ class UpdateClusterShrinkRequest extends Model
      * @var string
      */
     public $clientVersion;
+
     /**
      * @var string
      */
     public $clusterCustomConfigurationShrink;
+
     /**
      * @var string
      */
     public $clusterDescription;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var bool
      */
     public $enableScaleIn;
+
     /**
      * @var bool
      */
     public $enableScaleOut;
+
     /**
      * @var int
      */
     public $growInterval;
+
     /**
      * @var int
      */
     public $idleInterval;
+
     /**
      * @var int
      */
     public $maxCoreCount;
+
     /**
      * @var int
      */
     public $maxCount;
+
     /**
      * @var string
      */
     public $monitorSpecShrink;
+
     /**
      * @var string
      */
     public $schedulerSpecShrink;
     protected $_name = [
-        'clientVersion'                    => 'ClientVersion',
+        'clientVersion' => 'ClientVersion',
         'clusterCustomConfigurationShrink' => 'ClusterCustomConfiguration',
-        'clusterDescription'               => 'ClusterDescription',
-        'clusterId'                        => 'ClusterId',
-        'clusterName'                      => 'ClusterName',
-        'deletionProtection'               => 'DeletionProtection',
-        'enableScaleIn'                    => 'EnableScaleIn',
-        'enableScaleOut'                   => 'EnableScaleOut',
-        'growInterval'                     => 'GrowInterval',
-        'idleInterval'                     => 'IdleInterval',
-        'maxCoreCount'                     => 'MaxCoreCount',
-        'maxCount'                         => 'MaxCount',
-        'monitorSpecShrink'                => 'MonitorSpec',
-        'schedulerSpecShrink'              => 'SchedulerSpec',
+        'clusterDescription' => 'ClusterDescription',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'deletionProtection' => 'DeletionProtection',
+        'enableScaleIn' => 'EnableScaleIn',
+        'enableScaleOut' => 'EnableScaleOut',
+        'growInterval' => 'GrowInterval',
+        'idleInterval' => 'IdleInterval',
+        'maxCoreCount' => 'MaxCoreCount',
+        'maxCount' => 'MaxCount',
+        'monitorSpecShrink' => 'MonitorSpec',
+        'schedulerSpecShrink' => 'SchedulerSpec',
     ];
 
     public function validate()

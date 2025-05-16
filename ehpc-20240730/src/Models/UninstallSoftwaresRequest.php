@@ -13,13 +13,14 @@ class UninstallSoftwaresRequest extends Model
      * @var additionalPackages[]
      */
     public $additionalPackages;
+
     /**
      * @var string
      */
     public $clusterId;
     protected $_name = [
         'additionalPackages' => 'AdditionalPackages',
-        'clusterId'          => 'ClusterId',
+        'clusterId' => 'ClusterId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class UninstallSoftwaresRequest extends Model
         if (null !== $this->additionalPackages) {
             if (\is_array($this->additionalPackages)) {
                 $res['AdditionalPackages'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->additionalPackages as $item1) {
                     $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class UninstallSoftwaresRequest extends Model
         if (isset($map['AdditionalPackages'])) {
             if (!empty($map['AdditionalPackages'])) {
                 $model->additionalPackages = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AdditionalPackages'] as $item1) {
                     $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
                 }

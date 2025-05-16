@@ -12,12 +12,13 @@ class additionalPackages extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'name'    => 'Name',
+        'name' => 'Name',
         'version' => 'Version',
     ];
 

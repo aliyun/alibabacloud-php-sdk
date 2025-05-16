@@ -12,17 +12,19 @@ class totalResources extends Model
      * @var int
      */
     public $cpu;
+
     /**
      * @var int
      */
     public $gpu;
+
     /**
      * @var int
      */
     public $memory;
     protected $_name = [
-        'cpu'    => 'Cpu',
-        'gpu'    => 'Gpu',
+        'cpu' => 'Cpu',
+        'gpu' => 'Gpu',
         'memory' => 'Memory',
     ];
 

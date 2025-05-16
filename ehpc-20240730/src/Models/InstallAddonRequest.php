@@ -12,28 +12,32 @@ class InstallAddonRequest extends Model
      * @var string
      */
     public $addonName;
+
     /**
      * @var string
      */
     public $addonVersion;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $resourcesSpec;
+
     /**
      * @var string
      */
     public $servicesSpec;
     protected $_name = [
-        'addonName'     => 'AddonName',
-        'addonVersion'  => 'AddonVersion',
-        'clusterId'     => 'ClusterId',
+        'addonName' => 'AddonName',
+        'addonVersion' => 'AddonVersion',
+        'clusterId' => 'ClusterId',
         'resourcesSpec' => 'ResourcesSpec',
-        'servicesSpec'  => 'ServicesSpec',
+        'servicesSpec' => 'ServicesSpec',
     ];
 
     public function validate()

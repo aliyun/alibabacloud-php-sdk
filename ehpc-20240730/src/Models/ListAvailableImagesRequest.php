@@ -14,48 +14,56 @@ class ListAvailableImagesRequest extends Model
      * @var directoryService
      */
     public $directoryService;
+
     /**
      * @var bool
      */
     public $enableHT;
+
     /**
      * @var string
      */
     public $HPCInterConnect;
+
     /**
      * @var string
      */
     public $imageOwnerAlias;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isPublic;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var scheduler
      */
     public $scheduler;
     protected $_name = [
         'directoryService' => 'DirectoryService',
-        'enableHT'         => 'EnableHT',
-        'HPCInterConnect'  => 'HPCInterConnect',
-        'imageOwnerAlias'  => 'ImageOwnerAlias',
-        'instanceType'     => 'InstanceType',
-        'isPublic'         => 'IsPublic',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'scheduler'        => 'Scheduler',
+        'enableHT' => 'EnableHT',
+        'HPCInterConnect' => 'HPCInterConnect',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'instanceType' => 'InstanceType',
+        'isPublic' => 'IsPublic',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'scheduler' => 'Scheduler',
     ];
 
     public function validate()

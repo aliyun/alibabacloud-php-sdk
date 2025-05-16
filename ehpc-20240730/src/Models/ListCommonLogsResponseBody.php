@@ -13,33 +13,38 @@ class ListCommonLogsResponseBody extends Model
      * @var logs[]
      */
     public $logs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'logs'       => 'Logs',
+        'logs' => 'Logs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'uid'        => 'Uid',
+        'uid' => 'Uid',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class ListCommonLogsResponseBody extends Model
         if (null !== $this->logs) {
             if (\is_array($this->logs)) {
                 $res['Logs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->logs as $item1) {
                     $res['Logs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class ListCommonLogsResponseBody extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
                     $model->logs[$n1++] = logs::fromMap($item1);
                 }

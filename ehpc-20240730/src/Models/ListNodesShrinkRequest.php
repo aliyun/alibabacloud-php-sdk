@@ -12,48 +12,56 @@ class ListNodesShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $hostnamesShrink;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $privateIpAddressShrink;
+
     /**
      * @var string
      */
     public $queueNamesShrink;
+
     /**
      * @var string
      */
     public $sequence;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $statusShrink;
     protected $_name = [
-        'clusterId'              => 'ClusterId',
-        'hostnamesShrink'        => 'Hostnames',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
+        'clusterId' => 'ClusterId',
+        'hostnamesShrink' => 'Hostnames',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'privateIpAddressShrink' => 'PrivateIpAddress',
-        'queueNamesShrink'       => 'QueueNames',
-        'sequence'               => 'Sequence',
-        'sortBy'                 => 'SortBy',
-        'statusShrink'           => 'Status',
+        'queueNamesShrink' => 'QueueNames',
+        'sequence' => 'Sequence',
+        'sortBy' => 'SortBy',
+        'statusShrink' => 'Status',
     ];
 
     public function validate()

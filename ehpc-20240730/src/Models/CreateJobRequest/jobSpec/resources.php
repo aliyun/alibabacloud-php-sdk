@@ -12,23 +12,26 @@ class resources extends Model
      * @var int
      */
     public $cores;
+
     /**
      * @var int
      */
     public $gpus;
+
     /**
      * @var string
      */
     public $memory;
+
     /**
      * @var int
      */
     public $nodes;
     protected $_name = [
-        'cores'  => 'Cores',
-        'gpus'   => 'Gpus',
+        'cores' => 'Cores',
+        'gpus' => 'Gpus',
         'memory' => 'Memory',
-        'nodes'  => 'Nodes',
+        'nodes' => 'Nodes',
     ];
 
     public function validate()

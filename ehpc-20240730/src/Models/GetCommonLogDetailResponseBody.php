@@ -13,38 +13,44 @@ class GetCommonLogDetailResponseBody extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var logDetail[]
      */
     public $logDetail;
+
     /**
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
     public $operatorUid;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'action'      => 'Action',
-        'clusterId'   => 'ClusterId',
-        'logDetail'   => 'LogDetail',
-        'logType'     => 'LogType',
+        'action' => 'Action',
+        'clusterId' => 'ClusterId',
+        'logDetail' => 'LogDetail',
+        'logType' => 'LogType',
         'operatorUid' => 'OperatorUid',
-        'requestId'   => 'RequestId',
-        'uid'         => 'Uid',
+        'requestId' => 'RequestId',
+        'uid' => 'Uid',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class GetCommonLogDetailResponseBody extends Model
         if (null !== $this->logDetail) {
             if (\is_array($this->logDetail)) {
                 $res['LogDetail'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->logDetail as $item1) {
                     $res['LogDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class GetCommonLogDetailResponseBody extends Model
         if (isset($map['LogDetail'])) {
             if (!empty($map['LogDetail'])) {
                 $model->logDetail = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['LogDetail'] as $item1) {
                     $model->logDetail[$n1++] = logDetail::fromMap($item1);
                 }

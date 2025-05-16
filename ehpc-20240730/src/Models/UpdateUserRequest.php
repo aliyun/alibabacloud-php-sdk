@@ -12,23 +12,26 @@ class UpdateUserRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'group'     => 'Group',
-        'password'  => 'Password',
-        'userName'  => 'UserName',
+        'group' => 'Group',
+        'password' => 'Password',
+        'userName' => 'UserName',
     ];
 
     public function validate()

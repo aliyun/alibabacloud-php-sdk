@@ -13,18 +13,20 @@ class ListSharedStoragesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var sharedStorages[]
      */
     public $sharedStorages;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'sharedStorages' => 'SharedStorages',
-        'success'        => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListSharedStoragesResponseBody extends Model
         if (null !== $this->sharedStorages) {
             if (\is_array($this->sharedStorages)) {
                 $res['SharedStorages'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->sharedStorages as $item1) {
                     $res['SharedStorages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListSharedStoragesResponseBody extends Model
         if (isset($map['SharedStorages'])) {
             if (!empty($map['SharedStorages'])) {
                 $model->sharedStorages = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SharedStorages'] as $item1) {
                     $model->sharedStorages[$n1++] = sharedStorages::fromMap($item1);
                 }

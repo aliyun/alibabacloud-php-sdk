@@ -12,23 +12,26 @@ class GetCommonLogDetailRequest extends Model
      * @var int
      */
     public $from;
+
     /**
      * @var bool
      */
     public $hiddenProcess;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var int
      */
     public $to;
     protected $_name = [
-        'from'          => 'From',
+        'from' => 'From',
         'hiddenProcess' => 'HiddenProcess',
-        'logRequestId'  => 'LogRequestId',
-        'to'            => 'To',
+        'logRequestId' => 'LogRequestId',
+        'to' => 'To',
     ];
 
     public function validate()
