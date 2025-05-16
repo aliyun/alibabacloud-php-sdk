@@ -11,11 +11,16 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerat
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsCallsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsCallsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsConcurrentRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsConcurrentResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsErrorRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsErrorResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CreateAccessWarrantRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CreateAccessWarrantResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CreateProjectResponse;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest;
@@ -34,6 +39,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueRequ
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteHundredThousandWhysDialogueRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteHundredThousandWhysDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDialogueRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDifficultyRequest;
@@ -200,11 +207,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AITeacherExpansionPracticeTaskGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AITeacherExpansionPracticeTaskGenerateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AITeacherExpansionPracticeTaskGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -292,11 +296,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AITeacherSyncPracticeTaskGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AITeacherSyncPracticeTaskGenerateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AITeacherSyncPracticeTaskGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -347,11 +348,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse::fromMap($this->execute($params, $req, $runtime));
+        return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -398,11 +396,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -418,6 +413,174 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 智能批改/口语评测/统计/调用量.
+     *
+     * @param request - CountOralEvaluationStatisticsCallsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CountOralEvaluationStatisticsCallsResponse
+     *
+     * @param CountOralEvaluationStatisticsCallsRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CountOralEvaluationStatisticsCallsResponse
+     */
+    public function countOralEvaluationStatisticsCallsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CountOralEvaluationStatisticsCalls',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aliyunConsole/countOralEvaluationStatisticsCalls',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CountOralEvaluationStatisticsCallsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 智能批改/口语评测/统计/调用量.
+     *
+     * @param request - CountOralEvaluationStatisticsCallsRequest
+     *
+     * @returns CountOralEvaluationStatisticsCallsResponse
+     *
+     * @param CountOralEvaluationStatisticsCallsRequest $request
+     *
+     * @return CountOralEvaluationStatisticsCallsResponse
+     */
+    public function countOralEvaluationStatisticsCalls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->countOralEvaluationStatisticsCallsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 智能批改/口语评测/统计/并发数.
+     *
+     * @param request - CountOralEvaluationStatisticsConcurrentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CountOralEvaluationStatisticsConcurrentResponse
+     *
+     * @param CountOralEvaluationStatisticsConcurrentRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return CountOralEvaluationStatisticsConcurrentResponse
+     */
+    public function countOralEvaluationStatisticsConcurrentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CountOralEvaluationStatisticsConcurrent',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aliyunConsole/countOralEvaluationStatisticsConcurrent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CountOralEvaluationStatisticsConcurrentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 智能批改/口语评测/统计/并发数.
+     *
+     * @param request - CountOralEvaluationStatisticsConcurrentRequest
+     *
+     * @returns CountOralEvaluationStatisticsConcurrentResponse
+     *
+     * @param CountOralEvaluationStatisticsConcurrentRequest $request
+     *
+     * @return CountOralEvaluationStatisticsConcurrentResponse
+     */
+    public function countOralEvaluationStatisticsConcurrent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->countOralEvaluationStatisticsConcurrentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 智能批改/口语评测/统计/调用错误.
+     *
+     * @param request - CountOralEvaluationStatisticsErrorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CountOralEvaluationStatisticsErrorResponse
+     *
+     * @param CountOralEvaluationStatisticsErrorRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CountOralEvaluationStatisticsErrorResponse
+     */
+    public function countOralEvaluationStatisticsErrorWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CountOralEvaluationStatisticsError',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aliyunConsole/countOralEvaluationStatisticsError',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CountOralEvaluationStatisticsErrorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 智能批改/口语评测/统计/调用错误.
+     *
+     * @param request - CountOralEvaluationStatisticsErrorRequest
+     *
+     * @returns CountOralEvaluationStatisticsErrorResponse
+     *
+     * @param CountOralEvaluationStatisticsErrorRequest $request
+     *
+     * @return CountOralEvaluationStatisticsErrorResponse
+     */
+    public function countOralEvaluationStatisticsError($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->countOralEvaluationStatisticsErrorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -478,11 +641,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccessWarrantResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccessWarrantResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccessWarrantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -546,11 +706,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -576,13 +733,13 @@ class AiContent extends OpenApiClient
      * 中文作文辅导
      *
      * @param request - ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
-     * @param headers - ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders
+     * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
      *
      * @param ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest $request
-     * @param ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders $headers
+     * @param string[]                                                     $headers
      * @param RuntimeOptions                                               $runtime
      *
      * @return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
@@ -623,29 +780,8 @@ class AiContent extends OpenApiClient
             @$body['userId'] = $request->userId;
         }
 
-        $realHeaders = [];
-        if (null !== $headers->commonHeaders) {
-            $realHeaders = $headers->commonHeaders;
-        }
-
-        if (null !== $headers->callerParentId) {
-            @$realHeaders['callerParentId'] = json_encode($headers->callerParentId, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
-        }
-
-        if (null !== $headers->callerType) {
-            @$realHeaders['callerType'] = '' . $headers->callerType;
-        }
-
-        if (null !== $headers->callerUid) {
-            @$realHeaders['callerUid'] = json_encode($headers->callerUid, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
-        }
-
-        if (null !== $headers->stsTokenCallerUid) {
-            @$realHeaders['stsTokenCallerUid'] = json_encode($headers->stsTokenCallerUid, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
-        }
-
         $req = new OpenApiRequest([
-            'headers' => $realHeaders,
+            'headers' => $headers,
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -659,11 +795,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -680,7 +813,7 @@ class AiContent extends OpenApiClient
     public function executeAITeacherChineseCompositionTutoringWorkflowRun($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ExecuteAITeacherChineseCompositionTutoringWorkflowRunHeaders([]);
+        $headers = [];
 
         return $this->executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions($request, $headers, $runtime);
     }
@@ -751,11 +884,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -843,11 +973,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherEnglishParaphraseChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherEnglishParaphraseChatMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherEnglishParaphraseChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -935,11 +1062,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherExpansionDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherExpansionDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherExpansionDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1027,11 +1151,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherExpansionDialogueRefineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherExpansionDialogueRefineResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherExpansionDialogueRefineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1115,11 +1236,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherExpansionDialogueTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherExpansionDialogueTranslateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherExpansionDialogueTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1183,11 +1301,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherGrammarCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherGrammarCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherGrammarCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1259,11 +1374,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherSyncDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherSyncDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherSyncDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1331,11 +1443,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteAITeacherSyncDialogueTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteAITeacherSyncDialogueTranslateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteAITeacherSyncDialogueTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1355,6 +1464,83 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->executeAITeacherSyncDialogueTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 十万个为什么对话接入.
+     *
+     * @param request - ExecuteHundredThousandWhysDialogueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteHundredThousandWhysDialogueResponse
+     *
+     * @param ExecuteHundredThousandWhysDialogueRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ExecuteHundredThousandWhysDialogueResponse
+     */
+    public function executeHundredThousandWhysDialogueWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->ageGroup) {
+            @$body['ageGroup'] = $request->ageGroup;
+        }
+
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->deviceId) {
+            @$body['deviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->macAddress) {
+            @$body['macAddress'] = $request->macAddress;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteHundredThousandWhysDialogue',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/api/v1/intelligentAgent/tenWWhys/executeDialogue',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteHundredThousandWhysDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 十万个为什么对话接入.
+     *
+     * @param request - ExecuteHundredThousandWhysDialogueRequest
+     *
+     * @returns ExecuteHundredThousandWhysDialogueResponse
+     *
+     * @param ExecuteHundredThousandWhysDialogueRequest $request
+     *
+     * @return ExecuteHundredThousandWhysDialogueResponse
+     */
+    public function executeHundredThousandWhysDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeHundredThousandWhysDialogueWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1407,11 +1593,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1487,11 +1670,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantDifficultyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantDifficultyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantDifficultyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1563,11 +1743,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantGrammarCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantGrammarCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantGrammarCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1639,11 +1816,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantRefineByContextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantRefineByContextResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantRefineByContextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1715,11 +1889,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantRetryConversationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantRetryConversationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantRetryConversationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1791,11 +1962,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantSseDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantSseDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantSseDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1863,11 +2031,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantStartConversationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantStartConversationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantStartConversationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1939,11 +2104,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantSuggestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2015,11 +2177,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTextbookAssistantTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTextbookAssistantTranslateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTextbookAssistantTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2107,11 +2266,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAITeacherExpansionDialogueSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAITeacherExpansionDialogueSuggestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAITeacherExpansionDialogueSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2183,11 +2339,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAITeacherSyncDialogueSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAITeacherSyncDialogueSuggestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAITeacherSyncDialogueSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2251,11 +2404,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTextbookAssistantTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTextbookAssistantTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTextbookAssistantTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2319,11 +2469,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTextbookAssistantArticleDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextbookAssistantArticleDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextbookAssistantArticleDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2387,11 +2534,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTextbookAssistantArticlesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextbookAssistantArticlesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextbookAssistantArticlesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2459,11 +2603,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTextbookAssistantBookDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextbookAssistantBookDirectoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextbookAssistantBookDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2547,11 +2688,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTextbookAssistantBooksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextbookAssistantBooksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextbookAssistantBooksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2615,11 +2753,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTextbookAssistantGradeVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextbookAssistantGradeVolumesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextbookAssistantGradeVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2683,11 +2818,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTextbookAssistantSceneDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextbookAssistantSceneDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextbookAssistantSceneDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2767,11 +2899,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PersonalizedTextToImageAddInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PersonalizedTextToImageAddInferenceJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return PersonalizedTextToImageAddInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2835,11 +2964,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'any',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PersonalizedTextToImageQueryImageAssetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PersonalizedTextToImageQueryImageAssetResponse::fromMap($this->execute($params, $req, $runtime));
+        return PersonalizedTextToImageQueryImageAssetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2899,11 +3025,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2975,11 +3098,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Personalizedtxt2imgAddInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Personalizedtxt2imgAddInferenceJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return Personalizedtxt2imgAddInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3051,11 +3171,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Personalizedtxt2imgAddModelTrainJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Personalizedtxt2imgAddModelTrainJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return Personalizedtxt2imgAddModelTrainJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3127,11 +3244,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'any',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Personalizedtxt2imgQueryImageAssetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Personalizedtxt2imgQueryImageAssetResponse::fromMap($this->execute($params, $req, $runtime));
+        return Personalizedtxt2imgQueryImageAssetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3191,11 +3305,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Personalizedtxt2imgQueryInferenceJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Personalizedtxt2imgQueryInferenceJobInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return Personalizedtxt2imgQueryInferenceJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3246,11 +3357,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Personalizedtxt2imgQueryModelTrainJobListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Personalizedtxt2imgQueryModelTrainJobListResponse::fromMap($this->execute($params, $req, $runtime));
+        return Personalizedtxt2imgQueryModelTrainJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3306,11 +3414,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return Personalizedtxt2imgQueryModelTrainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return Personalizedtxt2imgQueryModelTrainStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return Personalizedtxt2imgQueryModelTrainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3370,11 +3475,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryApplicationAccessIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryApplicationAccessIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryApplicationAccessIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3434,11 +3536,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3489,11 +3588,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryProjectListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3540,11 +3636,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryPurchasedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryPurchasedServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryPurchasedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3604,11 +3697,8 @@ class AiContent extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

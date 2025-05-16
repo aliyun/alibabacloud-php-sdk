@@ -5,12 +5,11 @@
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponseBody\data;
 
-class ListTextbookAssistantGradeVolumesResponseBody extends Model
+class CountOralEvaluationStatisticsConcurrentResponseBody extends Model
 {
     /**
-     * @var data[]
+     * @var OralEvaluationStatisticsConcurrentCountResponse[]
      */
     public $data;
 
@@ -104,7 +103,7 @@ class ListTextbookAssistantGradeVolumesResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                    $model->data[$n1++] = OralEvaluationStatisticsConcurrentCountResponse::fromMap($item1);
                 }
             }
         }
