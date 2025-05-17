@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotLinksResponseBody\snap
 class DescribeSnapshotLinksResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -34,6 +39,7 @@ class DescribeSnapshotLinksResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
@@ -52,6 +58,10 @@ class DescribeSnapshotLinksResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -83,6 +93,10 @@ class DescribeSnapshotLinksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
