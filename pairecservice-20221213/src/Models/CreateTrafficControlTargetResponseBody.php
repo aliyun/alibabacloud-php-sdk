@@ -12,12 +12,13 @@ class CreateTrafficControlTargetResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $trafficControlTargetId;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficControlTargetId' => 'TrafficControlTargetId',
     ];
 

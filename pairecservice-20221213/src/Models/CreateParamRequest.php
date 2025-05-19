@@ -12,28 +12,32 @@ class CreateParamRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'sceneId'     => 'SceneId',
-        'value'       => 'Value',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'sceneId' => 'SceneId',
+        'value' => 'Value',
     ];
 
     public function validate()

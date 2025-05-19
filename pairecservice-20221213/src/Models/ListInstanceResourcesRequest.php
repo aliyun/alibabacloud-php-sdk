@@ -12,18 +12,20 @@ class ListInstanceResourcesRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'category' => 'Category',
-        'group'    => 'Group',
-        'type'     => 'Type',
+        'group' => 'Group',
+        'type' => 'Type',
     ];
 
     public function validate()

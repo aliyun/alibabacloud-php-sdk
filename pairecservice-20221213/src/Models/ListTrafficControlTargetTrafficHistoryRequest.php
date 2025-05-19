@@ -12,43 +12,50 @@ class ListTrafficControlTargetTrafficHistoryRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $experimentGroupId;
+
     /**
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $itemId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $threshold;
     protected $_name = [
-        'endTime'           => 'EndTime',
-        'environment'       => 'Environment',
+        'endTime' => 'EndTime',
+        'environment' => 'Environment',
         'experimentGroupId' => 'ExperimentGroupId',
-        'experimentId'      => 'ExperimentId',
-        'instanceId'        => 'InstanceId',
-        'itemId'            => 'ItemId',
-        'startTime'         => 'StartTime',
-        'threshold'         => 'Threshold',
+        'experimentId' => 'ExperimentId',
+        'instanceId' => 'InstanceId',
+        'itemId' => 'ItemId',
+        'startTime' => 'StartTime',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()

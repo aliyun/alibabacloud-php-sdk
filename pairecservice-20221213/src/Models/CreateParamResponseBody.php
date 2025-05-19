@@ -12,12 +12,13 @@ class CreateParamResponseBody extends Model
      * @var int
      */
     public $paramId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'paramId'   => 'ParamId',
+        'paramId' => 'ParamId',
         'requestId' => 'RequestId',
     ];
 

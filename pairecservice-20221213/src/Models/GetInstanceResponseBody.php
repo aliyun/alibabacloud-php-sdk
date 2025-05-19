@@ -14,63 +14,74 @@ class GetInstanceResponseBody extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var config
      */
     public $config;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var operatingTool
      */
     public $operatingTool;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'chargeType'      => 'ChargeType',
-        'commodityCode'   => 'CommodityCode',
-        'config'          => 'Config',
-        'expiredTime'     => 'ExpiredTime',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'chargeType' => 'ChargeType',
+        'commodityCode' => 'CommodityCode',
+        'config' => 'Config',
+        'expiredTime' => 'ExpiredTime',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'instanceId'      => 'InstanceId',
-        'operatingTool'   => 'OperatingTool',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'instanceId' => 'InstanceId',
+        'operatingTool' => 'OperatingTool',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

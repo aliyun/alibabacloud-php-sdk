@@ -12,17 +12,19 @@ class CheckTrafficControlTaskExpressionRequest extends Model
      * @var string
      */
     public $expression;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $tableMetaId;
     protected $_name = [
-        'expression'  => 'Expression',
-        'instanceId'  => 'InstanceId',
+        'expression' => 'Expression',
+        'instanceId' => 'InstanceId',
         'tableMetaId' => 'TableMetaId',
     ];
 

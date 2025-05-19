@@ -12,13 +12,14 @@ class UpdateInstanceResourceRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
         'config' => 'Config',
-        'uri'    => 'Uri',
+        'uri' => 'Uri',
     ];
 
     public function validate()

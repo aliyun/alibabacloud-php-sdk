@@ -12,52 +12,61 @@ class ReportABMetricGroupRequest extends Model
      * @var string
      */
     public $baseExperimentId;
+
     /**
      * @var string
      */
     public $dimensionFields;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $experimentGroupId;
+
     /**
      * @var string
      */
     public $experimentIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $reportType;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $timeStatisticsMethod;
     protected $_name = [
-        'baseExperimentId'     => 'BaseExperimentId',
-        'dimensionFields'      => 'DimensionFields',
-        'endDate'              => 'EndDate',
-        'experimentGroupId'    => 'ExperimentGroupId',
-        'experimentIds'        => 'ExperimentIds',
-        'instanceId'           => 'InstanceId',
-        'reportType'           => 'ReportType',
-        'sceneId'              => 'SceneId',
-        'startDate'            => 'StartDate',
+        'baseExperimentId' => 'BaseExperimentId',
+        'dimensionFields' => 'DimensionFields',
+        'endDate' => 'EndDate',
+        'experimentGroupId' => 'ExperimentGroupId',
+        'experimentIds' => 'ExperimentIds',
+        'instanceId' => 'InstanceId',
+        'reportType' => 'ReportType',
+        'sceneId' => 'SceneId',
+        'startDate' => 'StartDate',
         'timeStatisticsMethod' => 'TimeStatisticsMethod',
     ];
 

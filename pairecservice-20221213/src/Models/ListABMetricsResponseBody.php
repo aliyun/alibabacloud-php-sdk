@@ -13,17 +13,19 @@ class ListABMetricsResponseBody extends Model
      * @var ABMetrics[]
      */
     public $ABMetrics;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'ABMetrics'  => 'ABMetrics',
-        'requestId'  => 'RequestId',
+        'ABMetrics' => 'ABMetrics',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class ListABMetricsResponseBody extends Model
         if (null !== $this->ABMetrics) {
             if (\is_array($this->ABMetrics)) {
                 $res['ABMetrics'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ABMetrics as $item1) {
                     $res['ABMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListABMetricsResponseBody extends Model
         if (isset($map['ABMetrics'])) {
             if (!empty($map['ABMetrics'])) {
                 $model->ABMetrics = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ABMetrics'] as $item1) {
                     $model->ABMetrics[$n1++] = ABMetrics::fromMap($item1);
                 }

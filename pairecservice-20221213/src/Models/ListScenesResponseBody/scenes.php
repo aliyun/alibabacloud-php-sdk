@@ -13,23 +13,26 @@ class scenes extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var flows[]
      */
     public $flows;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
         'description' => 'Description',
-        'flows'       => 'Flows',
-        'name'        => 'Name',
-        'sceneId'     => 'SceneId',
+        'flows' => 'Flows',
+        'name' => 'Name',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class scenes extends Model
         if (null !== $this->flows) {
             if (\is_array($this->flows)) {
                 $res['Flows'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->flows as $item1) {
                     $res['Flows'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class scenes extends Model
         if (isset($map['Flows'])) {
             if (!empty($map['Flows'])) {
                 $model->flows = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Flows'] as $item1) {
                     $model->flows[$n1++] = flows::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class CreateFeatureConsistencyCheckJobResponseBody extends Model
      * @var string
      */
     public $featureConsistencyCheckJobId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'featureConsistencyCheckJobId' => 'FeatureConsistencyCheckJobId',
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

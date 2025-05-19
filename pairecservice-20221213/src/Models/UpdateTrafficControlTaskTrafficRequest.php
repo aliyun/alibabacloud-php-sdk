@@ -13,23 +13,26 @@ class UpdateTrafficControlTaskTrafficRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var traffics[]
      */
     public $traffics;
+
     /**
      * @var string
      */
     public $newParam3;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'traffics'    => 'Traffics',
-        'newParam3'   => 'new-param-3',
+        'instanceId' => 'InstanceId',
+        'traffics' => 'Traffics',
+        'newParam3' => 'new-param-3',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class UpdateTrafficControlTaskTrafficRequest extends Model
         if (null !== $this->traffics) {
             if (\is_array($this->traffics)) {
                 $res['Traffics'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->traffics as $item1) {
                     $res['Traffics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class UpdateTrafficControlTaskTrafficRequest extends Model
         if (isset($map['Traffics'])) {
             if (!empty($map['Traffics'])) {
                 $model->traffics = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Traffics'] as $item1) {
                     $model->traffics[$n1++] = traffics::fromMap($item1);
                 }

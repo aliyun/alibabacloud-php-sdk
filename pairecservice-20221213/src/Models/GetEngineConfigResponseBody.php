@@ -12,48 +12,56 @@ class GetEngineConfigResponseBody extends Model
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $gmtReleasedTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'configValue'     => 'ConfigValue',
-        'description'     => 'Description',
-        'environment'     => 'Environment',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'configValue' => 'ConfigValue',
+        'description' => 'Description',
+        'environment' => 'Environment',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'gmtReleasedTime' => 'GmtReleasedTime',
-        'name'            => 'Name',
-        'requestId'       => 'RequestId',
-        'status'          => 'Status',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()

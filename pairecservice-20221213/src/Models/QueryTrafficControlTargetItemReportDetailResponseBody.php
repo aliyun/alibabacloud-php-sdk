@@ -13,12 +13,13 @@ class QueryTrafficControlTargetItemReportDetailResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var trafficControlTargetItemReportDetail
      */
     public $trafficControlTargetItemReportDetail;
     protected $_name = [
-        'requestId'                            => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficControlTargetItemReportDetail' => 'TrafficControlTargetItemReportDetail',
     ];
 

@@ -12,13 +12,14 @@ class UpdateParamRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

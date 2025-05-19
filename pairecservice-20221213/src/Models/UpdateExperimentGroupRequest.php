@@ -12,78 +12,92 @@ class UpdateExperimentGroupRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $crowdId;
+
     /**
      * @var string
      */
     public $crowdTargetType;
+
     /**
      * @var string
      */
     public $debugCrowdId;
+
     /**
      * @var string
      */
     public $debugUsers;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $distributionTimeDuration;
+
     /**
      * @var string
      */
     public $distributionType;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $layerId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $needAA;
+
     /**
      * @var int
      */
     public $randomFlow;
+
     /**
      * @var string
      */
     public $reservcedBuckets;
     protected $_name = [
-        'config'                   => 'Config',
-        'crowdId'                  => 'CrowdId',
-        'crowdTargetType'          => 'CrowdTargetType',
-        'debugCrowdId'             => 'DebugCrowdId',
-        'debugUsers'               => 'DebugUsers',
-        'description'              => 'Description',
+        'config' => 'Config',
+        'crowdId' => 'CrowdId',
+        'crowdTargetType' => 'CrowdTargetType',
+        'debugCrowdId' => 'DebugCrowdId',
+        'debugUsers' => 'DebugUsers',
+        'description' => 'Description',
         'distributionTimeDuration' => 'DistributionTimeDuration',
-        'distributionType'         => 'DistributionType',
-        'filter'                   => 'Filter',
-        'instanceId'               => 'InstanceId',
-        'layerId'                  => 'LayerId',
-        'name'                     => 'Name',
-        'needAA'                   => 'NeedAA',
-        'randomFlow'               => 'RandomFlow',
-        'reservcedBuckets'         => 'ReservcedBuckets',
+        'distributionType' => 'DistributionType',
+        'filter' => 'Filter',
+        'instanceId' => 'InstanceId',
+        'layerId' => 'LayerId',
+        'name' => 'Name',
+        'needAA' => 'NeedAA',
+        'randomFlow' => 'RandomFlow',
+        'reservcedBuckets' => 'ReservcedBuckets',
     ];
 
     public function validate()

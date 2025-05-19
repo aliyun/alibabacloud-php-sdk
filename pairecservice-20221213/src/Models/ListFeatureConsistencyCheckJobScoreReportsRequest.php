@@ -12,13 +12,14 @@ class ListFeatureConsistencyCheckJobScoreReportsRequest extends Model
      * @var string[]
      */
     public $excludeRequestIds;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'excludeRequestIds' => 'ExcludeRequestIds',
-        'instanceId'        => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class ListFeatureConsistencyCheckJobScoreReportsRequest extends Model
         if (null !== $this->excludeRequestIds) {
             if (\is_array($this->excludeRequestIds)) {
                 $res['ExcludeRequestIds'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->excludeRequestIds as $item1) {
                     $res['ExcludeRequestIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class ListFeatureConsistencyCheckJobScoreReportsRequest extends Model
         if (isset($map['ExcludeRequestIds'])) {
             if (!empty($map['ExcludeRequestIds'])) {
                 $model->excludeRequestIds = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeRequestIds'] as $item1) {
                     $model->excludeRequestIds[$n1++] = $item1;
                 }

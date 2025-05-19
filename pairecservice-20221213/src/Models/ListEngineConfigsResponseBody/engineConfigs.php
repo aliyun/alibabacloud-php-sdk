@@ -12,53 +12,62 @@ class engineConfigs extends Model
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $engineConfigId;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $gmtReleasedTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'configValue'     => 'ConfigValue',
-        'description'     => 'Description',
-        'engineConfigId'  => 'EngineConfigId',
-        'environment'     => 'Environment',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'configValue' => 'ConfigValue',
+        'description' => 'Description',
+        'engineConfigId' => 'EngineConfigId',
+        'environment' => 'Environment',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'gmtReleasedTime' => 'GmtReleasedTime',
-        'name'            => 'Name',
-        'status'          => 'Status',
-        'version'         => 'Version',
+        'name' => 'Name',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

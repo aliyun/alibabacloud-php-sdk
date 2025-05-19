@@ -12,13 +12,14 @@ class CreateCalculationJobsResponseBody extends Model
      * @var string[]
      */
     public $calculationJobIds;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'calculationJobIds' => 'CalculationJobIds',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class CreateCalculationJobsResponseBody extends Model
         if (null !== $this->calculationJobIds) {
             if (\is_array($this->calculationJobIds)) {
                 $res['CalculationJobIds'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->calculationJobIds as $item1) {
                     $res['CalculationJobIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class CreateCalculationJobsResponseBody extends Model
         if (isset($map['CalculationJobIds'])) {
             if (!empty($map['CalculationJobIds'])) {
                 $model->calculationJobIds = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['CalculationJobIds'] as $item1) {
                     $model->calculationJobIds[$n1++] = $item1;
                 }

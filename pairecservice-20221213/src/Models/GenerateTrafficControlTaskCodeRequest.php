@@ -12,13 +12,14 @@ class GenerateTrafficControlTaskCodeRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

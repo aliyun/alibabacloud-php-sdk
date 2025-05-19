@@ -12,18 +12,20 @@ class QueryTrafficControlTargetItemReportDetailRequest extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'date'        => 'Date',
+        'date' => 'Date',
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class subCrowds extends Model
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $subCrowdId;
+
     /**
      * @var string
      */
     public $users;
     protected $_name = [
         'gmtCreateTime' => 'GmtCreateTime',
-        'quantity'      => 'Quantity',
-        'source'        => 'Source',
-        'subCrowdId'    => 'SubCrowdId',
-        'users'         => 'Users',
+        'quantity' => 'Quantity',
+        'source' => 'Source',
+        'subCrowdId' => 'SubCrowdId',
+        'users' => 'Users',
     ];
 
     public function validate()

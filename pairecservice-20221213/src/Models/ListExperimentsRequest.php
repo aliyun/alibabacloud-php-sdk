@@ -12,23 +12,26 @@ class ListExperimentsRequest extends Model
      * @var string
      */
     public $experimentGroupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'experimentGroupId' => 'ExperimentGroupId',
-        'instanceId'        => 'InstanceId',
-        'query'             => 'Query',
-        'status'            => 'Status',
+        'instanceId' => 'InstanceId',
+        'query' => 'Query',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class CreateResourceRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceRuleId;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceRuleId' => 'ResourceRuleId',
     ];
 

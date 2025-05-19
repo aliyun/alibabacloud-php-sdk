@@ -12,33 +12,38 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'order'      => 'Order',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
-        'type'       => 'Type',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
+        'type' => 'Type',
     ];
 
     public function validate()

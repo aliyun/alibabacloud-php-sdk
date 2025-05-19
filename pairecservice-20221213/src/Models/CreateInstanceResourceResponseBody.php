@@ -12,12 +12,13 @@ class CreateInstanceResourceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceId' => 'ResourceId',
     ];
 

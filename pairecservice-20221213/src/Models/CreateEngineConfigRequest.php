@@ -12,18 +12,22 @@ class CreateEngineConfigRequest extends Model
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
@@ -32,8 +36,8 @@ class CreateEngineConfigRequest extends Model
         'configValue' => 'ConfigValue',
         'description' => 'Description',
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
     ];
 
     public function validate()

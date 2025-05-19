@@ -12,18 +12,22 @@ class fields extends Model
      * @var bool
      */
     public $isDimensionField;
+
     /**
      * @var bool
      */
     public $isPartitionField;
+
     /**
      * @var string
      */
     public $meaning;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class fields extends Model
     protected $_name = [
         'isDimensionField' => 'IsDimensionField',
         'isPartitionField' => 'IsPartitionField',
-        'meaning'          => 'Meaning',
-        'name'             => 'Name',
-        'type'             => 'Type',
+        'meaning' => 'Meaning',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -13,18 +13,20 @@ class ListLaboratoriesResponseBody extends Model
      * @var laboratories[]
      */
     public $laboratories;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'laboratories' => 'Laboratories',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListLaboratoriesResponseBody extends Model
         if (null !== $this->laboratories) {
             if (\is_array($this->laboratories)) {
                 $res['Laboratories'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->laboratories as $item1) {
                     $res['Laboratories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListLaboratoriesResponseBody extends Model
         if (isset($map['Laboratories'])) {
             if (!empty($map['Laboratories'])) {
                 $model->laboratories = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Laboratories'] as $item1) {
                     $model->laboratories[$n1++] = laboratories::fromMap($item1);
                 }

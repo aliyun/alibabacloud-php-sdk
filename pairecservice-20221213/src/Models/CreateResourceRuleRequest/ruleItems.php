@@ -12,28 +12,32 @@ class ruleItems extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var float
      */
     public $maxValue;
+
     /**
      * @var float
      */
     public $minValue;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
         'description' => 'Description',
-        'maxValue'    => 'MaxValue',
-        'minValue'    => 'MinValue',
-        'name'        => 'Name',
-        'value'       => 'Value',
+        'maxValue' => 'MaxValue',
+        'minValue' => 'MinValue',
+        'name' => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()

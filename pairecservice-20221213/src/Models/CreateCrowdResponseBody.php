@@ -12,12 +12,13 @@ class CreateCrowdResponseBody extends Model
      * @var string
      */
     public $crowdId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'crowdId'   => 'CrowdId',
+        'crowdId' => 'CrowdId',
         'requestId' => 'RequestId',
     ];
 

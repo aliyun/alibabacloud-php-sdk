@@ -12,38 +12,44 @@ class GetLayerResponseBody extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $laboratoryId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $residualFlow;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'gmtCreateTime' => 'GmtCreateTime',
-        'laboratoryId'  => 'LaboratoryId',
-        'name'          => 'Name',
-        'requestId'     => 'RequestId',
-        'residualFlow'  => 'ResidualFlow',
-        'sceneId'       => 'SceneId',
+        'laboratoryId' => 'LaboratoryId',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'residualFlow' => 'ResidualFlow',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

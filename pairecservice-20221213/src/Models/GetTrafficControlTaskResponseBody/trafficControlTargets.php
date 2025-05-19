@@ -13,88 +13,104 @@ class trafficControlTargets extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $event;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $itemConditionArray;
+
     /**
      * @var string
      */
     public $itemConditionExpress;
+
     /**
      * @var string
      */
     public $itemConditionType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $newProductRegulation;
+
     /**
      * @var string
      */
     public $recallName;
+
     /**
      * @var splitParts
      */
     public $splitParts;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $statisPeriod;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $toleranceValue;
+
     /**
      * @var string
      */
     public $trafficControlTargetId;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'endTime'                => 'EndTime',
-        'event'                  => 'Event',
-        'gmtCreateTime'          => 'GmtCreateTime',
-        'gmtModifiedTime'        => 'GmtModifiedTime',
-        'itemConditionArray'     => 'ItemConditionArray',
-        'itemConditionExpress'   => 'ItemConditionExpress',
-        'itemConditionType'      => 'ItemConditionType',
-        'name'                   => 'Name',
-        'newProductRegulation'   => 'NewProductRegulation',
-        'recallName'             => 'RecallName',
-        'splitParts'             => 'SplitParts',
-        'startTime'              => 'StartTime',
-        'statisPeriod'           => 'StatisPeriod',
-        'status'                 => 'Status',
-        'toleranceValue'         => 'ToleranceValue',
+        'endTime' => 'EndTime',
+        'event' => 'Event',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'itemConditionArray' => 'ItemConditionArray',
+        'itemConditionExpress' => 'ItemConditionExpress',
+        'itemConditionType' => 'ItemConditionType',
+        'name' => 'Name',
+        'newProductRegulation' => 'NewProductRegulation',
+        'recallName' => 'RecallName',
+        'splitParts' => 'SplitParts',
+        'startTime' => 'StartTime',
+        'statisPeriod' => 'StatisPeriod',
+        'status' => 'Status',
+        'toleranceValue' => 'ToleranceValue',
         'trafficControlTargetId' => 'TrafficControlTargetId',
-        'value'                  => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

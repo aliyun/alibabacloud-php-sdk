@@ -12,18 +12,20 @@ class CreateSubCrowdRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $users;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'source'     => 'Source',
-        'users'      => 'Users',
+        'source' => 'Source',
+        'users' => 'Users',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CreateSceneResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'sceneId'   => 'SceneId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

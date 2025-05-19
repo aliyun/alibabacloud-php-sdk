@@ -12,23 +12,26 @@ class CreateLayerRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $laboratoryId;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'description'  => 'Description',
-        'instanceId'   => 'InstanceId',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
         'laboratoryId' => 'LaboratoryId',
-        'name'         => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

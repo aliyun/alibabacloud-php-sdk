@@ -12,43 +12,50 @@ class crowds extends Model
      * @var string
      */
     public $crowdId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $users;
     protected $_name = [
-        'crowdId'       => 'CrowdId',
-        'description'   => 'Description',
+        'crowdId' => 'CrowdId',
+        'description' => 'Description',
         'gmtCreateTime' => 'GmtCreateTime',
-        'label'         => 'Label',
-        'name'          => 'Name',
-        'quantity'      => 'Quantity',
-        'source'        => 'Source',
-        'users'         => 'Users',
+        'label' => 'Label',
+        'name' => 'Name',
+        'quantity' => 'Quantity',
+        'source' => 'Source',
+        'users' => 'Users',
     ];
 
     public function validate()

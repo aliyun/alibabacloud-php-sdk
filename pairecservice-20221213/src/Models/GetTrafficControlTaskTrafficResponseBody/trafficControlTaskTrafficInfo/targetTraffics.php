@@ -13,12 +13,13 @@ class targetTraffics extends Model
      * @var TrafficControlTaskTrafficInfoTargetTrafficsDataValue[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $trafficContorlTargetId;
     protected $_name = [
-        'data'                   => 'Data',
+        'data' => 'Data',
         'trafficContorlTargetId' => 'TrafficContorlTargetId',
     ];
 

@@ -12,18 +12,20 @@ class StopTrafficControlTaskRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

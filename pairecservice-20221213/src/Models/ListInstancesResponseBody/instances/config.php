@@ -15,18 +15,20 @@ class config extends Model
      * @var dataManagements[]
      */
     public $dataManagements;
+
     /**
      * @var engines[]
      */
     public $engines;
+
     /**
      * @var monitors[]
      */
     public $monitors;
     protected $_name = [
         'dataManagements' => 'DataManagements',
-        'engines'         => 'Engines',
-        'monitors'        => 'Monitors',
+        'engines' => 'Engines',
+        'monitors' => 'Monitors',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class config extends Model
         if (null !== $this->dataManagements) {
             if (\is_array($this->dataManagements)) {
                 $res['DataManagements'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->dataManagements as $item1) {
                     $res['DataManagements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class config extends Model
         if (null !== $this->engines) {
             if (\is_array($this->engines)) {
                 $res['Engines'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->engines as $item1) {
                     $res['Engines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class config extends Model
         if (null !== $this->monitors) {
             if (\is_array($this->monitors)) {
                 $res['Monitors'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->monitors as $item1) {
                     $res['Monitors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -90,7 +92,7 @@ class config extends Model
         if (isset($map['DataManagements'])) {
             if (!empty($map['DataManagements'])) {
                 $model->dataManagements = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DataManagements'] as $item1) {
                     $model->dataManagements[$n1++] = dataManagements::fromMap($item1);
                 }
@@ -100,7 +102,7 @@ class config extends Model
         if (isset($map['Engines'])) {
             if (!empty($map['Engines'])) {
                 $model->engines = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Engines'] as $item1) {
                     $model->engines[$n1++] = engines::fromMap($item1);
                 }
@@ -110,7 +112,7 @@ class config extends Model
         if (isset($map['Monitors'])) {
             if (!empty($map['Monitors'])) {
                 $model->monitors = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Monitors'] as $item1) {
                     $model->monitors[$n1++] = monitors::fromMap($item1);
                 }

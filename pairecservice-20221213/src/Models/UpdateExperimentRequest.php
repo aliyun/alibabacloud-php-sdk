@@ -12,43 +12,50 @@ class UpdateExperimentRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $debugCrowdId;
+
     /**
      * @var string
      */
     public $debugUsers;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $flowPercent;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'config'       => 'Config',
+        'config' => 'Config',
         'debugCrowdId' => 'DebugCrowdId',
-        'debugUsers'   => 'DebugUsers',
-        'description'  => 'Description',
-        'flowPercent'  => 'FlowPercent',
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
-        'type'         => 'Type',
+        'debugUsers' => 'DebugUsers',
+        'description' => 'Description',
+        'flowPercent' => 'FlowPercent',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()

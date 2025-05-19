@@ -12,18 +12,20 @@ class UpdateCrowdRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
     ];
 
     public function validate()

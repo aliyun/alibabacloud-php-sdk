@@ -12,32 +12,37 @@ class ListExperimentGroupsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $layerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $timeRangeEnd;
+
     /**
      * @var string
      */
     public $timeRangeStart;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'layerId'        => 'LayerId',
-        'regionId'       => 'RegionId',
-        'status'         => 'Status',
-        'timeRangeEnd'   => 'TimeRangeEnd',
+        'instanceId' => 'InstanceId',
+        'layerId' => 'LayerId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'timeRangeEnd' => 'TimeRangeEnd',
         'timeRangeStart' => 'TimeRangeStart',
     ];
 

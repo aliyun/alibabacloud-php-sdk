@@ -13,23 +13,26 @@ class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends Model
      * @var string
      */
     public $dataPath;
+
     /**
      * @var string
      */
     public $ossPath;
+
     /**
      * @var reportsOfScoreDiff[]
      */
     public $reportsOfScoreDiff;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'dataPath'           => 'DataPath',
-        'ossPath'            => 'OssPath',
+        'dataPath' => 'DataPath',
+        'ossPath' => 'OssPath',
         'reportsOfScoreDiff' => 'ReportsOfScoreDiff',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends Model
         if (null !== $this->reportsOfScoreDiff) {
             if (\is_array($this->reportsOfScoreDiff)) {
                 $res['ReportsOfScoreDiff'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->reportsOfScoreDiff as $item1) {
                     $res['ReportsOfScoreDiff'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends Model
         if (isset($map['ReportsOfScoreDiff'])) {
             if (!empty($map['ReportsOfScoreDiff'])) {
                 $model->reportsOfScoreDiff = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ReportsOfScoreDiff'] as $item1) {
                     $model->reportsOfScoreDiff[$n1++] = reportsOfScoreDiff::fromMap($item1);
                 }

@@ -12,38 +12,44 @@ class ListEngineConfigsRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'status'      => 'Status',
-        'version'     => 'Version',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

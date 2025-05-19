@@ -12,43 +12,50 @@ class GetFeatureConsistencyCheckJobResponseBody extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
+
     /**
      * @var string
      */
     public $featureConsistencyCheckJobConfigName;
+
     /**
      * @var string
      */
     public $gmtEndTime;
+
     /**
      * @var string
      */
     public $gmtStartTime;
+
     /**
      * @var string[]
      */
     public $logs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'config'                               => 'Config',
-        'featureConsistencyCheckJobConfigId'   => 'FeatureConsistencyCheckJobConfigId',
+        'config' => 'Config',
+        'featureConsistencyCheckJobConfigId' => 'FeatureConsistencyCheckJobConfigId',
         'featureConsistencyCheckJobConfigName' => 'FeatureConsistencyCheckJobConfigName',
-        'gmtEndTime'                           => 'GmtEndTime',
-        'gmtStartTime'                         => 'GmtStartTime',
-        'logs'                                 => 'Logs',
-        'requestId'                            => 'RequestId',
-        'status'                               => 'Status',
+        'gmtEndTime' => 'GmtEndTime',
+        'gmtStartTime' => 'GmtStartTime',
+        'logs' => 'Logs',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -85,7 +92,7 @@ class GetFeatureConsistencyCheckJobResponseBody extends Model
         if (null !== $this->logs) {
             if (\is_array($this->logs)) {
                 $res['Logs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->logs as $item1) {
                     $res['Logs'][$n1++] = $item1;
                 }
@@ -134,7 +141,7 @@ class GetFeatureConsistencyCheckJobResponseBody extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
                     $model->logs[$n1++] = $item1;
                 }

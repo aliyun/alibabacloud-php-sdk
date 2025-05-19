@@ -12,12 +12,13 @@ class CreateSubCrowdResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $subCrowdId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'subCrowdId' => 'SubCrowdId',
     ];
 

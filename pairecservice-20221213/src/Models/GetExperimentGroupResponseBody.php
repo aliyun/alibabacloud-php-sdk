@@ -12,103 +12,122 @@ class GetExperimentGroupResponseBody extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $crowdId;
+
     /**
      * @var string
      */
     public $crowdTargetType;
+
     /**
      * @var string
      */
     public $debugCrowdId;
+
     /**
      * @var string
      */
     public $debugUsers;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $distributionTimeDuration;
+
     /**
      * @var string
      */
     public $distributionType;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $holdingBuckets;
+
     /**
      * @var string
      */
     public $laboratoryId;
+
     /**
      * @var string
      */
     public $layerId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $needAA;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $randomFlow;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $reservedBuckets;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'config'                   => 'Config',
-        'crowdId'                  => 'CrowdId',
-        'crowdTargetType'          => 'CrowdTargetType',
-        'debugCrowdId'             => 'DebugCrowdId',
-        'debugUsers'               => 'DebugUsers',
-        'description'              => 'Description',
+        'config' => 'Config',
+        'crowdId' => 'CrowdId',
+        'crowdTargetType' => 'CrowdTargetType',
+        'debugCrowdId' => 'DebugCrowdId',
+        'debugUsers' => 'DebugUsers',
+        'description' => 'Description',
         'distributionTimeDuration' => 'DistributionTimeDuration',
-        'distributionType'         => 'DistributionType',
-        'filter'                   => 'Filter',
-        'holdingBuckets'           => 'HoldingBuckets',
-        'laboratoryId'             => 'LaboratoryId',
-        'layerId'                  => 'LayerId',
-        'name'                     => 'Name',
-        'needAA'                   => 'NeedAA',
-        'owner'                    => 'Owner',
-        'randomFlow'               => 'RandomFlow',
-        'requestId'                => 'RequestId',
-        'reservedBuckets'          => 'ReservedBuckets',
-        'sceneId'                  => 'SceneId',
-        'status'                   => 'Status',
+        'distributionType' => 'DistributionType',
+        'filter' => 'Filter',
+        'holdingBuckets' => 'HoldingBuckets',
+        'laboratoryId' => 'LaboratoryId',
+        'layerId' => 'LayerId',
+        'name' => 'Name',
+        'needAA' => 'NeedAA',
+        'owner' => 'Owner',
+        'randomFlow' => 'RandomFlow',
+        'requestId' => 'RequestId',
+        'reservedBuckets' => 'ReservedBuckets',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
     ];
 
     public function validate()

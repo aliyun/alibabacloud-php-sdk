@@ -12,12 +12,13 @@ class ExperimentReportValue extends Model
      * @var bool
      */
     public $baseline;
+
     /**
      * @var mixed[][]
      */
     public $metricResults;
     protected $_name = [
-        'baseline'      => 'Baseline',
+        'baseline' => 'Baseline',
         'metricResults' => 'MetricResults',
     ];
 

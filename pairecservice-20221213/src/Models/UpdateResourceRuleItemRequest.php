@@ -12,33 +12,38 @@ class UpdateResourceRuleItemRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $maxValue;
+
     /**
      * @var float
      */
     public $minValue;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'maxValue'    => 'MaxValue',
-        'minValue'    => 'MinValue',
-        'name'        => 'Name',
-        'value'       => 'Value',
+        'instanceId' => 'InstanceId',
+        'maxValue' => 'MaxValue',
+        'minValue' => 'MinValue',
+        'name' => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()

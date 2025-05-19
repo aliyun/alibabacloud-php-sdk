@@ -12,63 +12,74 @@ class CreateLaboratoryRequest extends Model
      * @var int
      */
     public $bucketCount;
+
     /**
      * @var string
      */
     public $bucketType;
+
     /**
      * @var string
      */
     public $buckets;
+
     /**
      * @var string
      */
     public $debugCrowdId;
+
     /**
      * @var string
      */
     public $debugUsers;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'bucketCount'  => 'BucketCount',
-        'bucketType'   => 'BucketType',
-        'buckets'      => 'Buckets',
+        'bucketCount' => 'BucketCount',
+        'bucketType' => 'BucketType',
+        'buckets' => 'Buckets',
         'debugCrowdId' => 'DebugCrowdId',
-        'debugUsers'   => 'DebugUsers',
-        'description'  => 'Description',
-        'environment'  => 'Environment',
-        'filter'       => 'Filter',
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
-        'sceneId'      => 'SceneId',
-        'type'         => 'Type',
+        'debugUsers' => 'DebugUsers',
+        'description' => 'Description',
+        'environment' => 'Environment',
+        'filter' => 'Filter',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'sceneId' => 'SceneId',
+        'type' => 'Type',
     ];
 
     public function validate()

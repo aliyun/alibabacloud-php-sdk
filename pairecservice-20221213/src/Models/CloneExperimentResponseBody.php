@@ -12,13 +12,14 @@ class CloneExperimentResponseBody extends Model
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'experimentId' => 'ExperimentId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

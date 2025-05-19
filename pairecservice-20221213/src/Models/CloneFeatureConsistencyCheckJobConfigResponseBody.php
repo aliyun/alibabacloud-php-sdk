@@ -12,13 +12,14 @@ class CloneFeatureConsistencyCheckJobConfigResponseBody extends Model
      * @var string
      */
     public $featureConsistencyCheckId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'featureConsistencyCheckId' => 'FeatureConsistencyCheckId',
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

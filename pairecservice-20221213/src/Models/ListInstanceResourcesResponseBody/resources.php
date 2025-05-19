@@ -12,43 +12,50 @@ class resources extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $gmtCreateAt;
+
     /**
      * @var string
      */
     public $gmtModifiedAt;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'category'      => 'Category',
-        'config'        => 'Config',
-        'gmtCreateAt'   => 'GmtCreateAt',
+        'category' => 'Category',
+        'config' => 'Config',
+        'gmtCreateAt' => 'GmtCreateAt',
         'gmtModifiedAt' => 'GmtModifiedAt',
-        'group'         => 'Group',
-        'resourceId'    => 'ResourceId',
-        'type'          => 'Type',
-        'uri'           => 'Uri',
+        'group' => 'Group',
+        'resourceId' => 'ResourceId',
+        'type' => 'Type',
+        'uri' => 'Uri',
     ];
 
     public function validate()

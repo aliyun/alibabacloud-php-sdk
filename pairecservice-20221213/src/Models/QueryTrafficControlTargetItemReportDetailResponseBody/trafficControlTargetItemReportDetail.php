@@ -14,13 +14,14 @@ class trafficControlTargetItemReportDetail extends Model
      * @var itemControlTailReportDetails[]
      */
     public $itemControlTailReportDetails;
+
     /**
      * @var itemControlTopReportDetails[]
      */
     public $itemControlTopReportDetails;
     protected $_name = [
         'itemControlTailReportDetails' => 'ItemControlTailReportDetails',
-        'itemControlTopReportDetails'  => 'ItemControlTopReportDetails',
+        'itemControlTopReportDetails' => 'ItemControlTopReportDetails',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class trafficControlTargetItemReportDetail extends Model
         if (null !== $this->itemControlTailReportDetails) {
             if (\is_array($this->itemControlTailReportDetails)) {
                 $res['ItemControlTailReportDetails'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->itemControlTailReportDetails as $item1) {
                     $res['ItemControlTailReportDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -50,7 +51,7 @@ class trafficControlTargetItemReportDetail extends Model
         if (null !== $this->itemControlTopReportDetails) {
             if (\is_array($this->itemControlTopReportDetails)) {
                 $res['ItemControlTopReportDetails'] = [];
-                $n1                                 = 0;
+                $n1 = 0;
                 foreach ($this->itemControlTopReportDetails as $item1) {
                     $res['ItemControlTopReportDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -71,7 +72,7 @@ class trafficControlTargetItemReportDetail extends Model
         if (isset($map['ItemControlTailReportDetails'])) {
             if (!empty($map['ItemControlTailReportDetails'])) {
                 $model->itemControlTailReportDetails = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['ItemControlTailReportDetails'] as $item1) {
                     $model->itemControlTailReportDetails[$n1++] = itemControlTailReportDetails::fromMap($item1);
                 }
@@ -81,7 +82,7 @@ class trafficControlTargetItemReportDetail extends Model
         if (isset($map['ItemControlTopReportDetails'])) {
             if (!empty($map['ItemControlTopReportDetails'])) {
                 $model->itemControlTopReportDetails = [];
-                $n1                                 = 0;
+                $n1 = 0;
                 foreach ($map['ItemControlTopReportDetails'] as $item1) {
                     $model->itemControlTopReportDetails[$n1++] = itemControlTopReportDetails::fromMap($item1);
                 }

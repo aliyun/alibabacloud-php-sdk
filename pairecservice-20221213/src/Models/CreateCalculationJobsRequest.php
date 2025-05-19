@@ -12,23 +12,26 @@ class CreateCalculationJobsRequest extends Model
      * @var string
      */
     public $ABMetricIds;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
         'ABMetricIds' => 'ABMetricIds',
-        'endDate'     => 'EndDate',
-        'instanceId'  => 'InstanceId',
-        'startDate'   => 'StartDate',
+        'endDate' => 'EndDate',
+        'instanceId' => 'InstanceId',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

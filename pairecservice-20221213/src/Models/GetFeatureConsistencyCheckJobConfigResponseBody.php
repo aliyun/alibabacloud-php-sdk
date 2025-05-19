@@ -12,278 +12,332 @@ class GetFeatureConsistencyCheckJobConfigResponseBody extends Model
      * @var bool
      */
     public $compareFeature;
+
     /**
      * @var string
      */
     public $datasetId;
+
     /**
      * @var string
      */
     public $datasetMountPath;
+
     /**
      * @var string
      */
     public $datasetName;
+
     /**
      * @var string
      */
     public $datasetType;
+
     /**
      * @var string
      */
     public $datasetUri;
+
     /**
      * @var string
      */
     public $defaultRoute;
+
     /**
      * @var string
      */
     public $easServiceName;
+
     /**
      * @var string
      */
     public $easyRecPackagePath;
+
     /**
      * @var string
      */
     public $easyRecVersion;
+
     /**
      * @var string
      */
     public $featureDisplayExclude;
+
     /**
      * @var string
      */
     public $featureLandingResourceId;
+
     /**
      * @var string
      */
     public $featureLandingResourceUri;
+
     /**
      * @var string
      */
     public $featurePriority;
+
     /**
      * @var string
      */
     public $featureStoreItemId;
+
     /**
      * @var string
      */
     public $featureStoreModelId;
+
     /**
      * @var string
      */
     public $featureStoreProjectId;
+
     /**
      * @var string
      */
     public $featureStoreProjectName;
+
     /**
      * @var string
      */
     public $featureStoreSeqFeatureView;
+
     /**
      * @var string
      */
     public $featureStoreUserId;
+
     /**
      * @var string
      */
     public $fgJarVersion;
+
     /**
      * @var string
      */
     public $fgJsonFileName;
+
     /**
      * @var bool
      */
     public $generateZip;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $itemIdField;
+
     /**
      * @var string
      */
     public $itemTable;
+
     /**
      * @var string
      */
     public $itemTablePartitionField;
+
     /**
      * @var string
      */
     public $itemTablePartitionFieldFormat;
+
     /**
      * @var string
      */
     public $latestJobGmtSamplingEndTime;
+
     /**
      * @var string
      */
     public $latestJobGmtSamplingStartTime;
+
     /**
      * @var string
      */
     public $latestJobId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ossBucket;
+
     /**
      * @var string
      */
     public $ossResourceId;
+
     /**
      * @var int
      */
     public $predictWorkerCount;
+
     /**
      * @var int
      */
     public $predictWorkerCpu;
+
     /**
      * @var int
      */
     public $predictWorkerMemory;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sampleRate;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $switchId;
+
     /**
      * @var bool
      */
     public $useFeatureStore;
+
     /**
      * @var string
      */
     public $userIdField;
+
     /**
      * @var string
      */
     public $userTable;
+
     /**
      * @var string
      */
     public $userTablePartitionField;
+
     /**
      * @var string
      */
     public $userTablePartitionFieldFormat;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $workflowName;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'compareFeature'                => 'CompareFeature',
-        'datasetId'                     => 'DatasetId',
-        'datasetMountPath'              => 'DatasetMountPath',
-        'datasetName'                   => 'DatasetName',
-        'datasetType'                   => 'DatasetType',
-        'datasetUri'                    => 'DatasetUri',
-        'defaultRoute'                  => 'DefaultRoute',
-        'easServiceName'                => 'EasServiceName',
-        'easyRecPackagePath'            => 'EasyRecPackagePath',
-        'easyRecVersion'                => 'EasyRecVersion',
-        'featureDisplayExclude'         => 'FeatureDisplayExclude',
-        'featureLandingResourceId'      => 'FeatureLandingResourceId',
-        'featureLandingResourceUri'     => 'FeatureLandingResourceUri',
-        'featurePriority'               => 'FeaturePriority',
-        'featureStoreItemId'            => 'FeatureStoreItemId',
-        'featureStoreModelId'           => 'FeatureStoreModelId',
-        'featureStoreProjectId'         => 'FeatureStoreProjectId',
-        'featureStoreProjectName'       => 'FeatureStoreProjectName',
-        'featureStoreSeqFeatureView'    => 'FeatureStoreSeqFeatureView',
-        'featureStoreUserId'            => 'FeatureStoreUserId',
-        'fgJarVersion'                  => 'FgJarVersion',
-        'fgJsonFileName'                => 'FgJsonFileName',
-        'generateZip'                   => 'GenerateZip',
-        'gmtCreateTime'                 => 'GmtCreateTime',
-        'gmtModifiedTime'               => 'GmtModifiedTime',
-        'itemIdField'                   => 'ItemIdField',
-        'itemTable'                     => 'ItemTable',
-        'itemTablePartitionField'       => 'ItemTablePartitionField',
+        'compareFeature' => 'CompareFeature',
+        'datasetId' => 'DatasetId',
+        'datasetMountPath' => 'DatasetMountPath',
+        'datasetName' => 'DatasetName',
+        'datasetType' => 'DatasetType',
+        'datasetUri' => 'DatasetUri',
+        'defaultRoute' => 'DefaultRoute',
+        'easServiceName' => 'EasServiceName',
+        'easyRecPackagePath' => 'EasyRecPackagePath',
+        'easyRecVersion' => 'EasyRecVersion',
+        'featureDisplayExclude' => 'FeatureDisplayExclude',
+        'featureLandingResourceId' => 'FeatureLandingResourceId',
+        'featureLandingResourceUri' => 'FeatureLandingResourceUri',
+        'featurePriority' => 'FeaturePriority',
+        'featureStoreItemId' => 'FeatureStoreItemId',
+        'featureStoreModelId' => 'FeatureStoreModelId',
+        'featureStoreProjectId' => 'FeatureStoreProjectId',
+        'featureStoreProjectName' => 'FeatureStoreProjectName',
+        'featureStoreSeqFeatureView' => 'FeatureStoreSeqFeatureView',
+        'featureStoreUserId' => 'FeatureStoreUserId',
+        'fgJarVersion' => 'FgJarVersion',
+        'fgJsonFileName' => 'FgJsonFileName',
+        'generateZip' => 'GenerateZip',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'itemIdField' => 'ItemIdField',
+        'itemTable' => 'ItemTable',
+        'itemTablePartitionField' => 'ItemTablePartitionField',
         'itemTablePartitionFieldFormat' => 'ItemTablePartitionFieldFormat',
-        'latestJobGmtSamplingEndTime'   => 'LatestJobGmtSamplingEndTime',
+        'latestJobGmtSamplingEndTime' => 'LatestJobGmtSamplingEndTime',
         'latestJobGmtSamplingStartTime' => 'LatestJobGmtSamplingStartTime',
-        'latestJobId'                   => 'LatestJobId',
-        'name'                          => 'Name',
-        'ossBucket'                     => 'OssBucket',
-        'ossResourceId'                 => 'OssResourceId',
-        'predictWorkerCount'            => 'PredictWorkerCount',
-        'predictWorkerCpu'              => 'PredictWorkerCpu',
-        'predictWorkerMemory'           => 'PredictWorkerMemory',
-        'requestId'                     => 'RequestId',
-        'sampleRate'                    => 'SampleRate',
-        'sceneId'                       => 'SceneId',
-        'sceneName'                     => 'SceneName',
-        'securityGroupId'               => 'SecurityGroupId',
-        'serviceId'                     => 'ServiceId',
-        'serviceName'                   => 'ServiceName',
-        'status'                        => 'Status',
-        'switchId'                      => 'SwitchId',
-        'useFeatureStore'               => 'UseFeatureStore',
-        'userIdField'                   => 'UserIdField',
-        'userTable'                     => 'UserTable',
-        'userTablePartitionField'       => 'UserTablePartitionField',
+        'latestJobId' => 'LatestJobId',
+        'name' => 'Name',
+        'ossBucket' => 'OssBucket',
+        'ossResourceId' => 'OssResourceId',
+        'predictWorkerCount' => 'PredictWorkerCount',
+        'predictWorkerCpu' => 'PredictWorkerCpu',
+        'predictWorkerMemory' => 'PredictWorkerMemory',
+        'requestId' => 'RequestId',
+        'sampleRate' => 'SampleRate',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
+        'securityGroupId' => 'SecurityGroupId',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
+        'switchId' => 'SwitchId',
+        'useFeatureStore' => 'UseFeatureStore',
+        'userIdField' => 'UserIdField',
+        'userTable' => 'UserTable',
+        'userTablePartitionField' => 'UserTablePartitionField',
         'userTablePartitionFieldFormat' => 'UserTablePartitionFieldFormat',
-        'vpcId'                         => 'VpcId',
-        'workflowName'                  => 'WorkflowName',
-        'workspaceId'                   => 'WorkspaceId',
+        'vpcId' => 'VpcId',
+        'workflowName' => 'WorkflowName',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

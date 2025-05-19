@@ -12,23 +12,26 @@ class CreateInstanceResourceRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
         'category' => 'Category',
-        'group'    => 'Group',
-        'type'     => 'Type',
-        'uri'      => 'Uri',
+        'group' => 'Group',
+        'type' => 'Type',
+        'uri' => 'Uri',
     ];
 
     public function validate()

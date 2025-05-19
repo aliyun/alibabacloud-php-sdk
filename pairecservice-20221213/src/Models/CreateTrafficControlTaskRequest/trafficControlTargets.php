@@ -12,68 +12,80 @@ class trafficControlTargets extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $event;
+
     /**
      * @var string
      */
     public $itemConditionArray;
+
     /**
      * @var string
      */
     public $itemConditionExpress;
+
     /**
      * @var string
      */
     public $itemConditionType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $newProductRegulation;
+
     /**
      * @var string
      */
     public $recallName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $statisPeriod;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $toleranceValue;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'endTime'              => 'EndTime',
-        'event'                => 'Event',
-        'itemConditionArray'   => 'ItemConditionArray',
+        'endTime' => 'EndTime',
+        'event' => 'Event',
+        'itemConditionArray' => 'ItemConditionArray',
         'itemConditionExpress' => 'ItemConditionExpress',
-        'itemConditionType'    => 'ItemConditionType',
-        'name'                 => 'Name',
+        'itemConditionType' => 'ItemConditionType',
+        'name' => 'Name',
         'newProductRegulation' => 'NewProductRegulation',
-        'recallName'           => 'RecallName',
-        'startTime'            => 'StartTime',
-        'statisPeriod'         => 'StatisPeriod',
-        'status'               => 'Status',
-        'toleranceValue'       => 'ToleranceValue',
-        'value'                => 'Value',
+        'recallName' => 'RecallName',
+        'startTime' => 'StartTime',
+        'statisPeriod' => 'StatisPeriod',
+        'status' => 'Status',
+        'toleranceValue' => 'ToleranceValue',
+        'value' => 'Value',
     ];
 
     public function validate()

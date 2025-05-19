@@ -13,17 +13,19 @@ class ListCrowdsResponseBody extends Model
      * @var crowds[]
      */
     public $crowds;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'crowds'     => 'Crowds',
-        'requestId'  => 'RequestId',
+        'crowds' => 'Crowds',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class ListCrowdsResponseBody extends Model
         if (null !== $this->crowds) {
             if (\is_array($this->crowds)) {
                 $res['Crowds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->crowds as $item1) {
                     $res['Crowds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListCrowdsResponseBody extends Model
         if (isset($map['Crowds'])) {
             if (!empty($map['Crowds'])) {
                 $model->crowds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Crowds'] as $item1) {
                     $model->crowds[$n1++] = crowds::fromMap($item1);
                 }

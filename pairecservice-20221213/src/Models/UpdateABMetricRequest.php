@@ -12,68 +12,80 @@ class UpdateABMetricRequest extends Model
      * @var string
      */
     public $definition;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $leftMetricId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var bool
      */
     public $realtime;
+
     /**
      * @var string
      */
     public $resultResourceId;
+
     /**
      * @var string
      */
     public $rightMetricId;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var int
      */
     public $statisticsCycle;
+
     /**
      * @var string
      */
     public $tableMetaId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'definition'       => 'Definition',
-        'description'      => 'Description',
-        'instanceId'       => 'InstanceId',
-        'leftMetricId'     => 'LeftMetricId',
-        'name'             => 'Name',
-        'operator'         => 'Operator',
-        'realtime'         => 'Realtime',
+        'definition' => 'Definition',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'leftMetricId' => 'LeftMetricId',
+        'name' => 'Name',
+        'operator' => 'Operator',
+        'realtime' => 'Realtime',
         'resultResourceId' => 'ResultResourceId',
-        'rightMetricId'    => 'RightMetricId',
-        'sceneId'          => 'SceneId',
-        'statisticsCycle'  => 'StatisticsCycle',
-        'tableMetaId'      => 'TableMetaId',
-        'type'             => 'Type',
+        'rightMetricId' => 'RightMetricId',
+        'sceneId' => 'SceneId',
+        'statisticsCycle' => 'StatisticsCycle',
+        'tableMetaId' => 'TableMetaId',
+        'type' => 'Type',
     ];
 
     public function validate()

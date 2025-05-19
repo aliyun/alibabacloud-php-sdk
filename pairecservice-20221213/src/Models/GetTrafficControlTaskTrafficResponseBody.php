@@ -13,12 +13,13 @@ class GetTrafficControlTaskTrafficResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var trafficControlTaskTrafficInfo
      */
     public $trafficControlTaskTrafficInfo;
     protected $_name = [
-        'requestId'                     => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficControlTaskTrafficInfo' => 'TrafficControlTaskTrafficInfo',
     ];
 

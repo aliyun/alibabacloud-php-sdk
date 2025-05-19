@@ -12,18 +12,20 @@ class dataManagements extends Model
      * @var string
      */
     public $componentCode;
+
     /**
      * @var mixed[]
      */
     public $meta;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'componentCode' => 'ComponentCode',
-        'meta'          => 'Meta',
-        'type'          => 'Type',
+        'meta' => 'Meta',
+        'type' => 'Type',
     ];
 
     public function validate()

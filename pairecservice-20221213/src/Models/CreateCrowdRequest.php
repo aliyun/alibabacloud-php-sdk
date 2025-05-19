@@ -12,33 +12,38 @@ class CreateCrowdRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $users;
     protected $_name = [
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'label'       => 'Label',
-        'name'        => 'Name',
-        'source'      => 'Source',
-        'users'       => 'Users',
+        'instanceId' => 'InstanceId',
+        'label' => 'Label',
+        'name' => 'Name',
+        'source' => 'Source',
+        'users' => 'Users',
     ];
 
     public function validate()

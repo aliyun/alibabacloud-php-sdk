@@ -12,17 +12,19 @@ class CheckTrafficControlTaskExpressionResponseBody extends Model
      * @var bool
      */
     public $isValie;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'isValie'   => 'IsValie',
-        'reason'    => 'Reason',
+        'isValie' => 'IsValie',
+        'reason' => 'Reason',
         'requestId' => 'RequestId',
     ];
 

@@ -12,13 +12,14 @@ class CreateABMetricResponseBody extends Model
      * @var string
      */
     public $ABMetricId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ABMetricId' => 'ABMetricId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

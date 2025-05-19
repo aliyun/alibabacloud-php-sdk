@@ -12,12 +12,13 @@ class CreateTableMetaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $tableMetaId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'tableMetaId' => 'TableMetaId',
     ];
 

@@ -13,133 +13,164 @@ class UpdateTrafficControlTaskRequest extends Model
      * @var string
      */
     public $behaviorTableMetaId;
+
     /**
      * @var string
      */
     public $controlGranularity;
+
     /**
      * @var string
      */
     public $controlLogic;
+
     /**
      * @var string
      */
     public $controlType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $executionTime;
+
+    /**
+     * @var string
+     */
+    public $flinkResourceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $itemConditionArray;
+
     /**
      * @var string
      */
     public $itemConditionExpress;
+
     /**
      * @var string
      */
     public $itemConditionType;
+
     /**
      * @var string
      */
     public $itemTableMetaId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $preExperimentIds;
+
     /**
      * @var string
      */
     public $prodExperimentIds;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $statisBaeaviorConditionArray;
+
     /**
      * @var string
      */
     public $statisBehaviorConditionExpress;
+
     /**
      * @var string
      */
     public $statisBehaviorConditionType;
+
     /**
      * @var trafficControlTargets[]
      */
     public $trafficControlTargets;
+
     /**
      * @var string
      */
     public $userConditionArray;
+
     /**
      * @var string
      */
     public $userConditionExpress;
+
     /**
      * @var string
      */
     public $userConditionType;
+
     /**
      * @var string
      */
     public $userTableMetaId;
     protected $_name = [
-        'behaviorTableMetaId'            => 'BehaviorTableMetaId',
-        'controlGranularity'             => 'ControlGranularity',
-        'controlLogic'                   => 'ControlLogic',
-        'controlType'                    => 'ControlType',
-        'description'                    => 'Description',
-        'endTime'                        => 'EndTime',
-        'executionTime'                  => 'ExecutionTime',
-        'instanceId'                     => 'InstanceId',
-        'itemConditionArray'             => 'ItemConditionArray',
-        'itemConditionExpress'           => 'ItemConditionExpress',
-        'itemConditionType'              => 'ItemConditionType',
-        'itemTableMetaId'                => 'ItemTableMetaId',
-        'name'                           => 'Name',
-        'preExperimentIds'               => 'PreExperimentIds',
-        'prodExperimentIds'              => 'ProdExperimentIds',
-        'sceneId'                        => 'SceneId',
-        'serviceId'                      => 'ServiceId',
-        'startTime'                      => 'StartTime',
-        'statisBaeaviorConditionArray'   => 'StatisBaeaviorConditionArray',
+        'behaviorTableMetaId' => 'BehaviorTableMetaId',
+        'controlGranularity' => 'ControlGranularity',
+        'controlLogic' => 'ControlLogic',
+        'controlType' => 'ControlType',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'executionTime' => 'ExecutionTime',
+        'flinkResourceId' => 'FlinkResourceId',
+        'instanceId' => 'InstanceId',
+        'itemConditionArray' => 'ItemConditionArray',
+        'itemConditionExpress' => 'ItemConditionExpress',
+        'itemConditionType' => 'ItemConditionType',
+        'itemTableMetaId' => 'ItemTableMetaId',
+        'name' => 'Name',
+        'preExperimentIds' => 'PreExperimentIds',
+        'prodExperimentIds' => 'ProdExperimentIds',
+        'sceneId' => 'SceneId',
+        'serviceId' => 'ServiceId',
+        'startTime' => 'StartTime',
+        'statisBaeaviorConditionArray' => 'StatisBaeaviorConditionArray',
         'statisBehaviorConditionExpress' => 'StatisBehaviorConditionExpress',
-        'statisBehaviorConditionType'    => 'StatisBehaviorConditionType',
-        'trafficControlTargets'          => 'TrafficControlTargets',
-        'userConditionArray'             => 'UserConditionArray',
-        'userConditionExpress'           => 'UserConditionExpress',
-        'userConditionType'              => 'UserConditionType',
-        'userTableMetaId'                => 'UserTableMetaId',
+        'statisBehaviorConditionType' => 'StatisBehaviorConditionType',
+        'trafficControlTargets' => 'TrafficControlTargets',
+        'userConditionArray' => 'UserConditionArray',
+        'userConditionExpress' => 'UserConditionExpress',
+        'userConditionType' => 'UserConditionType',
+        'userTableMetaId' => 'UserTableMetaId',
     ];
 
     public function validate()
@@ -179,6 +210,10 @@ class UpdateTrafficControlTaskRequest extends Model
 
         if (null !== $this->executionTime) {
             $res['ExecutionTime'] = $this->executionTime;
+        }
+
+        if (null !== $this->flinkResourceId) {
+            $res['FlinkResourceId'] = $this->flinkResourceId;
         }
 
         if (null !== $this->instanceId) {
@@ -240,7 +275,7 @@ class UpdateTrafficControlTaskRequest extends Model
         if (null !== $this->trafficControlTargets) {
             if (\is_array($this->trafficControlTargets)) {
                 $res['TrafficControlTargets'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->trafficControlTargets as $item1) {
                     $res['TrafficControlTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -302,6 +337,10 @@ class UpdateTrafficControlTaskRequest extends Model
             $model->executionTime = $map['ExecutionTime'];
         }
 
+        if (isset($map['FlinkResourceId'])) {
+            $model->flinkResourceId = $map['FlinkResourceId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -361,7 +400,7 @@ class UpdateTrafficControlTaskRequest extends Model
         if (isset($map['TrafficControlTargets'])) {
             if (!empty($map['TrafficControlTargets'])) {
                 $model->trafficControlTargets = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['TrafficControlTargets'] as $item1) {
                     $model->trafficControlTargets[$n1++] = trafficControlTargets::fromMap($item1);
                 }

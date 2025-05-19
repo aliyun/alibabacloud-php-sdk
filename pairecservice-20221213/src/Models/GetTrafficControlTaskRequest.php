@@ -12,28 +12,32 @@ class GetTrafficControlTaskRequest extends Model
      * @var string
      */
     public $controlTargetFilter;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
         'controlTargetFilter' => 'ControlTargetFilter',
-        'environment'         => 'Environment',
-        'instanceId'          => 'InstanceId',
-        'regionId'            => 'RegionId',
-        'version'             => 'Version',
+        'environment' => 'Environment',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'version' => 'Version',
     ];
 
     public function validate()

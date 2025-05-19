@@ -12,6 +12,7 @@ class PushResourceRuleRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var mixed[]
      */

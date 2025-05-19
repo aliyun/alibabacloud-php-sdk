@@ -12,13 +12,14 @@ class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends Model
      * @var string
      */
     public $excludeRequestIdsShrink;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'excludeRequestIdsShrink' => 'ExcludeRequestIds',
-        'instanceId'              => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

@@ -13,38 +13,44 @@ class UpdateTableMetaRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var fields[]
      */
     public $fields;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'description' => 'Description',
-        'fields'      => 'Fields',
-        'instanceId'  => 'InstanceId',
-        'module'      => 'Module',
-        'name'        => 'Name',
-        'resourceId'  => 'ResourceId',
-        'tableName'   => 'TableName',
+        'fields' => 'Fields',
+        'instanceId' => 'InstanceId',
+        'module' => 'Module',
+        'name' => 'Name',
+        'resourceId' => 'ResourceId',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -65,7 +71,7 @@ class UpdateTableMetaRequest extends Model
         if (null !== $this->fields) {
             if (\is_array($this->fields)) {
                 $res['Fields'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->fields as $item1) {
                     $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -110,7 +116,7 @@ class UpdateTableMetaRequest extends Model
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
                     $model->fields[$n1++] = fields::fromMap($item1);
                 }

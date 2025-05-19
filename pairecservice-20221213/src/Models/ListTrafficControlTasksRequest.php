@@ -12,68 +12,80 @@ class ListTrafficControlTasksRequest extends Model
      * @var bool
      */
     public $all;
+
     /**
      * @var string
      */
     public $controlTargetFilter;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $trafficControlTaskId;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'all'                  => 'All',
-        'controlTargetFilter'  => 'ControlTargetFilter',
-        'environment'          => 'Environment',
-        'instanceId'           => 'InstanceId',
-        'name'                 => 'Name',
-        'order'                => 'Order',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'sceneId'              => 'SceneId',
-        'sortBy'               => 'SortBy',
-        'status'               => 'Status',
+        'all' => 'All',
+        'controlTargetFilter' => 'ControlTargetFilter',
+        'environment' => 'Environment',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
+        'sortBy' => 'SortBy',
+        'status' => 'Status',
         'trafficControlTaskId' => 'TrafficControlTaskId',
-        'version'              => 'Version',
+        'version' => 'Version',
     ];
 
     public function validate()

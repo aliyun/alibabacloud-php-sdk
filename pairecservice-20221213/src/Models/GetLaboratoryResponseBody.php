@@ -12,73 +12,86 @@ class GetLaboratoryResponseBody extends Model
      * @var int
      */
     public $bucketCount;
+
     /**
      * @var string
      */
     public $bucketType;
+
     /**
      * @var string
      */
     public $buckets;
+
     /**
      * @var string
      */
     public $crowdId;
+
     /**
      * @var string
      */
     public $debugCrowdId;
+
     /**
      * @var string
      */
     public $debugUsers;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'bucketCount'  => 'BucketCount',
-        'bucketType'   => 'BucketType',
-        'buckets'      => 'Buckets',
-        'crowdId'      => 'CrowdId',
+        'bucketCount' => 'BucketCount',
+        'bucketType' => 'BucketType',
+        'buckets' => 'Buckets',
+        'crowdId' => 'CrowdId',
         'debugCrowdId' => 'DebugCrowdId',
-        'debugUsers'   => 'DebugUsers',
-        'description'  => 'Description',
-        'environment'  => 'Environment',
-        'filter'       => 'Filter',
-        'name'         => 'Name',
-        'requestId'    => 'RequestId',
-        'sceneId'      => 'SceneId',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'debugUsers' => 'DebugUsers',
+        'description' => 'Description',
+        'environment' => 'Environment',
+        'filter' => 'Filter',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

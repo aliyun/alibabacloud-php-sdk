@@ -12,18 +12,22 @@ class ListCalculationJobsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class ListCalculationJobsRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sceneId'    => 'SceneId',
-        'status'     => 'Status',
+        'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
     ];
 
     public function validate()

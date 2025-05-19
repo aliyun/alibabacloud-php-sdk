@@ -12,10 +12,12 @@ class DebugResourceRuleRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var mixed[]
      */
     public $metricInfo;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DebugResourceRuleRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'metricInfo' => 'MetricInfo',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

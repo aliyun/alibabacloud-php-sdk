@@ -12,43 +12,50 @@ class ABMetricGroups extends Model
      * @var string
      */
     public $ABMetricGroupId;
+
     /**
      * @var string
      */
     public $ABMetricIds;
+
     /**
      * @var string
      */
     public $ABMetricNames;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var bool
      */
     public $realtime;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
         'ABMetricGroupId' => 'ABMetricGroupId',
-        'ABMetricIds'     => 'ABMetricIds',
-        'ABMetricNames'   => 'ABMetricNames',
-        'description'     => 'Description',
-        'name'            => 'Name',
-        'owner'           => 'Owner',
-        'realtime'        => 'Realtime',
-        'sceneId'         => 'SceneId',
+        'ABMetricIds' => 'ABMetricIds',
+        'ABMetricNames' => 'ABMetricNames',
+        'description' => 'Description',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'realtime' => 'Realtime',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

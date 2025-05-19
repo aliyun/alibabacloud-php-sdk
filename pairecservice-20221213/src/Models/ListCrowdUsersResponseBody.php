@@ -12,18 +12,20 @@ class ListCrowdUsersResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string[]
      */
     public $users;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'users'      => 'Users',
+        'users' => 'Users',
     ];
 
     public function validate()
@@ -48,7 +50,7 @@ class ListCrowdUsersResponseBody extends Model
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->users as $item1) {
                     $res['Users'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class ListCrowdUsersResponseBody extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Users'] as $item1) {
                     $model->users[$n1++] = $item1;
                 }

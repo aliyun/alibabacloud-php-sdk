@@ -12,23 +12,26 @@ class itemControlTopReportDetails extends Model
      * @var mixed[]
      */
     public $features;
+
     /**
      * @var string
      */
     public $itemId;
+
     /**
      * @var string
      */
     public $targetProgress;
+
     /**
      * @var int
      */
     public $targetTraffic;
     protected $_name = [
-        'features'       => 'Features',
-        'itemId'         => 'ItemId',
+        'features' => 'Features',
+        'itemId' => 'ItemId',
         'targetProgress' => 'TargetProgress',
-        'targetTraffic'  => 'TargetTraffic',
+        'targetTraffic' => 'TargetTraffic',
     ];
 
     public function validate()

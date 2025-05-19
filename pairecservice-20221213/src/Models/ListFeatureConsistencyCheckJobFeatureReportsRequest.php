@@ -12,23 +12,26 @@ class ListFeatureConsistencyCheckJobFeatureReportsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $logItemId;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var string
      */
     public $logUserId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'logItemId'    => 'LogItemId',
+        'instanceId' => 'InstanceId',
+        'logItemId' => 'LogItemId',
         'logRequestId' => 'LogRequestId',
-        'logUserId'    => 'LogUserId',
+        'logUserId' => 'LogUserId',
     ];
 
     public function validate()

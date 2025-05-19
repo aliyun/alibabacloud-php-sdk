@@ -12,33 +12,38 @@ class reportsOfFeatureDiff extends Model
      * @var string
      */
     public $featureName;
+
     /**
      * @var string
      */
     public $logItemId;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var string
      */
     public $logUserId;
+
     /**
      * @var string
      */
     public $offlineValue;
+
     /**
      * @var string
      */
     public $onlineValue;
     protected $_name = [
-        'featureName'  => 'FeatureName',
-        'logItemId'    => 'LogItemId',
+        'featureName' => 'FeatureName',
+        'logItemId' => 'LogItemId',
         'logRequestId' => 'LogRequestId',
-        'logUserId'    => 'LogUserId',
+        'logUserId' => 'LogUserId',
         'offlineValue' => 'OfflineValue',
-        'onlineValue'  => 'OnlineValue',
+        'onlineValue' => 'OnlineValue',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class ListScenesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'name'       => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

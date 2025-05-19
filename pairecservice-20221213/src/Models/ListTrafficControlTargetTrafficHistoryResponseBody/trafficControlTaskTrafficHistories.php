@@ -12,33 +12,38 @@ class trafficControlTaskTrafficHistories extends Model
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $itemId;
+
     /**
      * @var string
      */
     public $recordTime;
+
     /**
      * @var float
      */
     public $trafficControlTargetAimTraffic;
+
     /**
      * @var float
      */
     public $trafficControlTargetTraffic;
+
     /**
      * @var float
      */
     public $trafficControlTaskTraffic;
     protected $_name = [
-        'experimentId'                   => 'ExperimentId',
-        'itemId'                         => 'ItemId',
-        'recordTime'                     => 'RecordTime',
+        'experimentId' => 'ExperimentId',
+        'itemId' => 'ItemId',
+        'recordTime' => 'RecordTime',
         'trafficControlTargetAimTraffic' => 'TrafficControlTargetAimTraffic',
-        'trafficControlTargetTraffic'    => 'TrafficControlTargetTraffic',
-        'trafficControlTaskTraffic'      => 'TrafficControlTaskTraffic',
+        'trafficControlTargetTraffic' => 'TrafficControlTargetTraffic',
+        'trafficControlTaskTraffic' => 'TrafficControlTaskTraffic',
     ];
 
     public function validate()

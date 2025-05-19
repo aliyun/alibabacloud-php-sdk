@@ -12,28 +12,32 @@ class ListFeatureConsistencyCheckJobConfigsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortBy;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'order'      => 'Order',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
     public function validate()

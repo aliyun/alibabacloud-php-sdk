@@ -12,23 +12,26 @@ class CreateFeatureConsistencyCheckJobRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $samplingDuration;
     protected $_name = [
-        'environment'                        => 'Environment',
+        'environment' => 'Environment',
         'featureConsistencyCheckJobConfigId' => 'FeatureConsistencyCheckJobConfigId',
-        'instanceId'                         => 'InstanceId',
-        'samplingDuration'                   => 'SamplingDuration',
+        'instanceId' => 'InstanceId',
+        'samplingDuration' => 'SamplingDuration',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class CloneLaboratoryRequest extends Model
      * @var bool
      */
     public $cloneExperimentGroup;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'cloneExperimentGroup' => 'CloneExperimentGroup',
-        'environment'          => 'Environment',
-        'instanceId'           => 'InstanceId',
+        'environment' => 'Environment',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

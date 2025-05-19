@@ -12,18 +12,20 @@ class resources extends Model
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
         'status' => 'Status',
-        'type'   => 'Type',
-        'uri'    => 'Uri',
+        'type' => 'Type',
+        'uri' => 'Uri',
     ];
 
     public function validate()

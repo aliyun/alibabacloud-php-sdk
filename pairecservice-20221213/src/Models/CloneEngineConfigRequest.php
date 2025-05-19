@@ -12,14 +12,17 @@ class CloneEngineConfigRequest extends Model
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
@@ -28,7 +31,7 @@ class CloneEngineConfigRequest extends Model
         'configValue' => 'ConfigValue',
         'description' => 'Description',
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

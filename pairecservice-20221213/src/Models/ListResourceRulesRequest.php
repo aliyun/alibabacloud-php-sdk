@@ -12,43 +12,50 @@ class ListResourceRulesRequest extends Model
      * @var bool
      */
     public $all;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceRuleId;
+
     /**
      * @var string
      */
     public $resourceRuleName;
+
     /**
      * @var string
      */
     public $sortBy;
     protected $_name = [
-        'all'              => 'All',
-        'instanceId'       => 'InstanceId',
-        'order'            => 'Order',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'resourceRuleId'   => 'ResourceRuleId',
+        'all' => 'All',
+        'instanceId' => 'InstanceId',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceRuleId' => 'ResourceRuleId',
         'resourceRuleName' => 'ResourceRuleName',
-        'sortBy'           => 'SortBy',
+        'sortBy' => 'SortBy',
     ];
 
     public function validate()

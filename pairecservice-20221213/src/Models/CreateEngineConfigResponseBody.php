@@ -12,13 +12,14 @@ class CreateEngineConfigResponseBody extends Model
      * @var string
      */
     public $engineConfigId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'engineConfigId' => 'EngineConfigId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

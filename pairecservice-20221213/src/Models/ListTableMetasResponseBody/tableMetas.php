@@ -13,73 +13,86 @@ class tableMetas extends Model
      * @var bool
      */
     public $canDelete;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var fields[]
      */
     public $fields;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtImportedTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $tableMetaId;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'canDelete'       => 'CanDelete',
-        'config'          => 'Config',
-        'description'     => 'Description',
-        'fields'          => 'Fields',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'canDelete' => 'CanDelete',
+        'config' => 'Config',
+        'description' => 'Description',
+        'fields' => 'Fields',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtImportedTime' => 'GmtImportedTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'module'          => 'Module',
-        'name'            => 'Name',
-        'resourceId'      => 'ResourceId',
-        'tableMetaId'     => 'TableMetaId',
-        'tableName'       => 'TableName',
-        'type'            => 'Type',
-        'url'             => 'Url',
+        'module' => 'Module',
+        'name' => 'Name',
+        'resourceId' => 'ResourceId',
+        'tableMetaId' => 'TableMetaId',
+        'tableName' => 'TableName',
+        'type' => 'Type',
+        'url' => 'Url',
     ];
 
     public function validate()
@@ -108,7 +121,7 @@ class tableMetas extends Model
         if (null !== $this->fields) {
             if (\is_array($this->fields)) {
                 $res['Fields'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->fields as $item1) {
                     $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -181,7 +194,7 @@ class tableMetas extends Model
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
                     $model->fields[$n1++] = fields::fromMap($item1);
                 }

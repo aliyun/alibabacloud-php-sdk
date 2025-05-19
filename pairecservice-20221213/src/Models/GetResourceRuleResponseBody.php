@@ -13,48 +13,56 @@ class GetResourceRuleResponseBody extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $metricOperationType;
+
     /**
      * @var string
      */
     public $metricPullInfo;
+
     /**
      * @var string
      */
     public $metricPullPeriod;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceRuleId;
+
     /**
      * @var string
      */
     public $ruleComputingDefinition;
+
     /**
      * @var ruleItems[]
      */
     public $ruleItems;
     protected $_name = [
-        'description'             => 'Description',
-        'metricOperationType'     => 'MetricOperationType',
-        'metricPullInfo'          => 'MetricPullInfo',
-        'metricPullPeriod'        => 'MetricPullPeriod',
-        'name'                    => 'Name',
-        'requestId'               => 'RequestId',
-        'resourceRuleId'          => 'ResourceRuleId',
+        'description' => 'Description',
+        'metricOperationType' => 'MetricOperationType',
+        'metricPullInfo' => 'MetricPullInfo',
+        'metricPullPeriod' => 'MetricPullPeriod',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'resourceRuleId' => 'ResourceRuleId',
         'ruleComputingDefinition' => 'RuleComputingDefinition',
-        'ruleItems'               => 'RuleItems',
+        'ruleItems' => 'RuleItems',
     ];
 
     public function validate()
@@ -103,7 +111,7 @@ class GetResourceRuleResponseBody extends Model
         if (null !== $this->ruleItems) {
             if (\is_array($this->ruleItems)) {
                 $res['RuleItems'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ruleItems as $item1) {
                     $res['RuleItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -156,7 +164,7 @@ class GetResourceRuleResponseBody extends Model
         if (isset($map['RuleItems'])) {
             if (!empty($map['RuleItems'])) {
                 $model->ruleItems = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RuleItems'] as $item1) {
                     $model->ruleItems[$n1++] = ruleItems::fromMap($item1);
                 }

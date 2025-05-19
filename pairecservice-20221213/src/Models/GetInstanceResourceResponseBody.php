@@ -12,48 +12,56 @@ class GetInstanceResourceResponseBody extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'category'        => 'Category',
-        'config'          => 'Config',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'category' => 'Category',
+        'config' => 'Config',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'group'           => 'Group',
-        'requestId'       => 'RequestId',
-        'resourceId'      => 'ResourceId',
-        'type'            => 'Type',
-        'uri'             => 'Uri',
+        'group' => 'Group',
+        'requestId' => 'RequestId',
+        'resourceId' => 'ResourceId',
+        'type' => 'Type',
+        'uri' => 'Uri',
     ];
 
     public function validate()

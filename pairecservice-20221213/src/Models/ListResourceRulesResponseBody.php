@@ -13,18 +13,20 @@ class ListResourceRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceRules[]
      */
     public $resourceRules;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceRules' => 'ResourceRules',
-        'totalCount'    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListResourceRulesResponseBody extends Model
         if (null !== $this->resourceRules) {
             if (\is_array($this->resourceRules)) {
                 $res['ResourceRules'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceRules as $item1) {
                     $res['ResourceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListResourceRulesResponseBody extends Model
         if (isset($map['ResourceRules'])) {
             if (!empty($map['ResourceRules'])) {
                 $model->resourceRules = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceRules'] as $item1) {
                     $model->resourceRules[$n1++] = resourceRules::fromMap($item1);
                 }

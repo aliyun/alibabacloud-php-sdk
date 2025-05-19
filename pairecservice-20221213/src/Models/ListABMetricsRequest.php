@@ -12,43 +12,50 @@ class ListABMetricsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var bool
      */
     public $realtime;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $tableMetaId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'realtime'    => 'Realtime',
-        'sceneId'     => 'SceneId',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'realtime' => 'Realtime',
+        'sceneId' => 'SceneId',
         'tableMetaId' => 'TableMetaId',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

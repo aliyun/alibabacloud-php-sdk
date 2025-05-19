@@ -12,43 +12,50 @@ class calculationJobs extends Model
      * @var string
      */
     public $ABMetricName;
+
     /**
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $calculationJobId;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $gmtRanTime;
+
     /**
      * @var string[]
      */
     public $jobMessage;
+
     /**
      * @var string
      */
     public $jobSource;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'ABMetricName'     => 'ABMetricName',
-        'bizDate'          => 'BizDate',
+        'ABMetricName' => 'ABMetricName',
+        'bizDate' => 'BizDate',
         'calculationJobId' => 'CalculationJobId',
-        'config'           => 'Config',
-        'gmtRanTime'       => 'GmtRanTime',
-        'jobMessage'       => 'JobMessage',
-        'jobSource'        => 'JobSource',
-        'status'           => 'Status',
+        'config' => 'Config',
+        'gmtRanTime' => 'GmtRanTime',
+        'jobMessage' => 'JobMessage',
+        'jobSource' => 'JobSource',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -85,7 +92,7 @@ class calculationJobs extends Model
         if (null !== $this->jobMessage) {
             if (\is_array($this->jobMessage)) {
                 $res['JobMessage'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->jobMessage as $item1) {
                     $res['JobMessage'][$n1++] = $item1;
                 }
@@ -134,7 +141,7 @@ class calculationJobs extends Model
         if (isset($map['JobMessage'])) {
             if (!empty($map['JobMessage'])) {
                 $model->jobMessage = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['JobMessage'] as $item1) {
                     $model->jobMessage[$n1++] = $item1;
                 }

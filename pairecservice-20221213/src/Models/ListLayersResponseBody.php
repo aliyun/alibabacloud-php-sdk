@@ -13,17 +13,19 @@ class ListLayersResponseBody extends Model
      * @var layers[]
      */
     public $layers;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'layers'     => 'Layers',
-        'requestId'  => 'RequestId',
+        'layers' => 'Layers',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class ListLayersResponseBody extends Model
         if (null !== $this->layers) {
             if (\is_array($this->layers)) {
                 $res['Layers'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->layers as $item1) {
                     $res['Layers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListLayersResponseBody extends Model
         if (isset($map['Layers'])) {
             if (!empty($map['Layers'])) {
                 $model->layers = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Layers'] as $item1) {
                     $model->layers[$n1++] = layers::fromMap($item1);
                 }

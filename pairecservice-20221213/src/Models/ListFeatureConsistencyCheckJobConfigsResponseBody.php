@@ -13,18 +13,20 @@ class ListFeatureConsistencyCheckJobConfigsResponseBody extends Model
      * @var featureConsistencyCheckConfigs[]
      */
     public $featureConsistencyCheckConfigs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'featureConsistencyCheckConfigs' => 'FeatureConsistencyCheckConfigs',
-        'requestId'                      => 'RequestId',
-        'totalCount'                     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListFeatureConsistencyCheckJobConfigsResponseBody extends Model
         if (null !== $this->featureConsistencyCheckConfigs) {
             if (\is_array($this->featureConsistencyCheckConfigs)) {
                 $res['FeatureConsistencyCheckConfigs'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->featureConsistencyCheckConfigs as $item1) {
                     $res['FeatureConsistencyCheckConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListFeatureConsistencyCheckJobConfigsResponseBody extends Model
         if (isset($map['FeatureConsistencyCheckConfigs'])) {
             if (!empty($map['FeatureConsistencyCheckConfigs'])) {
                 $model->featureConsistencyCheckConfigs = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['FeatureConsistencyCheckConfigs'] as $item1) {
                     $model->featureConsistencyCheckConfigs[$n1++] = featureConsistencyCheckConfigs::fromMap($item1);
                 }

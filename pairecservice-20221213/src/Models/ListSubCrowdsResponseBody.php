@@ -13,17 +13,19 @@ class ListSubCrowdsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var subCrowds[]
      */
     public $subCrowds;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'subCrowds'  => 'SubCrowds',
+        'requestId' => 'RequestId',
+        'subCrowds' => 'SubCrowds',
         'totalCount' => 'TotalCount',
     ];
 
@@ -45,7 +47,7 @@ class ListSubCrowdsResponseBody extends Model
         if (null !== $this->subCrowds) {
             if (\is_array($this->subCrowds)) {
                 $res['SubCrowds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->subCrowds as $item1) {
                     $res['SubCrowds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListSubCrowdsResponseBody extends Model
         if (isset($map['SubCrowds'])) {
             if (!empty($map['SubCrowds'])) {
                 $model->subCrowds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['SubCrowds'] as $item1) {
                     $model->subCrowds[$n1++] = subCrowds::fromMap($item1);
                 }

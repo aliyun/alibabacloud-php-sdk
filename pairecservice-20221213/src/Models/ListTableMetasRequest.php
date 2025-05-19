@@ -12,33 +12,38 @@ class ListTableMetasRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'module'     => 'Module',
-        'name'       => 'Name',
+        'module' => 'Module',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'type'       => 'Type',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
     ];
 
     public function validate()

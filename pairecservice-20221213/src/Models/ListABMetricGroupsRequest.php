@@ -12,38 +12,44 @@ class ListABMetricGroupsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var bool
      */
     public $realtime;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sortBy;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'order'      => 'Order',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'realtime'   => 'Realtime',
-        'sceneId'    => 'SceneId',
-        'sortBy'     => 'SortBy',
+        'pageSize' => 'PageSize',
+        'realtime' => 'Realtime',
+        'sceneId' => 'SceneId',
+        'sortBy' => 'SortBy',
     ];
 
     public function validate()

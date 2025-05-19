@@ -12,18 +12,20 @@ class ReportABMetricGroupResponseBody extends Model
      * @var ExperimentReportValue[]
      */
     public $experimentReport;
+
     /**
      * @var string[]
      */
     public $groupDimension;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'experimentReport' => 'ExperimentReport',
-        'groupDimension'   => 'GroupDimension',
-        'requestId'        => 'RequestId',
+        'groupDimension' => 'GroupDimension',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -52,7 +54,7 @@ class ReportABMetricGroupResponseBody extends Model
         if (null !== $this->groupDimension) {
             if (\is_array($this->groupDimension)) {
                 $res['GroupDimension'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->groupDimension as $item1) {
                     $res['GroupDimension'][$n1++] = $item1;
                 }
@@ -86,7 +88,7 @@ class ReportABMetricGroupResponseBody extends Model
         if (isset($map['GroupDimension'])) {
             if (!empty($map['GroupDimension'])) {
                 $model->groupDimension = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['GroupDimension'] as $item1) {
                     $model->groupDimension[$n1++] = $item1;
                 }

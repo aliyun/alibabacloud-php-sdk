@@ -12,78 +12,92 @@ class ABMetrics extends Model
      * @var string
      */
     public $ABMetricId;
+
     /**
      * @var string
      */
     public $definition;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $leftMetricId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $realtime;
+
     /**
      * @var string
      */
     public $resultResourceId;
+
     /**
      * @var string
      */
     public $resultTableMetaId;
+
     /**
      * @var string
      */
     public $rightMetricId;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var int
      */
     public $statisticsCycle;
+
     /**
      * @var string
      */
     public $tableMetaId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'ABMetricId'        => 'ABMetricId',
-        'definition'        => 'Definition',
-        'description'       => 'Description',
-        'leftMetricId'      => 'LeftMetricId',
-        'name'              => 'Name',
-        'operator'          => 'Operator',
-        'realtime'          => 'Realtime',
-        'resultResourceId'  => 'ResultResourceId',
+        'ABMetricId' => 'ABMetricId',
+        'definition' => 'Definition',
+        'description' => 'Description',
+        'leftMetricId' => 'LeftMetricId',
+        'name' => 'Name',
+        'operator' => 'Operator',
+        'realtime' => 'Realtime',
+        'resultResourceId' => 'ResultResourceId',
         'resultTableMetaId' => 'ResultTableMetaId',
-        'rightMetricId'     => 'RightMetricId',
-        'sceneId'           => 'SceneId',
-        'sceneName'         => 'SceneName',
-        'statisticsCycle'   => 'StatisticsCycle',
-        'tableMetaId'       => 'TableMetaId',
-        'type'              => 'Type',
+        'rightMetricId' => 'RightMetricId',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
+        'statisticsCycle' => 'StatisticsCycle',
+        'tableMetaId' => 'TableMetaId',
+        'type' => 'Type',
     ];
 
     public function validate()

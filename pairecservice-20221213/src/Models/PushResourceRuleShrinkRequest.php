@@ -12,12 +12,13 @@ class PushResourceRuleShrinkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $metricInfoShrink;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'metricInfoShrink' => 'MetricInfo',
     ];
 

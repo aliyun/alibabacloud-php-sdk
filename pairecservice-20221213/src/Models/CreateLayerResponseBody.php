@@ -12,12 +12,13 @@ class CreateLayerResponseBody extends Model
      * @var string
      */
     public $layerId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'layerId'   => 'LayerId',
+        'layerId' => 'LayerId',
         'requestId' => 'RequestId',
     ];
 

@@ -13,18 +13,20 @@ class ListCalculationJobsResponseBody extends Model
      * @var calculationJobs[]
      */
     public $calculationJobs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'calculationJobs' => 'CalculationJobs',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListCalculationJobsResponseBody extends Model
         if (null !== $this->calculationJobs) {
             if (\is_array($this->calculationJobs)) {
                 $res['CalculationJobs'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->calculationJobs as $item1) {
                     $res['CalculationJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListCalculationJobsResponseBody extends Model
         if (isset($map['CalculationJobs'])) {
             if (!empty($map['CalculationJobs'])) {
                 $model->calculationJobs = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['CalculationJobs'] as $item1) {
                     $model->calculationJobs[$n1++] = calculationJobs::fromMap($item1);
                 }

@@ -14,13 +14,14 @@ class trafficControlTaskTrafficInfo extends Model
      * @var targetTraffics[]
      */
     public $targetTraffics;
+
     /**
      * @var TrafficControlTaskTrafficInfoTaskTrafficsValue[]
      */
     public $taskTraffics;
     protected $_name = [
         'targetTraffics' => 'TargetTraffics',
-        'taskTraffics'   => 'TaskTraffics',
+        'taskTraffics' => 'TaskTraffics',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class trafficControlTaskTrafficInfo extends Model
         if (null !== $this->targetTraffics) {
             if (\is_array($this->targetTraffics)) {
                 $res['TargetTraffics'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->targetTraffics as $item1) {
                     $res['TargetTraffics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +71,7 @@ class trafficControlTaskTrafficInfo extends Model
         if (isset($map['TargetTraffics'])) {
             if (!empty($map['TargetTraffics'])) {
                 $model->targetTraffics = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['TargetTraffics'] as $item1) {
                     $model->targetTraffics[$n1++] = targetTraffics::fromMap($item1);
                 }

@@ -12,37 +12,43 @@ class UpdateResourceRuleRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $metricOperationType;
+
     /**
      * @var string
      */
     public $metricPullInfo;
+
     /**
      * @var string
      */
     public $metricPullPeriod;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ruleComputingDefinition;
     protected $_name = [
-        'description'             => 'Description',
-        'instanceId'              => 'InstanceId',
-        'metricOperationType'     => 'MetricOperationType',
-        'metricPullInfo'          => 'MetricPullInfo',
-        'metricPullPeriod'        => 'MetricPullPeriod',
-        'name'                    => 'Name',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'metricOperationType' => 'MetricOperationType',
+        'metricPullInfo' => 'MetricPullInfo',
+        'metricPullPeriod' => 'MetricPullPeriod',
+        'name' => 'Name',
         'ruleComputingDefinition' => 'RuleComputingDefinition',
     ];
 

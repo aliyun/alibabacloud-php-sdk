@@ -12,88 +12,104 @@ class experiments extends Model
      * @var string
      */
     public $aliasExperimentId;
+
     /**
      * @var string
      */
     public $buckets;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $debugCrowdId;
+
     /**
      * @var string
      */
     public $debugUsers;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $experimentGroupId;
+
     /**
      * @var string
      */
     public $experimentId;
+
     /**
      * @var int
      */
     public $flowPercent;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $laboratoryId;
+
     /**
      * @var string
      */
     public $layerId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'aliasExperimentId' => 'AliasExperimentId',
-        'buckets'           => 'Buckets',
-        'config'            => 'Config',
-        'debugCrowdId'      => 'DebugCrowdId',
-        'debugUsers'        => 'DebugUsers',
-        'description'       => 'Description',
+        'buckets' => 'Buckets',
+        'config' => 'Config',
+        'debugCrowdId' => 'DebugCrowdId',
+        'debugUsers' => 'DebugUsers',
+        'description' => 'Description',
         'experimentGroupId' => 'ExperimentGroupId',
-        'experimentId'      => 'ExperimentId',
-        'flowPercent'       => 'FlowPercent',
-        'gmtCreateTime'     => 'GmtCreateTime',
-        'gmtModifiedTime'   => 'GmtModifiedTime',
-        'laboratoryId'      => 'LaboratoryId',
-        'layerId'           => 'LayerId',
-        'name'              => 'Name',
-        'sceneId'           => 'SceneId',
-        'status'            => 'Status',
-        'type'              => 'Type',
+        'experimentId' => 'ExperimentId',
+        'flowPercent' => 'FlowPercent',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'laboratoryId' => 'LaboratoryId',
+        'layerId' => 'LayerId',
+        'name' => 'Name',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class CloneExperimentGroupRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $layerId;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'layerId'     => 'LayerId',
+        'instanceId' => 'InstanceId',
+        'layerId' => 'LayerId',
     ];
 
     public function validate()

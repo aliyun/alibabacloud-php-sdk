@@ -13,16 +13,18 @@ class ListTableMetasResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var tableMetas[]
      */
     public $tableMetas;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'tableMetas' => 'TableMetas',
         'totalCount' => 'TotalCount',
     ];
@@ -45,7 +47,7 @@ class ListTableMetasResponseBody extends Model
         if (null !== $this->tableMetas) {
             if (\is_array($this->tableMetas)) {
                 $res['TableMetas'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->tableMetas as $item1) {
                     $res['TableMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListTableMetasResponseBody extends Model
         if (isset($map['TableMetas'])) {
             if (!empty($map['TableMetas'])) {
                 $model->tableMetas = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TableMetas'] as $item1) {
                     $model->tableMetas[$n1++] = tableMetas::fromMap($item1);
                 }

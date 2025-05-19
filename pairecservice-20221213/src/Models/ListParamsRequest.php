@@ -12,33 +12,38 @@ class ListParamsRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'sceneId'     => 'SceneId',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

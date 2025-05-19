@@ -12,6 +12,7 @@ class flows extends Model
      * @var string
      */
     public $flowCode;
+
     /**
      * @var string
      */

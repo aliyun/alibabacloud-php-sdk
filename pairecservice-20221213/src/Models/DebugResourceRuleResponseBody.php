@@ -12,18 +12,20 @@ class DebugResourceRuleResponseBody extends Model
      * @var mixed[]
      */
     public $currentValues;
+
     /**
      * @var mixed[]
      */
     public $outputValues;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'currentValues' => 'CurrentValues',
-        'outputValues'  => 'OutputValues',
-        'requestId'     => 'RequestId',
+        'outputValues' => 'OutputValues',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

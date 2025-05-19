@@ -12,12 +12,13 @@ class GenerateTrafficControlTaskConfigResponseBody extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
+        'config' => 'Config',
         'requestId' => 'RequestId',
     ];
 

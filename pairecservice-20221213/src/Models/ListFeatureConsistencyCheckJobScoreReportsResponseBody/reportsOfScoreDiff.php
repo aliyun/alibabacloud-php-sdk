@@ -12,27 +12,31 @@ class reportsOfScoreDiff extends Model
      * @var string
      */
     public $logItemId;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var string
      */
     public $logUserId;
+
     /**
      * @var string
      */
     public $scoreDiff;
+
     /**
      * @var string
      */
     public $scoreDiffDetail;
     protected $_name = [
-        'logItemId'       => 'LogItemId',
-        'logRequestId'    => 'LogRequestId',
-        'logUserId'       => 'LogUserId',
-        'scoreDiff'       => 'ScoreDiff',
+        'logItemId' => 'LogItemId',
+        'logRequestId' => 'LogRequestId',
+        'logUserId' => 'LogUserId',
+        'scoreDiff' => 'ScoreDiff',
         'scoreDiffDetail' => 'ScoreDiffDetail',
     ];
 

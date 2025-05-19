@@ -13,17 +13,19 @@ class ListParamsResponseBody extends Model
      * @var params[]
      */
     public $params;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'params'     => 'Params',
-        'requestId'  => 'RequestId',
+        'params' => 'Params',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class ListParamsResponseBody extends Model
         if (null !== $this->params) {
             if (\is_array($this->params)) {
                 $res['Params'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->params as $item1) {
                     $res['Params'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListParamsResponseBody extends Model
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Params'] as $item1) {
                     $model->params[$n1++] = params::fromMap($item1);
                 }

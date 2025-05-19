@@ -12,38 +12,44 @@ class layers extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $laboratoryId;
+
     /**
      * @var string
      */
     public $layerId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $residualFlow;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'gmtCreateTime' => 'GmtCreateTime',
-        'laboratoryId'  => 'LaboratoryId',
-        'layerId'       => 'LayerId',
-        'name'          => 'Name',
-        'residualFlow'  => 'ResidualFlow',
-        'sceneId'       => 'SceneId',
+        'laboratoryId' => 'LaboratoryId',
+        'layerId' => 'LayerId',
+        'name' => 'Name',
+        'residualFlow' => 'ResidualFlow',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

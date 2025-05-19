@@ -13,18 +13,20 @@ class ListABMetricGroupsResponseBody extends Model
      * @var ABMetricGroups[]
      */
     public $ABMetricGroups;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'ABMetricGroups' => 'ABMetricGroups',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListABMetricGroupsResponseBody extends Model
         if (null !== $this->ABMetricGroups) {
             if (\is_array($this->ABMetricGroups)) {
                 $res['ABMetricGroups'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->ABMetricGroups as $item1) {
                     $res['ABMetricGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListABMetricGroupsResponseBody extends Model
         if (isset($map['ABMetricGroups'])) {
             if (!empty($map['ABMetricGroups'])) {
                 $model->ABMetricGroups = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ABMetricGroups'] as $item1) {
                     $model->ABMetricGroups[$n1++] = ABMetricGroups::fromMap($item1);
                 }

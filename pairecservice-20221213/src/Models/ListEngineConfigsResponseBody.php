@@ -13,18 +13,20 @@ class ListEngineConfigsResponseBody extends Model
      * @var engineConfigs[]
      */
     public $engineConfigs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'engineConfigs' => 'EngineConfigs',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListEngineConfigsResponseBody extends Model
         if (null !== $this->engineConfigs) {
             if (\is_array($this->engineConfigs)) {
                 $res['EngineConfigs'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->engineConfigs as $item1) {
                     $res['EngineConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListEngineConfigsResponseBody extends Model
         if (isset($map['EngineConfigs'])) {
             if (!empty($map['EngineConfigs'])) {
                 $model->engineConfigs = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EngineConfigs'] as $item1) {
                     $model->engineConfigs[$n1++] = engineConfigs::fromMap($item1);
                 }

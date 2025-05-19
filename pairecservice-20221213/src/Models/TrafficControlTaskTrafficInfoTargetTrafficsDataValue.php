@@ -12,12 +12,13 @@ class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
      * @var float
      */
     public $traffic;
+
     /**
      * @var int
      */
     public $recordTime;
     protected $_name = [
-        'traffic'    => 'Traffic',
+        'traffic' => 'Traffic',
         'recordTime' => 'RecordTime',
     ];
 

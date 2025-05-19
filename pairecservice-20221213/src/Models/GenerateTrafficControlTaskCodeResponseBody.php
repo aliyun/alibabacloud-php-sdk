@@ -12,18 +12,20 @@ class GenerateTrafficControlTaskCodeResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var bool
      */
     public $preNeedConfig;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'          => 'Code',
+        'code' => 'Code',
         'preNeedConfig' => 'PreNeedConfig',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

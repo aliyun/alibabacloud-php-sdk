@@ -12,28 +12,32 @@ class params extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $paramId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'environment'     => 'Environment',
+        'environment' => 'Environment',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'name'            => 'Name',
-        'paramId'         => 'ParamId',
-        'value'           => 'Value',
+        'name' => 'Name',
+        'paramId' => 'ParamId',
+        'value' => 'Value',
     ];
 
     public function validate()

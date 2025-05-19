@@ -12,23 +12,26 @@ class ListLaboratoriesRequest extends Model
      * @var string
      */
     public $environment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'environment' => 'Environment',
-        'instanceId'  => 'InstanceId',
-        'sceneId'     => 'SceneId',
-        'status'      => 'Status',
+        'instanceId' => 'InstanceId',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $itemFeatures;
+
     /**
      * @var string
      */
     public $logItemId;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var int
      */
     public $logRequestTime;
+
     /**
      * @var string
      */
     public $logUserId;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var string
      */
     public $scores;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $userFeatures;
     protected $_name = [
         'featureConsistencyCheckJobConfigId' => 'FeatureConsistencyCheckJobConfigId',
-        'instanceId'                         => 'InstanceId',
-        'itemFeatures'                       => 'ItemFeatures',
-        'logItemId'                          => 'LogItemId',
-        'logRequestId'                       => 'LogRequestId',
-        'logRequestTime'                     => 'LogRequestTime',
-        'logUserId'                          => 'LogUserId',
-        'sceneName'                          => 'SceneName',
-        'scores'                             => 'Scores',
-        'serviceName'                        => 'ServiceName',
-        'userFeatures'                       => 'UserFeatures',
+        'instanceId' => 'InstanceId',
+        'itemFeatures' => 'ItemFeatures',
+        'logItemId' => 'LogItemId',
+        'logRequestId' => 'LogRequestId',
+        'logRequestTime' => 'LogRequestTime',
+        'logUserId' => 'LogUserId',
+        'sceneName' => 'SceneName',
+        'scores' => 'Scores',
+        'serviceName' => 'ServiceName',
+        'userFeatures' => 'UserFeatures',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class GetABMetricGroupResponseBody extends Model
      * @var string
      */
     public $ABMetricIds;
+
     /**
      * @var string
      */
     public $ABMetricNames;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var bool
      */
     public $realtime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'ABMetricIds'   => 'ABMetricIds',
+        'ABMetricIds' => 'ABMetricIds',
         'ABMetricNames' => 'ABMetricNames',
-        'description'   => 'Description',
-        'name'          => 'Name',
-        'owner'         => 'Owner',
-        'realtime'      => 'Realtime',
-        'requestId'     => 'RequestId',
-        'sceneId'       => 'SceneId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'realtime' => 'Realtime',
+        'requestId' => 'RequestId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

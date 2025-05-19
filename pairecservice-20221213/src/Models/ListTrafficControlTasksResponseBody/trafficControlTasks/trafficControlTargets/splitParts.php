@@ -12,12 +12,13 @@ class splitParts extends Model
      * @var int[]
      */
     public $setValues;
+
     /**
      * @var int[]
      */
     public $timePoints;
     protected $_name = [
-        'setValues'  => 'SetValues',
+        'setValues' => 'SetValues',
         'timePoints' => 'TimePoints',
     ];
 
@@ -38,7 +39,7 @@ class splitParts extends Model
         if (null !== $this->setValues) {
             if (\is_array($this->setValues)) {
                 $res['SetValues'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->setValues as $item1) {
                     $res['SetValues'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class splitParts extends Model
         if (null !== $this->timePoints) {
             if (\is_array($this->timePoints)) {
                 $res['TimePoints'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->timePoints as $item1) {
                     $res['TimePoints'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class splitParts extends Model
         if (isset($map['SetValues'])) {
             if (!empty($map['SetValues'])) {
                 $model->setValues = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['SetValues'] as $item1) {
                     $model->setValues[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class splitParts extends Model
         if (isset($map['TimePoints'])) {
             if (!empty($map['TimePoints'])) {
                 $model->timePoints = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TimePoints'] as $item1) {
                     $model->timePoints[$n1++] = $item1;
                 }

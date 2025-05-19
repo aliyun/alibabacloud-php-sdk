@@ -12,53 +12,62 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
      * @var string
      */
     public $contextFeatures;
+
     /**
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
+
     /**
      * @var string
      */
     public $generatedFeatures;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $logItemId;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var int
      */
     public $logRequestTime;
+
     /**
      * @var string
      */
     public $logUserId;
+
     /**
      * @var string
      */
     public $rawFeatures;
+
     /**
      * @var string
      */
     public $sceneName;
     protected $_name = [
-        'contextFeatures'                    => 'ContextFeatures',
+        'contextFeatures' => 'ContextFeatures',
         'featureConsistencyCheckJobConfigId' => 'FeatureConsistencyCheckJobConfigId',
-        'generatedFeatures'                  => 'GeneratedFeatures',
-        'instanceId'                         => 'InstanceId',
-        'logItemId'                          => 'LogItemId',
-        'logRequestId'                       => 'LogRequestId',
-        'logRequestTime'                     => 'LogRequestTime',
-        'logUserId'                          => 'LogUserId',
-        'rawFeatures'                        => 'RawFeatures',
-        'sceneName'                          => 'SceneName',
+        'generatedFeatures' => 'GeneratedFeatures',
+        'instanceId' => 'InstanceId',
+        'logItemId' => 'LogItemId',
+        'logRequestId' => 'LogRequestId',
+        'logRequestTime' => 'LogRequestTime',
+        'logUserId' => 'LogUserId',
+        'rawFeatures' => 'RawFeatures',
+        'sceneName' => 'SceneName',
     ];
 
     public function validate()

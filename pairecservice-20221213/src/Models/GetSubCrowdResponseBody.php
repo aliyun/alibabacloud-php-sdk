@@ -12,28 +12,32 @@ class GetSubCrowdResponseBody extends Model
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $users;
     protected $_name = [
         'gmtCreateTime' => 'GmtCreateTime',
-        'quantity'      => 'Quantity',
-        'requestId'     => 'RequestId',
-        'source'        => 'Source',
-        'users'         => 'Users',
+        'quantity' => 'Quantity',
+        'requestId' => 'RequestId',
+        'source' => 'Source',
+        'users' => 'Users',
     ];
 
     public function validate()

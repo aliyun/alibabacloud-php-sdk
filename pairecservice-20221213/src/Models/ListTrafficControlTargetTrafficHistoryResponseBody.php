@@ -13,17 +13,19 @@ class ListTrafficControlTargetTrafficHistoryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
+
     /**
      * @var trafficControlTaskTrafficHistories[]
      */
     public $trafficControlTaskTrafficHistories;
     protected $_name = [
-        'requestId'                          => 'RequestId',
-        'totalCount'                         => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'trafficControlTaskTrafficHistories' => 'TrafficControlTaskTrafficHistories',
     ];
 
@@ -49,7 +51,7 @@ class ListTrafficControlTargetTrafficHistoryResponseBody extends Model
         if (null !== $this->trafficControlTaskTrafficHistories) {
             if (\is_array($this->trafficControlTaskTrafficHistories)) {
                 $res['TrafficControlTaskTrafficHistories'] = [];
-                $n1                                        = 0;
+                $n1 = 0;
                 foreach ($this->trafficControlTaskTrafficHistories as $item1) {
                     $res['TrafficControlTaskTrafficHistories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class ListTrafficControlTargetTrafficHistoryResponseBody extends Model
         if (isset($map['TrafficControlTaskTrafficHistories'])) {
             if (!empty($map['TrafficControlTaskTrafficHistories'])) {
                 $model->trafficControlTaskTrafficHistories = [];
-                $n1                                        = 0;
+                $n1 = 0;
                 foreach ($map['TrafficControlTaskTrafficHistories'] as $item1) {
                     $model->trafficControlTaskTrafficHistories[$n1++] = trafficControlTaskTrafficHistories::fromMap($item1);
                 }

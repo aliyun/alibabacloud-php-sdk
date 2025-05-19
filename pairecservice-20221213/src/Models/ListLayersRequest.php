@@ -12,12 +12,13 @@ class ListLayersRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $laboratoryId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'laboratoryId' => 'LaboratoryId',
     ];
 

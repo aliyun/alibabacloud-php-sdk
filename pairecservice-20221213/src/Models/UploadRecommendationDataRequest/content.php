@@ -12,12 +12,13 @@ class content extends Model
      * @var string
      */
     public $fields;
+
     /**
      * @var string
      */
     public $operationType;
     protected $_name = [
-        'fields'        => 'Fields',
+        'fields' => 'Fields',
         'operationType' => 'OperationType',
     ];
 

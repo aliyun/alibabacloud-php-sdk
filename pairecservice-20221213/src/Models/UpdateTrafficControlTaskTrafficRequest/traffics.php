@@ -12,33 +12,38 @@ class traffics extends Model
      * @var string
      */
     public $itemOrExperimentId;
+
     /**
      * @var string
      */
     public $recordTime;
+
     /**
      * @var float
      */
     public $trafficControlTargetAimTraffic;
+
     /**
      * @var string
      */
     public $trafficControlTargetId;
+
     /**
      * @var int
      */
     public $trafficControlTargetTraffic;
+
     /**
      * @var int
      */
     public $trafficControlTaskTraffic;
     protected $_name = [
-        'itemOrExperimentId'             => 'ItemOrExperimentId',
-        'recordTime'                     => 'RecordTime',
+        'itemOrExperimentId' => 'ItemOrExperimentId',
+        'recordTime' => 'RecordTime',
         'trafficControlTargetAimTraffic' => 'TrafficControlTargetAimTraffic',
-        'trafficControlTargetId'         => 'TrafficControlTargetId',
-        'trafficControlTargetTraffic'    => 'TrafficControlTargetTraffic',
-        'trafficControlTaskTraffic'      => 'TrafficControlTaskTraffic',
+        'trafficControlTargetId' => 'TrafficControlTargetId',
+        'trafficControlTargetTraffic' => 'TrafficControlTargetTraffic',
+        'trafficControlTaskTraffic' => 'TrafficControlTaskTraffic',
     ];
 
     public function validate()

@@ -12,22 +12,27 @@ class UpdateABMetricGroupRequest extends Model
      * @var string
      */
     public $ABMetricIds;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $realtime;
+
     /**
      * @var string
      */
@@ -35,10 +40,10 @@ class UpdateABMetricGroupRequest extends Model
     protected $_name = [
         'ABMetricIds' => 'ABMetricIds',
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'realtime'    => 'Realtime',
-        'sceneId'     => 'SceneId',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'realtime' => 'Realtime',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

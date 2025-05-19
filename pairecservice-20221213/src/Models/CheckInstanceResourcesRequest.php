@@ -11,14 +11,21 @@ class CheckInstanceResourcesRequest extends Model
     /**
      * @var string
      */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
     public $type;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
+        'resourceId' => 'ResourceId',
         'type' => 'Type',
-        'uri'  => 'Uri',
+        'uri' => 'Uri',
     ];
 
     public function validate()
@@ -29,6 +36,10 @@ class CheckInstanceResourcesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -48,6 +59,10 @@ class CheckInstanceResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

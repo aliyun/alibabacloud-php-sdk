@@ -13,18 +13,20 @@ class ListExperimentGroupsResponseBody extends Model
      * @var experimentGroups[]
      */
     public $experimentGroups;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'experimentGroups' => 'ExperimentGroups',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListExperimentGroupsResponseBody extends Model
         if (null !== $this->experimentGroups) {
             if (\is_array($this->experimentGroups)) {
                 $res['ExperimentGroups'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->experimentGroups as $item1) {
                     $res['ExperimentGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListExperimentGroupsResponseBody extends Model
         if (isset($map['ExperimentGroups'])) {
             if (!empty($map['ExperimentGroups'])) {
                 $model->experimentGroups = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExperimentGroups'] as $item1) {
                     $model->experimentGroups[$n1++] = experimentGroups::fromMap($item1);
                 }
