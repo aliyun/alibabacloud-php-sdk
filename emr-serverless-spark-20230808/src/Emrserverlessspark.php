@@ -446,6 +446,10 @@ class Emrserverlessspark extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->publicEndpointEnabled) {
+            @$body['publicEndpointEnabled'] = $request->publicEndpointEnabled;
+        }
+
         if (null !== $request->queueName) {
             @$body['queueName'] = $request->queueName;
         }
@@ -1144,6 +1148,10 @@ class Emrserverlessspark extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateBizId) {
+            @$query['templateBizId'] = $request->templateBizId;
         }
 
         if (null !== $request->templateType) {

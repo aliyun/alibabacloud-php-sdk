@@ -52,6 +52,11 @@ class CreateSessionClusterRequest extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $publicEndpointEnabled;
+
+    /**
      * @var string
      */
     public $queueName;
@@ -74,6 +79,7 @@ class CreateSessionClusterRequest extends Model
         'fusion' => 'fusion',
         'kind' => 'kind',
         'name' => 'name',
+        'publicEndpointEnabled' => 'publicEndpointEnabled',
         'queueName' => 'queueName',
         'releaseVersion' => 'releaseVersion',
         'regionId' => 'regionId',
@@ -132,6 +138,10 @@ class CreateSessionClusterRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->publicEndpointEnabled) {
+            $res['publicEndpointEnabled'] = $this->publicEndpointEnabled;
         }
 
         if (null !== $this->queueName) {
@@ -193,6 +203,10 @@ class CreateSessionClusterRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['publicEndpointEnabled'])) {
+            $model->publicEndpointEnabled = $map['publicEndpointEnabled'];
         }
 
         if (isset($map['queueName'])) {

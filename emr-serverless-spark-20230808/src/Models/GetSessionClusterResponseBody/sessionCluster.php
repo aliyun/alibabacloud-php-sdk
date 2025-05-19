@@ -78,6 +78,11 @@ class sessionCluster extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $publicEndpointEnabled;
+
+    /**
      * @var string
      */
     public $queueName;
@@ -140,6 +145,7 @@ class sessionCluster extends Model
         'gmtCreate' => 'gmtCreate',
         'kind' => 'kind',
         'name' => 'name',
+        'publicEndpointEnabled' => 'publicEndpointEnabled',
         'queueName' => 'queueName',
         'releaseVersion' => 'releaseVersion',
         'sessionClusterId' => 'sessionClusterId',
@@ -228,6 +234,10 @@ class sessionCluster extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->publicEndpointEnabled) {
+            $res['publicEndpointEnabled'] = $this->publicEndpointEnabled;
         }
 
         if (null !== $this->queueName) {
@@ -337,6 +347,10 @@ class sessionCluster extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['publicEndpointEnabled'])) {
+            $model->publicEndpointEnabled = $map['publicEndpointEnabled'];
         }
 
         if (isset($map['queueName'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class Template extends Model
 {
     /**
+     * @var string
+     */
+    public $bizId;
+
+    /**
      * @var int
      */
     public $creator;
@@ -34,9 +39,19 @@ class Template extends Model
     public $gmtModified;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
      * @var int
      */
     public $modifier;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var SparkConf[]
@@ -83,12 +98,15 @@ class Template extends Model
      */
     public $templateType;
     protected $_name = [
+        'bizId' => 'bizId',
         'creator' => 'creator',
         'displaySparkVersion' => 'displaySparkVersion',
         'fusion' => 'fusion',
         'gmtCreated' => 'gmtCreated',
         'gmtModified' => 'gmtModified',
+        'isDefault' => 'isDefault',
         'modifier' => 'modifier',
+        'name' => 'name',
         'sparkConf' => 'sparkConf',
         'sparkDriverCores' => 'sparkDriverCores',
         'sparkDriverMemory' => 'sparkDriverMemory',
@@ -111,6 +129,10 @@ class Template extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['bizId'] = $this->bizId;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
@@ -131,8 +153,16 @@ class Template extends Model
             $res['gmtModified'] = $this->gmtModified;
         }
 
+        if (null !== $this->isDefault) {
+            $res['isDefault'] = $this->isDefault;
+        }
+
         if (null !== $this->modifier) {
             $res['modifier'] = $this->modifier;
+        }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         if (null !== $this->sparkConf) {
@@ -188,6 +218,10 @@ class Template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bizId'])) {
+            $model->bizId = $map['bizId'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
@@ -208,8 +242,16 @@ class Template extends Model
             $model->gmtModified = $map['gmtModified'];
         }
 
+        if (isset($map['isDefault'])) {
+            $model->isDefault = $map['isDefault'];
+        }
+
         if (isset($map['modifier'])) {
             $model->modifier = $map['modifier'];
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         if (isset($map['sparkConf'])) {

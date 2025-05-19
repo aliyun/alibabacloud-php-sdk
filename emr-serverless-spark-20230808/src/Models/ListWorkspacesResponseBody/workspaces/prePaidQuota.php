@@ -41,6 +41,11 @@ class prePaidQuota extends Model
     /**
      * @var string
      */
+    public $orderId;
+
+    /**
+     * @var string
+     */
     public $paymentStatus;
 
     /**
@@ -54,6 +59,7 @@ class prePaidQuota extends Model
         'expireTime' => 'expireTime',
         'instanceId' => 'instanceId',
         'maxResource' => 'maxResource',
+        'orderId' => 'orderId',
         'paymentStatus' => 'paymentStatus',
         'usedResource' => 'usedResource',
     ];
@@ -88,6 +94,10 @@ class prePaidQuota extends Model
 
         if (null !== $this->maxResource) {
             $res['maxResource'] = $this->maxResource;
+        }
+
+        if (null !== $this->orderId) {
+            $res['orderId'] = $this->orderId;
         }
 
         if (null !== $this->paymentStatus) {
@@ -131,6 +141,10 @@ class prePaidQuota extends Model
 
         if (isset($map['maxResource'])) {
             $model->maxResource = $map['maxResource'];
+        }
+
+        if (isset($map['orderId'])) {
+            $model->orderId = $map['orderId'];
         }
 
         if (isset($map['paymentStatus'])) {
