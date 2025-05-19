@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckInstanceDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckInstanceDatasourceResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CheckModelFeatureFGFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateDatasourceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateFeatureEntityRequest;
@@ -18,6 +19,8 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLabelTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLLMConfigRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLLMConfigResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateProjectRequest;
@@ -28,6 +31,7 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteDatasourceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteFeatureEntityResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteFeatureViewResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteLabelTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteLLMConfigResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetTableRequest;
@@ -38,6 +42,7 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureEntityResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetLabelTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetLLMConfigResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureFGFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureFGInfoResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureResponse;
@@ -45,6 +50,8 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectFeatureEntityRes
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetServiceIdentityRoleResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetTaskResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourcesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourcesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceTablesRequest;
@@ -65,11 +72,15 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLabelTablesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLabelTablesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLabelTablesShrinkRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLLMConfigsRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLLMConfigsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableFeaturesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableFeaturesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesShrinkRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeaturesRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeaturesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectsResponse;
@@ -81,10 +92,13 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListTasksResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListTasksShrinkRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\PublishFeatureViewTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\PublishFeatureViewTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\StopTaskResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateDatasourceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLLMConfigRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLLMConfigResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureRequest;
@@ -201,6 +215,59 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->checkInstanceDatasourceWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 检查FG配置内容是否正确，是否满足所有规则。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckModelFeatureFGFeatureResponse
+     *
+     * @param string         $InstanceId
+     * @param string         $ModelFeatureId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CheckModelFeatureFGFeatureResponse
+     */
+    public function checkModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CheckModelFeatureFGFeature',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/modelfeatures/' . Url::percentEncode($ModelFeatureId) . '/action/checkfgfeature',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查FG配置内容是否正确，是否满足所有规则。
+     *
+     * @returns CheckModelFeatureFGFeatureResponse
+     *
+     * @param string $InstanceId
+     * @param string $ModelFeatureId
+     *
+     * @return CheckModelFeatureFGFeatureResponse
+     */
+    public function checkModelFeatureFGFeature($InstanceId, $ModelFeatureId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime);
     }
 
     /**
@@ -523,6 +590,97 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->createInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建大模型调用信息配置.
+     *
+     * @param request - CreateLLMConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLLMConfigResponse
+     *
+     * @param string                 $InstanceId
+     * @param CreateLLMConfigRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateLLMConfigResponse
+     */
+    public function createLLMConfigWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$body['BaseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->batchSize) {
+            @$body['BatchSize'] = $request->batchSize;
+        }
+
+        if (null !== $request->maxTokens) {
+            @$body['MaxTokens'] = $request->maxTokens;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->rps) {
+            @$body['Rps'] = $request->rps;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLLMConfig',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/llmconfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLLMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建大模型调用信息配置.
+     *
+     * @param request - CreateLLMConfigRequest
+     *
+     * @returns CreateLLMConfigResponse
+     *
+     * @param string                 $InstanceId
+     * @param CreateLLMConfigRequest $request
+     *
+     * @return CreateLLMConfigResponse
+     */
+    public function createLLMConfig($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createLLMConfigWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -984,6 +1142,59 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->deleteFeatureViewWithOptions($InstanceId, $FeatureViewId, $headers, $runtime);
+    }
+
+    /**
+     * 删除大模型调用信息配置.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLLMConfigResponse
+     *
+     * @param string         $InstanceId
+     * @param string         $LLMConfigId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteLLMConfigResponse
+     */
+    public function deleteLLMConfigWithOptions($InstanceId, $LLMConfigId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLLMConfig',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/llmconfigs/' . Url::percentEncode($LLMConfigId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLLMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除大模型调用信息配置.
+     *
+     * @returns DeleteLLMConfigResponse
+     *
+     * @param string $InstanceId
+     * @param string $LLMConfigId
+     *
+     * @return DeleteLLMConfigResponse
+     */
+    public function deleteLLMConfig($InstanceId, $LLMConfigId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteLLMConfigWithOptions($InstanceId, $LLMConfigId, $headers, $runtime);
     }
 
     /**
@@ -1492,6 +1703,61 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * 获取 LLMConfig 信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLLMConfigResponse
+     *
+     * @param string         $InstanceId
+     * @param string         $LLMConfigId
+     * @param string         $RegionId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLLMConfigResponse
+     */
+    public function getLLMConfigWithOptions($InstanceId, $LLMConfigId, $RegionId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetLLMConfig',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/llmconfigs/' . Url::percentEncode($LLMConfigId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLLMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 LLMConfig 信息.
+     *
+     * @returns GetLLMConfigResponse
+     *
+     * @param string $InstanceId
+     * @param string $LLMConfigId
+     * @param string $RegionId
+     *
+     * @return GetLLMConfigResponse
+     */
+    public function getLLMConfig($InstanceId, $LLMConfigId, $RegionId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLLMConfigWithOptions($InstanceId, $LLMConfigId, $RegionId, $headers, $runtime);
+    }
+
+    /**
      * 获取Label表详细信息。
      *
      * @param headers - map
@@ -1913,6 +2179,119 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->getTaskWithOptions($InstanceId, $TaskId, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据源下所有特征视图信息。
+     *
+     * @param request - ListDatasourceFeatureViewsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasourceFeatureViewsResponse
+     *
+     * @param string                            $InstanceId
+     * @param string                            $DatasourceId
+     * @param ListDatasourceFeatureViewsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDatasourceFeatureViewsResponse
+     */
+    public function listDatasourceFeatureViewsWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->showStorageUsage) {
+            @$query['ShowStorageUsage'] = $request->showStorageUsage;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasourceFeatureViews',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/datasources/' . Url::percentEncode($DatasourceId) . '/featureviews',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasourceFeatureViewsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据源下所有特征视图信息。
+     *
+     * @param request - ListDatasourceFeatureViewsRequest
+     *
+     * @returns ListDatasourceFeatureViewsResponse
+     *
+     * @param string                            $InstanceId
+     * @param string                            $DatasourceId
+     * @param ListDatasourceFeatureViewsRequest $request
+     *
+     * @return ListDatasourceFeatureViewsResponse
+     */
+    public function listDatasourceFeatureViews($InstanceId, $DatasourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatasourceFeatureViewsWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2530,6 +2909,97 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * 获取大模型调用信息配置.
+     *
+     * @param request - ListLLMConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLLMConfigsResponse
+     *
+     * @param string                $InstanceId
+     * @param ListLLMConfigsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListLLMConfigsResponse
+     */
+    public function listLLMConfigsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLLMConfigs',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/llmconfigs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLLMConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取大模型调用信息配置.
+     *
+     * @param request - ListLLMConfigsRequest
+     *
+     * @returns ListLLMConfigsResponse
+     *
+     * @param string                $InstanceId
+     * @param ListLLMConfigsRequest $request
+     *
+     * @return ListLLMConfigsResponse
+     */
+    public function listLLMConfigs($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLLMConfigsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取Label表列表。
      *
      * @param tmpReq - ListLabelTablesRequest
@@ -2839,6 +3309,95 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->listProjectFeatureViewsWithOptions($InstanceId, $ProjectId, $headers, $runtime);
+    }
+
+    /**
+     * 获取项目下所有特征信息.
+     *
+     * @param request - ListProjectFeaturesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectFeaturesResponse
+     *
+     * @param string                     $InstanceId
+     * @param string                     $ProjectId
+     * @param ListProjectFeaturesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListProjectFeaturesResponse
+     */
+    public function listProjectFeaturesWithOptions($InstanceId, $ProjectId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliasName) {
+            @$query['AliasName'] = $request->aliasName;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectFeatures',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/projects/' . Url::percentEncode($ProjectId) . '/features',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取项目下所有特征信息.
+     *
+     * @param request - ListProjectFeaturesRequest
+     *
+     * @returns ListProjectFeaturesResponse
+     *
+     * @param string                     $InstanceId
+     * @param string                     $ProjectId
+     * @param ListProjectFeaturesRequest $request
+     *
+     * @return ListProjectFeaturesResponse
+     */
+    public function listProjectFeatures($InstanceId, $ProjectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProjectFeaturesWithOptions($InstanceId, $ProjectId, $request, $headers, $runtime);
     }
 
     /**
@@ -3186,6 +3745,59 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * 停止任务。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTaskResponse
+     *
+     * @param string         $InstanceId
+     * @param string         $TaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopTaskResponse
+     */
+    public function stopTaskWithOptions($InstanceId, $TaskId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopTask',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/tasks/' . Url::percentEncode($TaskId) . '/action/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止任务。
+     *
+     * @returns StopTaskResponse
+     *
+     * @param string $InstanceId
+     * @param string $TaskId
+     *
+     * @return StopTaskResponse
+     */
+    public function stopTask($InstanceId, $TaskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopTaskWithOptions($InstanceId, $TaskId, $headers, $runtime);
+    }
+
+    /**
      * 更新数据源信息。
      *
      * @param request - UpdateDatasourceRequest
@@ -3256,6 +3868,95 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->updateDatasourceWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新大模型调用信息配置.
+     *
+     * @param request - UpdateLLMConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLLMConfigResponse
+     *
+     * @param string                 $InstanceId
+     * @param string                 $LLMConfigId
+     * @param UpdateLLMConfigRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateLLMConfigResponse
+     */
+    public function updateLLMConfigWithOptions($InstanceId, $LLMConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$body['BaseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->batchSize) {
+            @$body['BatchSize'] = $request->batchSize;
+        }
+
+        if (null !== $request->maxTokens) {
+            @$body['MaxTokens'] = $request->maxTokens;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->rps) {
+            @$body['Rps'] = $request->rps;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLLMConfig',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/llmconfigs/' . Url::percentEncode($LLMConfigId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLLMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新大模型调用信息配置.
+     *
+     * @param request - UpdateLLMConfigRequest
+     *
+     * @returns UpdateLLMConfigResponse
+     *
+     * @param string                 $InstanceId
+     * @param string                 $LLMConfigId
+     * @param UpdateLLMConfigRequest $request
+     *
+     * @return UpdateLLMConfigResponse
+     */
+    public function updateLLMConfig($InstanceId, $LLMConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateLLMConfigWithOptions($InstanceId, $LLMConfigId, $request, $headers, $runtime);
     }
 
     /**
