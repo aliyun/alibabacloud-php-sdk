@@ -33,6 +33,12 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateNamespaceResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateOrUpdateSwimmingLaneGroupRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateOrUpdateSwimmingLaneGroupResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateOrUpdateSwimmingLaneGroupShrinkRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateOrUpdateSwimmingLaneRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateOrUpdateSwimmingLaneResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateOrUpdateSwimmingLaneShrinkRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretShrinkRequest;
@@ -58,6 +64,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSwimmingLaneGroupRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteWebApplicationRevisionRequest;
@@ -120,6 +128,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResourceStaticsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResourceStaticsResponse;
@@ -156,6 +166,10 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\GetWarningEventMetricRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetWarningEventMetricResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetWebshellTokenRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetWebshellTokenResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLaneGroupsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLaneGroupsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsForSwimmingLaneRequest;
@@ -188,6 +202,10 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\ListPublishedServicesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListPublishedServicesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListSecretsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListSecretsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListSwimmingLaneGatewayRoutesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListSwimmingLaneGatewayRoutesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListSwimmingLaneGroupTagsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListSwimmingLaneGroupTagsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebApplicationInstancesRequest;
@@ -257,6 +275,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretShrinkRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSwimmingLaneEnableAttributeRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSwimmingLaneEnableAttributeResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationScalingConfigRequest;
@@ -388,6 +408,10 @@ class Sae extends OpenApiClient
         $query = [];
         if (null !== $request->changeOrderId) {
             @$query['ChangeOrderId'] = $request->changeOrderId;
+        }
+
+        if (null !== $request->rollback) {
+            @$query['Rollback'] = $request->rollback;
         }
 
         $req = new OpenApiRequest([
@@ -1838,6 +1862,200 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 创建或者更新泳道.
+     *
+     * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrUpdateSwimmingLaneResponse
+     *
+     * @param CreateOrUpdateSwimmingLaneRequest $tmpReq
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOrUpdateSwimmingLaneResponse
+     */
+    public function createOrUpdateSwimmingLaneWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateOrUpdateSwimmingLaneShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appEntryRule) {
+            $request->appEntryRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appEntryRule, 'AppEntryRule', 'json');
+        }
+
+        if (null !== $tmpReq->mseGatewayEntryRule) {
+            $request->mseGatewayEntryRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mseGatewayEntryRule, 'MseGatewayEntryRule', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appEntryRuleShrink) {
+            @$query['AppEntryRule'] = $request->appEntryRuleShrink;
+        }
+
+        if (null !== $request->canaryModel) {
+            @$query['CanaryModel'] = $request->canaryModel;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->laneId) {
+            @$query['LaneId'] = $request->laneId;
+        }
+
+        if (null !== $request->laneName) {
+            @$query['LaneName'] = $request->laneName;
+        }
+
+        if (null !== $request->laneTag) {
+            @$query['LaneTag'] = $request->laneTag;
+        }
+
+        if (null !== $request->mseGatewayEntryRuleShrink) {
+            @$query['MseGatewayEntryRule'] = $request->mseGatewayEntryRuleShrink;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOrUpdateSwimmingLane',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/createOrUpdateSwimmingLane',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOrUpdateSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建或者更新泳道.
+     *
+     * @param request - CreateOrUpdateSwimmingLaneRequest
+     *
+     * @returns CreateOrUpdateSwimmingLaneResponse
+     *
+     * @param CreateOrUpdateSwimmingLaneRequest $request
+     *
+     * @return CreateOrUpdateSwimmingLaneResponse
+     */
+    public function createOrUpdateSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOrUpdateSwimmingLaneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建或者更新泳道组.
+     *
+     * @param tmpReq - CreateOrUpdateSwimmingLaneGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrUpdateSwimmingLaneGroupResponse
+     *
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $tmpReq
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateOrUpdateSwimmingLaneGroupResponse
+     */
+    public function createOrUpdateSwimmingLaneGroupWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateOrUpdateSwimmingLaneGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appIds) {
+            $request->appIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appIds, 'AppIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appIdsShrink) {
+            @$query['AppIds'] = $request->appIdsShrink;
+        }
+
+        if (null !== $request->entryAppId) {
+            @$query['EntryAppId'] = $request->entryAppId;
+        }
+
+        if (null !== $request->entryAppType) {
+            @$query['EntryAppType'] = $request->entryAppType;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->swimVersion) {
+            @$query['SwimVersion'] = $request->swimVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOrUpdateSwimmingLaneGroup',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/createOrUpdateSwimmingLaneGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOrUpdateSwimmingLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建或者更新泳道组.
+     *
+     * @param request - CreateOrUpdateSwimmingLaneGroupRequest
+     *
+     * @returns CreateOrUpdateSwimmingLaneGroupResponse
+     *
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $request
+     *
+     * @return CreateOrUpdateSwimmingLaneGroupResponse
+     */
+    public function createOrUpdateSwimmingLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOrUpdateSwimmingLaneGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Null.
      *
      * @param tmpReq - CreateSecretRequest
@@ -2615,6 +2833,71 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->deleteSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除泳道组.
+     *
+     * @param request - DeleteSwimmingLaneGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSwimmingLaneGroupResponse
+     *
+     * @param DeleteSwimmingLaneGroupRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteSwimmingLaneGroupResponse
+     */
+    public function deleteSwimmingLaneGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSwimmingLaneGroup',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/deleteSwimmingLaneGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSwimmingLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除泳道组.
+     *
+     * @param request - DeleteSwimmingLaneGroupRequest
+     *
+     * @returns DeleteSwimmingLaneGroupResponse
+     *
+     * @param DeleteSwimmingLaneGroupRequest $request
+     *
+     * @return DeleteSwimmingLaneGroupResponse
+     */
+    public function deleteSwimmingLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSwimmingLaneGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4973,6 +5256,75 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 查询泳道详情.
+     *
+     * @param request - DescribeSwimmingLaneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSwimmingLaneResponse
+     *
+     * @param DescribeSwimmingLaneRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSwimmingLaneResponse
+     */
+    public function describeSwimmingLaneWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->laneId) {
+            @$query['LaneId'] = $request->laneId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSwimmingLane',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/describeSwimmingLane',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询泳道详情.
+     *
+     * @param request - DescribeSwimmingLaneRequest
+     *
+     * @returns DescribeSwimmingLaneResponse
+     *
+     * @param DescribeSwimmingLaneRequest $request
+     *
+     * @return DescribeSwimmingLaneResponse
+     */
+    public function describeSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeSwimmingLaneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Query web applications.
      *
      * @remarks
@@ -6291,6 +6643,132 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 查询所有泳道组.
+     *
+     * @param request - ListAllSwimmingLaneGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllSwimmingLaneGroupsResponse
+     *
+     * @param ListAllSwimmingLaneGroupsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAllSwimmingLaneGroupsResponse
+     */
+    public function listAllSwimmingLaneGroupsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAllSwimmingLaneGroups',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/listSwimmingLaneGroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAllSwimmingLaneGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有泳道组.
+     *
+     * @param request - ListAllSwimmingLaneGroupsRequest
+     *
+     * @returns ListAllSwimmingLaneGroupsResponse
+     *
+     * @param ListAllSwimmingLaneGroupsRequest $request
+     *
+     * @return ListAllSwimmingLaneGroupsResponse
+     */
+    public function listAllSwimmingLaneGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAllSwimmingLaneGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询所有泳道.
+     *
+     * @param request - ListAllSwimmingLanesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllSwimmingLanesResponse
+     *
+     * @param ListAllSwimmingLanesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAllSwimmingLanesResponse
+     */
+    public function listAllSwimmingLanesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAllSwimmingLanes',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/listSwimmingLanes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAllSwimmingLanesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有泳道.
+     *
+     * @param request - ListAllSwimmingLanesRequest
+     *
+     * @returns ListAllSwimmingLanesResponse
+     *
+     * @param ListAllSwimmingLanesRequest $request
+     *
+     * @return ListAllSwimmingLanesResponse
+     */
+    public function listAllSwimmingLanes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAllSwimmingLanesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the events that occurred in an application.
      *
      * @param request - ListAppEventsRequest
@@ -7482,6 +7960,136 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->listSecretsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询泳道可选的网关路由.
+     *
+     * @param request - ListSwimmingLaneGatewayRoutesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSwimmingLaneGatewayRoutesResponse
+     *
+     * @param ListSwimmingLaneGatewayRoutesRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListSwimmingLaneGatewayRoutesResponse
+     */
+    public function listSwimmingLaneGatewayRoutesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayUniqueId) {
+            @$query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSwimmingLaneGatewayRoutes',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/listSwimmingLaneGatewayRoutes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSwimmingLaneGatewayRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询泳道可选的网关路由.
+     *
+     * @param request - ListSwimmingLaneGatewayRoutesRequest
+     *
+     * @returns ListSwimmingLaneGatewayRoutesResponse
+     *
+     * @param ListSwimmingLaneGatewayRoutesRequest $request
+     *
+     * @return ListSwimmingLaneGatewayRoutesResponse
+     */
+    public function listSwimmingLaneGatewayRoutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSwimmingLaneGatewayRoutesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询所有泳道标签列表.
+     *
+     * @param request - ListSwimmingLaneGroupTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSwimmingLaneGroupTagsResponse
+     *
+     * @param ListSwimmingLaneGroupTagsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSwimmingLaneGroupTagsResponse
+     */
+    public function listSwimmingLaneGroupTagsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSwimmingLaneGroupTags',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/listSwimmingLaneGroupTags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSwimmingLaneGroupTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有泳道标签列表.
+     *
+     * @param request - ListSwimmingLaneGroupTagsRequest
+     *
+     * @returns ListSwimmingLaneGroupTagsResponse
+     *
+     * @param ListSwimmingLaneGroupTagsRequest $request
+     *
+     * @return ListSwimmingLaneGroupTagsResponse
+     */
+    public function listSwimmingLaneGroupTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSwimmingLaneGroupTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10188,6 +10796,79 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->updateSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新泳道的启用属性.
+     *
+     * @param request - UpdateSwimmingLaneEnableAttributeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSwimmingLaneEnableAttributeResponse
+     *
+     * @param UpdateSwimmingLaneEnableAttributeRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateSwimmingLaneEnableAttributeResponse
+     */
+    public function updateSwimmingLaneEnableAttributeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->laneId) {
+            @$query['LaneId'] = $request->laneId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSwimmingLaneEnableAttribute',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/cas/gray/updateSwimmingLaneEnableAttribute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSwimmingLaneEnableAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新泳道的启用属性.
+     *
+     * @param request - UpdateSwimmingLaneEnableAttributeRequest
+     *
+     * @returns UpdateSwimmingLaneEnableAttributeResponse
+     *
+     * @param UpdateSwimmingLaneEnableAttributeRequest $request
+     *
+     * @return UpdateSwimmingLaneEnableAttributeResponse
+     */
+    public function updateSwimmingLaneEnableAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSwimmingLaneEnableAttributeWithOptions($request, $headers, $runtime);
     }
 
     /**

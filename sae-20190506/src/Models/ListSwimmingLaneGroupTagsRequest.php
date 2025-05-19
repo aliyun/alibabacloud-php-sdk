@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class AbortChangeOrderRequest extends Model
+class ListSwimmingLaneGroupTagsRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $groupId;
+
     /**
      * @var string
      */
-    public $changeOrderId;
-
-    /**
-     * @var bool
-     */
-    public $rollback;
+    public $namespaceId;
     protected $_name = [
-        'changeOrderId' => 'ChangeOrderId',
-        'rollback' => 'Rollback',
+        'groupId' => 'GroupId',
+        'namespaceId' => 'NamespaceId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class AbortChangeOrderRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->changeOrderId) {
-            $res['ChangeOrderId'] = $this->changeOrderId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
 
-        if (null !== $this->rollback) {
-            $res['Rollback'] = $this->rollback;
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class AbortChangeOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChangeOrderId'])) {
-            $model->changeOrderId = $map['ChangeOrderId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
 
-        if (isset($map['Rollback'])) {
-            $model->rollback = $map['Rollback'];
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
         }
 
         return $model;
