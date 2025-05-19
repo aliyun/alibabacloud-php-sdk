@@ -1,0 +1,62 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Cms\V20180308\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class QuerySystemEventCountRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $queryJson;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+    protected $_name = [
+        'queryJson' => 'QueryJson',
+        'regionId' => 'RegionId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->queryJson) {
+            $res['QueryJson'] = $this->queryJson;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['QueryJson'])) {
+            $model->queryJson = $map['QueryJson'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        return $model;
+    }
+}
