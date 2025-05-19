@@ -28,6 +28,11 @@ class RunRCInstancesRequest extends Model
     public $autoRenew;
 
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -130,6 +135,11 @@ class RunRCInstancesRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -190,6 +200,7 @@ class RunRCInstancesRequest extends Model
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
         'createAckEdgeParam' => 'CreateAckEdgeParam',
         'createExtraParam' => 'CreateExtraParam',
@@ -210,6 +221,7 @@ class RunRCInstancesRequest extends Model
         'password' => 'Password',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
@@ -254,6 +266,10 @@ class RunRCInstancesRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
 
         if (null !== $this->clientToken) {
@@ -342,6 +358,10 @@ class RunRCInstancesRequest extends Model
             $res['PeriodUnit'] = $this->periodUnit;
         }
 
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -417,6 +437,10 @@ class RunRCInstancesRequest extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
         }
 
         if (isset($map['ClientToken'])) {
@@ -503,6 +527,10 @@ class RunRCInstancesRequest extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RegionId'])) {

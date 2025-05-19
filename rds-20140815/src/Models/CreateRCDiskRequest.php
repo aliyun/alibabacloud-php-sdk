@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskRequest\tag;
 
 class CreateRCDiskRequest extends Model
 {
@@ -64,6 +65,11 @@ class CreateRCDiskRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $size;
@@ -72,6 +78,11 @@ class CreateRCDiskRequest extends Model
      * @var string
      */
     public $snapshotId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -89,13 +100,18 @@ class CreateRCDiskRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'size' => 'Size',
         'snapshotId' => 'SnapshotId',
+        'tag' => 'Tag',
         'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -146,12 +162,26 @@ class CreateRCDiskRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
 
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->zoneId) {
@@ -213,12 +243,26 @@ class CreateRCDiskRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
 
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['ZoneId'])) {

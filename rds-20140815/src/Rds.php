@@ -5945,12 +5945,20 @@ class Rds extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->size) {
             @$query['Size'] = $request->size;
         }
 
         if (null !== $request->snapshotId) {
             @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
 
         if (null !== $request->zoneId) {
@@ -19222,7 +19230,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 查询RDS Custom实例被DDos攻击的数量.
+     * Queries the number of DDos attacks on an RDS Custom for SQL Server instance and monitors the security status of the instance in real time to assess potential security risks.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
      *
      * @param request - DescribeRCInstanceDdosCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19269,7 +19283,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 查询RDS Custom实例被DDos攻击的数量.
+     * Queries the number of DDos attacks on an RDS Custom for SQL Server instance and monitors the security status of the instance in real time to assess potential security risks.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
      *
      * @param request - DescribeRCInstanceDdosCountRequest
      *
@@ -19404,7 +19424,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 查询RDS Custom实例的公网IP.
+     * Queries the protection information about an RDS Custom for SQL Server instance and the details of the Anti-DDoS Origin instance to which the RDS Custom instance is added.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+     * >  If one or more assets of the current Alibaba Cloud account are added to an [Anti-DDoS Origin instance](https://help.aliyun.com/document_detail/63643.html), you can call the DescribeRCInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
      *
      * @param request - DescribeRCInstanceIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19479,7 +19506,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 查询RDS Custom实例的公网IP.
+     * Queries the protection information about an RDS Custom for SQL Server instance and the details of the Anti-DDoS Origin instance to which the RDS Custom instance is added.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+     * >  If one or more assets of the current Alibaba Cloud account are added to an [Anti-DDoS Origin instance](https://help.aliyun.com/document_detail/63643.html), you can call the DescribeRCInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
      *
      * @param request - DescribeRCInstanceIpAddressRequest
      *
@@ -22064,10 +22098,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeTasks operation to query the tasks that are running on an instance.
+     * Queries the tasks in the Waiting or Executing state on an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     * This operation is phased out.
+     * ### [](#)Supported database engine
+     * SQL Server
+     * >  You can call the [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2627863.html) operation to query the tasks on an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance
      *
      * @param request - DescribeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22146,10 +22182,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeTasks operation to query the tasks that are running on an instance.
+     * Queries the tasks in the Waiting or Executing state on an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     * This operation is phased out.
+     * ### [](#)Supported database engine
+     * SQL Server
+     * >  You can call the [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2627863.html) operation to query the tasks on an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance
      *
      * @param request - DescribeTasksRequest
      *
@@ -29928,6 +29966,10 @@ class Rds extends OpenApiClient
             @$query['AutoPay'] = $request->autoPay;
         }
 
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->direction) {
             @$query['Direction'] = $request->direction;
         }
@@ -29942,6 +29984,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->instanceType) {
             @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->rebootTime) {
@@ -30081,6 +30127,17 @@ class Rds extends OpenApiClient
     /**
      * Modifies the billing method of an RDS Custom instance or cloud disks. You can call this operation to change the billing method of instances between pay-as-you-go and subscription.
      *
+     * @remarks
+     * ### [](#)Precautions
+     * *   Before you call this operation, make sure that you are familiar with the subscription and pay-as-you-go billing methods and pricing of RDS Custom.
+     * *   The instances must be in the **Running** or **Stopped** state, and you have no overdue payments for the instances.
+     * *   The disk is in the **In_use** state and the billing method of the disk has not been changed within the previous 15 minutes.
+     * *   After you change the billing method, the payment is automatically completed. Make sure that the balance in your account is sufficient. Otherwise, your order becomes invalid and is canceled.
+     * ### [](#)Considerations
+     * For more information, see the following documentation:
+     * *   [Change the billing method of an instance](https://help.aliyun.com/document_detail/2878542.html)
+     * *   [Change the billing method of a disk](https://help.aliyun.com/document_detail/2878547.html)
+     *
      * @param request - ModifyRCInstanceChargeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -30175,6 +30232,17 @@ class Rds extends OpenApiClient
 
     /**
      * Modifies the billing method of an RDS Custom instance or cloud disks. You can call this operation to change the billing method of instances between pay-as-you-go and subscription.
+     *
+     * @remarks
+     * ### [](#)Precautions
+     * *   Before you call this operation, make sure that you are familiar with the subscription and pay-as-you-go billing methods and pricing of RDS Custom.
+     * *   The instances must be in the **Running** or **Stopped** state, and you have no overdue payments for the instances.
+     * *   The disk is in the **In_use** state and the billing method of the disk has not been changed within the previous 15 minutes.
+     * *   After you change the billing method, the payment is automatically completed. Make sure that the balance in your account is sufficient. Otherwise, your order becomes invalid and is canceled.
+     * ### [](#)Considerations
+     * For more information, see the following documentation:
+     * *   [Change the billing method of an instance](https://help.aliyun.com/document_detail/2878542.html)
+     * *   [Change the billing method of a disk](https://help.aliyun.com/document_detail/2878547.html)
      *
      * @param request - ModifyRCInstanceChargeTypeRequest
      *
@@ -33998,6 +34066,10 @@ class Rds extends OpenApiClient
             @$query['AutoRenew'] = $request->autoRenew;
         }
 
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -34076,6 +34148,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->periodUnit) {
             @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {

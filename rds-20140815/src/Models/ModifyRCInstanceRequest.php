@@ -14,6 +14,11 @@ class ModifyRCInstanceRequest extends Model
     public $autoPay;
 
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $direction;
@@ -36,6 +41,11 @@ class ModifyRCInstanceRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $rebootTime;
 
     /**
@@ -49,10 +59,12 @@ class ModifyRCInstanceRequest extends Model
     public $regionId;
     protected $_name = [
         'autoPay' => 'AutoPay',
+        'autoUseCoupon' => 'AutoUseCoupon',
         'direction' => 'Direction',
         'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'promotionCode' => 'PromotionCode',
         'rebootTime' => 'RebootTime',
         'rebootWhenFinished' => 'RebootWhenFinished',
         'regionId' => 'RegionId',
@@ -70,6 +82,10 @@ class ModifyRCInstanceRequest extends Model
             $res['AutoPay'] = $this->autoPay;
         }
 
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
@@ -84,6 +100,10 @@ class ModifyRCInstanceRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->rebootTime) {
@@ -113,6 +133,10 @@ class ModifyRCInstanceRequest extends Model
             $model->autoPay = $map['AutoPay'];
         }
 
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
@@ -127,6 +151,10 @@ class ModifyRCInstanceRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RebootTime'])) {
