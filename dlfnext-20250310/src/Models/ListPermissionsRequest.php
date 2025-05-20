@@ -1,0 +1,118 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ListPermissionsRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $database;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $pageToken;
+
+    /**
+     * @var string
+     */
+    public $principal;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $table;
+    protected $_name = [
+        'database' => 'database',
+        'maxResults' => 'maxResults',
+        'pageToken' => 'pageToken',
+        'principal' => 'principal',
+        'resourceType' => 'resourceType',
+        'table' => 'table',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->database) {
+            $res['database'] = $this->database;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->pageToken) {
+            $res['pageToken'] = $this->pageToken;
+        }
+
+        if (null !== $this->principal) {
+            $res['principal'] = $this->principal;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['resourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->table) {
+            $res['table'] = $this->table;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['database'])) {
+            $model->database = $map['database'];
+        }
+
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['pageToken'])) {
+            $model->pageToken = $map['pageToken'];
+        }
+
+        if (isset($map['principal'])) {
+            $model->principal = $map['principal'];
+        }
+
+        if (isset($map['resourceType'])) {
+            $model->resourceType = $map['resourceType'];
+        }
+
+        if (isset($map['table'])) {
+            $model->table = $map['table'];
+        }
+
+        return $model;
+    }
+}
