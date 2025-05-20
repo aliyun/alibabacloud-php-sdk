@@ -16,6 +16,11 @@ class UpdateNodeGroupRequest extends Model
     /**
      * @var string
      */
+    public $imageId;
+
+    /**
+     * @var string
+     */
     public $keyPairName;
 
     /**
@@ -34,6 +39,7 @@ class UpdateNodeGroupRequest extends Model
     public $userData;
     protected $_name = [
         'fileSystemMountEnabled' => 'FileSystemMountEnabled',
+        'imageId' => 'ImageId',
         'keyPairName' => 'KeyPairName',
         'newNodeGroupName' => 'NewNodeGroupName',
         'nodeGroupId' => 'NodeGroupId',
@@ -50,6 +56,10 @@ class UpdateNodeGroupRequest extends Model
         $res = [];
         if (null !== $this->fileSystemMountEnabled) {
             $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->keyPairName) {
@@ -81,6 +91,10 @@ class UpdateNodeGroupRequest extends Model
         $model = new self();
         if (isset($map['FileSystemMountEnabled'])) {
             $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['KeyPairName'])) {

@@ -802,7 +802,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 创建Vsc.
+     * Create Vsc.
      *
      * @param request - CreateVscRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -863,7 +863,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 创建Vsc.
+     * Create Vsc.
      *
      * @param request - CreateVscRequest
      *
@@ -1005,7 +1005,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除Vsc.
+     * Delete Vsc.
      *
      * @param request - DeleteVscRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1050,7 +1050,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除Vsc.
+     * Delete Vsc.
      *
      * @param request - DeleteVscRequest
      *
@@ -1552,7 +1552,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 获取单个Vsc详情.
+     * Get details of a single Vsc.
      *
      * @param request - DescribeVscRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1591,7 +1591,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 获取单个Vsc详情.
+     * Get details of a single Vsc.
      *
      * @param request - DescribeVscRequest
      *
@@ -2523,7 +2523,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询Vsc列表.
+     * Query Vsc List.
      *
      * @param tmpReq - ListVscsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2590,7 +2590,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询Vsc列表.
+     * Query Vsc List.
      *
      * @param request - ListVscsRequest
      *
@@ -3352,6 +3352,10 @@ class Eflocontroller extends OpenApiClient
         $body = [];
         if (null !== $request->fileSystemMountEnabled) {
             @$body['FileSystemMountEnabled'] = $request->fileSystemMountEnabled;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
 
         if (null !== $request->keyPairName) {
