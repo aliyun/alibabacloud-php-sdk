@@ -674,6 +674,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertColumnsBeforeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertContentWithOptionsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordResponse;
@@ -814,6 +819,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryResponse;
@@ -15077,6 +15087,116 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 文档中插入内容.
+     *
+     * @param tmpReq - InsertContentWithOptionsRequest
+     * @param tmpHeader - InsertContentWithOptionsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsertContentWithOptionsResponse
+     *
+     * @param InsertContentWithOptionsRequest $tmpReq
+     * @param InsertContentWithOptionsHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InsertContentWithOptionsResponse
+     */
+    public function insertContentWithOptionsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InsertContentWithOptionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new InsertContentWithOptionsShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        if (null !== $tmpReq->path) {
+            $request->pathShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->path, 'Path', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->contentShrink) {
+            @$body['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->documentId) {
+            @$body['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->index) {
+            @$body['Index'] = $request->index;
+        }
+
+        if (null !== $request->operatorId) {
+            @$body['OperatorId'] = $request->operatorId;
+        }
+
+        if (null !== $request->pathShrink) {
+            @$body['Path'] = $request->pathShrink;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InsertContentWithOptions',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/insertContentWithOptions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InsertContentWithOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 文档中插入内容.
+     *
+     * @param request - InsertContentWithOptionsRequest
+     *
+     * @returns InsertContentWithOptionsResponse
+     *
+     * @param InsertContentWithOptionsRequest $request
+     *
+     * @return InsertContentWithOptionsResponse
+     */
+    public function insertContentWithOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InsertContentWithOptionsHeaders([]);
+
+        return $this->insertContentWithOptionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 新增记录.
      *
      * @param tmpReq - InsertMultiDimTableRecordRequest
@@ -17994,6 +18114,112 @@ class Aliding extends OpenApiClient
         $headers = new QueryConferenceMembersHeaders([]);
 
         return $this->queryConferenceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取文件或文件夹信息.
+     *
+     * @param tmpReq - QueryDentriesInfoRequest
+     * @param tmpHeader - QueryDentriesInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDentriesInfoResponse
+     *
+     * @param QueryDentriesInfoRequest $tmpReq
+     * @param QueryDentriesInfoHeaders $tmpHeader
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryDentriesInfoResponse
+     */
+    public function queryDentriesInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryDentriesInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new QueryDentriesInfoShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->appIdsForAppProperties) {
+            $request->appIdsForAppPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appIdsForAppProperties, 'AppIdsForAppProperties', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appIdsForAppPropertiesShrink) {
+            @$body['AppIdsForAppProperties'] = $request->appIdsForAppPropertiesShrink;
+        }
+
+        if (null !== $request->dentryId) {
+            @$body['DentryId'] = $request->dentryId;
+        }
+
+        if (null !== $request->spaceId) {
+            @$body['SpaceId'] = $request->spaceId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->unionId) {
+            @$body['UnionId'] = $request->unionId;
+        }
+
+        if (null !== $request->withThumbnail) {
+            @$body['WithThumbnail'] = $request->withThumbnail;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryDentriesInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/queryDentriesInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryDentriesInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件或文件夹信息.
+     *
+     * @param request - QueryDentriesInfoRequest
+     *
+     * @returns QueryDentriesInfoResponse
+     *
+     * @param QueryDentriesInfoRequest $request
+     *
+     * @return QueryDentriesInfoResponse
+     */
+    public function queryDentriesInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryDentriesInfoHeaders([]);
+
+        return $this->queryDentriesInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
