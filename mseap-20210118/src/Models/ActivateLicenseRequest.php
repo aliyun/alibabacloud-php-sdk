@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ActivateLicenseRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $bizId;
+
     /**
      * @var string
      */
@@ -16,54 +21,82 @@ class ActivateLicenseRequest extends Model
     /**
      * @var string
      */
-    public $licensePublisher;
+    public $licenseCode;
 
     /**
      * @var string
      */
-    public $licenseCode;
+    public $licenseNo;
+
+    /**
+     * @var string
+     */
+    public $licensePublisher;
     protected $_name = [
-        'bizType'          => 'BizType',
+        'bizId' => 'BizId',
+        'bizType' => 'BizType',
+        'licenseCode' => 'LicenseCode',
+        'licenseNo' => 'LicenseNo',
         'licensePublisher' => 'LicensePublisher',
-        'licenseCode'      => 'LicenseCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->licensePublisher) {
-            $res['LicensePublisher'] = $this->licensePublisher;
-        }
+
         if (null !== $this->licenseCode) {
             $res['LicenseCode'] = $this->licenseCode;
+        }
+
+        if (null !== $this->licenseNo) {
+            $res['LicenseNo'] = $this->licenseNo;
+        }
+
+        if (null !== $this->licensePublisher) {
+            $res['LicensePublisher'] = $this->licensePublisher;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ActivateLicenseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['LicensePublisher'])) {
-            $model->licensePublisher = $map['LicensePublisher'];
-        }
+
         if (isset($map['LicenseCode'])) {
             $model->licenseCode = $map['LicenseCode'];
+        }
+
+        if (isset($map['LicenseNo'])) {
+            $model->licenseNo = $map['LicenseNo'];
+        }
+
+        if (isset($map['LicensePublisher'])) {
+            $model->licensePublisher = $map['LicensePublisher'];
         }
 
         return $model;

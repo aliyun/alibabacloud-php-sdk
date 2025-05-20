@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAgreementStatusRequest extends Model
 {
@@ -18,9 +18,10 @@ class UpdateAgreementStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agreementCode) {
@@ -30,11 +31,11 @@ class UpdateAgreementStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAgreementStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

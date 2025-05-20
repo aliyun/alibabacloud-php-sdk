@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateAgreementStatusResponse extends Model
+class SetRedisValueResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateAgreementStatusResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateAgreementStatusResponseBody
+     * @var SetRedisValueResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateAgreementStatusResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateAgreementStatusResponseBody::fromMap($map['body']);
+            $model->body = SetRedisValueResponseBody::fromMap($map['body']);
         }
 
         return $model;
