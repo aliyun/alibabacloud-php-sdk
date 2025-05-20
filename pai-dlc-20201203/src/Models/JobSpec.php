@@ -14,6 +14,11 @@ class JobSpec extends Model
     public $assignNodeSpec;
 
     /**
+     * @var AutoScalingSpec
+     */
+    public $autoScalingSpec;
+
+    /**
      * @var string
      */
     public $ecsSpec;
@@ -34,6 +39,16 @@ class JobSpec extends Model
     public $imageConfig;
 
     /**
+     * @var bool
+     */
+    public $isCheif;
+
+    /**
+     * @var LocalMountSpec[]
+     */
+    public $localMountSpecs;
+
+    /**
      * @var int
      */
     public $podCount;
@@ -42,6 +57,16 @@ class JobSpec extends Model
      * @var ResourceConfig
      */
     public $resourceConfig;
+
+    /**
+     * @var string
+     */
+    public $restartPolicy;
+
+    /**
+     * @var ServiceSpec
+     */
+    public $serviceSpec;
 
     /**
      * @var SpotSpec
@@ -59,12 +84,17 @@ class JobSpec extends Model
     public $useSpotInstance;
     protected $_name = [
         'assignNodeSpec' => 'AssignNodeSpec',
+        'autoScalingSpec' => 'AutoScalingSpec',
         'ecsSpec' => 'EcsSpec',
         'extraPodSpec' => 'ExtraPodSpec',
         'image' => 'Image',
         'imageConfig' => 'ImageConfig',
+        'isCheif' => 'IsCheif',
+        'localMountSpecs' => 'LocalMountSpecs',
         'podCount' => 'PodCount',
         'resourceConfig' => 'ResourceConfig',
+        'restartPolicy' => 'RestartPolicy',
+        'serviceSpec' => 'ServiceSpec',
         'spotSpec' => 'SpotSpec',
         'type' => 'Type',
         'useSpotInstance' => 'UseSpotInstance',
@@ -75,14 +105,23 @@ class JobSpec extends Model
         if (null !== $this->assignNodeSpec) {
             $this->assignNodeSpec->validate();
         }
+        if (null !== $this->autoScalingSpec) {
+            $this->autoScalingSpec->validate();
+        }
         if (null !== $this->extraPodSpec) {
             $this->extraPodSpec->validate();
         }
         if (null !== $this->imageConfig) {
             $this->imageConfig->validate();
         }
+        if (\is_array($this->localMountSpecs)) {
+            Model::validateArray($this->localMountSpecs);
+        }
         if (null !== $this->resourceConfig) {
             $this->resourceConfig->validate();
+        }
+        if (null !== $this->serviceSpec) {
+            $this->serviceSpec->validate();
         }
         if (null !== $this->spotSpec) {
             $this->spotSpec->validate();
@@ -95,6 +134,10 @@ class JobSpec extends Model
         $res = [];
         if (null !== $this->assignNodeSpec) {
             $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
+        }
+
+        if (null !== $this->autoScalingSpec) {
+            $res['AutoScalingSpec'] = null !== $this->autoScalingSpec ? $this->autoScalingSpec->toArray($noStream) : $this->autoScalingSpec;
         }
 
         if (null !== $this->ecsSpec) {
@@ -113,12 +156,34 @@ class JobSpec extends Model
             $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toArray($noStream) : $this->imageConfig;
         }
 
+        if (null !== $this->isCheif) {
+            $res['IsCheif'] = $this->isCheif;
+        }
+
+        if (null !== $this->localMountSpecs) {
+            if (\is_array($this->localMountSpecs)) {
+                $res['LocalMountSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->localMountSpecs as $item1) {
+                    $res['LocalMountSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->podCount) {
             $res['PodCount'] = $this->podCount;
         }
 
         if (null !== $this->resourceConfig) {
             $res['ResourceConfig'] = null !== $this->resourceConfig ? $this->resourceConfig->toArray($noStream) : $this->resourceConfig;
+        }
+
+        if (null !== $this->restartPolicy) {
+            $res['RestartPolicy'] = $this->restartPolicy;
+        }
+
+        if (null !== $this->serviceSpec) {
+            $res['ServiceSpec'] = null !== $this->serviceSpec ? $this->serviceSpec->toArray($noStream) : $this->serviceSpec;
         }
 
         if (null !== $this->spotSpec) {
@@ -148,6 +213,10 @@ class JobSpec extends Model
             $model->assignNodeSpec = AssignNodeSpec::fromMap($map['AssignNodeSpec']);
         }
 
+        if (isset($map['AutoScalingSpec'])) {
+            $model->autoScalingSpec = AutoScalingSpec::fromMap($map['AutoScalingSpec']);
+        }
+
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
         }
@@ -164,12 +233,34 @@ class JobSpec extends Model
             $model->imageConfig = ImageConfig::fromMap($map['ImageConfig']);
         }
 
+        if (isset($map['IsCheif'])) {
+            $model->isCheif = $map['IsCheif'];
+        }
+
+        if (isset($map['LocalMountSpecs'])) {
+            if (!empty($map['LocalMountSpecs'])) {
+                $model->localMountSpecs = [];
+                $n1 = 0;
+                foreach ($map['LocalMountSpecs'] as $item1) {
+                    $model->localMountSpecs[$n1++] = LocalMountSpec::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['PodCount'])) {
             $model->podCount = $map['PodCount'];
         }
 
         if (isset($map['ResourceConfig'])) {
             $model->resourceConfig = ResourceConfig::fromMap($map['ResourceConfig']);
+        }
+
+        if (isset($map['RestartPolicy'])) {
+            $model->restartPolicy = $map['RestartPolicy'];
+        }
+
+        if (isset($map['ServiceSpec'])) {
+            $model->serviceSpec = ServiceSpec::fromMap($map['ServiceSpec']);
         }
 
         if (isset($map['SpotSpec'])) {

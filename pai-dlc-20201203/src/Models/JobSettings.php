@@ -14,6 +14,11 @@ class JobSettings extends Model
     public $advancedSettings;
 
     /**
+     * @var bool
+     */
+    public $allocateAllRDMADevices;
+
+    /**
      * @var string
      */
     public $businessUserId;
@@ -99,6 +104,7 @@ class JobSettings extends Model
     public $tags;
     protected $_name = [
         'advancedSettings' => 'AdvancedSettings',
+        'allocateAllRDMADevices' => 'AllocateAllRDMADevices',
         'businessUserId' => 'BusinessUserId',
         'caller' => 'Caller',
         'disableEcsStockCheck' => 'DisableEcsStockCheck',
@@ -139,6 +145,10 @@ class JobSettings extends Model
                     $res['AdvancedSettings'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->allocateAllRDMADevices) {
+            $res['AllocateAllRDMADevices'] = $this->allocateAllRDMADevices;
         }
 
         if (null !== $this->businessUserId) {
@@ -232,6 +242,10 @@ class JobSettings extends Model
                     $model->advancedSettings[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['AllocateAllRDMADevices'])) {
+            $model->allocateAllRDMADevices = $map['AllocateAllRDMADevices'];
         }
 
         if (isset($map['BusinessUserId'])) {
