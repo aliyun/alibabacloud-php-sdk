@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Eflocnp\V20230828;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CheckServiceLinkedRoleEfloCnpForDeletingRequest;
+use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CheckServiceLinkedRoleEfloCnpForDeletingResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanRequest;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanResponse;
 use AlibabaCloud\SDK\Eflocnp\V20230828\Models\CreateExperimentPlanShrinkRequest;
@@ -167,6 +169,79 @@ class Eflocnp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * deleteSlrEfloCnpForDeleting.
+     *
+     * @param request - CheckServiceLinkedRoleEfloCnpForDeletingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckServiceLinkedRoleEfloCnpForDeletingResponse
+     *
+     * @param CheckServiceLinkedRoleEfloCnpForDeletingRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return CheckServiceLinkedRoleEfloCnpForDeletingResponse
+     */
+    public function checkServiceLinkedRoleEfloCnpForDeletingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->deletionTaskId) {
+            @$query['DeletionTaskId'] = $request->deletionTaskId;
+        }
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->SPIRegionId) {
+            @$query['SPIRegionId'] = $request->SPIRegionId;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckServiceLinkedRoleEfloCnpForDeleting',
+            'version' => '2023-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckServiceLinkedRoleEfloCnpForDeletingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * deleteSlrEfloCnpForDeleting.
+     *
+     * @param request - CheckServiceLinkedRoleEfloCnpForDeletingRequest
+     *
+     * @returns CheckServiceLinkedRoleEfloCnpForDeletingResponse
+     *
+     * @param CheckServiceLinkedRoleEfloCnpForDeletingRequest $request
+     *
+     * @return CheckServiceLinkedRoleEfloCnpForDeletingResponse
+     */
+    public function checkServiceLinkedRoleEfloCnpForDeleting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkServiceLinkedRoleEfloCnpForDeletingWithOptions($request, $runtime);
     }
 
     /**
