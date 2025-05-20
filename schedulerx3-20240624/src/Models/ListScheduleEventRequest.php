@@ -31,6 +31,11 @@ class ListScheduleEventRequest extends Model
     /**
      * @var string
      */
+    public $eventType;
+
+    /**
+     * @var string
+     */
     public $jobExecutionId;
 
     /**
@@ -67,6 +72,7 @@ class ListScheduleEventRequest extends Model
         'clusterId' => 'ClusterId',
         'endTime' => 'EndTime',
         'event' => 'Event',
+        'eventType' => 'EventType',
         'jobExecutionId' => 'JobExecutionId',
         'jobName' => 'JobName',
         'keyword' => 'Keyword',
@@ -98,6 +104,10 @@ class ListScheduleEventRequest extends Model
 
         if (null !== $this->event) {
             $res['Event'] = $this->event;
+        }
+
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
         }
 
         if (null !== $this->jobExecutionId) {
@@ -153,6 +163,10 @@ class ListScheduleEventRequest extends Model
 
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
+        }
+
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
         }
 
         if (isset($map['JobExecutionId'])) {

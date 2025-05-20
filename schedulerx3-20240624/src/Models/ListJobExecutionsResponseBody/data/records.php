@@ -96,6 +96,11 @@ class records extends Model
     /**
      * @var int
      */
+    public $totalTokens;
+
+    /**
+     * @var int
+     */
     public $triggerType;
 
     /**
@@ -120,6 +125,7 @@ class records extends Model
         'serverIp' => 'ServerIp',
         'status' => 'Status',
         'timeType' => 'TimeType',
+        'totalTokens' => 'TotalTokens',
         'triggerType' => 'TriggerType',
         'workAddr' => 'WorkAddr',
     ];
@@ -198,6 +204,10 @@ class records extends Model
 
         if (null !== $this->timeType) {
             $res['TimeType'] = $this->timeType;
+        }
+
+        if (null !== $this->totalTokens) {
+            $res['TotalTokens'] = $this->totalTokens;
         }
 
         if (null !== $this->triggerType) {
@@ -285,6 +295,10 @@ class records extends Model
 
         if (isset($map['TimeType'])) {
             $model->timeType = $map['TimeType'];
+        }
+
+        if (isset($map['TotalTokens'])) {
+            $model->totalTokens = $map['TotalTokens'];
         }
 
         if (isset($map['TriggerType'])) {
