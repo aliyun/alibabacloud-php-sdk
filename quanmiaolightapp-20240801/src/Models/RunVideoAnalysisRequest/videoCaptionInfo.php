@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\v
 class videoCaptionInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $videoCaptionFileUrl;
+
+    /**
      * @var videoCaptions[]
      */
     public $videoCaptions;
     protected $_name = [
+        'videoCaptionFileUrl' => 'videoCaptionFileUrl',
         'videoCaptions' => 'videoCaptions',
     ];
 
@@ -28,6 +34,10 @@ class videoCaptionInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->videoCaptionFileUrl) {
+            $res['videoCaptionFileUrl'] = $this->videoCaptionFileUrl;
+        }
+
         if (null !== $this->videoCaptions) {
             if (\is_array($this->videoCaptions)) {
                 $res['videoCaptions'] = [];
@@ -49,6 +59,10 @@ class videoCaptionInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['videoCaptionFileUrl'])) {
+            $model->videoCaptionFileUrl = $map['videoCaptionFileUrl'];
+        }
+
         if (isset($map['videoCaptions'])) {
             if (!empty($map['videoCaptions'])) {
                 $model->videoCaptions = [];
