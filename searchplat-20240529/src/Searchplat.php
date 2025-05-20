@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetEmbeddingTuningRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetEmbeddingTuningResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionHeaders;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionResponse;
@@ -522,6 +524,71 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getImageAnalyzeTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 多模态向量化.
+     *
+     * @param request - GetMultiModalEmbeddingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMultiModalEmbeddingResponse
+     *
+     * @param string                        $workspaceName
+     * @param string                        $serviceId
+     * @param GetMultiModalEmbeddingRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetMultiModalEmbeddingResponse
+     */
+    public function getMultiModalEmbeddingWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMultiModalEmbedding',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/multi-modal-embedding/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMultiModalEmbeddingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态向量化.
+     *
+     * @param request - GetMultiModalEmbeddingRequest
+     *
+     * @returns GetMultiModalEmbeddingResponse
+     *
+     * @param string                        $workspaceName
+     * @param string                        $serviceId
+     * @param GetMultiModalEmbeddingRequest $request
+     *
+     * @return GetMultiModalEmbeddingResponse
+     */
+    public function getMultiModalEmbedding($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMultiModalEmbeddingWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
