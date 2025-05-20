@@ -12,6 +12,10 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionS
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\CreateChatSessionRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\CreateChatSessionResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditUnfavorableAreaDevicesRequest;
@@ -22,6 +26,11 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetAreaElecConstitute
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetAreaElecConstituteResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetChatFolderListResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetChatListRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetChatListResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetChatSessionListRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetChatSessionListResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataItemListRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataItemListResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisRequest;
@@ -482,6 +491,150 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
+     * Knowledge Base Q\\&A.
+     *
+     * @remarks
+     * - The interface provides Q&A services within the scope of the selected directory in the session.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - You can also create a new session via the CreateChatSession interface.
+     *
+     * @param request - ChatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest    $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ChatResponse
+     */
+    public function chatWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'Chat',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Knowledge Base Q\\&A.
+     *
+     * @remarks
+     * - The interface provides Q&A services within the scope of the selected directory in the session.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - You can also create a new session via the CreateChatSession interface.
+     *
+     * @param request - ChatRequest
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest $request
+     *
+     * @return ChatResponse
+     */
+    public function chat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->chatWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Create Q&A Window.
+     *
+     * @param request - CreateChatSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatSessionResponse
+     *
+     * @param CreateChatSessionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateChatSessionResponse
+     */
+    public function createChatSessionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderId) {
+            @$body['folderId'] = $request->folderId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatSession',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat/session/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Q&A Window.
+     *
+     * @param request - CreateChatSessionRequest
+     *
+     * @returns CreateChatSessionResponse
+     *
+     * @param CreateChatSessionRequest $request
+     *
+     * @return CreateChatSessionResponse
+     */
+    public function createChatSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createChatSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 编辑禁用设备.
      *
      * @param request - EditProhibitedDevicesRequest
@@ -834,6 +987,206 @@ class EnergyExpertExternal extends OpenApiClient
         $headers = [];
 
         return $this->getCarbonEmissionTrendWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Get Q&A folder List.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatFolderListResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetChatFolderListResponse
+     */
+    public function getChatFolderListWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetChatFolderList',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat/folder/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatFolderListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Q&A folder List.
+     *
+     * @returns GetChatFolderListResponse
+     *
+     * @return GetChatFolderListResponse
+     */
+    public function getChatFolderList()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getChatFolderListWithOptions($headers, $runtime);
+    }
+
+    /**
+     * Retrieve the historical documents of a session.
+     *
+     * @remarks
+     * - This API retrieves the list of historical documents within a session by passing in the session ID.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - A new session can also be created using the CreateChatSession interface.
+     *
+     * @param request - GetChatListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatListResponse
+     *
+     * @param GetChatListRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetChatListResponse
+     */
+    public function getChatListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->currentPage) {
+            @$body['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatList',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieve the historical documents of a session.
+     *
+     * @remarks
+     * - This API retrieves the list of historical documents within a session by passing in the session ID.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - A new session can also be created using the CreateChatSession interface.
+     *
+     * @param request - GetChatListRequest
+     *
+     * @returns GetChatListResponse
+     *
+     * @param GetChatListRequest $request
+     *
+     * @return GetChatListResponse
+     */
+    public function getChatList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getChatListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Get Q&A Session List.
+     *
+     * @param request - GetChatSessionListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatSessionListResponse
+     *
+     * @param GetChatSessionListRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetChatSessionListResponse
+     */
+    public function getChatSessionListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->currentPage) {
+            @$body['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatSessionList',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat/session/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Q&A Session List.
+     *
+     * @param request - GetChatSessionListRequest
+     *
+     * @returns GetChatSessionListResponse
+     *
+     * @param GetChatSessionListRequest $request
+     *
+     * @return GetChatSessionListResponse
+     */
+    public function getChatSessionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getChatSessionListWithOptions($request, $headers, $runtime);
     }
 
     /**
