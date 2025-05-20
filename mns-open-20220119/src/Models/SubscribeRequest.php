@@ -42,6 +42,11 @@ class SubscribeRequest extends Model
     /**
      * @var string
      */
+    public $stsRoleArn;
+
+    /**
+     * @var string
+     */
     public $subscriptionName;
 
     /**
@@ -55,6 +60,7 @@ class SubscribeRequest extends Model
         'notifyContentFormat' => 'NotifyContentFormat',
         'notifyStrategy' => 'NotifyStrategy',
         'pushType' => 'PushType',
+        'stsRoleArn' => 'StsRoleArn',
         'subscriptionName' => 'SubscriptionName',
         'topicName' => 'TopicName',
     ];
@@ -92,6 +98,10 @@ class SubscribeRequest extends Model
 
         if (null !== $this->pushType) {
             $res['PushType'] = $this->pushType;
+        }
+
+        if (null !== $this->stsRoleArn) {
+            $res['StsRoleArn'] = $this->stsRoleArn;
         }
 
         if (null !== $this->subscriptionName) {
@@ -135,6 +145,10 @@ class SubscribeRequest extends Model
 
         if (isset($map['PushType'])) {
             $model->pushType = $map['PushType'];
+        }
+
+        if (isset($map['StsRoleArn'])) {
+            $model->stsRoleArn = $map['StsRoleArn'];
         }
 
         if (isset($map['SubscriptionName'])) {

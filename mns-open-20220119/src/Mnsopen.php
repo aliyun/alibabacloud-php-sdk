@@ -1512,6 +1512,10 @@ class Mnsopen extends OpenApiClient
             @$query['PushType'] = $request->pushType;
         }
 
+        if (null !== $request->stsRoleArn) {
+            @$query['StsRoleArn'] = $request->stsRoleArn;
+        }
+
         if (null !== $request->subscriptionName) {
             @$query['SubscriptionName'] = $request->subscriptionName;
         }
