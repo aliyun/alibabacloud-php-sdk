@@ -16,6 +16,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $protocol;
+
+    /**
+     * @var string
+     */
     public $transactionId;
 
     /**
@@ -24,6 +29,7 @@ class result extends Model
     public $transactionUrl;
     protected $_name = [
         'clientCfg' => 'ClientCfg',
+        'protocol' => 'Protocol',
         'transactionId' => 'TransactionId',
         'transactionUrl' => 'TransactionUrl',
     ];
@@ -38,6 +44,10 @@ class result extends Model
         $res = [];
         if (null !== $this->clientCfg) {
             $res['ClientCfg'] = $this->clientCfg;
+        }
+
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         if (null !== $this->transactionId) {
@@ -61,6 +71,10 @@ class result extends Model
         $model = new self();
         if (isset($map['ClientCfg'])) {
             $model->clientCfg = $map['ClientCfg'];
+        }
+
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         if (isset($map['TransactionId'])) {
