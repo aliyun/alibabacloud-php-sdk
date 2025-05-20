@@ -11,6 +11,11 @@ class CompleteFileRequest extends Model
     /**
      * @var string
      */
+    public $crc64Hash;
+
+    /**
+     * @var string
+     */
     public $driveId;
 
     /**
@@ -23,6 +28,7 @@ class CompleteFileRequest extends Model
      */
     public $uploadId;
     protected $_name = [
+        'crc64Hash' => 'crc64_hash',
         'driveId' => 'drive_id',
         'fileId' => 'file_id',
         'uploadId' => 'upload_id',
@@ -36,6 +42,10 @@ class CompleteFileRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->crc64Hash) {
+            $res['crc64_hash'] = $this->crc64Hash;
+        }
+
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
@@ -59,6 +69,10 @@ class CompleteFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['crc64_hash'])) {
+            $model->crc64Hash = $map['crc64_hash'];
+        }
+
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }

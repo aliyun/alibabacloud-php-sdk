@@ -1,3 +1,7 @@
+2025-05-20 Version: 4.1.5
+- Update API CompleteFile: add request parameters body.crc64_hash.
+
+
 2025-04-22 Version: 4.1.4
 - Update API GetShareLinkByAnonymous: add response parameters Body.has_pwd.
 
