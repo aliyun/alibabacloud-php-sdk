@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class namespacedQuotas extends Model
 {
@@ -33,32 +33,37 @@ class namespacedQuotas extends Model
      */
     public $usedMemory;
     protected $_name = [
-        'cpuAmount'    => 'CpuAmount',
+        'cpuAmount' => 'CpuAmount',
         'memoryAmount' => 'MemoryAmount',
-        'name'         => 'Name',
-        'usedCpu'      => 'UsedCpu',
-        'usedMemory'   => 'UsedMemory',
+        'name' => 'Name',
+        'usedCpu' => 'UsedCpu',
+        'usedMemory' => 'UsedMemory',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuAmount) {
             $res['CpuAmount'] = $this->cpuAmount;
         }
+
         if (null !== $this->memoryAmount) {
             $res['MemoryAmount'] = $this->memoryAmount;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->usedCpu) {
             $res['UsedCpu'] = $this->usedCpu;
         }
+
         if (null !== $this->usedMemory) {
             $res['UsedMemory'] = $this->usedMemory;
         }
@@ -66,26 +71,30 @@ class namespacedQuotas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return namespacedQuotas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuAmount'])) {
             $model->cpuAmount = $map['CpuAmount'];
         }
+
         if (isset($map['MemoryAmount'])) {
             $model->memoryAmount = $map['MemoryAmount'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UsedCpu'])) {
             $model->usedCpu = $map['UsedCpu'];
         }
+
         if (isset($map['UsedMemory'])) {
             $model->usedMemory = $map['UsedMemory'];
         }

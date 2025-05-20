@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLdpsComputeGroupResponseBody extends Model
 {
@@ -23,24 +23,35 @@ class GetLdpsComputeGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'groupName'  => 'GroupName',
+        'groupName' => 'GroupName',
         'properties' => 'Properties',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                foreach ($this->properties as $key1 => $value1) {
+                    $res['Properties'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,20 +59,27 @@ class GetLdpsComputeGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLdpsComputeGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                foreach ($map['Properties'] as $key1 => $value1) {
+                    $model->properties[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

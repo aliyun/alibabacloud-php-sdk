@@ -4,54 +4,66 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListResponseBody\engineList;
-use AlibabaCloud\Tea\Model;
 
 class GetLindormInstanceEngineListResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
     /**
      * @var engineList[]
      */
     public $engineList;
 
     /**
-     * @example ld-bp1nq34mv3smk****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example B496BA0E-520C-59FC-BA04-196D8F3B07EF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'engineList' => 'EngineList',
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->engineList)) {
+            Model::validateArray($this->engineList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->engineList) {
-            $res['EngineList'] = [];
-            if (null !== $this->engineList && \is_array($this->engineList)) {
-                $n = 0;
-                foreach ($this->engineList as $item) {
-                    $res['EngineList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->engineList)) {
+                $res['EngineList'] = [];
+                $n1 = 0;
+                foreach ($this->engineList as $item1) {
+                    $res['EngineList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,26 +71,32 @@ class GetLindormInstanceEngineListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLindormInstanceEngineListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['EngineList'])) {
             if (!empty($map['EngineList'])) {
                 $model->engineList = [];
-                $n                 = 0;
-                foreach ($map['EngineList'] as $item) {
-                    $model->engineList[$n++] = null !== $item ? engineList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EngineList'] as $item1) {
+                    $model->engineList[$n1++] = engineList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

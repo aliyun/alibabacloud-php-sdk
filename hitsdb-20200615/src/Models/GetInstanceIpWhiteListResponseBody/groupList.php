@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupList extends Model
 {
     /**
-     * @description The name of the IP address whitelist.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The IP addresses in the whitelist.
-     *
-     * @example 192.168.1.0/24
-     *
      * @var string
      */
     public $securityIpList;
     protected $_name = [
-        'groupName'      => 'GroupName',
+        'groupName' => 'GroupName',
         'securityIpList' => 'SecurityIpList',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->securityIpList) {
             $res['SecurityIpList'] = $this->securityIpList;
         }
@@ -47,17 +41,18 @@ class groupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['SecurityIpList'])) {
             $model->securityIpList = $map['SecurityIpList'];
         }

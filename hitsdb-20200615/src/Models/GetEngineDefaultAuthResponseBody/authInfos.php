@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authInfos extends Model
 {
@@ -23,24 +23,27 @@ class authInfos extends Model
      */
     public $username;
     protected $_name = [
-        'engine'   => 'Engine',
+        'engine' => 'Engine',
         'password' => 'Password',
         'username' => 'Username',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -48,20 +51,22 @@ class authInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

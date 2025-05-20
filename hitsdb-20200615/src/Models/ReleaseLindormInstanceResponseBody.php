@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseLindormInstanceResponseBody extends Model
 {
     /**
-     * @example F67BFFF3-F5C2-45B5-9C28-6E4A1E51****
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class ReleaseLindormInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ReleaseLindormInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseLindormInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

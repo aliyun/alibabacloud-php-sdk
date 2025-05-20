@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeLindormInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 111111111111111
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 2A7D4F9D-AA26-4E15-A2B1-3E4792C6****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class UpgradeLindormInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeLindormInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

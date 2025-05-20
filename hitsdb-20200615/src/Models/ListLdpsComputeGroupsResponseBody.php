@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsResponseBody\groupList;
-use AlibabaCloud\Tea\Model;
 
 class ListLdpsComputeGroupsResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
     /**
      * @var groupList[]
      */
@@ -19,26 +24,36 @@ class ListLdpsComputeGroupsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'groupList' => 'GroupList',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groupList)) {
+            Model::validateArray($this->groupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->groupList) {
-            $res['GroupList'] = [];
-            if (null !== $this->groupList && \is_array($this->groupList)) {
-                $n = 0;
-                foreach ($this->groupList as $item) {
-                    $res['GroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupList)) {
+                $res['GroupList'] = [];
+                $n1 = 0;
+                foreach ($this->groupList as $item1) {
+                    $res['GroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +61,28 @@ class ListLdpsComputeGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLdpsComputeGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
                 $model->groupList = [];
-                $n                = 0;
-                foreach ($map['GroupList'] as $item) {
-                    $model->groupList[$n++] = null !== $item ? groupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupList'] as $item1) {
+                    $model->groupList[$n1++] = groupList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListResponseBody\engineList\netInfoList;
-use AlibabaCloud\Tea\Model;
 
 class engineList extends Model
 {
     /**
-     * @example lindorm
-     *
      * @var string
      */
     public $engineType;
@@ -21,26 +19,31 @@ class engineList extends Model
      */
     public $netInfoList;
     protected $_name = [
-        'engineType'  => 'EngineType',
+        'engineType' => 'EngineType',
         'netInfoList' => 'NetInfoList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->netInfoList)) {
+            Model::validateArray($this->netInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
         }
+
         if (null !== $this->netInfoList) {
-            $res['NetInfoList'] = [];
-            if (null !== $this->netInfoList && \is_array($this->netInfoList)) {
-                $n = 0;
-                foreach ($this->netInfoList as $item) {
-                    $res['NetInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->netInfoList)) {
+                $res['NetInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->netInfoList as $item1) {
+                    $res['NetInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class engineList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return engineList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
         }
+
         if (isset($map['NetInfoList'])) {
             if (!empty($map['NetInfoList'])) {
                 $model->netInfoList = [];
-                $n                  = 0;
-                foreach ($map['NetInfoList'] as $item) {
-                    $model->netInfoList[$n++] = null !== $item ? netInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NetInfoList'] as $item1) {
+                    $model->netInfoList[$n1++] = netInfoList::fromMap($item1);
                 }
             }
         }
