@@ -17,9 +17,21 @@ class enhancedNetwork extends Model
      * @var bool
      */
     public $enableSriov;
+
+    /**
+     * @var int
+     */
+    public $virtualFunctionQuantity;
+
+    /**
+     * @var int
+     */
+    public $virtualFunctionTotalQueueNumber;
     protected $_name = [
         'enableRss' => 'EnableRss',
         'enableSriov' => 'EnableSriov',
+        'virtualFunctionQuantity' => 'VirtualFunctionQuantity',
+        'virtualFunctionTotalQueueNumber' => 'VirtualFunctionTotalQueueNumber',
     ];
 
     public function validate()
@@ -36,6 +48,14 @@ class enhancedNetwork extends Model
 
         if (null !== $this->enableSriov) {
             $res['EnableSriov'] = $this->enableSriov;
+        }
+
+        if (null !== $this->virtualFunctionQuantity) {
+            $res['VirtualFunctionQuantity'] = $this->virtualFunctionQuantity;
+        }
+
+        if (null !== $this->virtualFunctionTotalQueueNumber) {
+            $res['VirtualFunctionTotalQueueNumber'] = $this->virtualFunctionTotalQueueNumber;
         }
 
         return $res;
@@ -55,6 +75,14 @@ class enhancedNetwork extends Model
 
         if (isset($map['EnableSriov'])) {
             $model->enableSriov = $map['EnableSriov'];
+        }
+
+        if (isset($map['VirtualFunctionQuantity'])) {
+            $model->virtualFunctionQuantity = $map['VirtualFunctionQuantity'];
+        }
+
+        if (isset($map['VirtualFunctionTotalQueueNumber'])) {
+            $model->virtualFunctionTotalQueueNumber = $map['VirtualFunctionTotalQueueNumber'];
         }
 
         return $model;
