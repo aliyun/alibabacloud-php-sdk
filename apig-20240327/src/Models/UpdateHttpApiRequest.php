@@ -45,6 +45,11 @@ class UpdateHttpApiRequest extends Model
     public $ingressConfig;
 
     /**
+     * @var bool
+     */
+    public $onlyChangeConfig;
+
+    /**
      * @var string[]
      */
     public $protocols;
@@ -61,6 +66,7 @@ class UpdateHttpApiRequest extends Model
         'description' => 'description',
         'enableAuth' => 'enableAuth',
         'ingressConfig' => 'ingressConfig',
+        'onlyChangeConfig' => 'onlyChangeConfig',
         'protocols' => 'protocols',
         'versionConfig' => 'versionConfig',
     ];
@@ -131,6 +137,10 @@ class UpdateHttpApiRequest extends Model
             $res['ingressConfig'] = null !== $this->ingressConfig ? $this->ingressConfig->toArray($noStream) : $this->ingressConfig;
         }
 
+        if (null !== $this->onlyChangeConfig) {
+            $res['onlyChangeConfig'] = $this->onlyChangeConfig;
+        }
+
         if (null !== $this->protocols) {
             if (\is_array($this->protocols)) {
                 $res['protocols'] = [];
@@ -194,6 +204,10 @@ class UpdateHttpApiRequest extends Model
 
         if (isset($map['ingressConfig'])) {
             $model->ingressConfig = ingressConfig::fromMap($map['ingressConfig']);
+        }
+
+        if (isset($map['onlyChangeConfig'])) {
+            $model->onlyChangeConfig = $map['onlyChangeConfig'];
         }
 
         if (isset($map['protocols'])) {

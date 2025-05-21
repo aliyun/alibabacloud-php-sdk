@@ -4062,6 +4062,10 @@ class APIG extends OpenApiClient
             @$body['ingressConfig'] = $request->ingressConfig;
         }
 
+        if (null !== $request->onlyChangeConfig) {
+            @$body['onlyChangeConfig'] = $request->onlyChangeConfig;
+        }
+
         if (null !== $request->protocols) {
             @$body['protocols'] = $request->protocols;
         }
