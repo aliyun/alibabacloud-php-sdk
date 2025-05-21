@@ -16,6 +16,11 @@ class conversationList extends Model
     /**
      * @var string
      */
+    public $dateLabel;
+
+    /**
+     * @var string
+     */
     public $evaluationFeedback;
 
     /**
@@ -39,6 +44,7 @@ class conversationList extends Model
     public $role;
     protected $_name = [
         'audioUrl' => 'audioUrl',
+        'dateLabel' => 'dateLabel',
         'evaluationFeedback' => 'evaluationFeedback',
         'evaluationResult' => 'evaluationResult',
         'message' => 'message',
@@ -56,6 +62,10 @@ class conversationList extends Model
         $res = [];
         if (null !== $this->audioUrl) {
             $res['audioUrl'] = $this->audioUrl;
+        }
+
+        if (null !== $this->dateLabel) {
+            $res['dateLabel'] = $this->dateLabel;
         }
 
         if (null !== $this->evaluationFeedback) {
@@ -91,6 +101,10 @@ class conversationList extends Model
         $model = new self();
         if (isset($map['audioUrl'])) {
             $model->audioUrl = $map['audioUrl'];
+        }
+
+        if (isset($map['dateLabel'])) {
+            $model->dateLabel = $map['dateLabel'];
         }
 
         if (isset($map['evaluationFeedback'])) {

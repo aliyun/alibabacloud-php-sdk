@@ -49,6 +49,11 @@ class weights extends Model
     public $pointDeductionRuleEnabled;
 
     /**
+     * @var bool
+     */
+    public $similarPronunciationScoringEnabled;
+
+    /**
      * @var int
      */
     public $standard;
@@ -66,6 +71,7 @@ class weights extends Model
         'expressivenessEnabled' => 'expressivenessEnabled',
         'pointDeductionRule' => 'pointDeductionRule',
         'pointDeductionRuleEnabled' => 'pointDeductionRuleEnabled',
+        'similarPronunciationScoringEnabled' => 'similarPronunciationScoringEnabled',
         'standard' => 'standard',
         'standardEnabled' => 'standardEnabled',
     ];
@@ -108,6 +114,10 @@ class weights extends Model
 
         if (null !== $this->pointDeductionRuleEnabled) {
             $res['pointDeductionRuleEnabled'] = $this->pointDeductionRuleEnabled;
+        }
+
+        if (null !== $this->similarPronunciationScoringEnabled) {
+            $res['similarPronunciationScoringEnabled'] = $this->similarPronunciationScoringEnabled;
         }
 
         if (null !== $this->standard) {
@@ -159,6 +169,10 @@ class weights extends Model
 
         if (isset($map['pointDeductionRuleEnabled'])) {
             $model->pointDeductionRuleEnabled = $map['pointDeductionRuleEnabled'];
+        }
+
+        if (isset($map['similarPronunciationScoringEnabled'])) {
+            $model->similarPronunciationScoringEnabled = $map['similarPronunciationScoringEnabled'];
         }
 
         if (isset($map['standard'])) {
