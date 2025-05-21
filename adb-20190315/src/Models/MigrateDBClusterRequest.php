@@ -19,6 +19,11 @@ class MigrateDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -85,6 +90,7 @@ class MigrateDBClusterRequest extends Model
     protected $_name = [
         'computeResource' => 'ComputeResource',
         'DBClusterId' => 'DBClusterId',
+        'dryRun' => 'DryRun',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'productForm' => 'ProductForm',
@@ -114,6 +120,10 @@ class MigrateDBClusterRequest extends Model
 
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->ownerAccount) {
@@ -185,6 +195,10 @@ class MigrateDBClusterRequest extends Model
 
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['OwnerAccount'])) {

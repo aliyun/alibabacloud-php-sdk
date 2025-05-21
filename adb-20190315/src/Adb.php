@@ -6128,7 +6128,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring information about tables.
+     * Queries the information about skewed tables for an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeInclinedTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6207,7 +6207,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring information about tables.
+     * Queries the information about skewed tables for an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeInclinedTablesRequest
      *
@@ -9857,6 +9857,10 @@ class Adb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -11166,7 +11170,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改实例分片数目.
+     * Changes the number of shards for an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterShardNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11241,7 +11245,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改实例分片数目.
+     * Changes the number of shards for an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterShardNumberRequest
      *

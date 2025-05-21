@@ -11,6 +11,11 @@ class EIUInfo extends Model
     /**
      * @var string
      */
+    public $defaultReservedNodeSize;
+
+    /**
+     * @var string
+     */
     public $defaultValue;
 
     /**
@@ -29,6 +34,11 @@ class EIUInfo extends Model
     public $minValue;
 
     /**
+     * @var string[]
+     */
+    public $reservedNodeSizeRange;
+
+    /**
      * @var string
      */
     public $step;
@@ -38,10 +48,12 @@ class EIUInfo extends Model
      */
     public $storageResourceRange;
     protected $_name = [
+        'defaultReservedNodeSize' => 'DefaultReservedNodeSize',
         'defaultValue' => 'DefaultValue',
         'EIURange' => 'EIURange',
         'maxValue' => 'MaxValue',
         'minValue' => 'MinValue',
+        'reservedNodeSizeRange' => 'ReservedNodeSizeRange',
         'step' => 'Step',
         'storageResourceRange' => 'StorageResourceRange',
     ];
@@ -50,6 +62,9 @@ class EIUInfo extends Model
     {
         if (\is_array($this->EIURange)) {
             Model::validateArray($this->EIURange);
+        }
+        if (\is_array($this->reservedNodeSizeRange)) {
+            Model::validateArray($this->reservedNodeSizeRange);
         }
         if (\is_array($this->storageResourceRange)) {
             Model::validateArray($this->storageResourceRange);
@@ -60,6 +75,10 @@ class EIUInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->defaultReservedNodeSize) {
+            $res['DefaultReservedNodeSize'] = $this->defaultReservedNodeSize;
+        }
+
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
@@ -80,6 +99,16 @@ class EIUInfo extends Model
 
         if (null !== $this->minValue) {
             $res['MinValue'] = $this->minValue;
+        }
+
+        if (null !== $this->reservedNodeSizeRange) {
+            if (\is_array($this->reservedNodeSizeRange)) {
+                $res['ReservedNodeSizeRange'] = [];
+                $n1 = 0;
+                foreach ($this->reservedNodeSizeRange as $item1) {
+                    $res['ReservedNodeSizeRange'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->step) {
@@ -107,6 +136,10 @@ class EIUInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultReservedNodeSize'])) {
+            $model->defaultReservedNodeSize = $map['DefaultReservedNodeSize'];
+        }
+
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
@@ -127,6 +160,16 @@ class EIUInfo extends Model
 
         if (isset($map['MinValue'])) {
             $model->minValue = $map['MinValue'];
+        }
+
+        if (isset($map['ReservedNodeSizeRange'])) {
+            if (!empty($map['ReservedNodeSizeRange'])) {
+                $model->reservedNodeSizeRange = [];
+                $n1 = 0;
+                foreach ($map['ReservedNodeSizeRange'] as $item1) {
+                    $model->reservedNodeSizeRange[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['Step'])) {
