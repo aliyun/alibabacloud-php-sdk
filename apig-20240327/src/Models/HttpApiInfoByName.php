@@ -11,6 +11,11 @@ class HttpApiInfoByName extends Model
     /**
      * @var string
      */
+    public $gatewayId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -28,6 +33,7 @@ class HttpApiInfoByName extends Model
      */
     public $versionedHttpApis;
     protected $_name = [
+        'gatewayId' => 'GatewayId',
         'name' => 'name',
         'type' => 'type',
         'versionEnabled' => 'versionEnabled',
@@ -45,6 +51,10 @@ class HttpApiInfoByName extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->gatewayId) {
+            $res['GatewayId'] = $this->gatewayId;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -78,6 +88,10 @@ class HttpApiInfoByName extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GatewayId'])) {
+            $model->gatewayId = $map['GatewayId'];
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

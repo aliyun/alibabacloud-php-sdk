@@ -29,6 +29,11 @@ class ListHttpApiRoutesRequest extends Model
     public $environmentId;
 
     /**
+     * @var bool
+     */
+    public $forDeploy;
+
+    /**
      * @var string
      */
     public $gatewayId;
@@ -77,6 +82,7 @@ class ListHttpApiRoutesRequest extends Model
         'deployStatuses' => 'deployStatuses',
         'domainId' => 'domainId',
         'environmentId' => 'environmentId',
+        'forDeploy' => 'forDeploy',
         'gatewayId' => 'gatewayId',
         'name' => 'name',
         'nameLike' => 'nameLike',
@@ -110,6 +116,10 @@ class ListHttpApiRoutesRequest extends Model
 
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
+        }
+
+        if (null !== $this->forDeploy) {
+            $res['forDeploy'] = $this->forDeploy;
         }
 
         if (null !== $this->gatewayId) {
@@ -173,6 +183,10 @@ class ListHttpApiRoutesRequest extends Model
 
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
+        }
+
+        if (isset($map['forDeploy'])) {
+            $model->forDeploy = $map['forDeploy'];
         }
 
         if (isset($map['gatewayId'])) {

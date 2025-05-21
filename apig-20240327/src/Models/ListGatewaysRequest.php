@@ -17,6 +17,11 @@ class ListGatewaysRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $keyword;
 
     /**
@@ -45,6 +50,7 @@ class ListGatewaysRequest extends Model
     public $tag;
     protected $_name = [
         'gatewayId' => 'gatewayId',
+        'gatewayType' => 'gatewayType',
         'keyword' => 'keyword',
         'name' => 'name',
         'pageNumber' => 'pageNumber',
@@ -66,6 +72,10 @@ class ListGatewaysRequest extends Model
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['gatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->keyword) {
@@ -111,6 +121,10 @@ class ListGatewaysRequest extends Model
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['gatewayType'])) {
+            $model->gatewayType = $map['gatewayType'];
         }
 
         if (isset($map['keyword'])) {

@@ -41,6 +41,11 @@ class HttpRoute extends Model
     public $environmentInfo;
 
     /**
+     * @var string[]
+     */
+    public $gatewayStatus;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -66,6 +71,7 @@ class HttpRoute extends Model
         'description' => 'description',
         'domainInfos' => 'domainInfos',
         'environmentInfo' => 'environmentInfo',
+        'gatewayStatus' => 'gatewayStatus',
         'match' => 'match',
         'name' => 'name',
         'routeId' => 'routeId',
@@ -82,6 +88,9 @@ class HttpRoute extends Model
         }
         if (null !== $this->environmentInfo) {
             $this->environmentInfo->validate();
+        }
+        if (\is_array($this->gatewayStatus)) {
+            Model::validateArray($this->gatewayStatus);
         }
         if (null !== $this->match) {
             $this->match->validate();
@@ -120,6 +129,15 @@ class HttpRoute extends Model
 
         if (null !== $this->environmentInfo) {
             $res['environmentInfo'] = null !== $this->environmentInfo ? $this->environmentInfo->toArray($noStream) : $this->environmentInfo;
+        }
+
+        if (null !== $this->gatewayStatus) {
+            if (\is_array($this->gatewayStatus)) {
+                $res['gatewayStatus'] = [];
+                foreach ($this->gatewayStatus as $key1 => $value1) {
+                    $res['gatewayStatus'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->match) {
@@ -177,6 +195,15 @@ class HttpRoute extends Model
 
         if (isset($map['environmentInfo'])) {
             $model->environmentInfo = environmentInfo::fromMap($map['environmentInfo']);
+        }
+
+        if (isset($map['gatewayStatus'])) {
+            if (!empty($map['gatewayStatus'])) {
+                $model->gatewayStatus = [];
+                foreach ($map['gatewayStatus'] as $key1 => $value1) {
+                    $model->gatewayStatus[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['match'])) {

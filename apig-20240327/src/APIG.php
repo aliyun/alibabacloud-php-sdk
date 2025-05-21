@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginAttachmentRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
@@ -34,6 +36,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewaySecurityGroupRuleRespons
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
@@ -50,8 +53,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
@@ -71,6 +76,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesRequest;
@@ -95,6 +102,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayRequest;
@@ -185,11 +194,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddGatewaySecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGatewaySecurityGroupRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGatewaySecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -262,11 +268,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -326,6 +329,10 @@ class APIG extends OpenApiClient
             @$body['forceHttps'] = $request->forceHttps;
         }
 
+        if (null !== $request->gatewayType) {
+            @$body['gatewayType'] = $request->gatewayType;
+        }
+
         if (null !== $request->http2Option) {
             @$body['http2Option'] = $request->http2Option;
         }
@@ -373,11 +380,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -462,11 +466,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -576,11 +577,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -641,11 +639,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHttpApiOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -692,6 +687,10 @@ class APIG extends OpenApiClient
             @$body['backendConfig'] = $request->backendConfig;
         }
 
+        if (null !== $request->deployConfigs) {
+            @$body['deployConfigs'] = $request->deployConfigs;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -727,11 +726,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHttpApiRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -752,6 +748,91 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createHttpApiRouteWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建API.
+     *
+     * @param request - CreatePluginAttachmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePluginAttachmentResponse
+     *
+     * @param CreatePluginAttachmentRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePluginAttachmentResponse
+     */
+    public function createPluginAttachmentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->attachResourceIds) {
+            @$body['attachResourceIds'] = $request->attachResourceIds;
+        }
+
+        if (null !== $request->attachResourceType) {
+            @$body['attachResourceType'] = $request->attachResourceType;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->pluginConfig) {
+            @$body['pluginConfig'] = $request->pluginConfig;
+        }
+
+        if (null !== $request->pluginId) {
+            @$body['pluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePluginAttachment',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-attachments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePluginAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建API.
+     *
+     * @param request - CreatePluginAttachmentRequest
+     *
+     * @returns CreatePluginAttachmentResponse
+     *
+     * @param CreatePluginAttachmentRequest $request
+     *
+     * @return CreatePluginAttachmentResponse
+     */
+    public function createPluginAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPluginAttachmentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -804,11 +885,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -884,11 +962,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -963,11 +1038,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1022,11 +1094,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1079,11 +1148,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -1136,11 +1202,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1200,11 +1263,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGatewaySecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGatewaySecurityGroupRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGatewaySecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1258,11 +1318,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1313,11 +1370,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteHttpApiOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1369,11 +1423,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteHttpApiRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1392,6 +1443,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deleteHttpApiRouteWithOptions($httpApiId, $routeId, $headers, $runtime);
+    }
+
+    /**
+     * 删除挂载规则API.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePluginAttachmentResponse
+     *
+     * @param string         $pluginAttachmentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeletePluginAttachmentResponse
+     */
+    public function deletePluginAttachmentWithOptions($pluginAttachmentId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeletePluginAttachment',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-attachments/' . Url::percentEncode($pluginAttachmentId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePluginAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除挂载规则API.
+     *
+     * @returns DeletePluginAttachmentResponse
+     *
+     * @param string $pluginAttachmentId
+     *
+     * @return DeletePluginAttachmentResponse
+     */
+    public function deletePluginAttachment($pluginAttachmentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePluginAttachmentWithOptions($pluginAttachmentId, $headers, $runtime);
     }
 
     /**
@@ -1424,11 +1526,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1478,11 +1577,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1522,6 +1618,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->httpApiConfig) {
+            @$body['httpApiConfig'] = $request->httpApiConfig;
+        }
+
         if (null !== $request->restApiConfig) {
             @$body['restApiConfig'] = $request->restApiConfig;
         }
@@ -1545,11 +1645,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeployHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeployHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeployHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1602,11 +1699,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1699,11 +1793,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1765,11 +1856,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1838,11 +1926,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -1898,11 +1983,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1952,11 +2034,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2007,11 +2086,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHttpApiOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2063,11 +2139,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHttpApiRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2086,6 +2159,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getHttpApiRouteWithOptions($httpApiId, $routeId, $headers, $runtime);
+    }
+
+    /**
+     * GetPluginAttachment。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPluginAttachmentResponse
+     *
+     * @param string         $pluginAttachmentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPluginAttachmentResponse
+     */
+    public function getPluginAttachmentWithOptions($pluginAttachmentId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetPluginAttachment',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-attachments/' . Url::percentEncode($pluginAttachmentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPluginAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetPluginAttachment。
+     *
+     * @returns GetPluginAttachmentResponse
+     *
+     * @param string $pluginAttachmentId
+     *
+     * @return GetPluginAttachmentResponse
+     */
+    public function getPluginAttachment($pluginAttachmentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPluginAttachmentWithOptions($pluginAttachmentId, $headers, $runtime);
     }
 
     /**
@@ -2118,11 +2242,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2172,11 +2293,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPolicyAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2199,20 +2317,29 @@ class APIG extends OpenApiClient
     /**
      * Get resource overview information.
      *
+     * @param request - GetResourceOverviewRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetResourceOverviewResponse
      *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetResourceOverviewRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
      * @return GetResourceOverviewResponse
      */
-    public function getResourceOverviewWithOptions($headers, $runtime)
+    public function getResourceOverviewWithOptions($request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceOverview',
@@ -2225,26 +2352,27 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceOverviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get resource overview information.
      *
+     * @param request - GetResourceOverviewRequest
+     *
      * @returns GetResourceOverviewResponse
+     *
+     * @param GetResourceOverviewRequest $request
      *
      * @return GetResourceOverviewResponse
      */
-    public function getResourceOverview()
+    public function getResourceOverview($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getResourceOverviewWithOptions($headers, $runtime);
+        return $this->getResourceOverviewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2277,11 +2405,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2340,11 +2465,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTraceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTraceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTraceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2386,12 +2508,20 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->deployConfigs) {
+            @$body['deployConfigs'] = $request->deployConfigs;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
 
         if (null !== $request->dryRun) {
             @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->mcpRouteId) {
+            @$body['mcpRouteId'] = $request->mcpRouteId;
         }
 
         if (null !== $request->name) {
@@ -2441,11 +2571,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2490,6 +2617,10 @@ class APIG extends OpenApiClient
             @$query['gatewayId'] = $request->gatewayId;
         }
 
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
         if (null !== $request->nameLike) {
             @$query['nameLike'] = $request->nameLike;
         }
@@ -2521,11 +2652,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2581,6 +2709,10 @@ class APIG extends OpenApiClient
             @$query['gatewayNameLike'] = $request->gatewayNameLike;
         }
 
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
         if (null !== $request->nameLike) {
             @$query['nameLike'] = $request->nameLike;
         }
@@ -2612,11 +2744,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEnvironmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -2670,6 +2799,10 @@ class APIG extends OpenApiClient
             @$query['gatewayId'] = $request->gatewayId;
         }
 
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
         if (null !== $request->keyword) {
             @$query['keyword'] = $request->keyword;
         }
@@ -2709,11 +2842,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGatewaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2757,6 +2887,14 @@ class APIG extends OpenApiClient
         $query = [];
         if (null !== $request->consumerAuthorizationRuleId) {
             @$query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
+        }
+
+        if (null !== $request->forDeploy) {
+            @$query['forDeploy'] = $request->forDeploy;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
 
         if (null !== $request->method) {
@@ -2810,11 +2948,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHttpApiOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHttpApiOperationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHttpApiOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2873,6 +3008,10 @@ class APIG extends OpenApiClient
             @$query['environmentId'] = $request->environmentId;
         }
 
+        if (null !== $request->forDeploy) {
+            @$query['forDeploy'] = $request->forDeploy;
+        }
+
         if (null !== $request->gatewayId) {
             @$query['gatewayId'] = $request->gatewayId;
         }
@@ -2924,11 +3063,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHttpApiRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2972,6 +3108,10 @@ class APIG extends OpenApiClient
         $query = [];
         if (null !== $request->gatewayId) {
             @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
         }
 
         if (null !== $request->keyword) {
@@ -3049,11 +3189,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHttpApisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHttpApisResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHttpApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3073,6 +3210,99 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listHttpApisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ListPlugins.
+     *
+     * @param request - ListPluginsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPluginsResponse
+     *
+     * @param ListPluginsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListPluginsResponse
+     */
+    public function listPluginsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attachResourceId) {
+            @$query['attachResourceId'] = $request->attachResourceId;
+        }
+
+        if (null !== $request->attachResourceType) {
+            @$query['attachResourceType'] = $request->attachResourceType;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pluginClassId) {
+            @$query['pluginClassId'] = $request->pluginClassId;
+        }
+
+        if (null !== $request->pluginClassName) {
+            @$query['pluginClassName'] = $request->pluginClassName;
+        }
+
+        if (null !== $request->withAttachmentInfo) {
+            @$query['withAttachmentInfo'] = $request->withAttachmentInfo;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPlugins',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugins',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListPlugins.
+     *
+     * @param request - ListPluginsRequest
+     *
+     * @returns ListPluginsResponse
+     *
+     * @param ListPluginsRequest $request
+     *
+     * @return ListPluginsResponse
+     */
+    public function listPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPluginsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3129,11 +3359,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicyClassesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicyClassesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicyClassesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3217,11 +3444,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3293,11 +3517,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSslCertsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSslCertsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSslCertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3348,11 +3569,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3400,11 +3618,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3448,6 +3663,14 @@ class APIG extends OpenApiClient
             @$body['environmentId'] = $request->environmentId;
         }
 
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->operationId) {
+            @$body['operationId'] = $request->operationId;
+        }
+
         if (null !== $request->routeId) {
             @$body['routeId'] = $request->routeId;
         }
@@ -3467,11 +3690,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UndeployHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UndeployHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return UndeployHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3569,11 +3789,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3642,11 +3859,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -3712,11 +3926,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGatewayFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGatewayFeatureResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGatewayFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3779,11 +3990,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGatewayNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGatewayNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGatewayNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3877,11 +4085,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateHttpApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3944,11 +4149,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateHttpApiOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3997,6 +4199,10 @@ class APIG extends OpenApiClient
             @$body['backendConfig'] = $request->backendConfig;
         }
 
+        if (null !== $request->deployConfigs) {
+            @$body['deployConfigs'] = $request->deployConfigs;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -4028,11 +4234,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateHttpApiRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4054,6 +4257,77 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateHttpApiRouteWithOptions($httpApiId, $routeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新挂载规则API.
+     *
+     * @param request - UpdatePluginAttachmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePluginAttachmentResponse
+     *
+     * @param string                        $pluginAttachmentId
+     * @param UpdatePluginAttachmentRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdatePluginAttachmentResponse
+     */
+    public function updatePluginAttachmentWithOptions($pluginAttachmentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->attachResourceIds) {
+            @$body['attachResourceIds'] = $request->attachResourceIds;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->pluginConfig) {
+            @$body['pluginConfig'] = $request->pluginConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePluginAttachment',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-attachments/' . Url::percentEncode($pluginAttachmentId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePluginAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新挂载规则API.
+     *
+     * @param request - UpdatePluginAttachmentRequest
+     *
+     * @returns UpdatePluginAttachmentResponse
+     *
+     * @param string                        $pluginAttachmentId
+     * @param UpdatePluginAttachmentRequest $request
+     *
+     * @return UpdatePluginAttachmentResponse
+     */
+    public function updatePluginAttachment($pluginAttachmentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePluginAttachmentWithOptions($pluginAttachmentId, $request, $headers, $runtime);
     }
 
     /**
@@ -4103,11 +4377,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4169,11 +4440,8 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeGatewayResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

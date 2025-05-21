@@ -11,6 +11,11 @@ class ingressConfig extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $environmentId;
 
     /**
@@ -33,6 +38,7 @@ class ingressConfig extends Model
      */
     public $watchNamespace;
     protected $_name = [
+        'clusterId' => 'clusterId',
         'environmentId' => 'environmentId',
         'ingressClass' => 'ingressClass',
         'overrideIngressIp' => 'overrideIngressIp',
@@ -48,6 +54,10 @@ class ingressConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['clusterId'] = $this->clusterId;
+        }
+
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
@@ -79,6 +89,10 @@ class ingressConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clusterId'])) {
+            $model->clusterId = $map['clusterId'];
+        }
+
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }

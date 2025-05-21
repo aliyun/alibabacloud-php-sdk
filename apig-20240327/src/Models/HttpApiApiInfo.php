@@ -26,6 +26,11 @@ class HttpApiApiInfo extends Model
     public $basePath;
 
     /**
+     * @var HttpApiApiInfoDeployCntMapValue[]
+     */
+    public $deployCntMap;
+
+    /**
      * @var HttpApiDeployConfig[]
      */
     public $deployConfigs;
@@ -44,6 +49,11 @@ class HttpApiApiInfo extends Model
      * @var environments[]
      */
     public $environments;
+
+    /**
+     * @var string
+     */
+    public $gatewayId;
 
     /**
      * @var string
@@ -83,10 +93,12 @@ class HttpApiApiInfo extends Model
         'aiProtocols' => 'aiProtocols',
         'authConfig' => 'authConfig',
         'basePath' => 'basePath',
+        'deployCntMap' => 'deployCntMap',
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'enabelAuth' => 'enabelAuth',
         'environments' => 'environments',
+        'gatewayId' => 'gatewayId',
         'httpApiId' => 'httpApiId',
         'ingressInfo' => 'ingressInfo',
         'name' => 'name',
@@ -103,6 +115,9 @@ class HttpApiApiInfo extends Model
         }
         if (null !== $this->authConfig) {
             $this->authConfig->validate();
+        }
+        if (\is_array($this->deployCntMap)) {
+            Model::validateArray($this->deployCntMap);
         }
         if (\is_array($this->deployConfigs)) {
             Model::validateArray($this->deployConfigs);
@@ -143,6 +158,15 @@ class HttpApiApiInfo extends Model
             $res['basePath'] = $this->basePath;
         }
 
+        if (null !== $this->deployCntMap) {
+            if (\is_array($this->deployCntMap)) {
+                $res['deployCntMap'] = [];
+                foreach ($this->deployCntMap as $key1 => $value1) {
+                    $res['deployCntMap'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
+        }
+
         if (null !== $this->deployConfigs) {
             if (\is_array($this->deployConfigs)) {
                 $res['deployConfigs'] = [];
@@ -169,6 +193,10 @@ class HttpApiApiInfo extends Model
                     $res['environments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->httpApiId) {
@@ -234,6 +262,15 @@ class HttpApiApiInfo extends Model
             $model->basePath = $map['basePath'];
         }
 
+        if (isset($map['deployCntMap'])) {
+            if (!empty($map['deployCntMap'])) {
+                $model->deployCntMap = [];
+                foreach ($map['deployCntMap'] as $key1 => $value1) {
+                    $model->deployCntMap[$key1] = HttpApiApiInfoDeployCntMapValue::fromMap($value1);
+                }
+            }
+        }
+
         if (isset($map['deployConfigs'])) {
             if (!empty($map['deployConfigs'])) {
                 $model->deployConfigs = [];
@@ -260,6 +297,10 @@ class HttpApiApiInfo extends Model
                     $model->environments[$n1++] = environments::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
         }
 
         if (isset($map['httpApiId'])) {

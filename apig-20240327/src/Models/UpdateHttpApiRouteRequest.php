@@ -15,6 +15,11 @@ class UpdateHttpApiRouteRequest extends Model
     public $backendConfig;
 
     /**
+     * @var HttpApiDeployConfig[]
+     */
+    public $deployConfigs;
+
+    /**
      * @var string
      */
     public $description;
@@ -35,6 +40,7 @@ class UpdateHttpApiRouteRequest extends Model
     public $match;
     protected $_name = [
         'backendConfig' => 'backendConfig',
+        'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'domainIds' => 'domainIds',
         'environmentId' => 'environmentId',
@@ -45,6 +51,9 @@ class UpdateHttpApiRouteRequest extends Model
     {
         if (null !== $this->backendConfig) {
             $this->backendConfig->validate();
+        }
+        if (\is_array($this->deployConfigs)) {
+            Model::validateArray($this->deployConfigs);
         }
         if (\is_array($this->domainIds)) {
             Model::validateArray($this->domainIds);
@@ -60,6 +69,16 @@ class UpdateHttpApiRouteRequest extends Model
         $res = [];
         if (null !== $this->backendConfig) {
             $res['backendConfig'] = null !== $this->backendConfig ? $this->backendConfig->toArray($noStream) : $this->backendConfig;
+        }
+
+        if (null !== $this->deployConfigs) {
+            if (\is_array($this->deployConfigs)) {
+                $res['deployConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->deployConfigs as $item1) {
+                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -97,6 +116,16 @@ class UpdateHttpApiRouteRequest extends Model
         $model = new self();
         if (isset($map['backendConfig'])) {
             $model->backendConfig = backendConfig::fromMap($map['backendConfig']);
+        }
+
+        if (isset($map['deployConfigs'])) {
+            if (!empty($map['deployConfigs'])) {
+                $model->deployConfigs = [];
+                $n1 = 0;
+                foreach ($map['deployConfigs'] as $item1) {
+                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['description'])) {

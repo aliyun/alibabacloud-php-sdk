@@ -26,6 +26,11 @@ class ListEnvironmentsRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $nameLike;
 
     /**
@@ -46,6 +51,7 @@ class ListEnvironmentsRequest extends Model
         'aliasLike' => 'aliasLike',
         'gatewayId' => 'gatewayId',
         'gatewayNameLike' => 'gatewayNameLike',
+        'gatewayType' => 'gatewayType',
         'nameLike' => 'nameLike',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
@@ -70,6 +76,10 @@ class ListEnvironmentsRequest extends Model
 
         if (null !== $this->gatewayNameLike) {
             $res['gatewayNameLike'] = $this->gatewayNameLike;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['gatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->nameLike) {
@@ -109,6 +119,10 @@ class ListEnvironmentsRequest extends Model
 
         if (isset($map['gatewayNameLike'])) {
             $model->gatewayNameLike = $map['gatewayNameLike'];
+        }
+
+        if (isset($map['gatewayType'])) {
+            $model->gatewayType = $map['gatewayType'];
         }
 
         if (isset($map['nameLike'])) {

@@ -16,6 +16,11 @@ class ListHttpApisRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $keyword;
 
     /**
@@ -89,6 +94,7 @@ class ListHttpApisRequest extends Model
     public $withPolicyConfigs;
     protected $_name = [
         'gatewayId' => 'gatewayId',
+        'gatewayType' => 'gatewayType',
         'keyword' => 'keyword',
         'name' => 'name',
         'pageNumber' => 'pageNumber',
@@ -116,6 +122,10 @@ class ListHttpApisRequest extends Model
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['gatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->keyword) {
@@ -191,6 +201,10 @@ class ListHttpApisRequest extends Model
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['gatewayType'])) {
+            $model->gatewayType = $map['gatewayType'];
         }
 
         if (isset($map['keyword'])) {

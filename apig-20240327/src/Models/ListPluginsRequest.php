@@ -6,8 +6,18 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDomainsRequest extends Model
+class ListPluginsRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $attachResourceId;
+
+    /**
+     * @var string
+     */
+    public $attachResourceType;
+
     /**
      * @var string
      */
@@ -17,11 +27,6 @@ class ListDomainsRequest extends Model
      * @var string
      */
     public $gatewayType;
-
-    /**
-     * @var string
-     */
-    public $nameLike;
 
     /**
      * @var int
@@ -36,14 +41,27 @@ class ListDomainsRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $pluginClassId;
+
+    /**
+     * @var string
+     */
+    public $pluginClassName;
+
+    /**
+     * @var bool
+     */
+    public $withAttachmentInfo;
     protected $_name = [
+        'attachResourceId' => 'attachResourceId',
+        'attachResourceType' => 'attachResourceType',
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
-        'nameLike' => 'nameLike',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
-        'resourceGroupId' => 'resourceGroupId',
+        'pluginClassId' => 'pluginClassId',
+        'pluginClassName' => 'pluginClassName',
+        'withAttachmentInfo' => 'withAttachmentInfo',
     ];
 
     public function validate()
@@ -54,16 +72,20 @@ class ListDomainsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attachResourceId) {
+            $res['attachResourceId'] = $this->attachResourceId;
+        }
+
+        if (null !== $this->attachResourceType) {
+            $res['attachResourceType'] = $this->attachResourceType;
+        }
+
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
-        }
-
-        if (null !== $this->nameLike) {
-            $res['nameLike'] = $this->nameLike;
         }
 
         if (null !== $this->pageNumber) {
@@ -74,8 +96,16 @@ class ListDomainsRequest extends Model
             $res['pageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->pluginClassId) {
+            $res['pluginClassId'] = $this->pluginClassId;
+        }
+
+        if (null !== $this->pluginClassName) {
+            $res['pluginClassName'] = $this->pluginClassName;
+        }
+
+        if (null !== $this->withAttachmentInfo) {
+            $res['withAttachmentInfo'] = $this->withAttachmentInfo;
         }
 
         return $res;
@@ -89,16 +119,20 @@ class ListDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attachResourceId'])) {
+            $model->attachResourceId = $map['attachResourceId'];
+        }
+
+        if (isset($map['attachResourceType'])) {
+            $model->attachResourceType = $map['attachResourceType'];
+        }
+
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
 
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
-        }
-
-        if (isset($map['nameLike'])) {
-            $model->nameLike = $map['nameLike'];
         }
 
         if (isset($map['pageNumber'])) {
@@ -109,8 +143,16 @@ class ListDomainsRequest extends Model
             $model->pageSize = $map['pageSize'];
         }
 
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
+        if (isset($map['pluginClassId'])) {
+            $model->pluginClassId = $map['pluginClassId'];
+        }
+
+        if (isset($map['pluginClassName'])) {
+            $model->pluginClassName = $map['pluginClassName'];
+        }
+
+        if (isset($map['withAttachmentInfo'])) {
+            $model->withAttachmentInfo = $map['withAttachmentInfo'];
         }
 
         return $model;

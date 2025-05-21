@@ -19,6 +19,11 @@ class HttpApiOperationInfo extends Model
     public $createTimestamp;
 
     /**
+     * @var HttpApiDeployConfig[]
+     */
+    public $deployConfigs;
+
+    /**
      * @var string
      */
     public $description;
@@ -62,9 +67,15 @@ class HttpApiOperationInfo extends Model
      * @var HttpApiResponseContract
      */
     public $response;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'authConfig' => 'authConfig',
         'createTimestamp' => 'createTimestamp',
+        'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'enableAuth' => 'enableAuth',
         'method' => 'method',
@@ -74,12 +85,16 @@ class HttpApiOperationInfo extends Model
         'path' => 'path',
         'request' => 'request',
         'response' => 'response',
+        'status' => 'status',
     ];
 
     public function validate()
     {
         if (null !== $this->authConfig) {
             $this->authConfig->validate();
+        }
+        if (\is_array($this->deployConfigs)) {
+            Model::validateArray($this->deployConfigs);
         }
         if (null !== $this->mock) {
             $this->mock->validate();
@@ -102,6 +117,16 @@ class HttpApiOperationInfo extends Model
 
         if (null !== $this->createTimestamp) {
             $res['createTimestamp'] = $this->createTimestamp;
+        }
+
+        if (null !== $this->deployConfigs) {
+            if (\is_array($this->deployConfigs)) {
+                $res['deployConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->deployConfigs as $item1) {
+                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -140,6 +165,10 @@ class HttpApiOperationInfo extends Model
             $res['response'] = null !== $this->response ? $this->response->toArray($noStream) : $this->response;
         }
 
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -157,6 +186,16 @@ class HttpApiOperationInfo extends Model
 
         if (isset($map['createTimestamp'])) {
             $model->createTimestamp = $map['createTimestamp'];
+        }
+
+        if (isset($map['deployConfigs'])) {
+            if (!empty($map['deployConfigs'])) {
+                $model->deployConfigs = [];
+                $n1 = 0;
+                foreach ($map['deployConfigs'] as $item1) {
+                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['description'])) {
@@ -193,6 +232,10 @@ class HttpApiOperationInfo extends Model
 
         if (isset($map['response'])) {
             $model->response = HttpApiResponseContract::fromMap($map['response']);
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

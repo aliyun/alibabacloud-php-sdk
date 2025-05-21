@@ -31,6 +31,11 @@ class CreateDomainRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $http2Option;
 
     /**
@@ -72,6 +77,7 @@ class CreateDomainRequest extends Model
         'certIdentifier' => 'certIdentifier',
         'clientCACert' => 'clientCACert',
         'forceHttps' => 'forceHttps',
+        'gatewayType' => 'gatewayType',
         'http2Option' => 'http2Option',
         'mTLSEnabled' => 'mTLSEnabled',
         'name' => 'name',
@@ -107,6 +113,10 @@ class CreateDomainRequest extends Model
 
         if (null !== $this->forceHttps) {
             $res['forceHttps'] = $this->forceHttps;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['gatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->http2Option) {
@@ -166,6 +176,10 @@ class CreateDomainRequest extends Model
 
         if (isset($map['forceHttps'])) {
             $model->forceHttps = $map['forceHttps'];
+        }
+
+        if (isset($map['gatewayType'])) {
+            $model->gatewayType = $map['gatewayType'];
         }
 
         if (isset($map['http2Option'])) {

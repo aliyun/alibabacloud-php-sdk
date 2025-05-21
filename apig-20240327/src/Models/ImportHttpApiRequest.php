@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest\specOssConfig;
 class ImportHttpApiRequest extends Model
 {
     /**
+     * @var HttpApiDeployConfig
+     */
+    public $deployConfigs;
+
+    /**
      * @var string
      */
     public $description;
@@ -18,6 +23,11 @@ class ImportHttpApiRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $mcpRouteId;
 
     /**
      * @var string
@@ -59,8 +69,10 @@ class ImportHttpApiRequest extends Model
      */
     public $versionConfig;
     protected $_name = [
+        'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'dryRun' => 'dryRun',
+        'mcpRouteId' => 'mcpRouteId',
         'name' => 'name',
         'resourceGroupId' => 'resourceGroupId',
         'specContentBase64' => 'specContentBase64',
@@ -73,6 +85,9 @@ class ImportHttpApiRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->deployConfigs) {
+            $this->deployConfigs->validate();
+        }
         if (null !== $this->specOssConfig) {
             $this->specOssConfig->validate();
         }
@@ -85,12 +100,20 @@ class ImportHttpApiRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->deployConfigs) {
+            $res['deployConfigs'] = null !== $this->deployConfigs ? $this->deployConfigs->toArray($noStream) : $this->deployConfigs;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
 
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->mcpRouteId) {
+            $res['mcpRouteId'] = $this->mcpRouteId;
         }
 
         if (null !== $this->name) {
@@ -136,12 +159,20 @@ class ImportHttpApiRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['deployConfigs'])) {
+            $model->deployConfigs = HttpApiDeployConfig::fromMap($map['deployConfigs']);
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
 
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
+        }
+
+        if (isset($map['mcpRouteId'])) {
+            $model->mcpRouteId = $map['mcpRouteId'];
         }
 
         if (isset($map['name'])) {

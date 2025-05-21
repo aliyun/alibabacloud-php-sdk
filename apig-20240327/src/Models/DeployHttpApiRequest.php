@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\httpApiConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig;
 
 class DeployHttpApiRequest extends Model
 {
+    /**
+     * @var httpApiConfig
+     */
+    public $httpApiConfig;
+
     /**
      * @var restApiConfig
      */
@@ -19,12 +25,16 @@ class DeployHttpApiRequest extends Model
      */
     public $routeId;
     protected $_name = [
+        'httpApiConfig' => 'httpApiConfig',
         'restApiConfig' => 'restApiConfig',
         'routeId' => 'routeId',
     ];
 
     public function validate()
     {
+        if (null !== $this->httpApiConfig) {
+            $this->httpApiConfig->validate();
+        }
         if (null !== $this->restApiConfig) {
             $this->restApiConfig->validate();
         }
@@ -34,6 +44,10 @@ class DeployHttpApiRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->httpApiConfig) {
+            $res['httpApiConfig'] = null !== $this->httpApiConfig ? $this->httpApiConfig->toArray($noStream) : $this->httpApiConfig;
+        }
+
         if (null !== $this->restApiConfig) {
             $res['restApiConfig'] = null !== $this->restApiConfig ? $this->restApiConfig->toArray($noStream) : $this->restApiConfig;
         }
@@ -53,6 +67,10 @@ class DeployHttpApiRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['httpApiConfig'])) {
+            $model->httpApiConfig = httpApiConfig::fromMap($map['httpApiConfig']);
+        }
+
         if (isset($map['restApiConfig'])) {
             $model->restApiConfig = restApiConfig::fromMap($map['restApiConfig']);
         }

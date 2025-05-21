@@ -41,6 +41,16 @@ class items extends Model
     public $gatewayId;
 
     /**
+     * @var string
+     */
+    public $gatewayType;
+
+    /**
+     * @var bool
+     */
+    public $legacy;
+
+    /**
      * @var loadBalancers[]
      */
     public $loadBalancers;
@@ -120,6 +130,8 @@ class items extends Model
         'createTimestamp' => 'createTimestamp',
         'expireTimestamp' => 'expireTimestamp',
         'gatewayId' => 'gatewayId',
+        'gatewayType' => 'gatewayType',
+        'legacy' => 'legacy',
         'loadBalancers' => 'loadBalancers',
         'name' => 'name',
         'replicas' => 'replicas',
@@ -184,6 +196,14 @@ class items extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['gatewayType'] = $this->gatewayType;
+        }
+
+        if (null !== $this->legacy) {
+            $res['legacy'] = $this->legacy;
         }
 
         if (null !== $this->loadBalancers) {
@@ -299,6 +319,14 @@ class items extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['gatewayType'])) {
+            $model->gatewayType = $map['gatewayType'];
+        }
+
+        if (isset($map['legacy'])) {
+            $model->legacy = $map['legacy'];
         }
 
         if (isset($map['loadBalancers'])) {

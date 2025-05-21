@@ -16,9 +16,21 @@ class UndeployHttpApiRequest extends Model
     /**
      * @var string
      */
+    public $gatewayId;
+
+    /**
+     * @var string
+     */
+    public $operationId;
+
+    /**
+     * @var string
+     */
     public $routeId;
     protected $_name = [
         'environmentId' => 'environmentId',
+        'gatewayId' => 'gatewayId',
+        'operationId' => 'operationId',
         'routeId' => 'routeId',
     ];
 
@@ -32,6 +44,14 @@ class UndeployHttpApiRequest extends Model
         $res = [];
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->operationId) {
+            $res['operationId'] = $this->operationId;
         }
 
         if (null !== $this->routeId) {
@@ -51,6 +71,14 @@ class UndeployHttpApiRequest extends Model
         $model = new self();
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['operationId'])) {
+            $model->operationId = $map['operationId'];
         }
 
         if (isset($map['routeId'])) {

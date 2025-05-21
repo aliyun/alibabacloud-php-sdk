@@ -14,6 +14,11 @@ class HttpApiOperation extends Model
     public $authConfig;
 
     /**
+     * @var HttpApiDeployConfig[]
+     */
+    public $deployConfigs;
+
+    /**
      * @var string
      */
     public $description;
@@ -54,6 +59,7 @@ class HttpApiOperation extends Model
     public $response;
     protected $_name = [
         'authConfig' => 'authConfig',
+        'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'enableAuth' => 'enableAuth',
         'method' => 'method',
@@ -68,6 +74,9 @@ class HttpApiOperation extends Model
     {
         if (null !== $this->authConfig) {
             $this->authConfig->validate();
+        }
+        if (\is_array($this->deployConfigs)) {
+            Model::validateArray($this->deployConfigs);
         }
         if (null !== $this->mock) {
             $this->mock->validate();
@@ -86,6 +95,16 @@ class HttpApiOperation extends Model
         $res = [];
         if (null !== $this->authConfig) {
             $res['authConfig'] = null !== $this->authConfig ? $this->authConfig->toArray($noStream) : $this->authConfig;
+        }
+
+        if (null !== $this->deployConfigs) {
+            if (\is_array($this->deployConfigs)) {
+                $res['deployConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->deployConfigs as $item1) {
+                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -133,6 +152,16 @@ class HttpApiOperation extends Model
         $model = new self();
         if (isset($map['authConfig'])) {
             $model->authConfig = AuthConfig::fromMap($map['authConfig']);
+        }
+
+        if (isset($map['deployConfigs'])) {
+            if (!empty($map['deployConfigs'])) {
+                $model->deployConfigs = [];
+                $n1 = 0;
+                foreach ($map['deployConfigs'] as $item1) {
+                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['description'])) {

@@ -14,6 +14,16 @@ class ListHttpApiOperationsRequest extends Model
     public $consumerAuthorizationRuleId;
 
     /**
+     * @var bool
+     */
+    public $forDeploy;
+
+    /**
+     * @var string
+     */
+    public $gatewayId;
+
+    /**
      * @var string
      */
     public $method;
@@ -59,6 +69,8 @@ class ListHttpApiOperationsRequest extends Model
     public $withPluginAttachmentByPluginId;
     protected $_name = [
         'consumerAuthorizationRuleId' => 'consumerAuthorizationRuleId',
+        'forDeploy' => 'forDeploy',
+        'gatewayId' => 'gatewayId',
         'method' => 'method',
         'name' => 'name',
         'nameLike' => 'nameLike',
@@ -80,6 +92,14 @@ class ListHttpApiOperationsRequest extends Model
         $res = [];
         if (null !== $this->consumerAuthorizationRuleId) {
             $res['consumerAuthorizationRuleId'] = $this->consumerAuthorizationRuleId;
+        }
+
+        if (null !== $this->forDeploy) {
+            $res['forDeploy'] = $this->forDeploy;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->method) {
@@ -131,6 +151,14 @@ class ListHttpApiOperationsRequest extends Model
         $model = new self();
         if (isset($map['consumerAuthorizationRuleId'])) {
             $model->consumerAuthorizationRuleId = $map['consumerAuthorizationRuleId'];
+        }
+
+        if (isset($map['forDeploy'])) {
+            $model->forDeploy = $map['forDeploy'];
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
         }
 
         if (isset($map['method'])) {

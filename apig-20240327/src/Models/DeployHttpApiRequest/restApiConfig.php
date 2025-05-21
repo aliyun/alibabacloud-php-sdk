@@ -22,10 +22,22 @@ class restApiConfig extends Model
     /**
      * @var string
      */
+    public $gatewayId;
+
+    /**
+     * @var string[]
+     */
+    public $operationIds;
+
+    /**
+     * @var string
+     */
     public $revisionId;
     protected $_name = [
         'description' => 'description',
         'environment' => 'environment',
+        'gatewayId' => 'gatewayId',
+        'operationIds' => 'operationIds',
         'revisionId' => 'revisionId',
     ];
 
@@ -33,6 +45,9 @@ class restApiConfig extends Model
     {
         if (null !== $this->environment) {
             $this->environment->validate();
+        }
+        if (\is_array($this->operationIds)) {
+            Model::validateArray($this->operationIds);
         }
         parent::validate();
     }
@@ -46,6 +61,20 @@ class restApiConfig extends Model
 
         if (null !== $this->environment) {
             $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->operationIds) {
+            if (\is_array($this->operationIds)) {
+                $res['operationIds'] = [];
+                $n1 = 0;
+                foreach ($this->operationIds as $item1) {
+                    $res['operationIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->revisionId) {
@@ -69,6 +98,20 @@ class restApiConfig extends Model
 
         if (isset($map['environment'])) {
             $model->environment = environment::fromMap($map['environment']);
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['operationIds'])) {
+            if (!empty($map['operationIds'])) {
+                $model->operationIds = [];
+                $n1 = 0;
+                foreach ($map['operationIds'] as $item1) {
+                    $model->operationIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['revisionId'])) {
