@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateRoutineRelatedRecordResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $recordId;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,6 +23,7 @@ class CreateRoutineRelatedRecordResponseBody extends Model
      */
     public $status;
     protected $_name = [
+        'recordId' => 'RecordId',
         'requestId' => 'RequestId',
         'status' => 'Status',
     ];
@@ -30,6 +36,10 @@ class CreateRoutineRelatedRecordResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->recordId) {
+            $res['RecordId'] = $this->recordId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,6 +59,10 @@ class CreateRoutineRelatedRecordResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RecordId'])) {
+            $model->recordId = $map['RecordId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

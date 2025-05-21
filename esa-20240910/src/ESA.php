@@ -102,8 +102,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRouteRequest;
@@ -199,8 +197,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRouteRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRouteRequest;
@@ -248,6 +244,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteLogsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteLogsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataShrinkRequest;
@@ -527,6 +525,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\OpenErServiceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\OpenErServiceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesShrinkRequest;
@@ -4427,75 +4427,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
-     *
-     * @param request - CreateRoutineRelatedRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRoutineRelatedRouteResponse
-     *
-     * @param CreateRoutineRelatedRouteRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateRoutineRelatedRouteResponse
-     */
-    public function createRoutineRelatedRouteWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->byPass) {
-            @$body['ByPass'] = $request->byPass;
-        }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
-        }
-
-        if (null !== $request->route) {
-            @$body['Route'] = $request->route;
-        }
-
-        if (null !== $request->siteId) {
-            @$body['SiteId'] = $request->siteId;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'CreateRoutineRelatedRoute',
-            'version' => '2024-09-10',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
-     *
-     * @param request - CreateRoutineRelatedRouteRequest
-     *
-     * @returns CreateRoutineRelatedRouteResponse
-     *
-     * @param CreateRoutineRelatedRouteRequest $request
-     *
-     * @return CreateRoutineRelatedRouteResponse
-     */
-    public function createRoutineRelatedRoute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRoutineRelatedRouteWithOptions($request, $runtime);
-    }
-
-    /**
      * 新增边缘函数路由配置.
      *
      * @param request - CreateRoutineRouteRequest
@@ -7584,75 +7515,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a route that is associated with a routine.
-     *
-     * @param request - DeleteRoutineRelatedRouteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteRoutineRelatedRouteResponse
-     *
-     * @param DeleteRoutineRelatedRouteRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteRoutineRelatedRouteResponse
-     */
-    public function deleteRoutineRelatedRouteWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
-        }
-
-        if (null !== $request->route) {
-            @$body['Route'] = $request->route;
-        }
-
-        if (null !== $request->routeId) {
-            @$body['RouteId'] = $request->routeId;
-        }
-
-        if (null !== $request->siteId) {
-            @$body['SiteId'] = $request->siteId;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteRoutineRelatedRoute',
-            'version' => '2024-09-10',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DeleteRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Deletes a route that is associated with a routine.
-     *
-     * @param request - DeleteRoutineRelatedRouteRequest
-     *
-     * @returns DeleteRoutineRelatedRouteResponse
-     *
-     * @param DeleteRoutineRelatedRouteRequest $request
-     *
-     * @return DeleteRoutineRelatedRouteResponse
-     */
-    public function deleteRoutineRelatedRoute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRoutineRelatedRouteWithOptions($request, $runtime);
-    }
-
-    /**
      * 删除边缘函数路由配置.
      *
      * @param request - DeleteRoutineRouteRequest
@@ -9038,6 +8900,79 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRatePlanInstanceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点离线日志.
+     *
+     * @param request - DescribeSiteLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteLogsResponse
+     *
+     * @param DescribeSiteLogsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeSiteLogsResponse
+     */
+    public function describeSiteLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSiteLogs',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSiteLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点离线日志.
+     *
+     * @param request - DescribeSiteLogsRequest
+     *
+     * @returns DescribeSiteLogsResponse
+     *
+     * @param DescribeSiteLogsRequest $request
+     *
+     * @return DescribeSiteLogsResponse
+     */
+    public function describeSiteLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSiteLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -16908,6 +16843,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * OpenErService.
+     *
+     * @param request - OpenErServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenErServiceResponse
+     *
+     * @param OpenErServiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return OpenErServiceResponse
+     */
+    public function openErServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OpenErService',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenErServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * OpenErService.
+     *
+     * @param request - OpenErServiceRequest
+     *
+     * @returns OpenErServiceResponse
+     *
+     * @param OpenErServiceRequest $request
+     *
+     * @return OpenErServiceResponse
+     */
+    public function openErService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openErServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Prefetches cache.
      *
      * @param tmpReq - PreloadCachesRequest
@@ -20085,6 +20081,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->addRealClientIpHeader) {
             @$query['AddRealClientIpHeader'] = $request->addRealClientIpHeader;
+        }
+
+        if (null !== $request->realClientIpHeaderName) {
+            @$query['RealClientIpHeaderName'] = $request->realClientIpHeaderName;
         }
 
         if (null !== $request->siteId) {

@@ -21,6 +21,11 @@ class GetManagedTransformResponseBody extends Model
     /**
      * @var string
      */
+    public $realClientIpHeaderName;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -30,6 +35,7 @@ class GetManagedTransformResponseBody extends Model
     protected $_name = [
         'addClientGeolocationHeader' => 'AddClientGeolocationHeader',
         'addRealClientIpHeader' => 'AddRealClientIpHeader',
+        'realClientIpHeaderName' => 'RealClientIpHeaderName',
         'requestId' => 'RequestId',
         'siteVersion' => 'SiteVersion',
     ];
@@ -48,6 +54,10 @@ class GetManagedTransformResponseBody extends Model
 
         if (null !== $this->addRealClientIpHeader) {
             $res['AddRealClientIpHeader'] = $this->addRealClientIpHeader;
+        }
+
+        if (null !== $this->realClientIpHeaderName) {
+            $res['RealClientIpHeaderName'] = $this->realClientIpHeaderName;
         }
 
         if (null !== $this->requestId) {
@@ -75,6 +85,10 @@ class GetManagedTransformResponseBody extends Model
 
         if (isset($map['AddRealClientIpHeader'])) {
             $model->addRealClientIpHeader = $map['AddRealClientIpHeader'];
+        }
+
+        if (isset($map['RealClientIpHeaderName'])) {
+            $model->realClientIpHeaderName = $map['RealClientIpHeaderName'];
         }
 
         if (isset($map['RequestId'])) {

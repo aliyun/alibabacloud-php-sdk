@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteRoutineRelatedRouteResponse extends Model
+class OpenErServiceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteRoutineRelatedRouteResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteRoutineRelatedRouteResponseBody
+     * @var OpenErServiceResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DeleteRoutineRelatedRouteResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DeleteRoutineRelatedRouteResponseBody::fromMap($map['body']);
+            $model->body = OpenErServiceResponseBody::fromMap($map['body']);
         }
 
         return $model;

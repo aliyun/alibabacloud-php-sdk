@@ -19,6 +19,11 @@ class UpdateManagedTransformRequest extends Model
     public $addRealClientIpHeader;
 
     /**
+     * @var string
+     */
+    public $realClientIpHeaderName;
+
+    /**
      * @var int
      */
     public $siteId;
@@ -30,6 +35,7 @@ class UpdateManagedTransformRequest extends Model
     protected $_name = [
         'addClientGeolocationHeader' => 'AddClientGeolocationHeader',
         'addRealClientIpHeader' => 'AddRealClientIpHeader',
+        'realClientIpHeaderName' => 'RealClientIpHeaderName',
         'siteId' => 'SiteId',
         'siteVersion' => 'SiteVersion',
     ];
@@ -48,6 +54,10 @@ class UpdateManagedTransformRequest extends Model
 
         if (null !== $this->addRealClientIpHeader) {
             $res['AddRealClientIpHeader'] = $this->addRealClientIpHeader;
+        }
+
+        if (null !== $this->realClientIpHeaderName) {
+            $res['RealClientIpHeaderName'] = $this->realClientIpHeaderName;
         }
 
         if (null !== $this->siteId) {
@@ -75,6 +85,10 @@ class UpdateManagedTransformRequest extends Model
 
         if (isset($map['AddRealClientIpHeader'])) {
             $model->addRealClientIpHeader = $map['AddRealClientIpHeader'];
+        }
+
+        if (isset($map['RealClientIpHeaderName'])) {
+            $model->realClientIpHeaderName = $map['RealClientIpHeaderName'];
         }
 
         if (isset($map['SiteId'])) {
