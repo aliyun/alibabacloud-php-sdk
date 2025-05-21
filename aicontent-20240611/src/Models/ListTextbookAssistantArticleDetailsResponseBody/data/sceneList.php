@@ -26,12 +26,12 @@ class sceneList extends Model
     /**
      * @var string
      */
-    public $sceneTransLate;
+    public $sceneTranslate;
     protected $_name = [
         'scene' => 'scene',
         'sceneId' => 'sceneId',
         'sceneImageList' => 'sceneImageList',
-        'sceneTransLate' => 'sceneTransLate',
+        'sceneTranslate' => 'sceneTranslate',
     ];
 
     public function validate()
@@ -63,8 +63,8 @@ class sceneList extends Model
             }
         }
 
-        if (null !== $this->sceneTransLate) {
-            $res['sceneTransLate'] = $this->sceneTransLate;
+        if (null !== $this->sceneTranslate) {
+            $res['sceneTranslate'] = $this->sceneTranslate;
         }
 
         return $res;
@@ -96,8 +96,8 @@ class sceneList extends Model
             }
         }
 
-        if (isset($map['sceneTransLate'])) {
-            $model->sceneTransLate = $map['sceneTransLate'];
+        if (isset($map['sceneTranslate'])) {
+            $model->sceneTranslate = $map['sceneTranslate'];
         }
 
         return $model;

@@ -40,6 +40,11 @@ class data extends Model
     public $sceneTaskList;
 
     /**
+     * @var string
+     */
+    public $sceneTranslate;
+
+    /**
      * @var sentenceList[]
      */
     public $sentenceList;
@@ -69,6 +74,7 @@ class data extends Model
         'sceneId' => 'sceneId',
         'sceneImageList' => 'sceneImageList',
         'sceneTaskList' => 'sceneTaskList',
+        'sceneTranslate' => 'sceneTranslate',
         'sentenceList' => 'sentenceList',
         'target' => 'target',
         'theme' => 'theme',
@@ -141,6 +147,10 @@ class data extends Model
                     $res['sceneTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->sceneTranslate) {
+            $res['sceneTranslate'] = $this->sceneTranslate;
         }
 
         if (null !== $this->sentenceList) {
@@ -222,6 +232,10 @@ class data extends Model
                     $model->sceneTaskList[$n1++] = sceneTaskList::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['sceneTranslate'])) {
+            $model->sceneTranslate = $map['sceneTranslate'];
         }
 
         if (isset($map['sentenceList'])) {

@@ -2,14 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponseBody\data;
+namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponseBody\data\directoryTree\unit;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponseBody\data\directoryTree\topic;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponseBody\data\directoryTree\unit;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponseBody\data\directoryTree\unit\section\topic;
 
-class directoryTree extends Model
+class section extends Model
 {
+    /**
+     * @var mixed
+     */
+    public $children;
+
     /**
      * @var string
      */
@@ -24,16 +28,11 @@ class directoryTree extends Model
      * @var topic[]
      */
     public $topic;
-
-    /**
-     * @var unit[]
-     */
-    public $unit;
     protected $_name = [
+        'children' => 'children',
         'directoryId' => 'directoryId',
         'directoryName' => 'directoryName',
         'topic' => 'topic',
-        'unit' => 'unit',
     ];
 
     public function validate()
@@ -41,15 +40,16 @@ class directoryTree extends Model
         if (\is_array($this->topic)) {
             Model::validateArray($this->topic);
         }
-        if (\is_array($this->unit)) {
-            Model::validateArray($this->unit);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->children) {
+            $res['children'] = $this->children;
+        }
+
         if (null !== $this->directoryId) {
             $res['directoryId'] = $this->directoryId;
         }
@@ -68,16 +68,6 @@ class directoryTree extends Model
             }
         }
 
-        if (null !== $this->unit) {
-            if (\is_array($this->unit)) {
-                $res['unit'] = [];
-                $n1 = 0;
-                foreach ($this->unit as $item1) {
-                    $res['unit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
         return $res;
     }
 
@@ -89,6 +79,10 @@ class directoryTree extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['children'])) {
+            $model->children = $map['children'];
+        }
+
         if (isset($map['directoryId'])) {
             $model->directoryId = $map['directoryId'];
         }
@@ -103,16 +97,6 @@ class directoryTree extends Model
                 $n1 = 0;
                 foreach ($map['topic'] as $item1) {
                     $model->topic[$n1++] = topic::fromMap($item1);
-                }
-            }
-        }
-
-        if (isset($map['unit'])) {
-            if (!empty($map['unit'])) {
-                $model->unit = [];
-                $n1 = 0;
-                foreach ($map['unit'] as $item1) {
-                    $model->unit[$n1++] = unit::fromMap($item1);
                 }
             }
         }
