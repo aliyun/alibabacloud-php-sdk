@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByFlowIdRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByFlowIdResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByTemplateIdRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetNodeByTemplateIdResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\GetPlatformUserInfoForPartnerRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\GetPlatformUserInfoForPartnerResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetProxyByTypeRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetProxyByTypeResponse;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\GetRedisValueRequest;
@@ -627,6 +629,71 @@ class Mseap extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNodeByTemplateIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 合作伙伴获取用户跨平台信息.
+     *
+     * @param request - GetPlatformUserInfoForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPlatformUserInfoForPartnerResponse
+     *
+     * @param GetPlatformUserInfoForPartnerRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetPlatformUserInfoForPartnerResponse
+     */
+    public function getPlatformUserInfoForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->platformType) {
+            @$query['PlatformType'] = $request->platformType;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPlatformUserInfoForPartner',
+            'version' => '2021-01-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPlatformUserInfoForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 合作伙伴获取用户跨平台信息.
+     *
+     * @param request - GetPlatformUserInfoForPartnerRequest
+     *
+     * @returns GetPlatformUserInfoForPartnerResponse
+     *
+     * @param GetPlatformUserInfoForPartnerRequest $request
+     *
+     * @return GetPlatformUserInfoForPartnerResponse
+     */
+    public function getPlatformUserInfoForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPlatformUserInfoForPartnerWithOptions($request, $runtime);
     }
 
     /**
