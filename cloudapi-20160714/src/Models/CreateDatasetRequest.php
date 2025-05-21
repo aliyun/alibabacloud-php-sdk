@@ -22,6 +22,11 @@ class CreateDatasetRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
@@ -31,6 +36,7 @@ class CreateDatasetRequest extends Model
     protected $_name = [
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
+        'description' => 'Description',
         'securityToken' => 'SecurityToken',
         'tag' => 'Tag',
     ];
@@ -52,6 +58,10 @@ class CreateDatasetRequest extends Model
 
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->securityToken) {
@@ -85,6 +95,10 @@ class CreateDatasetRequest extends Model
 
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['SecurityToken'])) {

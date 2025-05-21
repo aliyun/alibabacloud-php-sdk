@@ -2109,6 +2109,10 @@ class CloudAPI extends OpenApiClient
             @$query['DatasetType'] = $request->datasetType;
         }
 
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }
@@ -13412,6 +13416,10 @@ class CloudAPI extends OpenApiClient
 
         if (null !== $request->datasetName) {
             @$query['DatasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
         if (null !== $request->securityToken) {

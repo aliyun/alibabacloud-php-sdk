@@ -32,6 +32,11 @@ class datasetInfoList extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $modifiedTime;
 
     /**
@@ -43,6 +48,7 @@ class datasetInfoList extends Model
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
+        'description' => 'Description',
         'modifiedTime' => 'ModifiedTime',
         'tags' => 'Tags',
     ];
@@ -72,6 +78,10 @@ class datasetInfoList extends Model
 
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->modifiedTime) {
@@ -113,6 +123,10 @@ class datasetInfoList extends Model
 
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['ModifiedTime'])) {

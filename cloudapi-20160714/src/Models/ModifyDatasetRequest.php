@@ -21,10 +21,16 @@ class ModifyDatasetRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $securityToken;
     protected $_name = [
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
+        'description' => 'Description',
         'securityToken' => 'SecurityToken',
     ];
 
@@ -42,6 +48,10 @@ class ModifyDatasetRequest extends Model
 
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->securityToken) {
@@ -65,6 +75,10 @@ class ModifyDatasetRequest extends Model
 
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['SecurityToken'])) {

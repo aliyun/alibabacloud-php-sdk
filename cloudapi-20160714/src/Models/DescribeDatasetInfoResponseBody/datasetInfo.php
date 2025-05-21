@@ -31,12 +31,18 @@ class datasetInfo extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $modifiedTime;
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
+        'description' => 'Description',
         'modifiedTime' => 'ModifiedTime',
     ];
 
@@ -62,6 +68,10 @@ class datasetInfo extends Model
 
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->modifiedTime) {
@@ -93,6 +103,10 @@ class datasetInfo extends Model
 
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['ModifiedTime'])) {
