@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends Model
 {
@@ -19,8 +19,6 @@ class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends Model
     public $fileName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $fileUrl;
@@ -42,23 +40,30 @@ class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customExtractionRangeShrink) {
             $res['CustomExtractionRange'] = $this->customExtractionRangeShrink;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
+
         if (null !== $this->option) {
             $res['Option'] = $this->option;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -66,26 +71,30 @@ class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AyncTradeDocumentPackageExtractSmartAppShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomExtractionRange'])) {
             $model->customExtractionRangeShrink = $map['CustomExtractionRange'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
+
         if (isset($map['Option'])) {
             $model->option = $map['Option'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

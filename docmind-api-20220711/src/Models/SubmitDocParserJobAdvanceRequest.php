@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class SubmitDocParserJobAdvanceRequest extends Model
 {
     /**
-     * @example docStructure.pdf
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example pdf
-     *
      * @var string
      */
     public $fileNameExtension;
 
     /**
-     * @example https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-     *
      * @var Stream
      */
     public $fileUrlObject;
@@ -43,80 +37,123 @@ class SubmitDocParserJobAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $option;
+
+    /**
+     * @var string
+     */
     public $ossBucket;
 
     /**
      * @var string
      */
     public $ossEndpoint;
+
+    /**
+     * @var string
+     */
+    public $pageIndex;
     protected $_name = [
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrlObject' => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
         'llmEnhancement' => 'LlmEnhancement',
+        'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'pageIndex' => 'PageIndex',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileNameExtension) {
             $res['FileNameExtension'] = $this->fileNameExtension;
         }
+
         if (null !== $this->fileUrlObject) {
             $res['FileUrl'] = $this->fileUrlObject;
         }
+
         if (null !== $this->formulaEnhancement) {
             $res['FormulaEnhancement'] = $this->formulaEnhancement;
         }
+
         if (null !== $this->llmEnhancement) {
             $res['LlmEnhancement'] = $this->llmEnhancement;
         }
+
+        if (null !== $this->option) {
+            $res['Option'] = $this->option;
+        }
+
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
+
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitDocParserJobAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileNameExtension'])) {
             $model->fileNameExtension = $map['FileNameExtension'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrlObject = $map['FileUrl'];
         }
+
         if (isset($map['FormulaEnhancement'])) {
             $model->formulaEnhancement = $map['FormulaEnhancement'];
         }
+
         if (isset($map['LlmEnhancement'])) {
             $model->llmEnhancement = $map['LlmEnhancement'];
         }
+
+        if (isset($map['Option'])) {
+            $model->option = $map['Option'];
+        }
+
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
+
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
 
         return $model;

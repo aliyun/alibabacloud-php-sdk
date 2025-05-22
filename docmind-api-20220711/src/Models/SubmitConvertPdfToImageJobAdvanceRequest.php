@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class SubmitConvertPdfToImageJobAdvanceRequest extends Model
 {
     /**
-     * @example convertPdfToImage.pdf
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-     *
      * @var Stream
      */
     public $fileUrlObject;
@@ -39,20 +35,26 @@ class SubmitConvertPdfToImageJobAdvanceRequest extends Model
         'ossEndpoint' => 'OssEndpoint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileUrlObject) {
             $res['FileUrl'] = $this->fileUrlObject;
         }
+
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
+
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
         }
@@ -60,23 +62,26 @@ class SubmitConvertPdfToImageJobAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitConvertPdfToImageJobAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrlObject = $map['FileUrl'];
         }
+
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
+
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
         }

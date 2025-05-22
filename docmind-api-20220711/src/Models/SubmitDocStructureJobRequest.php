@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitDocStructureJobRequest extends Model
 {
@@ -14,22 +14,16 @@ class SubmitDocStructureJobRequest extends Model
     public $allowPptFormat;
 
     /**
-     * @example docStructure.pdf
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example pdf
-     *
      * @var string
      */
     public $fileNameExtension;
 
     /**
-     * @example https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-     *
      * @var string
      */
     public $fileUrl;
@@ -52,6 +46,11 @@ class SubmitDocStructureJobRequest extends Model
     /**
      * @var string
      */
+    public $pageIndex;
+
+    /**
+     * @var string
+     */
     public $structureType;
     protected $_name = [
         'allowPptFormat' => 'AllowPptFormat',
@@ -61,35 +60,50 @@ class SubmitDocStructureJobRequest extends Model
         'formulaEnhancement' => 'FormulaEnhancement',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'pageIndex' => 'PageIndex',
         'structureType' => 'StructureType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowPptFormat) {
             $res['AllowPptFormat'] = $this->allowPptFormat;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileNameExtension) {
             $res['FileNameExtension'] = $this->fileNameExtension;
         }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
+
         if (null !== $this->formulaEnhancement) {
             $res['FormulaEnhancement'] = $this->formulaEnhancement;
         }
+
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
+
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
         }
+
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
+        }
+
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
         }
@@ -97,35 +111,46 @@ class SubmitDocStructureJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitDocStructureJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowPptFormat'])) {
             $model->allowPptFormat = $map['AllowPptFormat'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileNameExtension'])) {
             $model->fileNameExtension = $map['FileNameExtension'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
+
         if (isset($map['FormulaEnhancement'])) {
             $model->formulaEnhancement = $map['FormulaEnhancement'];
         }
+
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
+
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
         }
+
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
+        }
+
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];
         }
