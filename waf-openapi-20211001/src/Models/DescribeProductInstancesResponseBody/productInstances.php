@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponseBody\productInstances\accessPortAndProtocols;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponseBody\productInstances\resourcePorts;
 
 class productInstances extends Model
@@ -12,7 +13,32 @@ class productInstances extends Model
     /**
      * @var string
      */
+    public $accessInstanceId;
+
+    /**
+     * @var accessPortAndProtocols[]
+     */
+    public $accessPortAndProtocols;
+
+    /**
+     * @var int[]
+     */
+    public $accessPorts;
+
+    /**
+     * @var string
+     */
     public $ownerUserId;
+
+    /**
+     * @var string
+     */
+    public $resourceInstanceAccessStatus;
+
+    /**
+     * @var string
+     */
+    public $resourceInstanceEdition;
 
     /**
      * @var string
@@ -54,7 +80,12 @@ class productInstances extends Model
      */
     public $resourceRegionId;
     protected $_name = [
+        'accessInstanceId' => 'AccessInstanceId',
+        'accessPortAndProtocols' => 'AccessPortAndProtocols',
+        'accessPorts' => 'AccessPorts',
         'ownerUserId' => 'OwnerUserId',
+        'resourceInstanceAccessStatus' => 'ResourceInstanceAccessStatus',
+        'resourceInstanceEdition' => 'ResourceInstanceEdition',
         'resourceInstanceId' => 'ResourceInstanceId',
         'resourceInstanceIp' => 'ResourceInstanceIp',
         'resourceInstanceName' => 'ResourceInstanceName',
@@ -67,6 +98,12 @@ class productInstances extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessPortAndProtocols)) {
+            Model::validateArray($this->accessPortAndProtocols);
+        }
+        if (\is_array($this->accessPorts)) {
+            Model::validateArray($this->accessPorts);
+        }
         if (\is_array($this->resourcePorts)) {
             Model::validateArray($this->resourcePorts);
         }
@@ -76,8 +113,40 @@ class productInstances extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessInstanceId) {
+            $res['AccessInstanceId'] = $this->accessInstanceId;
+        }
+
+        if (null !== $this->accessPortAndProtocols) {
+            if (\is_array($this->accessPortAndProtocols)) {
+                $res['AccessPortAndProtocols'] = [];
+                $n1 = 0;
+                foreach ($this->accessPortAndProtocols as $item1) {
+                    $res['AccessPortAndProtocols'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->accessPorts) {
+            if (\is_array($this->accessPorts)) {
+                $res['AccessPorts'] = [];
+                $n1 = 0;
+                foreach ($this->accessPorts as $item1) {
+                    $res['AccessPorts'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->ownerUserId) {
             $res['OwnerUserId'] = $this->ownerUserId;
+        }
+
+        if (null !== $this->resourceInstanceAccessStatus) {
+            $res['ResourceInstanceAccessStatus'] = $this->resourceInstanceAccessStatus;
+        }
+
+        if (null !== $this->resourceInstanceEdition) {
+            $res['ResourceInstanceEdition'] = $this->resourceInstanceEdition;
         }
 
         if (null !== $this->resourceInstanceId) {
@@ -129,8 +198,40 @@ class productInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessInstanceId'])) {
+            $model->accessInstanceId = $map['AccessInstanceId'];
+        }
+
+        if (isset($map['AccessPortAndProtocols'])) {
+            if (!empty($map['AccessPortAndProtocols'])) {
+                $model->accessPortAndProtocols = [];
+                $n1 = 0;
+                foreach ($map['AccessPortAndProtocols'] as $item1) {
+                    $model->accessPortAndProtocols[$n1++] = accessPortAndProtocols::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['AccessPorts'])) {
+            if (!empty($map['AccessPorts'])) {
+                $model->accessPorts = [];
+                $n1 = 0;
+                foreach ($map['AccessPorts'] as $item1) {
+                    $model->accessPorts[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['OwnerUserId'])) {
             $model->ownerUserId = $map['OwnerUserId'];
+        }
+
+        if (isset($map['ResourceInstanceAccessStatus'])) {
+            $model->resourceInstanceAccessStatus = $map['ResourceInstanceAccessStatus'];
+        }
+
+        if (isset($map['ResourceInstanceEdition'])) {
+            $model->resourceInstanceEdition = $map['ResourceInstanceEdition'];
         }
 
         if (isset($map['ResourceInstanceId'])) {

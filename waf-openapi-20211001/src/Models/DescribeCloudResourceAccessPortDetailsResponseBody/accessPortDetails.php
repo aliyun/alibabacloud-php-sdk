@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAcce
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsResponseBody\accessPortDetails\certificates;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsResponseBody\accessPortDetails\logHeaders;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsResponseBody\accessPortDetails\subStatusDetails;
 
 class accessPortDetails extends Model
 {
@@ -83,6 +84,16 @@ class accessPortDetails extends Model
     /**
      * @var string
      */
+    public $subStatus;
+
+    /**
+     * @var subStatusDetails[]
+     */
+    public $subStatusDetails;
+
+    /**
+     * @var string
+     */
     public $TLSVersion;
 
     /**
@@ -119,6 +130,8 @@ class accessPortDetails extends Model
         'protocol' => 'Protocol',
         'readTimeout' => 'ReadTimeout',
         'status' => 'Status',
+        'subStatus' => 'SubStatus',
+        'subStatusDetails' => 'SubStatusDetails',
         'TLSVersion' => 'TLSVersion',
         'writeTimeout' => 'WriteTimeout',
         'xffHeaderMode' => 'XffHeaderMode',
@@ -136,6 +149,9 @@ class accessPortDetails extends Model
         }
         if (\is_array($this->logHeaders)) {
             Model::validateArray($this->logHeaders);
+        }
+        if (\is_array($this->subStatusDetails)) {
+            Model::validateArray($this->subStatusDetails);
         }
         if (\is_array($this->xffHeaders)) {
             Model::validateArray($this->xffHeaders);
@@ -218,6 +234,20 @@ class accessPortDetails extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->subStatus) {
+            $res['SubStatus'] = $this->subStatus;
+        }
+
+        if (null !== $this->subStatusDetails) {
+            if (\is_array($this->subStatusDetails)) {
+                $res['SubStatusDetails'] = [];
+                $n1 = 0;
+                foreach ($this->subStatusDetails as $item1) {
+                    $res['SubStatusDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->TLSVersion) {
@@ -329,6 +359,20 @@ class accessPortDetails extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SubStatus'])) {
+            $model->subStatus = $map['SubStatus'];
+        }
+
+        if (isset($map['SubStatusDetails'])) {
+            if (!empty($map['SubStatusDetails'])) {
+                $model->subStatusDetails = [];
+                $n1 = 0;
+                foreach ($map['SubStatusDetails'] as $item1) {
+                    $model->subStatusDetails[$n1++] = subStatusDetails::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['TLSVersion'])) {

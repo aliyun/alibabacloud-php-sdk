@@ -7228,6 +7228,10 @@ class Wafopenapi extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceInstanceAccessStatus) {
+            @$query['ResourceInstanceAccessStatus'] = $request->resourceInstanceAccessStatus;
+        }
+
         if (null !== $request->resourceInstanceId) {
             @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
