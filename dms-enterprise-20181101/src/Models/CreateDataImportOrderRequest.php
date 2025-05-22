@@ -25,6 +25,11 @@ class CreateDataImportOrderRequest extends Model
     public $param;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @var int[]
      */
     public $relatedUserList;
@@ -37,6 +42,7 @@ class CreateDataImportOrderRequest extends Model
         'attachmentKey' => 'AttachmentKey',
         'comment' => 'Comment',
         'param' => 'Param',
+        'realLoginUserUid' => 'RealLoginUserUid',
         'relatedUserList' => 'RelatedUserList',
         'tid' => 'Tid',
     ];
@@ -65,6 +71,10 @@ class CreateDataImportOrderRequest extends Model
 
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toArray($noStream) : $this->param;
+        }
+
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
 
         if (null !== $this->relatedUserList) {
@@ -102,6 +112,10 @@ class CreateDataImportOrderRequest extends Model
 
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
+        }
+
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
 
         if (isset($map['RelatedUserList'])) {

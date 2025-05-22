@@ -2762,6 +2762,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['Param'] = $request->paramShrink;
         }
 
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
+
         if (null !== $request->relatedUserListShrink) {
             @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }

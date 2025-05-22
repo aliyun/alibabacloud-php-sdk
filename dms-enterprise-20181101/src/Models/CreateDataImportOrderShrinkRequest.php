@@ -26,6 +26,11 @@ class CreateDataImportOrderShrinkRequest extends Model
     /**
      * @var string
      */
+    public $realLoginUserUid;
+
+    /**
+     * @var string
+     */
     public $relatedUserListShrink;
 
     /**
@@ -36,6 +41,7 @@ class CreateDataImportOrderShrinkRequest extends Model
         'attachmentKey' => 'AttachmentKey',
         'comment' => 'Comment',
         'paramShrink' => 'Param',
+        'realLoginUserUid' => 'RealLoginUserUid',
         'relatedUserListShrink' => 'RelatedUserList',
         'tid' => 'Tid',
     ];
@@ -58,6 +64,10 @@ class CreateDataImportOrderShrinkRequest extends Model
 
         if (null !== $this->paramShrink) {
             $res['Param'] = $this->paramShrink;
+        }
+
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
 
         if (null !== $this->relatedUserListShrink) {
@@ -89,6 +99,10 @@ class CreateDataImportOrderShrinkRequest extends Model
 
         if (isset($map['Param'])) {
             $model->paramShrink = $map['Param'];
+        }
+
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
 
         if (isset($map['RelatedUserList'])) {
