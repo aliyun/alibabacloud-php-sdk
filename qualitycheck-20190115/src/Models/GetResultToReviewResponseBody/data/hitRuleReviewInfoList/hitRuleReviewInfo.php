@@ -32,6 +32,16 @@ class hitRuleReviewInfo extends Model
     public $conditionHitInfoList;
 
     /**
+     * @var int
+     */
+    public $machineHitResult;
+
+    /**
+     * @var int
+     */
+    public $reviewHitResult;
+
+    /**
      * @var reviewInfo
      */
     public $reviewInfo;
@@ -70,6 +80,8 @@ class hitRuleReviewInfo extends Model
         'complainHistories' => 'ComplainHistories',
         'complainable' => 'Complainable',
         'conditionHitInfoList' => 'ConditionHitInfoList',
+        'machineHitResult' => 'MachineHitResult',
+        'reviewHitResult' => 'ReviewHitResult',
         'reviewInfo' => 'ReviewInfo',
         'rid' => 'Rid',
         'ruleName' => 'RuleName',
@@ -110,6 +122,14 @@ class hitRuleReviewInfo extends Model
 
         if (null !== $this->conditionHitInfoList) {
             $res['ConditionHitInfoList'] = null !== $this->conditionHitInfoList ? $this->conditionHitInfoList->toArray($noStream) : $this->conditionHitInfoList;
+        }
+
+        if (null !== $this->machineHitResult) {
+            $res['MachineHitResult'] = $this->machineHitResult;
+        }
+
+        if (null !== $this->reviewHitResult) {
+            $res['ReviewHitResult'] = $this->reviewHitResult;
         }
 
         if (null !== $this->reviewInfo) {
@@ -165,6 +185,14 @@ class hitRuleReviewInfo extends Model
 
         if (isset($map['ConditionHitInfoList'])) {
             $model->conditionHitInfoList = conditionHitInfoList::fromMap($map['ConditionHitInfoList']);
+        }
+
+        if (isset($map['MachineHitResult'])) {
+            $model->machineHitResult = $map['MachineHitResult'];
+        }
+
+        if (isset($map['ReviewHitResult'])) {
+            $model->reviewHitResult = $map['ReviewHitResult'];
         }
 
         if (isset($map['ReviewInfo'])) {

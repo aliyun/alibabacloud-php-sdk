@@ -24,6 +24,11 @@ class keyWord extends Model
     public $from;
 
     /**
+     * @var bool
+     */
+    public $isMatch;
+
+    /**
      * @var int
      */
     public $pid;
@@ -46,6 +51,7 @@ class keyWord extends Model
         'cid' => 'Cid',
         'customizeCode' => 'CustomizeCode',
         'from' => 'From',
+        'isMatch' => 'IsMatch',
         'pid' => 'Pid',
         'tid' => 'Tid',
         'to' => 'To',
@@ -70,6 +76,10 @@ class keyWord extends Model
 
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+
+        if (null !== $this->isMatch) {
+            $res['IsMatch'] = $this->isMatch;
         }
 
         if (null !== $this->pid) {
@@ -109,6 +119,10 @@ class keyWord extends Model
 
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+
+        if (isset($map['IsMatch'])) {
+            $model->isMatch = $map['IsMatch'];
         }
 
         if (isset($map['Pid'])) {
