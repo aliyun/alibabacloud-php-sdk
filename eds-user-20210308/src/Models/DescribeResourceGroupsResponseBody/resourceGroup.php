@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup\appRules;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup\policies;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody\resourceGroup\timers;
 
 class resourceGroup extends Model
 {
+    /**
+     * @var appRules[]
+     */
+    public $appRules;
+
     /**
      * @var string
      */
@@ -45,6 +51,7 @@ class resourceGroup extends Model
      */
     public $timers;
     protected $_name = [
+        'appRules' => 'AppRules',
         'authCount' => 'AuthCount',
         'createTime' => 'CreateTime',
         'policies' => 'Policies',
@@ -56,6 +63,9 @@ class resourceGroup extends Model
 
     public function validate()
     {
+        if (\is_array($this->appRules)) {
+            Model::validateArray($this->appRules);
+        }
         if (\is_array($this->policies)) {
             Model::validateArray($this->policies);
         }
@@ -68,6 +78,16 @@ class resourceGroup extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appRules) {
+            if (\is_array($this->appRules)) {
+                $res['AppRules'] = [];
+                $n1 = 0;
+                foreach ($this->appRules as $item1) {
+                    $res['AppRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->authCount) {
             $res['AuthCount'] = $this->authCount;
         }
@@ -119,6 +139,16 @@ class resourceGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppRules'])) {
+            if (!empty($map['AppRules'])) {
+                $model->appRules = [];
+                $n1 = 0;
+                foreach ($map['AppRules'] as $item1) {
+                    $model->appRules[$n1++] = appRules::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['AuthCount'])) {
             $model->authCount = $map['AuthCount'];
         }

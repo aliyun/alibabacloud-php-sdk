@@ -630,7 +630,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 删除资源组.
+     * Deletes a resource group.
      *
      * @param request - DeleteResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -673,7 +673,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 删除资源组.
+     * Deletes a resource group.
      *
      * @param request - DeleteResourceGroupRequest
      *

@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsRespon
 
 use AlibabaCloud\Dara\Model;
 
-class timers extends Model
+class appRules extends Model
 {
-    /**
-     * @var string
-     */
-    public $bindStatus;
-
     /**
      * @var string
      */
@@ -24,14 +19,13 @@ class timers extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $timerStatus;
+    public $type;
     protected $_name = [
-        'bindStatus' => 'BindStatus',
         'id' => 'Id',
         'name' => 'Name',
-        'timerStatus' => 'TimerStatus',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -42,10 +36,6 @@ class timers extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bindStatus) {
-            $res['BindStatus'] = $this->bindStatus;
-        }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -54,8 +44,8 @@ class timers extends Model
             $res['Name'] = $this->name;
         }
 
-        if (null !== $this->timerStatus) {
-            $res['TimerStatus'] = $this->timerStatus;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -69,10 +59,6 @@ class timers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BindStatus'])) {
-            $model->bindStatus = $map['BindStatus'];
-        }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -81,8 +67,8 @@ class timers extends Model
             $model->name = $map['Name'];
         }
 
-        if (isset($map['TimerStatus'])) {
-            $model->timerStatus = $map['TimerStatus'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
