@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskR
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\HotNewsRecommendRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\HotNewsRecommendResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListAnalysisTagDetailByTaskIdRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListAnalysisTagDetailByTaskIdResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
@@ -639,6 +641,69 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->getVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 热点新闻推荐.
+     *
+     * @param request - HotNewsRecommendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotNewsRecommendResponse
+     *
+     * @param string                  $workspaceId
+     * @param HotNewsRecommendRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotNewsRecommendResponse
+     */
+    public function hotNewsRecommendWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'HotNewsRecommend',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/hotNewsRecommend',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return HotNewsRecommendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 热点新闻推荐.
+     *
+     * @param request - HotNewsRecommendRequest
+     *
+     * @returns HotNewsRecommendResponse
+     *
+     * @param string                  $workspaceId
+     * @param HotNewsRecommendRequest $request
+     *
+     * @return HotNewsRecommendResponse
+     */
+    public function hotNewsRecommend($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->hotNewsRecommendWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
