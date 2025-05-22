@@ -16,6 +16,11 @@ class vscs extends Model
     /**
      * @var string
      */
+    public $vscName;
+
+    /**
+     * @var string
+     */
     public $vscStatus;
 
     /**
@@ -24,6 +29,7 @@ class vscs extends Model
     public $vscType;
     protected $_name = [
         'vscId' => 'VscId',
+        'vscName' => 'VscName',
         'vscStatus' => 'VscStatus',
         'vscType' => 'VscType',
     ];
@@ -38,6 +44,10 @@ class vscs extends Model
         $res = [];
         if (null !== $this->vscId) {
             $res['VscId'] = $this->vscId;
+        }
+
+        if (null !== $this->vscName) {
+            $res['VscName'] = $this->vscName;
         }
 
         if (null !== $this->vscStatus) {
@@ -61,6 +71,10 @@ class vscs extends Model
         $model = new self();
         if (isset($map['VscId'])) {
             $model->vscId = $map['VscId'];
+        }
+
+        if (isset($map['VscName'])) {
+            $model->vscName = $map['VscName'];
         }
 
         if (isset($map['VscStatus'])) {

@@ -46,6 +46,11 @@ class AttachVscMountPointRequest extends Model
     /**
      * @var string
      */
+    public $vscName;
+
+    /**
+     * @var string
+     */
     public $vscType;
     protected $_name = [
         'description' => 'Description',
@@ -55,6 +60,7 @@ class AttachVscMountPointRequest extends Model
         'mountPointId' => 'MountPointId',
         'useAssumeRoleChkServerPerm' => 'UseAssumeRoleChkServerPerm',
         'vscIds' => 'VscIds',
+        'vscName' => 'VscName',
         'vscType' => 'VscType',
     ];
 
@@ -112,6 +118,10 @@ class AttachVscMountPointRequest extends Model
             }
         }
 
+        if (null !== $this->vscName) {
+            $res['VscName'] = $this->vscName;
+        }
+
         if (null !== $this->vscType) {
             $res['VscType'] = $this->vscType;
         }
@@ -165,6 +175,10 @@ class AttachVscMountPointRequest extends Model
                     $model->vscIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['VscName'])) {
+            $model->vscName = $map['VscName'];
         }
 
         if (isset($map['VscType'])) {

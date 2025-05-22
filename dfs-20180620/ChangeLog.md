@@ -1,3 +1,8 @@
+2025-05-22 Version: 1.0.4
+- Update API AttachVscMountPoint: add request parameters VscName.
+- Update API DescribeVscMountPoints: add response parameters Body.MountPoints.$.Instances.$.Vscs.$.VscName.
+
+
 2025-04-22 Version: 1.0.3
 - Generated php 2018-06-20 for DFS.
 

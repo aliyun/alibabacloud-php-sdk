@@ -46,6 +46,11 @@ class AttachVscMountPointShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vscName;
+
+    /**
+     * @var string
+     */
     public $vscType;
     protected $_name = [
         'description' => 'Description',
@@ -55,6 +60,7 @@ class AttachVscMountPointShrinkRequest extends Model
         'mountPointId' => 'MountPointId',
         'useAssumeRoleChkServerPerm' => 'UseAssumeRoleChkServerPerm',
         'vscIdsShrink' => 'VscIds',
+        'vscName' => 'VscName',
         'vscType' => 'VscType',
     ];
 
@@ -92,6 +98,10 @@ class AttachVscMountPointShrinkRequest extends Model
 
         if (null !== $this->vscIdsShrink) {
             $res['VscIds'] = $this->vscIdsShrink;
+        }
+
+        if (null !== $this->vscName) {
+            $res['VscName'] = $this->vscName;
         }
 
         if (null !== $this->vscType) {
@@ -135,6 +145,10 @@ class AttachVscMountPointShrinkRequest extends Model
 
         if (isset($map['VscIds'])) {
             $model->vscIdsShrink = $map['VscIds'];
+        }
+
+        if (isset($map['VscName'])) {
+            $model->vscName = $map['VscName'];
         }
 
         if (isset($map['VscType'])) {

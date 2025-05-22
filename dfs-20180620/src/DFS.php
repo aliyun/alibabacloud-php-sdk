@@ -123,6 +123,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * 挂载VSC挂载点.
+     *
      * @remarks
      *
      * @param tmpReq - AttachVscMountPointRequest
@@ -177,6 +179,10 @@ class DFS extends OpenApiClient
             @$query['VscIds'] = $request->vscIdsShrink;
         }
 
+        if (null !== $request->vscName) {
+            @$query['VscName'] = $request->vscName;
+        }
+
         if (null !== $request->vscType) {
             @$query['VscType'] = $request->vscType;
         }
@@ -200,6 +206,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * 挂载VSC挂载点.
+     *
      * @remarks
      *
      * @param request - AttachVscMountPointRequest
@@ -1306,6 +1314,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * 查询VSC挂载信息.
+     *
      * @param request - DescribeVscMountPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1363,6 +1373,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * 查询VSC挂载信息.
+     *
      * @param request - DescribeVscMountPointsRequest
      *
      * @returns DescribeVscMountPointsResponse
