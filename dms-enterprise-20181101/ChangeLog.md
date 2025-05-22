@@ -2,6 +2,10 @@
 - Update API CreateDataImportOrder: add request parameters RealLoginUserUid.
 
 
+2025-05-22 Version: 1.71.1
+- Update API CreateDataImportOrder: add request parameters RealLoginUserUid.
+
+
 2025-05-09 Version: 1.71.0
 - Support API SimplyAddInstance.
 
