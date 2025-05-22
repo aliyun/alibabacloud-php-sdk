@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJ
 
 use AlibabaCloud\Dara\Model;
 
-class fullDataCheckStatus extends Model
+class structureDataCheckStatus extends Model
 {
-    /**
-     * @var bool
-     */
-    public $canSwitch;
-
     /**
      * @var string
      */
@@ -33,7 +28,6 @@ class fullDataCheckStatus extends Model
      */
     public $status;
     protected $_name = [
-        'canSwitch' => 'CanSwitch',
         'errorMessage' => 'ErrorMessage',
         'percent' => 'Percent',
         'progress' => 'Progress',
@@ -48,10 +42,6 @@ class fullDataCheckStatus extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->canSwitch) {
-            $res['CanSwitch'] = $this->canSwitch;
-        }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
@@ -79,10 +69,6 @@ class fullDataCheckStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CanSwitch'])) {
-            $model->canSwitch = $map['CanSwitch'];
-        }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }

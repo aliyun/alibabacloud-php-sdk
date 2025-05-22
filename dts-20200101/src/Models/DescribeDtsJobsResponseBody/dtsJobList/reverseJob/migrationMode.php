@@ -31,12 +31,18 @@ class migrationMode extends Model
     /**
      * @var bool
      */
+    public $structureDataCheck;
+
+    /**
+     * @var bool
+     */
     public $structureInitialization;
     protected $_name = [
         'dataInitialization' => 'DataInitialization',
         'dataSynchronization' => 'DataSynchronization',
         'fullDataCheck' => 'FullDataCheck',
         'incDataCheck' => 'IncDataCheck',
+        'structureDataCheck' => 'StructureDataCheck',
         'structureInitialization' => 'StructureInitialization',
     ];
 
@@ -62,6 +68,10 @@ class migrationMode extends Model
 
         if (null !== $this->incDataCheck) {
             $res['IncDataCheck'] = $this->incDataCheck;
+        }
+
+        if (null !== $this->structureDataCheck) {
+            $res['StructureDataCheck'] = $this->structureDataCheck;
         }
 
         if (null !== $this->structureInitialization) {
@@ -93,6 +103,10 @@ class migrationMode extends Model
 
         if (isset($map['IncDataCheck'])) {
             $model->incDataCheck = $map['IncDataCheck'];
+        }
+
+        if (isset($map['StructureDataCheck'])) {
+            $model->structureDataCheck = $map['StructureDataCheck'];
         }
 
         if (isset($map['StructureInitialization'])) {

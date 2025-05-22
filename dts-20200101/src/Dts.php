@@ -650,11 +650,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -837,11 +834,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -933,11 +927,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureMigrationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureMigrationJobAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureMigrationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1148,11 +1139,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1256,11 +1244,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureSubscriptionInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1355,11 +1340,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureSubscriptionInstanceAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureSubscriptionInstanceAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureSubscriptionInstanceAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1479,11 +1461,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1585,11 +1564,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureSynchronizationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureSynchronizationJobAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureSynchronizationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1673,11 +1649,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigureSynchronizationJobReplicatorCompareResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigureSynchronizationJobReplicatorCompareResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigureSynchronizationJobReplicatorCompareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1753,11 +1726,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConvertInstanceResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConvertInstanceResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConvertInstanceResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1849,11 +1819,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CountJobByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CountJobByConditionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CountJobByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1933,11 +1900,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConsumerChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2021,11 +1985,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2121,11 +2082,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDedicatedClusterMonitorRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2273,11 +2231,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDtsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDtsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDtsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2379,11 +2334,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateJobMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateJobMonitorRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateJobMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2469,11 +2421,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2545,11 +2494,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateReverseDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateReverseDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateReverseDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2645,11 +2591,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSubscriptionInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2765,11 +2708,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2841,11 +2781,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConsumerChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2921,11 +2858,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3005,11 +2939,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3077,11 +3008,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDtsJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3153,11 +3081,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3229,11 +3154,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSubscriptionInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3305,11 +3227,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3389,11 +3308,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3473,11 +3389,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCheckJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCheckJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCheckJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3571,11 +3484,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClusterOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClusterOperateLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClusterOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3669,11 +3579,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClusterUsedUtilizationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClusterUsedUtilizationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClusterUsedUtilizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3821,11 +3728,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeConnectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeConnectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeConnectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3905,11 +3809,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeConsumerChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3989,11 +3890,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4061,11 +3959,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDTSIPResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDTSIPResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDTSIPResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4137,11 +4032,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataCheckReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataCheckReportUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataCheckReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4225,11 +4117,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataCheckTableDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataCheckTableDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataCheckTableDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4309,11 +4198,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataCheckTableDiffDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataCheckTableDiffDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataCheckTableDiffDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4381,11 +4267,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDedicatedClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4453,11 +4336,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDedicatedClusterMonitorRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4533,11 +4413,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDtsEtlJobVersionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDtsEtlJobVersionInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDtsEtlJobVersionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4613,11 +4490,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDtsJobConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4698,11 +4572,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDtsJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDtsJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDtsJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4855,11 +4726,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDtsJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4959,11 +4827,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDtsServiceLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDtsServiceLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDtsServiceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5039,11 +4904,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEndpointSwitchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEndpointSwitchStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEndpointSwitchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5107,11 +4969,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEtlJobLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEtlJobLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEtlJobLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5179,11 +5038,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFullProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFullProcessListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFullProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5267,11 +5123,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGadInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGadInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGadInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5351,11 +5204,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInitializationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInitializationStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInitializationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5419,11 +5269,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobMonitorRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5525,11 +5372,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMetricListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5605,11 +5449,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMigrationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMigrationJobAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMigrationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5697,11 +5538,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMigrationJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMigrationJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMigrationJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5777,11 +5615,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMigrationJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMigrationJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMigrationJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5865,11 +5700,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMigrationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMigrationJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMigrationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5941,11 +5773,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePreCheckCreateGadOrderResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePreCheckCreateGadOrderResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePreCheckCreateGadOrderResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6037,11 +5866,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePreCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePreCheckStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePreCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6117,11 +5943,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSubscriptionInstanceAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSubscriptionInstanceAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSubscriptionInstanceAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6193,11 +6016,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSubscriptionInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSubscriptionInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSubscriptionInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6285,11 +6105,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSubscriptionInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSubscriptionInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSubscriptionInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6379,11 +6196,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSubscriptionMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSubscriptionMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSubscriptionMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6459,11 +6273,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSyncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSyncStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSyncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6543,11 +6354,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynchronizationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynchronizationJobAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynchronizationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6627,11 +6435,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynchronizationJobReplicatorCompareResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynchronizationJobReplicatorCompareResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynchronizationJobReplicatorCompareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6711,11 +6516,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynchronizationJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynchronizationJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynchronizationJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6791,11 +6593,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynchronizationJobStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynchronizationJobStatusListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynchronizationJobStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6883,11 +6682,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynchronizationJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6963,11 +6759,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynchronizationObjectModifyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynchronizationObjectModifyStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynchronizationObjectModifyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7047,11 +6840,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7135,11 +6925,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7211,11 +6998,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachGadInstanceDbMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachGadInstanceDbMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachGadInstanceDbMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7299,11 +7083,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitDtsRdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitDtsRdsInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitDtsRdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7399,11 +7180,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDedicatedClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7481,11 +7259,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7571,11 +7346,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyConsumerChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7667,11 +7439,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyConsumerGroupPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyConsumerGroupPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyConsumerGroupPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7747,11 +7516,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyConsumptionTimestampResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyConsumptionTimestampResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyConsumptionTimestampResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7834,11 +7600,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDedicatedClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7968,11 +7731,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8128,11 +7888,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8207,11 +7964,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobDedicatedClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8290,11 +8044,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobDuLimitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobDuLimitResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobDuLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8437,11 +8188,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8516,11 +8264,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8608,11 +8353,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDtsJobPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDtsJobPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDtsJobPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8688,11 +8430,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDynamicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDynamicConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDynamicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8764,11 +8503,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGadInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGadInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGadInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8851,11 +8587,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8934,11 +8667,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySubscriptionObjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySubscriptionObjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySubscriptionObjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9020,11 +8750,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySynchronizationObjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySynchronizationObjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySynchronizationObjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9100,11 +8827,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PreCheckCreateGadOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreCheckCreateGadOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreCheckCreateGadOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9180,11 +8904,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9259,11 +8980,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9345,11 +9063,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9420,11 +9135,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReverseTwoWayDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReverseTwoWayDirectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReverseTwoWayDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9492,11 +9204,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ShieldPrecheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ShieldPrecheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return ShieldPrecheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9568,11 +9277,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SkipFullJobTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SkipFullJobTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return SkipFullJobTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9652,11 +9358,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SkipPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SkipPreCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return SkipPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9732,11 +9435,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9804,11 +9504,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDtsJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9880,11 +9577,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9951,11 +9645,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartReverseWriterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartReverseWriterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartReverseWriterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10030,11 +9721,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartSubscriptionInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10110,11 +9798,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10190,11 +9875,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDedicatedClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10270,11 +9952,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10342,11 +10021,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDtsJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10422,11 +10098,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10510,11 +10183,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SummaryJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SummaryJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return SummaryJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10592,11 +10262,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendDtsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10666,11 +10333,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendDtsJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10746,11 +10410,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10832,11 +10493,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10914,11 +10572,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchPhysicalDtsJobToCloudResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchPhysicalDtsJobToCloudResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchPhysicalDtsJobToCloudResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11002,11 +10657,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchSynchronizationEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchSynchronizationEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchSynchronizationEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11086,11 +10738,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11170,11 +10819,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferInstanceClassResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11271,11 +10917,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferPayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferPayTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferPayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11359,11 +11002,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11442,11 +11082,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeTwoWayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeTwoWayResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeTwoWayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11574,11 +11211,8 @@ class Dts extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return WhiteIpListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return WhiteIpListResponse::fromMap($this->execute($params, $req, $runtime));
+        return WhiteIpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

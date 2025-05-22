@@ -19,6 +19,7 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\retryState;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\sourceEndpoint;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\structureDataCheckStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\structureInitializationStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\tagList;
 
@@ -285,6 +286,11 @@ class dtsJobList extends Model
     public $status;
 
     /**
+     * @var structureDataCheckStatus
+     */
+    public $structureDataCheckStatus;
+
+    /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
@@ -346,6 +352,7 @@ class dtsJobList extends Model
         'reverseJob' => 'ReverseJob',
         'sourceEndpoint' => 'SourceEndpoint',
         'status' => 'Status',
+        'structureDataCheckStatus' => 'StructureDataCheckStatus',
         'structureInitializationStatus' => 'StructureInitializationStatus',
         'tagList' => 'TagList',
     ];
@@ -393,6 +400,9 @@ class dtsJobList extends Model
         }
         if (null !== $this->sourceEndpoint) {
             $this->sourceEndpoint->validate();
+        }
+        if (null !== $this->structureDataCheckStatus) {
+            $this->structureDataCheckStatus->validate();
         }
         if (null !== $this->structureInitializationStatus) {
             $this->structureInitializationStatus->validate();
@@ -618,6 +628,10 @@ class dtsJobList extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->structureDataCheckStatus) {
+            $res['StructureDataCheckStatus'] = null !== $this->structureDataCheckStatus ? $this->structureDataCheckStatus->toArray($noStream) : $this->structureDataCheckStatus;
         }
 
         if (null !== $this->structureInitializationStatus) {
@@ -857,6 +871,10 @@ class dtsJobList extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StructureDataCheckStatus'])) {
+            $model->structureDataCheckStatus = structureDataCheckStatus::fromMap($map['StructureDataCheckStatus']);
         }
 
         if (isset($map['StructureInitializationStatus'])) {

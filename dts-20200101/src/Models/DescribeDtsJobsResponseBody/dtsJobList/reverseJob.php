@@ -15,6 +15,7 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\performance;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\precheckStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\sourceEndpoint;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\structureDataCheckStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\structureInitializationStatus;
 
 class reverseJob extends Model
@@ -175,6 +176,11 @@ class reverseJob extends Model
     public $status;
 
     /**
+     * @var structureDataCheckStatus
+     */
+    public $structureDataCheckStatus;
+
+    /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
@@ -210,6 +216,7 @@ class reverseJob extends Model
         'reserved' => 'Reserved',
         'sourceEndpoint' => 'SourceEndpoint',
         'status' => 'Status',
+        'structureDataCheckStatus' => 'StructureDataCheckStatus',
         'structureInitializationStatus' => 'StructureInitializationStatus',
     ];
 
@@ -244,6 +251,9 @@ class reverseJob extends Model
         }
         if (null !== $this->sourceEndpoint) {
             $this->sourceEndpoint->validate();
+        }
+        if (null !== $this->structureDataCheckStatus) {
+            $this->structureDataCheckStatus->validate();
         }
         if (null !== $this->structureInitializationStatus) {
             $this->structureInitializationStatus->validate();
@@ -382,6 +392,10 @@ class reverseJob extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->structureDataCheckStatus) {
+            $res['StructureDataCheckStatus'] = null !== $this->structureDataCheckStatus ? $this->structureDataCheckStatus->toArray($noStream) : $this->structureDataCheckStatus;
         }
 
         if (null !== $this->structureInitializationStatus) {
@@ -527,6 +541,10 @@ class reverseJob extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StructureDataCheckStatus'])) {
+            $model->structureDataCheckStatus = structureDataCheckStatus::fromMap($map['StructureDataCheckStatus']);
         }
 
         if (isset($map['StructureInitializationStatus'])) {
