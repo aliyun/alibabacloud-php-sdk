@@ -31,6 +31,16 @@ class summary extends Model
     /**
      * @var float
      */
+    public $gpuA10;
+
+    /**
+     * @var float
+     */
+    public $gpuPpu810e;
+
+    /**
+     * @var float
+     */
     public $idleCpu;
 
     /**
@@ -42,6 +52,8 @@ class summary extends Model
         'cpu' => 'Cpu',
         'cu' => 'Cu',
         'ephemeralStorage' => 'EphemeralStorage',
+        'gpuA10' => 'GpuA10',
+        'gpuPpu810e' => 'GpuPpu810e',
         'idleCpu' => 'IdleCpu',
         'memory' => 'Memory',
     ];
@@ -68,6 +80,14 @@ class summary extends Model
 
         if (null !== $this->ephemeralStorage) {
             $res['EphemeralStorage'] = $this->ephemeralStorage;
+        }
+
+        if (null !== $this->gpuA10) {
+            $res['GpuA10'] = $this->gpuA10;
+        }
+
+        if (null !== $this->gpuPpu810e) {
+            $res['GpuPpu810e'] = $this->gpuPpu810e;
         }
 
         if (null !== $this->idleCpu) {
@@ -103,6 +123,14 @@ class summary extends Model
 
         if (isset($map['EphemeralStorage'])) {
             $model->ephemeralStorage = $map['EphemeralStorage'];
+        }
+
+        if (isset($map['GpuA10'])) {
+            $model->gpuA10 = $map['GpuA10'];
+        }
+
+        if (isset($map['GpuPpu810e'])) {
+            $model->gpuPpu810e = $map['GpuPpu810e'];
         }
 
         if (isset($map['IdleCpu'])) {

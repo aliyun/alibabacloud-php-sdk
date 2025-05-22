@@ -26,7 +26,27 @@ class PriceEstimateFeature extends Model
     /**
      * @var string
      */
+    public $cpuUtilLevel;
+
+    /**
+     * @var float[]
+     */
+    public $cpuUtilMetrics;
+
+    /**
+     * @var bool
+     */
+    public $enableCpuIdle;
+
+    /**
+     * @var string
+     */
     public $envType;
+
+    /**
+     * @var int
+     */
+    public $ephemeralStorageGiB;
 
     /**
      * @var int
@@ -84,6 +104,11 @@ class PriceEstimateFeature extends Model
     public $minInstanceCount;
 
     /**
+     * @var string
+     */
+    public $newSaeVersion;
+
+    /**
      * @var int
      */
     public $noneLoadInstanceCount;
@@ -97,11 +122,20 @@ class PriceEstimateFeature extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'appType' => 'AppType',
         'cpuCore' => 'CpuCore',
         'cpuStrategy' => 'CpuStrategy',
+        'cpuUtilLevel' => 'CpuUtilLevel',
+        'cpuUtilMetrics' => 'CpuUtilMetrics',
+        'enableCpuIdle' => 'EnableCpuIdle',
         'envType' => 'EnvType',
+        'ephemeralStorageGiB' => 'EphemeralStorageGiB',
         'highLoadInstanceCount' => 'HighLoadInstanceCount',
         'highLoadQps' => 'HighLoadQps',
         'highLoadSeconds' => 'HighLoadSeconds',
@@ -113,13 +147,18 @@ class PriceEstimateFeature extends Model
         'maxInstanceCount' => 'MaxInstanceCount',
         'memoryGiB' => 'MemoryGiB',
         'minInstanceCount' => 'MinInstanceCount',
+        'newSaeVersion' => 'NewSaeVersion',
         'noneLoadInstanceCount' => 'NoneLoadInstanceCount',
         'noneLoadSeconds' => 'NoneLoadSeconds',
         'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cpuUtilMetrics)) {
+            Model::validateArray($this->cpuUtilMetrics);
+        }
         parent::validate();
     }
 
@@ -138,8 +177,30 @@ class PriceEstimateFeature extends Model
             $res['CpuStrategy'] = $this->cpuStrategy;
         }
 
+        if (null !== $this->cpuUtilLevel) {
+            $res['CpuUtilLevel'] = $this->cpuUtilLevel;
+        }
+
+        if (null !== $this->cpuUtilMetrics) {
+            if (\is_array($this->cpuUtilMetrics)) {
+                $res['CpuUtilMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->cpuUtilMetrics as $item1) {
+                    $res['CpuUtilMetrics'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->enableCpuIdle) {
+            $res['EnableCpuIdle'] = $this->enableCpuIdle;
+        }
+
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+
+        if (null !== $this->ephemeralStorageGiB) {
+            $res['EphemeralStorageGiB'] = $this->ephemeralStorageGiB;
         }
 
         if (null !== $this->highLoadInstanceCount) {
@@ -186,6 +247,10 @@ class PriceEstimateFeature extends Model
             $res['MinInstanceCount'] = $this->minInstanceCount;
         }
 
+        if (null !== $this->newSaeVersion) {
+            $res['NewSaeVersion'] = $this->newSaeVersion;
+        }
+
         if (null !== $this->noneLoadInstanceCount) {
             $res['NoneLoadInstanceCount'] = $this->noneLoadInstanceCount;
         }
@@ -196,6 +261,10 @@ class PriceEstimateFeature extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -221,8 +290,30 @@ class PriceEstimateFeature extends Model
             $model->cpuStrategy = $map['CpuStrategy'];
         }
 
+        if (isset($map['CpuUtilLevel'])) {
+            $model->cpuUtilLevel = $map['CpuUtilLevel'];
+        }
+
+        if (isset($map['CpuUtilMetrics'])) {
+            if (!empty($map['CpuUtilMetrics'])) {
+                $model->cpuUtilMetrics = [];
+                $n1 = 0;
+                foreach ($map['CpuUtilMetrics'] as $item1) {
+                    $model->cpuUtilMetrics[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['EnableCpuIdle'])) {
+            $model->enableCpuIdle = $map['EnableCpuIdle'];
+        }
+
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+
+        if (isset($map['EphemeralStorageGiB'])) {
+            $model->ephemeralStorageGiB = $map['EphemeralStorageGiB'];
         }
 
         if (isset($map['HighLoadInstanceCount'])) {
@@ -269,6 +360,10 @@ class PriceEstimateFeature extends Model
             $model->minInstanceCount = $map['MinInstanceCount'];
         }
 
+        if (isset($map['NewSaeVersion'])) {
+            $model->newSaeVersion = $map['NewSaeVersion'];
+        }
+
         if (isset($map['NoneLoadInstanceCount'])) {
             $model->noneLoadInstanceCount = $map['NoneLoadInstanceCount'];
         }
@@ -279,6 +374,10 @@ class PriceEstimateFeature extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

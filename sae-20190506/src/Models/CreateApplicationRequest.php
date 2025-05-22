@@ -126,6 +126,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $gpuConfig;
+
+    /**
+     * @var string
+     */
     public $imagePullSecrets;
 
     /**
@@ -401,6 +406,7 @@ class CreateApplicationRequest extends Model
         'enableNewArms' => 'EnableNewArms',
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
         'envs' => 'Envs',
+        'gpuConfig' => 'GpuConfig',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfig' => 'InitContainersConfig',
@@ -558,6 +564,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
+        }
+
+        if (null !== $this->gpuConfig) {
+            $res['GpuConfig'] = $this->gpuConfig;
         }
 
         if (null !== $this->imagePullSecrets) {
@@ -877,6 +887,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
+        }
+
+        if (isset($map['GpuConfig'])) {
+            $model->gpuConfig = $map['GpuConfig'];
         }
 
         if (isset($map['ImagePullSecrets'])) {

@@ -58,6 +58,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteHistoryJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteHistoryJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteIngressRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteIngressResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteInstancesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteInstancesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceRequest;
@@ -829,6 +831,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->envs) {
             @$query['Envs'] = $request->envs;
+        }
+
+        if (null !== $request->gpuConfig) {
+            @$query['GpuConfig'] = $request->gpuConfig;
         }
 
         if (null !== $request->imagePullSecrets) {
@@ -2645,6 +2651,71 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 删除实例.
+     *
+     * @param request - DeleteInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstancesResponse
+     *
+     * @param DeleteInstancesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteInstancesResponse
+     */
+    public function deleteInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstances',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/deleteInstances',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例.
+     *
+     * @param request - DeleteInstancesRequest
+     *
+     * @returns DeleteInstancesResponse
+     *
+     * @param DeleteInstancesRequest $request
+     *
+     * @return DeleteInstancesResponse
+     */
+    public function deleteInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Delete a job template.
      *
      * @param request - DeleteJobRequest
@@ -3208,6 +3279,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->envs) {
             @$query['Envs'] = $request->envs;
+        }
+
+        if (null !== $request->gpuConfig) {
+            @$query['GpuConfig'] = $request->gpuConfig;
         }
 
         if (null !== $request->imagePullSecrets) {
