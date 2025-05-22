@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecordPostBackRequest extends Model
 {
     /**
-     * @example P111111111111
-     *
      * @var string
      */
     public $bizId;
 
     /**
-     * @example esp.zhangsan
-     *
      * @var string
      */
     public $bizType;
@@ -33,38 +29,41 @@ class RecordPostBackRequest extends Model
     public $content;
 
     /**
-     * @example esp_produce
-     *
      * @var string
      */
     public $entityKey;
     protected $_name = [
-        'bizId'     => 'bizId',
-        'bizType'   => 'bizType',
+        'bizId' => 'bizId',
+        'bizType' => 'bizType',
         'contactor' => 'contactor',
-        'content'   => 'content',
+        'content' => 'content',
         'entityKey' => 'entityKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['bizId'] = $this->bizId;
         }
+
         if (null !== $this->bizType) {
             $res['bizType'] = $this->bizType;
         }
+
         if (null !== $this->contactor) {
             $res['contactor'] = $this->contactor;
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->entityKey) {
             $res['entityKey'] = $this->entityKey;
         }
@@ -72,26 +71,30 @@ class RecordPostBackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecordPostBackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bizId'])) {
             $model->bizId = $map['bizId'];
         }
+
         if (isset($map['bizType'])) {
             $model->bizType = $map['bizType'];
         }
+
         if (isset($map['contactor'])) {
             $model->contactor = $map['contactor'];
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['entityKey'])) {
             $model->entityKey = $map['entityKey'];
         }

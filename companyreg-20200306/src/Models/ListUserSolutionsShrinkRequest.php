@@ -4,58 +4,66 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserSolutionsShrinkRequest extends Model
 {
     /**
      * @var string
      */
+    public $bizType;
+
+    /**
+     * @var string
+     */
     public $existStatusShrink;
 
     /**
-     * @example I20210924151843000001
-     *
      * @var string
      */
     public $intentionBizId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
+        'bizType' => 'BizType',
         'existStatusShrink' => 'ExistStatus',
-        'intentionBizId'    => 'IntentionBizId',
-        'pageNum'           => 'PageNum',
-        'pageSize'          => 'PageSize',
+        'intentionBizId' => 'IntentionBizId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+
         if (null !== $this->existStatusShrink) {
             $res['ExistStatus'] = $this->existStatusShrink;
         }
+
         if (null !== $this->intentionBizId) {
             $res['IntentionBizId'] = $this->intentionBizId;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -63,23 +71,30 @@ class ListUserSolutionsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserSolutionsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+
         if (isset($map['ExistStatus'])) {
             $model->existStatusShrink = $map['ExistStatus'];
         }
+
         if (isset($map['IntentionBizId'])) {
             $model->intentionBizId = $map['IntentionBizId'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

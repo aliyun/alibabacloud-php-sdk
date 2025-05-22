@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateProduceForPartnerRequest extends Model
 {
     /**
-     * @example P20210301102840000001
-     *
      * @var string
      */
     public $bizId;
 
     /**
-     * @example esp.hightech
-     *
      * @var string
      */
     public $bizType;
@@ -27,24 +23,27 @@ class CreateProduceForPartnerRequest extends Model
      */
     public $extInfo;
     protected $_name = [
-        'bizId'   => 'BizId',
+        'bizId' => 'BizId',
         'bizType' => 'BizType',
         'extInfo' => 'ExtInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
@@ -52,20 +51,22 @@ class CreateProduceForPartnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProduceForPartnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }

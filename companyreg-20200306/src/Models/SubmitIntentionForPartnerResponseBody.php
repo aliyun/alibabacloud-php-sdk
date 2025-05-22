@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ReleaseProduceAuthorizationResponseBody extends Model
+class SubmitIntentionForPartnerResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $errorCode;
+    public $errorMsg;
 
     /**
      * @var string
      */
-    public $errorMsg;
+    public $intentionBizId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class ReleaseProduceAuthorizationResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
         'errorMsg' => 'ErrorMsg',
+        'intentionBizId' => 'IntentionBizId',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
@@ -42,12 +42,12 @@ class ReleaseProduceAuthorizationResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
+        }
+
+        if (null !== $this->intentionBizId) {
+            $res['IntentionBizId'] = $this->intentionBizId;
         }
 
         if (null !== $this->requestId) {
@@ -69,12 +69,12 @@ class ReleaseProduceAuthorizationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
+        }
+
+        if (isset($map['IntentionBizId'])) {
+            $model->intentionBizId = $map['IntentionBizId'];
         }
 
         if (isset($map['RequestId'])) {

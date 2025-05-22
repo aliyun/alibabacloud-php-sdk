@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\BindProduceAuthorizationRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\BindProduceAuthorizationResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\CloseIntentionForPartnerRequest;
@@ -47,8 +46,6 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryAvailableNumbersRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryAvailableNumbersResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryBagRemainingRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryBagRemainingResponse;
-use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryCommodityConfigRequest;
-use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryCommodityConfigResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryInstanceRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryInstanceResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryPartnerIntentionListRequest;
@@ -66,6 +63,8 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\ReleaseProduceAuthorizationRequ
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ReleaseProduceAuthorizationResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\StartBackToBackCallRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\StartBackToBackCallResponse;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\SubmitIntentionForPartnerRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\SubmitIntentionForPartnerResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\SubmitIntentionNoteRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\SubmitIntentionNoteResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\SubmitSolutionRequest;
@@ -74,11 +73,10 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\TransferIntentionOwnerRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\TransferIntentionOwnerResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\TransferProduceOwnerRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\TransferProduceOwnerResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Companyreg extends OpenApiClient
 {
@@ -86,63 +84,63 @@ class Companyreg extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'companyreg.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'companyreg.aliyuncs.com',
-            'ap-south-1'                  => 'companyreg.aliyuncs.com',
-            'ap-southeast-1'              => 'companyreg.aliyuncs.com',
-            'ap-southeast-2'              => 'companyreg.aliyuncs.com',
-            'ap-southeast-3'              => 'companyreg.aliyuncs.com',
-            'ap-southeast-5'              => 'companyreg.aliyuncs.com',
-            'cn-beijing'                  => 'companyreg.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'companyreg.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'companyreg.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'companyreg.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'companyreg.aliyuncs.com',
-            'cn-chengdu'                  => 'companyreg.aliyuncs.com',
-            'cn-edge-1'                   => 'companyreg.aliyuncs.com',
-            'cn-fujian'                   => 'companyreg.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'companyreg.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'companyreg.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'companyreg.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'companyreg.aliyuncs.com',
+            'ap-northeast-2-pop' => 'companyreg.aliyuncs.com',
+            'ap-south-1' => 'companyreg.aliyuncs.com',
+            'ap-southeast-1' => 'companyreg.aliyuncs.com',
+            'ap-southeast-2' => 'companyreg.aliyuncs.com',
+            'ap-southeast-3' => 'companyreg.aliyuncs.com',
+            'ap-southeast-5' => 'companyreg.aliyuncs.com',
+            'cn-beijing' => 'companyreg.aliyuncs.com',
+            'cn-beijing-finance-1' => 'companyreg.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'companyreg.aliyuncs.com',
+            'cn-beijing-gov-1' => 'companyreg.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'companyreg.aliyuncs.com',
+            'cn-chengdu' => 'companyreg.aliyuncs.com',
+            'cn-edge-1' => 'companyreg.aliyuncs.com',
+            'cn-fujian' => 'companyreg.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'companyreg.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'companyreg.aliyuncs.com',
+            'cn-hangzhou-finance' => 'companyreg.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'companyreg.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'companyreg.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'companyreg.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'companyreg.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'companyreg.aliyuncs.com',
-            'cn-hongkong'                 => 'companyreg.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'companyreg.aliyuncs.com',
-            'cn-huhehaote'                => 'companyreg.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'companyreg.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'companyreg.aliyuncs.com',
-            'cn-qingdao'                  => 'companyreg.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'companyreg.aliyuncs.com',
-            'cn-shanghai'                 => 'companyreg.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'companyreg.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'companyreg.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'companyreg.aliyuncs.com',
-            'cn-shanghai-inner'           => 'companyreg.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'companyreg.aliyuncs.com',
+            'cn-hongkong' => 'companyreg.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'companyreg.aliyuncs.com',
+            'cn-huhehaote' => 'companyreg.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'companyreg.aliyuncs.com',
+            'cn-north-2-gov-1' => 'companyreg.aliyuncs.com',
+            'cn-qingdao' => 'companyreg.aliyuncs.com',
+            'cn-qingdao-nebula' => 'companyreg.aliyuncs.com',
+            'cn-shanghai' => 'companyreg.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'companyreg.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'companyreg.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'companyreg.aliyuncs.com',
+            'cn-shanghai-inner' => 'companyreg.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'companyreg.aliyuncs.com',
-            'cn-shenzhen'                 => 'companyreg.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'companyreg.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'companyreg.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'companyreg.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'companyreg.aliyuncs.com',
-            'cn-wuhan'                    => 'companyreg.aliyuncs.com',
-            'cn-wulanchabu'               => 'companyreg.aliyuncs.com',
-            'cn-yushanfang'               => 'companyreg.aliyuncs.com',
-            'cn-zhangbei'                 => 'companyreg.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'companyreg.aliyuncs.com',
-            'cn-zhangjiakou'              => 'companyreg.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'companyreg.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'companyreg.aliyuncs.com',
-            'eu-central-1'                => 'companyreg.aliyuncs.com',
-            'eu-west-1'                   => 'companyreg.aliyuncs.com',
-            'eu-west-1-oxs'               => 'companyreg.aliyuncs.com',
-            'me-east-1'                   => 'companyreg.aliyuncs.com',
-            'rus-west-1-pop'              => 'companyreg.aliyuncs.com',
-            'us-east-1'                   => 'companyreg.aliyuncs.com',
-            'us-west-1'                   => 'companyreg.aliyuncs.com',
+            'cn-shenzhen' => 'companyreg.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'companyreg.aliyuncs.com',
+            'cn-shenzhen-inner' => 'companyreg.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'companyreg.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'companyreg.aliyuncs.com',
+            'cn-wuhan' => 'companyreg.aliyuncs.com',
+            'cn-wulanchabu' => 'companyreg.aliyuncs.com',
+            'cn-yushanfang' => 'companyreg.aliyuncs.com',
+            'cn-zhangbei' => 'companyreg.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'companyreg.aliyuncs.com',
+            'cn-zhangjiakou' => 'companyreg.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'companyreg.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'companyreg.aliyuncs.com',
+            'eu-central-1' => 'companyreg.aliyuncs.com',
+            'eu-west-1' => 'companyreg.aliyuncs.com',
+            'eu-west-1-oxs' => 'companyreg.aliyuncs.com',
+            'me-east-1' => 'companyreg.aliyuncs.com',
+            'rus-west-1-pop' => 'companyreg.aliyuncs.com',
+            'us-east-1' => 'companyreg.aliyuncs.com',
+            'us-west-1' => 'companyreg.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('companyreg', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -161,17 +159,23 @@ class Companyreg extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * @param request - BindProduceAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindProduceAuthorizationResponse
+     *
      * @param BindProduceAuthorizationRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -179,36 +183,43 @@ class Companyreg extends OpenApiClient
      */
     public function bindProduceAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->authorizedUserIds)) {
-            $body['AuthorizedUserIds'] = $request->authorizedUserIds;
+        if (null !== $request->authorizedUserIds) {
+            @$body['AuthorizedUserIds'] = $request->authorizedUserIds;
         }
-        if (!Utils::isUnset($request->bizId)) {
-            $body['BizId'] = $request->bizId;
+
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BindProduceAuthorization',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindProduceAuthorization',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindProduceAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - BindProduceAuthorizationRequest
+     *
+     * @returns BindProduceAuthorizationResponse
+     *
      * @param BindProduceAuthorizationRequest $request
      *
      * @return BindProduceAuthorizationResponse
@@ -221,6 +232,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - CloseIntentionForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseIntentionForPartnerResponse
+     *
      * @param CloseIntentionForPartnerRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -228,36 +244,43 @@ class Companyreg extends OpenApiClient
      */
     public function closeIntentionForPartnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseIntentionForPartner',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseIntentionForPartner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloseIntentionForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CloseIntentionForPartnerRequest
+     *
+     * @returns CloseIntentionForPartnerResponse
+     *
      * @param CloseIntentionForPartnerRequest $request
      *
      * @return CloseIntentionForPartnerResponse
@@ -270,6 +293,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - CloseUserIntentionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseUserIntentionResponse
+     *
      * @param CloseUserIntentionRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -277,36 +305,43 @@ class Companyreg extends OpenApiClient
      */
     public function closeUserIntentionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseUserIntention',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseUserIntention',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloseUserIntentionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CloseUserIntentionRequest
+     *
+     * @returns CloseUserIntentionResponse
+     *
      * @param CloseUserIntentionRequest $request
      *
      * @return CloseUserIntentionResponse
@@ -319,6 +354,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - CreateBusinessOpportunityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBusinessOpportunityResponse
+     *
      * @param CreateBusinessOpportunityRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -326,42 +366,51 @@ class Companyreg extends OpenApiClient
      */
     public function createBusinessOpportunityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->VCode)) {
-            $query['VCode'] = $request->VCode;
+
+        if (null !== $request->VCode) {
+            @$query['VCode'] = $request->VCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBusinessOpportunity',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBusinessOpportunity',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateBusinessOpportunityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateBusinessOpportunityRequest
+     *
+     * @returns CreateBusinessOpportunityResponse
+     *
      * @param CreateBusinessOpportunityRequest $request
      *
      * @return CreateBusinessOpportunityResponse
@@ -374,6 +423,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - CreateProduceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProduceForPartnerResponse
+     *
      * @param CreateProduceForPartnerRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -381,36 +435,43 @@ class Companyreg extends OpenApiClient
      */
     public function createProduceForPartnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->extInfo)) {
-            $query['ExtInfo'] = $request->extInfo;
+
+        if (null !== $request->extInfo) {
+            @$query['ExtInfo'] = $request->extInfo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateProduceForPartner',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProduceForPartner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateProduceForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateProduceForPartnerRequest
+     *
+     * @returns CreateProduceForPartnerResponse
+     *
      * @param CreateProduceForPartnerRequest $request
      *
      * @return CreateProduceForPartnerResponse
@@ -423,6 +484,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - DescribePartnerConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePartnerConfigResponse
+     *
      * @param DescribePartnerConfigRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -430,33 +496,39 @@ class Companyreg extends OpenApiClient
      */
     public function describePartnerConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->partnerCode)) {
-            $query['PartnerCode'] = $request->partnerCode;
+
+        if (null !== $request->partnerCode) {
+            @$query['PartnerCode'] = $request->partnerCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePartnerConfig',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePartnerConfig',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePartnerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DescribePartnerConfigRequest
+     *
+     * @returns DescribePartnerConfigResponse
+     *
      * @param DescribePartnerConfigRequest $request
      *
      * @return DescribePartnerConfigResponse
@@ -469,6 +541,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - GenerateUploadFilePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateUploadFilePolicyResponse
+     *
      * @param GenerateUploadFilePolicyRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -476,36 +553,43 @@ class Companyreg extends OpenApiClient
      */
     public function generateUploadFilePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['FileType'] = $request->fileType;
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateUploadFilePolicy',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateUploadFilePolicy',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GenerateUploadFilePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GenerateUploadFilePolicyRequest
+     *
+     * @returns GenerateUploadFilePolicyResponse
+     *
      * @param GenerateUploadFilePolicyRequest $request
      *
      * @return GenerateUploadFilePolicyResponse
@@ -518,6 +602,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - GetAlipayUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlipayUrlResponse
+     *
      * @param GetAlipayUrlRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -525,27 +614,31 @@ class Companyreg extends OpenApiClient
      */
     public function getAlipayUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlipayUrl',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAlipayUrl',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlipayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetAlipayUrlRequest
+     *
+     * @returns GetAlipayUrlResponse
+     *
      * @param GetAlipayUrlRequest $request
      *
      * @return GetAlipayUrlResponse
@@ -558,6 +651,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - ListIntentionNoteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntentionNoteResponse
+     *
      * @param ListIntentionNoteRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -565,42 +663,55 @@ class Companyreg extends OpenApiClient
      */
     public function listIntentionNoteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIntentionNote',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntentionNote',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListIntentionNoteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListIntentionNoteRequest
+     *
+     * @returns ListIntentionNoteResponse
+     *
      * @param ListIntentionNoteRequest $request
      *
      * @return ListIntentionNoteResponse
@@ -613,6 +724,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - ListProduceAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProduceAuthorizationResponse
+     *
      * @param ListProduceAuthorizationRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -620,39 +736,47 @@ class Companyreg extends OpenApiClient
      */
     public function listProduceAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProduceAuthorization',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProduceAuthorization',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProduceAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListProduceAuthorizationRequest
+     *
+     * @returns ListProduceAuthorizationResponse
+     *
      * @param ListProduceAuthorizationRequest $request
      *
      * @return ListProduceAuthorizationResponse
@@ -665,6 +789,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - ListUserDetailSolutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserDetailSolutionsResponse
+     *
      * @param ListUserDetailSolutionsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -672,39 +801,47 @@ class Companyreg extends OpenApiClient
      */
     public function listUserDetailSolutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserDetailSolutions',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserDetailSolutions',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserDetailSolutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListUserDetailSolutionsRequest
+     *
+     * @returns ListUserDetailSolutionsResponse
+     *
      * @param ListUserDetailSolutionsRequest $request
      *
      * @return ListUserDetailSolutionsResponse
@@ -717,6 +854,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - ListUserIntentionNotesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserIntentionNotesResponse
+     *
      * @param ListUserIntentionNotesRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -724,39 +866,47 @@ class Companyreg extends OpenApiClient
      */
     public function listUserIntentionNotesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserIntentionNotes',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserIntentionNotes',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserIntentionNotesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListUserIntentionNotesRequest
+     *
+     * @returns ListUserIntentionNotesResponse
+     *
      * @param ListUserIntentionNotesRequest $request
      *
      * @return ListUserIntentionNotesResponse
@@ -769,6 +919,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 用户控制天需求列表查询.
+     *
+     * @param request - ListUserIntentionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserIntentionsResponse
+     *
      * @param ListUserIntentionsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -776,57 +933,73 @@ class Companyreg extends OpenApiClient
      */
     public function listUserIntentionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->bizTypes)) {
-            $query['BizTypes'] = $request->bizTypes;
+
+        if (null !== $request->bizTypes) {
+            @$query['BizTypes'] = $request->bizTypes;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortFiled)) {
-            $query['SortFiled'] = $request->sortFiled;
+
+        if (null !== $request->sortFiled) {
+            @$query['SortFiled'] = $request->sortFiled;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->withExtInfo)) {
-            $query['WithExtInfo'] = $request->withExtInfo;
+
+        if (null !== $request->withExtInfo) {
+            @$query['WithExtInfo'] = $request->withExtInfo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserIntentions',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserIntentions',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserIntentionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 用户控制天需求列表查询.
+     *
+     * @param request - ListUserIntentionsRequest
+     *
+     * @returns ListUserIntentionsResponse
+     *
      * @param ListUserIntentionsRequest $request
      *
      * @return ListUserIntentionsResponse
@@ -839,6 +1012,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - ListUserProduceOperateLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserProduceOperateLogsResponse
+     *
      * @param ListUserProduceOperateLogsRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -846,39 +1024,47 @@ class Companyreg extends OpenApiClient
      */
     public function listUserProduceOperateLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserProduceOperateLogs',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserProduceOperateLogs',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserProduceOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListUserProduceOperateLogsRequest
+     *
+     * @returns ListUserProduceOperateLogsResponse
+     *
      * @param ListUserProduceOperateLogsRequest $request
      *
      * @return ListUserProduceOperateLogsResponse
@@ -891,6 +1077,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param tmpReq - ListUserSolutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserSolutionsResponse
+     *
      * @param ListUserSolutionsRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
@@ -898,44 +1089,57 @@ class Companyreg extends OpenApiClient
      */
     public function listUserSolutionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListUserSolutionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->existStatus)) {
-            $request->existStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->existStatus, 'ExistStatus', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->existStatus) {
+            $request->existStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->existStatus, 'ExistStatus', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->existStatusShrink)) {
-            $query['ExistStatus'] = $request->existStatusShrink;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->existStatusShrink) {
+            @$query['ExistStatus'] = $request->existStatusShrink;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserSolutions',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserSolutions',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserSolutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListUserSolutionsRequest
+     *
+     * @returns ListUserSolutionsResponse
+     *
      * @param ListUserSolutionsRequest $request
      *
      * @return ListUserSolutionsResponse
@@ -948,6 +1152,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - OperateProduceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateProduceForPartnerResponse
+     *
      * @param OperateProduceForPartnerRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -955,39 +1164,47 @@ class Companyreg extends OpenApiClient
      */
     public function operateProduceForPartnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->extInfo)) {
-            $query['ExtInfo'] = $request->extInfo;
+
+        if (null !== $request->extInfo) {
+            @$query['ExtInfo'] = $request->extInfo;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateProduceForPartner',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateProduceForPartner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OperateProduceForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - OperateProduceForPartnerRequest
+     *
+     * @returns OperateProduceForPartnerResponse
+     *
      * @param OperateProduceForPartnerRequest $request
      *
      * @return OperateProduceForPartnerResponse
@@ -1000,6 +1217,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - PutMeasureDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutMeasureDataResponse
+     *
      * @param PutMeasureDataRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1007,42 +1229,51 @@ class Companyreg extends OpenApiClient
      */
     public function putMeasureDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->data)) {
-            $body['Data'] = $request->data;
+
+        if (null !== $request->data) {
+            @$body['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->dataType)) {
-            $body['DataType'] = $request->dataType;
+
+        if (null !== $request->dataType) {
+            @$body['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutMeasureData',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutMeasureData',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutMeasureDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - PutMeasureDataRequest
+     *
+     * @returns PutMeasureDataResponse
+     *
      * @param PutMeasureDataRequest $request
      *
      * @return PutMeasureDataResponse
@@ -1055,6 +1286,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - PutMeasureReadyFlagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutMeasureReadyFlagResponse
+     *
      * @param PutMeasureReadyFlagRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1062,42 +1298,51 @@ class Companyreg extends OpenApiClient
      */
     public function putMeasureReadyFlagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->readyFlag)) {
-            $query['ReadyFlag'] = $request->readyFlag;
+
+        if (null !== $request->readyFlag) {
+            @$query['ReadyFlag'] = $request->readyFlag;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutMeasureReadyFlag',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutMeasureReadyFlag',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutMeasureReadyFlagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - PutMeasureReadyFlagRequest
+     *
+     * @returns PutMeasureReadyFlagResponse
+     *
      * @param PutMeasureReadyFlagRequest $request
      *
      * @return PutMeasureReadyFlagResponse
@@ -1110,6 +1355,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 获取玄坛合作伙伴双呼时可用外呼号码
+     *
+     * @param request - QueryAvailableNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAvailableNumbersResponse
+     *
      * @param QueryAvailableNumbersRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1117,30 +1369,37 @@ class Companyreg extends OpenApiClient
      */
     public function queryAvailableNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAvailableNumbers',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAvailableNumbers',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAvailableNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取玄坛合作伙伴双呼时可用外呼号码
+     *
+     * @param request - QueryAvailableNumbersRequest
+     *
+     * @returns QueryAvailableNumbersResponse
+     *
      * @param QueryAvailableNumbersRequest $request
      *
      * @return QueryAvailableNumbersResponse
@@ -1153,6 +1412,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - QueryBagRemainingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBagRemainingResponse
+     *
      * @param QueryBagRemainingRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1160,27 +1424,31 @@ class Companyreg extends OpenApiClient
      */
     public function queryBagRemainingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryBagRemaining',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBagRemaining',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBagRemainingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - QueryBagRemainingRequest
+     *
+     * @returns QueryBagRemainingResponse
+     *
      * @param QueryBagRemainingRequest $request
      *
      * @return QueryBagRemainingResponse
@@ -1193,55 +1461,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
-     * @param QueryCommodityConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param request - QueryInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryCommodityConfigResponse
-     */
-    public function queryCommodityConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
-        }
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
-        }
-        if (!Utils::isUnset($request->queryModule)) {
-            $query['QueryModule'] = $request->queryModule;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryCommodityConfig',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryCommodityConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryCommodityConfigRequest $request
+     * @returns QueryInstanceResponse
      *
-     * @return QueryCommodityConfigResponse
-     */
-    public function queryCommodityConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryCommodityConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryInstanceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1249,33 +1473,39 @@ class Companyreg extends OpenApiClient
      */
     public function queryInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstance',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstance',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - QueryInstanceRequest
+     *
+     * @returns QueryInstanceResponse
+     *
      * @param QueryInstanceRequest $request
      *
      * @return QueryInstanceResponse
@@ -1288,6 +1518,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * QueryPartnerIntentionList.
+     *
+     * @param request - QueryPartnerIntentionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPartnerIntentionListResponse
+     *
      * @param QueryPartnerIntentionListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1295,39 +1532,49 @@ class Companyreg extends OpenApiClient
      */
     public function queryPartnerIntentionListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPartnerIntentionList',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPartnerIntentionList',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPartnerIntentionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * QueryPartnerIntentionList.
+     *
+     * @param request - QueryPartnerIntentionListRequest
+     *
+     * @returns QueryPartnerIntentionListResponse
+     *
      * @param QueryPartnerIntentionListRequest $request
      *
      * @return QueryPartnerIntentionListResponse
@@ -1340,6 +1587,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * QueryPartnerProduceList.
+     *
+     * @param request - QueryPartnerProduceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPartnerProduceListResponse
+     *
      * @param QueryPartnerProduceListRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1347,27 +1601,33 @@ class Companyreg extends OpenApiClient
      */
     public function queryPartnerProduceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPartnerProduceList',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPartnerProduceList',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPartnerProduceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * QueryPartnerProduceList.
+     *
+     * @param request - QueryPartnerProduceListRequest
+     *
+     * @returns QueryPartnerProduceListResponse
+     *
      * @param QueryPartnerProduceListRequest $request
      *
      * @return QueryPartnerProduceListResponse
@@ -1380,29 +1640,36 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - QueryUserNeedAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserNeedAuthResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return QueryUserNeedAuthResponse
      */
     public function queryUserNeedAuthWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryUserNeedAuth',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserNeedAuth',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryUserNeedAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns QueryUserNeedAuthResponse
+     *
      * @return QueryUserNeedAuthResponse
      */
     public function queryUserNeedAuth()
@@ -1413,6 +1680,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * RecordPostBack.
+     *
+     * @param request - RecordPostBackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecordPostBackResponse
+     *
      * @param RecordPostBackRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1420,42 +1694,53 @@ class Companyreg extends OpenApiClient
      */
     public function recordPostBackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['bizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['bizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['bizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['bizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->contactor)) {
-            $query['contactor'] = $request->contactor;
+
+        if (null !== $request->contactor) {
+            @$query['contactor'] = $request->contactor;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->entityKey)) {
-            $query['entityKey'] = $request->entityKey;
+
+        if (null !== $request->entityKey) {
+            @$query['entityKey'] = $request->entityKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecordPostBack',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecordPostBack',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecordPostBackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * RecordPostBack.
+     *
+     * @param request - RecordPostBackRequest
+     *
+     * @returns RecordPostBackResponse
+     *
      * @param RecordPostBackRequest $request
      *
      * @return RecordPostBackResponse
@@ -1468,6 +1753,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - RejectSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RejectSolutionResponse
+     *
      * @param RejectSolutionRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1475,33 +1765,43 @@ class Companyreg extends OpenApiClient
      */
     public function rejectSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->solutionBizId)) {
-            $query['SolutionBizId'] = $request->solutionBizId;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
+
+        if (null !== $request->solutionBizId) {
+            @$query['SolutionBizId'] = $request->solutionBizId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectSolution',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectSolution',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RejectSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - RejectSolutionRequest
+     *
+     * @returns RejectSolutionResponse
+     *
      * @param RejectSolutionRequest $request
      *
      * @return RejectSolutionResponse
@@ -1514,6 +1814,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - RejectUserSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RejectUserSolutionResponse
+     *
      * @param RejectUserSolutionRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1521,36 +1826,43 @@ class Companyreg extends OpenApiClient
      */
     public function rejectUserSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->solutionBizId)) {
-            $query['SolutionBizId'] = $request->solutionBizId;
+
+        if (null !== $request->solutionBizId) {
+            @$query['SolutionBizId'] = $request->solutionBizId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectUserSolution',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectUserSolution',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RejectUserSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - RejectUserSolutionRequest
+     *
+     * @returns RejectUserSolutionResponse
+     *
      * @param RejectUserSolutionRequest $request
      *
      * @return RejectUserSolutionResponse
@@ -1563,6 +1875,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - ReleaseProduceAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseProduceAuthorizationResponse
+     *
      * @param ReleaseProduceAuthorizationRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1570,36 +1887,43 @@ class Companyreg extends OpenApiClient
      */
     public function releaseProduceAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->authorizedUserId)) {
-            $body['AuthorizedUserId'] = $request->authorizedUserId;
+        if (null !== $request->authorizedUserId) {
+            @$body['AuthorizedUserId'] = $request->authorizedUserId;
         }
-        if (!Utils::isUnset($request->bizId)) {
-            $body['BizId'] = $request->bizId;
+
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseProduceAuthorization',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseProduceAuthorization',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleaseProduceAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ReleaseProduceAuthorizationRequest
+     *
+     * @returns ReleaseProduceAuthorizationResponse
+     *
      * @param ReleaseProduceAuthorizationRequest $request
      *
      * @return ReleaseProduceAuthorizationResponse
@@ -1612,6 +1936,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 玄坛双呼外呼发起.
+     *
+     * @param request - StartBackToBackCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartBackToBackCallResponse
+     *
      * @param StartBackToBackCallRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1619,45 +1950,57 @@ class Companyreg extends OpenApiClient
      */
     public function startBackToBackCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->callCenterNumber)) {
-            $query['CallCenterNumber'] = $request->callCenterNumber;
+
+        if (null !== $request->callCenterNumber) {
+            @$query['CallCenterNumber'] = $request->callCenterNumber;
         }
-        if (!Utils::isUnset($request->caller)) {
-            $query['Caller'] = $request->caller;
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->mobileKey)) {
-            $query['MobileKey'] = $request->mobileKey;
+
+        if (null !== $request->mobileKey) {
+            @$query['MobileKey'] = $request->mobileKey;
         }
-        if (!Utils::isUnset($request->skillType)) {
-            $query['SkillType'] = $request->skillType;
+
+        if (null !== $request->skillType) {
+            @$query['SkillType'] = $request->skillType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartBackToBackCall',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartBackToBackCall',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartBackToBackCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 玄坛双呼外呼发起.
+     *
+     * @param request - StartBackToBackCallRequest
+     *
+     * @returns StartBackToBackCallResponse
+     *
      * @param StartBackToBackCallRequest $request
      *
      * @return StartBackToBackCallResponse
@@ -1670,6 +2013,104 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 合作伙伴提交需求单.
+     *
+     * @param request - SubmitIntentionForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitIntentionForPartnerResponse
+     *
+     * @param SubmitIntentionForPartnerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitIntentionForPartnerResponse
+     */
+    public function submitIntentionForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->commodityType) {
+            @$query['CommodityType'] = $request->commodityType;
+        }
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->extInfo) {
+            @$query['ExtInfo'] = $request->extInfo;
+        }
+
+        if (null !== $request->grade) {
+            @$query['Grade'] = $request->grade;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitIntentionForPartner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitIntentionForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 合作伙伴提交需求单.
+     *
+     * @param request - SubmitIntentionForPartnerRequest
+     *
+     * @returns SubmitIntentionForPartnerResponse
+     *
+     * @param SubmitIntentionForPartnerRequest $request
+     *
+     * @return SubmitIntentionForPartnerResponse
+     */
+    public function submitIntentionForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitIntentionForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - SubmitIntentionNoteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitIntentionNoteResponse
+     *
      * @param SubmitIntentionNoteRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1677,33 +2118,43 @@ class Companyreg extends OpenApiClient
      */
     public function submitIntentionNoteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitIntentionNote',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitIntentionNote',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitIntentionNoteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - SubmitIntentionNoteRequest
+     *
+     * @returns SubmitIntentionNoteResponse
+     *
      * @param SubmitIntentionNoteRequest $request
      *
      * @return SubmitIntentionNoteResponse
@@ -1716,6 +2167,11 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * @param request - SubmitSolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSolutionResponse
+     *
      * @param SubmitSolutionRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1723,42 +2179,51 @@ class Companyreg extends OpenApiClient
      */
     public function submitSolutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->intentionBizId)) {
-            $query['IntentionBizId'] = $request->intentionBizId;
+
+        if (null !== $request->intentionBizId) {
+            @$query['IntentionBizId'] = $request->intentionBizId;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->solution)) {
-            $query['Solution'] = $request->solution;
+
+        if (null !== $request->solution) {
+            @$query['Solution'] = $request->solution;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitSolution',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitSolution',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - SubmitSolutionRequest
+     *
+     * @returns SubmitSolutionResponse
+     *
      * @param SubmitSolutionRequest $request
      *
      * @return SubmitSolutionResponse
@@ -1771,6 +2236,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 玄坛需求单转派小二.
+     *
+     * @param request - TransferIntentionOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TransferIntentionOwnerResponse
+     *
      * @param TransferIntentionOwnerRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1778,39 +2250,49 @@ class Companyreg extends OpenApiClient
      */
     public function transferIntentionOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->personId)) {
-            $query['PersonId'] = $request->personId;
+
+        if (null !== $request->personId) {
+            @$query['PersonId'] = $request->personId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferIntentionOwner',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferIntentionOwner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TransferIntentionOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 玄坛需求单转派小二.
+     *
+     * @param request - TransferIntentionOwnerRequest
+     *
+     * @returns TransferIntentionOwnerResponse
+     *
      * @param TransferIntentionOwnerRequest $request
      *
      * @return TransferIntentionOwnerResponse
@@ -1823,6 +2305,13 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 玄坛服务单转派小二.
+     *
+     * @param request - TransferProduceOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TransferProduceOwnerResponse
+     *
      * @param TransferProduceOwnerRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1830,39 +2319,49 @@ class Companyreg extends OpenApiClient
      */
     public function transferProduceOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->personId)) {
-            $query['PersonId'] = $request->personId;
+
+        if (null !== $request->personId) {
+            @$query['PersonId'] = $request->personId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferProduceOwner',
-            'version'     => '2020-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferProduceOwner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TransferProduceOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 玄坛服务单转派小二.
+     *
+     * @param request - TransferProduceOwnerRequest
+     *
+     * @returns TransferProduceOwnerResponse
+     *
      * @param TransferProduceOwnerRequest $request
      *
      * @return TransferProduceOwnerResponse

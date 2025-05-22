@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class TransferIntentionOwnerResponse extends Model
+class SubmitIntentionForPartnerResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class TransferIntentionOwnerResponse extends Model
     public $statusCode;
 
     /**
-     * @var TransferIntentionOwnerResponseBody
+     * @var SubmitIntentionForPartnerResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class TransferIntentionOwnerResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = TransferIntentionOwnerResponseBody::fromMap($map['body']);
+            $model->body = SubmitIntentionForPartnerResponseBody::fromMap($map['body']);
         }
 
         return $model;

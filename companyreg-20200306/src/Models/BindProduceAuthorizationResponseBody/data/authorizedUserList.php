@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models\BindProduceAuthorizationResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authorizedUserList extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $accountValidType;
 
     /**
-     * @example 1219541161213058
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @example test@alibaba-inc.com
-     *
      * @var string
      */
     public $userName;
     protected $_name = [
         'accountValidType' => 'AccountValidType',
-        'userId'           => 'UserId',
-        'userName'         => 'UserName',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountValidType) {
             $res['AccountValidType'] = $this->accountValidType;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -54,20 +51,22 @@ class authorizedUserList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authorizedUserList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountValidType'])) {
             $model->accountValidType = $map['AccountValidType'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

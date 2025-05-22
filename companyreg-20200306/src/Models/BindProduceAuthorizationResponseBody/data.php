@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models\BindProduceAuthorizationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\BindProduceAuthorizationResponseBody\data\authorizedUserList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -20,36 +20,40 @@ class data extends Model
     public $message;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'authorizedUserList' => 'AuthorizedUserList',
-        'message'            => 'Message',
-        'success'            => 'Success',
+        'message' => 'Message',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (\is_array($this->authorizedUserList)) {
+            Model::validateArray($this->authorizedUserList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizedUserList) {
-            $res['AuthorizedUserList'] = [];
-            if (null !== $this->authorizedUserList && \is_array($this->authorizedUserList)) {
-                $n = 0;
-                foreach ($this->authorizedUserList as $item) {
-                    $res['AuthorizedUserList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authorizedUserList)) {
+                $res['AuthorizedUserList'] = [];
+                $n1 = 0;
+                foreach ($this->authorizedUserList as $item1) {
+                    $res['AuthorizedUserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -57,26 +61,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizedUserList'])) {
             if (!empty($map['AuthorizedUserList'])) {
                 $model->authorizedUserList = [];
-                $n                         = 0;
-                foreach ($map['AuthorizedUserList'] as $item) {
-                    $model->authorizedUserList[$n++] = null !== $item ? authorizedUserList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AuthorizedUserList'] as $item1) {
+                    $model->authorizedUserList[$n1++] = authorizedUserList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

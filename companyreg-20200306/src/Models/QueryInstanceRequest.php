@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryInstanceRequest extends Model
 {
     /**
-     * @example esp.bookkeeping
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @example T20210302164856000001
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'bizType'    => 'BizType',
+        'bizType' => 'BizType',
         'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -43,17 +41,18 @@ class QueryInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

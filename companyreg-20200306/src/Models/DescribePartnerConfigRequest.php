@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePartnerConfigRequest extends Model
 {
     /**
-     * @example esp.wangwen
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @example jinsan
-     *
      * @var string
      */
     public $partnerCode;
     protected $_name = [
-        'bizType'     => 'BizType',
+        'bizType' => 'BizType',
         'partnerCode' => 'PartnerCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->partnerCode) {
             $res['PartnerCode'] = $this->partnerCode;
         }
@@ -43,17 +41,18 @@ class DescribePartnerConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePartnerConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['PartnerCode'])) {
             $model->partnerCode = $map['PartnerCode'];
         }
