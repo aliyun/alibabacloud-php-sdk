@@ -474,7 +474,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 创建AI任务
+     * Create AI Task.
+     *
+     * @remarks
+     * This API allows users to create an AI task based on the specified task type, covering a range of capabilities from natural language understanding to resource stack deployment. Users need to provide the task type and any required parameters, and the API will return a unique TaskId for tracking the status and results of the task.
      *
      * @param request - CreateAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -527,7 +530,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 创建AI任务
+     * Create AI Task.
+     *
+     * @remarks
+     * This API allows users to create an AI task based on the specified task type, covering a range of capabilities from natural language understanding to resource stack deployment. Users need to provide the task type and any required parameters, and the API will return a unique TaskId for tracking the status and results of the task.
      *
      * @param request - CreateAITaskRequest
      *
@@ -2208,6 +2214,8 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * 对资源栈组进行偏差检测.
+     *
      * @param tmpReq - DetectStackGroupDriftRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2263,6 +2271,8 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * 对资源栈组进行偏差检测.
+     *
      * @param request - DetectStackGroupDriftRequest
      *
      * @returns DetectStackGroupDriftResponse
@@ -2577,7 +2587,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询指定AI任务信息.
+     * Queries the information about an AI task by task ID.
      *
      * @param request - GetAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2620,7 +2630,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询指定AI任务信息.
+     * Queries the information about an AI task by task ID.
      *
      * @param request - GetAITaskRequest
      *
@@ -4328,7 +4338,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 获取指定AITask事件列表.
+     * Queries the events of an AI task.
      *
      * @param request - ListAITaskEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4375,7 +4385,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 获取指定AITask事件列表.
+     * Queries the events of an AI task.
      *
      * @param request - ListAITaskEventsRequest
      *
@@ -4393,7 +4403,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询AI任务列表.
+     * Queries a list of AI tasks.
      *
      * @param request - ListAITasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4444,7 +4454,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询AI任务列表.
+     * Queries a list of AI tasks.
      *
      * @param request - ListAITasksRequest
      *
@@ -6341,6 +6351,8 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * 修改资源栈的删除保护属性.
+     *
      * @param request - SetDeletionProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6386,6 +6398,8 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * 修改资源栈的删除保护属性.
+     *
      * @param request - SetDeletionProtectionRequest
      *
      * @returns SetDeletionProtectionResponse

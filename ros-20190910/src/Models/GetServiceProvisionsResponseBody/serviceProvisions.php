@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponseBody\serviceProvisions\commodityProvisions;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponseBody\serviceProvisions\roleProvision;
 
 class serviceProvisions extends Model
@@ -13,6 +14,11 @@ class serviceProvisions extends Model
      * @var bool
      */
     public $autoEnableService;
+
+    /**
+     * @var commodityProvisions[]
+     */
+    public $commodityProvisions;
 
     /**
      * @var string[]
@@ -45,6 +51,7 @@ class serviceProvisions extends Model
     public $statusReason;
     protected $_name = [
         'autoEnableService' => 'AutoEnableService',
+        'commodityProvisions' => 'CommodityProvisions',
         'dependentServiceNames' => 'DependentServiceNames',
         'enableURL' => 'EnableURL',
         'roleProvision' => 'RoleProvision',
@@ -55,6 +62,9 @@ class serviceProvisions extends Model
 
     public function validate()
     {
+        if (\is_array($this->commodityProvisions)) {
+            Model::validateArray($this->commodityProvisions);
+        }
         if (\is_array($this->dependentServiceNames)) {
             Model::validateArray($this->dependentServiceNames);
         }
@@ -69,6 +79,16 @@ class serviceProvisions extends Model
         $res = [];
         if (null !== $this->autoEnableService) {
             $res['AutoEnableService'] = $this->autoEnableService;
+        }
+
+        if (null !== $this->commodityProvisions) {
+            if (\is_array($this->commodityProvisions)) {
+                $res['CommodityProvisions'] = [];
+                $n1 = 0;
+                foreach ($this->commodityProvisions as $item1) {
+                    $res['CommodityProvisions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->dependentServiceNames) {
@@ -114,6 +134,16 @@ class serviceProvisions extends Model
         $model = new self();
         if (isset($map['AutoEnableService'])) {
             $model->autoEnableService = $map['AutoEnableService'];
+        }
+
+        if (isset($map['CommodityProvisions'])) {
+            if (!empty($map['CommodityProvisions'])) {
+                $model->commodityProvisions = [];
+                $n1 = 0;
+                foreach ($map['CommodityProvisions'] as $item1) {
+                    $model->commodityProvisions[$n1++] = commodityProvisions::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['DependentServiceNames'])) {
