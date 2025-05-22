@@ -25,6 +25,11 @@ class orderItems extends Model
     public $autoRenew;
 
     /**
+     * @var bool
+     */
+    public $buyChange;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -57,6 +62,7 @@ class orderItems extends Model
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'buyChange' => 'BuyChange',
         'components' => 'Components',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
@@ -89,6 +95,10 @@ class orderItems extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->buyChange) {
+            $res['BuyChange'] = $this->buyChange;
         }
 
         if (null !== $this->components) {
@@ -148,6 +158,10 @@ class orderItems extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['BuyChange'])) {
+            $model->buyChange = $map['BuyChange'];
         }
 
         if (isset($map['Components'])) {

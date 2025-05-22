@@ -55,6 +55,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 多商品组合下单.
+     *
      * @param tmpReq - CreateMultiOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -110,6 +112,8 @@ class Wss extends OpenApiClient
     }
 
     /**
+     * 多商品组合下单.
+     *
      * @param request - CreateMultiOrderRequest
      *
      * @returns CreateMultiOrderResponse
