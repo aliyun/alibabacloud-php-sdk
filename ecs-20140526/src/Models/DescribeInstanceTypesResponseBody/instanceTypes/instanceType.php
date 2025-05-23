@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBod
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\attributes;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\clock;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
@@ -22,6 +23,11 @@ class instanceType extends Model
      * @var int
      */
     public $baselineCredit;
+
+    /**
+     * @var clock
+     */
+    public $clock;
 
     /**
      * @var string
@@ -230,6 +236,7 @@ class instanceType extends Model
     protected $_name = [
         'attributes' => 'Attributes',
         'baselineCredit' => 'BaselineCredit',
+        'clock' => 'Clock',
         'cpuArchitecture' => 'CpuArchitecture',
         'cpuCoreCount' => 'CpuCoreCount',
         'cpuOptions' => 'CpuOptions',
@@ -278,6 +285,9 @@ class instanceType extends Model
         if (null !== $this->attributes) {
             $this->attributes->validate();
         }
+        if (null !== $this->clock) {
+            $this->clock->validate();
+        }
         if (null !== $this->cpuOptions) {
             $this->cpuOptions->validate();
         }
@@ -302,6 +312,10 @@ class instanceType extends Model
 
         if (null !== $this->baselineCredit) {
             $res['BaselineCredit'] = $this->baselineCredit;
+        }
+
+        if (null !== $this->clock) {
+            $res['Clock'] = null !== $this->clock ? $this->clock->toArray($noStream) : $this->clock;
         }
 
         if (null !== $this->cpuArchitecture) {
@@ -485,6 +499,10 @@ class instanceType extends Model
 
         if (isset($map['BaselineCredit'])) {
             $model->baselineCredit = $map['BaselineCredit'];
+        }
+
+        if (isset($map['Clock'])) {
+            $model->clock = clock::fromMap($map['Clock']);
         }
 
         if (isset($map['CpuArchitecture'])) {
