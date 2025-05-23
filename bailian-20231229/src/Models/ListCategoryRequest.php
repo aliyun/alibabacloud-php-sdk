@@ -11,6 +11,11 @@ class ListCategoryRequest extends Model
     /**
      * @var string
      */
+    public $categoryName;
+
+    /**
+     * @var string
+     */
     public $categoryType;
 
     /**
@@ -28,6 +33,7 @@ class ListCategoryRequest extends Model
      */
     public $parentCategoryId;
     protected $_name = [
+        'categoryName' => 'CategoryName',
         'categoryType' => 'CategoryType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -42,6 +48,10 @@ class ListCategoryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryName) {
+            $res['CategoryName'] = $this->categoryName;
+        }
+
         if (null !== $this->categoryType) {
             $res['CategoryType'] = $this->categoryType;
         }
@@ -69,6 +79,10 @@ class ListCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryName'])) {
+            $model->categoryName = $map['CategoryName'];
+        }
+
         if (isset($map['CategoryType'])) {
             $model->categoryType = $map['CategoryType'];
         }

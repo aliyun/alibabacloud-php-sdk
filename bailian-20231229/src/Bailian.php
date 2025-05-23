@@ -1713,6 +1713,10 @@ class Bailian extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->categoryName) {
+            @$body['CategoryName'] = $request->categoryName;
+        }
+
         if (null !== $request->categoryType) {
             @$body['CategoryType'] = $request->categoryType;
         }
