@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\appManagePolicy;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\disks;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\displayConfig;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\tags;
@@ -45,6 +46,11 @@ class instanceModel extends Model
      * @var string
      */
     public $appInstanceId;
+
+    /**
+     * @var appManagePolicy
+     */
+    public $appManagePolicy;
 
     /**
      * @var string
@@ -193,6 +199,7 @@ class instanceModel extends Model
         'androidInstanceStatus' => 'AndroidInstanceStatus',
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId' => 'AppInstanceId',
+        'appManagePolicy' => 'AppManagePolicy',
         'authorizedUserId' => 'AuthorizedUserId',
         'bindUserId' => 'BindUserId',
         'chargeType' => 'ChargeType',
@@ -225,6 +232,9 @@ class instanceModel extends Model
 
     public function validate()
     {
+        if (null !== $this->appManagePolicy) {
+            $this->appManagePolicy->validate();
+        }
         if (\is_array($this->disks)) {
             Model::validateArray($this->disks);
         }
@@ -266,6 +276,10 @@ class instanceModel extends Model
 
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
+        }
+
+        if (null !== $this->appManagePolicy) {
+            $res['AppManagePolicy'] = null !== $this->appManagePolicy ? $this->appManagePolicy->toArray($noStream) : $this->appManagePolicy;
         }
 
         if (null !== $this->authorizedUserId) {
@@ -429,6 +443,10 @@ class instanceModel extends Model
 
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
+        }
+
+        if (isset($map['AppManagePolicy'])) {
+            $model->appManagePolicy = appManagePolicy::fromMap($map['AppManagePolicy']);
         }
 
         if (isset($map['AuthorizedUserId'])) {

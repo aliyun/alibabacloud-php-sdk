@@ -1838,6 +1838,10 @@ class Edsaic extends OpenApiClient
             @$query['AndroidInstanceName'] = $request->androidInstanceName;
         }
 
+        if (null !== $request->appManagePolicyId) {
+            @$query['AppManagePolicyId'] = $request->appManagePolicyId;
+        }
+
         if (null !== $request->authorizedUserId) {
             @$query['AuthorizedUserId'] = $request->authorizedUserId;
         }
