@@ -44,6 +44,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $ignoreContentAuditWords;
+
+    /**
      * @var string[]
      */
     public $keywordList;
@@ -90,6 +95,7 @@ class data extends Model
         'createUser' => 'CreateUser',
         'deviceId' => 'DeviceId',
         'id' => 'Id',
+        'ignoreContentAuditWords' => 'IgnoreContentAuditWords',
         'keywordList' => 'KeywordList',
         'keywords' => 'Keywords',
         'prompt' => 'Prompt',
@@ -137,6 +143,10 @@ class data extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->ignoreContentAuditWords) {
+            $res['IgnoreContentAuditWords'] = $this->ignoreContentAuditWords;
         }
 
         if (null !== $this->keywordList) {
@@ -214,6 +224,10 @@ class data extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['IgnoreContentAuditWords'])) {
+            $model->ignoreContentAuditWords = $map['IgnoreContentAuditWords'];
         }
 
         if (isset($map['KeywordList'])) {
