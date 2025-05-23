@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\auditLogConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\workerDataDisks;
@@ -25,6 +26,11 @@ class CreateClusterRequest extends Model
      * @var string
      */
     public $apiAudiences;
+
+    /**
+     * @var auditLogConfig
+     */
+    public $auditLogConfig;
 
     /**
      * @var bool
@@ -504,6 +510,7 @@ class CreateClusterRequest extends Model
         'accessControlList' => 'access_control_list',
         'addons' => 'addons',
         'apiAudiences' => 'api_audiences',
+        'auditLogConfig' => 'audit_log_config',
         'autoRenew' => 'auto_renew',
         'autoRenewPeriod' => 'auto_renew_period',
         'chargeType' => 'charge_type',
@@ -609,6 +616,9 @@ class CreateClusterRequest extends Model
         if (\is_array($this->addons)) {
             Model::validateArray($this->addons);
         }
+        if (null !== $this->auditLogConfig) {
+            $this->auditLogConfig->validate();
+        }
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
         }
@@ -694,6 +704,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->apiAudiences) {
             $res['api_audiences'] = $this->apiAudiences;
+        }
+
+        if (null !== $this->auditLogConfig) {
+            $res['audit_log_config'] = null !== $this->auditLogConfig ? $this->auditLogConfig->toArray($noStream) : $this->auditLogConfig;
         }
 
         if (null !== $this->autoRenew) {
@@ -1199,6 +1213,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['api_audiences'])) {
             $model->apiAudiences = $map['api_audiences'];
+        }
+
+        if (isset($map['audit_log_config'])) {
+            $model->auditLogConfig = auditLogConfig::fromMap($map['audit_log_config']);
         }
 
         if (isset($map['auto_renew'])) {
