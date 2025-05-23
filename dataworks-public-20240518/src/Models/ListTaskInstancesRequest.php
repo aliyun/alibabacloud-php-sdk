@@ -59,6 +59,11 @@ class ListTaskInstancesRequest extends Model
     public $sortBy;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $taskId;
@@ -113,6 +118,7 @@ class ListTaskInstancesRequest extends Model
         'projectId' => 'ProjectId',
         'runtimeResource' => 'RuntimeResource',
         'sortBy' => 'SortBy',
+        'status' => 'Status',
         'taskId' => 'TaskId',
         'taskIds' => 'TaskIds',
         'taskName' => 'TaskName',
@@ -182,6 +188,10 @@ class ListTaskInstancesRequest extends Model
 
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->taskId) {
@@ -281,6 +291,10 @@ class ListTaskInstancesRequest extends Model
 
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['TaskId'])) {

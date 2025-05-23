@@ -1,0 +1,216 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class CreateUdfFileRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $className;
+
+    /**
+     * @var string
+     */
+    public $cmdDescription;
+
+    /**
+     * @var bool
+     */
+    public $createFolderIfNotExists;
+
+    /**
+     * @var string
+     */
+    public $example;
+
+    /**
+     * @var string
+     */
+    public $fileFolderPath;
+
+    /**
+     * @var string
+     */
+    public $fileName;
+
+    /**
+     * @var string
+     */
+    public $functionType;
+
+    /**
+     * @var string
+     */
+    public $parameterDescription;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectIdentifier;
+
+    /**
+     * @var string
+     */
+    public $resources;
+
+    /**
+     * @var string
+     */
+    public $returnValue;
+
+    /**
+     * @var string
+     */
+    public $udfDescription;
+    protected $_name = [
+        'className' => 'ClassName',
+        'cmdDescription' => 'CmdDescription',
+        'createFolderIfNotExists' => 'CreateFolderIfNotExists',
+        'example' => 'Example',
+        'fileFolderPath' => 'FileFolderPath',
+        'fileName' => 'FileName',
+        'functionType' => 'FunctionType',
+        'parameterDescription' => 'ParameterDescription',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'resources' => 'Resources',
+        'returnValue' => 'ReturnValue',
+        'udfDescription' => 'UdfDescription',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->className) {
+            $res['ClassName'] = $this->className;
+        }
+
+        if (null !== $this->cmdDescription) {
+            $res['CmdDescription'] = $this->cmdDescription;
+        }
+
+        if (null !== $this->createFolderIfNotExists) {
+            $res['CreateFolderIfNotExists'] = $this->createFolderIfNotExists;
+        }
+
+        if (null !== $this->example) {
+            $res['Example'] = $this->example;
+        }
+
+        if (null !== $this->fileFolderPath) {
+            $res['FileFolderPath'] = $this->fileFolderPath;
+        }
+
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
+        }
+
+        if (null !== $this->functionType) {
+            $res['FunctionType'] = $this->functionType;
+        }
+
+        if (null !== $this->parameterDescription) {
+            $res['ParameterDescription'] = $this->parameterDescription;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
+        }
+
+        if (null !== $this->resources) {
+            $res['Resources'] = $this->resources;
+        }
+
+        if (null !== $this->returnValue) {
+            $res['ReturnValue'] = $this->returnValue;
+        }
+
+        if (null !== $this->udfDescription) {
+            $res['UdfDescription'] = $this->udfDescription;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ClassName'])) {
+            $model->className = $map['ClassName'];
+        }
+
+        if (isset($map['CmdDescription'])) {
+            $model->cmdDescription = $map['CmdDescription'];
+        }
+
+        if (isset($map['CreateFolderIfNotExists'])) {
+            $model->createFolderIfNotExists = $map['CreateFolderIfNotExists'];
+        }
+
+        if (isset($map['Example'])) {
+            $model->example = $map['Example'];
+        }
+
+        if (isset($map['FileFolderPath'])) {
+            $model->fileFolderPath = $map['FileFolderPath'];
+        }
+
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
+        }
+
+        if (isset($map['FunctionType'])) {
+            $model->functionType = $map['FunctionType'];
+        }
+
+        if (isset($map['ParameterDescription'])) {
+            $model->parameterDescription = $map['ParameterDescription'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
+        }
+
+        if (isset($map['Resources'])) {
+            $model->resources = $map['Resources'];
+        }
+
+        if (isset($map['ReturnValue'])) {
+            $model->returnValue = $map['ReturnValue'];
+        }
+
+        if (isset($map['UdfDescription'])) {
+            $model->udfDescription = $map['UdfDescription'];
+        }
+
+        return $model;
+    }
+}

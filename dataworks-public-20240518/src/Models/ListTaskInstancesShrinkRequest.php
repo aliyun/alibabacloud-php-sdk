@@ -59,6 +59,11 @@ class ListTaskInstancesShrinkRequest extends Model
     public $sortBy;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $taskId;
@@ -113,6 +118,7 @@ class ListTaskInstancesShrinkRequest extends Model
         'projectId' => 'ProjectId',
         'runtimeResource' => 'RuntimeResource',
         'sortBy' => 'SortBy',
+        'status' => 'Status',
         'taskId' => 'TaskId',
         'taskIdsShrink' => 'TaskIds',
         'taskName' => 'TaskName',
@@ -170,6 +176,10 @@ class ListTaskInstancesShrinkRequest extends Model
 
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->taskId) {
@@ -257,6 +267,10 @@ class ListTaskInstancesShrinkRequest extends Model
 
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['TaskId'])) {

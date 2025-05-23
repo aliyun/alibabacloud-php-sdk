@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagShrinkRequest;
@@ -47,6 +49,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleShrinkReq
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFileResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFolderRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipRequest;
@@ -68,6 +74,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceAdvanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceFileAdvanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupShrinkRequest;
@@ -75,6 +84,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateUdfFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateUdfFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest;
@@ -82,6 +93,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRes
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteBusinessRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagRequest;
@@ -101,6 +114,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIAlarmRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIAlarmRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFileResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFolderRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipRequest;
@@ -127,11 +144,15 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeployFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
@@ -139,6 +160,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstan
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateRequest;
@@ -159,12 +182,22 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplate
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentPackageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentPackageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobLogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobLogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFileResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFileVersionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFileVersionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFolderRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequest;
@@ -218,6 +251,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListBusinessRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsShrinkRequest;
@@ -248,6 +283,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentPackageFilesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentPackageFilesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentPackageFilesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentPackagesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentPackagesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIAlarmRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIAlarmRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobEventsRequest;
@@ -265,6 +305,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListEntitiesInMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListEntitiesInMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFilesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFilesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFileVersionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFileVersionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFoldersRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFoldersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsRequest;
@@ -281,6 +327,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunItemsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunItemsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersRequest;
@@ -374,6 +422,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesShrinkReq
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesShrinkRequest;
@@ -390,6 +440,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UnTagDataAssetsShrinkReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagRequest;
@@ -412,8 +464,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleShrinkReq
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFileResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFolderRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionShrinkRequest;
@@ -436,6 +494,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesShrinkR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateUdfFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateUdfFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowRequest;
@@ -1007,6 +1067,79 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateBusinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBusinessResponse
+     *
+     * @param CreateBusinessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateBusinessResponse
+     */
+    public function createBusinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessName) {
+            @$body['BusinessName'] = $request->businessName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->useType) {
+            @$body['UseType'] = $request->useType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBusiness',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateBusinessRequest
+     *
+     * @returns CreateBusinessResponse
+     *
+     * @param CreateBusinessRequest $request
+     *
+     * @return CreateBusinessResponse
+     */
+    public function createBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBusinessWithOptions($request, $runtime);
     }
 
     /**
@@ -1809,6 +1942,252 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param request - CreateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileResponse
+     *
+     * @param CreateFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFileResponse
+     */
+    public function createFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->advancedSettings) {
+            @$body['AdvancedSettings'] = $request->advancedSettings;
+        }
+
+        if (null !== $request->applyScheduleImmediately) {
+            @$body['ApplyScheduleImmediately'] = $request->applyScheduleImmediately;
+        }
+
+        if (null !== $request->autoParsing) {
+            @$body['AutoParsing'] = $request->autoParsing;
+        }
+
+        if (null !== $request->autoRerunIntervalMillis) {
+            @$body['AutoRerunIntervalMillis'] = $request->autoRerunIntervalMillis;
+        }
+
+        if (null !== $request->autoRerunTimes) {
+            @$body['AutoRerunTimes'] = $request->autoRerunTimes;
+        }
+
+        if (null !== $request->connectionName) {
+            @$body['ConnectionName'] = $request->connectionName;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->createFolderIfNotExists) {
+            @$body['CreateFolderIfNotExists'] = $request->createFolderIfNotExists;
+        }
+
+        if (null !== $request->cronExpress) {
+            @$body['CronExpress'] = $request->cronExpress;
+        }
+
+        if (null !== $request->cycleType) {
+            @$body['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->dependentNodeIdList) {
+            @$body['DependentNodeIdList'] = $request->dependentNodeIdList;
+        }
+
+        if (null !== $request->dependentType) {
+            @$body['DependentType'] = $request->dependentType;
+        }
+
+        if (null !== $request->endEffectDate) {
+            @$body['EndEffectDate'] = $request->endEffectDate;
+        }
+
+        if (null !== $request->fileDescription) {
+            @$body['FileDescription'] = $request->fileDescription;
+        }
+
+        if (null !== $request->fileFolderPath) {
+            @$body['FileFolderPath'] = $request->fileFolderPath;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->ignoreParentSkipRunningProperty) {
+            @$body['IgnoreParentSkipRunningProperty'] = $request->ignoreParentSkipRunningProperty;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->inputList) {
+            @$body['InputList'] = $request->inputList;
+        }
+
+        if (null !== $request->inputParameters) {
+            @$body['InputParameters'] = $request->inputParameters;
+        }
+
+        if (null !== $request->outputParameters) {
+            @$body['OutputParameters'] = $request->outputParameters;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->paraValue) {
+            @$body['ParaValue'] = $request->paraValue;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->rerunMode) {
+            @$body['RerunMode'] = $request->rerunMode;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceGroupIdentifier) {
+            @$body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
+        }
+
+        if (null !== $request->schedulerType) {
+            @$body['SchedulerType'] = $request->schedulerType;
+        }
+
+        if (null !== $request->startEffectDate) {
+            @$body['StartEffectDate'] = $request->startEffectDate;
+        }
+
+        if (null !== $request->startImmediately) {
+            @$body['StartImmediately'] = $request->startImmediately;
+        }
+
+        if (null !== $request->stop) {
+            @$body['Stop'] = $request->stop;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateFileRequest
+     *
+     * @returns CreateFileResponse
+     *
+     * @param CreateFileRequest $request
+     *
+     * @return CreateFileResponse
+     */
+    public function createFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFolderResponse
+     *
+     * @param CreateFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateFolderResponse
+     */
+    public function createFolderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderPath) {
+            @$body['FolderPath'] = $request->folderPath;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFolder',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateFolderRequest
+     *
+     * @returns CreateFolderResponse
+     *
+     * @param CreateFolderRequest $request
+     *
+     * @return CreateFolderResponse
+     */
+    public function createFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFolderWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
      *
      * @remarks
@@ -2575,6 +2954,188 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件.
+     *
+     * @param request - CreateResourceFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceFileResponse
+     *
+     * @param CreateResourceFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateResourceFileResponse
+     */
+    public function createResourceFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->fileDescription) {
+            @$body['FileDescription'] = $request->fileDescription;
+        }
+
+        if (null !== $request->fileFolderPath) {
+            @$body['FileFolderPath'] = $request->fileFolderPath;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->originResourceName) {
+            @$body['OriginResourceName'] = $request->originResourceName;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->registerToCalcEngine) {
+            @$body['RegisterToCalcEngine'] = $request->registerToCalcEngine;
+        }
+
+        if (null !== $request->resourceFile) {
+            @$body['ResourceFile'] = $request->resourceFile;
+        }
+
+        if (null !== $request->storageURL) {
+            @$body['StorageURL'] = $request->storageURL;
+        }
+
+        if (null !== $request->uploadMode) {
+            @$body['UploadMode'] = $request->uploadMode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateResourceFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateResourceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件.
+     *
+     * @param request - CreateResourceFileRequest
+     *
+     * @returns CreateResourceFileResponse
+     *
+     * @param CreateResourceFileRequest $request
+     *
+     * @return CreateResourceFileResponse
+     */
+    public function createResourceFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResourceFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateResourceFileAdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateResourceFileResponse
+     */
+    public function createResourceFileAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'dataworks-public',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $createResourceFileReq = new CreateResourceFileRequest([]);
+        Utils::convert($request, $createResourceFileReq);
+        if (null !== $request->resourceFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->resourceFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $createResourceFileReq->resourceFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->createResourceFileWithOptions($createResourceFileReq, $runtime);
+    }
+
+    /**
      * Creates a serverless resource group.
      *
      * @remarks
@@ -2758,6 +3319,107 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateUdfFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUdfFileResponse
+     *
+     * @param CreateUdfFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateUdfFileResponse
+     */
+    public function createUdfFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->className) {
+            @$body['ClassName'] = $request->className;
+        }
+
+        if (null !== $request->cmdDescription) {
+            @$body['CmdDescription'] = $request->cmdDescription;
+        }
+
+        if (null !== $request->createFolderIfNotExists) {
+            @$body['CreateFolderIfNotExists'] = $request->createFolderIfNotExists;
+        }
+
+        if (null !== $request->example) {
+            @$body['Example'] = $request->example;
+        }
+
+        if (null !== $request->fileFolderPath) {
+            @$body['FileFolderPath'] = $request->fileFolderPath;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->functionType) {
+            @$body['FunctionType'] = $request->functionType;
+        }
+
+        if (null !== $request->parameterDescription) {
+            @$body['ParameterDescription'] = $request->parameterDescription;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->resources) {
+            @$body['Resources'] = $request->resources;
+        }
+
+        if (null !== $request->returnValue) {
+            @$body['ReturnValue'] = $request->returnValue;
+        }
+
+        if (null !== $request->udfDescription) {
+            @$body['UdfDescription'] = $request->udfDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUdfFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUdfFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateUdfFileRequest
+     *
+     * @returns CreateUdfFileResponse
+     *
+     * @param CreateUdfFileRequest $request
+     *
+     * @return CreateUdfFileResponse
+     */
+    public function createUdfFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUdfFileWithOptions($request, $runtime);
     }
 
     /**
@@ -2985,6 +3647,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DeleteBusinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBusinessResponse
+     *
+     * @param DeleteBusinessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteBusinessResponse
+     */
+    public function deleteBusinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessId) {
+            @$body['BusinessId'] = $request->businessId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBusiness',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteBusinessRequest
+     *
+     * @returns DeleteBusinessResponse
+     *
+     * @param DeleteBusinessRequest $request
+     *
+     * @return DeleteBusinessResponse
+     */
+    public function deleteBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBusinessWithOptions($request, $runtime);
     }
 
     /**
@@ -3552,6 +4275,128 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataSourceSharedRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DeleteFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFileResponse
+     *
+     * @param DeleteFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFileResponse
+     */
+    public function deleteFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteFileRequest
+     *
+     * @returns DeleteFileResponse
+     *
+     * @param DeleteFileRequest $request
+     *
+     * @return DeleteFileResponse
+     */
+    public function deleteFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DeleteFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFolderResponse
+     *
+     * @param DeleteFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteFolderResponse
+     */
+    public function deleteFolderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFolder',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteFolderRequest
+     *
+     * @returns DeleteFolderResponse
+     *
+     * @param DeleteFolderRequest $request
+     *
+     * @return DeleteFolderResponse
+     */
+    public function deleteFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFolderWithOptions($request, $runtime);
     }
 
     /**
@@ -4398,6 +5243,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param request - DeployFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployFileResponse
+     *
+     * @param DeployFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeployFileResponse
+     */
+    public function deployFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeployFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeployFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeployFileRequest
+     *
+     * @returns DeployFileResponse
+     *
+     * @param DeployFileRequest $request
+     *
+     * @return DeployFileResponse
+     */
+    public function deployFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Disassociates monitoring rules from a data quality monitoring task.
      *
      * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
@@ -4537,6 +5451,75 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dissociateProjectFromResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - EstablishRelationTableToBusinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EstablishRelationTableToBusinessResponse
+     *
+     * @param EstablishRelationTableToBusinessRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return EstablishRelationTableToBusinessResponse
+     */
+    public function establishRelationTableToBusinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessId) {
+            @$body['BusinessId'] = $request->businessId;
+        }
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->tableGuid) {
+            @$body['TableGuid'] = $request->tableGuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EstablishRelationTableToBusiness',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EstablishRelationTableToBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - EstablishRelationTableToBusinessRequest
+     *
+     * @returns EstablishRelationTableToBusinessResponse
+     *
+     * @param EstablishRelationTableToBusinessRequest $request
+     *
+     * @return EstablishRelationTableToBusinessResponse
+     */
+    public function establishRelationTableToBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->establishRelationTableToBusinessWithOptions($request, $runtime);
     }
 
     /**
@@ -4754,6 +5737,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetBusinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBusinessResponse
+     *
+     * @param GetBusinessRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetBusinessResponse
+     */
+    public function getBusinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessId) {
+            @$body['BusinessId'] = $request->businessId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetBusiness',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetBusinessRequest
+     *
+     * @returns GetBusinessResponse
+     *
+     * @param GetBusinessRequest $request
+     *
+     * @return GetBusinessResponse
+     */
+    public function getBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBusinessWithOptions($request, $runtime);
     }
 
     /**
@@ -5441,6 +6485,262 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param request - GetDeploymentPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeploymentPackageResponse
+     *
+     * @param GetDeploymentPackageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDeploymentPackageResponse
+     */
+    public function getDeploymentPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->deploymentId) {
+            @$body['DeploymentId'] = $request->deploymentId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeploymentPackage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeploymentPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetDeploymentPackageRequest
+     *
+     * @returns GetDeploymentPackageResponse
+     *
+     * @param GetDeploymentPackageRequest $request
+     *
+     * @return GetDeploymentPackageResponse
+     */
+    public function getDeploymentPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeploymentPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileResponse
+     *
+     * @param GetFileRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFileResponse
+     */
+    public function getFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetFileRequest
+     *
+     * @returns GetFileResponse
+     *
+     * @param GetFileRequest $request
+     *
+     * @return GetFileResponse
+     */
+    public function getFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetFileVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileVersionResponse
+     *
+     * @param GetFileVersionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetFileVersionResponse
+     */
+    public function getFileVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->fileVersion) {
+            @$body['FileVersion'] = $request->fileVersion;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileVersion',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetFileVersionRequest
+     *
+     * @returns GetFileVersionResponse
+     *
+     * @param GetFileVersionRequest $request
+     *
+     * @return GetFileVersionResponse
+     */
+    public function getFileVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFolderResponse
+     *
+     * @param GetFolderRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetFolderResponse
+     */
+    public function getFolderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->folderPath) {
+            @$body['FolderPath'] = $request->folderPath;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetFolder',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetFolderRequest
+     *
+     * @returns GetFolderResponse
+     *
+     * @param GetFolderRequest $request
+     *
+     * @return GetFolderResponse
+     */
+    public function getFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFolderWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a user-defined function (UDF) in DataStudio.
      *
      * @param request - GetFunctionRequest
@@ -5491,6 +6791,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取扩展点触发时的数据快照.
+     *
+     * @param request - GetIDEEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIDEEventDetailResponse
+     *
+     * @param GetIDEEventDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetIDEEventDetailResponse
+     */
+    public function getIDEEventDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->messageId) {
+            @$body['MessageId'] = $request->messageId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetIDEEventDetail',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIDEEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取扩展点触发时的数据快照.
+     *
+     * @param request - GetIDEEventDetailRequest
+     *
+     * @returns GetIDEEventDetailResponse
+     *
+     * @param GetIDEEventDetailRequest $request
+     *
+     * @return GetIDEEventDetailResponse
+     */
+    public function getIDEEventDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIDEEventDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -7072,6 +8433,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param request - ListBusinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBusinessResponse
+     *
+     * @param ListBusinessRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBusinessResponse
+     */
+    public function listBusinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBusiness',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListBusinessRequest
+     *
+     * @returns ListBusinessResponse
+     *
+     * @param ListBusinessRequest $request
+     *
+     * @return ListBusinessResponse
+     */
+    public function listBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBusinessWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询数据目录列表.
      *
      * @param tmpReq - ListCatalogsRequest
@@ -8182,6 +9612,206 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 获取待发布的文件版本列表.
+     *
+     * @param tmpReq - ListDeploymentPackageFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeploymentPackageFilesResponse
+     *
+     * @param ListDeploymentPackageFilesRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDeploymentPackageFilesResponse
+     */
+    public function listDeploymentPackageFilesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDeploymentPackageFilesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileIds) {
+            $request->fileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileIds, 'FileIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->businessId) {
+            @$query['BusinessId'] = $request->businessId;
+        }
+
+        if (null !== $request->changeType) {
+            @$query['ChangeType'] = $request->changeType;
+        }
+
+        if (null !== $request->commitFrom) {
+            @$query['CommitFrom'] = $request->commitFrom;
+        }
+
+        if (null !== $request->commitTo) {
+            @$query['CommitTo'] = $request->commitTo;
+        }
+
+        if (null !== $request->commitUserId) {
+            @$query['CommitUserId'] = $request->commitUserId;
+        }
+
+        if (null !== $request->fileIdsShrink) {
+            @$query['FileIds'] = $request->fileIdsShrink;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->solutionId) {
+            @$query['SolutionId'] = $request->solutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDeploymentPackageFiles',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDeploymentPackageFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取待发布的文件版本列表.
+     *
+     * @param request - ListDeploymentPackageFilesRequest
+     *
+     * @returns ListDeploymentPackageFilesResponse
+     *
+     * @param ListDeploymentPackageFilesRequest $request
+     *
+     * @return ListDeploymentPackageFilesResponse
+     */
+    public function listDeploymentPackageFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeploymentPackageFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询发布包列表.
+     *
+     * @param request - ListDeploymentPackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeploymentPackagesResponse
+     *
+     * @param ListDeploymentPackagesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDeploymentPackagesResponse
+     */
+    public function listDeploymentPackagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->creator) {
+            @$body['Creator'] = $request->creator;
+        }
+
+        if (null !== $request->endCreateTime) {
+            @$body['EndCreateTime'] = $request->endCreateTime;
+        }
+
+        if (null !== $request->endExecuteTime) {
+            @$body['EndExecuteTime'] = $request->endExecuteTime;
+        }
+
+        if (null !== $request->executor) {
+            @$body['Executor'] = $request->executor;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDeploymentPackages',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDeploymentPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询发布包列表.
+     *
+     * @param request - ListDeploymentPackagesRequest
+     *
+     * @returns ListDeploymentPackagesResponse
+     *
+     * @param ListDeploymentPackagesRequest $request
+     *
+     * @return ListDeploymentPackagesResponse
+     */
+    public function listDeploymentPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeploymentPackagesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of descendant instances of an instance by page.
      *
      * @remarks
@@ -8344,6 +9974,257 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEntitiesInMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ListFileVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileVersionsResponse
+     *
+     * @param ListFileVersionsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListFileVersionsResponse
+     */
+    public function listFileVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListFileVersions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFileVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListFileVersionsRequest
+     *
+     * @returns ListFileVersionsResponse
+     *
+     * @param ListFileVersionsRequest $request
+     *
+     * @return ListFileVersionsResponse
+     */
+    public function listFileVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ListFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFilesResponse
+     *
+     * @param ListFilesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFilesResponse
+     */
+    public function listFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->commitStatus) {
+            @$body['CommitStatus'] = $request->commitStatus;
+        }
+
+        if (null !== $request->exactFileName) {
+            @$body['ExactFileName'] = $request->exactFileName;
+        }
+
+        if (null !== $request->fileFolderPath) {
+            @$body['FileFolderPath'] = $request->fileFolderPath;
+        }
+
+        if (null !== $request->fileIdIn) {
+            @$body['FileIdIn'] = $request->fileIdIn;
+        }
+
+        if (null !== $request->fileTypes) {
+            @$body['FileTypes'] = $request->fileTypes;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->lastEditUser) {
+            @$body['LastEditUser'] = $request->lastEditUser;
+        }
+
+        if (null !== $request->needAbsoluteFolderPath) {
+            @$body['NeedAbsoluteFolderPath'] = $request->needAbsoluteFolderPath;
+        }
+
+        if (null !== $request->needContent) {
+            @$body['NeedContent'] = $request->needContent;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->useType) {
+            @$body['UseType'] = $request->useType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListFiles',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListFilesRequest
+     *
+     * @returns ListFilesResponse
+     *
+     * @param ListFilesRequest $request
+     *
+     * @return ListFilesResponse
+     */
+    public function listFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ListFoldersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFoldersResponse
+     *
+     * @param ListFoldersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListFoldersResponse
+     */
+    public function listFoldersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->parentFolderPath) {
+            @$body['ParentFolderPath'] = $request->parentFolderPath;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListFolders',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListFoldersRequest
+     *
+     * @returns ListFoldersResponse
+     *
+     * @param ListFoldersRequest $request
+     *
+     * @return ListFoldersResponse
+     */
+    public function listFolders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFoldersWithOptions($request, $runtime);
     }
 
     /**
@@ -8774,6 +10655,59 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPartitionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过发布流程的ID获取发布内容.
+     *
+     * @param request - ListPipelineRunItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPipelineRunItemsResponse
+     *
+     * @param ListPipelineRunItemsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPipelineRunItemsResponse
+     */
+    public function listPipelineRunItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPipelineRunItems',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPipelineRunItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过发布流程的ID获取发布内容.
+     *
+     * @param request - ListPipelineRunItemsRequest
+     *
+     * @returns ListPipelineRunItemsResponse
+     *
+     * @param ListPipelineRunItemsRequest $request
+     *
+     * @return ListPipelineRunItemsResponse
+     */
+    public function listPipelineRunItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPipelineRunItemsWithOptions($request, $runtime);
     }
 
     /**
@@ -9544,6 +11478,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->sortBy) {
             @$body['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
 
         if (null !== $request->taskId) {
@@ -11464,6 +13402,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param request - SubmitFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitFileResponse
+     *
+     * @param SubmitFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SubmitFileResponse
+     */
+    public function submitFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->skipAllDeployFileExtensions) {
+            @$body['SkipAllDeployFileExtensions'] = $request->skipAllDeployFileExtensions;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - SubmitFileRequest
+     *
+     * @returns SubmitFileResponse
+     *
+     * @param SubmitFileRequest $request
+     *
+     * @return SubmitFileResponse
+     */
+    public function submitFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Suspends multiple instances at a time.
      *
      * @remarks
@@ -11949,6 +13956,79 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateBusinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBusinessResponse
+     *
+     * @param UpdateBusinessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateBusinessResponse
+     */
+    public function updateBusinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessId) {
+            @$body['BusinessId'] = $request->businessId;
+        }
+
+        if (null !== $request->businessName) {
+            @$body['BusinessName'] = $request->businessName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBusiness',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateBusinessRequest
+     *
+     * @returns UpdateBusinessResponse
+     *
+     * @param UpdateBusinessRequest $request
+     *
+     * @return UpdateBusinessResponse
+     */
+    public function updateBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBusinessWithOptions($request, $runtime);
     }
 
     /**
@@ -12644,6 +14724,252 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param request - UpdateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileResponse
+     *
+     * @param UpdateFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFileResponse
+     */
+    public function updateFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->advancedSettings) {
+            @$body['AdvancedSettings'] = $request->advancedSettings;
+        }
+
+        if (null !== $request->applyScheduleImmediately) {
+            @$body['ApplyScheduleImmediately'] = $request->applyScheduleImmediately;
+        }
+
+        if (null !== $request->autoParsing) {
+            @$body['AutoParsing'] = $request->autoParsing;
+        }
+
+        if (null !== $request->autoRerunIntervalMillis) {
+            @$body['AutoRerunIntervalMillis'] = $request->autoRerunIntervalMillis;
+        }
+
+        if (null !== $request->autoRerunTimes) {
+            @$body['AutoRerunTimes'] = $request->autoRerunTimes;
+        }
+
+        if (null !== $request->connectionName) {
+            @$body['ConnectionName'] = $request->connectionName;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->cronExpress) {
+            @$body['CronExpress'] = $request->cronExpress;
+        }
+
+        if (null !== $request->cycleType) {
+            @$body['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->dependentNodeIdList) {
+            @$body['DependentNodeIdList'] = $request->dependentNodeIdList;
+        }
+
+        if (null !== $request->dependentType) {
+            @$body['DependentType'] = $request->dependentType;
+        }
+
+        if (null !== $request->endEffectDate) {
+            @$body['EndEffectDate'] = $request->endEffectDate;
+        }
+
+        if (null !== $request->fileDescription) {
+            @$body['FileDescription'] = $request->fileDescription;
+        }
+
+        if (null !== $request->fileFolderPath) {
+            @$body['FileFolderPath'] = $request->fileFolderPath;
+        }
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->ignoreParentSkipRunningProperty) {
+            @$body['IgnoreParentSkipRunningProperty'] = $request->ignoreParentSkipRunningProperty;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->inputList) {
+            @$body['InputList'] = $request->inputList;
+        }
+
+        if (null !== $request->inputParameters) {
+            @$body['InputParameters'] = $request->inputParameters;
+        }
+
+        if (null !== $request->outputList) {
+            @$body['OutputList'] = $request->outputList;
+        }
+
+        if (null !== $request->outputParameters) {
+            @$body['OutputParameters'] = $request->outputParameters;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->paraValue) {
+            @$body['ParaValue'] = $request->paraValue;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->rerunMode) {
+            @$body['RerunMode'] = $request->rerunMode;
+        }
+
+        if (null !== $request->resourceGroupIdentifier) {
+            @$body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
+        }
+
+        if (null !== $request->schedulerType) {
+            @$body['SchedulerType'] = $request->schedulerType;
+        }
+
+        if (null !== $request->startEffectDate) {
+            @$body['StartEffectDate'] = $request->startEffectDate;
+        }
+
+        if (null !== $request->startImmediately) {
+            @$body['StartImmediately'] = $request->startImmediately;
+        }
+
+        if (null !== $request->stop) {
+            @$body['Stop'] = $request->stop;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateFileRequest
+     *
+     * @returns UpdateFileResponse
+     *
+     * @param UpdateFileRequest $request
+     *
+     * @return UpdateFileResponse
+     */
+    public function updateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFolderResponse
+     *
+     * @param UpdateFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateFolderResponse
+     */
+    public function updateFolderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->folderName) {
+            @$body['FolderName'] = $request->folderName;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFolder',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateFolderRequest
+     *
+     * @returns UpdateFolderResponse
+     *
+     * @param UpdateFolderRequest $request
+     *
+     * @return UpdateFolderResponse
+     */
+    public function updateFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFolderWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
      * @param request - UpdateFunctionRequest
@@ -12706,6 +15032,75 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 回调扩展点消息的检查结果.
+     *
+     * @param request - UpdateIDEEventResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIDEEventResultResponse
+     *
+     * @param UpdateIDEEventResultRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateIDEEventResultResponse
+     */
+    public function updateIDEEventResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->checkResult) {
+            @$body['CheckResult'] = $request->checkResult;
+        }
+
+        if (null !== $request->checkResultTip) {
+            @$body['CheckResultTip'] = $request->checkResultTip;
+        }
+
+        if (null !== $request->extensionCode) {
+            @$body['ExtensionCode'] = $request->extensionCode;
+        }
+
+        if (null !== $request->messageId) {
+            @$body['MessageId'] = $request->messageId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateIDEEventResult',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateIDEEventResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 回调扩展点消息的检查结果.
+     *
+     * @param request - UpdateIDEEventResultRequest
+     *
+     * @returns UpdateIDEEventResultResponse
+     *
+     * @param UpdateIDEEventResultRequest $request
+     *
+     * @return UpdateIDEEventResultResponse
+     */
+    public function updateIDEEventResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIDEEventResultWithOptions($request, $runtime);
     }
 
     /**
@@ -13516,6 +15911,103 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateUdfFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUdfFileResponse
+     *
+     * @param UpdateUdfFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateUdfFileResponse
+     */
+    public function updateUdfFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->className) {
+            @$body['ClassName'] = $request->className;
+        }
+
+        if (null !== $request->cmdDescription) {
+            @$body['CmdDescription'] = $request->cmdDescription;
+        }
+
+        if (null !== $request->example) {
+            @$body['Example'] = $request->example;
+        }
+
+        if (null !== $request->fileFolderPath) {
+            @$body['FileFolderPath'] = $request->fileFolderPath;
+        }
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->functionType) {
+            @$body['FunctionType'] = $request->functionType;
+        }
+
+        if (null !== $request->parameterDescription) {
+            @$body['ParameterDescription'] = $request->parameterDescription;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectIdentifier) {
+            @$body['ProjectIdentifier'] = $request->projectIdentifier;
+        }
+
+        if (null !== $request->resources) {
+            @$body['Resources'] = $request->resources;
+        }
+
+        if (null !== $request->returnValue) {
+            @$body['ReturnValue'] = $request->returnValue;
+        }
+
+        if (null !== $request->udfDescription) {
+            @$body['UdfDescription'] = $request->udfDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUdfFile',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUdfFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateUdfFileRequest
+     *
+     * @returns UpdateUdfFileResponse
+     *
+     * @param UpdateUdfFileRequest $request
+     *
+     * @return UpdateUdfFileResponse
+     */
+    public function updateUdfFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUdfFileWithOptions($request, $runtime);
     }
 
     /**
