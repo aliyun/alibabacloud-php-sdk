@@ -44,6 +44,11 @@ class JobSpec extends Model
     public $isCheif;
 
     /**
+     * @var bool
+     */
+    public $isChief;
+
+    /**
      * @var LocalMountSpec[]
      */
     public $localMountSpecs;
@@ -90,6 +95,7 @@ class JobSpec extends Model
         'image' => 'Image',
         'imageConfig' => 'ImageConfig',
         'isCheif' => 'IsCheif',
+        'isChief' => 'IsChief',
         'localMountSpecs' => 'LocalMountSpecs',
         'podCount' => 'PodCount',
         'resourceConfig' => 'ResourceConfig',
@@ -158,6 +164,10 @@ class JobSpec extends Model
 
         if (null !== $this->isCheif) {
             $res['IsCheif'] = $this->isCheif;
+        }
+
+        if (null !== $this->isChief) {
+            $res['IsChief'] = $this->isChief;
         }
 
         if (null !== $this->localMountSpecs) {
@@ -235,6 +245,10 @@ class JobSpec extends Model
 
         if (isset($map['IsCheif'])) {
             $model->isCheif = $map['IsCheif'];
+        }
+
+        if (isset($map['IsChief'])) {
+            $model->isChief = $map['IsChief'];
         }
 
         if (isset($map['LocalMountSpecs'])) {
