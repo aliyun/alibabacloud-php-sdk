@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo\filterVideo\delogos;
+use AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo\filterVideo\desensitization;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo\filterVideo\watermarks;
 
 class filterVideo extends Model
@@ -16,11 +17,23 @@ class filterVideo extends Model
     public $delogos;
 
     /**
+     * @var desensitization
+     */
+    public $desensitization;
+
+    /**
+     * @var float
+     */
+    public $speed;
+
+    /**
      * @var watermarks[]
      */
     public $watermarks;
     protected $_name = [
         'delogos' => 'Delogos',
+        'desensitization' => 'Desensitization',
+        'speed' => 'Speed',
         'watermarks' => 'Watermarks',
     ];
 
@@ -28,6 +41,9 @@ class filterVideo extends Model
     {
         if (\is_array($this->delogos)) {
             Model::validateArray($this->delogos);
+        }
+        if (null !== $this->desensitization) {
+            $this->desensitization->validate();
         }
         if (\is_array($this->watermarks)) {
             Model::validateArray($this->watermarks);
@@ -46,6 +62,14 @@ class filterVideo extends Model
                     $res['Delogos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->desensitization) {
+            $res['Desensitization'] = null !== $this->desensitization ? $this->desensitization->toArray($noStream) : $this->desensitization;
+        }
+
+        if (null !== $this->speed) {
+            $res['Speed'] = $this->speed;
         }
 
         if (null !== $this->watermarks) {
@@ -77,6 +101,14 @@ class filterVideo extends Model
                     $model->delogos[$n1++] = delogos::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['Desensitization'])) {
+            $model->desensitization = desensitization::fromMap($map['Desensitization']);
+        }
+
+        if (isset($map['Speed'])) {
+            $model->speed = $map['Speed'];
         }
 
         if (isset($map['Watermarks'])) {
