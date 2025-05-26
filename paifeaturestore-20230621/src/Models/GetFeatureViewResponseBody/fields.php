@@ -20,7 +20,7 @@ class fields extends Model
     public $name;
 
     /**
-     * @var transform
+     * @var transform[]
      */
     public $transform;
 
@@ -40,8 +40,8 @@ class fields extends Model
         if (\is_array($this->attributes)) {
             Model::validateArray($this->attributes);
         }
-        if (null !== $this->transform) {
-            $this->transform->validate();
+        if (\is_array($this->transform)) {
+            Model::validateArray($this->transform);
         }
         parent::validate();
     }
@@ -64,7 +64,13 @@ class fields extends Model
         }
 
         if (null !== $this->transform) {
-            $res['Transform'] = null !== $this->transform ? $this->transform->toArray($noStream) : $this->transform;
+            if (\is_array($this->transform)) {
+                $res['Transform'] = [];
+                $n1 = 0;
+                foreach ($this->transform as $item1) {
+                    $res['Transform'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -97,7 +103,13 @@ class fields extends Model
         }
 
         if (isset($map['Transform'])) {
-            $model->transform = transform::fromMap($map['Transform']);
+            if (!empty($map['Transform'])) {
+                $model->transform = [];
+                $n1 = 0;
+                foreach ($map['Transform'] as $item1) {
+                    $model->transform[$n1++] = transform::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Type'])) {
