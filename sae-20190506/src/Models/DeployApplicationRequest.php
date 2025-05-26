@@ -336,6 +336,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
+    public $startupProbe;
+
+    /**
+     * @var string
+     */
     public $swimlanePvtzDiscoverySvc;
 
     /**
@@ -438,6 +443,7 @@ class DeployApplicationRequest extends Model
         'serviceTags' => 'ServiceTags',
         'sidecarContainersConfig' => 'SidecarContainersConfig',
         'slsConfigs' => 'SlsConfigs',
+        'startupProbe' => 'StartupProbe',
         'swimlanePvtzDiscoverySvc' => 'SwimlanePvtzDiscoverySvc',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
         'timezone' => 'Timezone',
@@ -732,6 +738,10 @@ class DeployApplicationRequest extends Model
 
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
+        if (null !== $this->startupProbe) {
+            $res['StartupProbe'] = $this->startupProbe;
         }
 
         if (null !== $this->swimlanePvtzDiscoverySvc) {
@@ -1047,6 +1057,10 @@ class DeployApplicationRequest extends Model
 
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+
+        if (isset($map['StartupProbe'])) {
+            $model->startupProbe = $map['StartupProbe'];
         }
 
         if (isset($map['SwimlanePvtzDiscoverySvc'])) {

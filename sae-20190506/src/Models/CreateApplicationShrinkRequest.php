@@ -349,6 +349,11 @@ class CreateApplicationShrinkRequest extends Model
     public $slsConfigs;
 
     /**
+     * @var string
+     */
+    public $startupProbe;
+
+    /**
      * @var int
      */
     public $terminationGracePeriodSeconds;
@@ -451,6 +456,7 @@ class CreateApplicationShrinkRequest extends Model
         'serviceTags' => 'ServiceTags',
         'sidecarContainersConfigShrink' => 'SidecarContainersConfig',
         'slsConfigs' => 'SlsConfigs',
+        'startupProbe' => 'StartupProbe',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
         'timezone' => 'Timezone',
         'tomcatConfig' => 'TomcatConfig',
@@ -738,6 +744,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
+        if (null !== $this->startupProbe) {
+            $res['StartupProbe'] = $this->startupProbe;
         }
 
         if (null !== $this->terminationGracePeriodSeconds) {
@@ -1049,6 +1059,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+
+        if (isset($map['StartupProbe'])) {
+            $model->startupProbe = $map['StartupProbe'];
         }
 
         if (isset($map['TerminationGracePeriodSeconds'])) {

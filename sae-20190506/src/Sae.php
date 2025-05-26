@@ -977,6 +977,10 @@ class Sae extends OpenApiClient
             @$query['SlsConfigs'] = $request->slsConfigs;
         }
 
+        if (null !== $request->startupProbe) {
+            @$query['StartupProbe'] = $request->startupProbe;
+        }
+
         if (null !== $request->terminationGracePeriodSeconds) {
             @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
@@ -3415,6 +3419,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->slsConfigs) {
             @$query['SlsConfigs'] = $request->slsConfigs;
+        }
+
+        if (null !== $request->startupProbe) {
+            @$query['StartupProbe'] = $request->startupProbe;
         }
 
         if (null !== $request->terminationGracePeriodSeconds) {

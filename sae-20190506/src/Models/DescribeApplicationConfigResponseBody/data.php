@@ -383,6 +383,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $startupProbe;
+
+    /**
+     * @var string
+     */
     public $swimlanePvtzDiscovery;
 
     /**
@@ -503,6 +508,7 @@ class data extends Model
         'serviceTags' => 'ServiceTags',
         'sidecarContainersConfig' => 'SidecarContainersConfig',
         'slsConfigs' => 'SlsConfigs',
+        'startupProbe' => 'StartupProbe',
         'swimlanePvtzDiscovery' => 'SwimlanePvtzDiscovery',
         'tags' => 'Tags',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
@@ -878,6 +884,10 @@ class data extends Model
 
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
+        if (null !== $this->startupProbe) {
+            $res['StartupProbe'] = $this->startupProbe;
         }
 
         if (null !== $this->swimlanePvtzDiscovery) {
@@ -1268,6 +1278,10 @@ class data extends Model
 
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+
+        if (isset($map['StartupProbe'])) {
+            $model->startupProbe = $map['StartupProbe'];
         }
 
         if (isset($map['SwimlanePvtzDiscovery'])) {

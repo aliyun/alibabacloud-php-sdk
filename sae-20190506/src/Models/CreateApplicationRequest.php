@@ -349,6 +349,11 @@ class CreateApplicationRequest extends Model
     public $slsConfigs;
 
     /**
+     * @var string
+     */
+    public $startupProbe;
+
+    /**
      * @var int
      */
     public $terminationGracePeriodSeconds;
@@ -451,6 +456,7 @@ class CreateApplicationRequest extends Model
         'serviceTags' => 'ServiceTags',
         'sidecarContainersConfig' => 'SidecarContainersConfig',
         'slsConfigs' => 'SlsConfigs',
+        'startupProbe' => 'StartupProbe',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
         'timezone' => 'Timezone',
         'tomcatConfig' => 'TomcatConfig',
@@ -756,6 +762,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
+        if (null !== $this->startupProbe) {
+            $res['StartupProbe'] = $this->startupProbe;
         }
 
         if (null !== $this->terminationGracePeriodSeconds) {
@@ -1079,6 +1089,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+
+        if (isset($map['StartupProbe'])) {
+            $model->startupProbe = $map['StartupProbe'];
         }
 
         if (isset($map['TerminationGracePeriodSeconds'])) {
