@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\BankMetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
@@ -86,6 +88,95 @@ class Cloudauthintl extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 银行卡核验.
+     *
+     * @param request - BankMetaVerifyIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BankMetaVerifyIntlResponse
+     *
+     * @param BankMetaVerifyIntlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BankMetaVerifyIntlResponse
+     */
+    public function bankMetaVerifyIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bankCard) {
+            @$query['BankCard'] = $request->bankCard;
+        }
+
+        if (null !== $request->identifyNum) {
+            @$query['IdentifyNum'] = $request->identifyNum;
+        }
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->paramType) {
+            @$query['ParamType'] = $request->paramType;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->verifyMode) {
+            @$query['VerifyMode'] = $request->verifyMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BankMetaVerifyIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BankMetaVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 银行卡核验.
+     *
+     * @param request - BankMetaVerifyIntlRequest
+     *
+     * @returns BankMetaVerifyIntlResponse
+     *
+     * @param BankMetaVerifyIntlRequest $request
+     *
+     * @return BankMetaVerifyIntlResponse
+     */
+    public function bankMetaVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bankMetaVerifyIntlWithOptions($request, $runtime);
     }
 
     // Deprecated
