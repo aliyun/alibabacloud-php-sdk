@@ -282,6 +282,11 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @var string
      */
+    public $userGroupName;
+
+    /**
+     * @var string
+     */
     public $userOuPath;
 
     /**
@@ -353,6 +358,7 @@ class CreateDesktopGroupRequest extends Model
         'systemDiskSize' => 'SystemDiskSize',
         'tag' => 'Tag',
         'timerGroupId' => 'TimerGroupId',
+        'userGroupName' => 'UserGroupName',
         'userOuPath' => 'UserOuPath',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey' => 'VolumeEncryptionKey',
@@ -599,6 +605,10 @@ class CreateDesktopGroupRequest extends Model
 
         if (null !== $this->timerGroupId) {
             $res['TimerGroupId'] = $this->timerGroupId;
+        }
+
+        if (null !== $this->userGroupName) {
+            $res['UserGroupName'] = $this->userGroupName;
         }
 
         if (null !== $this->userOuPath) {
@@ -854,6 +864,10 @@ class CreateDesktopGroupRequest extends Model
 
         if (isset($map['TimerGroupId'])) {
             $model->timerGroupId = $map['TimerGroupId'];
+        }
+
+        if (isset($map['UserGroupName'])) {
+            $model->userGroupName = $map['UserGroupName'];
         }
 
         if (isset($map['UserOuPath'])) {

@@ -2,22 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecd\V20200930\Models\CreateConfigGroupRequest;
+namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTimerGroupRequest\configTimers;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateConfigGroupRequest\configTimers\segmentTimers;
 
-class configTimers extends Model
+class segmentTimers extends Model
 {
-    /**
-     * @var bool
-     */
-    public $allowClientSetting;
-
     /**
      * @var string
      */
-    public $cronExpression;
+    public $endCronExpression;
 
     /**
      * @var bool
@@ -50,30 +44,35 @@ class configTimers extends Model
     public $resetType;
 
     /**
-     * @var segmentTimers[]
+     * @var string
      */
-    public $segmentTimers;
+    public $startCronExpression;
+
+    /**
+     * @var int
+     */
+    public $timerOrder;
 
     /**
      * @var string
      */
-    public $timerType;
+    public $timezone;
 
     /**
      * @var string
      */
     public $triggerType;
     protected $_name = [
-        'allowClientSetting' => 'AllowClientSetting',
-        'cronExpression' => 'CronExpression',
+        'endCronExpression' => 'EndCronExpression',
         'enforce' => 'Enforce',
         'interval' => 'Interval',
         'notificationTime' => 'NotificationTime',
         'operationType' => 'OperationType',
         'processWhitelist' => 'ProcessWhitelist',
         'resetType' => 'ResetType',
-        'segmentTimers' => 'SegmentTimers',
-        'timerType' => 'TimerType',
+        'startCronExpression' => 'StartCronExpression',
+        'timerOrder' => 'TimerOrder',
+        'timezone' => 'Timezone',
         'triggerType' => 'TriggerType',
     ];
 
@@ -82,21 +81,14 @@ class configTimers extends Model
         if (\is_array($this->processWhitelist)) {
             Model::validateArray($this->processWhitelist);
         }
-        if (\is_array($this->segmentTimers)) {
-            Model::validateArray($this->segmentTimers);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->allowClientSetting) {
-            $res['AllowClientSetting'] = $this->allowClientSetting;
-        }
-
-        if (null !== $this->cronExpression) {
-            $res['CronExpression'] = $this->cronExpression;
+        if (null !== $this->endCronExpression) {
+            $res['EndCronExpression'] = $this->endCronExpression;
         }
 
         if (null !== $this->enforce) {
@@ -129,18 +121,16 @@ class configTimers extends Model
             $res['ResetType'] = $this->resetType;
         }
 
-        if (null !== $this->segmentTimers) {
-            if (\is_array($this->segmentTimers)) {
-                $res['SegmentTimers'] = [];
-                $n1 = 0;
-                foreach ($this->segmentTimers as $item1) {
-                    $res['SegmentTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
+        if (null !== $this->startCronExpression) {
+            $res['StartCronExpression'] = $this->startCronExpression;
         }
 
-        if (null !== $this->timerType) {
-            $res['TimerType'] = $this->timerType;
+        if (null !== $this->timerOrder) {
+            $res['TimerOrder'] = $this->timerOrder;
+        }
+
+        if (null !== $this->timezone) {
+            $res['Timezone'] = $this->timezone;
         }
 
         if (null !== $this->triggerType) {
@@ -158,12 +148,8 @@ class configTimers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AllowClientSetting'])) {
-            $model->allowClientSetting = $map['AllowClientSetting'];
-        }
-
-        if (isset($map['CronExpression'])) {
-            $model->cronExpression = $map['CronExpression'];
+        if (isset($map['EndCronExpression'])) {
+            $model->endCronExpression = $map['EndCronExpression'];
         }
 
         if (isset($map['Enforce'])) {
@@ -196,18 +182,16 @@ class configTimers extends Model
             $model->resetType = $map['ResetType'];
         }
 
-        if (isset($map['SegmentTimers'])) {
-            if (!empty($map['SegmentTimers'])) {
-                $model->segmentTimers = [];
-                $n1 = 0;
-                foreach ($map['SegmentTimers'] as $item1) {
-                    $model->segmentTimers[$n1++] = segmentTimers::fromMap($item1);
-                }
-            }
+        if (isset($map['StartCronExpression'])) {
+            $model->startCronExpression = $map['StartCronExpression'];
         }
 
-        if (isset($map['TimerType'])) {
-            $model->timerType = $map['TimerType'];
+        if (isset($map['TimerOrder'])) {
+            $model->timerOrder = $map['TimerOrder'];
+        }
+
+        if (isset($map['Timezone'])) {
+            $model->timezone = $map['Timezone'];
         }
 
         if (isset($map['TriggerType'])) {

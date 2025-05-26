@@ -32,6 +32,11 @@ class DescribeUsersInGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $userGroupName;
+
+    /**
+     * @var string
+     */
     public $userOuPath;
 
     /**
@@ -43,6 +48,7 @@ class DescribeUsersInGroupResponseBody extends Model
         'nextToken' => 'NextToken',
         'onlineUsersCount' => 'OnlineUsersCount',
         'requestId' => 'RequestId',
+        'userGroupName' => 'UserGroupName',
         'userOuPath' => 'UserOuPath',
         'usersCount' => 'UsersCount',
     ];
@@ -78,6 +84,10 @@ class DescribeUsersInGroupResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->userGroupName) {
+            $res['UserGroupName'] = $this->userGroupName;
         }
 
         if (null !== $this->userOuPath) {
@@ -119,6 +129,10 @@ class DescribeUsersInGroupResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['UserGroupName'])) {
+            $model->userGroupName = $map['UserGroupName'];
         }
 
         if (isset($map['UserOuPath'])) {

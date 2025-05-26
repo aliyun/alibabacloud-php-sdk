@@ -243,6 +243,11 @@ class desktopGroups extends Model
     /**
      * @var string
      */
+    public $userGroupName;
+
+    /**
+     * @var string
+     */
     public $userOuPath;
 
     /**
@@ -306,6 +311,7 @@ class desktopGroups extends Model
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskSize' => 'SystemDiskSize',
         'tags' => 'Tags',
+        'userGroupName' => 'UserGroupName',
         'userOuPath' => 'UserOuPath',
         'version' => 'Version',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
@@ -520,6 +526,10 @@ class desktopGroups extends Model
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->userGroupName) {
+            $res['UserGroupName'] = $this->userGroupName;
         }
 
         if (null !== $this->userOuPath) {
@@ -743,6 +753,10 @@ class desktopGroups extends Model
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['UserGroupName'])) {
+            $model->userGroupName = $map['UserGroupName'];
         }
 
         if (isset($map['UserOuPath'])) {

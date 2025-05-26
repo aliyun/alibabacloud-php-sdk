@@ -19,6 +19,11 @@ class CreateDesktopsShrinkRequest extends Model
     public $amount;
 
     /**
+     * @var string
+     */
+    public $appRuleId;
+
+    /**
      * @var bool
      */
     public $autoPay;
@@ -189,6 +194,7 @@ class CreateDesktopsShrinkRequest extends Model
     public $vpcId;
     protected $_name = [
         'amount' => 'Amount',
+        'appRuleId' => 'AppRuleId',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'bundleId' => 'BundleId',
@@ -253,6 +259,10 @@ class CreateDesktopsShrinkRequest extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+
+        if (null !== $this->appRuleId) {
+            $res['AppRuleId'] = $this->appRuleId;
         }
 
         if (null !== $this->autoPay) {
@@ -434,6 +444,10 @@ class CreateDesktopsShrinkRequest extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+
+        if (isset($map['AppRuleId'])) {
+            $model->appRuleId = $map['AppRuleId'];
         }
 
         if (isset($map['AutoPay'])) {

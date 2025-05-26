@@ -31,12 +31,18 @@ class RemoveUserFromDesktopGroupRequest extends Model
     /**
      * @var string
      */
+    public $userGroupName;
+
+    /**
+     * @var string
+     */
     public $userOuPath;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
         'endUserIds' => 'EndUserIds',
         'regionId' => 'RegionId',
+        'userGroupName' => 'UserGroupName',
         'userOuPath' => 'UserOuPath',
     ];
 
@@ -82,6 +88,10 @@ class RemoveUserFromDesktopGroupRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->userGroupName) {
+            $res['UserGroupName'] = $this->userGroupName;
+        }
+
         if (null !== $this->userOuPath) {
             $res['UserOuPath'] = $this->userOuPath;
         }
@@ -123,6 +133,10 @@ class RemoveUserFromDesktopGroupRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['UserGroupName'])) {
+            $model->userGroupName = $map['UserGroupName'];
         }
 
         if (isset($map['UserOuPath'])) {

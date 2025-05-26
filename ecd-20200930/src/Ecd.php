@@ -103,6 +103,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSimpleOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSimpleOfficeSiteResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteBundlesRequest;
@@ -139,6 +141,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnapshotResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteTemplatesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteTemplatesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAclEntriesRequest;
@@ -241,6 +245,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTemplatesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTemplatesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectionRecordsRequest;
@@ -382,6 +388,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyResourceCenterPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyResourceCenterPolicyResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateBaseInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateBaseInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTimerGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTimerGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserEntitlementRequest;
@@ -837,6 +847,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userGroupName) {
+            @$query['UserGroupName'] = $request->userGroupName;
         }
 
         if (null !== $request->userOuPath) {
@@ -4102,6 +4116,10 @@ class Ecd extends OpenApiClient
             @$query['TimerGroupId'] = $request->timerGroupId;
         }
 
+        if (null !== $request->userGroupName) {
+            @$query['UserGroupName'] = $request->userGroupName;
+        }
+
         if (null !== $request->userOuPath) {
             @$query['UserOuPath'] = $request->userOuPath;
         }
@@ -4309,6 +4327,10 @@ class Ecd extends OpenApiClient
         $query = [];
         if (null !== $request->amount) {
             @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->appRuleId) {
+            @$query['AppRuleId'] = $request->appRuleId;
         }
 
         if (null !== $request->autoPay) {
@@ -5400,6 +5422,122 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模板
+     *
+     * @param request - CreateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->dataDiskList) {
+            @$bodyFlat['DataDiskList'] = $request->dataDiskList;
+        }
+
+        if (null !== $request->defaultLanguage) {
+            @$body['DefaultLanguage'] = $request->defaultLanguage;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->policyGroupId) {
+            @$body['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->regionConfigList) {
+            @$bodyFlat['RegionConfigList'] = $request->regionConfigList;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceTagList) {
+            @$bodyFlat['ResourceTagList'] = $request->resourceTagList;
+        }
+
+        if (null !== $request->siteConfigList) {
+            @$bodyFlat['SiteConfigList'] = $request->siteConfigList;
+        }
+
+        if (null !== $request->systemDiskPerformanceLevel) {
+            @$body['SystemDiskPerformanceLevel'] = $request->systemDiskPerformanceLevel;
+        }
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->timerGroupId) {
+            @$body['TimerGroupId'] = $request->timerGroupId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTemplate',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模板
+     *
+     * @param request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -6610,6 +6748,73 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes custom cloud computer templates.
+     *
+     * @remarks
+     * Deleting a template does not affect cloud computers created from it or the associated resources.
+     *
+     * @param request - DeleteTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplatesResponse
+     *
+     * @param DeleteTemplatesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteTemplatesResponse
+     */
+    public function deleteTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['TemplateIds'] = $request->templateIds;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTemplates',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes custom cloud computer templates.
+     *
+     * @remarks
+     * Deleting a template does not affect cloud computers created from it or the associated resources.
+     *
+     * @param request - DeleteTemplatesRequest
+     *
+     * @returns DeleteTemplatesResponse
+     *
+     * @param DeleteTemplatesRequest $request
+     *
+     * @return DeleteTemplatesResponse
+     */
+    public function deleteTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -11003,6 +11208,99 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSnapshotsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模板列表.
+     *
+     * @param request - DescribeTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTemplatesResponse
+     *
+     * @param DescribeTemplatesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeTemplatesResponse
+     */
+    public function describeTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['TemplateIds'] = $request->templateIds;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->templateType) {
+            @$body['TemplateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTemplates',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模板列表.
+     *
+     * @param request - DescribeTemplatesRequest
+     *
+     * @returns DescribeTemplatesResponse
+     *
+     * @param DescribeTemplatesRequest $request
+     *
+     * @return DescribeTemplatesResponse
+     */
+    public function describeTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -17220,6 +17518,187 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 模板全量更新.
+     *
+     * @param request - ModifyTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTemplateResponse
+     *
+     * @param ModifyTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyTemplateResponse
+     */
+    public function modifyTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteConfigList) {
+            @$query['SiteConfigList'] = $request->siteConfigList;
+        }
+
+        $body = [];
+        if (null !== $request->defaultLanguage) {
+            @$body['DefaultLanguage'] = $request->defaultLanguage;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->policyGroupId) {
+            @$body['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->regionConfigList) {
+            @$bodyFlat['RegionConfigList'] = $request->regionConfigList;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceTagList) {
+            @$bodyFlat['ResourceTagList'] = $request->resourceTagList;
+        }
+
+        if (null !== $request->systemDiskPerformanceLevel) {
+            @$body['SystemDiskPerformanceLevel'] = $request->systemDiskPerformanceLevel;
+        }
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->timerGroupId) {
+            @$body['TimerGroupId'] = $request->timerGroupId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyTemplate',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模板全量更新.
+     *
+     * @param request - ModifyTemplateRequest
+     *
+     * @returns ModifyTemplateResponse
+     *
+     * @param ModifyTemplateRequest $request
+     *
+     * @return ModifyTemplateResponse
+     */
+    public function modifyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+     *
+     * @remarks
+     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+     *
+     * @param request - ModifyTemplateBaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTemplateBaseInfoResponse
+     *
+     * @param ModifyTemplateBaseInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyTemplateBaseInfoResponse
+     */
+    public function modifyTemplateBaseInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyTemplateBaseInfo',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyTemplateBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+     *
+     * @remarks
+     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+     *
+     * @param request - ModifyTemplateBaseInfoRequest
+     *
+     * @returns ModifyTemplateBaseInfoResponse
+     *
+     * @param ModifyTemplateBaseInfoRequest $request
+     *
+     * @return ModifyTemplateBaseInfoResponse
+     */
+    public function modifyTemplateBaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTemplateBaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies a scheduled task configuration group.
      *
      * @param request - ModifyTimerGroupRequest
@@ -17795,6 +18274,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userGroupName) {
+            @$query['UserGroupName'] = $request->userGroupName;
         }
 
         if (null !== $request->userOuPath) {

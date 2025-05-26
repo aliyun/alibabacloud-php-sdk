@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupResponseBody\data\configTimers\segmentTimers;
 
 class configTimers extends Model
 {
@@ -49,6 +50,11 @@ class configTimers extends Model
     public $resetType;
 
     /**
+     * @var segmentTimers[]
+     */
+    public $segmentTimers;
+
+    /**
      * @var string
      */
     public $timerType;
@@ -66,6 +72,7 @@ class configTimers extends Model
         'operationType' => 'OperationType',
         'processWhitelist' => 'ProcessWhitelist',
         'resetType' => 'ResetType',
+        'segmentTimers' => 'SegmentTimers',
         'timerType' => 'TimerType',
         'triggerType' => 'TriggerType',
     ];
@@ -74,6 +81,9 @@ class configTimers extends Model
     {
         if (\is_array($this->processWhitelist)) {
             Model::validateArray($this->processWhitelist);
+        }
+        if (\is_array($this->segmentTimers)) {
+            Model::validateArray($this->segmentTimers);
         }
         parent::validate();
     }
@@ -117,6 +127,16 @@ class configTimers extends Model
 
         if (null !== $this->resetType) {
             $res['ResetType'] = $this->resetType;
+        }
+
+        if (null !== $this->segmentTimers) {
+            if (\is_array($this->segmentTimers)) {
+                $res['SegmentTimers'] = [];
+                $n1 = 0;
+                foreach ($this->segmentTimers as $item1) {
+                    $res['SegmentTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->timerType) {
@@ -174,6 +194,16 @@ class configTimers extends Model
 
         if (isset($map['ResetType'])) {
             $model->resetType = $map['ResetType'];
+        }
+
+        if (isset($map['SegmentTimers'])) {
+            if (!empty($map['SegmentTimers'])) {
+                $model->segmentTimers = [];
+                $n1 = 0;
+                foreach ($map['SegmentTimers'] as $item1) {
+                    $model->segmentTimers[$n1++] = segmentTimers::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['TimerType'])) {
