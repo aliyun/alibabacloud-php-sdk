@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIpfilterByEdmIdResponseBody extends Model
 {
     /**
-     * @example E3DFF97B-00CF-5333-8125-3D6819471984
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class DeleteIpfilterByEdmIdResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteIpfilterByEdmIdResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIpfilterByEdmIdResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

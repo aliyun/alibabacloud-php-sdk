@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddIpfilterResponseBody extends Model
 {
     /**
-     * @example 10795
-     *
      * @var string
      */
     public $ipFilterId;
 
     /**
-     * @example 0E9282E8-DC08-5445-8FB0-B9F0CA28B249
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipFilterId' => 'IpFilterId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipFilterId) {
             $res['IpFilterId'] = $this->ipFilterId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class AddIpfilterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddIpfilterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpFilterId'])) {
             $model->ipFilterId = $map['IpFilterId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

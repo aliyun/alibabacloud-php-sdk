@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPWByDomainRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example abc.com
-     *
      * @var string
      */
     public $domainName;
@@ -23,10 +19,6 @@ class ModifyPWByDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example pwd
-     *
      * @var string
      */
     public $password;
@@ -41,32 +33,37 @@ class ModifyPWByDomainRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'domainName'           => 'DomainName',
-        'ownerId'              => 'OwnerId',
-        'password'             => 'Password',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'password' => 'Password',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -74,26 +71,30 @@ class ModifyPWByDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPWByDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

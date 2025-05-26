@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateReceiverResponseBody extends Model
 {
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $receiverId;
 
     /**
-     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'receiverId' => 'ReceiverId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->receiverId) {
             $res['ReceiverId'] = $this->receiverId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateReceiverResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateReceiverResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReceiverId'])) {
             $model->receiverId = $map['ReceiverId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

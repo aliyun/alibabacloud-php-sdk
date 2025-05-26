@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipfilters extends Model
 {
     /**
-     * @example 1653547140
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example 10083
-     *
      * @var string
      */
     public $id;
@@ -28,23 +24,26 @@ class ipfilters extends Model
     public $ipAddress;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'id'         => 'Id',
-        'ipAddress'  => 'IpAddress',
+        'id' => 'Id',
+        'ipAddress' => 'IpAddress',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
@@ -52,20 +51,22 @@ class ipfilters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipfilters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }

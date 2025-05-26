@@ -1,3 +1,7 @@
+2025-05-26 Version: 1.2.5
+- Update API CreateDomain: add request parameters dkimSelector.
+
+
 2025-01-10 Version: 1.2.4
 - Generated php 2015-11-23 for Dm.
 

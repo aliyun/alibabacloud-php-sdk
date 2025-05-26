@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMailAddressResponseBody extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $mailAddressId;
 
     /**
-     * @example 95A7D497-F8DD-4834-B81E-C1783236E55F
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'mailAddressId' => 'MailAddressId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mailAddressId) {
             $res['MailAddressId'] = $this->mailAddressId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateMailAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMailAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MailAddressId'])) {
             $model->mailAddressId = $map['MailAddressId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

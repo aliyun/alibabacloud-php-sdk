@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\QueryMailAddressByParamResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryMailAddressByParamResponseBody\data\mailAddress;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->mailAddress)) {
+            Model::validateArray($this->mailAddress);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mailAddress) {
-            $res['mailAddress'] = [];
-            if (null !== $this->mailAddress && \is_array($this->mailAddress)) {
-                $n = 0;
-                foreach ($this->mailAddress as $item) {
-                    $res['mailAddress'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mailAddress)) {
+                $res['mailAddress'] = [];
+                $n1 = 0;
+                foreach ($this->mailAddress as $item1) {
+                    $res['mailAddress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mailAddress'])) {
             if (!empty($map['mailAddress'])) {
                 $model->mailAddress = [];
-                $n                  = 0;
-                foreach ($map['mailAddress'] as $item) {
-                    $model->mailAddress[$n++] = null !== $item ? mailAddress::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['mailAddress'] as $item1) {
+                    $model->mailAddress[$n1++] = mailAddress::fromMap($item1);
                 }
             }
         }
