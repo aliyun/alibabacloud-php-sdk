@@ -29,6 +29,11 @@ class backup extends Model
     public $backupMethod;
 
     /**
+     * @var string
+     */
+    public $backupRegion;
+
+    /**
      * @var int
      */
     public $backupSize;
@@ -47,15 +52,22 @@ class backup extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $parentBackupId;
     protected $_name = [
         'backupEndTime' => 'BackupEndTime',
         'backupExpiredTime' => 'BackupExpiredTime',
         'backupId' => 'BackupId',
         'backupMethod' => 'BackupMethod',
+        'backupRegion' => 'BackupRegion',
         'backupSize' => 'BackupSize',
         'backupStartTime' => 'BackupStartTime',
         'backupType' => 'BackupType',
         'DBClusterId' => 'DBClusterId',
+        'parentBackupId' => 'ParentBackupId',
     ];
 
     public function validate()
@@ -82,6 +94,10 @@ class backup extends Model
             $res['BackupMethod'] = $this->backupMethod;
         }
 
+        if (null !== $this->backupRegion) {
+            $res['BackupRegion'] = $this->backupRegion;
+        }
+
         if (null !== $this->backupSize) {
             $res['BackupSize'] = $this->backupSize;
         }
@@ -96,6 +112,10 @@ class backup extends Model
 
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->parentBackupId) {
+            $res['ParentBackupId'] = $this->parentBackupId;
         }
 
         return $res;
@@ -125,6 +145,10 @@ class backup extends Model
             $model->backupMethod = $map['BackupMethod'];
         }
 
+        if (isset($map['BackupRegion'])) {
+            $model->backupRegion = $map['BackupRegion'];
+        }
+
         if (isset($map['BackupSize'])) {
             $model->backupSize = $map['BackupSize'];
         }
@@ -139,6 +163,10 @@ class backup extends Model
 
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['ParentBackupId'])) {
+            $model->parentBackupId = $map['ParentBackupId'];
         }
 
         return $model;

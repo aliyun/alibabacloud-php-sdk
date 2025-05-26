@@ -90,8 +90,12 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlColumnsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlColumnsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlIndexesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlIndexesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlSchemasResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlTableMetaRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlTableMetaResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlTablesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlTablesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdviceServiceEnabledRequest;
@@ -194,6 +198,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLakeCacheSizeRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLakeCacheSizeResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMAnswerRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMAnswerResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMSimilarQuestionsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMSimilarQuestionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOversizeNonPartitionTableInfosRequest;
@@ -228,6 +236,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLPatternsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLPatternsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLWebSocketDomainRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLWebSocketDomainResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeStorageResourceUsageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeStorageResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableAccessCountRequest;
@@ -238,6 +248,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablePartitionDiagnoseRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablePartitionDiagnoseResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableStatisticsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableStatisticsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeUserQuotaRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeUserQuotaResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionRequest;
@@ -4030,6 +4042,75 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 用于查看表索引信息.
+     *
+     * @param request - DescribeAdbMySqlIndexesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAdbMySqlIndexesResponse
+     *
+     * @param DescribeAdbMySqlIndexesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAdbMySqlIndexesResponse
+     */
+    public function describeAdbMySqlIndexesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAdbMySqlIndexes',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAdbMySqlIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于查看表索引信息.
+     *
+     * @param request - DescribeAdbMySqlIndexesRequest
+     *
+     * @returns DescribeAdbMySqlIndexesResponse
+     *
+     * @param DescribeAdbMySqlIndexesRequest $request
+     *
+     * @return DescribeAdbMySqlIndexesResponse
+     */
+    public function describeAdbMySqlIndexes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAdbMySqlIndexesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of databases for an AnalyticDB for MySQL cluster.
      *
      * @remarks
@@ -4096,6 +4177,75 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAdbMySqlSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于查看表元数据信息.
+     *
+     * @param request - DescribeAdbMySqlTableMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAdbMySqlTableMetaResponse
+     *
+     * @param DescribeAdbMySqlTableMetaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAdbMySqlTableMetaResponse
+     */
+    public function describeAdbMySqlTableMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAdbMySqlTableMeta',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAdbMySqlTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于查看表元数据信息.
+     *
+     * @param request - DescribeAdbMySqlTableMetaRequest
+     *
+     * @returns DescribeAdbMySqlTableMetaResponse
+     *
+     * @param DescribeAdbMySqlTableMetaRequest $request
+     *
+     * @return DescribeAdbMySqlTableMetaResponse
+     */
+    public function describeAdbMySqlTableMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAdbMySqlTableMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -5413,6 +5563,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 查询实例备份集.
+     *
      * @remarks
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
@@ -5458,6 +5610,10 @@ class Adb extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->remote) {
+            @$query['Remote'] = $request->remote;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5489,6 +5645,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 查询实例备份集.
+     *
      * @remarks
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
@@ -7767,7 +7925,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查看表倾斜诊断结果.
+     * Queries the information about skewed tables for an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeInclinedTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7830,7 +7988,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查看表倾斜诊断结果.
+     * Queries the information about skewed tables for an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeInclinedTablesRequest
      *
@@ -7993,6 +8151,164 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
+     *
+     * @param request - DescribeLLMAnswerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLLMAnswerResponse
+     *
+     * @param DescribeLLMAnswerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeLLMAnswerResponse
+     */
+    public function describeLLMAnswerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLLMAnswer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLLMAnswerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
+     *
+     * @param request - DescribeLLMAnswerRequest
+     *
+     * @returns DescribeLLMAnswerResponse
+     *
+     * @param DescribeLLMAnswerRequest $request
+     *
+     * @return DescribeLLMAnswerResponse
+     */
+    public function describeLLMAnswer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLLMAnswerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeLLMSimilarQuestionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLLMSimilarQuestionsResponse
+     *
+     * @param DescribeLLMSimilarQuestionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeLLMSimilarQuestionsResponse
+     */
+    public function describeLLMSimilarQuestionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLLMSimilarQuestions',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLLMSimilarQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeLLMSimilarQuestionsRequest
+     *
+     * @returns DescribeLLMSimilarQuestionsResponse
+     *
+     * @param DescribeLLMSimilarQuestionsRequest $request
+     *
+     * @return DescribeLLMSimilarQuestionsResponse
+     */
+    public function describeLLMSimilarQuestions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLLMSimilarQuestionsWithOptions($request, $runtime);
     }
 
     /**
@@ -8551,7 +8867,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询资源组规格相关信息.
+     * Queries the information about resource group specifications.
+     *
+     * @remarks
+     * ### [](#)
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-mysql/developer-reference/api-adb-2021-12-01-endpoint?spm=a2c63.p38356.help-menu-92664.d_5_3_1.57da5837J23pkx).
      *
      * @param request - DescribeResourceGroupSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8598,7 +8918,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询资源组规格相关信息.
+     * Queries the information about resource group specifications.
+     *
+     * @remarks
+     * ### [](#)
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-mysql/developer-reference/api-adb-2021-12-01-endpoint?spm=a2c63.p38356.help-menu-92664.d_5_3_1.57da5837J23pkx).
      *
      * @param request - DescribeResourceGroupSpecRequest
      *
@@ -8712,6 +9036,67 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLPatternsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看注册的WebSocket域名.
+     *
+     * @param request - DescribeSQLWebSocketDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSQLWebSocketDomainResponse
+     *
+     * @param DescribeSQLWebSocketDomainRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSQLWebSocketDomainResponse
+     */
+    public function describeSQLWebSocketDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSQLWebSocketDomain',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSQLWebSocketDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看注册的WebSocket域名.
+     *
+     * @param request - DescribeSQLWebSocketDomainRequest
+     *
+     * @returns DescribeSQLWebSocketDomainResponse
+     *
+     * @param DescribeSQLWebSocketDomainRequest $request
+     *
+     * @return DescribeSQLWebSocketDomainResponse
+     */
+    public function describeSQLWebSocketDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLWebSocketDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -9690,6 +10075,87 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 查询表统计信息.
+     *
+     * @param request - DescribeTableStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTableStatisticsResponse
+     *
+     * @param DescribeTableStatisticsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTableStatisticsResponse
+     */
+    public function describeTableStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTableStatistics',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTableStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表统计信息.
+     *
+     * @param request - DescribeTableStatisticsRequest
+     *
+     * @returns DescribeTableStatisticsResponse
+     *
+     * @param DescribeTableStatisticsRequest $request
+     *
+     * @return DescribeTableStatisticsResponse
+     */
+    public function describeTableStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTableStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of tables in a database.
      *
      * @remarks
@@ -10571,6 +11037,7 @@ class Adb extends OpenApiClient
         return $this->executeSparkWarehouseBatchSQLWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
      * Queries whether a running SQL engine exists.
      *
@@ -10578,6 +11045,8 @@ class Adb extends OpenApiClient
      *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *
+     * @deprecated OpenAPI ExistRunningSQLEngine is deprecated
      *
      * @param request - ExistRunningSQLEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10619,6 +11088,7 @@ class Adb extends OpenApiClient
         return ExistRunningSQLEngineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries whether a running SQL engine exists.
      *
@@ -10626,6 +11096,8 @@ class Adb extends OpenApiClient
      *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *
+     * @deprecated OpenAPI ExistRunningSQLEngine is deprecated
      *
      * @param request - ExistRunningSQLEngineRequest
      *
@@ -16182,6 +16654,7 @@ class Adb extends OpenApiClient
         return $this->startSparkReplSessionWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
      * Starts the Spark SQL engine.
      *
@@ -16189,6 +16662,8 @@ class Adb extends OpenApiClient
      *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *
+     * @deprecated OpenAPI StartSparkSQLEngine is deprecated
      *
      * @param request - StartSparkSQLEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16250,6 +16725,7 @@ class Adb extends OpenApiClient
         return StartSparkSQLEngineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Starts the Spark SQL engine.
      *
@@ -16257,6 +16733,8 @@ class Adb extends OpenApiClient
      *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     *
+     * @deprecated OpenAPI StartSparkSQLEngine is deprecated
      *
      * @param request - StartSparkSQLEngineRequest
      *
