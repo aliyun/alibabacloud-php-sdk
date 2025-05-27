@@ -51,6 +51,11 @@ class dataDisk extends Model
     /**
      * @var string
      */
+    public $KMSKeyId;
+
+    /**
+     * @var string
+     */
     public $performanceLevel;
 
     /**
@@ -76,6 +81,7 @@ class dataDisk extends Model
         'device' => 'Device',
         'diskName' => 'DiskName',
         'encrypted' => 'Encrypted',
+        'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
         'provisionedIops' => 'ProvisionedIops',
         'size' => 'Size',
@@ -120,6 +126,10 @@ class dataDisk extends Model
 
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         if (null !== $this->performanceLevel) {
@@ -179,6 +189,10 @@ class dataDisk extends Model
 
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         if (isset($map['PerformanceLevel'])) {

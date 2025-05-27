@@ -51,6 +51,11 @@ class systemDisk extends Model
     /**
      * @var string
      */
+    public $KMSKeyId;
+
+    /**
+     * @var string
+     */
     public $performanceLevel;
 
     /**
@@ -71,6 +76,7 @@ class systemDisk extends Model
         'diskName' => 'DiskName',
         'encrypted' => 'Encrypted',
         'iops' => 'Iops',
+        'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
         'provisionedIops' => 'ProvisionedIops',
         'size' => 'Size',
@@ -114,6 +120,10 @@ class systemDisk extends Model
 
         if (null !== $this->iops) {
             $res['Iops'] = $this->iops;
+        }
+
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         if (null !== $this->performanceLevel) {
@@ -169,6 +179,10 @@ class systemDisk extends Model
 
         if (isset($map['Iops'])) {
             $model->iops = $map['Iops'];
+        }
+
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         if (isset($map['PerformanceLevel'])) {

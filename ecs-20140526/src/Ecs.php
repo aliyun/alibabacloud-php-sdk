@@ -8882,6 +8882,10 @@ class Ecs extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -11925,7 +11929,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Deletes a snapshot. If you call this operation to delete a snapshot that is being created, the snapshot creation task is canceled.
+     * Deletes a specified snapshot. If you call this operation to delete a snapshot that is being created, the associated snapshot creation task is also canceled.
      *
      * @remarks
      * Take note of the following items:
@@ -11990,7 +11994,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Deletes a snapshot. If you call this operation to delete a snapshot that is being created, the snapshot creation task is canceled.
+     * Deletes a specified snapshot. If you call this operation to delete a snapshot that is being created, the associated snapshot creation task is also canceled.
      *
      * @remarks
      * Take note of the following items:
