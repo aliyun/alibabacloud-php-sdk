@@ -1,3 +1,8 @@
+2025-05-27 Version: 4.2.0
+- Support API DiscoverEventSource.
+- Support API TestEventSourceConfig.
+
+
 2025-05-27 Version: 4.1.2
 - Generated php 2020-04-01 for eventbridge.
 

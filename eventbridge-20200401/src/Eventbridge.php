@@ -43,6 +43,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTargetsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTargetsShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DisableRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DisableRuleResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DiscoverEventSourceRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DiscoverEventSourceResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DiscoverEventSourceShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EnableRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EnableRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest;
@@ -90,6 +93,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventPatternRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventPatternResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateApiDestinationShrinkRequest;
@@ -1369,6 +1375,69 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发现EventSource(例如：Mysql)的Schema和SimpleData.
+     *
+     * @param tmpReq - DiscoverEventSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DiscoverEventSourceResponse
+     *
+     * @param DiscoverEventSourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DiscoverEventSourceResponse
+     */
+    public function discoverEventSourceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DiscoverEventSourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceMySQLParameters) {
+            $request->sourceMySQLParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMySQLParameters, 'SourceMySQLParameters', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->sourceMySQLParametersShrink) {
+            @$body['SourceMySQLParameters'] = $request->sourceMySQLParametersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DiscoverEventSource',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DiscoverEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发现EventSource(例如：Mysql)的Schema和SimpleData.
+     *
+     * @param request - DiscoverEventSourceRequest
+     *
+     * @returns DiscoverEventSourceResponse
+     *
+     * @param DiscoverEventSourceRequest $request
+     *
+     * @return DiscoverEventSourceResponse
+     */
+    public function discoverEventSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->discoverEventSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2975,6 +3044,69 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->testEventPatternWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检查EventSource配置是否可用.
+     *
+     * @param tmpReq - TestEventSourceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestEventSourceConfigResponse
+     *
+     * @param TestEventSourceConfigRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TestEventSourceConfigResponse
+     */
+    public function testEventSourceConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TestEventSourceConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceMySQLParameters) {
+            $request->sourceMySQLParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMySQLParameters, 'SourceMySQLParameters', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->sourceMySQLParametersShrink) {
+            @$body['SourceMySQLParameters'] = $request->sourceMySQLParametersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TestEventSourceConfig',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TestEventSourceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查EventSource配置是否可用.
+     *
+     * @param request - TestEventSourceConfigRequest
+     *
+     * @returns TestEventSourceConfigResponse
+     *
+     * @param TestEventSourceConfigRequest $request
+     *
+     * @return TestEventSourceConfigResponse
+     */
+    public function testEventSourceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testEventSourceConfigWithOptions($request, $runtime);
     }
 
     /**
