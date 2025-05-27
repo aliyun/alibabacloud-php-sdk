@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeImportedLogCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of logs that are added.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $importedLogCount;
 
     /**
-     * @description The total number of logs.
-     *
-     * @example 59
-     *
      * @var int
      */
     public $totalLogCount;
 
     /**
-     * @description The number of logs that are not added.
-     *
-     * @example 49
-     *
      * @var int
      */
     public $unImportedLogCount;
     protected $_name = [
-        'importedLogCount'   => 'ImportedLogCount',
-        'totalLogCount'      => 'TotalLogCount',
+        'importedLogCount' => 'ImportedLogCount',
+        'totalLogCount' => 'TotalLogCount',
         'unImportedLogCount' => 'UnImportedLogCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->importedLogCount) {
             $res['ImportedLogCount'] = $this->importedLogCount;
         }
+
         if (null !== $this->totalLogCount) {
             $res['TotalLogCount'] = $this->totalLogCount;
         }
+
         if (null !== $this->unImportedLogCount) {
             $res['UnImportedLogCount'] = $this->unImportedLogCount;
         }
@@ -60,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImportedLogCount'])) {
             $model->importedLogCount = $map['ImportedLogCount'];
         }
+
         if (isset($map['TotalLogCount'])) {
             $model->totalLogCount = $map['TotalLogCount'];
         }
+
         if (isset($map['UnImportedLogCount'])) {
             $model->unImportedLogCount = $map['UnImportedLogCount'];
         }

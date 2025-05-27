@@ -4,55 +4,55 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account in SIEM.
-     *
-     * @example 127608589417****
-     *
      * @var int
      */
     public $aliuid;
 
     /**
-     * @description The domain names that are protected by the WAF instance.
-     *
-     * @example [123.com, 456.com]
-     *
      * @var string[]
      */
     public $domains;
 
     /**
-     * @description The ID of the WAF instance.
-     *
-     * @example waf-cn-tl123ast****
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'aliuid'     => 'Aliuid',
-        'domains'    => 'Domains',
+        'aliuid' => 'Aliuid',
+        'domains' => 'Domains',
         'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliuid) {
             $res['Aliuid'] = $this->aliuid;
         }
+
         if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,22 +60,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Aliuid'])) {
             $model->aliuid = $map['Aliuid'];
         }
+
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = $map['Domains'];
+                $model->domains = [];
+                $n1 = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The log type of the rule.
-     *
-     * @example HTTP_ACTIVITY
-     *
      * @var string
      */
     public $logType;
 
     /**
-     * @description The internal code of the log type.
-     *
-     * @example sas.cloudsiem.prod.http_activity
-     *
      * @var string
      */
     public $logTypeName;
     protected $_name = [
-        'logType'     => 'LogType',
+        'logType' => 'LogType',
         'logTypeName' => 'LogTypeName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
         }
+
         if (null !== $this->logTypeName) {
             $res['LogTypeName'] = $this->logTypeName;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
         }
+
         if (isset($map['LogTypeName'])) {
             $model->logTypeName = $map['LogTypeName'];
         }

@@ -4,96 +4,81 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DataProductListLogMapValue;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponseBody\data\productList\logList;
-use AlibabaCloud\Tea\Model;
 
 class productList extends Model
 {
     /**
-     * @description The logs of the cloud services.
-     *
      * @var logList[]
      */
     public $logList;
 
     /**
-     * @description The log group. For example, in Security Center, the logs of hosts and networks are stored in different groups. Key indicates the group information, and value indicates the logs in the group.
-     *
      * @var DataProductListLogMapValue[][]
      */
     public $logMap;
 
     /**
-     * @description The code of the cloud service. Valid values:
-     *
-     *   qcloud_waf
-     *   qlcoud_cfw
-     *   hcloud_waf
-     *   hcloud_cfw
-     *   ddos
-     *   sas
-     *   cfw
-     *   config
-     *   csk
-     *   fc
-     *   rds
-     *   nas
-     *   apigateway
-     *   cdn
-     *   mongodb
-     *   eip
-     *   slb
-     *   vpc
-     *   actiontrail
-     *   waf
-     *   bastionhost
-     *   oss
-     *   polardb
-     *
-     * @example sas
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example Security Center
-     *
      * @var string
      */
     public $productName;
     protected $_name = [
-        'logList'     => 'LogList',
-        'logMap'      => 'LogMap',
+        'logList' => 'LogList',
+        'logMap' => 'LogMap',
         'productCode' => 'ProductCode',
         'productName' => 'ProductName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logList)) {
+            Model::validateArray($this->logList);
+        }
+        if (\is_array($this->logMap)) {
+            Model::validateArray($this->logMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logList) {
-            $res['LogList'] = [];
-            if (null !== $this->logList && \is_array($this->logList)) {
-                $n = 0;
-                foreach ($this->logList as $item) {
-                    $res['LogList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logList)) {
+                $res['LogList'] = [];
+                $n1 = 0;
+                foreach ($this->logList as $item1) {
+                    $res['LogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->logMap) {
-            $res['LogMap'] = $this->logMap;
+            if (\is_array($this->logMap)) {
+                $res['LogMap'] = [];
+                foreach ($this->logMap as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['LogMap'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['LogMap'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
@@ -101,29 +86,43 @@ class productList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogList'])) {
             if (!empty($map['LogList'])) {
                 $model->logList = [];
-                $n              = 0;
-                foreach ($map['LogList'] as $item) {
-                    $model->logList[$n++] = null !== $item ? logList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogList'] as $item1) {
+                    $model->logList[$n1++] = logList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['LogMap'])) {
-            $model->logMap = $map['LogMap'];
+            if (!empty($map['LogMap'])) {
+                $model->logMap = [];
+                foreach ($map['LogMap'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->logMap[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->logMap[$key1][$n2++] = DataProductListLogMapValue::fromMap($item2);
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }

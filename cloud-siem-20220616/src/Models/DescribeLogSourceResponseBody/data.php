@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogSourceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The log source of the rule.
-     *
-     * @example cloud_siem_aegis_sas_alert
-     *
      * @var string
      */
     public $logSource;
 
     /**
-     * @description The internal code of the log source.
-     *
-     * @example sas.cloudsiem.prod.cloud_siem_aegis_sas_alert
-     *
      * @var string
      */
     public $logSourceName;
     protected $_name = [
-        'logSource'     => 'LogSource',
+        'logSource' => 'LogSource',
         'logSourceName' => 'LogSourceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logSource) {
             $res['LogSource'] = $this->logSource;
         }
+
         if (null !== $this->logSourceName) {
             $res['LogSourceName'] = $this->logSourceName;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogSource'])) {
             $model->logSource = $map['LogSource'];
         }
+
         if (isset($map['LogSourceName'])) {
             $model->logSourceName = $map['LogSourceName'];
         }

@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserBuyStatusRequest extends Model
 {
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions in China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
-     *
-     * @example 123XXXXXX
-     *
      * @var int
      */
     public $subUserId;
     protected $_name = [
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
         'subUserId' => 'SubUserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
         }
@@ -50,17 +41,18 @@ class DescribeUserBuyStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserBuyStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigFeatureResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rightValueEnums extends Model
 {
     /**
-     * @description The enumerated value of the right operand.
-     *
-     * @example serious
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description The internal code of the enumerated value.
-     *
-     * @example aliyun.siem.automate.feature.alert_level.serious
-     *
      * @var string
      */
     public $valueMds;
     protected $_name = [
-        'value'    => 'Value',
+        'value' => 'Value',
         'valueMds' => 'ValueMds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->valueMds) {
             $res['ValueMds'] = $this->valueMds;
         }
@@ -47,17 +41,18 @@ class rightValueEnums extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rightValueEnums
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['ValueMds'])) {
             $model->valueMds = $map['ValueMds'];
         }

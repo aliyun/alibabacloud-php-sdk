@@ -4,197 +4,225 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAlertsRequest extends Model
 {
     /**
-     * @description The title of the alert.
-     *
-     * @example Unusual Logon-login_common_account
-     *
+     * @var string
+     */
+    public $alertName;
+
+    /**
      * @var string
      */
     public $alertTitle;
 
     /**
-     * @description The UUID of the alert.
-     *
-     * @example sas_71e24437d2797ce8fc59692905a4****
-     *
+     * @var string
+     */
+    public $alertType;
+
+    /**
      * @var string
      */
     public $alertUuid;
 
     /**
-     * @description The page number. Pages start from page 1.
-     *
-     * This parameter is required.
-     * @example 1
-     *
+     * @var string
+     */
+    public $assetId;
+
+    /**
+     * @var string
+     */
+    public $assetName;
+
+    /**
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. Unit: milliseconds.
-     *
-     * @example 1577808000000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description Specifies whether an attack is defended. Valid values:
-     *
-     *   0: detected.
-     *   1: blocked.
-     *
-     * @example 1
-     *
+     * @var string
+     */
+    public $entityId;
+
+    /**
+     * @var string
+     */
+    public $entityName;
+
+    /**
      * @var string
      */
     public $isDefend;
 
     /**
-     * @description The risk level. The value is a JSON array. Valid values:
-     *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
-     *
-     * @example ["serious","suspicious","remind"]
-     *
+     * @var string
+     */
+    public $labelType;
+
+    /**
      * @var string[]
      */
     public $level;
 
     /**
-     * @description The number of entries per page. Maximum value: 100.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions in China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the account that you switch from the management account.
-     *
-     * @example 113091674488****
-     *
      * @var int
      */
     public $roleFor;
 
     /**
-     * @description The type of the view. Valid values:
-     * - 1: the global account
-     * @example 1
-     *
      * @var int
      */
     public $roleType;
 
     /**
-     * @description The source of the alert.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description The beginning of the time range to query. Unit: milliseconds.
-     *
-     * @example 1577808000000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account within which the alert is generated.
-     *
-     * @example 176555323***
-     *
      * @var string
      */
     public $subUserId;
     protected $_name = [
-        'alertTitle'  => 'AlertTitle',
-        'alertUuid'   => 'AlertUuid',
+        'alertName' => 'AlertName',
+        'alertTitle' => 'AlertTitle',
+        'alertType' => 'AlertType',
+        'alertUuid' => 'AlertUuid',
+        'assetId' => 'AssetId',
+        'assetName' => 'AssetName',
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'isDefend'    => 'IsDefend',
-        'level'       => 'Level',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'roleFor'     => 'RoleFor',
-        'roleType'    => 'RoleType',
-        'source'      => 'Source',
-        'startTime'   => 'StartTime',
-        'subUserId'   => 'SubUserId',
+        'endTime' => 'EndTime',
+        'entityId' => 'EntityId',
+        'entityName' => 'EntityName',
+        'isDefend' => 'IsDefend',
+        'labelType' => 'LabelType',
+        'level' => 'Level',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'subUserId' => 'SubUserId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->level)) {
+            Model::validateArray($this->level);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alertName) {
+            $res['AlertName'] = $this->alertName;
+        }
+
         if (null !== $this->alertTitle) {
             $res['AlertTitle'] = $this->alertTitle;
         }
+
+        if (null !== $this->alertType) {
+            $res['AlertType'] = $this->alertType;
+        }
+
         if (null !== $this->alertUuid) {
             $res['AlertUuid'] = $this->alertUuid;
         }
+
+        if (null !== $this->assetId) {
+            $res['AssetId'] = $this->assetId;
+        }
+
+        if (null !== $this->assetName) {
+            $res['AssetName'] = $this->assetName;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
+        if (null !== $this->entityId) {
+            $res['EntityId'] = $this->entityId;
+        }
+
+        if (null !== $this->entityName) {
+            $res['EntityName'] = $this->entityName;
+        }
+
         if (null !== $this->isDefend) {
             $res['IsDefend'] = $this->isDefend;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+
+        if (null !== $this->labelType) {
+            $res['LabelType'] = $this->labelType;
         }
+
+        if (null !== $this->level) {
+            if (\is_array($this->level)) {
+                $res['Level'] = [];
+                $n1 = 0;
+                foreach ($this->level as $item1) {
+                    $res['Level'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
         }
@@ -202,52 +230,96 @@ class DescribeAlertsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAlertsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertName'])) {
+            $model->alertName = $map['AlertName'];
+        }
+
         if (isset($map['AlertTitle'])) {
             $model->alertTitle = $map['AlertTitle'];
         }
+
+        if (isset($map['AlertType'])) {
+            $model->alertType = $map['AlertType'];
+        }
+
         if (isset($map['AlertUuid'])) {
             $model->alertUuid = $map['AlertUuid'];
         }
+
+        if (isset($map['AssetId'])) {
+            $model->assetId = $map['AssetId'];
+        }
+
+        if (isset($map['AssetName'])) {
+            $model->assetName = $map['AssetName'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
+        if (isset($map['EntityId'])) {
+            $model->entityId = $map['EntityId'];
+        }
+
+        if (isset($map['EntityName'])) {
+            $model->entityName = $map['EntityName'];
+        }
+
         if (isset($map['IsDefend'])) {
             $model->isDefend = $map['IsDefend'];
         }
+
+        if (isset($map['LabelType'])) {
+            $model->labelType = $map['LabelType'];
+        }
+
         if (isset($map['Level'])) {
             if (!empty($map['Level'])) {
-                $model->level = $map['Level'];
+                $model->level = [];
+                $n1 = 0;
+                foreach ($map['Level'] as $item1) {
+                    $model->level[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
         }

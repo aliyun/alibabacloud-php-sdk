@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAggregateFunctionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The aggregate function.
-     *
-     * @example count
-     *
      * @var string
      */
     public $function;
 
     /**
-     * @description The display name of the aggregate function.
-     *
-     * @example Count
-     *
      * @var string
      */
     public $functionName;
     protected $_name = [
-        'function'     => 'Function',
+        'function' => 'Function',
         'functionName' => 'FunctionName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->function) {
             $res['Function'] = $this->function;
         }
+
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Function'])) {
             $model->function = $map['Function'];
         }
+
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }

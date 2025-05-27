@@ -4,86 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDisposeStrategyPlaybookRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Unit: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1577808000000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions inside China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the account that you switch from the management account.
-     *
-     * @example 113091674488****
-     *
      * @var int
      */
     public $roleFor;
 
     /**
-     * @description The type of the view. Valid values:
-     * - 1: the global account
-     * @example 1
-     *
      * @var int
      */
     public $roleType;
 
     /**
-     * @description The beginning of the time range to query. Unit: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1577808000000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'regionId'  => 'RegionId',
-        'roleFor'   => 'RoleFor',
-        'roleType'  => 'RoleType',
+        'endTime' => 'EndTime',
+        'regionId' => 'RegionId',
+        'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
         'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -91,26 +71,30 @@ class DescribeDisposeStrategyPlaybookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDisposeStrategyPlaybookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

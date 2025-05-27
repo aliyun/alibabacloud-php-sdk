@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWhiteRuleListRequest extends Model
 {
     /**
-     * @description The alert whitelist rule. The value is a JSON object.
-     *
-     * This parameter is required.
-     * @example [
-     * ]
      * @var string
      */
     public $expression;
 
     /**
-     * @description The UUID of the event.
-     *
-     * @example 85ea4241-798f-4684-a876-65d4f0c3****
-     *
      * @var string
      */
     public $incidentUuid;
 
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions in China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -50,45 +34,46 @@ class UpdateWhiteRuleListRequest extends Model
     public $roleType;
 
     /**
-     * @description The unique ID of the whitelist rule.
-     *
-     * This parameter is required.
-     * @example 123456789
-     *
      * @var int
      */
     public $whiteRuleId;
     protected $_name = [
-        'expression'   => 'Expression',
+        'expression' => 'Expression',
         'incidentUuid' => 'IncidentUuid',
-        'regionId'     => 'RegionId',
-        'roleFor'      => 'RoleFor',
-        'roleType'     => 'RoleType',
-        'whiteRuleId'  => 'WhiteRuleId',
+        'regionId' => 'RegionId',
+        'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
+        'whiteRuleId' => 'WhiteRuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->incidentUuid) {
             $res['IncidentUuid'] = $this->incidentUuid;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
+
         if (null !== $this->whiteRuleId) {
             $res['WhiteRuleId'] = $this->whiteRuleId;
         }
@@ -96,29 +81,34 @@ class UpdateWhiteRuleListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWhiteRuleListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['IncidentUuid'])) {
             $model->incidentUuid = $map['IncidentUuid'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }
+
         if (isset($map['WhiteRuleId'])) {
             $model->whiteRuleId = $map['WhiteRuleId'];
         }

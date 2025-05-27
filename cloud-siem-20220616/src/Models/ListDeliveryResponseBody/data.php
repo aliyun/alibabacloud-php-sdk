@@ -4,102 +4,86 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponseBody\data\productList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The URL that is displayed in charts.
-     *
-     * @example https://sls4service.console.aliyun.com/lognext/project/aliyun-cloudsiem-data-127608589417****-cn-shanghai
-     * /dashboard/cloud-siem?isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true
      * @var string
      */
     public $dashboardUrl;
 
     /**
-     * @description Indicates whether the log delivery switch is displayed. Default value: true. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $displaySwitchOrNot;
 
     /**
-     * @description The name of the Logstore for the threat analysis feature on the user side. The value is in the cloud_siem format.
-     *
-     * @example cloud-siem
-     *
      * @var string
      */
     public $logStoreName;
 
     /**
-     * @description The cloud services.
-     *
      * @var productList[]
      */
     public $productList;
 
     /**
-     * @description The name of the project for the threat analysis feature in Simple Log service on the user side. The value is in the aliyun-cloudsiem-data-${aliUid}-${region} format.
-     *
-     * @example aliyun-cloudsiem-data-127608589417****-cn-shanghai
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The URL that is used for log analysis.
-     *
-     * @example https://sls4service.console.aliyun.com/lognext/project/aliyun-cloudsiem-data-127608589417****-cn-shanghai
-     * /logsearch/cloud-siem?isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true
      * @var string
      */
     public $searchUrl;
     protected $_name = [
-        'dashboardUrl'       => 'DashboardUrl',
+        'dashboardUrl' => 'DashboardUrl',
         'displaySwitchOrNot' => 'DisplaySwitchOrNot',
-        'logStoreName'       => 'LogStoreName',
-        'productList'        => 'ProductList',
-        'projectName'        => 'ProjectName',
-        'searchUrl'          => 'SearchUrl',
+        'logStoreName' => 'LogStoreName',
+        'productList' => 'ProductList',
+        'projectName' => 'ProjectName',
+        'searchUrl' => 'SearchUrl',
     ];
 
     public function validate()
     {
+        if (\is_array($this->productList)) {
+            Model::validateArray($this->productList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dashboardUrl) {
             $res['DashboardUrl'] = $this->dashboardUrl;
         }
+
         if (null !== $this->displaySwitchOrNot) {
             $res['DisplaySwitchOrNot'] = $this->displaySwitchOrNot;
         }
+
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
         }
+
         if (null !== $this->productList) {
-            $res['ProductList'] = [];
-            if (null !== $this->productList && \is_array($this->productList)) {
-                $n = 0;
-                foreach ($this->productList as $item) {
-                    $res['ProductList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productList)) {
+                $res['ProductList'] = [];
+                $n1 = 0;
+                foreach ($this->productList as $item1) {
+                    $res['ProductList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->searchUrl) {
             $res['SearchUrl'] = $this->searchUrl;
         }
@@ -107,35 +91,40 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DashboardUrl'])) {
             $model->dashboardUrl = $map['DashboardUrl'];
         }
+
         if (isset($map['DisplaySwitchOrNot'])) {
             $model->displaySwitchOrNot = $map['DisplaySwitchOrNot'];
         }
+
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
         }
+
         if (isset($map['ProductList'])) {
             if (!empty($map['ProductList'])) {
                 $model->productList = [];
-                $n                  = 0;
-                foreach ($map['ProductList'] as $item) {
-                    $model->productList[$n++] = null !== $item ? productList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProductList'] as $item1) {
+                    $model->productList[$n1++] = productList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['SearchUrl'])) {
             $model->searchUrl = $map['SearchUrl'];
         }

@@ -4,131 +4,169 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCustomizeRuleTestResultRequest extends Model
 {
     /**
-     * @description The page number. Pages start from page 1.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The ID of the rule.
-     *
-     * @example 123456789
-     *
+     * @var string
+     */
+    public $detectionRuleId;
+
+    /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $id;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions in China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the account that you switch from the management account.
-     *
-     * @example 113091674488****
-     *
      * @var int
      */
     public $roleFor;
 
     /**
-     * @description The type of the view. Valid values:
-     * - 1: the global account
-     * @example 1
-     *
      * @var int
      */
     public $roleType;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $verifyType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'id'          => 'Id',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'roleFor'     => 'RoleFor',
-        'roleType'    => 'RoleType',
+        'detectionRuleId' => 'DetectionRuleId',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
+        'startTime' => 'StartTime',
+        'verifyType' => 'VerifyType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
+        if (null !== $this->detectionRuleId) {
+            $res['DetectionRuleId'] = $this->detectionRuleId;
+        }
+
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->verifyType) {
+            $res['VerifyType'] = $this->verifyType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomizeRuleTestResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
+        if (isset($map['DetectionRuleId'])) {
+            $model->detectionRuleId = $map['DetectionRuleId'];
+        }
+
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['VerifyType'])) {
+            $model->verifyType = $map['VerifyType'];
         }
 
         return $model;

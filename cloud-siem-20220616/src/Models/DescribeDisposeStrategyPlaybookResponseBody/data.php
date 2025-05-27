@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDisposeStrategyPlaybookResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The playbook name, which is the unique identifier of the playbook.
-     *
-     * @example WafBlockIP
-     *
      * @var string
      */
     public $playbookName;
 
     /**
-     * @description The UUID of the playbook.
-     *
-     * @example system_aliyun_clb_process_book
-     *
      * @var string
      */
     public $playbookUuid;
@@ -32,14 +24,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playbookName) {
             $res['PlaybookName'] = $this->playbookName;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlaybookName'])) {
             $model->playbookName = $map['PlaybookName'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

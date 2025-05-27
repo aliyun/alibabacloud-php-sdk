@@ -4,101 +4,85 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAlertSourceRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Unit: milliseconds.
-     *
-     * @example 1577808000000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The risk levels. The value is a JSON array. Valid values:
-     *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
-     *
-     * @example ["serious","suspicious","remind"]
-     *
      * @var string[]
      */
     public $level;
 
     /**
-     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
-     *
-     *   cn-hangzhou: Your assets reside in regions in China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the account that you switch from the management account.
-     *
-     * @example 113091674488****
-     *
      * @var int
      */
     public $roleFor;
 
     /**
-     * @description The type of the view. Valid values:
-     * - 1: the global account
-     * @example 1
-     *
      * @var int
      */
     public $roleType;
 
     /**
-     * @description The beginning of the time range to query. Unit: milliseconds.
-     *
-     * @example 1577808000000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'level'     => 'Level',
-        'regionId'  => 'RegionId',
-        'roleFor'   => 'RoleFor',
-        'roleType'  => 'RoleType',
+        'endTime' => 'EndTime',
+        'level' => 'Level',
+        'regionId' => 'RegionId',
+        'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
         'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->level)) {
+            Model::validateArray($this->level);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->level) {
-            $res['Level'] = $this->level;
+            if (\is_array($this->level)) {
+                $res['Level'] = [];
+                $n1 = 0;
+                foreach ($this->level as $item1) {
+                    $res['Level'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -106,31 +90,40 @@ class DescribeAlertSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAlertSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Level'])) {
             if (!empty($map['Level'])) {
-                $model->level = $map['Level'];
+                $model->level = [];
+                $n1 = 0;
+                foreach ($map['Level'] as $item1) {
+                    $model->level[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

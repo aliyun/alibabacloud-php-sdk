@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListResponseBody\data\responseData;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListResponseBody\data\responseData\expression\conditions;
-use AlibabaCloud\Tea\Model;
 
 class expression extends Model
 {
     /**
-     * @description The rule conditions.
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description The logical relationships among the rule conditions.
-     *
-     * @example (1&2)|(3&4)
-     *
      * @var string
      */
     public $logic;
     protected $_name = [
         'conditions' => 'Conditions',
-        'logic'      => 'Logic',
+        'logic' => 'Logic',
     ];
 
     public function validate()
     {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['Conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
@@ -52,23 +51,24 @@ class expression extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expression
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n                 = 0;
-                foreach ($map['Conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Conditions'] as $item1) {
+                    $model->conditions[$n1++] = conditions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }

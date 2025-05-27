@@ -4,18 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceLogRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceLogResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddDataSourceResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserSourceLogConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\AddUserSourceLogConfigResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BindAccountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BindAccountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\CloseDeliveryRequest;
@@ -30,8 +25,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceLogRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceLogResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteDataSourceResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteUserRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteWhiteRuleListRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteWhiteRuleListResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAggregateFunctionRequest;
@@ -54,8 +47,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsWithEventRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertsWithEventResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertTypeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAlertTypeResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAttackTimeLineRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAttackTimeLineResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAuthRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAuthResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigCounterRequest;
@@ -72,8 +63,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventDetailRequ
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventDetailResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemEventsResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCsImportedProdStatusByUserRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCsImportedProdStatusByUserResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleCountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleCountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCustomizeRuleTestHistogramRequest;
@@ -96,14 +85,10 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventDisposeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventDisposeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeImportedLogCountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeImportedLogCountResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeJobStatusRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeJobStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogFieldsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogFieldsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogSourceRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogSourceResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogStoreRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogStoreResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogTypeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeLogTypeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeOperatorsRequest;
@@ -122,22 +107,12 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoQuickFieldRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoQuickFieldResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoSelfDelegateRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DoSelfDelegateResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableAccessForCloudSiemRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableAccessForCloudSiemResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetHistogramsRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetHistogramsResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetLogsRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetLogsResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetQuickQueryRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetQuickQueryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAccountAccessIdRequest;
@@ -166,20 +141,14 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListEntitiesRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListEntitiesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListImportedLogsByProdRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListImportedLogsByProdResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListOperationRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListOperationResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListProjectLogStoresRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListProjectLogStoresResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListQuickQueryRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListQuickQueryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListRdUsersRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListRdUsersResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUserProdLogsRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUserProdLogsResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUsersByProdRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListUsersByProdResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyBindAccountRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyBindAccountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ModifyDataSourceLogRequest;
@@ -204,25 +173,18 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\PostRuleStatusChangeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\PostRuleStatusChangeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\RestoreCapacityRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\RestoreCapacityResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SaveQuickQueryRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SaveQuickQueryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SetStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SetStorageResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ShowQuickAnalysisRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ShowQuickAnalysisResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitImportLogTasksRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitImportLogTasksResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitJobsRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\SubmitJobsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateAutomateResponseConfigStatusRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateAutomateResponseConfigStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateWhiteRuleListRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\UpdateWhiteRuleListResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cloudsiem extends OpenApiClient
 {
@@ -247,73 +209,90 @@ class Cloudsiem extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds a data source to a cloud account that is added to the threat analysis feature.
-     *  *
-     * @param AddDataSourceRequest $request AddDataSourceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds a data source to a cloud account that is added to the threat analysis feature.
      *
-     * @return AddDataSourceResponse AddDataSourceResponse
+     * @param request - AddDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataSourceResponse
+     *
+     * @param AddDataSourceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddDataSourceResponse
      */
     public function addDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceName)) {
-            $body['DataSourceInstanceName'] = $request->dataSourceInstanceName;
+
+        if (null !== $request->dataSourceInstanceName) {
+            @$body['DataSourceInstanceName'] = $request->dataSourceInstanceName;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceParams)) {
-            $body['DataSourceInstanceParams'] = $request->dataSourceInstanceParams;
+
+        if (null !== $request->dataSourceInstanceParams) {
+            @$body['DataSourceInstanceParams'] = $request->dataSourceInstanceParams;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceRemark)) {
-            $body['DataSourceInstanceRemark'] = $request->dataSourceInstanceRemark;
+
+        if (null !== $request->dataSourceInstanceRemark) {
+            @$body['DataSourceInstanceRemark'] = $request->dataSourceInstanceRemark;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['DataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['DataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDataSource',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDataSource',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a data source to a cloud account that is added to the threat analysis feature.
-     *  *
-     * @param AddDataSourceRequest $request AddDataSourceRequest
+     * Adds a data source to a cloud account that is added to the threat analysis feature.
      *
-     * @return AddDataSourceResponse AddDataSourceResponse
+     * @param request - AddDataSourceRequest
+     *
+     * @returns AddDataSourceResponse
+     *
+     * @param AddDataSourceRequest $request
+     *
+     * @return AddDataSourceResponse
      */
     public function addDataSource($request)
     {
@@ -323,59 +302,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Adds logs of a cloud account to the threat analysis feature.
-     *  *
-     * @param AddDataSourceLogRequest $request AddDataSourceLogRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Adds logs of a cloud account to the threat analysis feature.
      *
-     * @return AddDataSourceLogResponse AddDataSourceLogResponse
+     * @param request - AddDataSourceLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataSourceLogResponse
+     *
+     * @param AddDataSourceLogRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddDataSourceLogResponse
      */
     public function addDataSourceLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceLogs)) {
-            $body['DataSourceInstanceLogs'] = $request->dataSourceInstanceLogs;
+
+        if (null !== $request->dataSourceInstanceLogs) {
+            @$body['DataSourceInstanceLogs'] = $request->dataSourceInstanceLogs;
         }
-        if (!Utils::isUnset($request->logCode)) {
-            $body['LogCode'] = $request->logCode;
+
+        if (null !== $request->logCode) {
+            @$body['LogCode'] = $request->logCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDataSourceLog',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDataSourceLog',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddDataSourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds logs of a cloud account to the threat analysis feature.
-     *  *
-     * @param AddDataSourceLogRequest $request AddDataSourceLogRequest
+     * Adds logs of a cloud account to the threat analysis feature.
      *
-     * @return AddDataSourceLogResponse AddDataSourceLogResponse
+     * @param request - AddDataSourceLogRequest
+     *
+     * @returns AddDataSourceLogResponse
+     *
+     * @param AddDataSourceLogRequest $request
+     *
+     * @return AddDataSourceLogResponse
      */
     public function addDataSourceLog($request)
     {
@@ -385,112 +379,78 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Adds a cloud account to the threat analysis feature for centralized management. After you add the account, you can use the account to perform operations that are supported by the threat analysis feature. For example, you can add logs of the account to the threat analysis feature.
-     *  *
-     * @param AddUserRequest $request AddUserRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
      *
-     * @return AddUserResponse AddUserResponse
-     */
-    public function addUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->addedUserId)) {
-            $body['AddedUserId'] = $request->addedUserId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Adds a cloud account to the threat analysis feature for centralized management. After you add the account, you can use the account to perform operations that are supported by the threat analysis feature. For example, you can add logs of the account to the threat analysis feature.
-     *  *
-     * @param AddUserRequest $request AddUserRequest
+     * @param request - AddUserSourceLogConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddUserResponse AddUserResponse
-     */
-    public function addUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
-     *  *
-     * @param AddUserSourceLogConfigRequest $request AddUserSourceLogConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @returns AddUserSourceLogConfigResponse
      *
-     * @return AddUserSourceLogConfigResponse AddUserSourceLogConfigResponse
+     * @param AddUserSourceLogConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddUserSourceLogConfigResponse
      */
     public function addUserSourceLogConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deleted)) {
-            $body['Deleted'] = $request->deleted;
+        if (null !== $request->deleted) {
+            @$body['Deleted'] = $request->deleted;
         }
-        if (!Utils::isUnset($request->disPlayLine)) {
-            $body['DisPlayLine'] = $request->disPlayLine;
+
+        if (null !== $request->disPlayLine) {
+            @$body['DisPlayLine'] = $request->disPlayLine;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourceLogCode)) {
-            $body['SourceLogCode'] = $request->sourceLogCode;
+
+        if (null !== $request->sourceLogCode) {
+            @$body['SourceLogCode'] = $request->sourceLogCode;
         }
-        if (!Utils::isUnset($request->sourceLogInfo)) {
-            $body['SourceLogInfo'] = $request->sourceLogInfo;
+
+        if (null !== $request->sourceLogInfo) {
+            @$body['SourceLogInfo'] = $request->sourceLogInfo;
         }
-        if (!Utils::isUnset($request->sourceProdCode)) {
-            $body['SourceProdCode'] = $request->sourceProdCode;
+
+        if (null !== $request->sourceProdCode) {
+            @$body['SourceProdCode'] = $request->sourceProdCode;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddUserSourceLogConfig',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserSourceLogConfig',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddUserSourceLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
-     *  *
-     * @param AddUserSourceLogConfigRequest $request AddUserSourceLogConfigRequest
+     * Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
      *
-     * @return AddUserSourceLogConfigResponse AddUserSourceLogConfigResponse
+     * @param request - AddUserSourceLogConfigRequest
+     *
+     * @returns AddUserSourceLogConfigResponse
+     *
+     * @param AddUserSourceLogConfigRequest $request
+     *
+     * @return AddUserSourceLogConfigResponse
      */
     public function addUserSourceLogConfig($request)
     {
@@ -500,112 +460,78 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Configures log collection tasks based on resource directories.
-     *  *
-     * @param BatchJobSubmitRequest $request BatchJobSubmitRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
      *
-     * @return BatchJobSubmitResponse BatchJobSubmitResponse
-     */
-    public function batchJobSubmitWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->jsonConfig)) {
-            $body['JsonConfig'] = $request->jsonConfig;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchJobSubmit',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchJobSubmitResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Configures log collection tasks based on resource directories.
-     *  *
-     * @param BatchJobSubmitRequest $request BatchJobSubmitRequest
+     * @param request - BindAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return BatchJobSubmitResponse BatchJobSubmitResponse
-     */
-    public function batchJobSubmit($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchJobSubmitWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
-     *  *
-     * @param BindAccountRequest $request BindAccountRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @returns BindAccountResponse
      *
-     * @return BindAccountResponse BindAccountResponse
+     * @param BindAccountRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BindAccountResponse
      */
     public function bindAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessId)) {
-            $body['AccessId'] = $request->accessId;
+        if (null !== $request->accessId) {
+            @$body['AccessId'] = $request->accessId;
         }
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BindAccount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAccount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
-     *  *
-     * @param BindAccountRequest $request BindAccountRequest
+     * Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
      *
-     * @return BindAccountResponse BindAccountResponse
+     * @param request - BindAccountRequest
+     *
+     * @returns BindAccountResponse
+     *
+     * @param BindAccountRequest $request
+     *
+     * @return BindAccountResponse
      */
     public function bindAccount($request)
     {
@@ -615,56 +541,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Disables the log delivery feature for a cloud service.
-     *  *
-     * @param CloseDeliveryRequest $request CloseDeliveryRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Disables the log delivery feature for a cloud service.
      *
-     * @return CloseDeliveryResponse CloseDeliveryResponse
+     * @param request - CloseDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseDeliveryResponse
+     *
+     * @param CloseDeliveryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CloseDeliveryResponse
      */
     public function closeDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->logCode)) {
-            $body['LogCode'] = $request->logCode;
+        if (null !== $request->logCode) {
+            @$body['LogCode'] = $request->logCode;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CloseDelivery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseDelivery',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloseDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the log delivery feature for a cloud service.
-     *  *
-     * @param CloseDeliveryRequest $request CloseDeliveryRequest
+     * Disables the log delivery feature for a cloud service.
      *
-     * @return CloseDeliveryResponse CloseDeliveryResponse
+     * @param request - CloseDeliveryRequest
+     *
+     * @returns CloseDeliveryResponse
+     *
+     * @param CloseDeliveryRequest $request
+     *
+     * @return CloseDeliveryResponse
      */
     public function closeDelivery($request)
     {
@@ -674,53 +614,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the automated response rule with a specified ID.
-     *  *
-     * @param DeleteAutomateResponseConfigRequest $request DeleteAutomateResponseConfigRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes the automated response rule with a specified ID.
      *
-     * @return DeleteAutomateResponseConfigResponse DeleteAutomateResponseConfigResponse
+     * @param request - DeleteAutomateResponseConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAutomateResponseConfigResponse
+     *
+     * @param DeleteAutomateResponseConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteAutomateResponseConfigResponse
      */
     public function deleteAutomateResponseConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAutomateResponseConfig',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAutomateResponseConfig',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteAutomateResponseConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the automated response rule with a specified ID.
-     *  *
-     * @param DeleteAutomateResponseConfigRequest $request DeleteAutomateResponseConfigRequest
+     * Deletes the automated response rule with a specified ID.
      *
-     * @return DeleteAutomateResponseConfigResponse DeleteAutomateResponseConfigResponse
+     * @param request - DeleteAutomateResponseConfigRequest
+     *
+     * @returns DeleteAutomateResponseConfigResponse
+     *
+     * @param DeleteAutomateResponseConfigRequest $request
+     *
+     * @return DeleteAutomateResponseConfigResponse
      */
     public function deleteAutomateResponseConfig($request)
     {
@@ -730,62 +683,78 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
-     *  *
-     * @param DeleteBindAccountRequest $request DeleteBindAccountRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
      *
-     * @return DeleteBindAccountResponse DeleteBindAccountResponse
+     * @param request - DeleteBindAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBindAccountResponse
+     *
+     * @param DeleteBindAccountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteBindAccountResponse
      */
     public function deleteBindAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessId)) {
-            $body['AccessId'] = $request->accessId;
+        if (null !== $request->accessId) {
+            @$body['AccessId'] = $request->accessId;
         }
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->bindId)) {
-            $body['BindId'] = $request->bindId;
+
+        if (null !== $request->bindId) {
+            @$body['BindId'] = $request->bindId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBindAccount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBindAccount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteBindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
-     *  *
-     * @param DeleteBindAccountRequest $request DeleteBindAccountRequest
+     * Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
      *
-     * @return DeleteBindAccountResponse DeleteBindAccountResponse
+     * @param request - DeleteBindAccountRequest
+     *
+     * @returns DeleteBindAccountResponse
+     *
+     * @param DeleteBindAccountRequest $request
+     *
+     * @return DeleteBindAccountResponse
      */
     public function deleteBindAccount($request)
     {
@@ -795,53 +764,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a rule by rule ID.
-     *  *
-     * @param DeleteCustomizeRuleRequest $request DeleteCustomizeRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a rule by rule ID.
      *
-     * @return DeleteCustomizeRuleResponse DeleteCustomizeRuleResponse
+     * @param request - DeleteCustomizeRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomizeRuleResponse
+     *
+     * @param DeleteCustomizeRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteCustomizeRuleResponse
      */
     public function deleteCustomizeRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomizeRule',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomizeRule',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCustomizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a rule by rule ID.
-     *  *
-     * @param DeleteCustomizeRuleRequest $request DeleteCustomizeRuleRequest
+     * Deletes a rule by rule ID.
      *
-     * @return DeleteCustomizeRuleResponse DeleteCustomizeRuleResponse
+     * @param request - DeleteCustomizeRuleRequest
+     *
+     * @returns DeleteCustomizeRuleResponse
+     *
+     * @param DeleteCustomizeRuleRequest $request
+     *
+     * @return DeleteCustomizeRuleResponse
      */
     public function deleteCustomizeRule($request)
     {
@@ -851,53 +833,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Removes a data source that is no longer required.
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Removes a data source that is no longer required.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataSource',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataSource',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a data source that is no longer required.
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * Removes a data source that is no longer required.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -907,56 +902,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Removes a log.
-     *  *
-     * @param DeleteDataSourceLogRequest $request DeleteDataSourceLogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Removes a log.
      *
-     * @return DeleteDataSourceLogResponse DeleteDataSourceLogResponse
+     * @param request - DeleteDataSourceLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataSourceLogResponse
+     *
+     * @param DeleteDataSourceLogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDataSourceLogResponse
      */
     public function deleteDataSourceLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->logInstanceId)) {
-            $body['LogInstanceId'] = $request->logInstanceId;
+
+        if (null !== $request->logInstanceId) {
+            @$body['LogInstanceId'] = $request->logInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataSourceLog',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataSourceLog',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDataSourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a log.
-     *  *
-     * @param DeleteDataSourceLogRequest $request DeleteDataSourceLogRequest
+     * Removes a log.
      *
-     * @return DeleteDataSourceLogResponse DeleteDataSourceLogResponse
+     * @param request - DeleteDataSourceLogRequest
+     *
+     * @returns DeleteDataSourceLogResponse
+     *
+     * @param DeleteDataSourceLogRequest $request
+     *
+     * @return DeleteDataSourceLogResponse
      */
     public function deleteDataSourceLog($request)
     {
@@ -966,103 +975,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Removes an Alibaba Cloud account that is added to the threat analysis feature for centralized management. You can add the account to the feature again if required.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert whitelist rule with a specified ID.
      *
-     * @return DeleteUserResponse DeleteUserResponse
-     */
-    public function deleteUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->addedUserId)) {
-            $body['AddedUserId'] = $request->addedUserId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Removes an Alibaba Cloud account that is added to the threat analysis feature for centralized management. You can add the account to the feature again if required.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param request - DeleteWhiteRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse DeleteUserResponse
-     */
-    public function deleteUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Deletes an alert whitelist rule with a specified ID.
-     *  *
-     * @param DeleteWhiteRuleListRequest $request DeleteWhiteRuleListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @returns DeleteWhiteRuleListResponse
      *
-     * @return DeleteWhiteRuleListResponse DeleteWhiteRuleListResponse
+     * @param DeleteWhiteRuleListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteWhiteRuleListResponse
      */
     public function deleteWhiteRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWhiteRuleList',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWhiteRuleList',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteWhiteRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert whitelist rule with a specified ID.
-     *  *
-     * @param DeleteWhiteRuleListRequest $request DeleteWhiteRuleListRequest
+     * Deletes an alert whitelist rule with a specified ID.
      *
-     * @return DeleteWhiteRuleListResponse DeleteWhiteRuleListResponse
+     * @param request - DeleteWhiteRuleListRequest
+     *
+     * @returns DeleteWhiteRuleListResponse
+     *
+     * @param DeleteWhiteRuleListRequest $request
+     *
+     * @return DeleteWhiteRuleListResponse
      */
     public function deleteWhiteRuleList($request)
     {
@@ -1072,50 +1044,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the aggregate functions that are supported for a custom rule.
-     *  *
-     * @param DescribeAggregateFunctionRequest $request DescribeAggregateFunctionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the aggregate functions that are supported for a custom rule.
      *
-     * @return DescribeAggregateFunctionResponse DescribeAggregateFunctionResponse
+     * @param request - DescribeAggregateFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAggregateFunctionResponse
+     *
+     * @param DescribeAggregateFunctionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAggregateFunctionResponse
      */
     public function describeAggregateFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAggregateFunction',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAggregateFunction',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAggregateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the aggregate functions that are supported for a custom rule.
-     *  *
-     * @param DescribeAggregateFunctionRequest $request DescribeAggregateFunctionRequest
+     * Queries the aggregate functions that are supported for a custom rule.
      *
-     * @return DescribeAggregateFunctionResponse DescribeAggregateFunctionResponse
+     * @param request - DescribeAggregateFunctionRequest
+     *
+     * @returns DescribeAggregateFunctionResponse
+     *
+     * @param DescribeAggregateFunctionRequest $request
+     *
+     * @return DescribeAggregateFunctionResponse
      */
     public function describeAggregateFunction($request)
     {
@@ -1125,50 +1109,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scenarios in which an alert needs to be added to the whitelist.
-     *  *
-     * @param DescribeAlertSceneRequest $request DescribeAlertSceneRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the scenarios in which an alert needs to be added to the whitelist.
      *
-     * @return DescribeAlertSceneResponse DescribeAlertSceneResponse
+     * @param request - DescribeAlertSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertSceneResponse
+     *
+     * @param DescribeAlertSceneRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAlertSceneResponse
      */
     public function describeAlertSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertScene',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertScene',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the scenarios in which an alert needs to be added to the whitelist.
-     *  *
-     * @param DescribeAlertSceneRequest $request DescribeAlertSceneRequest
+     * Queries the scenarios in which an alert needs to be added to the whitelist.
      *
-     * @return DescribeAlertSceneResponse DescribeAlertSceneResponse
+     * @param request - DescribeAlertSceneRequest
+     *
+     * @returns DescribeAlertSceneResponse
+     *
+     * @param DescribeAlertSceneRequest $request
+     *
+     * @return DescribeAlertSceneResponse
      */
     public function describeAlertScene($request)
     {
@@ -1178,53 +1174,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scenarios and objects that can be added to an alert whitelist rule.
-     *  *
-     * @param DescribeAlertSceneByEventRequest $request DescribeAlertSceneByEventRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the scenarios and objects that can be added to an alert whitelist rule.
      *
-     * @return DescribeAlertSceneByEventResponse DescribeAlertSceneByEventResponse
+     * @param request - DescribeAlertSceneByEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertSceneByEventResponse
+     *
+     * @param DescribeAlertSceneByEventRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAlertSceneByEventResponse
      */
     public function describeAlertSceneByEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertSceneByEvent',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertSceneByEvent',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertSceneByEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the scenarios and objects that can be added to an alert whitelist rule.
-     *  *
-     * @param DescribeAlertSceneByEventRequest $request DescribeAlertSceneByEventRequest
+     * Queries the scenarios and objects that can be added to an alert whitelist rule.
      *
-     * @return DescribeAlertSceneByEventResponse DescribeAlertSceneByEventResponse
+     * @param request - DescribeAlertSceneByEventRequest
+     *
+     * @returns DescribeAlertSceneByEventResponse
+     *
+     * @param DescribeAlertSceneByEventRequest $request
+     *
+     * @return DescribeAlertSceneByEventResponse
      */
     public function describeAlertSceneByEvent($request)
     {
@@ -1234,59 +1243,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert data sources.
-     *  *
-     * @param DescribeAlertSourceRequest $request DescribeAlertSourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries alert data sources.
      *
-     * @return DescribeAlertSourceResponse DescribeAlertSourceResponse
+     * @param request - DescribeAlertSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertSourceResponse
+     *
+     * @param DescribeAlertSourceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAlertSourceResponse
      */
     public function describeAlertSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$body['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertSource',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertSource',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert data sources.
-     *  *
-     * @param DescribeAlertSourceRequest $request DescribeAlertSourceRequest
+     * Queries alert data sources.
      *
-     * @return DescribeAlertSourceResponse DescribeAlertSourceResponse
+     * @param request - DescribeAlertSourceRequest
+     *
+     * @returns DescribeAlertSourceResponse
+     *
+     * @param DescribeAlertSourceRequest $request
+     *
+     * @return DescribeAlertSourceResponse
      */
     public function describeAlertSource($request)
     {
@@ -1296,53 +1320,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data sources of the alert that is associated with an event.
-     *  *
-     * @param DescribeAlertSourceWithEventRequest $request DescribeAlertSourceWithEventRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the data sources of the alert that is associated with an event.
      *
-     * @return DescribeAlertSourceWithEventResponse DescribeAlertSourceWithEventResponse
+     * @param request - DescribeAlertSourceWithEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertSourceWithEventResponse
+     *
+     * @param DescribeAlertSourceWithEventRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAlertSourceWithEventResponse
      */
     public function describeAlertSourceWithEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertSourceWithEvent',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertSourceWithEvent',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertSourceWithEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the data sources of the alert that is associated with an event.
-     *  *
-     * @param DescribeAlertSourceWithEventRequest $request DescribeAlertSourceWithEventRequest
+     * Queries the data sources of the alert that is associated with an event.
      *
-     * @return DescribeAlertSourceWithEventResponse DescribeAlertSourceWithEventResponse
+     * @param request - DescribeAlertSourceWithEventRequest
+     *
+     * @returns DescribeAlertSourceWithEventResponse
+     *
+     * @param DescribeAlertSourceWithEventRequest $request
+     *
+     * @return DescribeAlertSourceWithEventResponse
      */
     public function describeAlertSourceWithEvent($request)
     {
@@ -1352,53 +1389,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the threat types that you can select when you create a custom rule.
-     *  *
-     * @param DescribeAlertTypeRequest $request DescribeAlertTypeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the threat types that you can select when you create a custom rule.
      *
-     * @return DescribeAlertTypeResponse DescribeAlertTypeResponse
+     * @param request - DescribeAlertTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertTypeResponse
+     *
+     * @param DescribeAlertTypeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAlertTypeResponse
      */
     public function describeAlertTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $body['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$body['RuleType'] = $request->ruleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertType',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertType',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the threat types that you can select when you create a custom rule.
-     *  *
-     * @param DescribeAlertTypeRequest $request DescribeAlertTypeRequest
+     * Queries the threat types that you can select when you create a custom rule.
      *
-     * @return DescribeAlertTypeResponse DescribeAlertTypeResponse
+     * @param request - DescribeAlertTypeRequest
+     *
+     * @returns DescribeAlertTypeResponse
+     *
+     * @param DescribeAlertTypeRequest $request
+     *
+     * @return DescribeAlertTypeResponse
      */
     public function describeAlertType($request)
     {
@@ -1408,80 +1458,130 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries alerts within your account.
-     *  *
-     * @param DescribeAlertsRequest $request DescribeAlertsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries alerts within your account.
      *
-     * @return DescribeAlertsResponse DescribeAlertsResponse
+     * @param request - DescribeAlertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertsResponse
+     *
+     * @param DescribeAlertsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeAlertsResponse
      */
     public function describeAlertsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertTitle)) {
-            $body['AlertTitle'] = $request->alertTitle;
+        if (null !== $request->alertName) {
+            @$body['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->alertUuid)) {
-            $body['AlertUuid'] = $request->alertUuid;
+
+        if (null !== $request->alertTitle) {
+            @$body['AlertTitle'] = $request->alertTitle;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->alertUuid) {
+            @$body['AlertUuid'] = $request->alertUuid;
         }
-        if (!Utils::isUnset($request->isDefend)) {
-            $body['IsDefend'] = $request->isDefend;
+
+        if (null !== $request->assetId) {
+            @$body['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
+
+        if (null !== $request->assetName) {
+            @$body['AssetName'] = $request->assetName;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->entityName) {
+            @$body['EntityName'] = $request->entityName;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->isDefend) {
+            @$body['IsDefend'] = $request->isDefend;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->labelType) {
+            @$body['LabelType'] = $request->labelType;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->level) {
+            @$body['Level'] = $request->level;
         }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlerts',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlerts',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alerts within your account.
-     *  *
-     * @param DescribeAlertsRequest $request DescribeAlertsRequest
+     * Queries alerts within your account.
      *
-     * @return DescribeAlertsResponse DescribeAlertsResponse
+     * @param request - DescribeAlertsRequest
+     *
+     * @returns DescribeAlertsResponse
+     *
+     * @param DescribeAlertsRequest $request
+     *
+     * @return DescribeAlertsResponse
      */
     public function describeAlerts($request)
     {
@@ -1491,56 +1591,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of alerts of different severities.
-     *  *
-     * @param DescribeAlertsCountRequest $request DescribeAlertsCountRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the number of alerts of different severities.
      *
-     * @return DescribeAlertsCountResponse DescribeAlertsCountResponse
+     * @param request - DescribeAlertsCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertsCountResponse
+     *
+     * @param DescribeAlertsCountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAlertsCountResponse
      */
     public function describeAlertsCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->queryType) {
+            @$body['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertsCount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertsCount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertsCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of alerts of different severities.
-     *  *
-     * @param DescribeAlertsCountRequest $request DescribeAlertsCountRequest
+     * Queries the number of alerts of different severities.
      *
-     * @return DescribeAlertsCountResponse DescribeAlertsCountResponse
+     * @param request - DescribeAlertsCountRequest
+     *
+     * @returns DescribeAlertsCountResponse
+     *
+     * @param DescribeAlertsCountRequest $request
+     *
+     * @return DescribeAlertsCountResponse
      */
     public function describeAlertsCount($request)
     {
@@ -1550,65 +1668,94 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alerts that are associated with an entity.
-     *  *
-     * @param DescribeAlertsWithEntityRequest $request DescribeAlertsWithEntityRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the alerts that are associated with an entity.
      *
-     * @return DescribeAlertsWithEntityResponse DescribeAlertsWithEntityResponse
+     * @param request - DescribeAlertsWithEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertsWithEntityResponse
+     *
+     * @param DescribeAlertsWithEntityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAlertsWithEntityResponse
      */
     public function describeAlertsWithEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $body['EntityId'] = $request->entityId;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->entityUuid) {
+            @$body['EntityUuid'] = $request->entityUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sophonTaskId)) {
-            $body['SophonTaskId'] = $request->sophonTaskId;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->sophonTaskId) {
+            @$body['SophonTaskId'] = $request->sophonTaskId;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertsWithEntity',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertsWithEntity',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertsWithEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alerts that are associated with an entity.
-     *  *
-     * @param DescribeAlertsWithEntityRequest $request DescribeAlertsWithEntityRequest
+     * Queries the alerts that are associated with an entity.
      *
-     * @return DescribeAlertsWithEntityResponse DescribeAlertsWithEntityResponse
+     * @param request - DescribeAlertsWithEntityRequest
+     *
+     * @returns DescribeAlertsWithEntityResponse
+     *
+     * @param DescribeAlertsWithEntityRequest $request
+     *
+     * @return DescribeAlertsWithEntityResponse
      */
     public function describeAlertsWithEntity($request)
     {
@@ -1618,74 +1765,126 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alerts that are associated with an event.
-     *  *
-     * @param DescribeAlertsWithEventRequest $request DescribeAlertsWithEventRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the alerts that are associated with an event.
      *
-     * @return DescribeAlertsWithEventResponse DescribeAlertsWithEventResponse
+     * @param request - DescribeAlertsWithEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertsWithEventResponse
+     *
+     * @param DescribeAlertsWithEventRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAlertsWithEventResponse
      */
     public function describeAlertsWithEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertTitle)) {
-            $body['AlertTitle'] = $request->alertTitle;
+        if (null !== $request->alertName) {
+            @$body['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->alertTitle) {
+            @$body['AlertTitle'] = $request->alertTitle;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->isDefend)) {
-            $body['IsDefend'] = $request->isDefend;
+
+        if (null !== $request->assetId) {
+            @$body['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
+
+        if (null !== $request->assetName) {
+            @$body['AssetName'] = $request->assetName;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->entityName) {
+            @$body['EntityName'] = $request->entityName;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->isDefend) {
+            @$body['IsDefend'] = $request->isDefend;
         }
+
+        if (null !== $request->level) {
+            @$body['Level'] = $request->level;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertsWithEvent',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertsWithEvent',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertsWithEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alerts that are associated with an event.
-     *  *
-     * @param DescribeAlertsWithEventRequest $request DescribeAlertsWithEventRequest
+     * Queries the alerts that are associated with an event.
      *
-     * @return DescribeAlertsWithEventResponse DescribeAlertsWithEventResponse
+     * @param request - DescribeAlertsWithEventRequest
+     *
+     * @returns DescribeAlertsWithEventResponse
+     *
+     * @param DescribeAlertsWithEventRequest $request
+     *
+     * @return DescribeAlertsWithEventResponse
      */
     public function describeAlertsWithEvent($request)
     {
@@ -1695,109 +1894,54 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the timeline of the alerts that are associated with an event.
-     *  *
-     * @param DescribeAttackTimeLineRequest $request DescribeAttackTimeLineRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
      *
-     * @return DescribeAttackTimeLineResponse DescribeAttackTimeLineResponse
-     */
-    public function describeAttackTimeLineWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->assetName)) {
-            $body['AssetName'] = $request->assetName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
-        }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAttackTimeLine',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAttackTimeLineResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the timeline of the alerts that are associated with an event.
-     *  *
-     * @param DescribeAttackTimeLineRequest $request DescribeAttackTimeLineRequest
+     * @param request - DescribeAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeAttackTimeLineResponse DescribeAttackTimeLineResponse
-     */
-    public function describeAttackTimeLine($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAttackTimeLineWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
-     *  *
-     * @param DescribeAuthRequest $request DescribeAuthRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeAuthResponse
      *
-     * @return DescribeAuthResponse DescribeAuthResponse
+     * @param DescribeAuthRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAuthResponse
      */
     public function describeAuthWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuth',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuth',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
-     *  *
-     * @param DescribeAuthRequest $request DescribeAuthRequest
+     * Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
      *
-     * @return DescribeAuthResponse DescribeAuthResponse
+     * @param request - DescribeAuthRequest
+     *
+     * @returns DescribeAuthResponse
+     *
+     * @param DescribeAuthRequest $request
+     *
+     * @return DescribeAuthResponse
      */
     public function describeAuth($request)
     {
@@ -1807,50 +1951,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of automated response rules.
-     *  *
-     * @param DescribeAutomateResponseConfigCounterRequest $request DescribeAutomateResponseConfigCounterRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the number of automated response rules.
      *
-     * @return DescribeAutomateResponseConfigCounterResponse DescribeAutomateResponseConfigCounterResponse
+     * @param request - DescribeAutomateResponseConfigCounterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutomateResponseConfigCounterResponse
+     *
+     * @param DescribeAutomateResponseConfigCounterRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAutomateResponseConfigCounterResponse
      */
     public function describeAutomateResponseConfigCounterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutomateResponseConfigCounter',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutomateResponseConfigCounter',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAutomateResponseConfigCounterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of automated response rules.
-     *  *
-     * @param DescribeAutomateResponseConfigCounterRequest $request DescribeAutomateResponseConfigCounterRequest
+     * Queries the number of automated response rules.
      *
-     * @return DescribeAutomateResponseConfigCounterResponse DescribeAutomateResponseConfigCounterResponse
+     * @param request - DescribeAutomateResponseConfigCounterRequest
+     *
+     * @returns DescribeAutomateResponseConfigCounterResponse
+     *
+     * @param DescribeAutomateResponseConfigCounterRequest $request
+     *
+     * @return DescribeAutomateResponseConfigCounterResponse
      */
     public function describeAutomateResponseConfigCounter($request)
     {
@@ -1860,53 +2016,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurable fields and operators of an automated response rule.
-     *  *
-     * @param DescribeAutomateResponseConfigFeatureRequest $request DescribeAutomateResponseConfigFeatureRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the configurable fields and operators of an automated response rule.
      *
-     * @return DescribeAutomateResponseConfigFeatureResponse DescribeAutomateResponseConfigFeatureResponse
+     * @param request - DescribeAutomateResponseConfigFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutomateResponseConfigFeatureResponse
+     *
+     * @param DescribeAutomateResponseConfigFeatureRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAutomateResponseConfigFeatureResponse
      */
     public function describeAutomateResponseConfigFeatureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoResponseType)) {
-            $body['AutoResponseType'] = $request->autoResponseType;
+        if (null !== $request->autoResponseType) {
+            @$body['AutoResponseType'] = $request->autoResponseType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutomateResponseConfigFeature',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutomateResponseConfigFeature',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAutomateResponseConfigFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurable fields and operators of an automated response rule.
-     *  *
-     * @param DescribeAutomateResponseConfigFeatureRequest $request DescribeAutomateResponseConfigFeatureRequest
+     * Queries the configurable fields and operators of an automated response rule.
      *
-     * @return DescribeAutomateResponseConfigFeatureResponse DescribeAutomateResponseConfigFeatureResponse
+     * @param request - DescribeAutomateResponseConfigFeatureRequest
+     *
+     * @returns DescribeAutomateResponseConfigFeatureResponse
+     *
+     * @param DescribeAutomateResponseConfigFeatureRequest $request
+     *
+     * @return DescribeAutomateResponseConfigFeatureResponse
      */
     public function describeAutomateResponseConfigFeature($request)
     {
@@ -1916,56 +2085,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries user-defined playbooks.
-     *  *
-     * @param DescribeAutomateResponseConfigPlayBooksRequest $request DescribeAutomateResponseConfigPlayBooksRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * Queries user-defined playbooks.
      *
-     * @return DescribeAutomateResponseConfigPlayBooksResponse DescribeAutomateResponseConfigPlayBooksResponse
+     * @param request - DescribeAutomateResponseConfigPlayBooksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutomateResponseConfigPlayBooksResponse
+     *
+     * @param DescribeAutomateResponseConfigPlayBooksRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeAutomateResponseConfigPlayBooksResponse
      */
     public function describeAutomateResponseConfigPlayBooksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoResponseType)) {
-            $body['AutoResponseType'] = $request->autoResponseType;
+        if (null !== $request->autoResponseType) {
+            @$body['AutoResponseType'] = $request->autoResponseType;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $body['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutomateResponseConfigPlayBooks',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutomateResponseConfigPlayBooks',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAutomateResponseConfigPlayBooksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries user-defined playbooks.
-     *  *
-     * @param DescribeAutomateResponseConfigPlayBooksRequest $request DescribeAutomateResponseConfigPlayBooksRequest
+     * Queries user-defined playbooks.
      *
-     * @return DescribeAutomateResponseConfigPlayBooksResponse DescribeAutomateResponseConfigPlayBooksResponse
+     * @param request - DescribeAutomateResponseConfigPlayBooksRequest
+     *
+     * @returns DescribeAutomateResponseConfigPlayBooksResponse
+     *
+     * @param DescribeAutomateResponseConfigPlayBooksRequest $request
+     *
+     * @return DescribeAutomateResponseConfigPlayBooksResponse
      */
     public function describeAutomateResponseConfigPlayBooks($request)
     {
@@ -1975,62 +2158,86 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the assets that are associated with an event.
-     *  *
-     * @param DescribeCloudSiemAssetsRequest $request DescribeCloudSiemAssetsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the assets that are associated with an event.
      *
-     * @return DescribeCloudSiemAssetsResponse DescribeCloudSiemAssetsResponse
+     * @param request - DescribeCloudSiemAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudSiemAssetsResponse
+     *
+     * @param DescribeCloudSiemAssetsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCloudSiemAssetsResponse
      */
     public function describeCloudSiemAssetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assetType)) {
-            $body['AssetType'] = $request->assetType;
+        if (null !== $request->assetName) {
+            @$body['AssetName'] = $request->assetName;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->assetType) {
+            @$body['AssetType'] = $request->assetType;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->assetUuid) {
+            @$body['AssetUuid'] = $request->assetUuid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudSiemAssets',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudSiemAssets',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCloudSiemAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the assets that are associated with an event.
-     *  *
-     * @param DescribeCloudSiemAssetsRequest $request DescribeCloudSiemAssetsRequest
+     * Queries the assets that are associated with an event.
      *
-     * @return DescribeCloudSiemAssetsResponse DescribeCloudSiemAssetsResponse
+     * @param request - DescribeCloudSiemAssetsRequest
+     *
+     * @returns DescribeCloudSiemAssetsResponse
+     *
+     * @param DescribeCloudSiemAssetsRequest $request
+     *
+     * @return DescribeCloudSiemAssetsResponse
      */
     public function describeCloudSiemAssets($request)
     {
@@ -2040,53 +2247,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of assets that are associated with an event by asset type.
-     *  *
-     * @param DescribeCloudSiemAssetsCounterRequest $request DescribeCloudSiemAssetsCounterRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the number of assets that are associated with an event by asset type.
      *
-     * @return DescribeCloudSiemAssetsCounterResponse DescribeCloudSiemAssetsCounterResponse
+     * @param request - DescribeCloudSiemAssetsCounterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudSiemAssetsCounterResponse
+     *
+     * @param DescribeCloudSiemAssetsCounterRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeCloudSiemAssetsCounterResponse
      */
     public function describeCloudSiemAssetsCounterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudSiemAssetsCounter',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudSiemAssetsCounter',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCloudSiemAssetsCounterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of assets that are associated with an event by asset type.
-     *  *
-     * @param DescribeCloudSiemAssetsCounterRequest $request DescribeCloudSiemAssetsCounterRequest
+     * Queries the number of assets that are associated with an event by asset type.
      *
-     * @return DescribeCloudSiemAssetsCounterResponse DescribeCloudSiemAssetsCounterResponse
+     * @param request - DescribeCloudSiemAssetsCounterRequest
+     *
+     * @returns DescribeCloudSiemAssetsCounterResponse
+     *
+     * @param DescribeCloudSiemAssetsCounterRequest $request
+     *
+     * @return DescribeCloudSiemAssetsCounterResponse
      */
     public function describeCloudSiemAssetsCounter($request)
     {
@@ -2096,53 +2316,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an event.
-     *  *
-     * @param DescribeCloudSiemEventDetailRequest $request DescribeCloudSiemEventDetailRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an event.
      *
-     * @return DescribeCloudSiemEventDetailResponse DescribeCloudSiemEventDetailResponse
+     * @param request - DescribeCloudSiemEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudSiemEventDetailResponse
+     *
+     * @param DescribeCloudSiemEventDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCloudSiemEventDetailResponse
      */
     public function describeCloudSiemEventDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudSiemEventDetail',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudSiemEventDetail',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCloudSiemEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an event.
-     *  *
-     * @param DescribeCloudSiemEventDetailRequest $request DescribeCloudSiemEventDetailRequest
+     * Queries the details of an event.
      *
-     * @return DescribeCloudSiemEventDetailResponse DescribeCloudSiemEventDetailResponse
+     * @param request - DescribeCloudSiemEventDetailRequest
+     *
+     * @returns DescribeCloudSiemEventDetailResponse
+     *
+     * @param DescribeCloudSiemEventDetailRequest $request
+     *
+     * @return DescribeCloudSiemEventDetailResponse
      */
     public function describeCloudSiemEventDetail($request)
     {
@@ -2152,83 +2385,110 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries events in SIEM.
-     *  *
-     * @param DescribeCloudSiemEventsRequest $request DescribeCloudSiemEventsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries events in SIEM.
      *
-     * @return DescribeCloudSiemEventsResponse DescribeCloudSiemEventsResponse
+     * @param request - DescribeCloudSiemEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudSiemEventsResponse
+     *
+     * @param DescribeCloudSiemEventsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCloudSiemEventsResponse
      */
     public function describeCloudSiemEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assetId)) {
-            $body['AssetId'] = $request->assetId;
+        if (null !== $request->assetId) {
+            @$body['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $body['EventName'] = $request->eventName;
+
+        if (null !== $request->entityUuid) {
+            @$body['EntityUuid'] = $request->entityUuid;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->eventName) {
+            @$body['EventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['Order'] = $request->order;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->orderField)) {
-            $body['OrderField'] = $request->orderField;
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->orderField) {
+            @$body['OrderField'] = $request->orderField;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->threadLevel)) {
-            $body['ThreadLevel'] = $request->threadLevel;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
+        if (null !== $request->threadLevel) {
+            @$body['ThreadLevel'] = $request->threadLevel;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudSiemEvents',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudSiemEvents',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCloudSiemEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries events in SIEM.
-     *  *
-     * @param DescribeCloudSiemEventsRequest $request DescribeCloudSiemEventsRequest
+     * Queries events in SIEM.
      *
-     * @return DescribeCloudSiemEventsResponse DescribeCloudSiemEventsResponse
+     * @param request - DescribeCloudSiemEventsRequest
+     *
+     * @returns DescribeCloudSiemEventsResponse
+     *
+     * @param DescribeCloudSiemEventsRequest $request
+     *
+     * @return DescribeCloudSiemEventsResponse
      */
     public function describeCloudSiemEvents($request)
     {
@@ -2238,103 +2498,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether an Alibaba Cloud service is activated for an Alibaba Cloud account.
-     *  *
-     * @param DescribeCsImportedProdStatusByUserRequest $request DescribeCsImportedProdStatusByUserRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the number of custom rules.
      *
-     * @return DescribeCsImportedProdStatusByUserResponse DescribeCsImportedProdStatusByUserResponse
-     */
-    public function describeCsImportedProdStatusByUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->sourceLogProd)) {
-            $body['SourceLogProd'] = $request->sourceLogProd;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCsImportedProdStatusByUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeCsImportedProdStatusByUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Checks whether an Alibaba Cloud service is activated for an Alibaba Cloud account.
-     *  *
-     * @param DescribeCsImportedProdStatusByUserRequest $request DescribeCsImportedProdStatusByUserRequest
+     * @param request - DescribeCustomizeRuleCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeCsImportedProdStatusByUserResponse DescribeCsImportedProdStatusByUserResponse
-     */
-    public function describeCsImportedProdStatusByUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCsImportedProdStatusByUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the number of custom rules.
-     *  *
-     * @param DescribeCustomizeRuleCountRequest $request DescribeCustomizeRuleCountRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeCustomizeRuleCountResponse
      *
-     * @return DescribeCustomizeRuleCountResponse DescribeCustomizeRuleCountResponse
+     * @param DescribeCustomizeRuleCountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCustomizeRuleCountResponse
      */
     public function describeCustomizeRuleCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomizeRuleCount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomizeRuleCount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomizeRuleCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of custom rules.
-     *  *
-     * @param DescribeCustomizeRuleCountRequest $request DescribeCustomizeRuleCountRequest
+     * Queries the number of custom rules.
      *
-     * @return DescribeCustomizeRuleCountResponse DescribeCustomizeRuleCountResponse
+     * @param request - DescribeCustomizeRuleCountRequest
+     *
+     * @returns DescribeCustomizeRuleCountResponse
+     *
+     * @param DescribeCustomizeRuleCountRequest $request
+     *
+     * @return DescribeCustomizeRuleCountResponse
      */
     public function describeCustomizeRuleCount($request)
     {
@@ -2344,53 +2563,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the historical simulation data that is used in a simulation test scenario.
-     *  *
-     * @param DescribeCustomizeRuleTestRequest $request DescribeCustomizeRuleTestRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the historical simulation data that is used in a simulation test scenario.
      *
-     * @return DescribeCustomizeRuleTestResponse DescribeCustomizeRuleTestResponse
+     * @param request - DescribeCustomizeRuleTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomizeRuleTestResponse
+     *
+     * @param DescribeCustomizeRuleTestRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCustomizeRuleTestResponse
      */
     public function describeCustomizeRuleTestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomizeRuleTest',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomizeRuleTest',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomizeRuleTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the historical simulation data that is used in a simulation test scenario.
-     *  *
-     * @param DescribeCustomizeRuleTestRequest $request DescribeCustomizeRuleTestRequest
+     * Queries the historical simulation data that is used in a simulation test scenario.
      *
-     * @return DescribeCustomizeRuleTestResponse DescribeCustomizeRuleTestResponse
+     * @param request - DescribeCustomizeRuleTestRequest
+     *
+     * @returns DescribeCustomizeRuleTestResponse
+     *
+     * @param DescribeCustomizeRuleTestRequest $request
+     *
+     * @return DescribeCustomizeRuleTestResponse
      */
     public function describeCustomizeRuleTest($request)
     {
@@ -2400,53 +2632,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the chart that displays the test results of business data for a custom rule.
-     *  *
-     * @param DescribeCustomizeRuleTestHistogramRequest $request DescribeCustomizeRuleTestHistogramRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the chart that displays the test results of business data for a custom rule.
      *
-     * @return DescribeCustomizeRuleTestHistogramResponse DescribeCustomizeRuleTestHistogramResponse
+     * @param request - DescribeCustomizeRuleTestHistogramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomizeRuleTestHistogramResponse
+     *
+     * @param DescribeCustomizeRuleTestHistogramRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeCustomizeRuleTestHistogramResponse
      */
     public function describeCustomizeRuleTestHistogramWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomizeRuleTestHistogram',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomizeRuleTestHistogram',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomizeRuleTestHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the chart that displays the test results of business data for a custom rule.
-     *  *
-     * @param DescribeCustomizeRuleTestHistogramRequest $request DescribeCustomizeRuleTestHistogramRequest
+     * Queries the chart that displays the test results of business data for a custom rule.
      *
-     * @return DescribeCustomizeRuleTestHistogramResponse DescribeCustomizeRuleTestHistogramResponse
+     * @param request - DescribeCustomizeRuleTestHistogramRequest
+     *
+     * @returns DescribeCustomizeRuleTestHistogramResponse
+     *
+     * @param DescribeCustomizeRuleTestHistogramRequest $request
+     *
+     * @return DescribeCustomizeRuleTestHistogramResponse
      */
     public function describeCustomizeRuleTestHistogram($request)
     {
@@ -2456,53 +2701,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a data source.
-     *  *
-     * @param DescribeDataSourceInstanceRequest $request DescribeDataSourceInstanceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a data source.
      *
-     * @return DescribeDataSourceInstanceResponse DescribeDataSourceInstanceResponse
+     * @param request - DescribeDataSourceInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataSourceInstanceResponse
+     *
+     * @param DescribeDataSourceInstanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDataSourceInstanceResponse
      */
     public function describeDataSourceInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataSourceInstance',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataSourceInstance',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataSourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a data source.
-     *  *
-     * @param DescribeDataSourceInstanceRequest $request DescribeDataSourceInstanceRequest
+     * Queries the details of a data source.
      *
-     * @return DescribeDataSourceInstanceResponse DescribeDataSourceInstanceResponse
+     * @param request - DescribeDataSourceInstanceRequest
+     *
+     * @returns DescribeDataSourceInstanceResponse
+     *
+     * @param DescribeDataSourceInstanceRequest $request
+     *
+     * @return DescribeDataSourceInstanceResponse
      */
     public function describeDataSourceInstance($request)
     {
@@ -2512,50 +2770,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the parameters of a data source.
-     *  *
-     * @param DescribeDataSourceParametersRequest $request DescribeDataSourceParametersRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the parameters of a data source.
      *
-     * @return DescribeDataSourceParametersResponse DescribeDataSourceParametersResponse
+     * @param request - DescribeDataSourceParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataSourceParametersResponse
+     *
+     * @param DescribeDataSourceParametersRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDataSourceParametersResponse
      */
     public function describeDataSourceParametersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['DataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['DataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataSourceParameters',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataSourceParameters',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataSourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the parameters of a data source.
-     *  *
-     * @param DescribeDataSourceParametersRequest $request DescribeDataSourceParametersRequest
+     * Queries the parameters of a data source.
      *
-     * @return DescribeDataSourceParametersResponse DescribeDataSourceParametersResponse
+     * @param request - DescribeDataSourceParametersRequest
+     *
+     * @returns DescribeDataSourceParametersResponse
+     *
+     * @param DescribeDataSourceParametersRequest $request
+     *
+     * @return DescribeDataSourceParametersResponse
      */
     public function describeDataSourceParameters($request)
     {
@@ -2565,62 +2835,82 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of entities and playbooks that need to be handled.
-     *  *
-     * @param DescribeDisposeAndPlaybookRequest $request DescribeDisposeAndPlaybookRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the list of entities and playbooks that need to be handled.
      *
-     * @return DescribeDisposeAndPlaybookResponse DescribeDisposeAndPlaybookResponse
+     * @param request - DescribeDisposeAndPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDisposeAndPlaybookResponse
+     *
+     * @param DescribeDisposeAndPlaybookRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDisposeAndPlaybookResponse
      */
     public function describeDisposeAndPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $body['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->entityUuid) {
+            @$body['EntityUuid'] = $request->entityUuid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDisposeAndPlaybook',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDisposeAndPlaybook',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDisposeAndPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of entities and playbooks that need to be handled.
-     *  *
-     * @param DescribeDisposeAndPlaybookRequest $request DescribeDisposeAndPlaybookRequest
+     * Queries the list of entities and playbooks that need to be handled.
      *
-     * @return DescribeDisposeAndPlaybookResponse DescribeDisposeAndPlaybookResponse
+     * @param request - DescribeDisposeAndPlaybookRequest
+     *
+     * @returns DescribeDisposeAndPlaybookResponse
+     *
+     * @param DescribeDisposeAndPlaybookRequest $request
+     *
+     * @return DescribeDisposeAndPlaybookResponse
      */
     public function describeDisposeAndPlaybook($request)
     {
@@ -2630,56 +2920,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of playbooks that are used by a handling policy.
-     *  *
-     * @param DescribeDisposeStrategyPlaybookRequest $request DescribeDisposeStrategyPlaybookRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the list of playbooks that are used by a handling policy.
      *
-     * @return DescribeDisposeStrategyPlaybookResponse DescribeDisposeStrategyPlaybookResponse
+     * @param request - DescribeDisposeStrategyPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDisposeStrategyPlaybookResponse
+     *
+     * @param DescribeDisposeStrategyPlaybookRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDisposeStrategyPlaybookResponse
      */
     public function describeDisposeStrategyPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDisposeStrategyPlaybook',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDisposeStrategyPlaybook',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDisposeStrategyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of playbooks that are used by a handling policy.
-     *  *
-     * @param DescribeDisposeStrategyPlaybookRequest $request DescribeDisposeStrategyPlaybookRequest
+     * Queries the list of playbooks that are used by a handling policy.
      *
-     * @return DescribeDisposeStrategyPlaybookResponse DescribeDisposeStrategyPlaybookResponse
+     * @param request - DescribeDisposeStrategyPlaybookRequest
+     *
+     * @returns DescribeDisposeStrategyPlaybookResponse
+     *
+     * @param DescribeDisposeStrategyPlaybookRequest $request
+     *
+     * @return DescribeDisposeStrategyPlaybookResponse
      */
     public function describeDisposeStrategyPlaybook($request)
     {
@@ -2689,62 +2993,78 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an entity.
-     *  *
-     * @param DescribeEntityInfoRequest $request DescribeEntityInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an entity.
      *
-     * @return DescribeEntityInfoResponse DescribeEntityInfoResponse
+     * @param request - DescribeEntityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEntityInfoResponse
+     *
+     * @param DescribeEntityInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeEntityInfoResponse
      */
     public function describeEntityInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->entityId)) {
-            $body['EntityId'] = $request->entityId;
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->entityIdentity)) {
-            $body['EntityIdentity'] = $request->entityIdentity;
+
+        if (null !== $request->entityIdentity) {
+            @$body['EntityIdentity'] = $request->entityIdentity;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->sophonTaskId)) {
-            $body['SophonTaskId'] = $request->sophonTaskId;
+
+        if (null !== $request->sophonTaskId) {
+            @$body['SophonTaskId'] = $request->sophonTaskId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEntityInfo',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEntityInfo',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEntityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an entity.
-     *  *
-     * @param DescribeEntityInfoRequest $request DescribeEntityInfoRequest
+     * Queries the details of an entity.
      *
-     * @return DescribeEntityInfoResponse DescribeEntityInfoResponse
+     * @param request - DescribeEntityInfoRequest
+     *
+     * @returns DescribeEntityInfoResponse
+     *
+     * @param DescribeEntityInfoRequest $request
+     *
+     * @return DescribeEntityInfoResponse
      */
     public function describeEntityInfo($request)
     {
@@ -2754,56 +3074,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of events by type.
-     *  *
-     * @param DescribeEventCountByThreatLevelRequest $request DescribeEventCountByThreatLevelRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the number of events by type.
      *
-     * @return DescribeEventCountByThreatLevelResponse DescribeEventCountByThreatLevelResponse
+     * @param request - DescribeEventCountByThreatLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventCountByThreatLevelResponse
+     *
+     * @param DescribeEventCountByThreatLevelRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeEventCountByThreatLevelResponse
      */
     public function describeEventCountByThreatLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventCountByThreatLevel',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventCountByThreatLevel',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventCountByThreatLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of events by type.
-     *  *
-     * @param DescribeEventCountByThreatLevelRequest $request DescribeEventCountByThreatLevelRequest
+     * Queries the number of events by type.
      *
-     * @return DescribeEventCountByThreatLevelResponse DescribeEventCountByThreatLevelResponse
+     * @param request - DescribeEventCountByThreatLevelRequest
+     *
+     * @returns DescribeEventCountByThreatLevelResponse
+     *
+     * @param DescribeEventCountByThreatLevelRequest $request
+     *
+     * @return DescribeEventCountByThreatLevelResponse
      */
     public function describeEventCountByThreatLevel($request)
     {
@@ -2813,59 +3147,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the handling policies of a historical event.
-     *  *
-     * @param DescribeEventDisposeRequest $request DescribeEventDisposeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the handling policies of a historical event.
      *
-     * @return DescribeEventDisposeResponse DescribeEventDisposeResponse
+     * @param request - DescribeEventDisposeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventDisposeResponse
+     *
+     * @param DescribeEventDisposeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeEventDisposeResponse
      */
     public function describeEventDisposeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventDispose',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventDispose',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventDisposeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the handling policies of a historical event.
-     *  *
-     * @param DescribeEventDisposeRequest $request DescribeEventDisposeRequest
+     * Queries the handling policies of a historical event.
      *
-     * @return DescribeEventDisposeResponse DescribeEventDisposeResponse
+     * @param request - DescribeEventDisposeRequest
+     *
+     * @returns DescribeEventDisposeResponse
+     *
+     * @param DescribeEventDisposeRequest $request
+     *
+     * @return DescribeEventDisposeResponse
      */
     public function describeEventDispose($request)
     {
@@ -2875,50 +3224,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of logs that are added to the threat analysis feature.
-     *  *
-     * @param DescribeImportedLogCountRequest $request DescribeImportedLogCountRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the number of logs that are added to the threat analysis feature.
      *
-     * @return DescribeImportedLogCountResponse DescribeImportedLogCountResponse
+     * @param request - DescribeImportedLogCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImportedLogCountResponse
+     *
+     * @param DescribeImportedLogCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeImportedLogCountResponse
      */
     public function describeImportedLogCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeImportedLogCount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeImportedLogCount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeImportedLogCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of logs that are added to the threat analysis feature.
-     *  *
-     * @param DescribeImportedLogCountRequest $request DescribeImportedLogCountRequest
+     * Queries the number of logs that are added to the threat analysis feature.
      *
-     * @return DescribeImportedLogCountResponse DescribeImportedLogCountResponse
+     * @param request - DescribeImportedLogCountRequest
+     *
+     * @returns DescribeImportedLogCountResponse
+     *
+     * @param DescribeImportedLogCountRequest $request
+     *
+     * @return DescribeImportedLogCountResponse
      */
     public function describeImportedLogCount($request)
     {
@@ -2928,106 +3289,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of collection tasks by using the submitId parameter of the tasks.
-     *  *
-     * @param DescribeJobStatusRequest $request DescribeJobStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the fields that can be configured for a custom rule.
      *
-     * @return DescribeJobStatusResponse DescribeJobStatusResponse
-     */
-    public function describeJobStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->submitId)) {
-            $body['SubmitId'] = $request->submitId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeJobStatus',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the status of collection tasks by using the submitId parameter of the tasks.
-     *  *
-     * @param DescribeJobStatusRequest $request DescribeJobStatusRequest
+     * @param request - DescribeLogFieldsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobStatusResponse DescribeJobStatusResponse
-     */
-    public function describeJobStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeJobStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the fields that can be configured for a custom rule.
-     *  *
-     * @param DescribeLogFieldsRequest $request DescribeLogFieldsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeLogFieldsResponse
      *
-     * @return DescribeLogFieldsResponse DescribeLogFieldsResponse
+     * @param DescribeLogFieldsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeLogFieldsResponse
      */
     public function describeLogFieldsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->logSource)) {
-            $body['LogSource'] = $request->logSource;
+        if (null !== $request->logSource) {
+            @$body['LogSource'] = $request->logSource;
         }
-        if (!Utils::isUnset($request->logType)) {
-            $body['LogType'] = $request->logType;
+
+        if (null !== $request->logType) {
+            @$body['LogType'] = $request->logType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogFields',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogFields',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLogFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the fields that can be configured for a custom rule.
-     *  *
-     * @param DescribeLogFieldsRequest $request DescribeLogFieldsRequest
+     * Queries the fields that can be configured for a custom rule.
      *
-     * @return DescribeLogFieldsResponse DescribeLogFieldsResponse
+     * @param request - DescribeLogFieldsRequest
+     *
+     * @returns DescribeLogFieldsResponse
+     *
+     * @param DescribeLogFieldsRequest $request
+     *
+     * @return DescribeLogFieldsResponse
      */
     public function describeLogFields($request)
     {
@@ -3037,53 +3362,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the log sources that can be configured for a custom rule.
-     *  *
-     * @param DescribeLogSourceRequest $request DescribeLogSourceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the log sources that can be configured for a custom rule.
      *
-     * @return DescribeLogSourceResponse DescribeLogSourceResponse
+     * @param request - DescribeLogSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLogSourceResponse
+     *
+     * @param DescribeLogSourceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeLogSourceResponse
      */
     public function describeLogSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->logType)) {
-            $body['LogType'] = $request->logType;
+        if (null !== $request->logType) {
+            @$body['LogType'] = $request->logType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogSource',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogSource',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLogSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the log sources that can be configured for a custom rule.
-     *  *
-     * @param DescribeLogSourceRequest $request DescribeLogSourceRequest
+     * Queries the log sources that can be configured for a custom rule.
      *
-     * @return DescribeLogSourceResponse DescribeLogSourceResponse
+     * @param request - DescribeLogSourceRequest
+     *
+     * @returns DescribeLogSourceResponse
+     *
+     * @param DescribeLogSourceRequest $request
+     *
+     * @return DescribeLogSourceResponse
      */
     public function describeLogSource($request)
     {
@@ -3093,97 +3431,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a Logstore that is used in the threat analysis feature of Simple Log Service on the user side. The information may be the Logstore name or the time-to-live (TTL) period of data in the Logstore.
-     *  *
-     * @param DescribeLogStoreRequest $request DescribeLogStoreRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the log types that can be configured for a custom rule.
      *
-     * @return DescribeLogStoreResponse DescribeLogStoreResponse
-     */
-    public function describeLogStoreWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLogStore',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the information about a Logstore that is used in the threat analysis feature of Simple Log Service on the user side. The information may be the Logstore name or the time-to-live (TTL) period of data in the Logstore.
-     *  *
-     * @param DescribeLogStoreRequest $request DescribeLogStoreRequest
+     * @param request - DescribeLogTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogStoreResponse DescribeLogStoreResponse
-     */
-    public function describeLogStore($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLogStoreWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the log types that can be configured for a custom rule.
-     *  *
-     * @param DescribeLogTypeRequest $request DescribeLogTypeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeLogTypeResponse
      *
-     * @return DescribeLogTypeResponse DescribeLogTypeResponse
+     * @param DescribeLogTypeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeLogTypeResponse
      */
     public function describeLogTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogType',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogType',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLogTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the log types that can be configured for a custom rule.
-     *  *
-     * @param DescribeLogTypeRequest $request DescribeLogTypeRequest
+     * Queries the log types that can be configured for a custom rule.
      *
-     * @return DescribeLogTypeResponse DescribeLogTypeResponse
+     * @param request - DescribeLogTypeRequest
+     *
+     * @returns DescribeLogTypeResponse
+     *
+     * @param DescribeLogTypeRequest $request
+     *
+     * @return DescribeLogTypeResponse
      */
     public function describeLogType($request)
     {
@@ -3193,53 +3496,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the operator of a custom rule.
-     *  *
-     * @param DescribeOperatorsRequest $request DescribeOperatorsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the operator of a custom rule.
      *
-     * @return DescribeOperatorsResponse DescribeOperatorsResponse
+     * @param request - DescribeOperatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOperatorsResponse
+     *
+     * @param DescribeOperatorsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeOperatorsResponse
      */
     public function describeOperatorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->sceneType)) {
-            $body['SceneType'] = $request->sceneType;
+
+        if (null !== $request->sceneType) {
+            @$body['SceneType'] = $request->sceneType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOperators',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOperators',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the operator of a custom rule.
-     *  *
-     * @param DescribeOperatorsRequest $request DescribeOperatorsRequest
+     * Queries the operator of a custom rule.
      *
-     * @return DescribeOperatorsResponse DescribeOperatorsResponse
+     * @param request - DescribeOperatorsRequest
+     *
+     * @returns DescribeOperatorsResponse
+     *
+     * @param DescribeOperatorsRequest $request
+     *
+     * @return DescribeOperatorsResponse
      */
     public function describeOperators($request)
     {
@@ -3249,50 +3565,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
-     *  *
-     * @param DescribeProdCountRequest $request DescribeProdCountRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
      *
-     * @return DescribeProdCountResponse DescribeProdCountResponse
+     * @param request - DescribeProdCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProdCountResponse
+     *
+     * @param DescribeProdCountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeProdCountResponse
      */
     public function describeProdCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProdCount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProdCount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeProdCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
-     *  *
-     * @param DescribeProdCountRequest $request DescribeProdCountRequest
+     * Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
      *
-     * @return DescribeProdCountResponse DescribeProdCountResponse
+     * @param request - DescribeProdCountRequest
+     *
+     * @returns DescribeProdCountResponse
+     *
+     * @param DescribeProdCountRequest $request
+     *
+     * @return DescribeProdCountResponse
      */
     public function describeProdCount($request)
     {
@@ -3302,50 +3630,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of users in the playbook scope.
-     *  *
-     * @param DescribeScopeUsersRequest $request DescribeScopeUsersRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the list of users in the playbook scope.
      *
-     * @return DescribeScopeUsersResponse DescribeScopeUsersResponse
+     * @param request - DescribeScopeUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScopeUsersResponse
+     *
+     * @param DescribeScopeUsersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeScopeUsersResponse
      */
     public function describeScopeUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScopeUsers',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScopeUsers',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeScopeUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of users in the playbook scope.
-     *  *
-     * @param DescribeScopeUsersRequest $request DescribeScopeUsersRequest
+     * Queries the list of users in the playbook scope.
      *
-     * @return DescribeScopeUsersResponse DescribeScopeUsersResponse
+     * @param request - DescribeScopeUsersRequest
+     *
+     * @returns DescribeScopeUsersResponse
+     *
+     * @param DescribeScopeUsersRequest $request
+     *
+     * @return DescribeScopeUsersResponse
      */
     public function describeScopeUsers($request)
     {
@@ -3355,44 +3695,54 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the threat analysis feature is authorized to access a resource directory.
-     *  *
-     * @param DescribeServiceStatusRequest $request DescribeServiceStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Checks whether the threat analysis feature is authorized to access a resource directory.
      *
-     * @return DescribeServiceStatusResponse DescribeServiceStatusResponse
+     * @param request - DescribeServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceStatusResponse
+     *
+     * @param DescribeServiceStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeServiceStatusResponse
      */
     public function describeServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceStatus',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServiceStatus',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the threat analysis feature is authorized to access a resource directory.
-     *  *
-     * @param DescribeServiceStatusRequest $request DescribeServiceStatusRequest
+     * Checks whether the threat analysis feature is authorized to access a resource directory.
      *
-     * @return DescribeServiceStatusResponse DescribeServiceStatusResponse
+     * @param request - DescribeServiceStatusRequest
+     *
+     * @returns DescribeServiceStatusResponse
+     *
+     * @param DescribeServiceStatusRequest $request
+     *
+     * @return DescribeServiceStatusResponse
      */
     public function describeServiceStatus($request)
     {
@@ -3402,50 +3752,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
-     *  *
-     * @param DescribeStorageRequest $request DescribeStorageRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
      *
-     * @return DescribeStorageResponse DescribeStorageResponse
+     * @param request - DescribeStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeStorageResponse
+     *
+     * @param DescribeStorageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeStorageResponse
      */
     public function describeStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStorage',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStorage',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
-     *  *
-     * @param DescribeStorageRequest $request DescribeStorageRequest
+     * Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
      *
-     * @return DescribeStorageResponse DescribeStorageResponse
+     * @param request - DescribeStorageRequest
+     *
+     * @returns DescribeStorageResponse
+     *
+     * @param DescribeStorageRequest $request
+     *
+     * @return DescribeStorageResponse
      */
     public function describeStorage($request)
     {
@@ -3455,47 +3817,58 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
-     *  *
-     * @param DescribeUserBuyStatusRequest $request DescribeUserBuyStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
      *
-     * @return DescribeUserBuyStatusResponse DescribeUserBuyStatusResponse
+     * @param request - DescribeUserBuyStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserBuyStatusResponse
+     *
+     * @param DescribeUserBuyStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeUserBuyStatusResponse
      */
     public function describeUserBuyStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserBuyStatus',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserBuyStatus',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserBuyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
-     *  *
-     * @param DescribeUserBuyStatusRequest $request DescribeUserBuyStatusRequest
+     * Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
      *
-     * @return DescribeUserBuyStatusResponse DescribeUserBuyStatusResponse
+     * @param request - DescribeUserBuyStatusRequest
+     *
+     * @returns DescribeUserBuyStatusResponse
+     *
+     * @param DescribeUserBuyStatusRequest $request
+     *
+     * @return DescribeUserBuyStatusResponse
      */
     public function describeUserBuyStatus($request)
     {
@@ -3505,53 +3878,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the protected domain names of the WAF instance for a user to which an entity belongs.
-     *  *
-     * @param DescribeWafScopeRequest $request DescribeWafScopeRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the protected domain names of the WAF instance for a user to which an entity belongs.
      *
-     * @return DescribeWafScopeResponse DescribeWafScopeResponse
+     * @param request - DescribeWafScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWafScopeResponse
+     *
+     * @param DescribeWafScopeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeWafScopeResponse
      */
     public function describeWafScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->entityId)) {
-            $body['EntityId'] = $request->entityId;
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWafScope',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWafScope',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeWafScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the protected domain names of the WAF instance for a user to which an entity belongs.
-     *  *
-     * @param DescribeWafScopeRequest $request DescribeWafScopeRequest
+     * Queries the protected domain names of the WAF instance for a user to which an entity belongs.
      *
-     * @return DescribeWafScopeResponse DescribeWafScopeResponse
+     * @param request - DescribeWafScopeRequest
+     *
+     * @returns DescribeWafScopeResponse
+     *
+     * @param DescribeWafScopeRequest $request
+     *
+     * @return DescribeWafScopeResponse
      */
     public function describeWafScope($request)
     {
@@ -3561,65 +3947,82 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of whitelist rules for alerts.
-     *  *
-     * @param DescribeWhiteRuleListRequest $request DescribeWhiteRuleListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of whitelist rules for alerts.
      *
-     * @return DescribeWhiteRuleListResponse DescribeWhiteRuleListResponse
+     * @param request - DescribeWhiteRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWhiteRuleListResponse
+     *
+     * @param DescribeWhiteRuleListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeWhiteRuleListResponse
      */
     public function describeWhiteRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertName)) {
-            $body['AlertName'] = $request->alertName;
+        if (null !== $request->alertName) {
+            @$body['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->alertType)) {
-            $body['AlertType'] = $request->alertType;
+
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWhiteRuleList',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWhiteRuleList',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeWhiteRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of whitelist rules for alerts.
-     *  *
-     * @param DescribeWhiteRuleListRequest $request DescribeWhiteRuleListRequest
+     * Queries a list of whitelist rules for alerts.
      *
-     * @return DescribeWhiteRuleListResponse DescribeWhiteRuleListResponse
+     * @param request - DescribeWhiteRuleListRequest
+     *
+     * @returns DescribeWhiteRuleListResponse
+     *
+     * @param DescribeWhiteRuleListRequest $request
+     *
+     * @return DescribeWhiteRuleListResponse
      */
     public function describeWhiteRuleList($request)
     {
@@ -3629,171 +4032,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries and analyzes the distribution of specific fields by using quick analysis.
-     *  *
-     * @param DoQuickFieldRequest $request DoQuickFieldRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
      *
-     * @return DoQuickFieldResponse DoQuickFieldResponse
-     */
-    public function doQuickFieldWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
-        }
-        if (!Utils::isUnset($request->index)) {
-            $body['Index'] = $request->index;
-        }
-        if (!Utils::isUnset($request->page)) {
-            $body['Page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->reverse)) {
-            $body['Reverse'] = $request->reverse;
-        }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
-        }
-        if (!Utils::isUnset($request->to)) {
-            $body['To'] = $request->to;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DoQuickField',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DoQuickFieldResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries and analyzes the distribution of specific fields by using quick analysis.
-     *  *
-     * @param DoQuickFieldRequest $request DoQuickFieldRequest
+     * @param request - EnableAccessForCloudSiemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DoQuickFieldResponse DoQuickFieldResponse
-     */
-    public function doQuickField($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doQuickFieldWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Grants permissions to or revokes permissions from a regular member on the threat analysis feature. This helps manage the authorization to view information such as log analysis and alerts.
-     *  *
-     * @param DoSelfDelegateRequest $request DoSelfDelegateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @returns EnableAccessForCloudSiemResponse
      *
-     * @return DoSelfDelegateResponse DoSelfDelegateResponse
-     */
-    public function doSelfDelegateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $body['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->delegateOrNot)) {
-            $body['DelegateOrNot'] = $request->delegateOrNot;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DoSelfDelegate',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DoSelfDelegateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Grants permissions to or revokes permissions from a regular member on the threat analysis feature. This helps manage the authorization to view information such as log analysis and alerts.
-     *  *
-     * @param DoSelfDelegateRequest $request DoSelfDelegateRequest
+     * @param EnableAccessForCloudSiemRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return DoSelfDelegateResponse DoSelfDelegateResponse
-     */
-    public function doSelfDelegate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doSelfDelegateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
-     *  *
-     * @param EnableAccessForCloudSiemRequest $request EnableAccessForCloudSiemRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return EnableAccessForCloudSiemResponse EnableAccessForCloudSiemResponse
+     * @return EnableAccessForCloudSiemResponse
      */
     public function enableAccessForCloudSiemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoSubmit)) {
-            $body['AutoSubmit'] = $request->autoSubmit;
+        if (null !== $request->autoSubmit) {
+            @$body['AutoSubmit'] = $request->autoSubmit;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EnableAccessForCloudSiem',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAccessForCloudSiem',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableAccessForCloudSiemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
-     *  *
-     * @param EnableAccessForCloudSiemRequest $request EnableAccessForCloudSiemRequest
+     * Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
      *
-     * @return EnableAccessForCloudSiemResponse EnableAccessForCloudSiemResponse
+     * @param request - EnableAccessForCloudSiemRequest
+     *
+     * @returns EnableAccessForCloudSiemResponse
+     *
+     * @param EnableAccessForCloudSiemRequest $request
+     *
+     * @return EnableAccessForCloudSiemResponse
      */
     public function enableAccessForCloudSiem($request)
     {
@@ -3803,44 +4101,54 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
-     *  *
-     * @param EnableServiceForCloudSiemRequest $request EnableServiceForCloudSiemRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
      *
-     * @return EnableServiceForCloudSiemResponse EnableServiceForCloudSiemResponse
+     * @param request - EnableServiceForCloudSiemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableServiceForCloudSiemResponse
+     *
+     * @param EnableServiceForCloudSiemRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableServiceForCloudSiemResponse
      */
     public function enableServiceForCloudSiemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EnableServiceForCloudSiem',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableServiceForCloudSiem',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableServiceForCloudSiemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
-     *  *
-     * @param EnableServiceForCloudSiemRequest $request EnableServiceForCloudSiemRequest
+     * Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
      *
-     * @return EnableServiceForCloudSiemResponse EnableServiceForCloudSiemResponse
+     * @param request - EnableServiceForCloudSiemRequest
+     *
+     * @returns EnableServiceForCloudSiemResponse
+     *
+     * @param EnableServiceForCloudSiemRequest $request
+     *
+     * @return EnableServiceForCloudSiemResponse
      */
     public function enableServiceForCloudSiem($request)
     {
@@ -3850,50 +4158,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
-     *  *
-     * @param GetCapacityRequest $request GetCapacityRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity.
      *
-     * @return GetCapacityResponse GetCapacityResponse
+     * @param request - GetCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCapacityResponse
+     *
+     * @param GetCapacityRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCapacityResponse
      */
     public function getCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCapacity',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCapacity',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity
-     *  *
-     * @param GetCapacityRequest $request GetCapacityRequest
+     * Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity.
      *
-     * @return GetCapacityResponse GetCapacityResponse
+     * @param request - GetCapacityRequest
+     *
+     * @returns GetCapacityResponse
+     *
+     * @param GetCapacityRequest $request
+     *
+     * @return GetCapacityResponse
      */
     public function getCapacity($request)
     {
@@ -3903,224 +4223,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of of search statements that are displayed in histograms.
-     *  *
-     * @param GetHistogramsRequest $request GetHistogramsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the storage configurations for the threat analysis feature on the user side.
      *
-     * @return GetHistogramsResponse GetHistogramsResponse
-     */
-    public function getHistogramsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->to)) {
-            $body['To'] = $request->to;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetHistograms',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetHistogramsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the results of of search statements that are displayed in histograms.
-     *  *
-     * @param GetHistogramsRequest $request GetHistogramsRequest
+     * @param request - GetStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetHistogramsResponse GetHistogramsResponse
-     */
-    public function getHistograms($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHistogramsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the results of a log query by using SQL statements.
-     *  *
-     * @param GetLogsRequest $request GetLogsRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @returns GetStorageResponse
      *
-     * @return GetLogsResponse GetLogsResponse
-     */
-    public function getLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
-        }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->reverseOrNot)) {
-            $body['ReverseOrNot'] = $request->reverseOrNot;
-        }
-        if (!Utils::isUnset($request->to)) {
-            $body['To'] = $request->to;
-        }
-        if (!Utils::isUnset($request->total)) {
-            $body['Total'] = $request->total;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetLogs',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the results of a log query by using SQL statements.
-     *  *
-     * @param GetLogsRequest $request GetLogsRequest
+     * @param GetStorageRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return GetLogsResponse GetLogsResponse
-     */
-    public function getLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries a query statement that is saved as a saved search in log analysis by name.
-     *  *
-     * @param GetQuickQueryRequest $request GetQuickQueryRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetQuickQueryResponse GetQuickQueryResponse
-     */
-    public function getQuickQueryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->searchName)) {
-            $body['SearchName'] = $request->searchName;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetQuickQuery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetQuickQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries a query statement that is saved as a saved search in log analysis by name.
-     *  *
-     * @param GetQuickQueryRequest $request GetQuickQueryRequest
-     *
-     * @return GetQuickQueryResponse GetQuickQueryResponse
-     */
-    public function getQuickQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getQuickQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the storage configurations for the threat analysis feature on the user side.
-     *  *
-     * @param GetStorageRequest $request GetStorageRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetStorageResponse GetStorageResponse
+     * @return GetStorageResponse
      */
     public function getStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetStorage',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStorage',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the storage configurations for the threat analysis feature on the user side.
-     *  *
-     * @param GetStorageRequest $request GetStorageRequest
+     * Queries the storage configurations for the threat analysis feature on the user side.
      *
-     * @return GetStorageResponse GetStorageResponse
+     * @param request - GetStorageRequest
+     *
+     * @returns GetStorageResponse
+     *
+     * @param GetStorageRequest $request
+     *
+     * @return GetStorageResponse
      */
     public function getStorage($request)
     {
@@ -4130,53 +4288,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
-     *  *
-     * @param ListAccountAccessIdRequest $request ListAccountAccessIdRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
      *
-     * @return ListAccountAccessIdResponse ListAccountAccessIdResponse
+     * @param request - ListAccountAccessIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAccountAccessIdResponse
+     *
+     * @param ListAccountAccessIdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAccountAccessIdResponse
      */
     public function listAccountAccessIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAccountAccessId',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccountAccessId',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAccountAccessIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
-     *  *
-     * @param ListAccountAccessIdRequest $request ListAccountAccessIdRequest
+     * Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
      *
-     * @return ListAccountAccessIdResponse ListAccountAccessIdResponse
+     * @param request - ListAccountAccessIdRequest
+     *
+     * @returns ListAccountAccessIdResponse
+     *
+     * @param ListAccountAccessIdRequest $request
+     *
+     * @return ListAccountAccessIdResponse
      */
     public function listAccountAccessId($request)
     {
@@ -4186,59 +4357,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Query accounts by log.
-     *  *
-     * @param ListAccountsByLogRequest $request ListAccountsByLogRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Query accounts by log.
      *
-     * @return ListAccountsByLogResponse ListAccountsByLogResponse
+     * @param request - ListAccountsByLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAccountsByLogResponse
+     *
+     * @param ListAccountsByLogRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAccountsByLogResponse
      */
     public function listAccountsByLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->logCodes)) {
-            $body['LogCodes'] = $request->logCodes;
+
+        if (null !== $request->logCodes) {
+            @$body['LogCodes'] = $request->logCodes;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $body['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$body['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAccountsByLog',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccountsByLog',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAccountsByLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query accounts by log.
-     *  *
-     * @param ListAccountsByLogRequest $request ListAccountsByLogRequest
+     * Query accounts by log.
      *
-     * @return ListAccountsByLogResponse ListAccountsByLogResponse
+     * @param request - ListAccountsByLogRequest
+     *
+     * @returns ListAccountsByLogResponse
+     *
+     * @param ListAccountsByLogRequest $request
+     *
+     * @return ListAccountsByLogResponse
      */
     public function listAccountsByLog($request)
     {
@@ -4248,50 +4434,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of cloud services that can be added to the threat analysis feature.
-     *  *
-     * @param ListAllProdsRequest $request ListAllProdsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of cloud services that can be added to the threat analysis feature.
      *
-     * @return ListAllProdsResponse ListAllProdsResponse
+     * @param request - ListAllProdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllProdsResponse
+     *
+     * @param ListAllProdsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAllProdsResponse
      */
     public function listAllProdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAllProds',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAllProds',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAllProdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of cloud services that can be added to the threat analysis feature.
-     *  *
-     * @param ListAllProdsRequest $request ListAllProdsRequest
+     * Queries a list of cloud services that can be added to the threat analysis feature.
      *
-     * @return ListAllProdsResponse ListAllProdsResponse
+     * @param request - ListAllProdsRequest
+     *
+     * @returns ListAllProdsResponse
+     *
+     * @param ListAllProdsRequest $request
+     *
+     * @return ListAllProdsResponse
      */
     public function listAllProds($request)
     {
@@ -4301,77 +4499,98 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries automated response rules.
-     *  *
-     * @param ListAutomateResponseConfigsRequest $request ListAutomateResponseConfigsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries automated response rules.
      *
-     * @return ListAutomateResponseConfigsResponse ListAutomateResponseConfigsResponse
+     * @param request - ListAutomateResponseConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAutomateResponseConfigsResponse
+     *
+     * @param ListAutomateResponseConfigsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListAutomateResponseConfigsResponse
      */
     public function listAutomateResponseConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->actionType)) {
-            $body['ActionType'] = $request->actionType;
+        if (null !== $request->actionType) {
+            @$body['ActionType'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->autoResponseType)) {
-            $body['AutoResponseType'] = $request->autoResponseType;
+
+        if (null !== $request->autoResponseType) {
+            @$body['AutoResponseType'] = $request->autoResponseType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $body['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$body['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAutomateResponseConfigs',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAutomateResponseConfigs',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAutomateResponseConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries automated response rules.
-     *  *
-     * @param ListAutomateResponseConfigsRequest $request ListAutomateResponseConfigsRequest
+     * Queries automated response rules.
      *
-     * @return ListAutomateResponseConfigsResponse ListAutomateResponseConfigsResponse
+     * @param request - ListAutomateResponseConfigsRequest
+     *
+     * @returns ListAutomateResponseConfigsResponse
+     *
+     * @param ListAutomateResponseConfigsRequest $request
+     *
+     * @return ListAutomateResponseConfigsResponse
      */
     public function listAutomateResponseConfigs($request)
     {
@@ -4381,53 +4600,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of cloud accounts that are added to the threat analysis feature.
-     *  *
-     * @param ListBindAccountRequest $request ListBindAccountRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of cloud accounts that are added to the threat analysis feature.
      *
-     * @return ListBindAccountResponse ListBindAccountResponse
+     * @param request - ListBindAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBindAccountResponse
+     *
+     * @param ListBindAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListBindAccountResponse
      */
     public function listBindAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBindAccount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBindAccount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListBindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of cloud accounts that are added to the threat analysis feature.
-     *  *
-     * @param ListBindAccountRequest $request ListBindAccountRequest
+     * Queries a list of cloud accounts that are added to the threat analysis feature.
      *
-     * @return ListBindAccountResponse ListBindAccountResponse
+     * @param request - ListBindAccountRequest
+     *
+     * @returns ListBindAccountResponse
+     *
+     * @param ListBindAccountRequest $request
+     *
+     * @return ListBindAccountResponse
      */
     public function listBindAccount($request)
     {
@@ -4437,50 +4669,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data sources that are added to the threat analysis feature.
-     *  *
-     * @param ListBindDataSourcesRequest $request ListBindDataSourcesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of data sources that are added to the threat analysis feature.
      *
-     * @return ListBindDataSourcesResponse ListBindDataSourcesResponse
+     * @param request - ListBindDataSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBindDataSourcesResponse
+     *
+     * @param ListBindDataSourcesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBindDataSourcesResponse
      */
     public function listBindDataSourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBindDataSources',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBindDataSources',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListBindDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of data sources that are added to the threat analysis feature.
-     *  *
-     * @param ListBindDataSourcesRequest $request ListBindDataSourcesRequest
+     * Queries a list of data sources that are added to the threat analysis feature.
      *
-     * @return ListBindDataSourcesResponse ListBindDataSourcesResponse
+     * @param request - ListBindDataSourcesRequest
+     *
+     * @returns ListBindDataSourcesResponse
+     *
+     * @param ListBindDataSourcesRequest $request
+     *
+     * @return ListBindDataSourcesResponse
      */
     public function listBindDataSources($request)
     {
@@ -4490,86 +4734,110 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries custom rules.
-     *  *
-     * @param ListCloudSiemCustomizeRulesRequest $request ListCloudSiemCustomizeRulesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries custom rules.
      *
-     * @return ListCloudSiemCustomizeRulesResponse ListCloudSiemCustomizeRulesResponse
+     * @param request - ListCloudSiemCustomizeRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudSiemCustomizeRulesResponse
+     *
+     * @param ListCloudSiemCustomizeRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListCloudSiemCustomizeRulesResponse
      */
     public function listCloudSiemCustomizeRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertType)) {
-            $body['AlertType'] = $request->alertType;
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderField)) {
-            $body['OrderField'] = $request->orderField;
+
+        if (null !== $request->orderField) {
+            @$body['OrderField'] = $request->orderField;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $body['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$body['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $body['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$body['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->threatLevel)) {
-            $body['ThreatLevel'] = $request->threatLevel;
+
+        if (null !== $request->threatLevel) {
+            @$body['ThreatLevel'] = $request->threatLevel;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudSiemCustomizeRules',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudSiemCustomizeRules',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCloudSiemCustomizeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries custom rules.
-     *  *
-     * @param ListCloudSiemCustomizeRulesRequest $request ListCloudSiemCustomizeRulesRequest
+     * Queries custom rules.
      *
-     * @return ListCloudSiemCustomizeRulesResponse ListCloudSiemCustomizeRulesResponse
+     * @param request - ListCloudSiemCustomizeRulesRequest
+     *
+     * @returns ListCloudSiemCustomizeRulesResponse
+     *
+     * @param ListCloudSiemCustomizeRulesRequest $request
+     *
+     * @return ListCloudSiemCustomizeRulesResponse
      */
     public function listCloudSiemCustomizeRules($request)
     {
@@ -4579,95 +4847,122 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries predefined rules.
-     *  *
-     * @param ListCloudSiemPredefinedRulesRequest $request ListCloudSiemPredefinedRulesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries predefined rules.
      *
-     * @return ListCloudSiemPredefinedRulesResponse ListCloudSiemPredefinedRulesResponse
+     * @param request - ListCloudSiemPredefinedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudSiemPredefinedRulesResponse
+     *
+     * @param ListCloudSiemPredefinedRulesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListCloudSiemPredefinedRulesResponse
      */
     public function listCloudSiemPredefinedRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertType)) {
-            $body['AlertType'] = $request->alertType;
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->attCk)) {
-            $body['AttCk'] = $request->attCk;
+
+        if (null !== $request->attCk) {
+            @$body['AttCk'] = $request->attCk;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventTransferType)) {
-            $body['EventTransferType'] = $request->eventTransferType;
+
+        if (null !== $request->eventTransferType) {
+            @$body['EventTransferType'] = $request->eventTransferType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->logSource)) {
-            $body['LogSource'] = $request->logSource;
+
+        if (null !== $request->logSource) {
+            @$body['LogSource'] = $request->logSource;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderField)) {
-            $body['OrderField'] = $request->orderField;
+
+        if (null !== $request->orderField) {
+            @$body['OrderField'] = $request->orderField;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $body['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$body['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $body['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$body['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->threatLevel)) {
-            $body['ThreatLevel'] = $request->threatLevel;
+
+        if (null !== $request->threatLevel) {
+            @$body['ThreatLevel'] = $request->threatLevel;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudSiemPredefinedRules',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudSiemPredefinedRules',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCloudSiemPredefinedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries predefined rules.
-     *  *
-     * @param ListCloudSiemPredefinedRulesRequest $request ListCloudSiemPredefinedRulesRequest
+     * Queries predefined rules.
      *
-     * @return ListCloudSiemPredefinedRulesResponse ListCloudSiemPredefinedRulesResponse
+     * @param request - ListCloudSiemPredefinedRulesRequest
+     *
+     * @returns ListCloudSiemPredefinedRulesResponse
+     *
+     * @param ListCloudSiemPredefinedRulesRequest $request
+     *
+     * @return ListCloudSiemPredefinedRulesResponse
      */
     public function listCloudSiemPredefinedRules($request)
     {
@@ -4677,59 +4972,90 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the test results of a custom rule.
-     *  *
-     * @param ListCustomizeRuleTestResultRequest $request ListCustomizeRuleTestResultRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the test results of a custom rule.
      *
-     * @return ListCustomizeRuleTestResultResponse ListCustomizeRuleTestResultResponse
+     * @param request - ListCustomizeRuleTestResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomizeRuleTestResultResponse
+     *
+     * @param ListCustomizeRuleTestResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListCustomizeRuleTestResultResponse
      */
     public function listCustomizeRuleTestResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->detectionRuleId) {
+            @$body['DetectionRuleId'] = $request->detectionRuleId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->verifyType) {
+            @$body['VerifyType'] = $request->verifyType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCustomizeRuleTestResult',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCustomizeRuleTestResult',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCustomizeRuleTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the test results of a custom rule.
-     *  *
-     * @param ListCustomizeRuleTestResultRequest $request ListCustomizeRuleTestResultRequest
+     * Queries the test results of a custom rule.
      *
-     * @return ListCustomizeRuleTestResultResponse ListCustomizeRuleTestResultResponse
+     * @param request - ListCustomizeRuleTestResultRequest
+     *
+     * @returns ListCustomizeRuleTestResultResponse
+     *
+     * @param ListCustomizeRuleTestResultRequest $request
+     *
+     * @return ListCustomizeRuleTestResultResponse
      */
     public function listCustomizeRuleTestResult($request)
     {
@@ -4739,53 +5065,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of a data source.
-     *  *
-     * @param ListDataSourceLogsRequest $request ListDataSourceLogsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the logs of a data source.
      *
-     * @return ListDataSourceLogsResponse ListDataSourceLogsResponse
+     * @param request - ListDataSourceLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceLogsResponse
+     *
+     * @param ListDataSourceLogsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDataSourceLogsResponse
      */
     public function listDataSourceLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSourceLogs',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataSourceLogs',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDataSourceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logs of a data source.
-     *  *
-     * @param ListDataSourceLogsRequest $request ListDataSourceLogsRequest
+     * Queries the logs of a data source.
      *
-     * @return ListDataSourceLogsResponse ListDataSourceLogsResponse
+     * @param request - ListDataSourceLogsRequest
+     *
+     * @returns ListDataSourceLogsResponse
+     *
+     * @param ListDataSourceLogsRequest $request
+     *
+     * @return ListDataSourceLogsResponse
      */
     public function listDataSourceLogs($request)
     {
@@ -4795,47 +5134,58 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
-     *  *
-     * @param ListDataSourceTypesRequest $request ListDataSourceTypesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
      *
-     * @return ListDataSourceTypesResponse ListDataSourceTypesResponse
+     * @param request - ListDataSourceTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceTypesResponse
+     *
+     * @param ListDataSourceTypesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataSourceTypesResponse
      */
     public function listDataSourceTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSourceTypes',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataSourceTypes',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDataSourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
-     *  *
-     * @param ListDataSourceTypesRequest $request ListDataSourceTypesRequest
+     * Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
      *
-     * @return ListDataSourceTypesResponse ListDataSourceTypesResponse
+     * @param request - ListDataSourceTypesRequest
+     *
+     * @returns ListDataSourceTypesResponse
+     *
+     * @param ListDataSourceTypesRequest $request
+     *
+     * @return ListDataSourceTypesResponse
      */
     public function listDataSourceTypes($request)
     {
@@ -4845,50 +5195,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
-     *  *
-     * @param ListDeliveryRequest $request ListDeliveryRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
      *
-     * @return ListDeliveryResponse ListDeliveryResponse
+     * @param request - ListDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeliveryResponse
+     *
+     * @param ListDeliveryRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDeliveryResponse
      */
     public function listDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDelivery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDelivery',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
-     *  *
-     * @param ListDeliveryRequest $request ListDeliveryRequest
+     * Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
      *
-     * @return ListDeliveryResponse ListDeliveryResponse
+     * @param request - ListDeliveryRequest
+     *
+     * @returns ListDeliveryResponse
+     *
+     * @param ListDeliveryRequest $request
+     *
+     * @return ListDeliveryResponse
      */
     public function listDelivery($request)
     {
@@ -4898,89 +5260,118 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries handling policies.
-     *  *
-     * @param ListDisposeStrategyRequest $request ListDisposeStrategyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries handling policies.
      *
-     * @return ListDisposeStrategyResponse ListDisposeStrategyResponse
+     * @param request - ListDisposeStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDisposeStrategyResponse
+     *
+     * @param ListDisposeStrategyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDisposeStrategyResponse
      */
     public function listDisposeStrategyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->effectiveStatus)) {
-            $body['EffectiveStatus'] = $request->effectiveStatus;
+
+        if (null !== $request->effectiveStatus) {
+            @$body['EffectiveStatus'] = $request->effectiveStatus;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->entityIdentity)) {
-            $body['EntityIdentity'] = $request->entityIdentity;
+
+        if (null !== $request->entityIdentity) {
+            @$body['EntityIdentity'] = $request->entityIdentity;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $body['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['Order'] = $request->order;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->orderField)) {
-            $body['OrderField'] = $request->orderField;
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->orderField) {
+            @$body['OrderField'] = $request->orderField;
         }
-        if (!Utils::isUnset($request->playbookName)) {
-            $body['PlaybookName'] = $request->playbookName;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->playbookTypes)) {
-            $body['PlaybookTypes'] = $request->playbookTypes;
+
+        if (null !== $request->playbookName) {
+            @$body['PlaybookName'] = $request->playbookName;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookTypes) {
+            @$body['PlaybookTypes'] = $request->playbookTypes;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->sophonTaskId)) {
-            $body['SophonTaskId'] = $request->sophonTaskId;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->sophonTaskId) {
+            @$body['SophonTaskId'] = $request->sophonTaskId;
         }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDisposeStrategy',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDisposeStrategy',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDisposeStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries handling policies.
-     *  *
-     * @param ListDisposeStrategyRequest $request ListDisposeStrategyRequest
+     * Queries handling policies.
      *
-     * @return ListDisposeStrategyResponse ListDisposeStrategyResponse
+     * @param request - ListDisposeStrategyRequest
+     *
+     * @returns ListDisposeStrategyResponse
+     *
+     * @param ListDisposeStrategyRequest $request
+     *
+     * @return ListDisposeStrategyResponse
      */
     public function listDisposeStrategy($request)
     {
@@ -4990,56 +5381,167 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the logs in a cloud service that is added to the threat analysis feature.
-     *  *
-     * @param ListImportedLogsByProdRequest $request ListImportedLogsByProdRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询实体列表.
      *
-     * @return ListImportedLogsByProdResponse ListImportedLogsByProdResponse
+     * @param request - ListEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEntitiesResponse
+     *
+     * @param ListEntitiesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListEntitiesResponse
+     */
+    public function listEntitiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->entityName) {
+            @$body['EntityName'] = $request->entityName;
+        }
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->entityUuid) {
+            @$body['EntityUuid'] = $request->entityUuid;
+        }
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
+        }
+
+        if (null !== $request->isMalwareEntity) {
+            @$body['IsMalwareEntity'] = $request->isMalwareEntity;
+        }
+
+        if (null !== $request->malwareType) {
+            @$body['MalwareType'] = $request->malwareType;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListEntities',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实体列表.
+     *
+     * @param request - ListEntitiesRequest
+     *
+     * @returns ListEntitiesResponse
+     *
+     * @param ListEntitiesRequest $request
+     *
+     * @return ListEntitiesResponse
+     */
+    public function listEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+     *
+     * @param request - ListImportedLogsByProdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImportedLogsByProdResponse
+     *
+     * @param ListImportedLogsByProdRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListImportedLogsByProdResponse
      */
     public function listImportedLogsByProdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $body['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$body['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListImportedLogsByProd',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListImportedLogsByProd',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListImportedLogsByProdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the logs in a cloud service that is added to the threat analysis feature.
-     *  *
-     * @param ListImportedLogsByProdRequest $request ListImportedLogsByProdRequest
+     * Queries the details of the logs in a cloud service that is added to the threat analysis feature.
      *
-     * @return ListImportedLogsByProdResponse ListImportedLogsByProdResponse
+     * @param request - ListImportedLogsByProdRequest
+     *
+     * @returns ListImportedLogsByProdResponse
+     *
+     * @param ListImportedLogsByProdRequest $request
+     *
+     * @return ListImportedLogsByProdResponse
      */
     public function listImportedLogsByProd($request)
     {
@@ -5049,100 +5551,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource-related permissions granted to the current user. The threat analysis feature supports two types of identities: administrators and common members. An administrator is granted all permissions, and a common member is granted permissions to access only specific resources.
-     *  *
-     * @param ListOperationRequest $request ListOperationRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
      *
-     * @return ListOperationResponse ListOperationResponse
-     */
-    public function listOperationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOperation',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the resource-related permissions granted to the current user. The threat analysis feature supports two types of identities: administrators and common members. An administrator is granted all permissions, and a common member is granted permissions to access only specific resources.
-     *  *
-     * @param ListOperationRequest $request ListOperationRequest
+     * @param request - ListProjectLogStoresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListOperationResponse ListOperationResponse
-     */
-    public function listOperation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listOperationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
-     *  *
-     * @param ListProjectLogStoresRequest $request ListProjectLogStoresRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @returns ListProjectLogStoresResponse
      *
-     * @return ListProjectLogStoresResponse ListProjectLogStoresResponse
+     * @param ListProjectLogStoresRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListProjectLogStoresResponse
      */
     public function listProjectLogStoresWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourceLogCode)) {
-            $body['SourceLogCode'] = $request->sourceLogCode;
+
+        if (null !== $request->sourceLogCode) {
+            @$body['SourceLogCode'] = $request->sourceLogCode;
         }
-        if (!Utils::isUnset($request->sourceProdCode)) {
-            $body['SourceProdCode'] = $request->sourceProdCode;
+
+        if (null !== $request->sourceProdCode) {
+            @$body['SourceProdCode'] = $request->sourceProdCode;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListProjectLogStores',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProjectLogStores',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProjectLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
-     *  *
-     * @param ListProjectLogStoresRequest $request ListProjectLogStoresRequest
+     * Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
      *
-     * @return ListProjectLogStoresResponse ListProjectLogStoresResponse
+     * @param request - ListProjectLogStoresRequest
+     *
+     * @returns ListProjectLogStoresResponse
+     *
+     * @param ListProjectLogStoresRequest $request
+     *
+     * @return ListProjectLogStoresResponse
      */
     public function listProjectLogStores($request)
     {
@@ -5152,97 +5620,54 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries the saved searches of the Logstore.
-     *  *
-     * @param ListQuickQueryRequest $request ListQuickQueryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
      *
-     * @return ListQuickQueryResponse ListQuickQueryResponse
-     */
-    public function listQuickQueryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->offset)) {
-            $body['Offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListQuickQuery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListQuickQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the saved searches of the Logstore.
-     *  *
-     * @param ListQuickQueryRequest $request ListQuickQueryRequest
+     * @param request - ListRdUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListQuickQueryResponse ListQuickQueryResponse
-     */
-    public function listQuickQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listQuickQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
-     *  *
-     * @param ListRdUsersRequest $request ListRdUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @returns ListRdUsersResponse
      *
-     * @return ListRdUsersResponse ListRdUsersResponse
+     * @param ListRdUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRdUsersResponse
      */
     public function listRdUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRdUsers',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRdUsers',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRdUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
-     *  *
-     * @param ListRdUsersRequest $request ListRdUsersRequest
+     * Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
      *
-     * @return ListRdUsersResponse ListRdUsersResponse
+     * @param request - ListRdUsersRequest
+     *
+     * @returns ListRdUsersResponse
+     *
+     * @param ListRdUsersRequest $request
+     *
+     * @return ListRdUsersResponse
      */
     public function listRdUsers($request)
     {
@@ -5252,180 +5677,82 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of logs that are added to the threat analysis feature by cloud service.
-     *  *
-     * @param ListUserProdLogsRequest $request ListUserProdLogsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies a third-party cloud account that is added to the threat analysis feature.
      *
-     * @return ListUserProdLogsResponse ListUserProdLogsResponse
-     */
-    public function listUserProdLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
-        }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
-        }
-        if (!Utils::isUnset($request->sourceLogCode)) {
-            $body['SourceLogCode'] = $request->sourceLogCode;
-        }
-        if (!Utils::isUnset($request->sourceProdCode)) {
-            $body['SourceProdCode'] = $request->sourceProdCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListUserProdLogs',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListUserProdLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries a list of logs that are added to the threat analysis feature by cloud service.
-     *  *
-     * @param ListUserProdLogsRequest $request ListUserProdLogsRequest
+     * @param request - ModifyBindAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListUserProdLogsResponse ListUserProdLogsResponse
-     */
-    public function listUserProdLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listUserProdLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the details of the logs that are added to the threat analysis feature by cloud service.
-     *  *
-     * @param ListUsersByProdRequest $request ListUsersByProdRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @returns ModifyBindAccountResponse
      *
-     * @return ListUsersByProdResponse ListUsersByProdResponse
-     */
-    public function listUsersByProdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
-        }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
-        }
-        if (!Utils::isUnset($request->sourceProdCode)) {
-            $body['SourceProdCode'] = $request->sourceProdCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListUsersByProd',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListUsersByProdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the details of the logs that are added to the threat analysis feature by cloud service.
-     *  *
-     * @param ListUsersByProdRequest $request ListUsersByProdRequest
+     * @param ModifyBindAccountRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListUsersByProdResponse ListUsersByProdResponse
-     */
-    public function listUsersByProd($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listUsersByProdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Modifies a third-party cloud account that is added to the threat analysis feature.
-     *  *
-     * @param ModifyBindAccountRequest $request ModifyBindAccountRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ModifyBindAccountResponse ModifyBindAccountResponse
+     * @return ModifyBindAccountResponse
      */
     public function modifyBindAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessId)) {
-            $body['AccessId'] = $request->accessId;
+        if (null !== $request->accessId) {
+            @$body['AccessId'] = $request->accessId;
         }
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->bindId)) {
-            $body['BindId'] = $request->bindId;
+
+        if (null !== $request->bindId) {
+            @$body['BindId'] = $request->bindId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBindAccount',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBindAccount',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a third-party cloud account that is added to the threat analysis feature.
-     *  *
-     * @param ModifyBindAccountRequest $request ModifyBindAccountRequest
+     * Modifies a third-party cloud account that is added to the threat analysis feature.
      *
-     * @return ModifyBindAccountResponse ModifyBindAccountResponse
+     * @param request - ModifyBindAccountRequest
+     *
+     * @returns ModifyBindAccountResponse
+     *
+     * @param ModifyBindAccountRequest $request
+     *
+     * @return ModifyBindAccountResponse
      */
     public function modifyBindAccount($request)
     {
@@ -5435,65 +5762,82 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a data source that is added to the threat analysis feature.
-     *  *
-     * @param ModifyDataSourceRequest $request ModifyDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies a data source that is added to the threat analysis feature.
      *
-     * @return ModifyDataSourceResponse ModifyDataSourceResponse
+     * @param request - ModifyDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDataSourceResponse
+     *
+     * @param ModifyDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyDataSourceResponse
      */
     public function modifyDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceName)) {
-            $body['DataSourceInstanceName'] = $request->dataSourceInstanceName;
+
+        if (null !== $request->dataSourceInstanceName) {
+            @$body['DataSourceInstanceName'] = $request->dataSourceInstanceName;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceParams)) {
-            $body['DataSourceInstanceParams'] = $request->dataSourceInstanceParams;
+
+        if (null !== $request->dataSourceInstanceParams) {
+            @$body['DataSourceInstanceParams'] = $request->dataSourceInstanceParams;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceRemark)) {
-            $body['DataSourceInstanceRemark'] = $request->dataSourceInstanceRemark;
+
+        if (null !== $request->dataSourceInstanceRemark) {
+            @$body['DataSourceInstanceRemark'] = $request->dataSourceInstanceRemark;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['DataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['DataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDataSource',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDataSource',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a data source that is added to the threat analysis feature.
-     *  *
-     * @param ModifyDataSourceRequest $request ModifyDataSourceRequest
+     * Modifies a data source that is added to the threat analysis feature.
      *
-     * @return ModifyDataSourceResponse ModifyDataSourceResponse
+     * @param request - ModifyDataSourceRequest
+     *
+     * @returns ModifyDataSourceResponse
+     *
+     * @param ModifyDataSourceRequest $request
+     *
+     * @return ModifyDataSourceResponse
      */
     public function modifyDataSource($request)
     {
@@ -5503,65 +5847,82 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
-     *  *
-     * @param ModifyDataSourceLogRequest $request ModifyDataSourceLogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
      *
-     * @return ModifyDataSourceLogResponse ModifyDataSourceLogResponse
+     * @param request - ModifyDataSourceLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDataSourceLogResponse
+     *
+     * @param ModifyDataSourceLogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDataSourceLogResponse
      */
     public function modifyDataSourceLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceId)) {
-            $body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
+
+        if (null !== $request->dataSourceInstanceId) {
+            @$body['DataSourceInstanceId'] = $request->dataSourceInstanceId;
         }
-        if (!Utils::isUnset($request->dataSourceInstanceLogs)) {
-            $body['DataSourceInstanceLogs'] = $request->dataSourceInstanceLogs;
+
+        if (null !== $request->dataSourceInstanceLogs) {
+            @$body['DataSourceInstanceLogs'] = $request->dataSourceInstanceLogs;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['DataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['DataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->logCode)) {
-            $body['LogCode'] = $request->logCode;
+
+        if (null !== $request->logCode) {
+            @$body['LogCode'] = $request->logCode;
         }
-        if (!Utils::isUnset($request->logInstanceId)) {
-            $body['LogInstanceId'] = $request->logInstanceId;
+
+        if (null !== $request->logInstanceId) {
+            @$body['LogInstanceId'] = $request->logInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDataSourceLog',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDataSourceLog',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDataSourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
-     *  *
-     * @param ModifyDataSourceLogRequest $request ModifyDataSourceLogRequest
+     * Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
      *
-     * @return ModifyDataSourceLogResponse ModifyDataSourceLogResponse
+     * @param request - ModifyDataSourceLogRequest
+     *
+     * @returns ModifyDataSourceLogResponse
+     *
+     * @param ModifyDataSourceLogRequest $request
+     *
+     * @return ModifyDataSourceLogResponse
      */
     public function modifyDataSourceLog($request)
     {
@@ -5571,56 +5932,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
-     *  *
-     * @param OpenDeliveryRequest $request OpenDeliveryRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
      *
-     * @return OpenDeliveryResponse OpenDeliveryResponse
+     * @param request - OpenDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenDeliveryResponse
+     *
+     * @param OpenDeliveryRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return OpenDeliveryResponse
      */
     public function openDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->logCode)) {
-            $body['LogCode'] = $request->logCode;
+        if (null !== $request->logCode) {
+            @$body['LogCode'] = $request->logCode;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OpenDelivery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenDelivery',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
-     *  *
-     * @param OpenDeliveryRequest $request OpenDeliveryRequest
+     * Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
      *
-     * @return OpenDeliveryResponse OpenDeliveryResponse
+     * @param request - OpenDeliveryRequest
+     *
+     * @returns OpenDeliveryResponse
+     *
+     * @param OpenDeliveryRequest $request
+     *
+     * @return OpenDeliveryResponse
      */
     public function openDelivery($request)
     {
@@ -5630,71 +6005,90 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates an automatic response rule.
-     *  *
-     * @param PostAutomateResponseConfigRequest $request PostAutomateResponseConfigRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates or updates an automatic response rule.
      *
-     * @return PostAutomateResponseConfigResponse PostAutomateResponseConfigResponse
+     * @param request - PostAutomateResponseConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostAutomateResponseConfigResponse
+     *
+     * @param PostAutomateResponseConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return PostAutomateResponseConfigResponse
      */
     public function postAutomateResponseConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->actionConfig)) {
-            $body['ActionConfig'] = $request->actionConfig;
+        if (null !== $request->actionConfig) {
+            @$body['ActionConfig'] = $request->actionConfig;
         }
-        if (!Utils::isUnset($request->actionType)) {
-            $body['ActionType'] = $request->actionType;
+
+        if (null !== $request->actionType) {
+            @$body['ActionType'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->autoResponseType)) {
-            $body['AutoResponseType'] = $request->autoResponseType;
+
+        if (null !== $request->autoResponseType) {
+            @$body['AutoResponseType'] = $request->autoResponseType;
         }
-        if (!Utils::isUnset($request->executionCondition)) {
-            $body['ExecutionCondition'] = $request->executionCondition;
+
+        if (null !== $request->executionCondition) {
+            @$body['ExecutionCondition'] = $request->executionCondition;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $body['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$body['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->subUserId)) {
-            $body['SubUserId'] = $request->subUserId;
+
+        if (null !== $request->subUserId) {
+            @$body['SubUserId'] = $request->subUserId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostAutomateResponseConfig',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostAutomateResponseConfig',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostAutomateResponseConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or updates an automatic response rule.
-     *  *
-     * @param PostAutomateResponseConfigRequest $request PostAutomateResponseConfigRequest
+     * Creates or updates an automatic response rule.
      *
-     * @return PostAutomateResponseConfigResponse PostAutomateResponseConfigResponse
+     * @param request - PostAutomateResponseConfigRequest
+     *
+     * @returns PostAutomateResponseConfigResponse
+     *
+     * @param PostAutomateResponseConfigRequest $request
+     *
+     * @return PostAutomateResponseConfigResponse
      */
     public function postAutomateResponseConfig($request)
     {
@@ -5704,104 +6098,134 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates a custom rule.
-     *  *
-     * @param PostCustomizeRuleRequest $request PostCustomizeRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates or updates a custom rule.
      *
-     * @return PostCustomizeRuleResponse PostCustomizeRuleResponse
+     * @param request - PostCustomizeRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostCustomizeRuleResponse
+     *
+     * @param PostCustomizeRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PostCustomizeRuleResponse
      */
     public function postCustomizeRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertType)) {
-            $body['AlertType'] = $request->alertType;
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->alertTypeMds)) {
-            $body['AlertTypeMds'] = $request->alertTypeMds;
+
+        if (null !== $request->alertTypeMds) {
+            @$body['AlertTypeMds'] = $request->alertTypeMds;
         }
-        if (!Utils::isUnset($request->attCk)) {
-            $body['AttCk'] = $request->attCk;
+
+        if (null !== $request->attCk) {
+            @$body['AttCk'] = $request->attCk;
         }
-        if (!Utils::isUnset($request->eventTransferExt)) {
-            $body['EventTransferExt'] = $request->eventTransferExt;
+
+        if (null !== $request->eventTransferExt) {
+            @$body['EventTransferExt'] = $request->eventTransferExt;
         }
-        if (!Utils::isUnset($request->eventTransferSwitch)) {
-            $body['EventTransferSwitch'] = $request->eventTransferSwitch;
+
+        if (null !== $request->eventTransferSwitch) {
+            @$body['EventTransferSwitch'] = $request->eventTransferSwitch;
         }
-        if (!Utils::isUnset($request->eventTransferType)) {
-            $body['EventTransferType'] = $request->eventTransferType;
+
+        if (null !== $request->eventTransferType) {
+            @$body['EventTransferType'] = $request->eventTransferType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->logSource)) {
-            $body['LogSource'] = $request->logSource;
+
+        if (null !== $request->logSource) {
+            @$body['LogSource'] = $request->logSource;
         }
-        if (!Utils::isUnset($request->logSourceMds)) {
-            $body['LogSourceMds'] = $request->logSourceMds;
+
+        if (null !== $request->logSourceMds) {
+            @$body['LogSourceMds'] = $request->logSourceMds;
         }
-        if (!Utils::isUnset($request->logType)) {
-            $body['LogType'] = $request->logType;
+
+        if (null !== $request->logType) {
+            @$body['LogType'] = $request->logType;
         }
-        if (!Utils::isUnset($request->logTypeMds)) {
-            $body['LogTypeMds'] = $request->logTypeMds;
+
+        if (null !== $request->logTypeMds) {
+            @$body['LogTypeMds'] = $request->logTypeMds;
         }
-        if (!Utils::isUnset($request->queryCycle)) {
-            $body['QueryCycle'] = $request->queryCycle;
+
+        if (null !== $request->queryCycle) {
+            @$body['QueryCycle'] = $request->queryCycle;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleCondition)) {
-            $body['RuleCondition'] = $request->ruleCondition;
+
+        if (null !== $request->ruleCondition) {
+            @$body['RuleCondition'] = $request->ruleCondition;
         }
-        if (!Utils::isUnset($request->ruleDesc)) {
-            $body['RuleDesc'] = $request->ruleDesc;
+
+        if (null !== $request->ruleDesc) {
+            @$body['RuleDesc'] = $request->ruleDesc;
         }
-        if (!Utils::isUnset($request->ruleGroup)) {
-            $body['RuleGroup'] = $request->ruleGroup;
+
+        if (null !== $request->ruleGroup) {
+            @$body['RuleGroup'] = $request->ruleGroup;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $body['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$body['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleThreshold)) {
-            $body['RuleThreshold'] = $request->ruleThreshold;
+
+        if (null !== $request->ruleThreshold) {
+            @$body['RuleThreshold'] = $request->ruleThreshold;
         }
-        if (!Utils::isUnset($request->threatLevel)) {
-            $body['ThreatLevel'] = $request->threatLevel;
+
+        if (null !== $request->threatLevel) {
+            @$body['ThreatLevel'] = $request->threatLevel;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostCustomizeRule',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostCustomizeRule',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostCustomizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or updates a custom rule.
-     *  *
-     * @param PostCustomizeRuleRequest $request PostCustomizeRuleRequest
+     * Creates or updates a custom rule.
      *
-     * @return PostCustomizeRuleResponse PostCustomizeRuleResponse
+     * @param request - PostCustomizeRuleRequest
+     *
+     * @returns PostCustomizeRuleResponse
+     *
+     * @param PostCustomizeRuleRequest $request
+     *
+     * @return PostCustomizeRuleResponse
      */
     public function postCustomizeRule($request)
     {
@@ -5811,59 +6235,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Submits a custom rule for testing.
-     *  *
-     * @param PostCustomizeRuleTestRequest $request PostCustomizeRuleTestRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Submits a custom rule for testing.
      *
-     * @return PostCustomizeRuleTestResponse PostCustomizeRuleTestResponse
+     * @param request - PostCustomizeRuleTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostCustomizeRuleTestResponse
+     *
+     * @param PostCustomizeRuleTestRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PostCustomizeRuleTestResponse
      */
     public function postCustomizeRuleTestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->simulatedData)) {
-            $body['SimulatedData'] = $request->simulatedData;
+
+        if (null !== $request->simulatedData) {
+            @$body['SimulatedData'] = $request->simulatedData;
         }
-        if (!Utils::isUnset($request->testType)) {
-            $body['TestType'] = $request->testType;
+
+        if (null !== $request->testType) {
+            @$body['TestType'] = $request->testType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostCustomizeRuleTest',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostCustomizeRuleTest',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostCustomizeRuleTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a custom rule for testing.
-     *  *
-     * @param PostCustomizeRuleTestRequest $request PostCustomizeRuleTestRequest
+     * Submits a custom rule for testing.
      *
-     * @return PostCustomizeRuleTestResponse PostCustomizeRuleTestResponse
+     * @param request - PostCustomizeRuleTestRequest
+     *
+     * @returns PostCustomizeRuleTestResponse
+     *
+     * @param PostCustomizeRuleTestRequest $request
+     *
+     * @return PostCustomizeRuleTestResponse
      */
     public function postCustomizeRuleTest($request)
     {
@@ -5873,65 +6312,86 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Submits event handling information.
-     *  *
-     * @param PostEventDisposeAndWhiteruleListRequest $request PostEventDisposeAndWhiteruleListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Submits event handling information.
      *
-     * @return PostEventDisposeAndWhiteruleListResponse PostEventDisposeAndWhiteruleListResponse
+     * @param request - PostEventDisposeAndWhiteruleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostEventDisposeAndWhiteruleListResponse
+     *
+     * @param PostEventDisposeAndWhiteruleListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return PostEventDisposeAndWhiteruleListResponse
      */
     public function postEventDisposeAndWhiteruleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->eventDispose)) {
-            $body['EventDispose'] = $request->eventDispose;
+        if (null !== $request->eventDispose) {
+            @$body['EventDispose'] = $request->eventDispose;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->receiverInfo)) {
-            $body['ReceiverInfo'] = $request->receiverInfo;
+
+        if (null !== $request->receiverInfo) {
+            @$body['ReceiverInfo'] = $request->receiverInfo;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
+        if (null !== $request->threatLevel) {
+            @$body['ThreatLevel'] = $request->threatLevel;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostEventDisposeAndWhiteruleList',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostEventDisposeAndWhiteruleList',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostEventDisposeAndWhiteruleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits event handling information.
-     *  *
-     * @param PostEventDisposeAndWhiteruleListRequest $request PostEventDisposeAndWhiteruleListRequest
+     * Submits event handling information.
      *
-     * @return PostEventDisposeAndWhiteruleListResponse PostEventDisposeAndWhiteruleListResponse
+     * @param request - PostEventDisposeAndWhiteruleListRequest
+     *
+     * @returns PostEventDisposeAndWhiteruleListResponse
+     *
+     * @param PostEventDisposeAndWhiteruleListRequest $request
+     *
+     * @return PostEventDisposeAndWhiteruleListResponse
      */
     public function postEventDisposeAndWhiteruleList($request)
     {
@@ -5941,56 +6401,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Submits an alert whitelist rule.
-     *  *
-     * @param PostEventWhiteruleListRequest $request PostEventWhiteruleListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Submits an alert whitelist rule.
      *
-     * @return PostEventWhiteruleListResponse PostEventWhiteruleListResponse
+     * @param request - PostEventWhiteruleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostEventWhiteruleListResponse
+     *
+     * @param PostEventWhiteruleListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PostEventWhiteruleListResponse
      */
     public function postEventWhiteruleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->whiteruleList)) {
-            $body['WhiteruleList'] = $request->whiteruleList;
+
+        if (null !== $request->whiteruleList) {
+            @$body['WhiteruleList'] = $request->whiteruleList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostEventWhiteruleList',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostEventWhiteruleList',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostEventWhiteruleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits an alert whitelist rule.
-     *  *
-     * @param PostEventWhiteruleListRequest $request PostEventWhiteruleListRequest
+     * Submits an alert whitelist rule.
      *
-     * @return PostEventWhiteruleListResponse PostEventWhiteruleListResponse
+     * @param request - PostEventWhiteruleListRequest
+     *
+     * @returns PostEventWhiteruleListResponse
+     *
+     * @param PostEventWhiteruleListRequest $request
+     *
+     * @return PostEventWhiteruleListResponse
      */
     public function postEventWhiteruleList($request)
     {
@@ -6000,53 +6474,66 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Ends the test of a custom rule.
-     *  *
-     * @param PostFinishCustomizeRuleTestRequest $request PostFinishCustomizeRuleTestRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Ends the test of a custom rule.
      *
-     * @return PostFinishCustomizeRuleTestResponse PostFinishCustomizeRuleTestResponse
+     * @param request - PostFinishCustomizeRuleTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostFinishCustomizeRuleTestResponse
+     *
+     * @param PostFinishCustomizeRuleTestRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return PostFinishCustomizeRuleTestResponse
      */
     public function postFinishCustomizeRuleTestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostFinishCustomizeRuleTest',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostFinishCustomizeRuleTest',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostFinishCustomizeRuleTestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Ends the test of a custom rule.
-     *  *
-     * @param PostFinishCustomizeRuleTestRequest $request PostFinishCustomizeRuleTestRequest
+     * Ends the test of a custom rule.
      *
-     * @return PostFinishCustomizeRuleTestResponse PostFinishCustomizeRuleTestResponse
+     * @param request - PostFinishCustomizeRuleTestRequest
+     *
+     * @returns PostFinishCustomizeRuleTestResponse
+     *
+     * @param PostFinishCustomizeRuleTestRequest $request
+     *
+     * @return PostFinishCustomizeRuleTestResponse
      */
     public function postFinishCustomizeRuleTest($request)
     {
@@ -6056,59 +6543,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Updates the status of a custom rule.
-     *  *
-     * @param PostRuleStatusChangeRequest $request PostRuleStatusChangeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Updates the status of a custom rule.
      *
-     * @return PostRuleStatusChangeResponse PostRuleStatusChangeResponse
+     * @param request - PostRuleStatusChangeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PostRuleStatusChangeResponse
+     *
+     * @param PostRuleStatusChangeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PostRuleStatusChangeResponse
      */
     public function postRuleStatusChangeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ids)) {
-            $body['Ids'] = $request->ids;
+        if (null !== $request->ids) {
+            @$body['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->inUse)) {
-            $body['InUse'] = $request->inUse;
+
+        if (null !== $request->inUse) {
+            @$body['InUse'] = $request->inUse;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $body['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$body['RuleType'] = $request->ruleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PostRuleStatusChange',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PostRuleStatusChange',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PostRuleStatusChangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the status of a custom rule.
-     *  *
-     * @param PostRuleStatusChangeRequest $request PostRuleStatusChangeRequest
+     * Updates the status of a custom rule.
      *
-     * @return PostRuleStatusChangeResponse PostRuleStatusChangeResponse
+     * @param request - PostRuleStatusChangeRequest
+     *
+     * @returns PostRuleStatusChangeResponse
+     *
+     * @param PostRuleStatusChangeRequest $request
+     *
+     * @return PostRuleStatusChangeResponse
      */
     public function postRuleStatusChange($request)
     {
@@ -6118,50 +6620,62 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
-     *  *
-     * @param RestoreCapacityRequest $request RestoreCapacityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
      *
-     * @return RestoreCapacityResponse RestoreCapacityResponse
+     * @param request - RestoreCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreCapacityResponse
+     *
+     * @param RestoreCapacityRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestoreCapacityResponse
      */
     public function restoreCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RestoreCapacity',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestoreCapacity',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestoreCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
-     *  *
-     * @param RestoreCapacityRequest $request RestoreCapacityRequest
+     * Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
      *
-     * @return RestoreCapacityResponse RestoreCapacityResponse
+     * @param request - RestoreCapacityRequest
+     *
+     * @returns RestoreCapacityResponse
+     *
+     * @param RestoreCapacityRequest $request
+     *
+     * @return RestoreCapacityResponse
      */
     public function restoreCapacity($request)
     {
@@ -6171,109 +6685,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Saves a query statement in log analysis as a saved search. This helps save the time required to write the query statement.
-     *  *
-     * @param SaveQuickQueryRequest $request SaveQuickQueryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Configures the settings of log storage, such as the storage duration and storage region.
      *
-     * @return SaveQuickQueryResponse SaveQuickQueryResponse
-     */
-    public function saveQuickQueryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SaveQuickQuery',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SaveQuickQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Saves a query statement in log analysis as a saved search. This helps save the time required to write the query statement.
-     *  *
-     * @param SaveQuickQueryRequest $request SaveQuickQueryRequest
+     * @param request - SetStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveQuickQueryResponse SaveQuickQueryResponse
-     */
-    public function saveQuickQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveQuickQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Configures the settings of log storage, such as the storage duration and storage region.
-     *  *
-     * @param SetStorageRequest $request SetStorageRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @returns SetStorageResponse
      *
-     * @return SetStorageResponse SetStorageResponse
+     * @param SetStorageRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SetStorageResponse
      */
     public function setStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$body['Ttl'] = $request->ttl;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetStorage',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetStorage',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the settings of log storage, such as the storage duration and storage region.
-     *  *
-     * @param SetStorageRequest $request SetStorageRequest
+     * Configures the settings of log storage, such as the storage duration and storage region.
      *
-     * @return SetStorageResponse SetStorageResponse
+     * @param request - SetStorageRequest
+     *
+     * @returns SetStorageResponse
+     *
+     * @param SetStorageRequest $request
+     *
+     * @return SetStorageResponse
      */
     public function setStorage($request)
     {
@@ -6283,112 +6758,82 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Configures index fields to display in log analysis. The index fields can be used for quick analysis.
-     *  *
-     * @param ShowQuickAnalysisRequest $request ShowQuickAnalysisRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Submits log collection tasks at a time.
      *
-     * @return ShowQuickAnalysisResponse ShowQuickAnalysisResponse
-     */
-    public function showQuickAnalysisWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ShowQuickAnalysis',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ShowQuickAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Configures index fields to display in log analysis. The index fields can be used for quick analysis.
-     *  *
-     * @param ShowQuickAnalysisRequest $request ShowQuickAnalysisRequest
+     * @param request - SubmitImportLogTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ShowQuickAnalysisResponse ShowQuickAnalysisResponse
-     */
-    public function showQuickAnalysis($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->showQuickAnalysisWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Submits log collection tasks at a time.
-     *  *
-     * @param SubmitImportLogTasksRequest $request SubmitImportLogTasksRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @returns SubmitImportLogTasksResponse
      *
-     * @return SubmitImportLogTasksResponse SubmitImportLogTasksResponse
+     * @param SubmitImportLogTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitImportLogTasksResponse
      */
     public function submitImportLogTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accounts)) {
-            $body['Accounts'] = $request->accounts;
+        if (null !== $request->accounts) {
+            @$body['Accounts'] = $request->accounts;
         }
-        if (!Utils::isUnset($request->autoImported)) {
-            $body['AutoImported'] = $request->autoImported;
+
+        if (null !== $request->autoImported) {
+            @$body['AutoImported'] = $request->autoImported;
         }
-        if (!Utils::isUnset($request->cloudCode)) {
-            $body['CloudCode'] = $request->cloudCode;
+
+        if (null !== $request->cloudCode) {
+            @$body['CloudCode'] = $request->cloudCode;
         }
-        if (!Utils::isUnset($request->logCodes)) {
-            $body['LogCodes'] = $request->logCodes;
+
+        if (null !== $request->logCodes) {
+            @$body['LogCodes'] = $request->logCodes;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $body['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$body['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitImportLogTasks',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitImportLogTasks',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitImportLogTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits log collection tasks at a time.
-     *  *
-     * @param SubmitImportLogTasksRequest $request SubmitImportLogTasksRequest
+     * Submits log collection tasks at a time.
      *
-     * @return SubmitImportLogTasksResponse SubmitImportLogTasksResponse
+     * @param request - SubmitImportLogTasksRequest
+     *
+     * @returns SubmitImportLogTasksResponse
+     *
+     * @param SubmitImportLogTasksRequest $request
+     *
+     * @return SubmitImportLogTasksResponse
      */
     public function submitImportLogTasks($request)
     {
@@ -6398,106 +6843,70 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Submits multiple tasks that add logs to the threat analysis feature at a time. After the logs are added, you can perform alert and event analysis.
-     *  *
-     * @param SubmitJobsRequest $request SubmitJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Updates the status of an automatic response rule.
      *
-     * @return SubmitJobsResponse SubmitJobsResponse
-     */
-    public function submitJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->jsonParam)) {
-            $body['JsonParam'] = $request->jsonParam;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitJobs',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Submits multiple tasks that add logs to the threat analysis feature at a time. After the logs are added, you can perform alert and event analysis.
-     *  *
-     * @param SubmitJobsRequest $request SubmitJobsRequest
+     * @param request - UpdateAutomateResponseConfigStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitJobsResponse SubmitJobsResponse
-     */
-    public function submitJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Updates the status of an automatic response rule.
-     *  *
-     * @param UpdateAutomateResponseConfigStatusRequest $request UpdateAutomateResponseConfigStatusRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @returns UpdateAutomateResponseConfigStatusResponse
      *
-     * @return UpdateAutomateResponseConfigStatusResponse UpdateAutomateResponseConfigStatusResponse
+     * @param UpdateAutomateResponseConfigStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateAutomateResponseConfigStatusResponse
      */
     public function updateAutomateResponseConfigStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ids)) {
-            $body['Ids'] = $request->ids;
+        if (null !== $request->ids) {
+            @$body['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->inUse)) {
-            $body['InUse'] = $request->inUse;
+
+        if (null !== $request->inUse) {
+            @$body['InUse'] = $request->inUse;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutomateResponseConfigStatus',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutomateResponseConfigStatus',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAutomateResponseConfigStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the status of an automatic response rule.
-     *  *
-     * @param UpdateAutomateResponseConfigStatusRequest $request UpdateAutomateResponseConfigStatusRequest
+     * Updates the status of an automatic response rule.
      *
-     * @return UpdateAutomateResponseConfigStatusResponse UpdateAutomateResponseConfigStatusResponse
+     * @param request - UpdateAutomateResponseConfigStatusRequest
+     *
+     * @returns UpdateAutomateResponseConfigStatusResponse
+     *
+     * @param UpdateAutomateResponseConfigStatusRequest $request
+     *
+     * @return UpdateAutomateResponseConfigStatusResponse
      */
     public function updateAutomateResponseConfigStatus($request)
     {
@@ -6507,59 +6916,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates an alert whitelist rule.
-     *  *
-     * @param UpdateWhiteRuleListRequest $request UpdateWhiteRuleListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates or updates an alert whitelist rule.
      *
-     * @return UpdateWhiteRuleListResponse UpdateWhiteRuleListResponse
+     * @param request - UpdateWhiteRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWhiteRuleListResponse
+     *
+     * @param UpdateWhiteRuleListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateWhiteRuleListResponse
      */
     public function updateWhiteRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->expression)) {
-            $body['Expression'] = $request->expression;
+        if (null !== $request->expression) {
+            @$body['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->incidentUuid)) {
-            $body['IncidentUuid'] = $request->incidentUuid;
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $body['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $body['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->whiteRuleId)) {
-            $body['WhiteRuleId'] = $request->whiteRuleId;
+
+        if (null !== $request->whiteRuleId) {
+            @$body['WhiteRuleId'] = $request->whiteRuleId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWhiteRuleList',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateWhiteRuleList',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateWhiteRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or updates an alert whitelist rule.
-     *  *
-     * @param UpdateWhiteRuleListRequest $request UpdateWhiteRuleListRequest
+     * Creates or updates an alert whitelist rule.
      *
-     * @return UpdateWhiteRuleListResponse UpdateWhiteRuleListResponse
+     * @param request - UpdateWhiteRuleListRequest
+     *
+     * @returns UpdateWhiteRuleListResponse
+     *
+     * @param UpdateWhiteRuleListRequest $request
+     *
+     * @return UpdateWhiteRuleListResponse
      */
     public function updateWhiteRuleList($request)
     {
