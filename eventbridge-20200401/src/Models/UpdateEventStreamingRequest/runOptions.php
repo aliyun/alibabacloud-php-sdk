@@ -35,12 +35,18 @@ class runOptions extends Model
      * @var retryStrategy
      */
     public $retryStrategy;
+
+    /**
+     * @var int
+     */
+    public $throttling;
     protected $_name = [
         'batchWindow' => 'BatchWindow',
         'deadLetterQueue' => 'DeadLetterQueue',
         'errorsTolerance' => 'ErrorsTolerance',
         'maximumTasks' => 'MaximumTasks',
         'retryStrategy' => 'RetryStrategy',
+        'throttling' => 'Throttling',
     ];
 
     public function validate()
@@ -80,6 +86,10 @@ class runOptions extends Model
             $res['RetryStrategy'] = null !== $this->retryStrategy ? $this->retryStrategy->toArray($noStream) : $this->retryStrategy;
         }
 
+        if (null !== $this->throttling) {
+            $res['Throttling'] = $this->throttling;
+        }
+
         return $res;
     }
 
@@ -109,6 +119,10 @@ class runOptions extends Model
 
         if (isset($map['RetryStrategy'])) {
             $model->retryStrategy = retryStrategy::fromMap($map['RetryStrategy']);
+        }
+
+        if (isset($map['Throttling'])) {
+            $model->throttling = $map['Throttling'];
         }
 
         return $model;
