@@ -914,6 +914,10 @@ class QuanMiaoLightApp extends OpenApiClient
             @$body['outputFormat'] = $request->outputFormat;
         }
 
+        if (null !== $request->sourceTrace) {
+            @$body['sourceTrace'] = $request->sourceTrace;
+        }
+
         if (null !== $request->tagsShrink) {
             @$body['tags'] = $request->tagsShrink;
         }
@@ -2139,6 +2143,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->outputFormat) {
             @$body['outputFormat'] = $request->outputFormat;
+        }
+
+        if (null !== $request->sourceTrace) {
+            @$body['sourceTrace'] = $request->sourceTrace;
         }
 
         if (null !== $request->tagsShrink) {

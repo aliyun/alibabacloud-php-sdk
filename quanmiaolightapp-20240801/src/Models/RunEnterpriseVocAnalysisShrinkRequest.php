@@ -44,6 +44,11 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
     public $outputFormat;
 
     /**
+     * @var bool
+     */
+    public $sourceTrace;
+
+    /**
      * @var string
      */
     public $tagsShrink;
@@ -60,6 +65,7 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
         'filterTagsShrink' => 'filterTags',
         'modelId' => 'modelId',
         'outputFormat' => 'outputFormat',
+        'sourceTrace' => 'sourceTrace',
         'tagsShrink' => 'tags',
         'taskDescription' => 'taskDescription',
     ];
@@ -98,6 +104,10 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
 
         if (null !== $this->outputFormat) {
             $res['outputFormat'] = $this->outputFormat;
+        }
+
+        if (null !== $this->sourceTrace) {
+            $res['sourceTrace'] = $this->sourceTrace;
         }
 
         if (null !== $this->tagsShrink) {
@@ -145,6 +155,10 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
 
         if (isset($map['outputFormat'])) {
             $model->outputFormat = $map['outputFormat'];
+        }
+
+        if (isset($map['sourceTrace'])) {
+            $model->sourceTrace = $map['sourceTrace'];
         }
 
         if (isset($map['tags'])) {

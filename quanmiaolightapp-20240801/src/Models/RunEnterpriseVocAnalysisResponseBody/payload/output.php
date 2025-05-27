@@ -17,9 +17,15 @@ class output extends Model
     /**
      * @var string
      */
+    public $reasonContent;
+
+    /**
+     * @var string
+     */
     public $text;
     protected $_name = [
         'filterResult' => 'filterResult',
+        'reasonContent' => 'reasonContent',
         'text' => 'text',
     ];
 
@@ -36,6 +42,10 @@ class output extends Model
         $res = [];
         if (null !== $this->filterResult) {
             $res['filterResult'] = null !== $this->filterResult ? $this->filterResult->toArray($noStream) : $this->filterResult;
+        }
+
+        if (null !== $this->reasonContent) {
+            $res['reasonContent'] = $this->reasonContent;
         }
 
         if (null !== $this->text) {
@@ -55,6 +65,10 @@ class output extends Model
         $model = new self();
         if (isset($map['filterResult'])) {
             $model->filterResult = filterResult::fromMap($map['filterResult']);
+        }
+
+        if (isset($map['reasonContent'])) {
+            $model->reasonContent = $map['reasonContent'];
         }
 
         if (isset($map['text'])) {

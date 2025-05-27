@@ -46,6 +46,11 @@ class RunEnterpriseVocAnalysisRequest extends Model
     public $outputFormat;
 
     /**
+     * @var bool
+     */
+    public $sourceTrace;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -62,6 +67,7 @@ class RunEnterpriseVocAnalysisRequest extends Model
         'filterTags' => 'filterTags',
         'modelId' => 'modelId',
         'outputFormat' => 'outputFormat',
+        'sourceTrace' => 'sourceTrace',
         'tags' => 'tags',
         'taskDescription' => 'taskDescription',
     ];
@@ -112,6 +118,10 @@ class RunEnterpriseVocAnalysisRequest extends Model
 
         if (null !== $this->outputFormat) {
             $res['outputFormat'] = $this->outputFormat;
+        }
+
+        if (null !== $this->sourceTrace) {
+            $res['sourceTrace'] = $this->sourceTrace;
         }
 
         if (null !== $this->tags) {
@@ -171,6 +181,10 @@ class RunEnterpriseVocAnalysisRequest extends Model
 
         if (isset($map['outputFormat'])) {
             $model->outputFormat = $map['outputFormat'];
+        }
+
+        if (isset($map['sourceTrace'])) {
+            $model->sourceTrace = $map['sourceTrace'];
         }
 
         if (isset($map['tags'])) {

@@ -23,16 +23,25 @@ class data extends Model
      * @var string
      */
     public $originResponse;
+
+    /**
+     * @var string[]
+     */
+    public $sourceList;
     protected $_name = [
         'content' => 'content',
         'contentTags' => 'contentTags',
         'originResponse' => 'originResponse',
+        'sourceList' => 'sourceList',
     ];
 
     public function validate()
     {
         if (\is_array($this->contentTags)) {
             Model::validateArray($this->contentTags);
+        }
+        if (\is_array($this->sourceList)) {
+            Model::validateArray($this->sourceList);
         }
         parent::validate();
     }
@@ -56,6 +65,16 @@ class data extends Model
 
         if (null !== $this->originResponse) {
             $res['originResponse'] = $this->originResponse;
+        }
+
+        if (null !== $this->sourceList) {
+            if (\is_array($this->sourceList)) {
+                $res['sourceList'] = [];
+                $n1 = 0;
+                foreach ($this->sourceList as $item1) {
+                    $res['sourceList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
@@ -85,6 +104,16 @@ class data extends Model
 
         if (isset($map['originResponse'])) {
             $model->originResponse = $map['originResponse'];
+        }
+
+        if (isset($map['sourceList'])) {
+            if (!empty($map['sourceList'])) {
+                $model->sourceList = [];
+                $n1 = 0;
+                foreach ($map['sourceList'] as $item1) {
+                    $model->sourceList[$n1++] = $item1;
+                }
+            }
         }
 
         return $model;
