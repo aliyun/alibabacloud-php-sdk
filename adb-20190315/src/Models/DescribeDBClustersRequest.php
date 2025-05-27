@@ -27,6 +27,11 @@ class DescribeDBClustersRequest extends Model
     /**
      * @var string
      */
+    public $DBClusterVersion;
+
+    /**
+     * @var string
+     */
     public $DBVersion;
 
     /**
@@ -77,6 +82,7 @@ class DescribeDBClustersRequest extends Model
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterIds' => 'DBClusterIds',
         'DBClusterStatus' => 'DBClusterStatus',
+        'DBClusterVersion' => 'DBClusterVersion',
         'DBVersion' => 'DBVersion',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -110,6 +116,10 @@ class DescribeDBClustersRequest extends Model
 
         if (null !== $this->DBClusterStatus) {
             $res['DBClusterStatus'] = $this->DBClusterStatus;
+        }
+
+        if (null !== $this->DBClusterVersion) {
+            $res['DBClusterVersion'] = $this->DBClusterVersion;
         }
 
         if (null !== $this->DBVersion) {
@@ -179,6 +189,10 @@ class DescribeDBClustersRequest extends Model
 
         if (isset($map['DBClusterStatus'])) {
             $model->DBClusterStatus = $map['DBClusterStatus'];
+        }
+
+        if (isset($map['DBClusterVersion'])) {
+            $model->DBClusterVersion = $map['DBClusterVersion'];
         }
 
         if (isset($map['DBVersion'])) {

@@ -4762,6 +4762,10 @@ class Adb extends OpenApiClient
             @$query['DBClusterStatus'] = $request->DBClusterStatus;
         }
 
+        if (null !== $request->DBClusterVersion) {
+            @$query['DBClusterVersion'] = $request->DBClusterVersion;
+        }
+
         if (null !== $request->DBVersion) {
             @$query['DBVersion'] = $request->DBVersion;
         }
