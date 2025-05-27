@@ -21,6 +21,11 @@ class RunDocSummaryRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -40,6 +45,7 @@ class RunDocSummaryRequest extends Model
     protected $_name = [
         'cleanCache' => 'CleanCache',
         'docId' => 'DocId',
+        'modelName' => 'ModelName',
         'query' => 'Query',
         'recommendContent' => 'RecommendContent',
         'sessionId' => 'SessionId',
@@ -60,6 +66,10 @@ class RunDocSummaryRequest extends Model
 
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->query) {
@@ -95,6 +105,10 @@ class RunDocSummaryRequest extends Model
 
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['Query'])) {

@@ -7774,6 +7774,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['DocId'] = $request->docId;
         }
 
+        if (null !== $request->modelName) {
+            @$body['ModelName'] = $request->modelName;
+        }
+
         if (null !== $request->query) {
             @$body['Query'] = $request->query;
         }
