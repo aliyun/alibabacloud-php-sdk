@@ -2860,6 +2860,10 @@ class Dysmsapi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->encryptType) {
+            @$query['EncryptType'] = $request->encryptType;
+        }
+
         if (null !== $request->mobilesShrink) {
             @$query['Mobiles'] = $request->mobilesShrink;
         }

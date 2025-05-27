@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class QueryMobilesCardSupportRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $encryptType;
+
+    /**
      * @var mixed[][]
      */
     public $mobiles;
@@ -18,6 +23,7 @@ class QueryMobilesCardSupportRequest extends Model
      */
     public $templateCode;
     protected $_name = [
+        'encryptType' => 'EncryptType',
         'mobiles' => 'Mobiles',
         'templateCode' => 'TemplateCode',
     ];
@@ -33,6 +39,10 @@ class QueryMobilesCardSupportRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
+        }
+
         if (null !== $this->mobiles) {
             if (\is_array($this->mobiles)) {
                 $res['Mobiles'] = [];
@@ -63,6 +73,10 @@ class QueryMobilesCardSupportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
+        }
+
         if (isset($map['Mobiles'])) {
             if (!empty($map['Mobiles'])) {
                 $model->mobiles = [];

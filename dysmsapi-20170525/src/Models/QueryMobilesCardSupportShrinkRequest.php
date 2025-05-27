@@ -11,6 +11,11 @@ class QueryMobilesCardSupportShrinkRequest extends Model
     /**
      * @var string
      */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
     public $mobilesShrink;
 
     /**
@@ -18,6 +23,7 @@ class QueryMobilesCardSupportShrinkRequest extends Model
      */
     public $templateCode;
     protected $_name = [
+        'encryptType' => 'EncryptType',
         'mobilesShrink' => 'Mobiles',
         'templateCode' => 'TemplateCode',
     ];
@@ -30,6 +36,10 @@ class QueryMobilesCardSupportShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
+        }
+
         if (null !== $this->mobilesShrink) {
             $res['Mobiles'] = $this->mobilesShrink;
         }
@@ -49,6 +59,10 @@ class QueryMobilesCardSupportShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
+        }
+
         if (isset($map['Mobiles'])) {
             $model->mobilesShrink = $map['Mobiles'];
         }
