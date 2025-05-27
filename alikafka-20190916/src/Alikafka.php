@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicSubscribeStatusRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicSubscribeStatusResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListRebalanceInfoRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListRebalanceInfoResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyInstanceNameRequest;
@@ -2759,6 +2761,71 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTopicSubscribeStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Rebalance详情.
+     *
+     * @param request - ListRebalanceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRebalanceInfoResponse
+     *
+     * @param ListRebalanceInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRebalanceInfoResponse
+     */
+    public function listRebalanceInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRebalanceInfo',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRebalanceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Rebalance详情.
+     *
+     * @param request - ListRebalanceInfoRequest
+     *
+     * @returns ListRebalanceInfoResponse
+     *
+     * @param ListRebalanceInfoRequest $request
+     *
+     * @return ListRebalanceInfoResponse
+     */
+    public function listRebalanceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRebalanceInfoWithOptions($request, $runtime);
     }
 
     /**
