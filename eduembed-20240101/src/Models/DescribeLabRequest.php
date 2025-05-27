@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLabRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 875
-     *
      * @var int
      */
     public $labId;
@@ -22,9 +18,10 @@ class DescribeLabRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labId) {
@@ -34,11 +31,11 @@ class DescribeLabRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLabRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

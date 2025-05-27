@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabSessionResponseBody\labSession;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLabSessionResponseBody extends Model
 {
     /**
-     * @example 00000
-     *
      * @var string
      */
     public $code;
@@ -22,52 +20,54 @@ class DescribeLabSessionResponseBody extends Model
     public $labSession;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 9ADC729B-...
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
+        'code' => 'Code',
         'labSession' => 'LabSession',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->labSession) {
+            $this->labSession->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->labSession) {
-            $res['LabSession'] = null !== $this->labSession ? $this->labSession->toMap() : null;
+            $res['LabSession'] = null !== $this->labSession ? $this->labSession->toArray($noStream) : $this->labSession;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -75,26 +75,30 @@ class DescribeLabSessionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLabSessionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['LabSession'])) {
             $model->labSession = labSession::fromMap($map['LabSession']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

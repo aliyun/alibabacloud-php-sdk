@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class labs extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @example 981
-     *
      * @var int
      */
     public $id;
@@ -28,8 +24,6 @@ class labs extends Model
     public $introduction;
 
     /**
-     * @example -
-     *
      * @var string
      */
     public $subTitle;
@@ -39,32 +33,37 @@ class labs extends Model
      */
     public $title;
     protected $_name = [
-        'duration'     => 'Duration',
-        'id'           => 'Id',
+        'duration' => 'Duration',
+        'id' => 'Id',
         'introduction' => 'Introduction',
-        'subTitle'     => 'SubTitle',
-        'title'        => 'Title',
+        'subTitle' => 'SubTitle',
+        'title' => 'Title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->introduction) {
             $res['Introduction'] = $this->introduction;
         }
+
         if (null !== $this->subTitle) {
             $res['SubTitle'] = $this->subTitle;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -72,26 +71,30 @@ class labs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Introduction'])) {
             $model->introduction = $map['Introduction'];
         }
+
         if (isset($map['SubTitle'])) {
             $model->subTitle = $map['SubTitle'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

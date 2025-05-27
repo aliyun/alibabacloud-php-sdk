@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabReservationResponseBody;
+namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class labReservation extends Model
+class DescribeCourseRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $id;
+    public $courseId;
     protected $_name = [
-        'id' => 'Id',
+        'courseId' => 'CourseId',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class labReservation extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->courseId) {
+            $res['CourseId'] = $this->courseId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class labReservation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['CourseId'])) {
+            $model->courseId = $map['CourseId'];
         }
 
         return $model;

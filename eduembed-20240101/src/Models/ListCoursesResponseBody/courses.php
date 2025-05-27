@@ -2,19 +2,19 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabResponseBody;
+namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models\ListCoursesResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class lab extends Model
+class courses extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $duration;
+    public $category;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 
@@ -24,19 +24,31 @@ class lab extends Model
     public $introduction;
 
     /**
+     * @var int
+     */
+    public $lessonNum;
+
+    /**
      * @var string
      */
-    public $subTitle;
+    public $pictureUrl;
+
+    /**
+     * @var string
+     */
+    public $tags;
 
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'duration' => 'Duration',
+        'category' => 'Category',
         'id' => 'Id',
         'introduction' => 'Introduction',
-        'subTitle' => 'SubTitle',
+        'lessonNum' => 'LessonNum',
+        'pictureUrl' => 'PictureUrl',
+        'tags' => 'Tags',
         'title' => 'Title',
     ];
 
@@ -48,8 +60,8 @@ class lab extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         if (null !== $this->id) {
@@ -60,8 +72,16 @@ class lab extends Model
             $res['Introduction'] = $this->introduction;
         }
 
-        if (null !== $this->subTitle) {
-            $res['SubTitle'] = $this->subTitle;
+        if (null !== $this->lessonNum) {
+            $res['LessonNum'] = $this->lessonNum;
+        }
+
+        if (null !== $this->pictureUrl) {
+            $res['PictureUrl'] = $this->pictureUrl;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         if (null !== $this->title) {
@@ -79,8 +99,8 @@ class lab extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         if (isset($map['Id'])) {
@@ -91,8 +111,16 @@ class lab extends Model
             $model->introduction = $map['Introduction'];
         }
 
-        if (isset($map['SubTitle'])) {
-            $model->subTitle = $map['SubTitle'];
+        if (isset($map['LessonNum'])) {
+            $model->lessonNum = $map['LessonNum'];
+        }
+
+        if (isset($map['PictureUrl'])) {
+            $model->pictureUrl = $map['PictureUrl'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         if (isset($map['Title'])) {

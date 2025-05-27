@@ -2,23 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabSessionResponseBody;
+namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeCourseLessonResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class labSession extends Model
+class courseLesson extends Model
 {
     /**
      * @var string
      */
-    public $id;
+    public $content;
 
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'id' => 'Id',
+        'content' => 'Content',
         'url' => 'Url',
     ];
 
@@ -30,8 +30,8 @@ class labSession extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
 
         if (null !== $this->url) {
@@ -49,8 +49,8 @@ class labSession extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
 
         if (isset($map['Url'])) {

@@ -4,18 +4,23 @@
 
 namespace AlibabaCloud\SDK\EduEmbed\V20240101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabReservationRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabReservationResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabSessionRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabSessionResponse;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeCourseLessonRequest;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeCourseLessonResponse;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeCourseRequest;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeCourseResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabReservationRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabReservationResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabSessionRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeLabSessionResponse;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\ListCoursesRequest;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\ListCoursesResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabReservationsRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabReservationsResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabSessionsRequest;
@@ -24,11 +29,10 @@ use AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabsRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabsResponse;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\RemoveLabReservationRequest;
 use AlibabaCloud\SDK\EduEmbed\V20240101\Models\RemoveLabReservationResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class EduEmbed extends OpenApiClient
 {
@@ -53,67 +57,82 @@ class EduEmbed extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 创建实验预约
-     *  *
-     * @param CreateLabReservationRequest $request CreateLabReservationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 创建实验预约.
      *
-     * @return CreateLabReservationResponse CreateLabReservationResponse
+     * @param request - CreateLabReservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLabReservationResponse
+     *
+     * @param CreateLabReservationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateLabReservationResponse
      */
     public function createLabReservationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->labId)) {
-            $body['LabId'] = $request->labId;
+
+        if (null !== $request->labId) {
+            @$body['LabId'] = $request->labId;
         }
-        if (!Utils::isUnset($request->memberCount)) {
-            $body['MemberCount'] = $request->memberCount;
+
+        if (null !== $request->memberCount) {
+            @$body['MemberCount'] = $request->memberCount;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLabReservation',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLabReservation',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateLabReservationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建实验预约
-     *  *
-     * @param CreateLabReservationRequest $request CreateLabReservationRequest
+     * 创建实验预约.
      *
-     * @return CreateLabReservationResponse CreateLabReservationResponse
+     * @param request - CreateLabReservationRequest
+     *
+     * @returns CreateLabReservationResponse
+     *
+     * @param CreateLabReservationRequest $request
+     *
+     * @return CreateLabReservationResponse
      */
     public function createLabReservation($request)
     {
@@ -123,50 +142,62 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 创建实验会话
-     *  *
-     * @param CreateLabSessionRequest $request CreateLabSessionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建实验会话.
      *
-     * @return CreateLabSessionResponse CreateLabSessionResponse
+     * @param request - CreateLabSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLabSessionResponse
+     *
+     * @param CreateLabSessionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateLabSessionResponse
      */
     public function createLabSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->labId)) {
-            $body['LabId'] = $request->labId;
+
+        if (null !== $request->labId) {
+            @$body['LabId'] = $request->labId;
         }
-        if (!Utils::isUnset($request->ramAccountId)) {
-            $body['RamAccountId'] = $request->ramAccountId;
+
+        if (null !== $request->ramAccountId) {
+            @$body['RamAccountId'] = $request->ramAccountId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLabSession',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLabSession',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateLabSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建实验会话
-     *  *
-     * @param CreateLabSessionRequest $request CreateLabSessionRequest
+     * 创建实验会话.
      *
-     * @return CreateLabSessionResponse CreateLabSessionResponse
+     * @param request - CreateLabSessionRequest
+     *
+     * @returns CreateLabSessionResponse
+     *
+     * @param CreateLabSessionRequest $request
+     *
+     * @return CreateLabSessionResponse
      */
     public function createLabSession($request)
     {
@@ -176,41 +207,164 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 查看实验详情
-     *  *
-     * @param DescribeLabRequest $request DescribeLabRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查看课程详情.
      *
-     * @return DescribeLabResponse DescribeLabResponse
+     * @param request - DescribeCourseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCourseResponse
+     *
+     * @param DescribeCourseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeCourseResponse
+     */
+    public function describeCourseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->courseId) {
+            @$query['CourseId'] = $request->courseId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCourse',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCourseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看课程详情.
+     *
+     * @param request - DescribeCourseRequest
+     *
+     * @returns DescribeCourseResponse
+     *
+     * @param DescribeCourseRequest $request
+     *
+     * @return DescribeCourseResponse
+     */
+    public function describeCourse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCourseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看课程课时详情.
+     *
+     * @param request - DescribeCourseLessonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCourseLessonResponse
+     *
+     * @param DescribeCourseLessonRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCourseLessonResponse
+     */
+    public function describeCourseLessonWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lessonId) {
+            @$query['LessonId'] = $request->lessonId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCourseLesson',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCourseLessonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看课程课时详情.
+     *
+     * @param request - DescribeCourseLessonRequest
+     *
+     * @returns DescribeCourseLessonResponse
+     *
+     * @param DescribeCourseLessonRequest $request
+     *
+     * @return DescribeCourseLessonResponse
+     */
+    public function describeCourseLesson($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCourseLessonWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看实验详情.
+     *
+     * @param request - DescribeLabRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLabResponse
+     *
+     * @param DescribeLabRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeLabResponse
      */
     public function describeLabWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLab',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLab',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看实验详情
-     *  *
-     * @param DescribeLabRequest $request DescribeLabRequest
+     * 查看实验详情.
      *
-     * @return DescribeLabResponse DescribeLabResponse
+     * @param request - DescribeLabRequest
+     *
+     * @returns DescribeLabResponse
+     *
+     * @param DescribeLabRequest $request
+     *
+     * @return DescribeLabResponse
      */
     public function describeLab($request)
     {
@@ -220,41 +374,50 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 查询实验预约
-     *  *
-     * @param DescribeLabReservationRequest $request DescribeLabReservationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询实验预约.
      *
-     * @return DescribeLabReservationResponse DescribeLabReservationResponse
+     * @param request - DescribeLabReservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLabReservationResponse
+     *
+     * @param DescribeLabReservationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeLabReservationResponse
      */
     public function describeLabReservationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLabReservation',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLabReservation',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLabReservationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询实验预约
-     *  *
-     * @param DescribeLabReservationRequest $request DescribeLabReservationRequest
+     * 查询实验预约.
      *
-     * @return DescribeLabReservationResponse DescribeLabReservationResponse
+     * @param request - DescribeLabReservationRequest
+     *
+     * @returns DescribeLabReservationResponse
+     *
+     * @param DescribeLabReservationRequest $request
+     *
+     * @return DescribeLabReservationResponse
      */
     public function describeLabReservation($request)
     {
@@ -264,41 +427,50 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 查看实验会话信息
-     *  *
-     * @param DescribeLabSessionRequest $request DescribeLabSessionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查看实验会话信息.
      *
-     * @return DescribeLabSessionResponse DescribeLabSessionResponse
+     * @param request - DescribeLabSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLabSessionResponse
+     *
+     * @param DescribeLabSessionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeLabSessionResponse
      */
     public function describeLabSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLabSession',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLabSession',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLabSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看实验会话信息
-     *  *
-     * @param DescribeLabSessionRequest $request DescribeLabSessionRequest
+     * 查看实验会话信息.
      *
-     * @return DescribeLabSessionResponse DescribeLabSessionResponse
+     * @param request - DescribeLabSessionRequest
+     *
+     * @returns DescribeLabSessionResponse
+     *
+     * @param DescribeLabSessionRequest $request
+     *
+     * @return DescribeLabSessionResponse
      */
     public function describeLabSession($request)
     {
@@ -308,41 +480,115 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询实验预约
-     *  *
-     * @param PageListLabReservationsRequest $request PageListLabReservationsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查看课程列表.
      *
-     * @return PageListLabReservationsResponse PageListLabReservationsResponse
+     * @param request - ListCoursesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCoursesResponse
+     *
+     * @param ListCoursesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListCoursesResponse
+     */
+    public function listCoursesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCourses',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCoursesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看课程列表.
+     *
+     * @param request - ListCoursesRequest
+     *
+     * @returns ListCoursesResponse
+     *
+     * @param ListCoursesRequest $request
+     *
+     * @return ListCoursesResponse
+     */
+    public function listCourses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCoursesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询实验预约.
+     *
+     * @param request - PageListLabReservationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PageListLabReservationsResponse
+     *
+     * @param PageListLabReservationsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return PageListLabReservationsResponse
      */
     public function pageListLabReservationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PageListLabReservations',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PageListLabReservations',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PageListLabReservationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页查询实验预约
-     *  *
-     * @param PageListLabReservationsRequest $request PageListLabReservationsRequest
+     * 分页查询实验预约.
      *
-     * @return PageListLabReservationsResponse PageListLabReservationsResponse
+     * @param request - PageListLabReservationsRequest
+     *
+     * @returns PageListLabReservationsResponse
+     *
+     * @param PageListLabReservationsRequest $request
+     *
+     * @return PageListLabReservationsResponse
      */
     public function pageListLabReservations($request)
     {
@@ -352,41 +598,50 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询实验会话
-     *  *
-     * @param PageListLabSessionsRequest $request PageListLabSessionsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 分页查询实验会话.
      *
-     * @return PageListLabSessionsResponse PageListLabSessionsResponse
+     * @param request - PageListLabSessionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PageListLabSessionsResponse
+     *
+     * @param PageListLabSessionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PageListLabSessionsResponse
      */
     public function pageListLabSessionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PageListLabSessions',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PageListLabSessions',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PageListLabSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页查询实验会话
-     *  *
-     * @param PageListLabSessionsRequest $request PageListLabSessionsRequest
+     * 分页查询实验会话.
      *
-     * @return PageListLabSessionsResponse PageListLabSessionsResponse
+     * @param request - PageListLabSessionsRequest
+     *
+     * @returns PageListLabSessionsResponse
+     *
+     * @param PageListLabSessionsRequest $request
+     *
+     * @return PageListLabSessionsResponse
      */
     public function pageListLabSessions($request)
     {
@@ -396,41 +651,50 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询实验
-     *  *
-     * @param PageListLabsRequest $request PageListLabsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 分页查询实验.
      *
-     * @return PageListLabsResponse PageListLabsResponse
+     * @param request - PageListLabsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PageListLabsResponse
+     *
+     * @param PageListLabsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PageListLabsResponse
      */
     public function pageListLabsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PageListLabs',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PageListLabs',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PageListLabsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页查询实验
-     *  *
-     * @param PageListLabsRequest $request PageListLabsRequest
+     * 分页查询实验.
      *
-     * @return PageListLabsResponse PageListLabsResponse
+     * @param request - PageListLabsRequest
+     *
+     * @returns PageListLabsResponse
+     *
+     * @param PageListLabsRequest $request
+     *
+     * @return PageListLabsResponse
      */
     public function pageListLabs($request)
     {
@@ -440,47 +704,58 @@ class EduEmbed extends OpenApiClient
     }
 
     /**
-     * @summary 移除实验预约
-     *  *
-     * @param RemoveLabReservationRequest $request RemoveLabReservationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 移除实验预约.
      *
-     * @return RemoveLabReservationResponse RemoveLabReservationResponse
+     * @param request - RemoveLabReservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveLabReservationResponse
+     *
+     * @param RemoveLabReservationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveLabReservationResponse
      */
     public function removeLabReservationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->labReservationId)) {
-            $body['LabReservationId'] = $request->labReservationId;
+
+        if (null !== $request->labReservationId) {
+            @$body['LabReservationId'] = $request->labReservationId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveLabReservation',
-            'version'     => '2024-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveLabReservation',
+            'version' => '2024-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveLabReservationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 移除实验预约
-     *  *
-     * @param RemoveLabReservationRequest $request RemoveLabReservationRequest
+     * 移除实验预约.
      *
-     * @return RemoveLabReservationResponse RemoveLabReservationResponse
+     * @param request - RemoveLabReservationRequest
+     *
+     * @returns RemoveLabReservationResponse
+     *
+     * @param RemoveLabReservationRequest $request
+     *
+     * @return RemoveLabReservationResponse
      */
     public function removeLabReservation($request)
     {

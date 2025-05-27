@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RemoveLabReservationResponse extends Model
+class ListCoursesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class RemoveLabReservationResponse extends Model
     public $statusCode;
 
     /**
-     * @var RemoveLabReservationResponseBody
+     * @var ListCoursesResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class RemoveLabReservationResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = RemoveLabReservationResponseBody::fromMap($map['body']);
+            $model->body = ListCoursesResponseBody::fromMap($map['body']);
         }
 
         return $model;

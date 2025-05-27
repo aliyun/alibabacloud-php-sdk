@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\EduEmbed\V20240101\Models\CreateLabSessionResponseBody\labSession;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\DescribeCourseLessonResponseBody\courseLesson;
 
-class CreateLabSessionResponseBody extends Model
+class DescribeCourseLessonResponseBody extends Model
 {
     /**
      * @var string
@@ -15,9 +15,9 @@ class CreateLabSessionResponseBody extends Model
     public $code;
 
     /**
-     * @var labSession
+     * @var courseLesson
      */
-    public $labSession;
+    public $courseLesson;
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class CreateLabSessionResponseBody extends Model
     public $success;
     protected $_name = [
         'code' => 'Code',
-        'labSession' => 'LabSession',
+        'courseLesson' => 'CourseLesson',
         'message' => 'Message',
         'requestId' => 'RequestId',
         'success' => 'Success',
@@ -43,8 +43,8 @@ class CreateLabSessionResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->labSession) {
-            $this->labSession->validate();
+        if (null !== $this->courseLesson) {
+            $this->courseLesson->validate();
         }
         parent::validate();
     }
@@ -56,8 +56,8 @@ class CreateLabSessionResponseBody extends Model
             $res['Code'] = $this->code;
         }
 
-        if (null !== $this->labSession) {
-            $res['LabSession'] = null !== $this->labSession ? $this->labSession->toArray($noStream) : $this->labSession;
+        if (null !== $this->courseLesson) {
+            $res['CourseLesson'] = null !== $this->courseLesson ? $this->courseLesson->toArray($noStream) : $this->courseLesson;
         }
 
         if (null !== $this->message) {
@@ -87,8 +87,8 @@ class CreateLabSessionResponseBody extends Model
             $model->code = $map['Code'];
         }
 
-        if (isset($map['LabSession'])) {
-            $model->labSession = labSession::fromMap($map['LabSession']);
+        if (isset($map['CourseLesson'])) {
+            $model->courseLesson = courseLesson::fromMap($map['CourseLesson']);
         }
 
         if (isset($map['Message'])) {

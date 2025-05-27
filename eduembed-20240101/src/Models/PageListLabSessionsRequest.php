@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PageListLabSessionsRequest extends Model
 {
@@ -19,15 +19,11 @@ class PageListLabSessionsRequest extends Model
     public $labId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -37,32 +33,37 @@ class PageListLabSessionsRequest extends Model
      */
     public $ramAccountId;
     protected $_name = [
-        'finished'     => 'Finished',
-        'labId'        => 'LabId',
-        'page'         => 'Page',
-        'pageSize'     => 'PageSize',
+        'finished' => 'Finished',
+        'labId' => 'LabId',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
         'ramAccountId' => 'RamAccountId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finished) {
             $res['Finished'] = $this->finished;
         }
+
         if (null !== $this->labId) {
             $res['LabId'] = $this->labId;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->ramAccountId) {
             $res['RamAccountId'] = $this->ramAccountId;
         }
@@ -70,26 +71,30 @@ class PageListLabSessionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PageListLabSessionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Finished'])) {
             $model->finished = $map['Finished'];
         }
+
         if (isset($map['LabId'])) {
             $model->labId = $map['LabId'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RamAccountId'])) {
             $model->ramAccountId = $map['RamAccountId'];
         }

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class PageListLabsRequest extends Model
+class ListCoursesRequest extends Model
 {
     /**
      * @var int[]

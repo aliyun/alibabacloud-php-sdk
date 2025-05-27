@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveLabReservationRequest extends Model
 {
@@ -14,28 +14,26 @@ class RemoveLabReservationRequest extends Model
     public $accountId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $labReservationId;
     protected $_name = [
-        'accountId'        => 'AccountId',
+        'accountId' => 'AccountId',
         'labReservationId' => 'LabReservationId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->labReservationId) {
             $res['LabReservationId'] = $this->labReservationId;
         }
@@ -43,17 +41,18 @@ class RemoveLabReservationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveLabReservationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['LabReservationId'])) {
             $model->labReservationId = $map['LabReservationId'];
         }

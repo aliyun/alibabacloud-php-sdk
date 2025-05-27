@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\EduEmbed\V20240101\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\EduEmbed\V20240101\Models\PageListLabReservationsResponseBody\labReservations;
+use AlibabaCloud\SDK\EduEmbed\V20240101\Models\ListCoursesResponseBody\courses;
 
-class PageListLabReservationsResponseBody extends Model
+class ListCoursesResponseBody extends Model
 {
     /**
      * @var string
@@ -15,9 +15,9 @@ class PageListLabReservationsResponseBody extends Model
     public $code;
 
     /**
-     * @var labReservations[]
+     * @var courses[]
      */
-    public $labReservations;
+    public $courses;
 
     /**
      * @var string
@@ -50,7 +50,7 @@ class PageListLabReservationsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'code' => 'Code',
-        'labReservations' => 'LabReservations',
+        'courses' => 'Courses',
         'message' => 'Message',
         'page' => 'Page',
         'pageSize' => 'PageSize',
@@ -61,8 +61,8 @@ class PageListLabReservationsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->labReservations)) {
-            Model::validateArray($this->labReservations);
+        if (\is_array($this->courses)) {
+            Model::validateArray($this->courses);
         }
         parent::validate();
     }
@@ -74,12 +74,12 @@ class PageListLabReservationsResponseBody extends Model
             $res['Code'] = $this->code;
         }
 
-        if (null !== $this->labReservations) {
-            if (\is_array($this->labReservations)) {
-                $res['LabReservations'] = [];
+        if (null !== $this->courses) {
+            if (\is_array($this->courses)) {
+                $res['Courses'] = [];
                 $n1 = 0;
-                foreach ($this->labReservations as $item1) {
-                    $res['LabReservations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->courses as $item1) {
+                    $res['Courses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -123,12 +123,12 @@ class PageListLabReservationsResponseBody extends Model
             $model->code = $map['Code'];
         }
 
-        if (isset($map['LabReservations'])) {
-            if (!empty($map['LabReservations'])) {
-                $model->labReservations = [];
+        if (isset($map['Courses'])) {
+            if (!empty($map['Courses'])) {
+                $model->courses = [];
                 $n1 = 0;
-                foreach ($map['LabReservations'] as $item1) {
-                    $model->labReservations[$n1++] = labReservations::fromMap($item1);
+                foreach ($map['Courses'] as $item1) {
+                    $model->courses[$n1++] = courses::fromMap($item1);
                 }
             }
         }
