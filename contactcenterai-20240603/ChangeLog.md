@@ -1,3 +1,7 @@
+2025-05-27 Version: 3.5.3
+- Update API CreateTask: add request parameters body.callBackUrl.
+
+
 2025-05-06 Version: 3.5.2
 - Update API CreateTask: add request parameters body.transcription.roleIdentification.
 

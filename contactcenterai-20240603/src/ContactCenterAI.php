@@ -390,6 +390,10 @@ class ContactCenterAI extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->callBackUrl) {
+            @$body['callBackUrl'] = $request->callBackUrl;
+        }
+
         if (null !== $request->categoryTags) {
             @$body['categoryTags'] = $request->categoryTags;
         }

@@ -16,6 +16,11 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\variable
 class CreateTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $callBackUrl;
+
+    /**
      * @var categoryTags[]
      */
     public $categoryTags;
@@ -80,6 +85,7 @@ class CreateTaskRequest extends Model
      */
     public $variables;
     protected $_name = [
+        'callBackUrl' => 'callBackUrl',
         'categoryTags' => 'categoryTags',
         'customPrompt' => 'customPrompt',
         'dialogue' => 'dialogue',
@@ -130,6 +136,10 @@ class CreateTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callBackUrl) {
+            $res['callBackUrl'] = $this->callBackUrl;
+        }
+
         if (null !== $this->categoryTags) {
             if (\is_array($this->categoryTags)) {
                 $res['categoryTags'] = [];
@@ -223,6 +233,10 @@ class CreateTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['callBackUrl'])) {
+            $model->callBackUrl = $map['callBackUrl'];
+        }
+
         if (isset($map['categoryTags'])) {
             if (!empty($map['categoryTags'])) {
                 $model->categoryTags = [];
