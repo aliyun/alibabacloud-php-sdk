@@ -11,6 +11,11 @@ class SmartqAuthorizeRequest extends Model
     /**
      * @var string
      */
+    public $cubeIds;
+
+    /**
+     * @var string
+     */
     public $expireDay;
 
     /**
@@ -33,6 +38,7 @@ class SmartqAuthorizeRequest extends Model
      */
     public $userIds;
     protected $_name = [
+        'cubeIds' => 'CubeIds',
         'expireDay' => 'ExpireDay',
         'llmCubeThemes' => 'LlmCubeThemes',
         'llmCubes' => 'LlmCubes',
@@ -48,6 +54,10 @@ class SmartqAuthorizeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cubeIds) {
+            $res['CubeIds'] = $this->cubeIds;
+        }
+
         if (null !== $this->expireDay) {
             $res['ExpireDay'] = $this->expireDay;
         }
@@ -79,6 +89,10 @@ class SmartqAuthorizeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CubeIds'])) {
+            $model->cubeIds = $map['CubeIds'];
+        }
+
         if (isset($map['ExpireDay'])) {
             $model->expireDay = $map['ExpireDay'];
         }

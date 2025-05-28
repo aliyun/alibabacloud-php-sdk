@@ -26,6 +26,11 @@ class measureList extends Model
     /**
      * @var string
      */
+    public $expressionV2;
+
+    /**
+     * @var string
+     */
     public $factColumn;
 
     /**
@@ -51,6 +56,7 @@ class measureList extends Model
         'caption' => 'Caption',
         'dataType' => 'DataType',
         'expression' => 'Expression',
+        'expressionV2' => 'ExpressionV2',
         'factColumn' => 'FactColumn',
         'fieldDescription' => 'FieldDescription',
         'measureType' => 'MeasureType',
@@ -76,6 +82,10 @@ class measureList extends Model
 
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
+        }
+
+        if (null !== $this->expressionV2) {
+            $res['ExpressionV2'] = $this->expressionV2;
         }
 
         if (null !== $this->factColumn) {
@@ -119,6 +129,10 @@ class measureList extends Model
 
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
+        }
+
+        if (isset($map['ExpressionV2'])) {
+            $model->expressionV2 = $map['ExpressionV2'];
         }
 
         if (isset($map['FactColumn'])) {

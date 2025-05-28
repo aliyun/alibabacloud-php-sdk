@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataInterpretationRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataInterpretationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSetBloodRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSetBloodResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSourceBloodRequest;
@@ -305,11 +307,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDataLevelPermissionRuleUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -387,11 +386,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDataLevelPermissionWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -466,11 +462,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddShareReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddShareReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddShareReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -492,7 +485,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * auditing.
+     * Add an organization member.
      *
      * @param request - AddUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -552,15 +545,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * auditing.
+     * Add an organization member.
      *
      * @param request - AddUserRequest
      *
@@ -578,7 +568,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Adds an organization member to a specified user group.
      *
      * @param request - AddUserGroupMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -616,15 +606,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The ID of the request.
+     * Adds an organization member to a specified user group.
      *
      * @param request - AddUserGroupMemberRequest
      *
@@ -680,11 +667,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -706,7 +690,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add the metadata of an organization member tag.
+     * Add organization member tag metadata.
      *
      * @param request - AddUserTagMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -744,15 +728,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserTagMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Add the metadata of an organization member tag.
+     * Add organization member tag metadata.
      *
      * @param request - AddUserTagMetaRequest
      *
@@ -770,7 +751,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 添加成员到指定工作空间。
+     * Add a member to the specified workspace.
      *
      * @param request - AddUserToWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -812,15 +793,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddUserToWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserToWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserToWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 添加成员到指定工作空间。
+     * Add a member to the specified workspace.
      *
      * @param request - AddUserToWorkspaceRequest
      *
@@ -838,7 +816,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 批量添加成员到工作空间。
+     * Batch add members to the workspace.
      *
      * @param request - AddWorkspaceUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -880,15 +858,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddWorkspaceUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 批量添加成员到工作空间。
+     * Batch add members to the workspace.
      *
      * @param request - AddWorkspaceUsersRequest
      *
@@ -906,7 +881,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 触发数据集抽取加速。
+     * Trigger the collection acceleration of the Quick engine for datasets.
      *
      * @param request - AllotDatasetAccelerationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -940,15 +915,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllotDatasetAccelerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllotDatasetAccelerationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllotDatasetAccelerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 触发数据集抽取加速。
+     * Trigger the collection acceleration of the Quick engine for datasets.
      *
      * @param request - AllotDatasetAccelerationTaskRequest
      *
@@ -1016,11 +988,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AuthorizeMenuResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeMenuResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeMenuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1095,11 +1064,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchAddFeishuUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchAddFeishuUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchAddFeishuUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -1124,7 +1090,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 根据门户菜单ID，取消指定用户、用户组的授权记录。
+     * Cancel the authorization records for specified users and user groups based on the portal menu ID.
      *
      * @param request - CancelAuthorizationMenuRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1170,15 +1136,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelAuthorizationMenuResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelAuthorizationMenuResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelAuthorizationMenuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 根据门户菜单ID，取消指定用户、用户组的授权记录。
+     * Cancel the authorization records for specified users and user groups based on the portal menu ID.
      *
      * @param request - CancelAuthorizationMenuRequest
      *
@@ -1234,11 +1197,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,11 +1262,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelReportShareResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelReportShareResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelReportShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1328,7 +1285,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
      *
      * @param request - ChangeVisibilityModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1370,15 +1327,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeVisibilityModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeVisibilityModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeVisibilityModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The ID of the request.
+     * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
      *
      * @param request - ChangeVisibilityModelRequest
      *
@@ -1434,11 +1388,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckReadableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckReadableResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckReadableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1460,10 +1411,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generates a ticket for third-party embedding.
+     * Generate a ticket for third-party embedding.
      *
      * @remarks
-     * For detailed usage, please refer to the [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+     * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
      *
      * @param request - CreateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1529,18 +1480,15 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Generates a ticket for third-party embedding.
+     * Generate a ticket for third-party embedding.
      *
      * @remarks
-     * For detailed usage, please refer to the [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+     * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
      *
      * @param request - CreateTicketRequest
      *
@@ -1558,7 +1506,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 生成智能小Q嵌入ticket。
+     * Generate an embedding ticket for Smart Q.
      *
      * @param request - CreateTicket4CopilotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,15 +1560,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTicket4CopilotResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTicket4CopilotResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTicket4CopilotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 生成智能小Q嵌入ticket。
+     * Generate an embedding ticket for Smart Q.
      *
      * @param request - CreateTicket4CopilotRequest
      *
@@ -1684,11 +1629,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1707,6 +1649,79 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 数据解读开放接口.
+     *
+     * @param request - DataInterpretationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DataInterpretationResponse
+     *
+     * @param DataInterpretationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DataInterpretationResponse
+     */
+    public function dataInterpretationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
+        }
+
+        if (null !== $request->modelCode) {
+            @$query['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->promptForceOverride) {
+            @$query['PromptForceOverride'] = $request->promptForceOverride;
+        }
+
+        if (null !== $request->userPrompt) {
+            @$query['UserPrompt'] = $request->userPrompt;
+        }
+
+        if (null !== $request->userQuestion) {
+            @$query['UserQuestion'] = $request->userQuestion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DataInterpretation',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DataInterpretationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 数据解读开放接口.
+     *
+     * @param request - DataInterpretationRequest
+     *
+     * @returns DataInterpretationResponse
+     *
+     * @param DataInterpretationRequest $request
+     *
+     * @return DataInterpretationResponse
+     */
+    public function dataInterpretation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dataInterpretationWithOptions($request, $runtime);
     }
 
     /**
@@ -1752,11 +1767,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DataSetBloodResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DataSetBloodResponse::fromMap($this->execute($params, $req, $runtime));
+        return DataSetBloodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1778,7 +1790,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询引用指定数据源下的数据集信息。
+     * Query dataset information under the specified data source.
      *
      * @param request - DataSourceBloodRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1812,15 +1824,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DataSourceBloodResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DataSourceBloodResponse::fromMap($this->execute($params, $req, $runtime));
+        return DataSourceBloodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询引用指定数据源下的数据集信息。
+     * Query dataset information under the specified data source.
      *
      * @param request - DataSourceBloodRequest
      *
@@ -1876,11 +1885,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DelayTicketExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DelayTicketExpireTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DelayTicketExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1939,11 +1945,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataLevelPermissionRuleUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2009,11 +2012,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataLevelRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataLevelRuleConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataLevelRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2038,7 +2038,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes a specified ticket from an embedded report.
+     * Delete Third-Party Embedded Ticket.
      *
      * @param request - DeleteTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2072,15 +2072,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes a specified ticket from an embedded report.
+     * Delete Third-Party Embedded Ticket.
      *
      * @param request - DeleteTicketRequest
      *
@@ -2098,7 +2095,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * auditing.
+     * Delete the specified organization user.
      *
      * @param request - DeleteUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2136,15 +2133,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * auditing.
+     * Delete the specified organization user.
      *
      * @param request - DeleteUserRequest
      *
@@ -2162,7 +2156,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 删除指定工作空间的成员。
+     * Delete a member from the specified workspace.
      *
      * @param request - DeleteUserFromWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2200,15 +2194,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserFromWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserFromWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserFromWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除指定工作空间的成员。
+     * Delete a member from the specified workspace.
      *
      * @param request - DeleteUserFromWorkspaceRequest
      *
@@ -2260,11 +2251,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2324,11 +2312,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2388,11 +2373,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2448,11 +2430,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserTagMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2508,11 +2487,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataSourceConnectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataSourceConnectionInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataSourceConnectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2572,11 +2548,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMailTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMailTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMailTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2598,7 +2571,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Test description.
+     * Search for user group information based on the keyword of the user group name.
      *
      * @param request - GetUserGroupInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2632,15 +2605,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserGroupInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserGroupInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserGroupInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Test description.
+     * Search for user group information based on the keyword of the user group name.
      *
      * @param request - GetUserGroupInfoRequest
      *
@@ -2708,11 +2678,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorksEmbedListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorksEmbedListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorksEmbedListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2783,11 +2750,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApiDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApiDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApiDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2846,11 +2810,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListByUserGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListByUserGroupIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListByUserGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2906,11 +2867,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCollectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2973,11 +2931,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCubeDataLevelPermissionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCubeDataLevelPermissionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCubeDataLevelPermissionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3002,7 +2957,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 根据行列权限种类，获取数据集行列权限的白名单列表。
+     * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     *
+     * @remarks
+     * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - ListDataLevelPermissionWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3040,15 +2998,15 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataLevelPermissionWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 根据行列权限种类，获取数据集行列权限的白名单列表。
+     * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     *
+     * @remarks
+     * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - ListDataLevelPermissionWhiteListRequest
      *
@@ -3104,11 +3062,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3130,7 +3085,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定用户在首页看板中展示的收藏作品列表。
+     * Overview.
      *
      * @param request - ListFavoriteReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3176,15 +3131,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFavoriteReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFavoriteReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFavoriteReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取指定用户在首页看板中展示的收藏作品列表。
+     * Overview.
      *
      * @param request - ListFavoriteReportsRequest
      *
@@ -3248,11 +3200,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListOrganizationRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationRoleUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3299,11 +3248,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListOrganizationRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3355,11 +3301,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPortalMenuAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPortalMenuAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPortalMenuAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3419,11 +3362,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPortalMenusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPortalMenusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPortalMenusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3445,7 +3385,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取首页看板常看和足迹列表。
+     * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
      *
      * @param request - ListRecentViewReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3499,15 +3439,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRecentViewReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRecentViewReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRecentViewReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取首页看板常看和足迹列表。
+     * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
      *
      * @param request - ListRecentViewReportsRequest
      *
@@ -3525,7 +3462,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定用户在首页看板中展示的被授权的作品列表。
+     * You can this operation to obtain the list of authorized works displayed on the homepage of a specified user.
      *
      * @param request - ListSharedReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3571,15 +3508,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSharedReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSharedReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSharedReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取指定用户在首页看板中展示的被授权的作品列表。
+     * You can this operation to obtain the list of authorized works displayed on the homepage of a specified user.
      *
      * @param request - ListSharedReportsRequest
      *
@@ -3597,7 +3531,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Description.
+     * Queries all user groups to which a user belongs based on the user ID.
      *
      * @param request - ListUserGroupsByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3631,15 +3565,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserGroupsByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserGroupsByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserGroupsByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Description.
+     * Queries all user groups to which a user belongs based on the user ID.
      *
      * @param request - ListUserGroupsByUserIdRequest
      *
@@ -3707,11 +3638,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspaceRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspaceRoleUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspaceRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3767,11 +3695,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspaceRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3827,11 +3752,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ManualRunMailTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ManualRunMailTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ManualRunMailTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3898,11 +3820,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApiDatasourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApiDatasourceParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApiDatasourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3927,7 +3846,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 修改智能问数嵌入配置。
+     * Modify Intelligent Query Embedding Configuration.
      *
      * @param request - ModifyCopilotEmbedConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3973,15 +3892,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCopilotEmbedConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 修改智能问数嵌入配置。
+     * Modify Intelligent Query Embedding Configuration.
      *
      * @param request - ModifyCopilotEmbedConfigRequest
      *
@@ -4045,11 +3961,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryApprovalInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryApprovalInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryApprovalInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4071,7 +3984,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询审计日志信息。
+     * Query audit log information.
      *
      * @param request - QueryAuditLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4129,15 +4042,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询审计日志信息。
+     * Query audit log information.
      *
      * @param request - QueryAuditLogRequest
      *
@@ -4213,11 +4123,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryComponentPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryComponentPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryComponentPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4239,7 +4146,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取开通小Q嵌入的配置列表。
+     * Get the List of Configurations for Activating XiaoQ Embedding.
      *
      * @param request - QueryCopilotEmbedConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4273,15 +4180,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCopilotEmbedConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取开通小Q嵌入的配置列表。
+     * Get the List of Configurations for Activating XiaoQ Embedding.
      *
      * @param request - QueryCopilotEmbedConfigRequest
      *
@@ -4333,11 +4237,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCubeOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCubeOptimizationResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCubeOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4359,7 +4260,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询数据集性能。
+     * Queries the performance logs of a dataset.
      *
      * @param request - QueryCubePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4413,15 +4314,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCubePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCubePerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCubePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询数据集性能。
+     * Queries the performance logs of a dataset.
      *
      * @param request - QueryCubePerformanceRequest
      *
@@ -4493,11 +4391,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4527,7 +4422,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取数据范围目录列表。
+     * Get Data Range Catalog List.
      *
      * @param request - QueryDataRangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4565,15 +4460,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDataRangeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDataRangeResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDataRangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取数据范围目录列表。
+     * Get Data Range Catalog List.
      *
      * @param request - QueryDataRangeRequest
      *
@@ -4644,11 +4536,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDataServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -4727,11 +4616,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDataServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDataServiceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDataServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4790,11 +4676,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDatasetDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDatasetDetailInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDatasetDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4855,11 +4738,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDatasetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDatasetInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDatasetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4937,11 +4817,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDatasetListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDatasetListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDatasetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4963,7 +4840,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查看数据集是否开通智能问数.
+     * Check if the Dataset has Enabled Smart Query.
      *
      * @param request - QueryDatasetSmartqStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4997,15 +4874,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDatasetSmartqStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDatasetSmartqStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDatasetSmartqStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看数据集是否开通智能问数.
+     * Check if the Dataset has Enabled Smart Query.
      *
      * @param request - QueryDatasetSmartqStatusRequest
      *
@@ -5057,11 +4931,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDatasetSwitchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDatasetSwitchInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDatasetSwitchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5083,7 +4954,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The number of reports that are currently embedded.
+     * Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
      *
      * @param request - QueryEmbeddedInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5108,15 +4979,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryEmbeddedInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryEmbeddedInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryEmbeddedInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The number of reports that are currently embedded.
+     * Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
      *
      * @returns QueryEmbeddedInfoResponse
      *
@@ -5164,11 +5032,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryEmbeddedStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5190,7 +5055,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查看用户有哪些数据集和分析主题的问数授权.
+     * Check which datasets and analysis themes the user has question authorization for.
      *
      * @param request - QueryLlmCubeWithThemeListByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5224,15 +5089,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看用户有哪些数据集和分析主题的问数授权.
+     * Check which datasets and analysis themes the user has question authorization for.
      *
      * @param request - QueryLlmCubeWithThemeListByUserIdRequest
      *
@@ -5250,7 +5112,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve Configuration Information for a Specified Organization Role.
+     * Gets the configuration of the specified organization role.
      *
      * @param request - QueryOrganizationRoleConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5284,15 +5146,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryOrganizationRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryOrganizationRoleConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryOrganizationRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Retrieve Configuration Information for a Specified Organization Role.
+     * Gets the configuration of the specified organization role.
      *
      * @param request - QueryOrganizationRoleConfigRequest
      *
@@ -5310,7 +5169,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取当前组织下的工作空间列表信息。
+     * Retrieve the list of workspaces under the current organization.
      *
      * @param request - QueryOrganizationWorkspaceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5356,15 +5215,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryOrganizationWorkspaceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryOrganizationWorkspaceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryOrganizationWorkspaceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取当前组织下的工作空间列表信息。
+     * Retrieve the list of workspaces under the current organization.
      *
      * @param request - QueryOrganizationWorkspaceListRequest
      *
@@ -5382,7 +5238,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The Alibaba Cloud account name of the owner.
+     * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
      *
      * @param request - QueryReadableResourcesListByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5416,15 +5272,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryReadableResourcesListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryReadableResourcesListByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryReadableResourcesListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The Alibaba Cloud account name of the owner.
+     * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
      *
      * @param request - QueryReadableResourcesListByUserIdRequest
      *
@@ -5500,11 +5353,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryReportPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryReportPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryReportPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5526,7 +5376,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Xiao Zhang.
+     * Query the list of objects to which a work has been shared, returning only the sharing configurations that are still within their validity period.
      *
      * @param request - QueryShareListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5560,15 +5410,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryShareListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryShareListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryShareListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Xiao Zhang.
+     * Query the list of objects to which a work has been shared, returning only the sharing configurations that are still within their validity period.
      *
      * @param request - QueryShareListRequest
      *
@@ -5620,11 +5467,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySharesToUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySharesToUserListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySharesToUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5646,7 +5490,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查看用户是否有某个智能问数数据集权限.
+     * Check if a user has permission for a specific smart question dataset.
      *
      * @param request - QuerySmartqPermissionByCubeIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5684,15 +5528,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySmartqPermissionByCubeIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySmartqPermissionByCubeIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySmartqPermissionByCubeIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看用户是否有某个智能问数数据集权限.
+     * Check if a user has permission for a specific smart question dataset.
      *
      * @param request - QuerySmartqPermissionByCubeIdRequest
      *
@@ -5710,7 +5551,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * auditing.
+     * Obtains the details of a specified ticket for a report that is not embedded in the report.
      *
      * @param request - QueryTicketInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5744,15 +5585,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryTicketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTicketInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTicketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * auditing.
+     * Obtains the details of a specified ticket for a report that is not embedded in the report.
      *
      * @param request - QueryTicketInfoRequest
      *
@@ -5804,11 +5642,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserGroupListByParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserGroupListByParentIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserGroupListByParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5830,7 +5665,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取用户组下的成员列表信息。
+     * Retrieve the list of members under a user group.
      *
      * @param request - QueryUserGroupMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5868,15 +5703,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取用户组下的成员列表信息。
+     * Retrieve the list of members under a user group.
      *
      * @param request - QueryUserGroupMemberRequest
      *
@@ -5932,11 +5764,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserInfoByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserInfoByAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserInfoByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5992,11 +5821,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserInfoByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserInfoByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserInfoByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6018,7 +5844,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询组织成员列表信息。
+     * Queries the members of an organization.
      *
      * @param request - QueryUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6048,15 +5874,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询组织成员列表信息。
+     * Queries the members of an organization.
      *
      * @param request - QueryUserListRequest
      *
@@ -6074,7 +5897,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定工作空间成员的预置空间角色信息。
+     * Get the preset workspace role information for a specified workspace member.
      *
      * @param request - QueryUserRoleInfoInWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6112,15 +5935,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserRoleInfoInWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserRoleInfoInWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserRoleInfoInWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取指定工作空间成员的预置空间角色信息。
+     * Get the preset workspace role information for a specified workspace member.
      *
      * @param request - QueryUserRoleInfoInWorkspaceRequest
      *
@@ -6163,11 +5983,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserTagMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserTagMetaListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserTagMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6215,11 +6032,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserTagValueListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserTagValueListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserTagValueListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6241,7 +6055,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取报表详情.
+     * Queries information about a specified data work.
      *
      * @param request - QueryWorksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6275,15 +6089,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryWorksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryWorksResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryWorksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取报表详情.
+     * Queries information about a specified data work.
      *
      * @param request - QueryWorksRequest
      *
@@ -6301,7 +6112,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * abcd****.
+     * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
      *
      * @param request - QueryWorksBloodRelationshipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6335,15 +6146,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryWorksBloodRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryWorksBloodRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryWorksBloodRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * abcd****.
+     * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
      *
      * @param request - QueryWorksBloodRelationshipRequest
      *
@@ -6361,7 +6169,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The total number of rows in the table.
+     * Query all works under the entire organization, with the option to specify the type of work.
      *
      * @param request - QueryWorksByOrganizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6411,15 +6219,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryWorksByOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryWorksByOrganizationResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryWorksByOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The total number of rows in the table.
+     * Query all works under the entire organization, with the option to specify the type of work.
      *
      * @param request - QueryWorksByOrganizationRequest
      *
@@ -6437,7 +6242,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The name of the directory.
+     * Queries all works in a workspace under an organization. You can specify the type of work.
      *
      * @param request - QueryWorksByWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6491,15 +6296,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryWorksByWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryWorksByWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryWorksByWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The name of the directory.
+     * Queries all works in a workspace under an organization. You can specify the type of work.
      *
      * @param request - QueryWorksByWorkspaceRequest
      *
@@ -6551,11 +6353,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryWorkspaceRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryWorkspaceRoleConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryWorkspaceRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6577,7 +6376,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询指定工作空间下的成员列表信息。
+     * Query the list of members under a specified workspace.
      *
      * @param request - QueryWorkspaceUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6623,15 +6422,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryWorkspaceUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryWorkspaceUserListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryWorkspaceUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询指定工作空间下的成员列表信息。
+     * Query the list of members under a specified workspace.
      *
      * @param request - QueryWorkspaceUserListRequest
      *
@@ -6691,11 +6487,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResultCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResultCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResultCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6717,7 +6510,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add the user\\"s collection data works.
+     * Add a user\\"s favorite work.
      *
      * @param request - SaveFavoritesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6755,15 +6548,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveFavoritesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveFavoritesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveFavoritesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Add the user\\"s collection data works.
+     * Add a user\\"s favorite work.
      *
      * @param request - SaveFavoritesRequest
      *
@@ -6823,11 +6613,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDataLevelPermissionExtraConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDataLevelPermissionExtraConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDataLevelPermissionExtraConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6883,11 +6670,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDataLevelPermissionRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDataLevelPermissionRuleConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDataLevelPermissionRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6946,11 +6730,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDataLevelPermissionWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6975,7 +6756,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 将指定用户的问数权限同步给其他用户.
+     * Synchronize the question count permissions of a specified user to other users.
      *
      * @param request - SmartqAuthTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7013,15 +6794,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SmartqAuthTransferResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SmartqAuthTransferResponse::fromMap($this->execute($params, $req, $runtime));
+        return SmartqAuthTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 将指定用户的问数权限同步给其他用户.
+     * Synchronize the question count permissions of a specified user to other users.
      *
      * @param request - SmartqAuthTransferRequest
      *
@@ -7039,7 +6817,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 批量管理智能问数的授权.
+     * Batch Management of Smart Q\\&A Authorizations.
+     *
+     * @remarks
+     * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
      *
      * @param request - SmartqAuthorizeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7055,6 +6836,10 @@ class Quickbipublic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cubeIds) {
+            @$query['CubeIds'] = $request->cubeIds;
+        }
+
         if (null !== $request->expireDay) {
             @$query['ExpireDay'] = $request->expireDay;
         }
@@ -7089,15 +6874,15 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SmartqAuthorizeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SmartqAuthorizeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SmartqAuthorizeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 批量管理智能问数的授权.
+     * Batch Management of Smart Q\\&A Authorizations.
+     *
+     * @remarks
+     * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
      *
      * @param request - SmartqAuthorizeRequest
      *
@@ -7115,7 +6900,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 问数能力开放.
+     * Query Capability Open.
+     *
+     * @remarks
+     * Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
      *
      * @param request - SmartqQueryAbilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7157,15 +6945,15 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SmartqQueryAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SmartqQueryAbilityResponse::fromMap($this->execute($params, $req, $runtime));
+        return SmartqQueryAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 问数能力开放.
+     * Query Capability Open.
+     *
+     * @remarks
+     * Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
      *
      * @param request - SmartqQueryAbilityRequest
      *
@@ -7232,11 +7020,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDataLevelPermissionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDataLevelPermissionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDataLevelPermissionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7265,7 +7050,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Change the embedding status of a report, turn on embedding, or turn off embedding.
      *
      * @param request - UpdateEmbeddedStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7303,15 +7088,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEmbeddedStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * The ID of the request.
+     * Change the embedding status of a report, turn on embedding, or turn off embedding.
      *
      * @param request - UpdateEmbeddedStatusRequest
      *
@@ -7329,7 +7111,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 更新三方嵌入ticket的票据数量.
+     * Update the ticket quantity on the specified ticket used for the exemption embedded report.
      *
      * @param request - UpdateTicketNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7367,15 +7149,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTicketNumResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTicketNumResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTicketNumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新三方嵌入ticket的票据数量.
+     * Update the ticket quantity on the specified ticket used for the exemption embedded report.
      *
      * @param request - UpdateTicketNumRequest
      *
@@ -7451,11 +7230,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7519,11 +7295,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7587,11 +7360,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserTagMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7655,11 +7425,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserTagValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7681,7 +7448,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 修改工作空间下指定成员的角色，已有的角色会被覆盖.
+     * Modify the role of a specified member under the workspace, existing roles will be overwritten.
      *
      * @param request - UpdateWorkspaceUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7727,15 +7494,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkspaceUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkspaceUserRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkspaceUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 修改工作空间下指定成员的角色，已有的角色会被覆盖.
+     * Modify the role of a specified member under the workspace, existing roles will be overwritten.
      *
      * @param request - UpdateWorkspaceUserRoleRequest
      *
@@ -7753,7 +7517,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 批量更新工作空间成员的角色信息，已有角色会被覆盖.
+     * Batch update the role information of workspace members, existing roles will be overwritten.
      *
      * @param request - UpdateWorkspaceUsersRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7795,15 +7559,12 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkspaceUsersRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkspaceUsersRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkspaceUsersRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 批量更新工作空间成员的角色信息，已有角色会被覆盖.
+     * Batch update the role information of workspace members, existing roles will be overwritten.
      *
      * @param request - UpdateWorkspaceUsersRoleRequest
      *
@@ -7855,11 +7616,8 @@ class Quickbipublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return WithdrawAllUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return WithdrawAllUserGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return WithdrawAllUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

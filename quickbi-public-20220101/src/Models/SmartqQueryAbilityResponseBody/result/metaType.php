@@ -16,9 +16,15 @@ class metaType extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $value;
     protected $_name = [
         'key' => 'Key',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
@@ -32,6 +38,10 @@ class metaType extends Model
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->value) {
@@ -51,6 +61,10 @@ class metaType extends Model
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['Value'])) {
