@@ -16,6 +16,11 @@ class consumeRetryPolicy extends Model
     /**
      * @var int
      */
+    public $fixedIntervalRetryTime;
+
+    /**
+     * @var int
+     */
     public $maxRetryTimes;
 
     /**
@@ -24,6 +29,7 @@ class consumeRetryPolicy extends Model
     public $retryPolicy;
     protected $_name = [
         'deadLetterTargetTopic' => 'deadLetterTargetTopic',
+        'fixedIntervalRetryTime' => 'fixedIntervalRetryTime',
         'maxRetryTimes' => 'maxRetryTimes',
         'retryPolicy' => 'retryPolicy',
     ];
@@ -38,6 +44,10 @@ class consumeRetryPolicy extends Model
         $res = [];
         if (null !== $this->deadLetterTargetTopic) {
             $res['deadLetterTargetTopic'] = $this->deadLetterTargetTopic;
+        }
+
+        if (null !== $this->fixedIntervalRetryTime) {
+            $res['fixedIntervalRetryTime'] = $this->fixedIntervalRetryTime;
         }
 
         if (null !== $this->maxRetryTimes) {
@@ -61,6 +71,10 @@ class consumeRetryPolicy extends Model
         $model = new self();
         if (isset($map['deadLetterTargetTopic'])) {
             $model->deadLetterTargetTopic = $map['deadLetterTargetTopic'];
+        }
+
+        if (isset($map['fixedIntervalRetryTime'])) {
+            $model->fixedIntervalRetryTime = $map['fixedIntervalRetryTime'];
         }
 
         if (isset($map['maxRetryTimes'])) {

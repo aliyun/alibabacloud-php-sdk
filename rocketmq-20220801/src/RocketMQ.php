@@ -195,11 +195,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -272,11 +269,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -357,11 +351,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,11 +441,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -579,11 +567,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -651,11 +636,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -734,11 +716,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -801,11 +780,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceIpWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -876,11 +852,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTopicResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -939,11 +912,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1016,11 +986,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConsumerGroupSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConsumerGroupSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConsumerGroupSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1075,11 +1042,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1130,11 +1094,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1189,11 +1150,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1249,11 +1207,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1318,11 +1273,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1395,11 +1347,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceIpWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1456,11 +1405,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTopicResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1518,11 +1464,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1586,11 +1529,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConsumerGroupLagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConsumerGroupLagResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConsumerGroupLagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1646,11 +1586,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConsumerGroupSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConsumerGroupSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConsumerGroupSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1712,11 +1649,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConsumerStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConsumerStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConsumerStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1771,11 +1705,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1826,11 +1757,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1883,11 +1811,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1949,11 +1874,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2020,11 +1942,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2093,11 +2012,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceIpWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2152,11 +2068,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMessageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMessageDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMessageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2209,11 +2122,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTopicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTopicResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2266,11 +2176,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTraceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2321,11 +2228,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAvailableZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2374,11 +2278,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConsumerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConsumerConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConsumerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2439,11 +2340,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConsumerGroupSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConsumerGroupSubscriptionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConsumerGroupSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2517,11 +2415,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConsumerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConsumerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConsumerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2599,11 +2494,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDisasterRecoveryCheckpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDisasterRecoveryCheckpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDisasterRecoveryCheckpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2678,11 +2570,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDisasterRecoveryItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDisasterRecoveryItemsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDisasterRecoveryItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2755,11 +2644,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDisasterRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDisasterRecoveryPlansResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDisasterRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2836,11 +2722,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2910,11 +2793,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2984,11 +2864,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceIpWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3082,11 +2959,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3175,11 +3049,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMessagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3245,11 +3116,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMetricMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMetricMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMetricMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3300,11 +3168,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3380,11 +3245,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3437,11 +3299,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTopicSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTopicSubscriptionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTopicSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3519,11 +3378,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTopicsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3610,11 +3466,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTracesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTracesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTracesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3683,11 +3536,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetConsumeOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetConsumeOffsetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetConsumeOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3743,11 +3593,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3799,11 +3646,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3856,11 +3700,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SyncDisasterRecoveryCheckpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncDisasterRecoveryCheckpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncDisasterRecoveryCheckpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3932,11 +3773,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4012,11 +3850,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4093,11 +3928,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4164,11 +3996,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4251,11 +4080,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4336,11 +4162,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4410,11 +4233,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4494,11 +4314,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceAclResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4566,11 +4383,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTopicResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4639,11 +4453,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return VerifyConsumeMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyConsumeMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyConsumeMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4716,11 +4527,8 @@ class RocketMQ extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return VerifySendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifySendMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifySendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
