@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\complianceMetadata;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\instanceRoleInfos;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceDocumentInfos;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceInfos;
@@ -28,6 +29,11 @@ class GetServiceResponseBody extends Model
      * @var commodity
      */
     public $commodity;
+
+    /**
+     * @var complianceMetadata
+     */
+    public $complianceMetadata;
 
     /**
      * @var string
@@ -192,6 +198,7 @@ class GetServiceResponseBody extends Model
         'alarmMetadata' => 'AlarmMetadata',
         'categories' => 'Categories',
         'commodity' => 'Commodity',
+        'complianceMetadata' => 'ComplianceMetadata',
         'deployFrom' => 'DeployFrom',
         'deployMetadata' => 'DeployMetadata',
         'deployType' => 'DeployType',
@@ -231,6 +238,9 @@ class GetServiceResponseBody extends Model
         if (null !== $this->commodity) {
             $this->commodity->validate();
         }
+        if (null !== $this->complianceMetadata) {
+            $this->complianceMetadata->validate();
+        }
         if (\is_array($this->instanceRoleInfos)) {
             Model::validateArray($this->instanceRoleInfos);
         }
@@ -262,6 +272,10 @@ class GetServiceResponseBody extends Model
 
         if (null !== $this->commodity) {
             $res['Commodity'] = null !== $this->commodity ? $this->commodity->toArray($noStream) : $this->commodity;
+        }
+
+        if (null !== $this->complianceMetadata) {
+            $res['ComplianceMetadata'] = null !== $this->complianceMetadata ? $this->complianceMetadata->toArray($noStream) : $this->complianceMetadata;
         }
 
         if (null !== $this->deployFrom) {
@@ -443,6 +457,10 @@ class GetServiceResponseBody extends Model
 
         if (isset($map['Commodity'])) {
             $model->commodity = commodity::fromMap($map['Commodity']);
+        }
+
+        if (isset($map['ComplianceMetadata'])) {
+            $model->complianceMetadata = complianceMetadata::fromMap($map['ComplianceMetadata']);
         }
 
         if (isset($map['DeployFrom'])) {
