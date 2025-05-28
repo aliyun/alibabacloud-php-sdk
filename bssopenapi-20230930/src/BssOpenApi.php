@@ -10,11 +10,23 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountPayRelationRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountPayRelationResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountPayRelationShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountTransferRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountTransferResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteReportDefinitionRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteReportDefinitionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListShrinkRequest;
@@ -55,6 +67,16 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountPayRelationReque
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountPayRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListReportDefinitionsRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListReportDefinitionsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountCreditAmountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountCreditAmountResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmountAlarmRequest;
@@ -298,6 +320,146 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 创建财务单元.
+     *
+     * @param tmpReq - CreateCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCostCenterResponse
+     *
+     * @param CreateCostCenterRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCostCenterResponse
+     */
+    public function createCostCenterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCostCenterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->costCenterEntityList) {
+            $request->costCenterEntityListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCenterEntityList, 'CostCenterEntityList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->costCenterEntityListShrink) {
+            @$query['CostCenterEntityList'] = $request->costCenterEntityListShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCostCenter',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCostCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建财务单元.
+     *
+     * @param request - CreateCostCenterRequest
+     *
+     * @returns CreateCostCenterResponse
+     *
+     * @param CreateCostCenterRequest $request
+     *
+     * @return CreateCostCenterResponse
+     */
+    public function createCostCenter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCostCenterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建资金账户付款关系.
+     *
+     * @param tmpReq - CreateFundAccountPayRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFundAccountPayRelationResponse
+     *
+     * @param CreateFundAccountPayRelationRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateFundAccountPayRelationResponse
+     */
+    public function createFundAccountPayRelationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateFundAccountPayRelationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFundAccountPayRelation',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFundAccountPayRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建资金账户付款关系.
+     *
+     * @param request - CreateFundAccountPayRelationRequest
+     *
+     * @returns CreateFundAccountPayRelationResponse
+     *
+     * @param CreateFundAccountPayRelationRequest $request
+     *
+     * @return CreateFundAccountPayRelationResponse
+     */
+    public function createFundAccountPayRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFundAccountPayRelationWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建资金账户划拨/回收.
      *
      * @param request - CreateFundAccountTransferRequest
@@ -379,6 +541,162 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 创建账单订阅.
+     *
+     * @param request - CreateReportDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReportDefinitionResponse
+     *
+     * @param CreateReportDefinitionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateReportDefinitionResponse
+     */
+    public function createReportDefinitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->beginBillingCycle) {
+            @$query['BeginBillingCycle'] = $request->beginBillingCycle;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
+        }
+
+        if (null !== $request->ossBucketOwnerAccountId) {
+            @$query['OssBucketOwnerAccountId'] = $request->ossBucketOwnerAccountId;
+        }
+
+        if (null !== $request->ossBucketPath) {
+            @$query['OssBucketPath'] = $request->ossBucketPath;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
+        }
+
+        $body = [];
+        if (null !== $request->mcProject) {
+            @$body['McProject'] = $request->mcProject;
+        }
+
+        if (null !== $request->mcTableName) {
+            @$body['McTableName'] = $request->mcTableName;
+        }
+
+        if (null !== $request->reportSourceType) {
+            @$body['ReportSourceType'] = $request->reportSourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateReportDefinition',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateReportDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建账单订阅.
+     *
+     * @param request - CreateReportDefinitionRequest
+     *
+     * @returns CreateReportDefinitionResponse
+     *
+     * @param CreateReportDefinitionRequest $request
+     *
+     * @return CreateReportDefinitionResponse
+     */
+    public function createReportDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createReportDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除财务单元.
+     *
+     * @param request - DeleteCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCostCenterResponse
+     *
+     * @param DeleteCostCenterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCostCenterResponse
+     */
+    public function deleteCostCenterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->costCenterId) {
+            @$query['CostCenterId'] = $request->costCenterId;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCostCenter',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCostCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除财务单元.
+     *
+     * @param request - DeleteCostCenterRequest
+     *
+     * @returns DeleteCostCenterResponse
+     *
+     * @param DeleteCostCenterRequest $request
+     *
+     * @return DeleteCostCenterResponse
+     */
+    public function deleteCostCenter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCostCenterWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除优惠券的抵扣标签.
      *
      * @param tmpReq - DeleteCouponDeductTagRequest
@@ -455,6 +773,67 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCouponDeductTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消账单订阅.
+     *
+     * @param request - DeleteReportDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteReportDefinitionResponse
+     *
+     * @param DeleteReportDefinitionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteReportDefinitionResponse
+     */
+    public function deleteReportDefinitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->reportTaskId) {
+            @$query['ReportTaskId'] = $request->reportTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteReportDefinition',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteReportDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消账单订阅.
+     *
+     * @param request - DeleteReportDefinitionRequest
+     *
+     * @returns DeleteReportDefinitionResponse
+     *
+     * @param DeleteReportDefinitionRequest $request
+     *
+     * @return DeleteReportDefinitionResponse
+     */
+    public function deleteReportDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteReportDefinitionWithOptions($request, $runtime);
     }
 
     /**
@@ -1541,6 +1920,292 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFundAccountPayRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看已订阅的报告列表.
+     *
+     * @param request - ListReportDefinitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListReportDefinitionsResponse
+     *
+     * @param ListReportDefinitionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListReportDefinitionsResponse
+     */
+    public function listReportDefinitionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListReportDefinitions',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListReportDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看已订阅的报告列表.
+     *
+     * @param request - ListReportDefinitionsRequest
+     *
+     * @returns ListReportDefinitionsResponse
+     *
+     * @param ListReportDefinitionsRequest $request
+     *
+     * @return ListReportDefinitionsResponse
+     */
+    public function listReportDefinitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listReportDefinitionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改财务单元.
+     *
+     * @param tmpReq - ModifyCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCostCenterResponse
+     *
+     * @param ModifyCostCenterRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyCostCenterResponse
+     */
+    public function modifyCostCenterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyCostCenterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->costCenterEntityList) {
+            $request->costCenterEntityListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCenterEntityList, 'CostCenterEntityList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->costCenterEntityListShrink) {
+            @$query['CostCenterEntityList'] = $request->costCenterEntityListShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCostCenter',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCostCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改财务单元.
+     *
+     * @param request - ModifyCostCenterRequest
+     *
+     * @returns ModifyCostCenterResponse
+     *
+     * @param ModifyCostCenterRequest $request
+     *
+     * @return ModifyCostCenterResponse
+     */
+    public function modifyCostCenter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCostCenterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询财务单元.
+     *
+     * @param tmpReq - QueryCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostCenterResponse
+     *
+     * @param QueryCostCenterRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryCostCenterResponse
+     */
+    public function queryCostCenterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryCostCenterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->parentCostCenterId) {
+            @$query['ParentCostCenterId'] = $request->parentCostCenterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCostCenter',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCostCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询财务单元.
+     *
+     * @param request - QueryCostCenterRequest
+     *
+     * @returns QueryCostCenterResponse
+     *
+     * @param QueryCostCenterRequest $request
+     *
+     * @return QueryCostCenterResponse
+     */
+    public function queryCostCenter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCostCenterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询财务单元下资源信息.
+     *
+     * @param request - QueryCostCenterResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostCenterResourceResponse
+     *
+     * @param QueryCostCenterResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCostCenterResourceResponse
+     */
+    public function queryCostCenterResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $body = [];
+        if (null !== $request->costCenterId) {
+            @$body['CostCenterId'] = $request->costCenterId;
+        }
+
+        if (null !== $request->ownerAccountId) {
+            @$body['OwnerAccountId'] = $request->ownerAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCostCenterResource',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCostCenterResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询财务单元下资源信息.
+     *
+     * @param request - QueryCostCenterResourceRequest
+     *
+     * @returns QueryCostCenterResourceResponse
+     *
+     * @param QueryCostCenterResourceRequest $request
+     *
+     * @return QueryCostCenterResourceResponse
+     */
+    public function queryCostCenterResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCostCenterResourceWithOptions($request, $runtime);
     }
 
     /**
