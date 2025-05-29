@@ -24,6 +24,11 @@ class data extends Model
     public $createdAt;
 
     /**
+     * @var string
+     */
+    public $customerClassification;
+
+    /**
      * @var float
      */
     public $deductedAmountByCoupons;
@@ -91,6 +96,7 @@ class data extends Model
         'amountDiscount' => 'AmountDiscount',
         'amountDue' => 'AmountDue',
         'createdAt' => 'CreatedAt',
+        'customerClassification' => 'CustomerClassification',
         'deductedAmountByCoupons' => 'DeductedAmountByCoupons',
         'discountedPrice' => 'DiscountedPrice',
         'orderId' => 'OrderId',
@@ -124,6 +130,10 @@ class data extends Model
 
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->customerClassification) {
+            $res['CustomerClassification'] = $this->customerClassification;
         }
 
         if (null !== $this->deductedAmountByCoupons) {
@@ -199,6 +209,10 @@ class data extends Model
 
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
+        }
+
+        if (isset($map['CustomerClassification'])) {
+            $model->customerClassification = $map['CustomerClassification'];
         }
 
         if (isset($map['DeductedAmountByCoupons'])) {
