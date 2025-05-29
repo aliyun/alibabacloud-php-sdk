@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\BatchResumeVsStreamResponseBody\resumeResult\resumeResultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class channels extends Model
 {
@@ -16,29 +16,45 @@ class channels extends Model
         'channel' => 'Channel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->channel)) {
+            Model::validateArray($this->channel);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channel) {
-            $res['Channel'] = $this->channel;
+            if (\is_array($this->channel)) {
+                $res['Channel'] = [];
+                $n1 = 0;
+                foreach ($this->channel as $item1) {
+                    $res['Channel'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return channels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channel'])) {
             if (!empty($map['Channel'])) {
-                $model->channel = $map['Channel'];
+                $model->channel = [];
+                $n1 = 0;
+                foreach ($map['Channel'] as $item1) {
+                    $model->channel[$n1++] = $item1;
+                }
             }
         }
 

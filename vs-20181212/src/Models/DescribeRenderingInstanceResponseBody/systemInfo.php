@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemInfo extends Model
 {
     /**
-     * @example 60
-     *
      * @var int
      */
     public $frequency;
 
     /**
-     * @example 1920*1080
-     *
      * @var string
      */
     public $resolution;
@@ -26,14 +22,18 @@ class systemInfo extends Model
         'resolution' => 'Resolution',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
         }
+
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
         }
@@ -41,17 +41,18 @@ class systemInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
         }
+
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
         }

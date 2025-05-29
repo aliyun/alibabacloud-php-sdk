@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\ManageLoginResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class loginInfo extends Model
 {
@@ -14,15 +14,11 @@ class loginInfo extends Model
     public $adbLoginPort;
 
     /**
-     * @example 12.10.4.10
-     *
      * @var string
      */
     public $loginHostname;
 
     /**
-     * @example 10004
-     *
      * @var int
      */
     public $loginPort;
@@ -32,17 +28,22 @@ class loginInfo extends Model
         'loginPort' => 'LoginPort',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adbLoginPort) {
             $res['AdbLoginPort'] = $this->adbLoginPort;
         }
+
         if (null !== $this->loginHostname) {
             $res['LoginHostname'] = $this->loginHostname;
         }
+
         if (null !== $this->loginPort) {
             $res['LoginPort'] = $this->loginPort;
         }
@@ -50,20 +51,22 @@ class loginInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loginInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdbLoginPort'])) {
             $model->adbLoginPort = $map['AdbLoginPort'];
         }
+
         if (isset($map['LoginHostname'])) {
             $model->loginHostname = $map['LoginHostname'];
         }
+
         if (isset($map['LoginPort'])) {
             $model->loginPort = $map['LoginPort'];
         }

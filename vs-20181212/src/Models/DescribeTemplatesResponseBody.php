@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplatesResponseBody\templates;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTemplatesResponseBody extends Model
 {
     /**
-     * @example 5
-     *
      * @var int
      */
     public $pageCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example F3F88C96-CA6E-573E-B8F7-5BE83A1A0BCF
-     *
      * @var string
      */
     public $requestId;
@@ -43,8 +35,6 @@ class DescribeTemplatesResponseBody extends Model
     public $templates;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -57,32 +47,43 @@ class DescribeTemplatesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->templates)) {
+            Model::validateArray($this->templates);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templates) {
-            $res['Templates'] = [];
-            if (null !== $this->templates && \is_array($this->templates)) {
-                $n = 0;
-                foreach ($this->templates as $item) {
-                    $res['Templates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templates)) {
+                $res['Templates'] = [];
+                $n1 = 0;
+                foreach ($this->templates as $item1) {
+                    $res['Templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,35 +91,40 @@ class DescribeTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n = 0;
-                foreach ($map['Templates'] as $item) {
-                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Templates'] as $item1) {
+                    $model->templates[$n1++] = templates::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

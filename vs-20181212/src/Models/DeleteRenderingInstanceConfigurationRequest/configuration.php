@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configuration extends Model
 {
@@ -14,10 +14,6 @@ class configuration extends Model
     public $attributeNames;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example location
-     *
      * @var string
      */
     public $moduleName;
@@ -26,14 +22,27 @@ class configuration extends Model
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attributeNames)) {
+            Model::validateArray($this->attributeNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeNames) {
-            $res['AttributeNames'] = $this->attributeNames;
+            if (\is_array($this->attributeNames)) {
+                $res['AttributeNames'] = [];
+                $n1 = 0;
+                foreach ($this->attributeNames as $item1) {
+                    $res['AttributeNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -41,19 +50,24 @@ class configuration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configuration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeNames'])) {
             if (!empty($map['AttributeNames'])) {
-                $model->attributeNames = $map['AttributeNames'];
+                $model->attributeNames = [];
+                $n1 = 0;
+                foreach ($map['AttributeNames'] as $item1) {
+                    $model->attributeNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

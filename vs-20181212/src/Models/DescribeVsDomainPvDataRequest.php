@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVsDomainPvDataRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example 2021-10-15T15:59:59Z
-     *
      * @var string
      */
     public $endTime;
@@ -30,8 +24,6 @@ class DescribeVsDomainPvDataRequest extends Model
     public $ownerId;
 
     /**
-     * @example 2021-10-10T17:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -42,20 +34,26 @@ class DescribeVsDomainPvDataRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -63,23 +61,26 @@ class DescribeVsDomainPvDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVsDomainPvDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

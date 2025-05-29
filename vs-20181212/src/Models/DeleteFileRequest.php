@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example f-167131acd45omat771813f7141d28db2f7
-     *
      * @var string
      */
     public $fileId;
@@ -20,9 +16,12 @@ class DeleteFileRequest extends Model
         'fileId' => 'FileId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
@@ -32,11 +31,11 @@ class DeleteFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

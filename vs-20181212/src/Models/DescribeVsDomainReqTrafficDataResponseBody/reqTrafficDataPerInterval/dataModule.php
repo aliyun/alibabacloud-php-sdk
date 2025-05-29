@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainReqTrafficDataResponseBody\reqTrafficDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @example 10000
-     *
      * @var string
      */
     public $reqTrafficValue;
 
     /**
-     * @example 2021-09-22T03:40:41Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -26,14 +22,18 @@ class dataModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reqTrafficValue) {
             $res['ReqTrafficValue'] = $this->reqTrafficValue;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -41,17 +41,18 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReqTrafficValue'])) {
             $model->reqTrafficValue = $map['ReqTrafficValue'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

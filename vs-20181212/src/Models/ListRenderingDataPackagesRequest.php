@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRenderingDataPackagesRequest extends Model
 {
@@ -14,36 +14,26 @@ class ListRenderingDataPackagesRequest extends Model
     public $category;
 
     /**
-     * @example dp-449ea3d16c0841b8bf33ec5bbc86a152
-     *
      * @var string
      */
     public $dataPackageId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @example available
-     *
      * @var string
      */
     public $status;
@@ -56,26 +46,34 @@ class ListRenderingDataPackagesRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->dataPackageId) {
             $res['DataPackageId'] = $this->dataPackageId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -83,29 +81,34 @@ class ListRenderingDataPackagesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRenderingDataPackagesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['DataPackageId'])) {
             $model->dataPackageId = $map['DataPackageId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

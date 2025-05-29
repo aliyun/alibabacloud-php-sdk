@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainRecordDataResponseBody\recordDataPerInterval;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVsDomainRecordDataResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeVsDomainRecordDataResponseBody extends Model
     public $recordDataPerInterval;
 
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class DescribeVsDomainRecordDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->recordDataPerInterval) {
+            $this->recordDataPerInterval->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordDataPerInterval) {
-            $res['RecordDataPerInterval'] = null !== $this->recordDataPerInterval ? $this->recordDataPerInterval->toMap() : null;
+            $res['RecordDataPerInterval'] = null !== $this->recordDataPerInterval ? $this->recordDataPerInterval->toArray($noStream) : $this->recordDataPerInterval;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeVsDomainRecordDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVsDomainRecordDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordDataPerInterval'])) {
             $model->recordDataPerInterval = recordDataPerInterval::fromMap($map['RecordDataPerInterval']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

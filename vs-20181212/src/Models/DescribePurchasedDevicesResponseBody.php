@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribePurchasedDevicesResponseBody\devices;
-use AlibabaCloud\Tea\Model;
 
 class DescribePurchasedDevicesResponseBody extends Model
 {
@@ -15,36 +15,26 @@ class DescribePurchasedDevicesResponseBody extends Model
     public $devices;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageCount;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -57,32 +47,43 @@ class DescribePurchasedDevicesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->devices)) {
+            Model::validateArray($this->devices);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->devices) {
-            $res['Devices'] = [];
-            if (null !== $this->devices && \is_array($this->devices)) {
-                $n = 0;
-                foreach ($this->devices as $item) {
-                    $res['Devices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->devices)) {
+                $res['Devices'] = [];
+                $n1 = 0;
+                foreach ($this->devices as $item1) {
+                    $res['Devices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,35 +91,40 @@ class DescribePurchasedDevicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePurchasedDevicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
-                $n = 0;
-                foreach ($map['Devices'] as $item) {
-                    $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Devices'] as $item1) {
+                    $model->devices[$n1++] = devices::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

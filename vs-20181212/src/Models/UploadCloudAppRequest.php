@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadCloudAppRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example com.aaa.bbb
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1.1.1
-     *
      * @var string
      */
     public $appVersion;
@@ -32,19 +24,11 @@ class UploadCloudAppRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example https://xxx.xxx.xxx.apk
-     *
      * @var string
      */
     public $downloadUrl;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0CFBB7BD10CDD7279642ADAB8FEF3DEE
-     *
      * @var string
      */
     public $md5;
@@ -56,23 +40,30 @@ class UploadCloudAppRequest extends Model
         'md5' => 'Md5',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->downloadUrl) {
             $res['DownloadUrl'] = $this->downloadUrl;
         }
+
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
@@ -80,26 +71,30 @@ class UploadCloudAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadCloudAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DownloadUrl'])) {
             $model->downloadUrl = $map['DownloadUrl'];
         }
+
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }

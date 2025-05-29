@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDirectoryRequest extends Model
 {
@@ -14,10 +14,6 @@ class ModifyDirectoryRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 399*****488-cn-qingdao
-     *
      * @var string
      */
     public $id;
@@ -38,20 +34,26 @@ class ModifyDirectoryRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -59,23 +61,26 @@ class ModifyDirectoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDirectoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

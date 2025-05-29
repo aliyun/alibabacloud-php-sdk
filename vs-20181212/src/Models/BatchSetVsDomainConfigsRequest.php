@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchSetVsDomainConfigsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domainNames;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example [{“functionArgs”:[{“argName”:”domain_name”,”argValue”:”api.hellodtworld.com”}],”functionName”:”set_req_host_header”}]
-     *
      * @var string
      */
     public $functions;
@@ -36,17 +28,22 @@ class BatchSetVsDomainConfigsRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
+
         if (null !== $this->functions) {
             $res['Functions'] = $this->functions;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -54,20 +51,22 @@ class BatchSetVsDomainConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchSetVsDomainConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
+
         if (isset($map['Functions'])) {
             $model->functions = $map['Functions'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

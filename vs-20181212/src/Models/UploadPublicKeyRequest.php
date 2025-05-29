@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadPublicKeyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example verify_dffeb6610035dcb77b413a59c3*****
-     *
      * @var string
      */
     public $content;
@@ -23,17 +19,11 @@ class UploadPublicKeyRequest extends Model
     public $description;
 
     /**
-     * @example g-test
-     *
      * @var string
      */
     public $keyGroup;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example mykey-v1.0
-     *
      * @var string
      */
     public $keyName;
@@ -50,23 +40,30 @@ class UploadPublicKeyRequest extends Model
         'keyType' => 'KeyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->keyGroup) {
             $res['KeyGroup'] = $this->keyGroup;
         }
+
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
         }
+
         if (null !== $this->keyType) {
             $res['KeyType'] = $this->keyType;
         }
@@ -74,26 +71,30 @@ class UploadPublicKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadPublicKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['KeyGroup'])) {
             $model->keyGroup = $map['KeyGroup'];
         }
+
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
         }
+
         if (isset($map['KeyType'])) {
             $model->keyType = $map['KeyType'];
         }

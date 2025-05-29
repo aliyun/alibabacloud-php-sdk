@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecoverRenderingDataPackageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example dp-449ea3d16c0841b8bf33ec5bbc86a152
-     *
      * @var string
      */
     public $dataPackageId;
@@ -23,10 +19,6 @@ class RecoverRenderingDataPackageRequest extends Model
     public $loadMode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example render-9f8c57355d224ad7beaf95e145f22111
-     *
      * @var string
      */
     public $renderingInstanceId;
@@ -36,17 +28,22 @@ class RecoverRenderingDataPackageRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPackageId) {
             $res['DataPackageId'] = $this->dataPackageId;
         }
+
         if (null !== $this->loadMode) {
             $res['LoadMode'] = $this->loadMode;
         }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -54,20 +51,22 @@ class RecoverRenderingDataPackageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecoverRenderingDataPackageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPackageId'])) {
             $model->dataPackageId = $map['DataPackageId'];
         }
+
         if (isset($map['LoadMode'])) {
             $model->loadMode = $map['LoadMode'];
         }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

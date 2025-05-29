@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseRenderingInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example render-9f8c57355d224ad7beaf95e145f22111
-     *
      * @var string
      */
     public $renderingInstanceId;
@@ -20,9 +16,12 @@ class ReleaseRenderingInstanceRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->renderingInstanceId) {
@@ -32,11 +31,11 @@ class ReleaseRenderingInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseRenderingInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

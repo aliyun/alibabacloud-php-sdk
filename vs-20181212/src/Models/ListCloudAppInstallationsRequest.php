@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCloudAppInstallationsRequest extends Model
 {
     /**
-     * @example cap-b06b26edfhytbn b94a75ae1a79efc90eb
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example com.aaa.bbb
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example 1.0
-     *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example render-9f8c57355d224ad7beaf95e145f22111
-     *
      * @var string
      */
     public $renderingInstanceId;
@@ -58,26 +46,34 @@ class ListCloudAppInstallationsRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -85,29 +81,34 @@ class ListCloudAppInstallationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCloudAppInstallationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

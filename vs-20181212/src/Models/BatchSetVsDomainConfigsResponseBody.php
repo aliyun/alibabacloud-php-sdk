@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchSetVsDomainConfigsResponseBody extends Model
 {
     /**
-     * @example 9BEC5E85-C76B-56EF-A922-860EFDB8B64B
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class BatchSetVsDomainConfigsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class BatchSetVsDomainConfigsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchSetVsDomainConfigsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

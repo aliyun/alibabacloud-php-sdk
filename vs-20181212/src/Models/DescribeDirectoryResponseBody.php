@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDirectoryResponseBody extends Model
 {
     /**
-     * @example 2021-09-10T10:00:00Z
-     *
      * @var string
      */
     public $createdTime;
@@ -21,15 +19,11 @@ class DescribeDirectoryResponseBody extends Model
     public $description;
 
     /**
-     * @example 348*****174-cn-qingdao
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @example 399*****488-cn-qingdao
-     *
      * @var string
      */
     public $id;
@@ -40,15 +34,11 @@ class DescribeDirectoryResponseBody extends Model
     public $name;
 
     /**
-     * @example 399*****774-cn-qingdao
-     *
      * @var string
      */
     public $parentId;
 
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
@@ -62,29 +52,38 @@ class DescribeDirectoryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -92,32 +91,38 @@ class DescribeDirectoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDirectoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

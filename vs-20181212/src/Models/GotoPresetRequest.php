@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GotoPresetRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 348*****380-cn-qingdao
-     *
      * @var string
      */
     public $id;
@@ -23,10 +19,6 @@ class GotoPresetRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $presetId;
@@ -36,17 +28,22 @@ class GotoPresetRequest extends Model
         'presetId' => 'PresetId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->presetId) {
             $res['PresetId'] = $this->presetId;
         }
@@ -54,20 +51,22 @@ class GotoPresetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GotoPresetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PresetId'])) {
             $model->presetId = $map['PresetId'];
         }

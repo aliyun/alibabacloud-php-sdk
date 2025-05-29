@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseRenderingDataPackageResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example 5BEF36E7-3838-5B92-BA32-87DBF1425ABC
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ReleaseRenderingDataPackageResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ReleaseRenderingDataPackageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseRenderingDataPackageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

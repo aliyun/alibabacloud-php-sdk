@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceSettingsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class settings extends Model
 {
     /**
-     * @example navbar.hide
-     *
      * @var string
      */
     public $attributeName;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $attributeValue;
@@ -26,14 +22,18 @@ class settings extends Model
         'attributeValue' => 'AttributeValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeName) {
             $res['AttributeName'] = $this->attributeName;
         }
+
         if (null !== $this->attributeValue) {
             $res['AttributeValue'] = $this->attributeValue;
         }
@@ -41,17 +41,18 @@ class settings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return settings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeName'])) {
             $model->attributeName = $map['AttributeName'];
         }
+
         if (isset($map['AttributeValue'])) {
             $model->attributeValue = $map['AttributeValue'];
         }

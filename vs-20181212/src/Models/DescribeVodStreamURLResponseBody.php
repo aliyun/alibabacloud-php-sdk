@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVodStreamURLResponseBody extends Model
 {
     /**
-     * @example rtsp
-     *
      * @var string
      */
     public $outProtocol;
 
     /**
-     * @example 8080
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example rtsp://domain/live/stream?sign=xxxxxx
-     *
      * @var string
      */
     public $url;
@@ -42,20 +34,26 @@ class DescribeVodStreamURLResponseBody extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outProtocol) {
             $res['OutProtocol'] = $this->outProtocol;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -63,23 +61,26 @@ class DescribeVodStreamURLResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodStreamURLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OutProtocol'])) {
             $model->outProtocol = $map['OutProtocol'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

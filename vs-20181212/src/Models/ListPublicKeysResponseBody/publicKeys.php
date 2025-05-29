@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class publicKeys extends Model
 {
     /**
-     * @example verify_30d89ccb0905c8c7882c1d14a991954b
-     *
      * @var string
      */
     public $content;
@@ -21,15 +19,11 @@ class publicKeys extends Model
     public $description;
 
     /**
-     * @example mygroup
-     *
      * @var string
      */
     public $keyGroup;
 
     /**
-     * @example mykey
-     *
      * @var string
      */
     public $keyName;
@@ -40,8 +34,6 @@ class publicKeys extends Model
     public $keyType;
 
     /**
-     * @example 2024-06-11T14:26:48+08:00
-     *
      * @var string
      */
     public $uploadTime;
@@ -54,26 +46,34 @@ class publicKeys extends Model
         'uploadTime' => 'UploadTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->keyGroup) {
             $res['KeyGroup'] = $this->keyGroup;
         }
+
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
         }
+
         if (null !== $this->keyType) {
             $res['KeyType'] = $this->keyType;
         }
+
         if (null !== $this->uploadTime) {
             $res['UploadTime'] = $this->uploadTime;
         }
@@ -81,29 +81,34 @@ class publicKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return publicKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['KeyGroup'])) {
             $model->keyGroup = $map['KeyGroup'];
         }
+
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
         }
+
         if (isset($map['KeyType'])) {
             $model->keyType = $map['KeyType'];
         }
+
         if (isset($map['UploadTime'])) {
             $model->uploadTime = $map['UploadTime'];
         }

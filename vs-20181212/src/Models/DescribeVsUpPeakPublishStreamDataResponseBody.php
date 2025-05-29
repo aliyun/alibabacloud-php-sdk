@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUpPeakPublishStreamDataResponseBody\describeVsUpPeakPublishStreamDatas;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
     public $describeVsUpPeakPublishStreamDatas;
 
     /**
-     * @example 27A3C548-A699-48F9-97CD-F35D81075AF3
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->describeVsUpPeakPublishStreamDatas) {
+            $this->describeVsUpPeakPublishStreamDatas->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->describeVsUpPeakPublishStreamDatas) {
-            $res['DescribeVsUpPeakPublishStreamDatas'] = null !== $this->describeVsUpPeakPublishStreamDatas ? $this->describeVsUpPeakPublishStreamDatas->toMap() : null;
+            $res['DescribeVsUpPeakPublishStreamDatas'] = null !== $this->describeVsUpPeakPublishStreamDatas ? $this->describeVsUpPeakPublishStreamDatas->toArray($noStream) : $this->describeVsUpPeakPublishStreamDatas;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeVsUpPeakPublishStreamDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVsUpPeakPublishStreamDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DescribeVsUpPeakPublishStreamDatas'])) {
             $model->describeVsUpPeakPublishStreamDatas = describeVsUpPeakPublishStreamDatas::fromMap($map['DescribeVsUpPeakPublishStreamDatas']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopRecordStreamRequest extends Model
 {
     /**
-     * @example live
-     *
      * @var string
      */
     public $app;
 
     /**
-     * @example 323*****997-cn-qingdao
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -35,8 +29,6 @@ class StopRecordStreamRequest extends Model
     public $ownerId;
 
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $playDomain;
@@ -48,23 +40,30 @@ class StopRecordStreamRequest extends Model
         'playDomain' => 'PlayDomain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->app) {
             $res['App'] = $this->app;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->playDomain) {
             $res['PlayDomain'] = $this->playDomain;
         }
@@ -72,26 +71,30 @@ class StopRecordStreamRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopRecordStreamRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['App'])) {
             $model->app = $map['App'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PlayDomain'])) {
             $model->playDomain = $map['PlayDomain'];
         }

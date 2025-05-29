@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCloudAppRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cap-b06b26edfhytbn b94a75ae1a79efc90eb
-     *
      * @var string
      */
     public $appId;
@@ -20,9 +16,12 @@ class DeleteCloudAppRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -32,11 +31,11 @@ class DeleteCloudAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCloudAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
