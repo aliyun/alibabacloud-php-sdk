@@ -47,6 +47,11 @@ class artifacts extends Model
     /**
      * @var string
      */
+    public $permissionType;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -66,6 +71,7 @@ class artifacts extends Model
         'gmtModified' => 'GmtModified',
         'maxVersion' => 'MaxVersion',
         'name' => 'Name',
+        'permissionType' => 'PermissionType',
         'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -108,6 +114,10 @@ class artifacts extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->permissionType) {
+            $res['PermissionType'] = $this->permissionType;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -165,6 +175,10 @@ class artifacts extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PermissionType'])) {
+            $model->permissionType = $map['PermissionType'];
         }
 
         if (isset($map['ResourceGroupId'])) {
