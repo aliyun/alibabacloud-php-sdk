@@ -14,6 +14,11 @@ class TextEmbeddingShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $dimension;
+
+    /**
      * @var string
      */
     public $inputShrink;
@@ -34,6 +39,7 @@ class TextEmbeddingShrinkRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'dimension' => 'Dimension',
         'inputShrink' => 'Input',
         'model' => 'Model',
         'ownerId' => 'OwnerId',
@@ -50,6 +56,10 @@ class TextEmbeddingShrinkRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
         }
 
         if (null !== $this->inputShrink) {
@@ -81,6 +91,10 @@ class TextEmbeddingShrinkRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
         }
 
         if (isset($map['Input'])) {

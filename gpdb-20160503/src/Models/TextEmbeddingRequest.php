@@ -14,6 +14,11 @@ class TextEmbeddingRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $dimension;
+
+    /**
      * @var string[]
      */
     public $input;
@@ -34,6 +39,7 @@ class TextEmbeddingRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'dimension' => 'Dimension',
         'input' => 'Input',
         'model' => 'Model',
         'ownerId' => 'OwnerId',
@@ -53,6 +59,10 @@ class TextEmbeddingRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
         }
 
         if (null !== $this->input) {
@@ -90,6 +100,10 @@ class TextEmbeddingRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
         }
 
         if (isset($map['Input'])) {

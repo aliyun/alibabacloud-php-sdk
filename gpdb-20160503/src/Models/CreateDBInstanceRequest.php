@@ -23,6 +23,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $cacheStorageSize;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -237,6 +242,7 @@ class CreateDBInstanceRequest extends Model
     protected $_name = [
         'AINodeSpecInfos' => 'AINodeSpecInfos',
         'backupId' => 'BackupId',
+        'cacheStorageSize' => 'CacheStorageSize',
         'clientToken' => 'ClientToken',
         'createSampleData' => 'CreateSampleData',
         'DBInstanceCategory' => 'DBInstanceCategory',
@@ -308,6 +314,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+
+        if (null !== $this->cacheStorageSize) {
+            $res['CacheStorageSize'] = $this->cacheStorageSize;
         }
 
         if (null !== $this->clientToken) {
@@ -511,6 +521,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
+        }
+
+        if (isset($map['CacheStorageSize'])) {
+            $model->cacheStorageSize = $map['CacheStorageSize'];
         }
 
         if (isset($map['ClientToken'])) {

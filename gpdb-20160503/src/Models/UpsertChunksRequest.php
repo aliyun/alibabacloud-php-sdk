@@ -45,6 +45,11 @@ class UpsertChunksRequest extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $shouldReplaceFile;
+
+    /**
      * @var textChunks[]
      */
     public $textChunks;
@@ -56,6 +61,7 @@ class UpsertChunksRequest extends Model
         'namespacePassword' => 'NamespacePassword',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
+        'shouldReplaceFile' => 'ShouldReplaceFile',
         'textChunks' => 'TextChunks',
     ];
 
@@ -96,6 +102,10 @@ class UpsertChunksRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->shouldReplaceFile) {
+            $res['ShouldReplaceFile'] = $this->shouldReplaceFile;
         }
 
         if (null !== $this->textChunks) {
@@ -145,6 +155,10 @@ class UpsertChunksRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ShouldReplaceFile'])) {
+            $model->shouldReplaceFile = $map['ShouldReplaceFile'];
         }
 
         if (isset($map['TextChunks'])) {

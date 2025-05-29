@@ -104,6 +104,11 @@ class QueryContentShrinkRequest extends Model
     public $topK;
 
     /**
+     * @var string
+     */
+    public $urlExpiration;
+
+    /**
      * @var bool
      */
     public $useFullTextRetrieval;
@@ -127,6 +132,7 @@ class QueryContentShrinkRequest extends Model
         'regionId' => 'RegionId',
         'rerankFactor' => 'RerankFactor',
         'topK' => 'TopK',
+        'urlExpiration' => 'UrlExpiration',
         'useFullTextRetrieval' => 'UseFullTextRetrieval',
     ];
 
@@ -212,6 +218,10 @@ class QueryContentShrinkRequest extends Model
 
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
+        }
+
+        if (null !== $this->urlExpiration) {
+            $res['UrlExpiration'] = $this->urlExpiration;
         }
 
         if (null !== $this->useFullTextRetrieval) {
@@ -303,6 +313,10 @@ class QueryContentShrinkRequest extends Model
 
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];
+        }
+
+        if (isset($map['UrlExpiration'])) {
+            $model->urlExpiration = $map['UrlExpiration'];
         }
 
         if (isset($map['UseFullTextRetrieval'])) {

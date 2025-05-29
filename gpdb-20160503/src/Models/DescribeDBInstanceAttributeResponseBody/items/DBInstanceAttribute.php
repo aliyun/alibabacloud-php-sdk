@@ -17,6 +17,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $cacheStorageSize;
+
+    /**
+     * @var string
+     */
     public $connectionMode;
 
     /**
@@ -345,6 +350,7 @@ class DBInstanceAttribute extends Model
     public $zoneId;
     protected $_name = [
         'availabilityValue' => 'AvailabilityValue',
+        'cacheStorageSize' => 'CacheStorageSize',
         'connectionMode' => 'ConnectionMode',
         'connectionString' => 'ConnectionString',
         'coreVersion' => 'CoreVersion',
@@ -426,6 +432,10 @@ class DBInstanceAttribute extends Model
         $res = [];
         if (null !== $this->availabilityValue) {
             $res['AvailabilityValue'] = $this->availabilityValue;
+        }
+
+        if (null !== $this->cacheStorageSize) {
+            $res['CacheStorageSize'] = $this->cacheStorageSize;
         }
 
         if (null !== $this->connectionMode) {
@@ -705,6 +715,10 @@ class DBInstanceAttribute extends Model
         $model = new self();
         if (isset($map['AvailabilityValue'])) {
             $model->availabilityValue = $map['AvailabilityValue'];
+        }
+
+        if (isset($map['CacheStorageSize'])) {
+            $model->cacheStorageSize = $map['CacheStorageSize'];
         }
 
         if (isset($map['ConnectionMode'])) {

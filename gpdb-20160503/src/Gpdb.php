@@ -1572,6 +1572,10 @@ class Gpdb extends OpenApiClient
             @$query['BackupId'] = $request->backupId;
         }
 
+        if (null !== $request->cacheStorageSize) {
+            @$query['CacheStorageSize'] = $request->cacheStorageSize;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -14659,6 +14663,10 @@ class Gpdb extends OpenApiClient
             @$query['TopK'] = $request->topK;
         }
 
+        if (null !== $request->urlExpiration) {
+            @$query['UrlExpiration'] = $request->urlExpiration;
+        }
+
         if (null !== $request->useFullTextRetrieval) {
             @$query['UseFullTextRetrieval'] = $request->useFullTextRetrieval;
         }
@@ -15689,6 +15697,10 @@ class Gpdb extends OpenApiClient
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
+        if (null !== $request->dimension) {
+            @$query['Dimension'] = $request->dimension;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -16197,6 +16209,10 @@ class Gpdb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cacheStorageSize) {
+            @$query['CacheStorageSize'] = $request->cacheStorageSize;
+        }
+
         if (null !== $request->DBInstanceClass) {
             @$query['DBInstanceClass'] = $request->DBInstanceClass;
         }
@@ -16243,6 +16259,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->segStorageType) {
             @$query['SegStorageType'] = $request->segStorageType;
+        }
+
+        if (null !== $request->serverlessResource) {
+            @$query['ServerlessResource'] = $request->serverlessResource;
         }
 
         if (null !== $request->storageSize) {
@@ -16725,6 +16745,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->shouldReplaceFile) {
+            @$query['ShouldReplaceFile'] = $request->shouldReplaceFile;
         }
 
         $body = [];

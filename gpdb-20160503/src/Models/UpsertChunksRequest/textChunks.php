@@ -14,11 +14,23 @@ class textChunks extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $filter;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @var mixed[]
      */
     public $metadata;
     protected $_name = [
         'content' => 'Content',
+        'filter' => 'Filter',
+        'id' => 'Id',
         'metadata' => 'Metadata',
     ];
 
@@ -35,6 +47,14 @@ class textChunks extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         if (null !== $this->metadata) {
@@ -59,6 +79,14 @@ class textChunks extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         if (isset($map['Metadata'])) {

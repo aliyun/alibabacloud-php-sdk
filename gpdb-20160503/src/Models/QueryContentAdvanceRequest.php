@@ -105,6 +105,11 @@ class QueryContentAdvanceRequest extends Model
     public $topK;
 
     /**
+     * @var string
+     */
+    public $urlExpiration;
+
+    /**
      * @var bool
      */
     public $useFullTextRetrieval;
@@ -128,6 +133,7 @@ class QueryContentAdvanceRequest extends Model
         'regionId' => 'RegionId',
         'rerankFactor' => 'RerankFactor',
         'topK' => 'TopK',
+        'urlExpiration' => 'UrlExpiration',
         'useFullTextRetrieval' => 'UseFullTextRetrieval',
     ];
 
@@ -232,6 +238,10 @@ class QueryContentAdvanceRequest extends Model
             $res['TopK'] = $this->topK;
         }
 
+        if (null !== $this->urlExpiration) {
+            $res['UrlExpiration'] = $this->urlExpiration;
+        }
+
         if (null !== $this->useFullTextRetrieval) {
             $res['UseFullTextRetrieval'] = $this->useFullTextRetrieval;
         }
@@ -332,6 +342,10 @@ class QueryContentAdvanceRequest extends Model
 
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];
+        }
+
+        if (isset($map['UrlExpiration'])) {
+            $model->urlExpiration = $map['UrlExpiration'];
         }
 
         if (isset($map['UseFullTextRetrieval'])) {

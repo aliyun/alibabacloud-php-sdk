@@ -11,6 +11,11 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $cacheStorageSize;
+
+    /**
+     * @var string
+     */
     public $DBInstanceClass;
 
     /**
@@ -71,6 +76,11 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $serverlessResource;
+
+    /**
+     * @var string
+     */
     public $storageSize;
 
     /**
@@ -78,6 +88,7 @@ class UpgradeDBInstanceRequest extends Model
      */
     public $upgradeType;
     protected $_name = [
+        'cacheStorageSize' => 'CacheStorageSize',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceGroupCount' => 'DBInstanceGroupCount',
         'DBInstanceId' => 'DBInstanceId',
@@ -90,6 +101,7 @@ class UpgradeDBInstanceRequest extends Model
         'segDiskPerformanceLevel' => 'SegDiskPerformanceLevel',
         'segNodeNum' => 'SegNodeNum',
         'segStorageType' => 'SegStorageType',
+        'serverlessResource' => 'ServerlessResource',
         'storageSize' => 'StorageSize',
         'upgradeType' => 'UpgradeType',
     ];
@@ -102,6 +114,10 @@ class UpgradeDBInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cacheStorageSize) {
+            $res['CacheStorageSize'] = $this->cacheStorageSize;
+        }
+
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
@@ -150,6 +166,10 @@ class UpgradeDBInstanceRequest extends Model
             $res['SegStorageType'] = $this->segStorageType;
         }
 
+        if (null !== $this->serverlessResource) {
+            $res['ServerlessResource'] = $this->serverlessResource;
+        }
+
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
         }
@@ -169,6 +189,10 @@ class UpgradeDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CacheStorageSize'])) {
+            $model->cacheStorageSize = $map['CacheStorageSize'];
+        }
+
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
@@ -215,6 +239,10 @@ class UpgradeDBInstanceRequest extends Model
 
         if (isset($map['SegStorageType'])) {
             $model->segStorageType = $map['SegStorageType'];
+        }
+
+        if (isset($map['ServerlessResource'])) {
+            $model->serverlessResource = $map['ServerlessResource'];
         }
 
         if (isset($map['StorageSize'])) {
