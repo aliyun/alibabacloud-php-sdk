@@ -12,9 +12,24 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentRuntimeConfig\voiceChat;
 class AIAgentRuntimeConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $agentUserId;
+
+    /**
+     * @var string
+     */
+    public $authToken;
+
+    /**
      * @var avatarChat3D
      */
     public $avatarChat3D;
+
+    /**
+     * @var string
+     */
+    public $channelId;
 
     /**
      * @var visionChat
@@ -26,7 +41,10 @@ class AIAgentRuntimeConfig extends Model
      */
     public $voiceChat;
     protected $_name = [
+        'agentUserId' => 'AgentUserId',
+        'authToken' => 'AuthToken',
         'avatarChat3D' => 'AvatarChat3D',
+        'channelId' => 'ChannelId',
         'visionChat' => 'VisionChat',
         'voiceChat' => 'VoiceChat',
     ];
@@ -48,8 +66,20 @@ class AIAgentRuntimeConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentUserId) {
+            $res['AgentUserId'] = $this->agentUserId;
+        }
+
+        if (null !== $this->authToken) {
+            $res['AuthToken'] = $this->authToken;
+        }
+
         if (null !== $this->avatarChat3D) {
             $res['AvatarChat3D'] = null !== $this->avatarChat3D ? $this->avatarChat3D->toArray($noStream) : $this->avatarChat3D;
+        }
+
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
 
         if (null !== $this->visionChat) {
@@ -71,8 +101,20 @@ class AIAgentRuntimeConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentUserId'])) {
+            $model->agentUserId = $map['AgentUserId'];
+        }
+
+        if (isset($map['AuthToken'])) {
+            $model->authToken = $map['AuthToken'];
+        }
+
         if (isset($map['AvatarChat3D'])) {
             $model->avatarChat3D = avatarChat3D::fromMap($map['AvatarChat3D']);
+        }
+
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
 
         if (isset($map['VisionChat'])) {

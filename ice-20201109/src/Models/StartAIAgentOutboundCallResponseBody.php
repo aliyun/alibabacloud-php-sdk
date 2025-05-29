@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsResponseBody\configs;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class manifestEndpointConfig extends Model
+class StartAIAgentOutboundCallResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $dashPrefix;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $hlsPrefix;
+    public $requestId;
     protected $_name = [
-        'dashPrefix' => 'DashPrefix',
-        'hlsPrefix' => 'HlsPrefix',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class manifestEndpointConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dashPrefix) {
-            $res['DashPrefix'] = $this->dashPrefix;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->hlsPrefix) {
-            $res['HlsPrefix'] = $this->hlsPrefix;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class manifestEndpointConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DashPrefix'])) {
-            $model->dashPrefix = $map['DashPrefix'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['HlsPrefix'])) {
-            $model->hlsPrefix = $map['HlsPrefix'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

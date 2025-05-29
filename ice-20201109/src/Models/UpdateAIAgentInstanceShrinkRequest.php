@@ -11,6 +11,11 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $agentConfigShrink;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,6 +28,7 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'agentConfigShrink' => 'AgentConfig',
         'instanceId' => 'InstanceId',
         'templateConfigShrink' => 'TemplateConfig',
         'userData' => 'UserData',
@@ -36,6 +42,10 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfigShrink) {
+            $res['AgentConfig'] = $this->agentConfigShrink;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -59,6 +69,10 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentConfig'])) {
+            $model->agentConfigShrink = $map['AgentConfig'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

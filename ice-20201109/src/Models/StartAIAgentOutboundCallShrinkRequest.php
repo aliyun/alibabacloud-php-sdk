@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateAIAgentCallShrinkRequest extends Model
+class StartAIAgentOutboundCallShrinkRequest extends Model
 {
     /**
      * @var string
@@ -16,17 +16,17 @@ class GenerateAIAgentCallShrinkRequest extends Model
     /**
      * @var string
      */
-    public $agentConfigShrink;
+    public $calledNumber;
 
     /**
      * @var string
      */
-    public $chatSyncConfigShrink;
+    public $callerNumber;
 
     /**
-     * @var int
+     * @var string
      */
-    public $expire;
+    public $configShrink;
 
     /**
      * @var string
@@ -36,26 +36,14 @@ class GenerateAIAgentCallShrinkRequest extends Model
     /**
      * @var string
      */
-    public $templateConfigShrink;
-
-    /**
-     * @var string
-     */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'AIAgentId' => 'AIAgentId',
-        'agentConfigShrink' => 'AgentConfig',
-        'chatSyncConfigShrink' => 'ChatSyncConfig',
-        'expire' => 'Expire',
+        'calledNumber' => 'CalledNumber',
+        'callerNumber' => 'CallerNumber',
+        'configShrink' => 'Config',
         'sessionId' => 'SessionId',
-        'templateConfigShrink' => 'TemplateConfig',
         'userData' => 'UserData',
-        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -70,32 +58,24 @@ class GenerateAIAgentCallShrinkRequest extends Model
             $res['AIAgentId'] = $this->AIAgentId;
         }
 
-        if (null !== $this->agentConfigShrink) {
-            $res['AgentConfig'] = $this->agentConfigShrink;
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
         }
 
-        if (null !== $this->chatSyncConfigShrink) {
-            $res['ChatSyncConfig'] = $this->chatSyncConfigShrink;
+        if (null !== $this->callerNumber) {
+            $res['CallerNumber'] = $this->callerNumber;
         }
 
-        if (null !== $this->expire) {
-            $res['Expire'] = $this->expire;
+        if (null !== $this->configShrink) {
+            $res['Config'] = $this->configShrink;
         }
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
 
-        if (null !== $this->templateConfigShrink) {
-            $res['TemplateConfig'] = $this->templateConfigShrink;
-        }
-
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -113,32 +93,24 @@ class GenerateAIAgentCallShrinkRequest extends Model
             $model->AIAgentId = $map['AIAgentId'];
         }
 
-        if (isset($map['AgentConfig'])) {
-            $model->agentConfigShrink = $map['AgentConfig'];
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
         }
 
-        if (isset($map['ChatSyncConfig'])) {
-            $model->chatSyncConfigShrink = $map['ChatSyncConfig'];
+        if (isset($map['CallerNumber'])) {
+            $model->callerNumber = $map['CallerNumber'];
         }
 
-        if (isset($map['Expire'])) {
-            $model->expire = $map['Expire'];
+        if (isset($map['Config'])) {
+            $model->configShrink = $map['Config'];
         }
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
 
-        if (isset($map['TemplateConfig'])) {
-            $model->templateConfigShrink = $map['TemplateConfig'];
-        }
-
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

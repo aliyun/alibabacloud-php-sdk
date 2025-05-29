@@ -11,8 +11,14 @@ class manifestEndpointConfig extends Model
     /**
      * @var string
      */
+    public $dashPrefix;
+
+    /**
+     * @var string
+     */
     public $hlsPrefix;
     protected $_name = [
+        'dashPrefix' => 'DashPrefix',
         'hlsPrefix' => 'HlsPrefix',
     ];
 
@@ -24,6 +30,10 @@ class manifestEndpointConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dashPrefix) {
+            $res['DashPrefix'] = $this->dashPrefix;
+        }
+
         if (null !== $this->hlsPrefix) {
             $res['HlsPrefix'] = $this->hlsPrefix;
         }
@@ -39,6 +49,10 @@ class manifestEndpointConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DashPrefix'])) {
+            $model->dashPrefix = $map['DashPrefix'];
+        }
+
         if (isset($map['HlsPrefix'])) {
             $model->hlsPrefix = $map['HlsPrefix'];
         }

@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsResponseBody\configs;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAIAgentVideoAuditTaskRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class manifestEndpointConfig extends Model
+class input extends Model
 {
     /**
      * @var string
      */
-    public $dashPrefix;
+    public $media;
 
     /**
      * @var string
      */
-    public $hlsPrefix;
+    public $type;
     protected $_name = [
-        'dashPrefix' => 'DashPrefix',
-        'hlsPrefix' => 'HlsPrefix',
+        'media' => 'Media',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class manifestEndpointConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dashPrefix) {
-            $res['DashPrefix'] = $this->dashPrefix;
+        if (null !== $this->media) {
+            $res['Media'] = $this->media;
         }
 
-        if (null !== $this->hlsPrefix) {
-            $res['HlsPrefix'] = $this->hlsPrefix;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class manifestEndpointConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DashPrefix'])) {
-            $model->dashPrefix = $map['DashPrefix'];
+        if (isset($map['Media'])) {
+            $model->media = $map['Media'];
         }
 
-        if (isset($map['HlsPrefix'])) {
-            $model->hlsPrefix = $map['HlsPrefix'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -15,6 +15,11 @@ class StartAIAgentInstanceRequest extends Model
     public $AIAgentId;
 
     /**
+     * @var AIAgentConfig
+     */
+    public $agentConfig;
+
+    /**
      * @var chatSyncConfig
      */
     public $chatSyncConfig;
@@ -40,6 +45,7 @@ class StartAIAgentInstanceRequest extends Model
     public $userData;
     protected $_name = [
         'AIAgentId' => 'AIAgentId',
+        'agentConfig' => 'AgentConfig',
         'chatSyncConfig' => 'ChatSyncConfig',
         'runtimeConfig' => 'RuntimeConfig',
         'sessionId' => 'SessionId',
@@ -49,6 +55,9 @@ class StartAIAgentInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->agentConfig) {
+            $this->agentConfig->validate();
+        }
         if (null !== $this->chatSyncConfig) {
             $this->chatSyncConfig->validate();
         }
@@ -66,6 +75,10 @@ class StartAIAgentInstanceRequest extends Model
         $res = [];
         if (null !== $this->AIAgentId) {
             $res['AIAgentId'] = $this->AIAgentId;
+        }
+
+        if (null !== $this->agentConfig) {
+            $res['AgentConfig'] = null !== $this->agentConfig ? $this->agentConfig->toArray($noStream) : $this->agentConfig;
         }
 
         if (null !== $this->chatSyncConfig) {
@@ -101,6 +114,10 @@ class StartAIAgentInstanceRequest extends Model
         $model = new self();
         if (isset($map['AIAgentId'])) {
             $model->AIAgentId = $map['AIAgentId'];
+        }
+
+        if (isset($map['AgentConfig'])) {
+            $model->agentConfig = AIAgentConfig::fromMap($map['AgentConfig']);
         }
 
         if (isset($map['ChatSyncConfig'])) {

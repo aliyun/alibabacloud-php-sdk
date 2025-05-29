@@ -16,6 +16,11 @@ class StartAIAgentInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $agentConfigShrink;
+
+    /**
+     * @var string
+     */
     public $chatSyncConfigShrink;
 
     /**
@@ -39,6 +44,7 @@ class StartAIAgentInstanceShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'AIAgentId' => 'AIAgentId',
+        'agentConfigShrink' => 'AgentConfig',
         'chatSyncConfigShrink' => 'ChatSyncConfig',
         'runtimeConfigShrink' => 'RuntimeConfig',
         'sessionId' => 'SessionId',
@@ -56,6 +62,10 @@ class StartAIAgentInstanceShrinkRequest extends Model
         $res = [];
         if (null !== $this->AIAgentId) {
             $res['AIAgentId'] = $this->AIAgentId;
+        }
+
+        if (null !== $this->agentConfigShrink) {
+            $res['AgentConfig'] = $this->agentConfigShrink;
         }
 
         if (null !== $this->chatSyncConfigShrink) {
@@ -91,6 +101,10 @@ class StartAIAgentInstanceShrinkRequest extends Model
         $model = new self();
         if (isset($map['AIAgentId'])) {
             $model->AIAgentId = $map['AIAgentId'];
+        }
+
+        if (isset($map['AgentConfig'])) {
+            $model->agentConfigShrink = $map['AgentConfig'];
         }
 
         if (isset($map['ChatSyncConfig'])) {

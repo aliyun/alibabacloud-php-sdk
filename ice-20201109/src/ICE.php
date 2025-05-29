@@ -52,6 +52,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageOriginEndpointRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageOriginEndpointResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageOriginEndpointShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateShrinkRequest;
@@ -333,6 +334,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentDialoguesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentDialoguesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentPhoneNumberRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentPhoneNumberResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
@@ -508,6 +511,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SetNotifyConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentOutboundCallRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentOutboundCallResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentOutboundCallShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartChannelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartMediaLiveChannelRequest;
@@ -525,6 +531,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\StopMediaLiveChannelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopMediaLiveChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAIAgentVideoAuditTaskRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAIAgentVideoAuditTaskResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAIAgentVideoAuditTaskShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
@@ -644,6 +653,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageOriginEndpointRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageOriginEndpointResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageOriginEndpointShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateShrinkRequest;
@@ -2534,19 +2544,25 @@ class ICE extends OpenApiClient
      * ## [](#)Usage notes
      * This API operation is mainly used to configure origin settings, security policies including the IP address blacklist and whitelist and authorization code, and time shifting settings for channels. Before you create an origin endpoint, you must create a live package channel group and channel. After you create the endpoint, the endpoint URL and other configuration details are returned.
      *
-     * @param request - CreateLivePackageOriginEndpointRequest
+     * @param tmpReq - CreateLivePackageOriginEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateLivePackageOriginEndpointResponse
      *
-     * @param CreateLivePackageOriginEndpointRequest $request
+     * @param CreateLivePackageOriginEndpointRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return CreateLivePackageOriginEndpointResponse
      */
-    public function createLivePackageOriginEndpointWithOptions($request, $runtime)
+    public function createLivePackageOriginEndpointWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateLivePackageOriginEndpointShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->livePackagingConfig) {
+            $request->livePackagingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->livePackagingConfig, 'LivePackagingConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
@@ -2579,6 +2595,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->ipWhitelist) {
             @$body['IpWhitelist'] = $request->ipWhitelist;
+        }
+
+        if (null !== $request->livePackagingConfigShrink) {
+            @$body['LivePackagingConfig'] = $request->livePackagingConfigShrink;
         }
 
         if (null !== $request->manifestName) {
@@ -7335,6 +7355,10 @@ class ICE extends OpenApiClient
         $tmpReq->validate();
         $request = new GenerateAIAgentCallShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentConfig) {
+            $request->agentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentConfig, 'AgentConfig', 'json');
+        }
+
         if (null !== $tmpReq->chatSyncConfig) {
             $request->chatSyncConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chatSyncConfig, 'ChatSyncConfig', 'json');
         }
@@ -7346,6 +7370,10 @@ class ICE extends OpenApiClient
         $query = [];
         if (null !== $request->AIAgentId) {
             @$query['AIAgentId'] = $request->AIAgentId;
+        }
+
+        if (null !== $request->agentConfigShrink) {
+            @$query['AgentConfig'] = $request->agentConfigShrink;
         }
 
         if (null !== $request->chatSyncConfigShrink) {
@@ -11493,6 +11521,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 罗列用户电话资源接口.
+     *
+     * @param request - ListAIAgentPhoneNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIAgentPhoneNumberResponse
+     *
+     * @param ListAIAgentPhoneNumberRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAIAgentPhoneNumberResponse
+     */
+    public function listAIAgentPhoneNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAIAgentPhoneNumber',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAIAgentPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 罗列用户电话资源接口.
+     *
+     * @param request - ListAIAgentPhoneNumberRequest
+     *
+     * @returns ListAIAgentPhoneNumberResponse
+     *
+     * @param ListAIAgentPhoneNumberRequest $request
+     *
+     * @return ListAIAgentPhoneNumberResponse
+     */
+    public function listAIAgentPhoneNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIAgentPhoneNumberWithOptions($request, $runtime);
     }
 
     /**
@@ -18013,6 +18102,10 @@ class ICE extends OpenApiClient
         $tmpReq->validate();
         $request = new StartAIAgentInstanceShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentConfig) {
+            $request->agentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentConfig, 'AgentConfig', 'json');
+        }
+
         if (null !== $tmpReq->chatSyncConfig) {
             $request->chatSyncConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chatSyncConfig, 'ChatSyncConfig', 'json');
         }
@@ -18028,6 +18121,10 @@ class ICE extends OpenApiClient
         $query = [];
         if (null !== $request->AIAgentId) {
             @$query['AIAgentId'] = $request->AIAgentId;
+        }
+
+        if (null !== $request->agentConfigShrink) {
+            @$query['AgentConfig'] = $request->agentConfigShrink;
         }
 
         if (null !== $request->chatSyncConfigShrink) {
@@ -18087,6 +18184,89 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+     *
+     * @param tmpReq - StartAIAgentOutboundCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAIAgentOutboundCallResponse
+     *
+     * @param StartAIAgentOutboundCallRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return StartAIAgentOutboundCallResponse
+     */
+    public function startAIAgentOutboundCallWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartAIAgentOutboundCallShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->config) {
+            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
+        }
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
+        }
+
+        if (null !== $request->configShrink) {
+            @$query['Config'] = $request->configShrink;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartAIAgentOutboundCall',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartAIAgentOutboundCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+     *
+     * @param request - StartAIAgentOutboundCallRequest
+     *
+     * @returns StartAIAgentOutboundCallResponse
+     *
+     * @param StartAIAgentOutboundCallRequest $request
+     *
+     * @return StartAIAgentOutboundCallResponse
+     */
+    public function startAIAgentOutboundCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAIAgentOutboundCallWithOptions($request, $runtime);
     }
 
     /**
@@ -18611,6 +18791,97 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopRtcRobotInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交视频送审任务
+     *
+     * @param tmpReq - SubmitAIAgentVideoAuditTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAIAgentVideoAuditTaskResponse
+     *
+     * @param SubmitAIAgentVideoAuditTaskRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SubmitAIAgentVideoAuditTaskResponse
+     */
+    public function submitAIAgentVideoAuditTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitAIAgentVideoAuditTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callbackConfig) {
+            $request->callbackConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callbackConfig, 'CallbackConfig', 'json');
+        }
+
+        if (null !== $tmpReq->capturePolicies) {
+            $request->capturePoliciesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->capturePolicies, 'CapturePolicies', 'json');
+        }
+
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
+        }
+
+        if (null !== $request->auditInterval) {
+            @$query['AuditInterval'] = $request->auditInterval;
+        }
+
+        if (null !== $request->callbackConfigShrink) {
+            @$query['CallbackConfig'] = $request->callbackConfigShrink;
+        }
+
+        if (null !== $request->capturePoliciesShrink) {
+            @$query['CapturePolicies'] = $request->capturePoliciesShrink;
+        }
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAIAgentVideoAuditTask',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAIAgentVideoAuditTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交视频送审任务
+     *
+     * @param request - SubmitAIAgentVideoAuditTaskRequest
+     *
+     * @returns SubmitAIAgentVideoAuditTaskResponse
+     *
+     * @param SubmitAIAgentVideoAuditTaskRequest $request
+     *
+     * @return SubmitAIAgentVideoAuditTaskResponse
+     */
+    public function submitAIAgentVideoAuditTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAIAgentVideoAuditTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -21903,11 +22174,19 @@ class ICE extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateAIAgentInstanceShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentConfig) {
+            $request->agentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentConfig, 'AgentConfig', 'json');
+        }
+
         if (null !== $tmpReq->templateConfig) {
             $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
 
         $query = [];
+        if (null !== $request->agentConfigShrink) {
+            @$query['AgentConfig'] = $request->agentConfigShrink;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -22721,19 +23000,25 @@ class ICE extends OpenApiClient
      * ## [](#)Usage notes
      * You can call this operation to modify the origin protocol, set the number of days that time-shifted content is available, define playlist names, and configure the IP address blacklist and whitelist, allowing for fine-grained control over streaming media distribution. Some parameters are required. You must configure IpWhitelist, AuthorizationCode, or both.
      *
-     * @param request - UpdateLivePackageOriginEndpointRequest
+     * @param tmpReq - UpdateLivePackageOriginEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateLivePackageOriginEndpointResponse
      *
-     * @param UpdateLivePackageOriginEndpointRequest $request
+     * @param UpdateLivePackageOriginEndpointRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return UpdateLivePackageOriginEndpointResponse
      */
-    public function updateLivePackageOriginEndpointWithOptions($request, $runtime)
+    public function updateLivePackageOriginEndpointWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateLivePackageOriginEndpointShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->livePackagingConfig) {
+            $request->livePackagingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->livePackagingConfig, 'LivePackagingConfig', 'json');
+        }
+
         $body = [];
         if (null !== $request->authorizationCode) {
             @$body['AuthorizationCode'] = $request->authorizationCode;
@@ -22761,6 +23046,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->ipWhitelist) {
             @$body['IpWhitelist'] = $request->ipWhitelist;
+        }
+
+        if (null !== $request->livePackagingConfigShrink) {
+            @$body['LivePackagingConfig'] = $request->livePackagingConfigShrink;
         }
 
         if (null !== $request->manifestName) {

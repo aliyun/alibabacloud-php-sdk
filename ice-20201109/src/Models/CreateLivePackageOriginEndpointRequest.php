@@ -49,6 +49,11 @@ class CreateLivePackageOriginEndpointRequest extends Model
     public $ipWhitelist;
 
     /**
+     * @var LivePackagingConfig
+     */
+    public $livePackagingConfig;
+
+    /**
      * @var string
      */
     public $manifestName;
@@ -71,6 +76,7 @@ class CreateLivePackageOriginEndpointRequest extends Model
         'groupName' => 'GroupName',
         'ipBlacklist' => 'IpBlacklist',
         'ipWhitelist' => 'IpWhitelist',
+        'livePackagingConfig' => 'LivePackagingConfig',
         'manifestName' => 'ManifestName',
         'protocol' => 'Protocol',
         'timeshiftVision' => 'TimeshiftVision',
@@ -78,6 +84,9 @@ class CreateLivePackageOriginEndpointRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->livePackagingConfig) {
+            $this->livePackagingConfig->validate();
+        }
         parent::validate();
     }
 
@@ -114,6 +123,10 @@ class CreateLivePackageOriginEndpointRequest extends Model
 
         if (null !== $this->ipWhitelist) {
             $res['IpWhitelist'] = $this->ipWhitelist;
+        }
+
+        if (null !== $this->livePackagingConfig) {
+            $res['LivePackagingConfig'] = null !== $this->livePackagingConfig ? $this->livePackagingConfig->toArray($noStream) : $this->livePackagingConfig;
         }
 
         if (null !== $this->manifestName) {
@@ -169,6 +182,10 @@ class CreateLivePackageOriginEndpointRequest extends Model
 
         if (isset($map['IpWhitelist'])) {
             $model->ipWhitelist = $map['IpWhitelist'];
+        }
+
+        if (isset($map['LivePackagingConfig'])) {
+            $model->livePackagingConfig = LivePackagingConfig::fromMap($map['LivePackagingConfig']);
         }
 
         if (isset($map['ManifestName'])) {

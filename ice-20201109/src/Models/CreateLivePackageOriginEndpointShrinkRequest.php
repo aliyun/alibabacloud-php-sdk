@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateLivePackageOriginEndpointRequest extends Model
+class CreateLivePackageOriginEndpointShrinkRequest extends Model
 {
     /**
      * @var string
@@ -17,6 +17,11 @@ class UpdateLivePackageOriginEndpointRequest extends Model
      * @var string
      */
     public $channelName;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var string
@@ -44,9 +49,9 @@ class UpdateLivePackageOriginEndpointRequest extends Model
     public $ipWhitelist;
 
     /**
-     * @var LivePackagingConfig
+     * @var string
      */
-    public $livePackagingConfig;
+    public $livePackagingConfigShrink;
 
     /**
      * @var string
@@ -65,12 +70,13 @@ class UpdateLivePackageOriginEndpointRequest extends Model
     protected $_name = [
         'authorizationCode' => 'AuthorizationCode',
         'channelName' => 'ChannelName',
+        'clientToken' => 'ClientToken',
         'description' => 'Description',
         'endpointName' => 'EndpointName',
         'groupName' => 'GroupName',
         'ipBlacklist' => 'IpBlacklist',
         'ipWhitelist' => 'IpWhitelist',
-        'livePackagingConfig' => 'LivePackagingConfig',
+        'livePackagingConfigShrink' => 'LivePackagingConfig',
         'manifestName' => 'ManifestName',
         'protocol' => 'Protocol',
         'timeshiftVision' => 'TimeshiftVision',
@@ -78,9 +84,6 @@ class UpdateLivePackageOriginEndpointRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->livePackagingConfig) {
-            $this->livePackagingConfig->validate();
-        }
         parent::validate();
     }
 
@@ -93,6 +96,10 @@ class UpdateLivePackageOriginEndpointRequest extends Model
 
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->description) {
@@ -115,8 +122,8 @@ class UpdateLivePackageOriginEndpointRequest extends Model
             $res['IpWhitelist'] = $this->ipWhitelist;
         }
 
-        if (null !== $this->livePackagingConfig) {
-            $res['LivePackagingConfig'] = null !== $this->livePackagingConfig ? $this->livePackagingConfig->toArray($noStream) : $this->livePackagingConfig;
+        if (null !== $this->livePackagingConfigShrink) {
+            $res['LivePackagingConfig'] = $this->livePackagingConfigShrink;
         }
 
         if (null !== $this->manifestName) {
@@ -150,6 +157,10 @@ class UpdateLivePackageOriginEndpointRequest extends Model
             $model->channelName = $map['ChannelName'];
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -171,7 +182,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
         }
 
         if (isset($map['LivePackagingConfig'])) {
-            $model->livePackagingConfig = LivePackagingConfig::fromMap($map['LivePackagingConfig']);
+            $model->livePackagingConfigShrink = $map['LivePackagingConfig'];
         }
 
         if (isset($map['ManifestName'])) {

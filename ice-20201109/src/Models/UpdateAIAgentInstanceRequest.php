@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateAIAgentInstanceRequest extends Model
 {
     /**
+     * @var AIAgentConfig
+     */
+    public $agentConfig;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -23,6 +28,7 @@ class UpdateAIAgentInstanceRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'agentConfig' => 'AgentConfig',
         'instanceId' => 'InstanceId',
         'templateConfig' => 'TemplateConfig',
         'userData' => 'UserData',
@@ -30,6 +36,9 @@ class UpdateAIAgentInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->agentConfig) {
+            $this->agentConfig->validate();
+        }
         if (null !== $this->templateConfig) {
             $this->templateConfig->validate();
         }
@@ -39,6 +48,10 @@ class UpdateAIAgentInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfig) {
+            $res['AgentConfig'] = null !== $this->agentConfig ? $this->agentConfig->toArray($noStream) : $this->agentConfig;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -62,6 +75,10 @@ class UpdateAIAgentInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentConfig'])) {
+            $model->agentConfig = AIAgentConfig::fromMap($map['AgentConfig']);
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

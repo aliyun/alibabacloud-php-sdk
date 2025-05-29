@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageOriginEndpointResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\LivePackagingConfig;
 
 class livePackageOriginEndpoint extends Model
 {
@@ -59,6 +60,11 @@ class livePackageOriginEndpoint extends Model
     public $lastModified;
 
     /**
+     * @var LivePackagingConfig
+     */
+    public $livePackagingConfig;
+
+    /**
      * @var string
      */
     public $manifestName;
@@ -83,6 +89,7 @@ class livePackageOriginEndpoint extends Model
         'ipBlacklist' => 'IpBlacklist',
         'ipWhitelist' => 'IpWhitelist',
         'lastModified' => 'LastModified',
+        'livePackagingConfig' => 'LivePackagingConfig',
         'manifestName' => 'ManifestName',
         'protocol' => 'Protocol',
         'timeshiftVision' => 'TimeshiftVision',
@@ -90,6 +97,9 @@ class livePackageOriginEndpoint extends Model
 
     public function validate()
     {
+        if (null !== $this->livePackagingConfig) {
+            $this->livePackagingConfig->validate();
+        }
         parent::validate();
     }
 
@@ -134,6 +144,10 @@ class livePackageOriginEndpoint extends Model
 
         if (null !== $this->lastModified) {
             $res['LastModified'] = $this->lastModified;
+        }
+
+        if (null !== $this->livePackagingConfig) {
+            $res['LivePackagingConfig'] = null !== $this->livePackagingConfig ? $this->livePackagingConfig->toArray($noStream) : $this->livePackagingConfig;
         }
 
         if (null !== $this->manifestName) {
@@ -197,6 +211,10 @@ class livePackageOriginEndpoint extends Model
 
         if (isset($map['LastModified'])) {
             $model->lastModified = $map['LastModified'];
+        }
+
+        if (isset($map['LivePackagingConfig'])) {
+            $model->livePackagingConfig = LivePackagingConfig::fromMap($map['LivePackagingConfig']);
         }
 
         if (isset($map['ManifestName'])) {

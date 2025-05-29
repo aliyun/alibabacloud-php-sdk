@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentRuntimeConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig;
 
 class instance extends Model
 {
+    /**
+     * @var AIAgentConfig
+     */
+    public $agentConfig;
+
     /**
      * @var string
      */
@@ -40,6 +46,7 @@ class instance extends Model
      */
     public $userData;
     protected $_name = [
+        'agentConfig' => 'AgentConfig',
         'callLogUrl' => 'CallLogUrl',
         'runtimeConfig' => 'RuntimeConfig',
         'sessionId' => 'SessionId',
@@ -50,6 +57,9 @@ class instance extends Model
 
     public function validate()
     {
+        if (null !== $this->agentConfig) {
+            $this->agentConfig->validate();
+        }
         if (null !== $this->runtimeConfig) {
             $this->runtimeConfig->validate();
         }
@@ -62,6 +72,10 @@ class instance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfig) {
+            $res['AgentConfig'] = null !== $this->agentConfig ? $this->agentConfig->toArray($noStream) : $this->agentConfig;
+        }
+
         if (null !== $this->callLogUrl) {
             $res['CallLogUrl'] = $this->callLogUrl;
         }
@@ -97,6 +111,10 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentConfig'])) {
+            $model->agentConfig = AIAgentConfig::fromMap($map['AgentConfig']);
+        }
+
         if (isset($map['CallLogUrl'])) {
             $model->callLogUrl = $map['CallLogUrl'];
         }

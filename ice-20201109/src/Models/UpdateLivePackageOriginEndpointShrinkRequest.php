@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateLivePackageOriginEndpointRequest extends Model
+class UpdateLivePackageOriginEndpointShrinkRequest extends Model
 {
     /**
      * @var string
@@ -44,9 +44,9 @@ class UpdateLivePackageOriginEndpointRequest extends Model
     public $ipWhitelist;
 
     /**
-     * @var LivePackagingConfig
+     * @var string
      */
-    public $livePackagingConfig;
+    public $livePackagingConfigShrink;
 
     /**
      * @var string
@@ -70,7 +70,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
         'groupName' => 'GroupName',
         'ipBlacklist' => 'IpBlacklist',
         'ipWhitelist' => 'IpWhitelist',
-        'livePackagingConfig' => 'LivePackagingConfig',
+        'livePackagingConfigShrink' => 'LivePackagingConfig',
         'manifestName' => 'ManifestName',
         'protocol' => 'Protocol',
         'timeshiftVision' => 'TimeshiftVision',
@@ -78,9 +78,6 @@ class UpdateLivePackageOriginEndpointRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->livePackagingConfig) {
-            $this->livePackagingConfig->validate();
-        }
         parent::validate();
     }
 
@@ -115,8 +112,8 @@ class UpdateLivePackageOriginEndpointRequest extends Model
             $res['IpWhitelist'] = $this->ipWhitelist;
         }
 
-        if (null !== $this->livePackagingConfig) {
-            $res['LivePackagingConfig'] = null !== $this->livePackagingConfig ? $this->livePackagingConfig->toArray($noStream) : $this->livePackagingConfig;
+        if (null !== $this->livePackagingConfigShrink) {
+            $res['LivePackagingConfig'] = $this->livePackagingConfigShrink;
         }
 
         if (null !== $this->manifestName) {
@@ -171,7 +168,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
         }
 
         if (isset($map['LivePackagingConfig'])) {
-            $model->livePackagingConfig = LivePackagingConfig::fromMap($map['LivePackagingConfig']);
+            $model->livePackagingConfigShrink = $map['LivePackagingConfig'];
         }
 
         if (isset($map['ManifestName'])) {

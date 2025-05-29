@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig\visionChat\llmHi
 class visionChat extends Model
 {
     /**
+     * @var string[]
+     */
+    public $asrHotWords;
+
+    /**
      * @var string
      */
     public $asrLanguageId;
@@ -23,6 +28,11 @@ class visionChat extends Model
      * @var string
      */
     public $bailianAppParams;
+
+    /**
+     * @var bool
+     */
+    public $charBreak;
 
     /**
      * @var bool
@@ -124,9 +134,11 @@ class visionChat extends Model
      */
     public $workflowOverrideParams;
     protected $_name = [
+        'asrHotWords' => 'AsrHotWords',
         'asrLanguageId' => 'AsrLanguageId',
         'asrMaxSilence' => 'AsrMaxSilence',
         'bailianAppParams' => 'BailianAppParams',
+        'charBreak' => 'CharBreak',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
         'enablePushToTalk' => 'EnablePushToTalk',
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
@@ -151,6 +163,9 @@ class visionChat extends Model
 
     public function validate()
     {
+        if (\is_array($this->asrHotWords)) {
+            Model::validateArray($this->asrHotWords);
+        }
         if (\is_array($this->interruptWords)) {
             Model::validateArray($this->interruptWords);
         }
@@ -166,6 +181,16 @@ class visionChat extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->asrHotWords) {
+            if (\is_array($this->asrHotWords)) {
+                $res['AsrHotWords'] = [];
+                $n1 = 0;
+                foreach ($this->asrHotWords as $item1) {
+                    $res['AsrHotWords'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->asrLanguageId) {
             $res['AsrLanguageId'] = $this->asrLanguageId;
         }
@@ -176,6 +201,10 @@ class visionChat extends Model
 
         if (null !== $this->bailianAppParams) {
             $res['BailianAppParams'] = $this->bailianAppParams;
+        }
+
+        if (null !== $this->charBreak) {
+            $res['CharBreak'] = $this->charBreak;
         }
 
         if (null !== $this->enableIntelligentSegment) {
@@ -287,6 +316,16 @@ class visionChat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrHotWords'])) {
+            if (!empty($map['AsrHotWords'])) {
+                $model->asrHotWords = [];
+                $n1 = 0;
+                foreach ($map['AsrHotWords'] as $item1) {
+                    $model->asrHotWords[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['AsrLanguageId'])) {
             $model->asrLanguageId = $map['AsrLanguageId'];
         }
@@ -297,6 +336,10 @@ class visionChat extends Model
 
         if (isset($map['BailianAppParams'])) {
             $model->bailianAppParams = $map['BailianAppParams'];
+        }
+
+        if (isset($map['CharBreak'])) {
+            $model->charBreak = $map['CharBreak'];
         }
 
         if (isset($map['EnableIntelligentSegment'])) {
