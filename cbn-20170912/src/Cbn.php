@@ -416,11 +416,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActiveFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,11 +512,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -615,11 +609,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddTraficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddTraficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddTraficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -706,11 +697,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateCenBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -806,11 +794,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateTransitRouterAttachmentWithRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateTransitRouterAttachmentWithRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateTransitRouterAttachmentWithRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -913,11 +898,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateTransitRouterMulticastDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1018,11 +1000,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachCenChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachCenChildInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachCenChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1100,11 +1079,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckTransitRouterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckTransitRouterServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckTransitRouterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1197,11 +1173,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1331,11 +1304,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1439,11 +1409,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1552,11 +1519,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenChildInstanceRouteEntryToCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenChildInstanceRouteEntryToCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenChildInstanceRouteEntryToCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1674,11 +1638,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenInterRegionTrafficQosPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenInterRegionTrafficQosPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenInterRegionTrafficQosPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1795,11 +1756,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenInterRegionTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenInterRegionTrafficQosQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenInterRegionTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1998,11 +1956,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCenRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2142,11 +2097,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFlowlogResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2270,11 +2222,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2392,11 +2341,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouteTableAggregationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2518,11 +2464,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2641,11 +2584,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2783,11 +2723,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterEcrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterEcrAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterEcrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2914,11 +2851,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterMulticastDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3062,11 +2996,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterPeerAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterPeerAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterPeerAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3186,11 +3117,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterPrefixListAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3301,11 +3229,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3412,11 +3337,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3546,11 +3468,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterVbrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterVbrAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterVbrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3706,11 +3625,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterVpcAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterVpcAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterVpcAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3851,11 +3767,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTransitRouterVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTransitRouterVpnAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTransitRouterVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3951,11 +3864,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeactiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactiveFlowLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4047,11 +3957,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4136,11 +4043,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4236,11 +4140,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4347,11 +4248,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenChildInstanceRouteEntryToCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenChildInstanceRouteEntryToCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenChildInstanceRouteEntryToCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4442,11 +4340,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenInterRegionTrafficQosPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenInterRegionTrafficQosPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenInterRegionTrafficQosPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4536,11 +4431,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenInterRegionTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenInterRegionTrafficQosQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenInterRegionTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4629,11 +4521,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCenRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4727,11 +4616,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFlowlogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4829,11 +4715,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRouteServiceInCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRouteServiceInCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRouteServiceInCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4928,11 +4811,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5026,11 +4906,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouteTableAggregationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5129,11 +5006,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5239,11 +5113,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5334,11 +5205,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterEcrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterEcrAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterEcrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5429,11 +5297,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterMulticastDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5536,11 +5401,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterPeerAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterPeerAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterPeerAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5655,11 +5517,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterPrefixListAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5770,11 +5629,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5872,11 +5728,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5977,11 +5830,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterVbrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterVbrAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterVbrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6088,11 +5938,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterVpcAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterVpcAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterVpcAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6191,11 +6038,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTransitRouterVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTransitRouterVpnAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTransitRouterVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6296,11 +6140,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeregisterTransitRouterMulticastGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeregisterTransitRouterMulticastGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeregisterTransitRouterMulticastGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6400,11 +6241,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeregisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeregisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeregisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6494,11 +6332,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenAttachedChildInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenAttachedChildInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenAttachedChildInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6592,11 +6427,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenAttachedChildInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenAttachedChildInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenAttachedChildInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6698,11 +6530,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenBandwidthPackagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6802,11 +6631,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenChildInstanceRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenChildInstanceRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenChildInstanceRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6894,11 +6720,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenGeographicSpanRemainingBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenGeographicSpanRemainingBandwidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenGeographicSpanRemainingBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6978,11 +6801,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenGeographicSpansResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenGeographicSpansResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenGeographicSpansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7066,11 +6886,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenInterRegionBandwidthLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenInterRegionBandwidthLimitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenInterRegionBandwidthLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7150,11 +6967,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenPrivateZoneRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenPrivateZoneRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenPrivateZoneRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7242,11 +7056,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenRegionDomainRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenRegionDomainRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenRegionDomainRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7342,11 +7153,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenRouteMapsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7438,11 +7246,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCenVbrHealthCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7530,11 +7335,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCensResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCensResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCensResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7613,11 +7415,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChildInstanceRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChildInstanceRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChildInstanceRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7752,11 +7551,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowlogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowlogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowlogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7836,11 +7632,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGeographicRegionMembershipResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGeographicRegionMembershipResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGeographicRegionMembershipResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7943,11 +7736,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGrantRulesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGrantRulesToCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGrantRulesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8038,11 +7828,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGrantRulesToResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGrantRulesToResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGrantRulesToResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8134,11 +7921,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePublishedRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8234,11 +8018,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouteConflictResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouteConflictResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouteConflictResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8334,11 +8115,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRouteServicesInCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRouteServicesInCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRouteServicesInCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8429,11 +8207,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTransitRouteTableAggregationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8516,11 +8291,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTransitRouteTableAggregationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTransitRouteTableAggregationDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTransitRouteTableAggregationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8612,11 +8384,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachCenChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachCenChildInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachCenChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8703,11 +8472,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableCenVbrHealthCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8799,11 +8565,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableTransitRouterRouteTablePropagationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableTransitRouterRouteTablePropagationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableTransitRouterRouteTablePropagationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8903,11 +8666,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisassociateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisassociateTransitRouterMulticastDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisassociateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9003,11 +8763,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DissociateTransitRouterAttachmentFromRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DissociateTransitRouterAttachmentFromRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return DissociateTransitRouterAttachmentFromRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9127,11 +8884,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableCenVbrHealthCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9229,11 +8983,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableTransitRouterRouteTablePropagationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableTransitRouterRouteTablePropagationResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableTransitRouterRouteTablePropagationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9345,11 +9096,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantInstanceToTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantInstanceToTransitRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantInstanceToTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9461,11 +9209,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCenChildInstanceRouteEntriesToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCenChildInstanceRouteEntriesToAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCenChildInstanceRouteEntriesToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9571,11 +9316,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCenInterRegionTrafficQosPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCenInterRegionTrafficQosPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCenInterRegionTrafficQosPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9690,11 +9432,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCenInterRegionTrafficQosQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCenInterRegionTrafficQosQueuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCenInterRegionTrafficQosQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9801,11 +9540,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGrantVSwitchEnisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGrantVSwitchEnisResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGrantVSwitchEnisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9911,11 +9647,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGrantVSwitchesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGrantVSwitchesToCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGrantVSwitchesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10022,11 +9755,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10132,11 +9862,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTrafficMarkingPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrafficMarkingPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrafficMarkingPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10227,11 +9954,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterAvailableResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10328,11 +10052,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10448,11 +10169,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterCidrAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterCidrAllocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterCidrAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10554,11 +10272,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterEcrAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterEcrAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterEcrAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10668,11 +10383,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterMulticastDomainAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterMulticastDomainAssociationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterMulticastDomainAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10762,11 +10474,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterMulticastDomainVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterMulticastDomainVSwitchesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterMulticastDomainVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10868,11 +10577,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterMulticastDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterMulticastDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterMulticastDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11005,11 +10711,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterMulticastGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterMulticastGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterMulticastGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11119,11 +10822,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterPeerAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterPeerAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterPeerAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11240,11 +10940,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterPrefixListAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11376,11 +11073,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11484,11 +11178,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterRouteTableAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterRouteTableAssociationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterRouteTableAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11592,11 +11283,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterRouteTablePropagationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterRouteTablePropagationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterRouteTablePropagationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11700,11 +11388,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterRouteTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11805,11 +11490,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterVbrAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterVbrAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterVbrAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11928,11 +11610,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterVpcAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterVpcAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterVpcAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12041,11 +11720,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRouterVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRouterVpnAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRouterVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12167,11 +11843,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTransitRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTransitRoutersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTransitRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12267,11 +11940,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCenAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCenAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCenAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12356,11 +12026,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCenBandwidthPackageAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCenBandwidthPackageAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCenBandwidthPackageAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12436,11 +12103,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCenBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCenBandwidthPackageSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCenBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12629,11 +12293,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCenRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12739,11 +12400,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyFlowLogAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12840,11 +12498,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12950,11 +12605,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTransitRouteTableAggregationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13066,11 +12718,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTransitRouterCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13170,11 +12819,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTransitRouterMulticastDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13265,11 +12911,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13347,11 +12990,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenTransitRouterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenTransitRouterServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenTransitRouterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13453,11 +13093,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13552,11 +13189,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RefreshTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshTransitRouteTableAggregationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13661,11 +13295,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RegisterTransitRouterMulticastGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterTransitRouterMulticastGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterTransitRouterMulticastGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13774,11 +13405,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RegisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13879,11 +13507,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13983,11 +13608,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -14078,11 +13700,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReplaceTransitRouterRouteTableAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReplaceTransitRouterRouteTableAssociationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReplaceTransitRouterRouteTableAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14191,11 +13810,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResolveAndRouteServiceInCenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResolveAndRouteServiceInCenResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResolveAndRouteServiceInCenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14307,11 +13923,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeInstanceFromTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeInstanceFromTransitRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeInstanceFromTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14420,11 +14033,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RoutePrivateZoneInCenToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RoutePrivateZoneInCenToVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return RoutePrivateZoneInCenToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14540,11 +14150,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetCenInterRegionBandwidthLimitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetCenInterRegionBandwidthLimitResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetCenInterRegionBandwidthLimitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14647,11 +14254,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14736,11 +14340,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TempUpgradeCenBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TempUpgradeCenBandwidthPackageSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return TempUpgradeCenBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14819,11 +14420,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassociateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassociateCenBandwidthPackageResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassociateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14900,11 +14498,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnroutePrivateZoneInCenToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnroutePrivateZoneInCenToVpcResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnroutePrivateZoneInCenToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14990,11 +14585,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15082,11 +14674,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCenInterRegionTrafficQosPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCenInterRegionTrafficQosPolicyAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCenInterRegionTrafficQosPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15186,11 +14775,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCenInterRegionTrafficQosQueueAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCenInterRegionTrafficQosQueueAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCenInterRegionTrafficQosQueueAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15286,11 +14872,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTrafficMarkingPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTrafficMarkingPolicyAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTrafficMarkingPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15387,11 +14970,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15488,11 +15068,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterEcrAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterEcrAttachmentAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterEcrAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15609,11 +15186,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterPeerAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterPeerAttachmentAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterPeerAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15706,11 +15280,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15802,11 +15373,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterRouteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15903,11 +15471,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterVbrAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterVbrAttachmentAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterVbrAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16019,11 +15584,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterVpcAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterVpcAttachmentAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterVpcAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16122,11 +15684,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterVpcAttachmentZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterVpcAttachmentZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterVpcAttachmentZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16224,11 +15783,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTransitRouterVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTransitRouterVpnAttachmentAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTransitRouterVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16312,11 +15868,8 @@ class Cbn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return WithdrawPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return WithdrawPublishedRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return WithdrawPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

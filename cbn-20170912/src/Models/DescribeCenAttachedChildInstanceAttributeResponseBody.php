@@ -52,6 +52,11 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $managedService;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -67,6 +72,7 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
         'childInstanceOwnerId' => 'ChildInstanceOwnerId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceType' => 'ChildInstanceType',
+        'managedService' => 'ManagedService',
         'requestId' => 'RequestId',
         'status' => 'Status',
     ];
@@ -112,6 +118,10 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
 
         if (null !== $this->childInstanceType) {
             $res['ChildInstanceType'] = $this->childInstanceType;
+        }
+
+        if (null !== $this->managedService) {
+            $res['ManagedService'] = $this->managedService;
         }
 
         if (null !== $this->requestId) {
@@ -163,6 +173,10 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
 
         if (isset($map['ChildInstanceType'])) {
             $model->childInstanceType = $map['ChildInstanceType'];
+        }
+
+        if (isset($map['ManagedService'])) {
+            $model->managedService = $map['ManagedService'];
         }
 
         if (isset($map['RequestId'])) {
