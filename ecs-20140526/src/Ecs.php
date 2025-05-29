@@ -7833,7 +7833,8 @@ class Ecs extends OpenApiClient
      * Creates a prefix list.
      *
      * @remarks
-     *   A prefix list is a collection of network prefixes (CIDR blocks) and can be referenced to configure network rules for other resources. For more information, see [Overview](https://help.aliyun.com/document_detail/206223.html).
+     * ## [](#)Usage notes
+     * *   A prefix list is a collection of network prefixes (CIDR blocks) and can be referenced to configure network rules for other resources. For more information, see [Overview](https://help.aliyun.com/document_detail/206223.html).
      * *   When you create a prefix list, take note of the following items:
      *     *   You must specify an IP address family (IPv4 or IPv6) for the prefix list, and cannot change the IP address family after the prefix list is created. You cannot combine IPv4 and IPv6 CIDR blocks in a single prefix list.
      *     *   You must specify the maximum number of entries that the prefix list can contain. You cannot modify the maximum number of entries after the prefix list is created.
@@ -7933,7 +7934,8 @@ class Ecs extends OpenApiClient
      * Creates a prefix list.
      *
      * @remarks
-     *   A prefix list is a collection of network prefixes (CIDR blocks) and can be referenced to configure network rules for other resources. For more information, see [Overview](https://help.aliyun.com/document_detail/206223.html).
+     * ## [](#)Usage notes
+     * *   A prefix list is a collection of network prefixes (CIDR blocks) and can be referenced to configure network rules for other resources. For more information, see [Overview](https://help.aliyun.com/document_detail/206223.html).
      * *   When you create a prefix list, take note of the following items:
      *     *   You must specify an IP address family (IPv4 or IPv6) for the prefix list, and cannot change the IP address family after the prefix list is created. You cannot combine IPv4 and IPv6 CIDR blocks in a single prefix list.
      *     *   You must specify the maximum number of entries that the prefix list can contain. You cannot modify the maximum number of entries after the prefix list is created.
@@ -23133,7 +23135,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Queries the snapshot chains of disks. A snapshot chain is a chain of all the snapshots created for a disk. A disk corresponds to a chain of snapshots.
+     * Queries the snapshot chains of cloud disks. A snapshot chain is a chain of all the snapshots created for a disk. A disk corresponds to a chain of snapshots.
      *
      * @remarks
      * ## [](#)Usage notes
@@ -23222,7 +23224,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Queries the snapshot chains of disks. A snapshot chain is a chain of all the snapshots created for a disk. A disk corresponds to a chain of snapshots.
+     * Queries the snapshot chains of cloud disks. A snapshot chain is a chain of all the snapshots created for a disk. A disk corresponds to a chain of snapshots.
      *
      * @remarks
      * ## [](#)Usage notes

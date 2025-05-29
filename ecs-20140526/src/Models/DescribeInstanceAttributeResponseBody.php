@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\dedicatedHostAttribute;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\eipAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\innerIpAddress;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\networkOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\operationLocks;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\publicIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\securityGroupIds;
@@ -131,6 +132,11 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $memory;
 
     /**
+     * @var networkOptions
+     */
+    public $networkOptions;
+
+    /**
      * @var operationLocks
      */
     public $operationLocks;
@@ -208,6 +214,7 @@ class DescribeInstanceAttributeResponseBody extends Model
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'ioOptimized' => 'IoOptimized',
         'memory' => 'Memory',
+        'networkOptions' => 'NetworkOptions',
         'operationLocks' => 'OperationLocks',
         'publicIpAddress' => 'PublicIpAddress',
         'regionId' => 'RegionId',
@@ -231,6 +238,9 @@ class DescribeInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->innerIpAddress) {
             $this->innerIpAddress->validate();
+        }
+        if (null !== $this->networkOptions) {
+            $this->networkOptions->validate();
         }
         if (null !== $this->operationLocks) {
             $this->operationLocks->validate();
@@ -340,6 +350,10 @@ class DescribeInstanceAttributeResponseBody extends Model
 
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+
+        if (null !== $this->networkOptions) {
+            $res['NetworkOptions'] = null !== $this->networkOptions ? $this->networkOptions->toArray($noStream) : $this->networkOptions;
         }
 
         if (null !== $this->operationLocks) {
@@ -487,6 +501,10 @@ class DescribeInstanceAttributeResponseBody extends Model
 
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+
+        if (isset($map['NetworkOptions'])) {
+            $model->networkOptions = networkOptions::fromMap($map['NetworkOptions']);
         }
 
         if (isset($map['OperationLocks'])) {
