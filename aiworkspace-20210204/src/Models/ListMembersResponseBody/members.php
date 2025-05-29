@@ -16,6 +16,11 @@ class members extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -44,6 +49,7 @@ class members extends Model
     public $userId;
     protected $_name = [
         'accountName' => 'AccountName',
+        'accountType' => 'AccountType',
         'displayName' => 'DisplayName',
         'gmtCreateTime' => 'GmtCreateTime',
         'memberId' => 'MemberId',
@@ -65,6 +71,10 @@ class members extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
         }
 
         if (null !== $this->displayName) {
@@ -110,6 +120,10 @@ class members extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
         }
 
         if (isset($map['DisplayName'])) {

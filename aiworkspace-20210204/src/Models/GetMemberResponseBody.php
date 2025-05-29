@@ -11,6 +11,11 @@ class GetMemberResponseBody extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -43,6 +48,7 @@ class GetMemberResponseBody extends Model
      */
     public $userId;
     protected $_name = [
+        'accountType' => 'AccountType',
         'displayName' => 'DisplayName',
         'gmtCreateTime' => 'GmtCreateTime',
         'memberId' => 'MemberId',
@@ -63,6 +69,10 @@ class GetMemberResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -108,6 +118,10 @@ class GetMemberResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
