@@ -707,6 +707,10 @@ class APIG extends OpenApiClient
             @$body['match'] = $request->match;
         }
 
+        if (null !== $request->mcpRouteConfig) {
+            @$body['mcpRouteConfig'] = $request->mcpRouteConfig;
+        }
+
         if (null !== $request->name) {
             @$body['name'] = $request->name;
         }
