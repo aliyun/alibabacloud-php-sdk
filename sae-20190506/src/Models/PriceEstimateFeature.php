@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class PriceEstimateFeature extends Model
 {
     /**
+     * @var int
+     */
+    public $appCount;
+
+    /**
      * @var string
      */
     public $appType;
@@ -128,6 +133,7 @@ class PriceEstimateFeature extends Model
      */
     public $resourceType;
     protected $_name = [
+        'appCount' => 'AppCount',
         'appType' => 'AppType',
         'cpuCore' => 'CpuCore',
         'cpuStrategy' => 'CpuStrategy',
@@ -165,6 +171,10 @@ class PriceEstimateFeature extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appCount) {
+            $res['AppCount'] = $this->appCount;
+        }
+
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
@@ -278,6 +288,10 @@ class PriceEstimateFeature extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppCount'])) {
+            $model->appCount = $map['AppCount'];
+        }
+
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }

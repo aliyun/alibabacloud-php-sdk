@@ -143,6 +143,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $gpuCount;
+
+    /**
+     * @var string
+     */
+    public $gpuType;
+
+    /**
+     * @var string
+     */
     public $imagePullSecrets;
 
     /**
@@ -460,6 +470,8 @@ class data extends Model
         'enableIdle' => 'EnableIdle',
         'enableNewArms' => 'EnableNewArms',
         'envs' => 'Envs',
+        'gpuCount' => 'GpuCount',
+        'gpuType' => 'GpuType',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfig' => 'InitContainersConfig',
@@ -657,6 +669,14 @@ class data extends Model
 
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
+        }
+
+        if (null !== $this->gpuCount) {
+            $res['GpuCount'] = $this->gpuCount;
+        }
+
+        if (null !== $this->gpuType) {
+            $res['GpuType'] = $this->gpuType;
         }
 
         if (null !== $this->imagePullSecrets) {
@@ -1051,6 +1071,14 @@ class data extends Model
 
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
+        }
+
+        if (isset($map['GpuCount'])) {
+            $model->gpuCount = $map['GpuCount'];
+        }
+
+        if (isset($map['GpuType'])) {
+            $model->gpuType = $map['GpuType'];
         }
 
         if (isset($map['ImagePullSecrets'])) {
