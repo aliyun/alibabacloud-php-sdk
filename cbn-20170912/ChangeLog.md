@@ -4,6 +4,12 @@
 - Update API ListTransitRouterVpcAttachments: add response parameters Body.TransitRouterAttachments.$.ManagedService.
 
 
+2025-05-29 Version: 1.2.6
+- Update API DescribeCenAttachedChildInstanceAttribute: add response parameters Body.ManagedService.
+- Update API DescribeCenAttachedChildInstances: add response parameters Body.ChildInstances.$.ManagedService.
+- Update API ListTransitRouterVpcAttachments: add response parameters Body.TransitRouterAttachments.$.ManagedService.
+
+
 2025-04-11 Version: 1.2.5
 - Update API DeleteTrafficMarkingPolicy: add request parameters Force.
 
