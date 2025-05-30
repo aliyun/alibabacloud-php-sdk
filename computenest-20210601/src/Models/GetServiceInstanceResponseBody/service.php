@@ -23,6 +23,11 @@ class service extends Model
     /**
      * @var string
      */
+    public $operationMetadata;
+
+    /**
+     * @var string
+     */
     public $publishTime;
 
     /**
@@ -92,6 +97,7 @@ class service extends Model
     protected $_name = [
         'deployMetadata' => 'DeployMetadata',
         'deployType' => 'DeployType',
+        'operationMetadata' => 'OperationMetadata',
         'publishTime' => 'PublishTime',
         'serviceDocUrl' => 'ServiceDocUrl',
         'serviceId' => 'ServiceId',
@@ -131,6 +137,10 @@ class service extends Model
 
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
+        }
+
+        if (null !== $this->operationMetadata) {
+            $res['OperationMetadata'] = $this->operationMetadata;
         }
 
         if (null !== $this->publishTime) {
@@ -224,6 +234,10 @@ class service extends Model
 
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
+        }
+
+        if (isset($map['OperationMetadata'])) {
+            $model->operationMetadata = $map['OperationMetadata'];
         }
 
         if (isset($map['PublishTime'])) {
