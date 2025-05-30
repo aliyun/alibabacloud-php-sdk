@@ -46,6 +46,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateHotwordLibraryRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateHotwordLibraryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateHotwordLibraryShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelRequest;
@@ -120,6 +123,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteHotwordLibraryRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteHotwordLibraryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelRequest;
@@ -236,6 +241,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEventCallbackResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetHotwordLibraryRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetHotwordLibraryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobRequest;
@@ -364,6 +371,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListEditingProjectsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListEditingProjectsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListHotwordLibrariesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListHotwordLibrariesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelGroupsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelGroupsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelsRequest;
@@ -645,6 +654,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateHotwordLibraryRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateHotwordLibraryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateHotwordLibraryShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelCredentialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelCredentialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelGroupRequest;
@@ -2359,6 +2371,81 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建热词库.
+     *
+     * @param tmpReq - CreateHotwordLibraryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHotwordLibraryResponse
+     *
+     * @param CreateHotwordLibraryRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateHotwordLibraryResponse
+     */
+    public function createHotwordLibraryWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateHotwordLibraryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotwords) {
+            $request->hotwordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotwords, 'Hotwords', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->hotwordsShrink) {
+            @$query['Hotwords'] = $request->hotwordsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->usageScenario) {
+            @$query['UsageScenario'] = $request->usageScenario;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHotwordLibrary',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHotwordLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建热词库.
+     *
+     * @param request - CreateHotwordLibraryRequest
+     *
+     * @returns CreateHotwordLibraryResponse
+     *
+     * @param CreateHotwordLibraryRequest $request
+     *
+     * @return CreateHotwordLibraryResponse
+     */
+    public function createHotwordLibrary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHotwordLibraryWithOptions($request, $runtime);
     }
 
     /**
@@ -4758,6 +4845,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEditingProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除热词词库.
+     *
+     * @param request - DeleteHotwordLibraryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHotwordLibraryResponse
+     *
+     * @param DeleteHotwordLibraryRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteHotwordLibraryResponse
+     */
+    public function deleteHotwordLibraryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hotwordLibraryId) {
+            @$query['HotwordLibraryId'] = $request->hotwordLibraryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHotwordLibrary',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHotwordLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除热词词库.
+     *
+     * @param request - DeleteHotwordLibraryRequest
+     *
+     * @returns DeleteHotwordLibraryResponse
+     *
+     * @param DeleteHotwordLibraryRequest $request
+     *
+     * @return DeleteHotwordLibraryResponse
+     */
+    public function deleteHotwordLibrary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHotwordLibraryWithOptions($request, $runtime);
     }
 
     /**
@@ -8519,6 +8663,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEventCallbackWithOptions($runtime);
+    }
+
+    /**
+     * 查询热词词库.
+     *
+     * @param request - GetHotwordLibraryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotwordLibraryResponse
+     *
+     * @param GetHotwordLibraryRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetHotwordLibraryResponse
+     */
+    public function getHotwordLibraryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hotwordLibraryId) {
+            @$query['HotwordLibraryId'] = $request->hotwordLibraryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetHotwordLibrary',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHotwordLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询热词词库.
+     *
+     * @param request - GetHotwordLibraryRequest
+     *
+     * @returns GetHotwordLibraryResponse
+     *
+     * @param GetHotwordLibraryRequest $request
+     *
+     * @return GetHotwordLibraryResponse
+     */
+    public function getHotwordLibrary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHotwordLibraryWithOptions($request, $runtime);
     }
 
     /**
@@ -12731,6 +12932,95 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEditingProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询所有热词库的列表.
+     *
+     * @param request - ListHotwordLibrariesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotwordLibrariesResponse
+     *
+     * @param ListHotwordLibrariesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListHotwordLibrariesResponse
+     */
+    public function listHotwordLibrariesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->usageScenario) {
+            @$query['UsageScenario'] = $request->usageScenario;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListHotwordLibraries',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHotwordLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有热词库的列表.
+     *
+     * @param request - ListHotwordLibrariesRequest
+     *
+     * @returns ListHotwordLibrariesResponse
+     *
+     * @param ListHotwordLibrariesRequest $request
+     *
+     * @return ListHotwordLibrariesResponse
+     */
+    public function listHotwordLibraries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHotwordLibrariesWithOptions($request, $runtime);
     }
 
     /**
@@ -22764,6 +23054,81 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新热词库.
+     *
+     * @param tmpReq - UpdateHotwordLibraryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHotwordLibraryResponse
+     *
+     * @param UpdateHotwordLibraryRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateHotwordLibraryResponse
+     */
+    public function updateHotwordLibraryWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateHotwordLibraryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotwords) {
+            $request->hotwordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotwords, 'Hotwords', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->hotwordLibraryId) {
+            @$query['HotwordLibraryId'] = $request->hotwordLibraryId;
+        }
+
+        if (null !== $request->hotwordsShrink) {
+            @$query['Hotwords'] = $request->hotwordsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateHotwordLibrary',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateHotwordLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新热词库.
+     *
+     * @param request - UpdateHotwordLibraryRequest
+     *
+     * @returns UpdateHotwordLibraryResponse
+     *
+     * @param UpdateHotwordLibraryRequest $request
+     *
+     * @return UpdateHotwordLibraryResponse
+     */
+    public function updateHotwordLibrary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHotwordLibraryWithOptions($request, $runtime);
     }
 
     /**
