@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var mixed
      */
+    public $extraResult;
+
+    /**
+     * @var mixed
+     */
     public $resultUrl;
 
     /**
@@ -28,6 +33,7 @@ class data extends Model
      */
     public $taskStatus;
     protected $_name = [
+        'extraResult' => 'extraResult',
         'resultUrl' => 'resultUrl',
         'script' => 'script',
         'taskId' => 'taskId',
@@ -42,6 +48,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extraResult) {
+            $res['extraResult'] = $this->extraResult;
+        }
+
         if (null !== $this->resultUrl) {
             $res['resultUrl'] = $this->resultUrl;
         }
@@ -69,6 +79,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['extraResult'])) {
+            $model->extraResult = $map['extraResult'];
+        }
+
         if (isset($map['resultUrl'])) {
             $model->resultUrl = $map['resultUrl'];
         }

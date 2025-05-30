@@ -91,11 +91,8 @@ class AIPodcast extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PodcastTaskResultQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PodcastTaskResultQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return PodcastTaskResultQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -185,11 +182,8 @@ class AIPodcast extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PodcastTaskSubmitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PodcastTaskSubmitResponse::fromMap($this->execute($params, $req, $runtime));
+        return PodcastTaskSubmitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
