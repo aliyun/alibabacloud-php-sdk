@@ -21,6 +21,11 @@ class PodcastTaskSubmitRequest extends Model
     /**
      * @var string
      */
+    public $sourceLang;
+
+    /**
+     * @var string
+     */
     public $text;
 
     /**
@@ -40,6 +45,7 @@ class PodcastTaskSubmitRequest extends Model
     protected $_name = [
         'counts' => 'counts',
         'fileUrls' => 'fileUrls',
+        'sourceLang' => 'sourceLang',
         'text' => 'text',
         'topic' => 'topic',
         'voices' => 'voices',
@@ -72,6 +78,10 @@ class PodcastTaskSubmitRequest extends Model
                     $res['fileUrls'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->sourceLang) {
+            $res['sourceLang'] = $this->sourceLang;
         }
 
         if (null !== $this->text) {
@@ -119,6 +129,10 @@ class PodcastTaskSubmitRequest extends Model
                     $model->fileUrls[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['sourceLang'])) {
+            $model->sourceLang = $map['sourceLang'];
         }
 
         if (isset($map['text'])) {

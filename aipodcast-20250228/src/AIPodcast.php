@@ -151,6 +151,10 @@ class AIPodcast extends OpenApiClient
             @$body['fileUrls'] = $request->fileUrlsShrink;
         }
 
+        if (null !== $request->sourceLang) {
+            @$body['sourceLang'] = $request->sourceLang;
+        }
+
         if (null !== $request->text) {
             @$body['text'] = $request->text;
         }

@@ -21,6 +21,11 @@ class PodcastTaskSubmitShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sourceLang;
+
+    /**
+     * @var string
+     */
     public $text;
 
     /**
@@ -40,6 +45,7 @@ class PodcastTaskSubmitShrinkRequest extends Model
     protected $_name = [
         'counts' => 'counts',
         'fileUrlsShrink' => 'fileUrls',
+        'sourceLang' => 'sourceLang',
         'text' => 'text',
         'topic' => 'topic',
         'voicesShrink' => 'voices',
@@ -60,6 +66,10 @@ class PodcastTaskSubmitShrinkRequest extends Model
 
         if (null !== $this->fileUrlsShrink) {
             $res['fileUrls'] = $this->fileUrlsShrink;
+        }
+
+        if (null !== $this->sourceLang) {
+            $res['sourceLang'] = $this->sourceLang;
         }
 
         if (null !== $this->text) {
@@ -95,6 +105,10 @@ class PodcastTaskSubmitShrinkRequest extends Model
 
         if (isset($map['fileUrls'])) {
             $model->fileUrlsShrink = $map['fileUrls'];
+        }
+
+        if (isset($map['sourceLang'])) {
+            $model->sourceLang = $map['sourceLang'];
         }
 
         if (isset($map['text'])) {
