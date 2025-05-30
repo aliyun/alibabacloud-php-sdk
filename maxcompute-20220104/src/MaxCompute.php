@@ -382,6 +382,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * CreateMmsDataSource.
+     *
      * @param request - CreateMmsDataSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -434,6 +436,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * CreateMmsDataSource.
+     *
      * @param request - CreateMmsDataSourceRequest
      *
      * @returns CreateMmsDataSourceResponse
@@ -991,6 +995,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 删除迁移计划.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1024,6 +1030,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 删除迁移计划.
+     *
      * @returns DeleteMmsJobResponse
      *
      * @param string $sourceId
@@ -1276,7 +1284,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get basic information about a single job.
+     * Queries the basic information about a job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1310,7 +1318,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get basic information about a single job.
+     * Queries the basic information about a job.
      *
      * @returns GetJobInfoResponse
      *
@@ -1414,6 +1422,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsAsyncTask.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1447,6 +1457,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsAsyncTask.
+     *
      * @returns GetMmsAsyncTaskResponse
      *
      * @param string $sourceId
@@ -1463,6 +1475,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 获取数据源.
+     *
      * @param request - GetMmsDataSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1508,6 +1522,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 获取数据源.
+     *
      * @param request - GetMmsDataSourceRequest
      *
      * @returns GetMmsDataSourceResponse
@@ -1526,6 +1542,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsDb.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1559,6 +1577,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsDb.
+     *
      * @returns GetMmsDbResponse
      *
      * @param string $sourceId
@@ -1575,6 +1595,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsFetchMetadataJob.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1608,6 +1630,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsFetchMetadataJob.
+     *
      * @returns GetMmsFetchMetadataJobResponse
      *
      * @param string $sourceId
@@ -1624,6 +1648,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 获取迁移计划.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1657,6 +1683,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 获取迁移计划.
+     *
      * @returns GetMmsJobResponse
      *
      * @param string $sourceId
@@ -1673,6 +1701,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsPartition.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1706,6 +1736,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsPartition.
+     *
      * @returns GetMmsPartitionResponse
      *
      * @param string $sourceId
@@ -1722,6 +1754,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsTable.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1755,6 +1789,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsTable.
+     *
      * @returns GetMmsTableResponse
      *
      * @param string $sourceId
@@ -1771,6 +1807,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsTask.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1804,6 +1842,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetMmsTask.
+     *
      * @returns GetMmsTaskResponse
      *
      * @param string $sourceId
@@ -3312,6 +3352,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsDataSources.
+     *
      * @param request - ListMmsDataSourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3368,6 +3410,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsDataSources.
+     *
      * @param request - ListMmsDataSourcesRequest
      *
      * @returns ListMmsDataSourcesResponse
@@ -3470,6 +3514,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsJobs.
+     *
      * @param request - ListMmsJobsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3547,6 +3593,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsJobs.
+     *
      * @param request - ListMmsJobsRequest
      *
      * @returns ListMmsJobsResponse
@@ -3565,6 +3613,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 获取元数据-分区.
+     *
      * @param tmpReq - ListMmsPartitionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3652,6 +3702,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 获取元数据-分区.
+     *
      * @param request - ListMmsPartitionsRequest
      *
      * @returns ListMmsPartitionsResponse
@@ -3670,6 +3722,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTables.
+     *
      * @param tmpReq - ListMmsTablesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3761,6 +3815,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTables.
+     *
      * @param request - ListMmsTablesRequest
      *
      * @returns ListMmsTablesResponse
@@ -3779,6 +3835,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTaskLogs.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3812,6 +3870,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTaskLogs.
+     *
      * @returns ListMmsTaskLogsResponse
      *
      * @param string $sourceId
@@ -3828,6 +3888,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTasks.
+     *
      * @param request - ListMmsTasksRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3909,6 +3971,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTasks.
+     *
      * @param request - ListMmsTasksRequest
      *
      * @returns ListMmsTasksResponse
@@ -5145,6 +5209,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * RetryMmsJob.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5178,6 +5244,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * RetryMmsJob.
+     *
      * @returns RetryMmsJobResponse
      *
      * @param string $sourceId
@@ -5194,6 +5262,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * StartMmsJob.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5227,6 +5297,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * StartMmsJob.
+     *
      * @returns StartMmsJobResponse
      *
      * @param string $sourceId
@@ -5243,6 +5315,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * StopMmsJob.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5276,6 +5350,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * StopMmsJob.
+     *
      * @returns StopMmsJobResponse
      *
      * @param string $sourceId
