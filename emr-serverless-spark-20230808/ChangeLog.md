@@ -1,3 +1,6 @@
+2025-05-30 Version: 1.11.3
+- Generated php 2023-08-08 for emr-serverless-spark.
+
 2025-05-19 Version: 1.11.2
 - Update API CreateSessionCluster: add request parameters body.publicEndpointEnabled.
 - Update API GetSessionCluster: add response parameters Body.sessionCluster.publicEndpointEnabled.
