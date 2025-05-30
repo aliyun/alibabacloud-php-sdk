@@ -1,0 +1,118 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Appflow\V20230904\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class GenerateUserSessionTokenRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $chatbotId;
+
+    /**
+     * @var int
+     */
+    public $expireSecond;
+
+    /**
+     * @var string
+     */
+    public $integrateId;
+
+    /**
+     * @var string
+     */
+    public $userAvatar;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userName;
+    protected $_name = [
+        'chatbotId' => 'ChatbotId',
+        'expireSecond' => 'ExpireSecond',
+        'integrateId' => 'IntegrateId',
+        'userAvatar' => 'UserAvatar',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->chatbotId) {
+            $res['ChatbotId'] = $this->chatbotId;
+        }
+
+        if (null !== $this->expireSecond) {
+            $res['ExpireSecond'] = $this->expireSecond;
+        }
+
+        if (null !== $this->integrateId) {
+            $res['IntegrateId'] = $this->integrateId;
+        }
+
+        if (null !== $this->userAvatar) {
+            $res['UserAvatar'] = $this->userAvatar;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ChatbotId'])) {
+            $model->chatbotId = $map['ChatbotId'];
+        }
+
+        if (isset($map['ExpireSecond'])) {
+            $model->expireSecond = $map['ExpireSecond'];
+        }
+
+        if (isset($map['IntegrateId'])) {
+            $model->integrateId = $map['IntegrateId'];
+        }
+
+        if (isset($map['UserAvatar'])) {
+            $model->userAvatar = $map['UserAvatar'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
+        }
+
+        return $model;
+    }
+}
