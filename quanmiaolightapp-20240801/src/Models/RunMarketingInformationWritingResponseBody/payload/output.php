@@ -11,8 +11,14 @@ class output extends Model
     /**
      * @var string
      */
+    public $reasonContent;
+
+    /**
+     * @var string
+     */
     public $text;
     protected $_name = [
+        'reasonContent' => 'reasonContent',
         'text' => 'text',
     ];
 
@@ -24,6 +30,10 @@ class output extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->reasonContent) {
+            $res['reasonContent'] = $this->reasonContent;
+        }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -39,6 +49,10 @@ class output extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['reasonContent'])) {
+            $model->reasonContent = $map['reasonContent'];
+        }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

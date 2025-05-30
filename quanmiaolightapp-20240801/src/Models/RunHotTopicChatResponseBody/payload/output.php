@@ -17,9 +17,24 @@ class output extends Model
     public $articles;
 
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var hotTopicSummaries[]
      */
     public $hotTopicSummaries;
+
+    /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
+     * @var string
+     */
+    public $location;
 
     /**
      * @var multimodalMedias[]
@@ -42,7 +57,10 @@ class output extends Model
     public $text;
     protected $_name = [
         'articles' => 'articles',
+        'category' => 'category',
         'hotTopicSummaries' => 'hotTopicSummaries',
+        'keyword' => 'keyword',
+        'location' => 'location',
         'multimodalMedias' => 'multimodalMedias',
         'recommendQueries' => 'recommendQueries',
         'searchQuery' => 'searchQuery',
@@ -79,6 +97,10 @@ class output extends Model
             }
         }
 
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
+        }
+
         if (null !== $this->hotTopicSummaries) {
             if (\is_array($this->hotTopicSummaries)) {
                 $res['hotTopicSummaries'] = [];
@@ -87,6 +109,14 @@ class output extends Model
                     $res['hotTopicSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->keyword) {
+            $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->location) {
+            $res['location'] = $this->location;
         }
 
         if (null !== $this->multimodalMedias) {
@@ -138,6 +168,10 @@ class output extends Model
             }
         }
 
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
+        }
+
         if (isset($map['hotTopicSummaries'])) {
             if (!empty($map['hotTopicSummaries'])) {
                 $model->hotTopicSummaries = [];
@@ -146,6 +180,14 @@ class output extends Model
                     $model->hotTopicSummaries[$n1++] = hotTopicSummaries::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['keyword'])) {
+            $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['location'])) {
+            $model->location = $map['location'];
         }
 
         if (isset($map['multimodalMedias'])) {

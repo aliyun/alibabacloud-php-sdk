@@ -48,7 +48,17 @@ class hotTopicSummaries extends Model
     /**
      * @var string
      */
+    public $pubTime;
+
+    /**
+     * @var string
+     */
     public $textSummary;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'customHotValue' => 'customHotValue',
         'customTextSummary' => 'customTextSummary',
@@ -57,7 +67,9 @@ class hotTopicSummaries extends Model
         'hotValue' => 'hotValue',
         'images' => 'images',
         'news' => 'news',
+        'pubTime' => 'pubTime',
         'textSummary' => 'textSummary',
+        'url' => 'url',
     ];
 
     public function validate()
@@ -114,8 +126,16 @@ class hotTopicSummaries extends Model
             }
         }
 
+        if (null !== $this->pubTime) {
+            $res['pubTime'] = $this->pubTime;
+        }
+
         if (null !== $this->textSummary) {
             $res['textSummary'] = $this->textSummary;
+        }
+
+        if (null !== $this->url) {
+            $res['url'] = $this->url;
         }
 
         return $res;
@@ -169,8 +189,16 @@ class hotTopicSummaries extends Model
             }
         }
 
+        if (isset($map['pubTime'])) {
+            $model->pubTime = $map['pubTime'];
+        }
+
         if (isset($map['textSummary'])) {
             $model->textSummary = $map['textSummary'];
+        }
+
+        if (isset($map['url'])) {
+            $model->url = $map['url'];
         }
 
         return $model;
