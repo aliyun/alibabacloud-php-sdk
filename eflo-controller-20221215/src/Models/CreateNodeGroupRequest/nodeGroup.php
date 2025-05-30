@@ -32,6 +32,11 @@ class nodeGroup extends Model
     /**
      * @var string
      */
+    public $loginPassword;
+
+    /**
+     * @var string
+     */
     public $machineType;
 
     /**
@@ -58,6 +63,7 @@ class nodeGroup extends Model
         'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'imageId' => 'ImageId',
         'keyPairName' => 'KeyPairName',
+        'loginPassword' => 'LoginPassword',
         'machineType' => 'MachineType',
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName' => 'NodeGroupName',
@@ -90,6 +96,10 @@ class nodeGroup extends Model
 
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+
+        if (null !== $this->loginPassword) {
+            $res['LoginPassword'] = $this->loginPassword;
         }
 
         if (null !== $this->machineType) {
@@ -137,6 +147,10 @@ class nodeGroup extends Model
 
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+
+        if (isset($map['LoginPassword'])) {
+            $model->loginPassword = $map['LoginPassword'];
         }
 
         if (isset($map['MachineType'])) {

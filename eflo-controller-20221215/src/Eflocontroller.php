@@ -1068,7 +1068,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Cluster Details.
+     * 查询灵骏集群详情。
      *
      * @param request - DescribeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1107,7 +1107,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Cluster Details.
+     * 查询灵骏集群详情。
      *
      * @param request - DescribeClusterRequest
      *
@@ -3360,6 +3360,10 @@ class Eflocontroller extends OpenApiClient
 
         if (null !== $request->keyPairName) {
             @$body['KeyPairName'] = $request->keyPairName;
+        }
+
+        if (null !== $request->loginPassword) {
+            @$body['LoginPassword'] = $request->loginPassword;
         }
 
         if (null !== $request->newNodeGroupName) {

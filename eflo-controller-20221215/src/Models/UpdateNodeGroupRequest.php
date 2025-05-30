@@ -26,6 +26,11 @@ class UpdateNodeGroupRequest extends Model
     /**
      * @var string
      */
+    public $loginPassword;
+
+    /**
+     * @var string
+     */
     public $newNodeGroupName;
 
     /**
@@ -41,6 +46,7 @@ class UpdateNodeGroupRequest extends Model
         'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'imageId' => 'ImageId',
         'keyPairName' => 'KeyPairName',
+        'loginPassword' => 'LoginPassword',
         'newNodeGroupName' => 'NewNodeGroupName',
         'nodeGroupId' => 'NodeGroupId',
         'userData' => 'UserData',
@@ -64,6 +70,10 @@ class UpdateNodeGroupRequest extends Model
 
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+
+        if (null !== $this->loginPassword) {
+            $res['LoginPassword'] = $this->loginPassword;
         }
 
         if (null !== $this->newNodeGroupName) {
@@ -99,6 +109,10 @@ class UpdateNodeGroupRequest extends Model
 
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+
+        if (isset($map['LoginPassword'])) {
+            $model->loginPassword = $map['LoginPassword'];
         }
 
         if (isset($map['NewNodeGroupName'])) {
