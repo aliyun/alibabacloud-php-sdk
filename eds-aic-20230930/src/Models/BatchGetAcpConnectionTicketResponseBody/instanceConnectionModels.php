@@ -16,7 +16,22 @@ class instanceConnectionModels extends Model
     /**
      * @var string
      */
+    public $appInstanceId;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $persistentAppInstanceId;
 
     /**
      * @var string
@@ -34,7 +49,10 @@ class instanceConnectionModels extends Model
     public $ticket;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceId' => 'AppInstanceId',
+        'errorCode' => 'ErrorCode',
         'instanceId' => 'InstanceId',
+        'persistentAppInstanceId' => 'PersistentAppInstanceId',
         'taskId' => 'TaskId',
         'taskStatus' => 'TaskStatus',
         'ticket' => 'Ticket',
@@ -52,8 +70,20 @@ class instanceConnectionModels extends Model
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
 
+        if (null !== $this->appInstanceId) {
+            $res['AppInstanceId'] = $this->appInstanceId;
+        }
+
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->persistentAppInstanceId) {
+            $res['PersistentAppInstanceId'] = $this->persistentAppInstanceId;
         }
 
         if (null !== $this->taskId) {
@@ -83,8 +113,20 @@ class instanceConnectionModels extends Model
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
 
+        if (isset($map['AppInstanceId'])) {
+            $model->appInstanceId = $map['AppInstanceId'];
+        }
+
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['PersistentAppInstanceId'])) {
+            $model->persistentAppInstanceId = $map['PersistentAppInstanceId'];
         }
 
         if (isset($map['TaskId'])) {

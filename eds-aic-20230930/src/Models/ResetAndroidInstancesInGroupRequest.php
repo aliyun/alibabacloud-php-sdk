@@ -17,9 +17,15 @@ class ResetAndroidInstancesInGroupRequest extends Model
      * @var string
      */
     public $saleMode;
+
+    /**
+     * @var int
+     */
+    public $settingResetType;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
         'saleMode' => 'SaleMode',
+        'settingResetType' => 'SettingResetType',
     ];
 
     public function validate()
@@ -47,6 +53,10 @@ class ResetAndroidInstancesInGroupRequest extends Model
             $res['SaleMode'] = $this->saleMode;
         }
 
+        if (null !== $this->settingResetType) {
+            $res['SettingResetType'] = $this->settingResetType;
+        }
+
         return $res;
     }
 
@@ -70,6 +80,10 @@ class ResetAndroidInstancesInGroupRequest extends Model
 
         if (isset($map['SaleMode'])) {
             $model->saleMode = $map['SaleMode'];
+        }
+
+        if (isset($map['SettingResetType'])) {
+            $model->settingResetType = $map['SettingResetType'];
         }
 
         return $model;

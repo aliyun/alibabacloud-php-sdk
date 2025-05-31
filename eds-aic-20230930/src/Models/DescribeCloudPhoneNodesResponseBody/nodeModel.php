@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\networkInfos;
 
 class nodeModel extends Model
 {
@@ -47,6 +48,11 @@ class nodeModel extends Model
      * @var string
      */
     public $networkId;
+
+    /**
+     * @var networkInfos[]
+     */
+    public $networkInfos;
 
     /**
      * @var string
@@ -106,6 +112,7 @@ class nodeModel extends Model
         'instanceType' => 'InstanceType',
         'memory' => 'Memory',
         'networkId' => 'NetworkId',
+        'networkInfos' => 'NetworkInfos',
         'nodeId' => 'NodeId',
         'nodeName' => 'NodeName',
         'phoneCount' => 'PhoneCount',
@@ -120,6 +127,9 @@ class nodeModel extends Model
 
     public function validate()
     {
+        if (\is_array($this->networkInfos)) {
+            Model::validateArray($this->networkInfos);
+        }
         parent::validate();
     }
 
@@ -156,6 +166,16 @@ class nodeModel extends Model
 
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+
+        if (null !== $this->networkInfos) {
+            if (\is_array($this->networkInfos)) {
+                $res['NetworkInfos'] = [];
+                $n1 = 0;
+                foreach ($this->networkInfos as $item1) {
+                    $res['NetworkInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->nodeId) {
@@ -239,6 +259,16 @@ class nodeModel extends Model
 
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+
+        if (isset($map['NetworkInfos'])) {
+            if (!empty($map['NetworkInfos'])) {
+                $model->networkInfos = [];
+                $n1 = 0;
+                foreach ($map['NetworkInfos'] as $item1) {
+                    $model->networkInfos[$n1++] = networkInfos::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['NodeId'])) {

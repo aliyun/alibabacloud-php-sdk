@@ -191,6 +191,16 @@ class instanceModel extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'androidInstanceGroupId' => 'AndroidInstanceGroupId',
         'androidInstanceGroupName' => 'AndroidInstanceGroupName',
@@ -228,6 +238,8 @@ class instanceModel extends Model
         'renderingType' => 'RenderingType',
         'sessionStatus' => 'SessionStatus',
         'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -406,6 +418,14 @@ class instanceModel extends Model
             }
         }
 
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -571,6 +591,14 @@ class instanceModel extends Model
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -4476,6 +4476,10 @@ class Edsaic extends OpenApiClient
             @$query['SaleMode'] = $request->saleMode;
         }
 
+        if (null !== $request->settingResetType) {
+            @$query['SettingResetType'] = $request->settingResetType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
