@@ -100,6 +100,11 @@ class devices extends Model
     public $mac;
 
     /**
+     * @var string[]
+     */
+    public $matchDeviceGroupIds;
+
+    /**
      * @var string
      */
     public $memory;
@@ -167,6 +172,7 @@ class devices extends Model
         'iaStatus' => 'IaStatus',
         'innerIP' => 'InnerIP',
         'mac' => 'Mac',
+        'matchDeviceGroupIds' => 'MatchDeviceGroupIds',
         'memory' => 'Memory',
         'nacStatus' => 'NacStatus',
         'netInterfaceInfo' => 'NetInterfaceInfo',
@@ -181,6 +187,9 @@ class devices extends Model
 
     public function validate()
     {
+        if (\is_array($this->matchDeviceGroupIds)) {
+            Model::validateArray($this->matchDeviceGroupIds);
+        }
         if (\is_array($this->netInterfaceInfo)) {
             Model::validateArray($this->netInterfaceInfo);
         }
@@ -260,6 +269,16 @@ class devices extends Model
 
         if (null !== $this->mac) {
             $res['Mac'] = $this->mac;
+        }
+
+        if (null !== $this->matchDeviceGroupIds) {
+            if (\is_array($this->matchDeviceGroupIds)) {
+                $res['MatchDeviceGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->matchDeviceGroupIds as $item1) {
+                    $res['MatchDeviceGroupIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->memory) {
@@ -389,6 +408,16 @@ class devices extends Model
 
         if (isset($map['Mac'])) {
             $model->mac = $map['Mac'];
+        }
+
+        if (isset($map['MatchDeviceGroupIds'])) {
+            if (!empty($map['MatchDeviceGroupIds'])) {
+                $model->matchDeviceGroupIds = [];
+                $n1 = 0;
+                foreach ($map['MatchDeviceGroupIds'] as $item1) {
+                    $model->matchDeviceGroupIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['Memory'])) {

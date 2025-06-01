@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteOtpConfigRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteOtpConfigResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyRequest;
@@ -642,6 +646,95 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * 创建加速策略.
+     *
+     * @param request - CreateEnterpriseAcceleratePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEnterpriseAcceleratePolicyResponse
+     *
+     * @param CreateEnterpriseAcceleratePolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateEnterpriseAcceleratePolicyResponse
+     */
+    public function createEnterpriseAcceleratePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accelerationType) {
+            @$body['AccelerationType'] = $request->accelerationType;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->showInClient) {
+            @$body['ShowInClient'] = $request->showInClient;
+        }
+
+        if (null !== $request->upstreamHost) {
+            @$body['UpstreamHost'] = $request->upstreamHost;
+        }
+
+        if (null !== $request->upstreamPort) {
+            @$body['UpstreamPort'] = $request->upstreamPort;
+        }
+
+        if (null !== $request->upstreamType) {
+            @$body['UpstreamType'] = $request->upstreamType;
+        }
+
+        if (null !== $request->userAttributeGroup) {
+            @$body['UserAttributeGroup'] = $request->userAttributeGroup;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEnterpriseAcceleratePolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEnterpriseAcceleratePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建加速策略.
+     *
+     * @param request - CreateEnterpriseAcceleratePolicyRequest
+     *
+     * @returns CreateEnterpriseAcceleratePolicyResponse
+     *
+     * @param CreateEnterpriseAcceleratePolicyRequest $request
+     *
+     * @return CreateEnterpriseAcceleratePolicyResponse
+     */
+    public function createEnterpriseAcceleratePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnterpriseAcceleratePolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建自定义身份源部门.
      *
      * @param request - CreateIdpDepartmentRequest
@@ -703,7 +796,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问应用.
+     * Creates an office application within the current Alibaba Cloud account.
+     *
+     * @remarks
+     * By default, you can create a maximum of 500 office applications.
      *
      * @param tmpReq - CreatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -791,7 +887,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问应用.
+     * Creates an office application within the current Alibaba Cloud account.
+     *
+     * @remarks
+     * By default, you can create a maximum of 500 office applications.
      *
      * @param request - CreatePrivateAccessApplicationRequest
      *
@@ -1358,7 +1457,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建文件水印提取任务
+     * Creates a digital watermark extraction task.
      *
      * @param tmpReq - CreateWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1532,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建文件水印提取任务
+     * Creates a digital watermark extraction task.
      *
      * @param request - CreateWmExtractTaskRequest
      *
@@ -1748,6 +1847,63 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteIdpDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteOtpConfig.
+     *
+     * @param request - DeleteOtpConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOtpConfigResponse
+     *
+     * @param DeleteOtpConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteOtpConfigResponse
+     */
+    public function deleteOtpConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->username) {
+            @$body['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOtpConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOtpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteOtpConfig.
+     *
+     * @param request - DeleteOtpConfigRequest
+     *
+     * @returns DeleteOtpConfigResponse
+     *
+     * @param DeleteOtpConfigRequest $request
+     *
+     * @return DeleteOtpConfigResponse
+     */
+    public function deleteOtpConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOtpConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -2753,7 +2909,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询内网访问应用详情.
+     * Queries the details of the office applications that belong to the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2788,7 +2944,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询内网访问应用详情.
+     * Queries the details of the office applications that belong to the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      *
@@ -6006,7 +6162,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改内网访问应用.
+     * Modifies the office applications of the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6098,7 +6254,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改内网访问应用.
+     * Modifies the office applications of the current Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessApplicationRequest
      *

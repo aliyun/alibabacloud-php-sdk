@@ -34,6 +34,11 @@ class ListUserDevicesRequest extends Model
     public $deviceBelong;
 
     /**
+     * @var string
+     */
+    public $deviceGroupId;
+
+    /**
      * @var string[]
      */
     public $deviceStatuses;
@@ -118,6 +123,7 @@ class ListUserDevicesRequest extends Model
         'currentPage' => 'CurrentPage',
         'department' => 'Department',
         'deviceBelong' => 'DeviceBelong',
+        'deviceGroupId' => 'DeviceGroupId',
         'deviceStatuses' => 'DeviceStatuses',
         'deviceTags' => 'DeviceTags',
         'deviceTypes' => 'DeviceTypes',
@@ -201,6 +207,10 @@ class ListUserDevicesRequest extends Model
 
         if (null !== $this->deviceBelong) {
             $res['DeviceBelong'] = $this->deviceBelong;
+        }
+
+        if (null !== $this->deviceGroupId) {
+            $res['DeviceGroupId'] = $this->deviceGroupId;
         }
 
         if (null !== $this->deviceStatuses) {
@@ -350,6 +360,10 @@ class ListUserDevicesRequest extends Model
 
         if (isset($map['DeviceBelong'])) {
             $model->deviceBelong = $map['DeviceBelong'];
+        }
+
+        if (isset($map['DeviceGroupId'])) {
+            $model->deviceGroupId = $map['DeviceGroupId'];
         }
 
         if (isset($map['DeviceStatuses'])) {
