@@ -2954,7 +2954,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件.
+     * Creates a resource file in DataStudio. The following types are supported: JAR, Archive, File, and Python.
      *
      * @param request - CreateResourceFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3037,7 +3037,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件.
+     * Creates a resource file in DataStudio. The following types are supported: JAR, Archive, File, and Python.
      *
      * @param request - CreateResourceFileRequest
      *
@@ -6546,6 +6546,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a file.
+     *
      * @param request - GetFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6595,6 +6597,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a file.
+     *
      * @param request - GetFileRequest
      *
      * @returns GetFileResponse
@@ -6611,6 +6615,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a file version.
+     *
      * @param request - GetFileVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6660,6 +6666,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a file version.
+     *
      * @param request - GetFileVersionRequest
      *
      * @returns GetFileVersionResponse
@@ -6794,7 +6802,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取扩展点触发时的数据快照.
+     * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
      *
      * @param request - GetIDEEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6837,7 +6845,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取扩展点触发时的数据快照.
+     * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
      *
      * @param request - GetIDEEventDetailRequest
      *
@@ -9612,7 +9620,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取待发布的文件版本列表.
+     * Queries a list of versions of files to be deployed.
      *
      * @param tmpReq - ListDeploymentPackageFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9701,7 +9709,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取待发布的文件版本列表.
+     * Queries a list of versions of files to be deployed.
      *
      * @param request - ListDeploymentPackageFilesRequest
      *
