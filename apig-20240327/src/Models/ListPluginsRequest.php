@@ -29,6 +29,11 @@ class ListPluginsRequest extends Model
     public $gatewayType;
 
     /**
+     * @var bool
+     */
+    public $includeBuiltinAiGateway;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -57,6 +62,7 @@ class ListPluginsRequest extends Model
         'attachResourceType' => 'attachResourceType',
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
+        'includeBuiltinAiGateway' => 'includeBuiltinAiGateway',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'pluginClassId' => 'pluginClassId',
@@ -86,6 +92,10 @@ class ListPluginsRequest extends Model
 
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
+        }
+
+        if (null !== $this->includeBuiltinAiGateway) {
+            $res['includeBuiltinAiGateway'] = $this->includeBuiltinAiGateway;
         }
 
         if (null !== $this->pageNumber) {
@@ -133,6 +143,10 @@ class ListPluginsRequest extends Model
 
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
+        }
+
+        if (isset($map['includeBuiltinAiGateway'])) {
+            $model->includeBuiltinAiGateway = $map['includeBuiltinAiGateway'];
         }
 
         if (isset($map['pageNumber'])) {

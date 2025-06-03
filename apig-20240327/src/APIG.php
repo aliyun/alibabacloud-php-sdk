@@ -3251,6 +3251,10 @@ class APIG extends OpenApiClient
             @$query['gatewayType'] = $request->gatewayType;
         }
 
+        if (null !== $request->includeBuiltinAiGateway) {
+            @$query['includeBuiltinAiGateway'] = $request->includeBuiltinAiGateway;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }
