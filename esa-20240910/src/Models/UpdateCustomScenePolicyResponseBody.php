@@ -36,6 +36,11 @@ class UpdateCustomScenePolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $siteIds;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -48,6 +53,7 @@ class UpdateCustomScenePolicyResponseBody extends Model
         'objects' => 'Objects',
         'policyId' => 'PolicyId',
         'requestId' => 'RequestId',
+        'siteIds' => 'SiteIds',
         'startTime' => 'StartTime',
         'template' => 'Template',
     ];
@@ -87,6 +93,10 @@ class UpdateCustomScenePolicyResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->siteIds) {
+            $res['SiteIds'] = $this->siteIds;
         }
 
         if (null !== $this->startTime) {
@@ -132,6 +142,10 @@ class UpdateCustomScenePolicyResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SiteIds'])) {
+            $model->siteIds = $map['SiteIds'];
         }
 
         if (isset($map['StartTime'])) {

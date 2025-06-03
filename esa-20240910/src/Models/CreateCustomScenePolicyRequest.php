@@ -26,6 +26,11 @@ class CreateCustomScenePolicyRequest extends Model
     /**
      * @var string
      */
+    public $siteIds;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -36,6 +41,7 @@ class CreateCustomScenePolicyRequest extends Model
         'endTime' => 'EndTime',
         'name' => 'Name',
         'objects' => 'Objects',
+        'siteIds' => 'SiteIds',
         'startTime' => 'StartTime',
         'template' => 'Template',
     ];
@@ -58,6 +64,10 @@ class CreateCustomScenePolicyRequest extends Model
 
         if (null !== $this->objects) {
             $res['Objects'] = $this->objects;
+        }
+
+        if (null !== $this->siteIds) {
+            $res['SiteIds'] = $this->siteIds;
         }
 
         if (null !== $this->startTime) {
@@ -89,6 +99,10 @@ class CreateCustomScenePolicyRequest extends Model
 
         if (isset($map['Objects'])) {
             $model->objects = $map['Objects'];
+        }
+
+        if (isset($map['SiteIds'])) {
+            $model->siteIds = $map['SiteIds'];
         }
 
         if (isset($map['StartTime'])) {

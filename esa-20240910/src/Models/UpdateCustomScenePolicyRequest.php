@@ -31,6 +31,11 @@ class UpdateCustomScenePolicyRequest extends Model
     /**
      * @var string
      */
+    public $siteIds;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -42,6 +47,7 @@ class UpdateCustomScenePolicyRequest extends Model
         'name' => 'Name',
         'objects' => 'Objects',
         'policyId' => 'PolicyId',
+        'siteIds' => 'SiteIds',
         'startTime' => 'StartTime',
         'template' => 'Template',
     ];
@@ -68,6 +74,10 @@ class UpdateCustomScenePolicyRequest extends Model
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->siteIds) {
+            $res['SiteIds'] = $this->siteIds;
         }
 
         if (null !== $this->startTime) {
@@ -103,6 +113,10 @@ class UpdateCustomScenePolicyRequest extends Model
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['SiteIds'])) {
+            $model->siteIds = $map['SiteIds'];
         }
 
         if (isset($map['StartTime'])) {

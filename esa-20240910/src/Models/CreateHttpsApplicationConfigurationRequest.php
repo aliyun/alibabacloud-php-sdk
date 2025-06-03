@@ -61,6 +61,21 @@ class CreateHttpsApplicationConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $httpsNoSniDeny;
+
+    /**
+     * @var string
+     */
+    public $httpsSniVerify;
+
+    /**
+     * @var string
+     */
+    public $httpsSniWhitelist;
+
+    /**
+     * @var string
+     */
     public $rule;
 
     /**
@@ -98,6 +113,9 @@ class CreateHttpsApplicationConfigurationRequest extends Model
         'hstsPreload' => 'HstsPreload',
         'httpsForce' => 'HttpsForce',
         'httpsForceCode' => 'HttpsForceCode',
+        'httpsNoSniDeny' => 'HttpsNoSniDeny',
+        'httpsSniVerify' => 'HttpsSniVerify',
+        'httpsSniWhitelist' => 'HttpsSniWhitelist',
         'rule' => 'Rule',
         'ruleEnable' => 'RuleEnable',
         'ruleName' => 'RuleName',
@@ -152,6 +170,18 @@ class CreateHttpsApplicationConfigurationRequest extends Model
 
         if (null !== $this->httpsForceCode) {
             $res['HttpsForceCode'] = $this->httpsForceCode;
+        }
+
+        if (null !== $this->httpsNoSniDeny) {
+            $res['HttpsNoSniDeny'] = $this->httpsNoSniDeny;
+        }
+
+        if (null !== $this->httpsSniVerify) {
+            $res['HttpsSniVerify'] = $this->httpsSniVerify;
+        }
+
+        if (null !== $this->httpsSniWhitelist) {
+            $res['HttpsSniWhitelist'] = $this->httpsSniWhitelist;
         }
 
         if (null !== $this->rule) {
@@ -227,6 +257,18 @@ class CreateHttpsApplicationConfigurationRequest extends Model
 
         if (isset($map['HttpsForceCode'])) {
             $model->httpsForceCode = $map['HttpsForceCode'];
+        }
+
+        if (isset($map['HttpsNoSniDeny'])) {
+            $model->httpsNoSniDeny = $map['HttpsNoSniDeny'];
+        }
+
+        if (isset($map['HttpsSniVerify'])) {
+            $model->httpsSniVerify = $map['HttpsSniVerify'];
+        }
+
+        if (isset($map['HttpsSniWhitelist'])) {
+            $model->httpsSniWhitelist = $map['HttpsSniWhitelist'];
         }
 
         if (isset($map['Rule'])) {

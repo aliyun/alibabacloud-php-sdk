@@ -2507,6 +2507,10 @@ class ESA extends OpenApiClient
             @$query['Objects'] = $request->objects;
         }
 
+        if (null !== $request->siteIds) {
+            @$query['SiteIds'] = $request->siteIds;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
@@ -3029,6 +3033,18 @@ class ESA extends OpenApiClient
 
         if (null !== $request->httpsForceCode) {
             @$query['HttpsForceCode'] = $request->httpsForceCode;
+        }
+
+        if (null !== $request->httpsNoSniDeny) {
+            @$query['HttpsNoSniDeny'] = $request->httpsNoSniDeny;
+        }
+
+        if (null !== $request->httpsSniVerify) {
+            @$query['HttpsSniVerify'] = $request->httpsSniVerify;
+        }
+
+        if (null !== $request->httpsSniWhitelist) {
+            @$query['HttpsSniWhitelist'] = $request->httpsSniWhitelist;
         }
 
         if (null !== $request->rule) {
@@ -19039,6 +19055,10 @@ class ESA extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->siteIds) {
+            @$query['SiteIds'] = $request->siteIds;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
@@ -19521,6 +19541,18 @@ class ESA extends OpenApiClient
 
         if (null !== $request->httpsForceCode) {
             @$query['HttpsForceCode'] = $request->httpsForceCode;
+        }
+
+        if (null !== $request->httpsNoSniDeny) {
+            @$query['HttpsNoSniDeny'] = $request->httpsNoSniDeny;
+        }
+
+        if (null !== $request->httpsSniVerify) {
+            @$query['HttpsSniVerify'] = $request->httpsSniVerify;
+        }
+
+        if (null !== $request->httpsSniWhitelist) {
+            @$query['HttpsSniWhitelist'] = $request->httpsSniWhitelist;
         }
 
         if (null !== $request->rule) {
