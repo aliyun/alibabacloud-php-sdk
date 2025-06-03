@@ -19,26 +19,17 @@ class capabilityList extends Model
     public $description;
 
     /**
-     * @var mixed[]
-     */
-    public $metadata;
-
-    /**
      * @var string
      */
     public $name;
     protected $_name = [
         'capabilityOverview' => 'capabilityOverview',
         'description' => 'description',
-        'metadata' => 'metadata',
         'name' => 'name',
     ];
 
     public function validate()
     {
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
-        }
         parent::validate();
     }
 
@@ -51,15 +42,6 @@ class capabilityList extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
-                }
-            }
         }
 
         if (null !== $this->name) {
@@ -83,15 +65,6 @@ class capabilityList extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
         }
 
         if (isset($map['name'])) {

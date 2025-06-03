@@ -27,23 +27,11 @@ class GetAssistantCapabilityResponseBody extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var mixed[]
-     */
-    public $metadata;
-
-    /**
-     * @var string
-     */
     public $requestId;
     protected $_name = [
         'assistantDescription' => 'assistantDescription',
         'canHandle' => 'canHandle',
         'capabilityAssessment' => 'capabilityAssessment',
-        'id' => 'id',
-        'metadata' => 'metadata',
         'requestId' => 'requestId',
     ];
 
@@ -51,9 +39,6 @@ class GetAssistantCapabilityResponseBody extends Model
     {
         if (null !== $this->capabilityAssessment) {
             $this->capabilityAssessment->validate();
-        }
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
         }
         parent::validate();
     }
@@ -71,19 +56,6 @@ class GetAssistantCapabilityResponseBody extends Model
 
         if (null !== $this->capabilityAssessment) {
             $res['capabilityAssessment'] = null !== $this->capabilityAssessment ? $this->capabilityAssessment->toArray($noStream) : $this->capabilityAssessment;
-        }
-
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
-                }
-            }
         }
 
         if (null !== $this->requestId) {
@@ -111,19 +83,6 @@ class GetAssistantCapabilityResponseBody extends Model
 
         if (isset($map['capabilityAssessment'])) {
             $model->capabilityAssessment = capabilityAssessment::fromMap($map['capabilityAssessment']);
-        }
-
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
         }
 
         if (isset($map['requestId'])) {

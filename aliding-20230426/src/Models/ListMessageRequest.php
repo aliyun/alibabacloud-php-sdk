@@ -26,7 +26,7 @@ class ListMessageRequest extends Model
     /**
      * @var string
      */
-    public $originalAssistantid;
+    public $originalAssistantId;
 
     /**
      * @var string
@@ -36,13 +36,25 @@ class ListMessageRequest extends Model
     /**
      * @var string
      */
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var string
+     */
+    public $sourceTypeOfOriginalAssistantId;
+
+    /**
+     * @var string
+     */
     public $threadId;
     protected $_name = [
         'assistantId' => 'assistantId',
         'limit' => 'limit',
         'order' => 'order',
-        'originalAssistantid' => 'originalAssistantid',
+        'originalAssistantId' => 'originalAssistantId',
         'runId' => 'runId',
+        'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
         'threadId' => 'threadId',
     ];
 
@@ -66,12 +78,20 @@ class ListMessageRequest extends Model
             $res['order'] = $this->order;
         }
 
-        if (null !== $this->originalAssistantid) {
-            $res['originalAssistantid'] = $this->originalAssistantid;
+        if (null !== $this->originalAssistantId) {
+            $res['originalAssistantId'] = $this->originalAssistantId;
         }
 
         if (null !== $this->runId) {
             $res['runId'] = $this->runId;
+        }
+
+        if (null !== $this->sourceIdOfOriginalAssistantId) {
+            $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfOriginalAssistantId) {
+            $res['sourceTypeOfOriginalAssistantId'] = $this->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $this->threadId) {
@@ -101,12 +121,20 @@ class ListMessageRequest extends Model
             $model->order = $map['order'];
         }
 
-        if (isset($map['originalAssistantid'])) {
-            $model->originalAssistantid = $map['originalAssistantid'];
+        if (isset($map['originalAssistantId'])) {
+            $model->originalAssistantId = $map['originalAssistantId'];
         }
 
         if (isset($map['runId'])) {
             $model->runId = $map['runId'];
+        }
+
+        if (isset($map['sourceIdOfOriginalAssistantId'])) {
+            $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfOriginalAssistantId'])) {
+            $model->sourceTypeOfOriginalAssistantId = $map['sourceTypeOfOriginalAssistantId'];
         }
 
         if (isset($map['threadId'])) {

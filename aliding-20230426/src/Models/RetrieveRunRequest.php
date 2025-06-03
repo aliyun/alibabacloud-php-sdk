@@ -26,12 +26,18 @@ class RetrieveRunRequest extends Model
     /**
      * @var string
      */
-    public $threadId;
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var string
+     */
+    public $sourceTypeOfOriginalAssistantId;
     protected $_name = [
         'assistantId' => 'assistantId',
         'originalAssistantId' => 'originalAssistantId',
         'runId' => 'runId',
-        'threadId' => 'threadId',
+        'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
     ];
 
     public function validate()
@@ -54,8 +60,12 @@ class RetrieveRunRequest extends Model
             $res['runId'] = $this->runId;
         }
 
-        if (null !== $this->threadId) {
-            $res['threadId'] = $this->threadId;
+        if (null !== $this->sourceIdOfOriginalAssistantId) {
+            $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfOriginalAssistantId) {
+            $res['sourceTypeOfOriginalAssistantId'] = $this->sourceTypeOfOriginalAssistantId;
         }
 
         return $res;
@@ -81,8 +91,12 @@ class RetrieveRunRequest extends Model
             $model->runId = $map['runId'];
         }
 
-        if (isset($map['threadId'])) {
-            $model->threadId = $map['threadId'];
+        if (isset($map['sourceIdOfOriginalAssistantId'])) {
+            $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfOriginalAssistantId'])) {
+            $model->sourceTypeOfOriginalAssistantId = $map['sourceTypeOfOriginalAssistantId'];
         }
 
         return $model;

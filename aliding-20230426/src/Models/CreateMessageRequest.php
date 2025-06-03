@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageRequest\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageRequest\messages;
 
 class CreateMessageRequest extends Model
 {
@@ -15,14 +15,9 @@ class CreateMessageRequest extends Model
     public $assistantId;
 
     /**
-     * @var content[]
+     * @var messages[]
      */
-    public $content;
-
-    /**
-     * @var mixed[]
-     */
-    public $metadata;
+    public $messages;
 
     /**
      * @var string
@@ -32,7 +27,12 @@ class CreateMessageRequest extends Model
     /**
      * @var string
      */
-    public $role;
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var string
+     */
+    public $sourceTypeOfOriginalAssistantId;
 
     /**
      * @var string
@@ -40,20 +40,17 @@ class CreateMessageRequest extends Model
     public $threadId;
     protected $_name = [
         'assistantId' => 'assistantId',
-        'content' => 'content',
-        'metadata' => 'metadata',
+        'messages' => 'messages',
         'originalAssistantId' => 'originalAssistantId',
-        'role' => 'role',
+        'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
         'threadId' => 'threadId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
         }
         parent::validate();
     }
@@ -65,21 +62,12 @@ class CreateMessageRequest extends Model
             $res['assistantId'] = $this->assistantId;
         }
 
-        if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['content'] = [];
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
                 $n1 = 0;
-                foreach ($this->content as $item1) {
-                    $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -88,8 +76,12 @@ class CreateMessageRequest extends Model
             $res['originalAssistantId'] = $this->originalAssistantId;
         }
 
-        if (null !== $this->role) {
-            $res['role'] = $this->role;
+        if (null !== $this->sourceIdOfOriginalAssistantId) {
+            $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfOriginalAssistantId) {
+            $res['sourceTypeOfOriginalAssistantId'] = $this->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $this->threadId) {
@@ -111,21 +103,12 @@ class CreateMessageRequest extends Model
             $model->assistantId = $map['assistantId'];
         }
 
-        if (isset($map['content'])) {
-            if (!empty($map['content'])) {
-                $model->content = [];
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
                 $n1 = 0;
-                foreach ($map['content'] as $item1) {
-                    $model->content[$n1++] = content::fromMap($item1);
-                }
-            }
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
         }
@@ -134,8 +117,12 @@ class CreateMessageRequest extends Model
             $model->originalAssistantId = $map['originalAssistantId'];
         }
 
-        if (isset($map['role'])) {
-            $model->role = $map['role'];
+        if (isset($map['sourceIdOfOriginalAssistantId'])) {
+            $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfOriginalAssistantId'])) {
+            $model->sourceTypeOfOriginalAssistantId = $map['sourceTypeOfOriginalAssistantId'];
         }
 
         if (isset($map['threadId'])) {

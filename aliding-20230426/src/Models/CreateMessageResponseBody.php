@@ -5,67 +5,28 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageResponseBody\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageResponseBody\messages;
 
 class CreateMessageResponseBody extends Model
 {
     /**
-     * @var content[]
+     * @var messages[]
      */
-    public $content;
-
-    /**
-     * @var int
-     */
-    public $createAt;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var mixed[]
-     */
-    public $metadata;
-
-    /**
-     * @var string
-     */
-    public $object;
+    public $messages;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $role;
-
-    /**
-     * @var string
-     */
-    public $threadId;
     protected $_name = [
-        'content' => 'content',
-        'createAt' => 'createAt',
-        'id' => 'id',
-        'metadata' => 'metadata',
-        'object' => 'object',
+        'messages' => 'messages',
         'requestId' => 'requestId',
-        'role' => 'role',
-        'threadId' => 'threadId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
         }
         parent::validate();
     }
@@ -73,47 +34,18 @@ class CreateMessageResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['content'] = [];
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
                 $n1 = 0;
-                foreach ($this->content as $item1) {
-                    $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
-        }
-
-        if (null !== $this->createAt) {
-            $res['createAt'] = $this->createAt;
-        }
-
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
-                }
-            }
-        }
-
-        if (null !== $this->object) {
-            $res['object'] = $this->object;
         }
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-
-        if (null !== $this->role) {
-            $res['role'] = $this->role;
-        }
-
-        if (null !== $this->threadId) {
-            $res['threadId'] = $this->threadId;
         }
 
         return $res;
@@ -127,47 +59,18 @@ class CreateMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['content'])) {
-            if (!empty($map['content'])) {
-                $model->content = [];
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
                 $n1 = 0;
-                foreach ($map['content'] as $item1) {
-                    $model->content[$n1++] = content::fromMap($item1);
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
-        }
-
-        if (isset($map['createAt'])) {
-            $model->createAt = $map['createAt'];
-        }
-
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
-        }
-
-        if (isset($map['object'])) {
-            $model->object = $map['object'];
         }
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['role'])) {
-            $model->role = $map['role'];
-        }
-
-        if (isset($map['threadId'])) {
-            $model->threadId = $map['threadId'];
         }
 
         return $model;

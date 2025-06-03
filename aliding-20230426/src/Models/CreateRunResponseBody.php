@@ -5,71 +5,15 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\content;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\data;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\delta;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\run;
 
 class CreateRunResponseBody extends Model
 {
     /**
-     * @var int
+     * @var messages[]
      */
-    public $cancelledAt;
-
-    /**
-     * @var int
-     */
-    public $completedAt;
-
-    /**
-     * @var content
-     */
-    public $content;
-
-    /**
-     * @var int
-     */
-    public $createAt;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var delta
-     */
-    public $delta;
-
-    /**
-     * @var int
-     */
-    public $expiresAt;
-
-    /**
-     * @var int
-     */
-    public $failedAt;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $lastErrorMsg;
-
-    /**
-     * @var mixed[]
-     */
-    public $metadata;
-
-    /**
-     * @var string
-     */
-    public $object;
+    public $messages;
 
     /**
      * @var string
@@ -77,51 +21,22 @@ class CreateRunResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var run
      */
-    public $startedAt;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $threadId;
+    public $run;
     protected $_name = [
-        'cancelledAt' => 'cancelledAt',
-        'completedAt' => 'completedAt',
-        'content' => 'content',
-        'createAt' => 'createAt',
-        'data' => 'data',
-        'delta' => 'delta',
-        'expiresAt' => 'expiresAt',
-        'failedAt' => 'failedAt',
-        'id' => 'id',
-        'lastErrorMsg' => 'lastErrorMsg',
-        'metadata' => 'metadata',
-        'object' => 'object',
+        'messages' => 'messages',
         'requestId' => 'requestId',
-        'startedAt' => 'startedAt',
-        'status' => 'status',
-        'threadId' => 'threadId',
+        'run' => 'run',
     ];
 
     public function validate()
     {
-        if (null !== $this->content) {
-            $this->content->validate();
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
         }
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        if (null !== $this->delta) {
-            $this->delta->validate();
-        }
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
+        if (null !== $this->run) {
+            $this->run->validate();
         }
         parent::validate();
     }
@@ -129,73 +44,22 @@ class CreateRunResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cancelledAt) {
-            $res['cancelledAt'] = $this->cancelledAt;
-        }
-
-        if (null !== $this->completedAt) {
-            $res['completedAt'] = $this->completedAt;
-        }
-
-        if (null !== $this->content) {
-            $res['content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
-        }
-
-        if (null !== $this->createAt) {
-            $res['createAt'] = $this->createAt;
-        }
-
-        if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
-        }
-
-        if (null !== $this->delta) {
-            $res['delta'] = null !== $this->delta ? $this->delta->toArray($noStream) : $this->delta;
-        }
-
-        if (null !== $this->expiresAt) {
-            $res['expiresAt'] = $this->expiresAt;
-        }
-
-        if (null !== $this->failedAt) {
-            $res['failedAt'] = $this->failedAt;
-        }
-
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->lastErrorMsg) {
-            $res['lastErrorMsg'] = $this->lastErrorMsg;
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
-        }
-
-        if (null !== $this->object) {
-            $res['object'] = $this->object;
         }
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->startedAt) {
-            $res['startedAt'] = $this->startedAt;
-        }
-
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-
-        if (null !== $this->threadId) {
-            $res['threadId'] = $this->threadId;
+        if (null !== $this->run) {
+            $res['run'] = null !== $this->run ? $this->run->toArray($noStream) : $this->run;
         }
 
         return $res;
@@ -209,73 +73,22 @@ class CreateRunResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cancelledAt'])) {
-            $model->cancelledAt = $map['cancelledAt'];
-        }
-
-        if (isset($map['completedAt'])) {
-            $model->completedAt = $map['completedAt'];
-        }
-
-        if (isset($map['content'])) {
-            $model->content = content::fromMap($map['content']);
-        }
-
-        if (isset($map['createAt'])) {
-            $model->createAt = $map['createAt'];
-        }
-
-        if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
-        }
-
-        if (isset($map['delta'])) {
-            $model->delta = delta::fromMap($map['delta']);
-        }
-
-        if (isset($map['expiresAt'])) {
-            $model->expiresAt = $map['expiresAt'];
-        }
-
-        if (isset($map['failedAt'])) {
-            $model->failedAt = $map['failedAt'];
-        }
-
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['lastErrorMsg'])) {
-            $model->lastErrorMsg = $map['lastErrorMsg'];
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
+                $n1 = 0;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
-        }
-
-        if (isset($map['object'])) {
-            $model->object = $map['object'];
         }
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['startedAt'])) {
-            $model->startedAt = $map['startedAt'];
-        }
-
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-
-        if (isset($map['threadId'])) {
-            $model->threadId = $map['threadId'];
+        if (isset($map['run'])) {
+            $model->run = run::fromMap($map['run']);
         }
 
         return $model;

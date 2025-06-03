@@ -14,25 +14,28 @@ class CreateThreadRequest extends Model
     public $assistantId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $metadata;
+    public $originalAssistantId;
 
     /**
      * @var string
      */
-    public $originalAssistantId;
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var int
+     */
+    public $sourceTypeOfOriginalAssistantId;
     protected $_name = [
         'assistantId' => 'assistantId',
-        'metadata' => 'metadata',
         'originalAssistantId' => 'originalAssistantId',
+        'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
-        }
         parent::validate();
     }
 
@@ -43,17 +46,16 @@ class CreateThreadRequest extends Model
             $res['assistantId'] = $this->assistantId;
         }
 
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->originalAssistantId) {
             $res['originalAssistantId'] = $this->originalAssistantId;
+        }
+
+        if (null !== $this->sourceIdOfOriginalAssistantId) {
+            $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfOriginalAssistantId) {
+            $res['sourceTypeOfOriginalAssistantId'] = $this->sourceTypeOfOriginalAssistantId;
         }
 
         return $res;
@@ -71,17 +73,16 @@ class CreateThreadRequest extends Model
             $model->assistantId = $map['assistantId'];
         }
 
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['originalAssistantId'])) {
             $model->originalAssistantId = $map['originalAssistantId'];
+        }
+
+        if (isset($map['sourceIdOfOriginalAssistantId'])) {
+            $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfOriginalAssistantId'])) {
+            $model->sourceTypeOfOriginalAssistantId = $map['sourceTypeOfOriginalAssistantId'];
         }
 
         return $model;

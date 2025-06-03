@@ -5,14 +5,14 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages;
 
 class InvokeAssistantResponseBody extends Model
 {
     /**
-     * @var content[]
+     * @var messages[]
      */
-    public $content;
+    public $messages;
 
     /**
      * @var string
@@ -29,7 +29,7 @@ class InvokeAssistantResponseBody extends Model
      */
     public $streamEnd;
     protected $_name = [
-        'content' => 'content',
+        'messages' => 'messages',
         'requestId' => 'requestId',
         'sessionId' => 'sessionId',
         'streamEnd' => 'streamEnd',
@@ -37,8 +37,8 @@ class InvokeAssistantResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
         }
         parent::validate();
     }
@@ -46,12 +46,12 @@ class InvokeAssistantResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['content'] = [];
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
                 $n1 = 0;
-                foreach ($this->content as $item1) {
-                    $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -79,12 +79,12 @@ class InvokeAssistantResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['content'])) {
-            if (!empty($map['content'])) {
-                $model->content = [];
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
                 $n1 = 0;
-                foreach ($map['content'] as $item1) {
-                    $model->content[$n1++] = content::fromMap($item1);
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
         }

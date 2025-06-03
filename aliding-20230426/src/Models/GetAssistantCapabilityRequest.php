@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages;
 
 class GetAssistantCapabilityRequest extends Model
 {
@@ -15,19 +15,9 @@ class GetAssistantCapabilityRequest extends Model
     public $assistantId;
 
     /**
-     * @var content[]
+     * @var messages[]
      */
-    public $content;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var mixed[]
-     */
-    public $metadata;
+    public $messages;
 
     /**
      * @var string
@@ -42,6 +32,16 @@ class GetAssistantCapabilityRequest extends Model
     /**
      * @var string
      */
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var string
+     */
+    public $sourceTypeOfOriginalAssistantId;
+
+    /**
+     * @var string
+     */
     public $threadId;
 
     /**
@@ -50,22 +50,19 @@ class GetAssistantCapabilityRequest extends Model
     public $timeout;
     protected $_name = [
         'assistantId' => 'assistantId',
-        'content' => 'content',
-        'id' => 'id',
-        'metadata' => 'metadata',
+        'messages' => 'messages',
         'originalAssistantId' => 'originalAssistantId',
         'protocol' => 'protocol',
+        'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
         'threadId' => 'threadId',
         'timeout' => 'timeout',
     ];
 
     public function validate()
     {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
         }
         parent::validate();
     }
@@ -77,25 +74,12 @@ class GetAssistantCapabilityRequest extends Model
             $res['assistantId'] = $this->assistantId;
         }
 
-        if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['content'] = [];
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
                 $n1 = 0;
-                foreach ($this->content as $item1) {
-                    $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -106,6 +90,14 @@ class GetAssistantCapabilityRequest extends Model
 
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+
+        if (null !== $this->sourceIdOfOriginalAssistantId) {
+            $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfOriginalAssistantId) {
+            $res['sourceTypeOfOriginalAssistantId'] = $this->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $this->threadId) {
@@ -131,25 +123,12 @@ class GetAssistantCapabilityRequest extends Model
             $model->assistantId = $map['assistantId'];
         }
 
-        if (isset($map['content'])) {
-            if (!empty($map['content'])) {
-                $model->content = [];
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
                 $n1 = 0;
-                foreach ($map['content'] as $item1) {
-                    $model->content[$n1++] = content::fromMap($item1);
-                }
-            }
-        }
-
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
         }
@@ -160,6 +139,14 @@ class GetAssistantCapabilityRequest extends Model
 
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+
+        if (isset($map['sourceIdOfOriginalAssistantId'])) {
+            $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfOriginalAssistantId'])) {
+            $model->sourceTypeOfOriginalAssistantId = $map['sourceTypeOfOriginalAssistantId'];
         }
 
         if (isset($map['threadId'])) {

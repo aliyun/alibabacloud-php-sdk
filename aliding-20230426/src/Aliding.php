@@ -4613,20 +4613,20 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
-        if (null !== $request->content) {
-            @$body['content'] = $request->content;
-        }
-
-        if (null !== $request->metadata) {
-            @$body['metadata'] = $request->metadata;
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
         }
 
         if (null !== $request->originalAssistantId) {
             @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
-        if (null !== $request->role) {
-            @$body['role'] = $request->role;
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $request->threadId) {
@@ -5259,16 +5259,16 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
-        if (null !== $request->instructions) {
-            @$body['instructions'] = $request->instructions;
-        }
-
-        if (null !== $request->metadata) {
-            @$body['metadata'] = $request->metadata;
-        }
-
         if (null !== $request->originalAssistantId) {
             @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $request->stream) {
@@ -6003,12 +6003,16 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
-        if (null !== $request->metadata) {
-            @$body['metadata'] = $request->metadata;
-        }
-
         if (null !== $request->originalAssistantId) {
             @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         $realHeaders = [];
@@ -9231,16 +9235,8 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
-        if (null !== $request->content) {
-            @$body['content'] = $request->content;
-        }
-
-        if (null !== $request->id) {
-            @$body['id'] = $request->id;
-        }
-
-        if (null !== $request->metadata) {
-            @$body['metadata'] = $request->metadata;
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
         }
 
         if (null !== $request->originalAssistantId) {
@@ -9249,6 +9245,14 @@ class Aliding extends OpenApiClient
 
         if (null !== $request->protocol) {
             @$body['protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $request->threadId) {
@@ -15517,16 +15521,24 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
-        if (null !== $request->content) {
-            @$body['content'] = $request->content;
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
         }
 
-        if (null !== $request->history) {
-            @$body['history'] = $request->history;
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
         if (null !== $request->sessionId) {
             @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $request->stream) {
@@ -16377,12 +16389,20 @@ class Aliding extends OpenApiClient
             @$body['order'] = $request->order;
         }
 
-        if (null !== $request->originalAssistantid) {
-            @$body['originalAssistantid'] = $request->originalAssistantid;
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
         if (null !== $request->runId) {
             @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         if (null !== $request->threadId) {
@@ -20537,8 +20557,12 @@ class Aliding extends OpenApiClient
             @$body['runId'] = $request->runId;
         }
 
-        if (null !== $request->threadId) {
-            @$body['threadId'] = $request->threadId;
+        if (null !== $request->sourceIdOfOriginalAssistantId) {
+            @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfOriginalAssistantId) {
+            @$body['sourceTypeOfOriginalAssistantId'] = $request->sourceTypeOfOriginalAssistantId;
         }
 
         $realHeaders = [];

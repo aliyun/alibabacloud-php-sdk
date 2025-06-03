@@ -5,45 +5,28 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadResponseBody\thread;
 
 class CreateThreadResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $createAt;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var mixed[]
-     */
-    public $metadata;
-
-    /**
-     * @var string
-     */
-    public $object;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var thread
+     */
+    public $thread;
     protected $_name = [
-        'createAt' => 'createAt',
-        'id' => 'id',
-        'metadata' => 'metadata',
-        'object' => 'object',
         'requestId' => 'requestId',
+        'thread' => 'thread',
     ];
 
     public function validate()
     {
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
+        if (null !== $this->thread) {
+            $this->thread->validate();
         }
         parent::validate();
     }
@@ -51,29 +34,12 @@ class CreateThreadResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createAt) {
-            $res['createAt'] = $this->createAt;
-        }
-
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
-                }
-            }
-        }
-
-        if (null !== $this->object) {
-            $res['object'] = $this->object;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->thread) {
+            $res['thread'] = null !== $this->thread ? $this->thread->toArray($noStream) : $this->thread;
         }
 
         return $res;
@@ -87,29 +53,12 @@ class CreateThreadResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['createAt'])) {
-            $model->createAt = $map['createAt'];
-        }
-
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
-        }
-
-        if (isset($map['object'])) {
-            $model->object = $map['object'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['thread'])) {
+            $model->thread = thread::fromMap($map['thread']);
         }
 
         return $model;
