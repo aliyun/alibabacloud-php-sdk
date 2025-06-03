@@ -37,6 +37,9 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\FeedbackSessionRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\FeedbackSessionResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GenerateReportRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GenerateReportResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GenerateReportShrinkRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\PredictCVDAdvanceRequest;
@@ -1734,6 +1737,69 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->feedbackSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 胸部CT平扫筛查结果报告生成.
+     *
+     * @param tmpReq - GenerateReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateReportResponse
+     *
+     * @param GenerateReportRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GenerateReportResponse
+     */
+    public function generateReportWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GenerateReportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->reportConfigs) {
+            $request->reportConfigsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->reportConfigs, 'ReportConfigs', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->reportConfigsShrink) {
+            @$body['ReportConfigs'] = $request->reportConfigsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateReport',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 胸部CT平扫筛查结果报告生成.
+     *
+     * @param request - GenerateReportRequest
+     *
+     * @returns GenerateReportResponse
+     *
+     * @param GenerateReportRequest $request
+     *
+     * @return GenerateReportResponse
+     */
+    public function generateReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateReportWithOptions($request, $runtime);
     }
 
     /**

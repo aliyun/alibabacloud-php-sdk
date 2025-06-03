@@ -1,3 +1,7 @@
+2025-06-03 Version: 2.3.0
+- Support API GenerateReport.
+
+
 2025-05-16 Version: 2.2.2
 - Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.PatientLevelProb.
 - Update API ScreenChestCT: add response parameters Body.Data.ScreenLC.Lesion.LesionList.$.ScoreAllClasses.
