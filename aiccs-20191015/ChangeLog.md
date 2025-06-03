@@ -1,3 +1,11 @@
+2025-06-03 Version: 2.3.0
+- Support API ListAvailableTts.
+- Update API LlmSmartCall: add request parameters SessionTimeout.
+- Update API LlmSmartCall: add request parameters TtsSpeed.
+- Update API LlmSmartCall: add request parameters TtsVoiceCode.
+- Update API LlmSmartCall: add request parameters TtsVolume.
+
+
 2025-05-14 Version: 2.2.3
 - Update API LlmSmartCall: add request parameters Extension.
 

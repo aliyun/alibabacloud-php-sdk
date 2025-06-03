@@ -44,9 +44,29 @@ class LlmSmartCallRequest extends Model
     public $promptParam;
 
     /**
+     * @var int
+     */
+    public $sessionTimeout;
+
+    /**
      * @var mixed[]
      */
     public $startWordParam;
+
+    /**
+     * @var int
+     */
+    public $ttsSpeed;
+
+    /**
+     * @var string
+     */
+    public $ttsVoiceCode;
+
+    /**
+     * @var int
+     */
+    public $ttsVolume;
     protected $_name = [
         'applicationCode' => 'ApplicationCode',
         'bizParam' => 'BizParam',
@@ -55,7 +75,11 @@ class LlmSmartCallRequest extends Model
         'extension' => 'Extension',
         'outId' => 'OutId',
         'promptParam' => 'PromptParam',
+        'sessionTimeout' => 'SessionTimeout',
         'startWordParam' => 'StartWordParam',
+        'ttsSpeed' => 'TtsSpeed',
+        'ttsVoiceCode' => 'TtsVoiceCode',
+        'ttsVolume' => 'TtsVolume',
     ];
 
     public function validate()
@@ -113,6 +137,10 @@ class LlmSmartCallRequest extends Model
             }
         }
 
+        if (null !== $this->sessionTimeout) {
+            $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+
         if (null !== $this->startWordParam) {
             if (\is_array($this->startWordParam)) {
                 $res['StartWordParam'] = [];
@@ -120,6 +148,18 @@ class LlmSmartCallRequest extends Model
                     $res['StartWordParam'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->ttsSpeed) {
+            $res['TtsSpeed'] = $this->ttsSpeed;
+        }
+
+        if (null !== $this->ttsVoiceCode) {
+            $res['TtsVoiceCode'] = $this->ttsVoiceCode;
+        }
+
+        if (null !== $this->ttsVolume) {
+            $res['TtsVolume'] = $this->ttsVolume;
         }
 
         return $res;
@@ -171,6 +211,10 @@ class LlmSmartCallRequest extends Model
             }
         }
 
+        if (isset($map['SessionTimeout'])) {
+            $model->sessionTimeout = $map['SessionTimeout'];
+        }
+
         if (isset($map['StartWordParam'])) {
             if (!empty($map['StartWordParam'])) {
                 $model->startWordParam = [];
@@ -178,6 +222,18 @@ class LlmSmartCallRequest extends Model
                     $model->startWordParam[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['TtsSpeed'])) {
+            $model->ttsSpeed = $map['TtsSpeed'];
+        }
+
+        if (isset($map['TtsVoiceCode'])) {
+            $model->ttsVoiceCode = $map['TtsVoiceCode'];
+        }
+
+        if (isset($map['TtsVolume'])) {
+            $model->ttsVolume = $map['TtsVolume'];
         }
 
         return $model;

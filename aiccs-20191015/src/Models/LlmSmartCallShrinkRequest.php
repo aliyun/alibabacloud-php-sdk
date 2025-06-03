@@ -44,9 +44,29 @@ class LlmSmartCallShrinkRequest extends Model
     public $promptParamShrink;
 
     /**
+     * @var int
+     */
+    public $sessionTimeout;
+
+    /**
      * @var string
      */
     public $startWordParamShrink;
+
+    /**
+     * @var int
+     */
+    public $ttsSpeed;
+
+    /**
+     * @var string
+     */
+    public $ttsVoiceCode;
+
+    /**
+     * @var int
+     */
+    public $ttsVolume;
     protected $_name = [
         'applicationCode' => 'ApplicationCode',
         'bizParamShrink' => 'BizParam',
@@ -55,7 +75,11 @@ class LlmSmartCallShrinkRequest extends Model
         'extension' => 'Extension',
         'outId' => 'OutId',
         'promptParamShrink' => 'PromptParam',
+        'sessionTimeout' => 'SessionTimeout',
         'startWordParamShrink' => 'StartWordParam',
+        'ttsSpeed' => 'TtsSpeed',
+        'ttsVoiceCode' => 'TtsVoiceCode',
+        'ttsVolume' => 'TtsVolume',
     ];
 
     public function validate()
@@ -94,8 +118,24 @@ class LlmSmartCallShrinkRequest extends Model
             $res['PromptParam'] = $this->promptParamShrink;
         }
 
+        if (null !== $this->sessionTimeout) {
+            $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+
         if (null !== $this->startWordParamShrink) {
             $res['StartWordParam'] = $this->startWordParamShrink;
+        }
+
+        if (null !== $this->ttsSpeed) {
+            $res['TtsSpeed'] = $this->ttsSpeed;
+        }
+
+        if (null !== $this->ttsVoiceCode) {
+            $res['TtsVoiceCode'] = $this->ttsVoiceCode;
+        }
+
+        if (null !== $this->ttsVolume) {
+            $res['TtsVolume'] = $this->ttsVolume;
         }
 
         return $res;
@@ -137,8 +177,24 @@ class LlmSmartCallShrinkRequest extends Model
             $model->promptParamShrink = $map['PromptParam'];
         }
 
+        if (isset($map['SessionTimeout'])) {
+            $model->sessionTimeout = $map['SessionTimeout'];
+        }
+
         if (isset($map['StartWordParam'])) {
             $model->startWordParamShrink = $map['StartWordParam'];
+        }
+
+        if (isset($map['TtsSpeed'])) {
+            $model->ttsSpeed = $map['TtsSpeed'];
+        }
+
+        if (isset($map['TtsVoiceCode'])) {
+            $model->ttsVoiceCode = $map['TtsVoiceCode'];
+        }
+
+        if (isset($map['TtsVolume'])) {
+            $model->ttsVolume = $map['TtsVolume'];
         }
 
         return $model;

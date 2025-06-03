@@ -226,6 +226,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAgentBySkillGroupIdRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAgentBySkillGroupIdResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAiccsRobotRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAiccsRobotResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAvailableTtsRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAvailableTtsResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListChatRecordDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListChatRecordDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListDialogRequest;
@@ -7162,6 +7164,75 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 获取tts音色列表.
+     *
+     * @param request - ListAvailableTtsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAvailableTtsResponse
+     *
+     * @param ListAvailableTtsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAvailableTtsResponse
+     */
+    public function listAvailableTtsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->ttsVoiceCode) {
+            @$query['TtsVoiceCode'] = $request->ttsVoiceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAvailableTts',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAvailableTtsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取tts音色列表.
+     *
+     * @param request - ListAvailableTtsRequest
+     *
+     * @returns ListAvailableTtsResponse
+     *
+     * @param ListAvailableTtsRequest $request
+     *
+     * @return ListAvailableTtsResponse
+     */
+    public function listAvailableTts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAvailableTtsWithOptions($request, $runtime);
+    }
+
+    /**
      * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天.
      *
      * @param request - ListChatRecordDetailRequest
@@ -7992,8 +8063,24 @@ class Aiccs extends OpenApiClient
             @$query['PromptParam'] = $request->promptParamShrink;
         }
 
+        if (null !== $request->sessionTimeout) {
+            @$query['SessionTimeout'] = $request->sessionTimeout;
+        }
+
         if (null !== $request->startWordParamShrink) {
             @$query['StartWordParam'] = $request->startWordParamShrink;
+        }
+
+        if (null !== $request->ttsSpeed) {
+            @$query['TtsSpeed'] = $request->ttsSpeed;
+        }
+
+        if (null !== $request->ttsVoiceCode) {
+            @$query['TtsVoiceCode'] = $request->ttsVoiceCode;
+        }
+
+        if (null !== $request->ttsVolume) {
+            @$query['TtsVolume'] = $request->ttsVolume;
         }
 
         $req = new OpenApiRequest([
