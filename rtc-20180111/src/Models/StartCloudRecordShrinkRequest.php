@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\bgColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\panes;
@@ -24,6 +25,11 @@ class StartCloudRecordShrinkRequest extends Model
      * @var backgrounds[]
      */
     public $backgrounds;
+
+    /**
+     * @var bgColor
+     */
+    public $bgColor;
 
     /**
      * @var string
@@ -76,6 +82,11 @@ class StartCloudRecordShrinkRequest extends Model
     public $storageConfig;
 
     /**
+     * @var bool
+     */
+    public $subHighResolutionStream;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -92,6 +103,7 @@ class StartCloudRecordShrinkRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'backgrounds' => 'Backgrounds',
+        'bgColor' => 'BgColor',
         'channelId' => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
         'cropMode' => 'CropMode',
@@ -102,6 +114,7 @@ class StartCloudRecordShrinkRequest extends Model
         'reservePaneForNoCameraUser' => 'ReservePaneForNoCameraUser',
         'showDefaultBackgroundOnMute' => 'ShowDefaultBackgroundOnMute',
         'storageConfig' => 'StorageConfig',
+        'subHighResolutionStream' => 'SubHighResolutionStream',
         'taskId' => 'TaskId',
         'templateId' => 'TemplateId',
         'texts' => 'Texts',
@@ -111,6 +124,9 @@ class StartCloudRecordShrinkRequest extends Model
     {
         if (\is_array($this->backgrounds)) {
             Model::validateArray($this->backgrounds);
+        }
+        if (null !== $this->bgColor) {
+            $this->bgColor->validate();
         }
         if (\is_array($this->clockWidgets)) {
             Model::validateArray($this->clockWidgets);
@@ -148,6 +164,10 @@ class StartCloudRecordShrinkRequest extends Model
                     $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->bgColor) {
+            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toArray($noStream) : $this->bgColor;
         }
 
         if (null !== $this->channelId) {
@@ -208,6 +228,10 @@ class StartCloudRecordShrinkRequest extends Model
             $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toArray($noStream) : $this->storageConfig;
         }
 
+        if (null !== $this->subHighResolutionStream) {
+            $res['SubHighResolutionStream'] = $this->subHighResolutionStream;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -249,6 +273,10 @@ class StartCloudRecordShrinkRequest extends Model
                     $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['BgColor'])) {
+            $model->bgColor = bgColor::fromMap($map['BgColor']);
         }
 
         if (isset($map['ChannelId'])) {
@@ -307,6 +335,10 @@ class StartCloudRecordShrinkRequest extends Model
 
         if (isset($map['StorageConfig'])) {
             $model->storageConfig = storageConfig::fromMap($map['StorageConfig']);
+        }
+
+        if (isset($map['SubHighResolutionStream'])) {
+            $model->subHighResolutionStream = $map['SubHighResolutionStream'];
         }
 
         if (isset($map['TaskId'])) {

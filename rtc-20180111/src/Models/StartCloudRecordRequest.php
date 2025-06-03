@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\bgColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\layoutSpecifiedUsers;
@@ -25,6 +26,11 @@ class StartCloudRecordRequest extends Model
      * @var backgrounds[]
      */
     public $backgrounds;
+
+    /**
+     * @var bgColor
+     */
+    public $bgColor;
 
     /**
      * @var string
@@ -77,6 +83,11 @@ class StartCloudRecordRequest extends Model
     public $storageConfig;
 
     /**
+     * @var bool
+     */
+    public $subHighResolutionStream;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -93,6 +104,7 @@ class StartCloudRecordRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'backgrounds' => 'Backgrounds',
+        'bgColor' => 'BgColor',
         'channelId' => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
         'cropMode' => 'CropMode',
@@ -103,6 +115,7 @@ class StartCloudRecordRequest extends Model
         'reservePaneForNoCameraUser' => 'ReservePaneForNoCameraUser',
         'showDefaultBackgroundOnMute' => 'ShowDefaultBackgroundOnMute',
         'storageConfig' => 'StorageConfig',
+        'subHighResolutionStream' => 'SubHighResolutionStream',
         'taskId' => 'TaskId',
         'templateId' => 'TemplateId',
         'texts' => 'Texts',
@@ -112,6 +125,9 @@ class StartCloudRecordRequest extends Model
     {
         if (\is_array($this->backgrounds)) {
             Model::validateArray($this->backgrounds);
+        }
+        if (null !== $this->bgColor) {
+            $this->bgColor->validate();
         }
         if (\is_array($this->clockWidgets)) {
             Model::validateArray($this->clockWidgets);
@@ -152,6 +168,10 @@ class StartCloudRecordRequest extends Model
                     $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->bgColor) {
+            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toArray($noStream) : $this->bgColor;
         }
 
         if (null !== $this->channelId) {
@@ -212,6 +232,10 @@ class StartCloudRecordRequest extends Model
             $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toArray($noStream) : $this->storageConfig;
         }
 
+        if (null !== $this->subHighResolutionStream) {
+            $res['SubHighResolutionStream'] = $this->subHighResolutionStream;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -253,6 +277,10 @@ class StartCloudRecordRequest extends Model
                     $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['BgColor'])) {
+            $model->bgColor = bgColor::fromMap($map['BgColor']);
         }
 
         if (isset($map['ChannelId'])) {
@@ -311,6 +339,10 @@ class StartCloudRecordRequest extends Model
 
         if (isset($map['StorageConfig'])) {
             $model->storageConfig = storageConfig::fromMap($map['StorageConfig']);
+        }
+
+        if (isset($map['SubHighResolutionStream'])) {
+            $model->subHighResolutionStream = $map['SubHighResolutionStream'];
         }
 
         if (isset($map['TaskId'])) {

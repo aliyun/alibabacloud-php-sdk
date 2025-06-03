@@ -18,6 +18,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateCloudNotePhrasesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateCloudNotePhrasesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateCloudNotePhrasesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
@@ -35,6 +38,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteCloudNotePhrasesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteCloudNotePhrasesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteCloudNotePhrasesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutRequest;
@@ -96,9 +102,14 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotePhrasesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotePhrasesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotePhrasesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotesShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudRecordStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudRecordStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointEventListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointEventListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointMetricDataRequest;
@@ -179,6 +190,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateShrinkReq
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
@@ -685,6 +699,73 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * 增加纪要热词表.
+     *
+     * @param tmpReq - CreateCloudNotePhrasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudNotePhrasesResponse
+     *
+     * @param CreateCloudNotePhrasesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateCloudNotePhrasesResponse
+     */
+    public function createCloudNotePhrasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCloudNotePhrasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phrase) {
+            $request->phraseShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phrase, 'Phrase', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->phraseShrink) {
+            @$query['Phrase'] = $request->phraseShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudNotePhrases',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudNotePhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 增加纪要热词表.
+     *
+     * @param request - CreateCloudNotePhrasesRequest
+     *
+     * @returns CreateCloudNotePhrasesResponse
+     *
+     * @param CreateCloudNotePhrasesRequest $request
+     *
+     * @return CreateCloudNotePhrasesResponse
+     */
+    public function createCloudNotePhrases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudNotePhrasesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - CreateEventSubscribeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1167,6 +1248,73 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除纪要热词表.
+     *
+     * @param tmpReq - DeleteCloudNotePhrasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudNotePhrasesResponse
+     *
+     * @param DeleteCloudNotePhrasesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteCloudNotePhrasesResponse
+     */
+    public function deleteCloudNotePhrasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteCloudNotePhrasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phrase) {
+            $request->phraseShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phrase, 'Phrase', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->phraseShrink) {
+            @$query['Phrase'] = $request->phraseShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudNotePhrases',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudNotePhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除纪要热词表.
+     *
+     * @param request - DeleteCloudNotePhrasesRequest
+     *
+     * @returns DeleteCloudNotePhrasesResponse
+     *
+     * @param DeleteCloudNotePhrasesRequest $request
+     *
+     * @return DeleteCloudNotePhrasesResponse
+     */
+    public function deleteCloudNotePhrases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudNotePhrasesWithOptions($request, $runtime);
     }
 
     /**
@@ -3022,6 +3170,81 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * 纪要热词列表.
+     *
+     * @param tmpReq - DescribeCloudNotePhrasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudNotePhrasesResponse
+     *
+     * @param DescribeCloudNotePhrasesRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeCloudNotePhrasesResponse
+     */
+    public function describeCloudNotePhrasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeCloudNotePhrasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->condition) {
+            $request->conditionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->condition, 'Condition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->conditionShrink) {
+            @$query['Condition'] = $request->conditionShrink;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudNotePhrases',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudNotePhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 纪要热词列表.
+     *
+     * @param request - DescribeCloudNotePhrasesRequest
+     *
+     * @returns DescribeCloudNotePhrasesResponse
+     *
+     * @param DescribeCloudNotePhrasesRequest $request
+     *
+     * @return DescribeCloudNotePhrasesResponse
+     */
+    public function describeCloudNotePhrases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudNotePhrasesWithOptions($request, $runtime);
+    }
+
+    /**
      * 纪要列表.
      *
      * @param tmpReq - DescribeCloudNotesRequest
@@ -3078,6 +3301,71 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudNotesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询录制任务状态
+     *
+     * @param request - DescribeCloudRecordStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudRecordStatusResponse
+     *
+     * @param DescribeCloudRecordStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCloudRecordStatusResponse
+     */
+    public function describeCloudRecordStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudRecordStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询录制任务状态
+     *
+     * @param request - DescribeCloudRecordStatusRequest
+     *
+     * @returns DescribeCloudRecordStatusResponse
+     *
+     * @param DescribeCloudRecordStatusRequest $request
+     *
+     * @return DescribeCloudRecordStatusResponse
+     */
+    public function describeCloudRecordStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudRecordStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -5719,6 +6007,73 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * 更新纪要热词表.
+     *
+     * @param tmpReq - ModifyCloudNotePhrasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCloudNotePhrasesResponse
+     *
+     * @param ModifyCloudNotePhrasesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyCloudNotePhrasesResponse
+     */
+    public function modifyCloudNotePhrasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyCloudNotePhrasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phrase) {
+            $request->phraseShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phrase, 'Phrase', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->phraseShrink) {
+            @$query['Phrase'] = $request->phraseShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCloudNotePhrases',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCloudNotePhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新纪要热词表.
+     *
+     * @param request - ModifyCloudNotePhrasesRequest
+     *
+     * @returns ModifyCloudNotePhrasesResponse
+     *
+     * @param ModifyCloudNotePhrasesRequest $request
+     *
+     * @return ModifyCloudNotePhrasesResponse
+     */
+    public function modifyCloudNotePhrases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudNotePhrasesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ModifyMPULayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6162,6 +6517,10 @@ class Rtc extends OpenApiClient
             @$query['Backgrounds'] = $request->backgrounds;
         }
 
+        if (null !== $request->bgColor) {
+            @$query['BgColor'] = $request->bgColor;
+        }
+
         if (null !== $request->channelId) {
             @$query['ChannelId'] = $request->channelId;
         }
@@ -6200,6 +6559,10 @@ class Rtc extends OpenApiClient
 
         if (null !== $request->storageConfig) {
             @$query['StorageConfig'] = $request->storageConfig;
+        }
+
+        if (null !== $request->subHighResolutionStream) {
+            @$query['SubHighResolutionStream'] = $request->subHighResolutionStream;
         }
 
         if (null !== $request->taskId) {
@@ -6584,6 +6947,10 @@ class Rtc extends OpenApiClient
             @$query['Backgrounds'] = $request->backgrounds;
         }
 
+        if (null !== $request->bgColor) {
+            @$query['BgColor'] = $request->bgColor;
+        }
+
         if (null !== $request->channelId) {
             @$query['ChannelId'] = $request->channelId;
         }
@@ -6626,6 +6993,10 @@ class Rtc extends OpenApiClient
 
         if (null !== $request->startWithoutChannelWaitTime) {
             @$query['StartWithoutChannelWaitTime'] = $request->startWithoutChannelWaitTime;
+        }
+
+        if (null !== $request->subHighResolutionStream) {
+            @$query['SubHighResolutionStream'] = $request->subHighResolutionStream;
         }
 
         if (null !== $request->taskId) {
@@ -7723,12 +8094,20 @@ class Rtc extends OpenApiClient
             @$query['Backgrounds'] = $request->backgrounds;
         }
 
+        if (null !== $request->bgColor) {
+            @$query['BgColor'] = $request->bgColor;
+        }
+
         if (null !== $request->channelId) {
             @$query['ChannelId'] = $request->channelId;
         }
 
         if (null !== $request->clockWidgets) {
             @$query['ClockWidgets'] = $request->clockWidgets;
+        }
+
+        if (null !== $request->cropMode) {
+            @$query['CropMode'] = $request->cropMode;
         }
 
         if (null !== $request->images) {
@@ -7741,6 +8120,10 @@ class Rtc extends OpenApiClient
 
         if (null !== $request->panes) {
             @$query['Panes'] = $request->panes;
+        }
+
+        if (null !== $request->regionColor) {
+            @$query['RegionColor'] = $request->regionColor;
         }
 
         if (null !== $request->taskId) {

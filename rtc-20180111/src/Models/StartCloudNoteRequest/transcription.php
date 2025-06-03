@@ -14,6 +14,11 @@ class transcription extends Model
     public $diarizationEnabled;
 
     /**
+     * @var string
+     */
+    public $phraseId;
+
+    /**
      * @var int
      */
     public $speakerCount;
@@ -24,6 +29,7 @@ class transcription extends Model
     public $transcriptionLevel;
     protected $_name = [
         'diarizationEnabled' => 'DiarizationEnabled',
+        'phraseId' => 'PhraseId',
         'speakerCount' => 'SpeakerCount',
         'transcriptionLevel' => 'TranscriptionLevel',
     ];
@@ -38,6 +44,10 @@ class transcription extends Model
         $res = [];
         if (null !== $this->diarizationEnabled) {
             $res['DiarizationEnabled'] = $this->diarizationEnabled;
+        }
+
+        if (null !== $this->phraseId) {
+            $res['PhraseId'] = $this->phraseId;
         }
 
         if (null !== $this->speakerCount) {
@@ -61,6 +71,10 @@ class transcription extends Model
         $model = new self();
         if (isset($map['DiarizationEnabled'])) {
             $model->diarizationEnabled = $map['DiarizationEnabled'];
+        }
+
+        if (isset($map['PhraseId'])) {
+            $model->phraseId = $map['PhraseId'];
         }
 
         if (isset($map['SpeakerCount'])) {

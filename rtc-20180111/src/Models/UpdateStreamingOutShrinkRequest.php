@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\bgColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\regionColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest\texts;
 
 class UpdateStreamingOutShrinkRequest extends Model
@@ -24,6 +26,11 @@ class UpdateStreamingOutShrinkRequest extends Model
     public $backgrounds;
 
     /**
+     * @var bgColor
+     */
+    public $bgColor;
+
+    /**
      * @var string
      */
     public $channelId;
@@ -32,6 +39,11 @@ class UpdateStreamingOutShrinkRequest extends Model
      * @var clockWidgets[]
      */
     public $clockWidgets;
+
+    /**
+     * @var int
+     */
+    public $cropMode;
 
     /**
      * @var images[]
@@ -47,6 +59,11 @@ class UpdateStreamingOutShrinkRequest extends Model
      * @var panes[]
      */
     public $panes;
+
+    /**
+     * @var regionColor
+     */
+    public $regionColor;
 
     /**
      * @var string
@@ -65,11 +82,14 @@ class UpdateStreamingOutShrinkRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'backgrounds' => 'Backgrounds',
+        'bgColor' => 'BgColor',
         'channelId' => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
+        'cropMode' => 'CropMode',
         'images' => 'Images',
         'layoutSpecifiedUsersShrink' => 'LayoutSpecifiedUsers',
         'panes' => 'Panes',
+        'regionColor' => 'RegionColor',
         'taskId' => 'TaskId',
         'templateId' => 'TemplateId',
         'texts' => 'Texts',
@@ -80,6 +100,9 @@ class UpdateStreamingOutShrinkRequest extends Model
         if (\is_array($this->backgrounds)) {
             Model::validateArray($this->backgrounds);
         }
+        if (null !== $this->bgColor) {
+            $this->bgColor->validate();
+        }
         if (\is_array($this->clockWidgets)) {
             Model::validateArray($this->clockWidgets);
         }
@@ -88,6 +111,9 @@ class UpdateStreamingOutShrinkRequest extends Model
         }
         if (\is_array($this->panes)) {
             Model::validateArray($this->panes);
+        }
+        if (null !== $this->regionColor) {
+            $this->regionColor->validate();
         }
         if (\is_array($this->texts)) {
             Model::validateArray($this->texts);
@@ -112,6 +138,10 @@ class UpdateStreamingOutShrinkRequest extends Model
             }
         }
 
+        if (null !== $this->bgColor) {
+            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toArray($noStream) : $this->bgColor;
+        }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
@@ -124,6 +154,10 @@ class UpdateStreamingOutShrinkRequest extends Model
                     $res['ClockWidgets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->cropMode) {
+            $res['CropMode'] = $this->cropMode;
         }
 
         if (null !== $this->images) {
@@ -148,6 +182,10 @@ class UpdateStreamingOutShrinkRequest extends Model
                     $res['Panes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->regionColor) {
+            $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toArray($noStream) : $this->regionColor;
         }
 
         if (null !== $this->taskId) {
@@ -193,6 +231,10 @@ class UpdateStreamingOutShrinkRequest extends Model
             }
         }
 
+        if (isset($map['BgColor'])) {
+            $model->bgColor = bgColor::fromMap($map['BgColor']);
+        }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
@@ -205,6 +247,10 @@ class UpdateStreamingOutShrinkRequest extends Model
                     $model->clockWidgets[$n1++] = clockWidgets::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['CropMode'])) {
+            $model->cropMode = $map['CropMode'];
         }
 
         if (isset($map['Images'])) {
@@ -229,6 +275,10 @@ class UpdateStreamingOutShrinkRequest extends Model
                     $model->panes[$n1++] = panes::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['RegionColor'])) {
+            $model->regionColor = regionColor::fromMap($map['RegionColor']);
         }
 
         if (isset($map['TaskId'])) {

@@ -6,10 +6,12 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\bgColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\layoutSpecifiedUsers;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\regionColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\texts;
 
 class UpdateStreamingOutRequest extends Model
@@ -25,6 +27,11 @@ class UpdateStreamingOutRequest extends Model
     public $backgrounds;
 
     /**
+     * @var bgColor
+     */
+    public $bgColor;
+
+    /**
      * @var string
      */
     public $channelId;
@@ -33,6 +40,11 @@ class UpdateStreamingOutRequest extends Model
      * @var clockWidgets[]
      */
     public $clockWidgets;
+
+    /**
+     * @var int
+     */
+    public $cropMode;
 
     /**
      * @var images[]
@@ -48,6 +60,11 @@ class UpdateStreamingOutRequest extends Model
      * @var panes[]
      */
     public $panes;
+
+    /**
+     * @var regionColor
+     */
+    public $regionColor;
 
     /**
      * @var string
@@ -66,11 +83,14 @@ class UpdateStreamingOutRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'backgrounds' => 'Backgrounds',
+        'bgColor' => 'BgColor',
         'channelId' => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
+        'cropMode' => 'CropMode',
         'images' => 'Images',
         'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
         'panes' => 'Panes',
+        'regionColor' => 'RegionColor',
         'taskId' => 'TaskId',
         'templateId' => 'TemplateId',
         'texts' => 'Texts',
@@ -80,6 +100,9 @@ class UpdateStreamingOutRequest extends Model
     {
         if (\is_array($this->backgrounds)) {
             Model::validateArray($this->backgrounds);
+        }
+        if (null !== $this->bgColor) {
+            $this->bgColor->validate();
         }
         if (\is_array($this->clockWidgets)) {
             Model::validateArray($this->clockWidgets);
@@ -92,6 +115,9 @@ class UpdateStreamingOutRequest extends Model
         }
         if (\is_array($this->panes)) {
             Model::validateArray($this->panes);
+        }
+        if (null !== $this->regionColor) {
+            $this->regionColor->validate();
         }
         if (\is_array($this->texts)) {
             Model::validateArray($this->texts);
@@ -116,6 +142,10 @@ class UpdateStreamingOutRequest extends Model
             }
         }
 
+        if (null !== $this->bgColor) {
+            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toArray($noStream) : $this->bgColor;
+        }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
@@ -128,6 +158,10 @@ class UpdateStreamingOutRequest extends Model
                     $res['ClockWidgets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->cropMode) {
+            $res['CropMode'] = $this->cropMode;
         }
 
         if (null !== $this->images) {
@@ -152,6 +186,10 @@ class UpdateStreamingOutRequest extends Model
                     $res['Panes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->regionColor) {
+            $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toArray($noStream) : $this->regionColor;
         }
 
         if (null !== $this->taskId) {
@@ -197,6 +235,10 @@ class UpdateStreamingOutRequest extends Model
             }
         }
 
+        if (isset($map['BgColor'])) {
+            $model->bgColor = bgColor::fromMap($map['BgColor']);
+        }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
@@ -209,6 +251,10 @@ class UpdateStreamingOutRequest extends Model
                     $model->clockWidgets[$n1++] = clockWidgets::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['CropMode'])) {
+            $model->cropMode = $map['CropMode'];
         }
 
         if (isset($map['Images'])) {
@@ -233,6 +279,10 @@ class UpdateStreamingOutRequest extends Model
                     $model->panes[$n1++] = panes::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['RegionColor'])) {
+            $model->regionColor = regionColor::fromMap($map['RegionColor']);
         }
 
         if (isset($map['TaskId'])) {

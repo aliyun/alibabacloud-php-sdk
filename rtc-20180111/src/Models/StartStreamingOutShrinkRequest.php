@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\bgColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\panes;
@@ -23,6 +24,11 @@ class StartStreamingOutShrinkRequest extends Model
      * @var backgrounds[]
      */
     public $backgrounds;
+
+    /**
+     * @var bgColor
+     */
+    public $bgColor;
 
     /**
      * @var string
@@ -80,6 +86,11 @@ class StartStreamingOutShrinkRequest extends Model
     public $startWithoutChannelWaitTime;
 
     /**
+     * @var bool
+     */
+    public $subHighResolutionStream;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -101,6 +112,7 @@ class StartStreamingOutShrinkRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'backgrounds' => 'Backgrounds',
+        'bgColor' => 'BgColor',
         'channelId' => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
         'cropMode' => 'CropMode',
@@ -112,6 +124,7 @@ class StartStreamingOutShrinkRequest extends Model
         'showDefaultBackgroundOnMute' => 'ShowDefaultBackgroundOnMute',
         'startWithoutChannel' => 'StartWithoutChannel',
         'startWithoutChannelWaitTime' => 'StartWithoutChannelWaitTime',
+        'subHighResolutionStream' => 'SubHighResolutionStream',
         'taskId' => 'TaskId',
         'templateId' => 'TemplateId',
         'texts' => 'Texts',
@@ -122,6 +135,9 @@ class StartStreamingOutShrinkRequest extends Model
     {
         if (\is_array($this->backgrounds)) {
             Model::validateArray($this->backgrounds);
+        }
+        if (null !== $this->bgColor) {
+            $this->bgColor->validate();
         }
         if (\is_array($this->clockWidgets)) {
             Model::validateArray($this->clockWidgets);
@@ -156,6 +172,10 @@ class StartStreamingOutShrinkRequest extends Model
                     $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->bgColor) {
+            $res['BgColor'] = null !== $this->bgColor ? $this->bgColor->toArray($noStream) : $this->bgColor;
         }
 
         if (null !== $this->channelId) {
@@ -220,6 +240,10 @@ class StartStreamingOutShrinkRequest extends Model
             $res['StartWithoutChannelWaitTime'] = $this->startWithoutChannelWaitTime;
         }
 
+        if (null !== $this->subHighResolutionStream) {
+            $res['SubHighResolutionStream'] = $this->subHighResolutionStream;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -265,6 +289,10 @@ class StartStreamingOutShrinkRequest extends Model
                     $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['BgColor'])) {
+            $model->bgColor = bgColor::fromMap($map['BgColor']);
         }
 
         if (isset($map['ChannelId'])) {
@@ -327,6 +355,10 @@ class StartStreamingOutShrinkRequest extends Model
 
         if (isset($map['StartWithoutChannelWaitTime'])) {
             $model->startWithoutChannelWaitTime = $map['StartWithoutChannelWaitTime'];
+        }
+
+        if (isset($map['SubHighResolutionStream'])) {
+            $model->subHighResolutionStream = $map['SubHighResolutionStream'];
         }
 
         if (isset($map['TaskId'])) {
