@@ -191,9 +191,19 @@ class desktopGroups extends Model
     public $policyGroupId;
 
     /**
+     * @var string[]
+     */
+    public $policyGroupIdList;
+
+    /**
      * @var string
      */
     public $policyGroupName;
+
+    /**
+     * @var string[]
+     */
+    public $policyGroupNameList;
 
     /**
      * @var string
@@ -301,7 +311,9 @@ class desktopGroups extends Model
         'ownType' => 'OwnType',
         'payType' => 'PayType',
         'policyGroupId' => 'PolicyGroupId',
+        'policyGroupIdList' => 'PolicyGroupIdList',
         'policyGroupName' => 'PolicyGroupName',
+        'policyGroupNameList' => 'PolicyGroupNameList',
         'protocolType' => 'ProtocolType',
         'ratioThreshold' => 'RatioThreshold',
         'resetType' => 'ResetType',
@@ -322,6 +334,12 @@ class desktopGroups extends Model
     {
         if (\is_array($this->countPerStatus)) {
             Model::validateArray($this->countPerStatus);
+        }
+        if (\is_array($this->policyGroupIdList)) {
+            Model::validateArray($this->policyGroupIdList);
+        }
+        if (\is_array($this->policyGroupNameList)) {
+            Model::validateArray($this->policyGroupNameList);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -482,8 +500,28 @@ class desktopGroups extends Model
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
 
+        if (null !== $this->policyGroupIdList) {
+            if (\is_array($this->policyGroupIdList)) {
+                $res['PolicyGroupIdList'] = [];
+                $n1 = 0;
+                foreach ($this->policyGroupIdList as $item1) {
+                    $res['PolicyGroupIdList'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
+        }
+
+        if (null !== $this->policyGroupNameList) {
+            if (\is_array($this->policyGroupNameList)) {
+                $res['PolicyGroupNameList'] = [];
+                $n1 = 0;
+                foreach ($this->policyGroupNameList as $item1) {
+                    $res['PolicyGroupNameList'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->protocolType) {
@@ -709,8 +747,28 @@ class desktopGroups extends Model
             $model->policyGroupId = $map['PolicyGroupId'];
         }
 
+        if (isset($map['PolicyGroupIdList'])) {
+            if (!empty($map['PolicyGroupIdList'])) {
+                $model->policyGroupIdList = [];
+                $n1 = 0;
+                foreach ($map['PolicyGroupIdList'] as $item1) {
+                    $model->policyGroupIdList[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+
+        if (isset($map['PolicyGroupNameList'])) {
+            if (!empty($map['PolicyGroupNameList'])) {
+                $model->policyGroupNameList = [];
+                $n1 = 0;
+                foreach ($map['PolicyGroupNameList'] as $item1) {
+                    $model->policyGroupNameList[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['ProtocolType'])) {
