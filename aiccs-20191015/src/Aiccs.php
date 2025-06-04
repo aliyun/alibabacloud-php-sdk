@@ -22,6 +22,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\AttachTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AttachTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\BatchCreateQualityProjectsRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\BatchCreateQualityProjectsResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\CancelAiCallDetailsRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\CancelAiCallDetailsResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\CancelAiCallDetailsShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CancelTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ChangeChatAgentStatusRequest;
@@ -30,6 +33,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\ChangeQualityProjectStatusRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ChangeQualityProjectStatusResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAgentRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAgentResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAiCallTaskRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAiCallTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAiCallTaskShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAiOutboundTaskBatchRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAiOutboundTaskBatchResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\CreateAiOutboundTaskRequest;
@@ -215,6 +221,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\HoldCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HoldCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HotlineSessionQueryRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HotlineSessionQueryResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportTaskNumberDatasRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportTaskNumberDatasResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportTaskNumberDatasShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\InsertAiOutboundPhoneNumsRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\InsertAiOutboundPhoneNumsResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\InsertAiOutboundPhoneNumsShrinkRequest;
@@ -262,6 +271,12 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeDoubleCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeDoubleCallResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallDetailPageRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallDetailPageResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineInQueueRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineInQueueResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberRequest;
@@ -296,6 +311,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\SendCcoSmartCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\SendCcoSmartCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\SendHotlineHeartBeatRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\SendHotlineHeartBeatResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartAiCallTaskRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartAiCallTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartAiOutboundTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartAiOutboundTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartCallRequest;
@@ -310,6 +327,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartMicroOutboundRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartMicroOutboundResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StartTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\StopAiCallTaskRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\StopAiCallTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StopAiOutboundTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StopAiOutboundTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\StopTaskRequest;
@@ -324,6 +343,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\TransferCallToSkillGroupRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\TransferCallToSkillGroupResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAgentRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAgentResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiCallTaskRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiCallTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiCallTaskShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiOutboundTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiOutboundTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiOutboundTaskShrinkRequest;
@@ -1051,6 +1073,97 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 批量取消大模型解决方案Ai外呼明细任务
+     *
+     * @param tmpReq - CancelAiCallDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAiCallDetailsResponse
+     *
+     * @param CancelAiCallDetailsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelAiCallDetailsResponse
+     */
+    public function cancelAiCallDetailsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CancelAiCallDetailsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->detailIdList) {
+            $request->detailIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detailIdList, 'DetailIdList', 'json');
+        }
+
+        if (null !== $tmpReq->phoneNumbers) {
+            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
+        }
+
+        if (null !== $request->detailIdListShrink) {
+            @$query['DetailIdList'] = $request->detailIdListShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumbersShrink) {
+            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAiCallDetails',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAiCallDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量取消大模型解决方案Ai外呼明细任务
+     *
+     * @param request - CancelAiCallDetailsRequest
+     *
+     * @returns CancelAiCallDetailsResponse
+     *
+     * @param CancelAiCallDetailsRequest $request
+     *
+     * @return CancelAiCallDetailsResponse
+     */
+    public function cancelAiCallDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAiCallDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除智能外呼任务
      *
      * @param request - CancelTaskRequest
@@ -1323,6 +1436,129 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建任务
+     *
+     * @param tmpReq - CreateAiCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAiCallTaskResponse
+     *
+     * @param CreateAiCallTaskRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAiCallTaskResponse
+     */
+    public function createAiCallTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAiCallTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callDay) {
+            $request->callDayShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callDay, 'CallDay', 'json');
+        }
+
+        if (null !== $tmpReq->callRetryReason) {
+            $request->callRetryReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callRetryReason, 'CallRetryReason', 'json');
+        }
+
+        if (null !== $tmpReq->callTime) {
+            $request->callTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTime, 'CallTime', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->callDayShrink) {
+            @$query['CallDay'] = $request->callDayShrink;
+        }
+
+        if (null !== $request->callRetryInterval) {
+            @$query['CallRetryInterval'] = $request->callRetryInterval;
+        }
+
+        if (null !== $request->callRetryReasonShrink) {
+            @$query['CallRetryReason'] = $request->callRetryReasonShrink;
+        }
+
+        if (null !== $request->callRetryTimes) {
+            @$query['CallRetryTimes'] = $request->callRetryTimes;
+        }
+
+        if (null !== $request->callTimeShrink) {
+            @$query['CallTime'] = $request->callTimeShrink;
+        }
+
+        if (null !== $request->missCallRetry) {
+            @$query['MissCallRetry'] = $request->missCallRetry;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startType) {
+            @$query['StartType'] = $request->startType;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskStartTime) {
+            @$query['TaskStartTime'] = $request->taskStartTime;
+        }
+
+        if (null !== $request->virtualNumber) {
+            @$query['VirtualNumber'] = $request->virtualNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAiCallTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAiCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建任务
+     *
+     * @param request - CreateAiCallTaskRequest
+     *
+     * @returns CreateAiCallTaskResponse
+     *
+     * @param CreateAiCallTaskRequest $request
+     *
+     * @return CreateAiCallTaskResponse
+     */
+    public function createAiCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAiCallTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -6833,6 +7069,95 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 导入任务号码数据.
+     *
+     * @param tmpReq - ImportTaskNumberDatasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportTaskNumberDatasResponse
+     *
+     * @param ImportTaskNumberDatasRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ImportTaskNumberDatasResponse
+     */
+    public function importTaskNumberDatasWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ImportTaskNumberDatasShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phoneNumberList) {
+            $request->phoneNumberListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumberList, 'PhoneNumberList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->ossFileName) {
+            @$query['OssFileName'] = $request->ossFileName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $body = [];
+        if (null !== $request->phoneNumberListShrink) {
+            @$body['PhoneNumberList'] = $request->phoneNumberListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportTaskNumberDatas',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportTaskNumberDatasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入任务号码数据.
+     *
+     * @param request - ImportTaskNumberDatasRequest
+     *
+     * @returns ImportTaskNumberDatasResponse
+     *
+     * @param ImportTaskNumberDatasRequest $request
+     *
+     * @return ImportTaskNumberDatasResponse
+     */
+    public function importTaskNumberDatas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importTaskNumberDatasWithOptions($request, $runtime);
+    }
+
+    /**
      * 智能外呼任务导入号码
      *
      * @param tmpReq - InsertAiOutboundPhoneNumsRequest
@@ -8369,6 +8694,285 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 查询明细记录.
+     *
+     * @param request - QueryAiCallDetailPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAiCallDetailPageResponse
+     *
+     * @param QueryAiCallDetailPageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryAiCallDetailPageResponse
+     */
+    public function queryAiCallDetailPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
+        }
+
+        if (null !== $request->callResult) {
+            @$query['CallResult'] = $request->callResult;
+        }
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->endCallingTime) {
+            @$query['EndCallingTime'] = $request->endCallingTime;
+        }
+
+        if (null !== $request->endImportedTime) {
+            @$query['EndImportedTime'] = $request->endImportedTime;
+        }
+
+        if (null !== $request->majorIntent) {
+            @$query['MajorIntent'] = $request->majorIntent;
+        }
+
+        if (null !== $request->maxConversationDuration) {
+            @$query['MaxConversationDuration'] = $request->maxConversationDuration;
+        }
+
+        if (null !== $request->minConversationDuration) {
+            @$query['MinConversationDuration'] = $request->minConversationDuration;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startCallingTime) {
+            @$query['StartCallingTime'] = $request->startCallingTime;
+        }
+
+        if (null !== $request->startImportedTime) {
+            @$query['StartImportedTime'] = $request->startImportedTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAiCallDetailPage',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAiCallDetailPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询明细记录.
+     *
+     * @param request - QueryAiCallDetailPageRequest
+     *
+     * @returns QueryAiCallDetailPageResponse
+     *
+     * @param QueryAiCallDetailPageRequest $request
+     *
+     * @return QueryAiCallDetailPageResponse
+     */
+    public function queryAiCallDetailPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAiCallDetailPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询任务详情.
+     *
+     * @param request - QueryAiCallTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAiCallTaskDetailResponse
+     *
+     * @param QueryAiCallTaskDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryAiCallTaskDetailResponse
+     */
+    public function queryAiCallTaskDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAiCallTaskDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAiCallTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询任务详情.
+     *
+     * @param request - QueryAiCallTaskDetailRequest
+     *
+     * @returns QueryAiCallTaskDetailResponse
+     *
+     * @param QueryAiCallTaskDetailRequest $request
+     *
+     * @return QueryAiCallTaskDetailResponse
+     */
+    public function queryAiCallTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAiCallTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询任务列表.
+     *
+     * @param request - QueryAiCallTaskPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAiCallTaskPageResponse
+     *
+     * @param QueryAiCallTaskPageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryAiCallTaskPageResponse
+     */
+    public function queryAiCallTaskPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAiCallTaskPage',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAiCallTaskPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询任务列表.
+     *
+     * @param request - QueryAiCallTaskPageRequest
+     *
+     * @returns QueryAiCallTaskPageResponse
+     *
+     * @param QueryAiCallTaskPageRequest $request
+     *
+     * @return QueryAiCallTaskPageResponse
+     */
+    public function queryAiCallTaskPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAiCallTaskPageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - QueryHotlineInQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9700,6 +10304,75 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 启动任务
+     *
+     * @param request - StartAiCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAiCallTaskResponse
+     *
+     * @param StartAiCallTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StartAiCallTaskResponse
+     */
+    public function startAiCallTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartAiCallTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartAiCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动任务
+     *
+     * @param request - StartAiCallTaskRequest
+     *
+     * @returns StartAiCallTaskResponse
+     *
+     * @param StartAiCallTaskRequest $request
+     *
+     * @return StartAiCallTaskResponse
+     */
+    public function startAiCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAiCallTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 启动智能外呼任务
      *
      * @param request - StartAiOutboundTaskRequest
@@ -10191,6 +10864,75 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 停止任务
+     *
+     * @param request - StopAiCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAiCallTaskResponse
+     *
+     * @param StopAiCallTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopAiCallTaskResponse
+     */
+    public function stopAiCallTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopAiCallTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopAiCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止任务
+     *
+     * @param request - StopAiCallTaskRequest
+     *
+     * @returns StopAiCallTaskResponse
+     *
+     * @param StopAiCallTaskRequest $request
+     *
+     * @return StopAiCallTaskResponse
+     */
+    public function stopAiCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopAiCallTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 手动暂停智能外呼任务
      *
      * @param request - StopAiOutboundTaskRequest
@@ -10663,6 +11405,129 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新AI外呼任务配置.
+     *
+     * @param tmpReq - UpdateAiCallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAiCallTaskResponse
+     *
+     * @param UpdateAiCallTaskRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAiCallTaskResponse
+     */
+    public function updateAiCallTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAiCallTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callDay) {
+            $request->callDayShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callDay, 'CallDay', 'json');
+        }
+
+        if (null !== $tmpReq->callRetryReason) {
+            $request->callRetryReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callRetryReason, 'CallRetryReason', 'json');
+        }
+
+        if (null !== $tmpReq->callTime) {
+            $request->callTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTime, 'CallTime', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->callDayShrink) {
+            @$query['CallDay'] = $request->callDayShrink;
+        }
+
+        if (null !== $request->callRetryInterval) {
+            @$query['CallRetryInterval'] = $request->callRetryInterval;
+        }
+
+        if (null !== $request->callRetryReasonShrink) {
+            @$query['CallRetryReason'] = $request->callRetryReasonShrink;
+        }
+
+        if (null !== $request->callRetryTimes) {
+            @$query['CallRetryTimes'] = $request->callRetryTimes;
+        }
+
+        if (null !== $request->callTimeShrink) {
+            @$query['CallTime'] = $request->callTimeShrink;
+        }
+
+        if (null !== $request->missCallRetry) {
+            @$query['MissCallRetry'] = $request->missCallRetry;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startType) {
+            @$query['StartType'] = $request->startType;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskStartTime) {
+            @$query['TaskStartTime'] = $request->taskStartTime;
+        }
+
+        if (null !== $request->virtualNumber) {
+            @$query['VirtualNumber'] = $request->virtualNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAiCallTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAiCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新AI外呼任务配置.
+     *
+     * @param request - UpdateAiCallTaskRequest
+     *
+     * @returns UpdateAiCallTaskResponse
+     *
+     * @param UpdateAiCallTaskRequest $request
+     *
+     * @return UpdateAiCallTaskResponse
+     */
+    public function updateAiCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAiCallTaskWithOptions($request, $runtime);
     }
 
     /**
