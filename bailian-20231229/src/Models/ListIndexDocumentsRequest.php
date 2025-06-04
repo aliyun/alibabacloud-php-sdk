@@ -21,6 +21,11 @@ class ListIndexDocumentsRequest extends Model
     /**
      * @var string
      */
+    public $enableNameLike;
+
+    /**
+     * @var string
+     */
     public $indexId;
 
     /**
@@ -35,6 +40,7 @@ class ListIndexDocumentsRequest extends Model
     protected $_name = [
         'documentName' => 'DocumentName',
         'documentStatus' => 'DocumentStatus',
+        'enableNameLike' => 'EnableNameLike',
         'indexId' => 'IndexId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -54,6 +60,10 @@ class ListIndexDocumentsRequest extends Model
 
         if (null !== $this->documentStatus) {
             $res['DocumentStatus'] = $this->documentStatus;
+        }
+
+        if (null !== $this->enableNameLike) {
+            $res['EnableNameLike'] = $this->enableNameLike;
         }
 
         if (null !== $this->indexId) {
@@ -85,6 +95,10 @@ class ListIndexDocumentsRequest extends Model
 
         if (isset($map['DocumentStatus'])) {
             $model->documentStatus = $map['DocumentStatus'];
+        }
+
+        if (isset($map['EnableNameLike'])) {
+            $model->enableNameLike = $map['EnableNameLike'];
         }
 
         if (isset($map['IndexId'])) {

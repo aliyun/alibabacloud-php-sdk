@@ -1970,6 +1970,10 @@ class Bailian extends OpenApiClient
             @$query['DocumentStatus'] = $request->documentStatus;
         }
 
+        if (null !== $request->enableNameLike) {
+            @$query['EnableNameLike'] = $request->enableNameLike;
+        }
+
         if (null !== $request->indexId) {
             @$query['IndexId'] = $request->indexId;
         }
