@@ -60,6 +60,11 @@ class PreviewStackRequest extends Model
     public $stackPolicyURL;
 
     /**
+     * @var string[]
+     */
+    public $taintResources;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -104,6 +109,7 @@ class PreviewStackRequest extends Model
         'stackName' => 'StackName',
         'stackPolicyBody' => 'StackPolicyBody',
         'stackPolicyURL' => 'StackPolicyURL',
+        'taintResources' => 'TaintResources',
         'templateBody' => 'TemplateBody',
         'templateId' => 'TemplateId',
         'templateScratchId' => 'TemplateScratchId',
@@ -117,6 +123,9 @@ class PreviewStackRequest extends Model
     {
         if (\is_array($this->parameters)) {
             Model::validateArray($this->parameters);
+        }
+        if (\is_array($this->taintResources)) {
+            Model::validateArray($this->taintResources);
         }
         parent::validate();
     }
@@ -168,6 +177,16 @@ class PreviewStackRequest extends Model
 
         if (null !== $this->stackPolicyURL) {
             $res['StackPolicyURL'] = $this->stackPolicyURL;
+        }
+
+        if (null !== $this->taintResources) {
+            if (\is_array($this->taintResources)) {
+                $res['TaintResources'] = [];
+                $n1 = 0;
+                foreach ($this->taintResources as $item1) {
+                    $res['TaintResources'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->templateBody) {
@@ -253,6 +272,16 @@ class PreviewStackRequest extends Model
 
         if (isset($map['StackPolicyURL'])) {
             $model->stackPolicyURL = $map['StackPolicyURL'];
+        }
+
+        if (isset($map['TaintResources'])) {
+            if (!empty($map['TaintResources'])) {
+                $model->taintResources = [];
+                $n1 = 0;
+                foreach ($map['TaintResources'] as $item1) {
+                    $model->taintResources[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['TemplateBody'])) {

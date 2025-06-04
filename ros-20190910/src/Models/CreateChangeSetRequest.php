@@ -112,6 +112,11 @@ class CreateChangeSetRequest extends Model
     public $tags;
 
     /**
+     * @var string[]
+     */
+    public $taintResources;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -166,6 +171,7 @@ class CreateChangeSetRequest extends Model
         'stackPolicyDuringUpdateURL' => 'StackPolicyDuringUpdateURL',
         'stackPolicyURL' => 'StackPolicyURL',
         'tags' => 'Tags',
+        'taintResources' => 'TaintResources',
         'templateBody' => 'TemplateBody',
         'templateId' => 'TemplateId',
         'templateScratchId' => 'TemplateScratchId',
@@ -188,6 +194,9 @@ class CreateChangeSetRequest extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->taintResources)) {
+            Model::validateArray($this->taintResources);
         }
         parent::validate();
     }
@@ -295,6 +304,16 @@ class CreateChangeSetRequest extends Model
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->taintResources) {
+            if (\is_array($this->taintResources)) {
+                $res['TaintResources'] = [];
+                $n1 = 0;
+                foreach ($this->taintResources as $item1) {
+                    $res['TaintResources'][$n1++] = $item1;
                 }
             }
         }
@@ -438,6 +457,16 @@ class CreateChangeSetRequest extends Model
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['TaintResources'])) {
+            if (!empty($map['TaintResources'])) {
+                $model->taintResources = [];
+                $n1 = 0;
+                foreach ($map['TaintResources'] as $item1) {
+                    $model->taintResources[$n1++] = $item1;
                 }
             }
         }

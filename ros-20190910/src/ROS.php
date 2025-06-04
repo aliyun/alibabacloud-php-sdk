@@ -664,6 +664,10 @@ class ROS extends OpenApiClient
             @$query['Tags'] = $request->tags;
         }
 
+        if (null !== $request->taintResources) {
+            @$query['TaintResources'] = $request->taintResources;
+        }
+
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
         }
@@ -6194,6 +6198,10 @@ class ROS extends OpenApiClient
             @$query['StackPolicyURL'] = $request->stackPolicyURL;
         }
 
+        if (null !== $request->taintResources) {
+            @$query['TaintResources'] = $request->taintResources;
+        }
+
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
         }
@@ -7023,6 +7031,10 @@ class ROS extends OpenApiClient
 
         if (null !== $request->tags) {
             @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->taintResources) {
+            @$query['TaintResources'] = $request->taintResources;
         }
 
         if (null !== $request->templateId) {
