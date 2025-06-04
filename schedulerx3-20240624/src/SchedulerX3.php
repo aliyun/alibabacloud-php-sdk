@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetDesigateInfoRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetDesigateInfoResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportCalendarRequest;
@@ -373,6 +375,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->routeStrategy) {
             @$body['RouteStrategy'] = $request->routeStrategy;
+        }
+
+        if (null !== $request->script) {
+            @$body['Script'] = $request->script;
         }
 
         if (null !== $request->startTime) {
@@ -799,6 +805,75 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDesigateInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取任务执行的详细信息.
+     *
+     * @param request - GetJobExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobExecutionResponse
+     *
+     * @param GetJobExecutionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetJobExecutionResponse
+     */
+    public function getJobExecutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->jobExecutionId) {
+            @$query['JobExecutionId'] = $request->jobExecutionId;
+        }
+
+        if (null !== $request->mseSessionId) {
+            @$query['MseSessionId'] = $request->mseSessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetJobExecution',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJobExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务执行的详细信息.
+     *
+     * @param request - GetJobExecutionRequest
+     *
+     * @returns GetJobExecutionResponse
+     *
+     * @param GetJobExecutionRequest $request
+     *
+     * @return GetJobExecutionResponse
+     */
+    public function getJobExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobExecutionWithOptions($request, $runtime);
     }
 
     /**
@@ -1413,6 +1488,8 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 获取任务列表.
+     *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1446,6 +1523,8 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 获取任务列表.
+     *
      * @param request - ListJobsRequest
      *
      * @returns ListJobsResponse
@@ -2468,6 +2547,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->routeStrategy) {
             @$body['RouteStrategy'] = $request->routeStrategy;
+        }
+
+        if (null !== $request->script) {
+            @$body['Script'] = $request->script;
         }
 
         if (null !== $request->startTime) {

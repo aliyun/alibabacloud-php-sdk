@@ -94,6 +94,11 @@ class CreateJobShrinkRequest extends Model
     public $routeStrategy;
 
     /**
+     * @var string
+     */
+    public $script;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -135,6 +140,7 @@ class CreateJobShrinkRequest extends Model
         'parameters' => 'Parameters',
         'priority' => 'Priority',
         'routeStrategy' => 'RouteStrategy',
+        'script' => 'Script',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'timeExpression' => 'TimeExpression',
@@ -216,6 +222,10 @@ class CreateJobShrinkRequest extends Model
 
         if (null !== $this->routeStrategy) {
             $res['RouteStrategy'] = $this->routeStrategy;
+        }
+
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
         }
 
         if (null !== $this->startTime) {
@@ -315,6 +325,10 @@ class CreateJobShrinkRequest extends Model
 
         if (isset($map['RouteStrategy'])) {
             $model->routeStrategy = $map['RouteStrategy'];
+        }
+
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
         }
 
         if (isset($map['StartTime'])) {

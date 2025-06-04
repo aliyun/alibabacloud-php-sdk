@@ -1,3 +1,12 @@
+2025-06-04 Version: 1.1.0
+- Support API GetJobExecution.
+- Update API CreateJob: add request parameters Script.
+- Update API ListJobExecutions: add response parameters Body.Data.Records.$.TotalTokens.
+- Update API ListJobs: add response parameters Body.Data.Records.$.Script.
+- Update API ListScheduleEvent: add request parameters EventType.
+- Update API UpdateJob: add request parameters Script.
+
+
 2025-05-20 Version: 1.0.4
 - Update API ListJobExecutions: add response parameters Body.Data.Records.$.TotalTokens.
 - Update API ListScheduleEvent: add request parameters EventType.

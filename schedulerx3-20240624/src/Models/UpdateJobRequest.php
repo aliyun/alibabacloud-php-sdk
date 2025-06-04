@@ -96,6 +96,11 @@ class UpdateJobRequest extends Model
     public $routeStrategy;
 
     /**
+     * @var string
+     */
+    public $script;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -132,6 +137,7 @@ class UpdateJobRequest extends Model
         'parameters' => 'Parameters',
         'priority' => 'Priority',
         'routeStrategy' => 'RouteStrategy',
+        'script' => 'Script',
         'startTime' => 'StartTime',
         'timeExpression' => 'TimeExpression',
         'timeType' => 'TimeType',
@@ -224,6 +230,10 @@ class UpdateJobRequest extends Model
 
         if (null !== $this->routeStrategy) {
             $res['RouteStrategy'] = $this->routeStrategy;
+        }
+
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
         }
 
         if (null !== $this->startTime) {
@@ -325,6 +335,10 @@ class UpdateJobRequest extends Model
 
         if (isset($map['RouteStrategy'])) {
             $model->routeStrategy = $map['RouteStrategy'];
+        }
+
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
         }
 
         if (isset($map['StartTime'])) {
