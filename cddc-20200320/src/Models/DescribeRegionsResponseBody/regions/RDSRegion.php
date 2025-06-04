@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsResponseBody\regions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RDSRegion extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * @example ap-southeast-1
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The zone ID.
-     *
-     * @example ap-southeast-1a
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'zoneId'   => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -47,17 +41,18 @@ class RDSRegion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RDSRegion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

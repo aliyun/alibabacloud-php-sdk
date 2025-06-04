@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostResponseBody\dedicateHostList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dedicateHostList extends Model
 {
     /**
-     * @description The host ID.
-     *
-     * @example ch-bp108dki3wdl6****
-     *
      * @var string
      */
     public $dedicatedHostId;
@@ -22,9 +18,10 @@ class dedicateHostList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostId) {
@@ -34,11 +31,11 @@ class dedicateHostList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dedicateHostList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

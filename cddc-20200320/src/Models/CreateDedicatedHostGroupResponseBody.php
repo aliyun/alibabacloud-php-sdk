@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDedicatedHostGroupResponseBody extends Model
 {
     /**
-     * @description The dedicated cluster ID.
-     *
-     * @example dhg-7a9********
-     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
-     * @description The request ID.
-     *
-     * @example C6592723-09E1-4248-A78E-12AB00D7A79D
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateDedicatedHostGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDedicatedHostGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

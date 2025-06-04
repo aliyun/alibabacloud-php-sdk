@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupRequest;
@@ -58,11 +57,10 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cddc extends OpenApiClient
 {
@@ -87,17 +85,25 @@ class Cddc extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Creates hosts in a dedicated cluster.
+     *
+     * @param tmpReq - CreateDedicatedHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDedicatedHostResponse
+     *
      * @param CreateDedicatedHostRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -105,101 +111,131 @@ class Cddc extends OpenApiClient
      */
     public function createDedicatedHostWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDedicatedHostShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->clusterServices)) {
-            $request->clusterServicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterServices, 'ClusterServices', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->clusterServices) {
+            $request->clusterServicesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterServices, 'ClusterServices', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->myBaseEcsClass)) {
-            $request->myBaseEcsClassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->myBaseEcsClass, 'MyBaseEcsClass', 'json');
+
+        if (null !== $tmpReq->myBaseEcsClass) {
+            $request->myBaseEcsClassShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->myBaseEcsClass, 'MyBaseEcsClass', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterAlias)) {
-            $query['ClusterAlias'] = $request->clusterAlias;
+
+        if (null !== $request->clusterAlias) {
+            @$query['ClusterAlias'] = $request->clusterAlias;
         }
-        if (!Utils::isUnset($request->clusterServicesShrink)) {
-            $query['ClusterServices'] = $request->clusterServicesShrink;
+
+        if (null !== $request->clusterServicesShrink) {
+            @$query['ClusterServices'] = $request->clusterServicesShrink;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->hostClass)) {
-            $query['HostClass'] = $request->hostClass;
+
+        if (null !== $request->hostClass) {
+            @$query['HostClass'] = $request->hostClass;
         }
-        if (!Utils::isUnset($request->hostStorage)) {
-            $query['HostStorage'] = $request->hostStorage;
+
+        if (null !== $request->hostStorage) {
+            @$query['HostStorage'] = $request->hostStorage;
         }
-        if (!Utils::isUnset($request->hostStorageType)) {
-            $query['HostStorageType'] = $request->hostStorageType;
+
+        if (null !== $request->hostStorageType) {
+            @$query['HostStorageType'] = $request->hostStorageType;
         }
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->myBaseEcsClassShrink)) {
-            $query['MyBaseEcsClass'] = $request->myBaseEcsClassShrink;
+
+        if (null !== $request->myBaseEcsClassShrink) {
+            @$query['MyBaseEcsClass'] = $request->myBaseEcsClassShrink;
         }
-        if (!Utils::isUnset($request->osPassword)) {
-            $query['OsPassword'] = $request->osPassword;
+
+        if (null !== $request->osPassword) {
+            @$query['OsPassword'] = $request->osPassword;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcID)) {
-            $query['VpcID'] = $request->vpcID;
+
+        if (null !== $request->vpcID) {
+            @$query['VpcID'] = $request->vpcID;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDedicatedHost',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDedicatedHost',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates hosts in a dedicated cluster.
+     *
+     * @param request - CreateDedicatedHostRequest
+     *
+     * @returns CreateDedicatedHostResponse
+     *
      * @param CreateDedicatedHostRequest $request
      *
      * @return CreateDedicatedHostResponse
@@ -212,71 +248,96 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](~~211413~~).
-     *   *
-     * @param CreateDedicatedHostAccountRequest $request CreateDedicatedHostAccountRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates an account for a host.
      *
-     * @return CreateDedicatedHostAccountResponse CreateDedicatedHostAccountResponse
+     * @remarks
+     * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](https://help.aliyun.com/document_detail/211413.html).
+     *
+     * @param request - CreateDedicatedHostAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDedicatedHostAccountResponse
+     *
+     * @param CreateDedicatedHostAccountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDedicatedHostAccountResponse
      */
     public function createDedicatedHostAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->accountType)) {
-            $query['AccountType'] = $request->accountType;
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
         }
-        if (!Utils::isUnset($request->bastionInstanceId)) {
-            $query['BastionInstanceId'] = $request->bastionInstanceId;
+
+        if (null !== $request->bastionInstanceId) {
+            @$query['BastionInstanceId'] = $request->bastionInstanceId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDedicatedHostAccount',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDedicatedHostAccount',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](~~211413~~).
-     *   *
-     * @param CreateDedicatedHostAccountRequest $request CreateDedicatedHostAccountRequest
+     * Creates an account for a host.
      *
-     * @return CreateDedicatedHostAccountResponse CreateDedicatedHostAccountResponse
+     * @remarks
+     * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](https://help.aliyun.com/document_detail/211413.html).
+     *
+     * @param request - CreateDedicatedHostAccountRequest
+     *
+     * @returns CreateDedicatedHostAccountResponse
+     *
+     * @param CreateDedicatedHostAccountRequest $request
+     *
+     * @return CreateDedicatedHostAccountResponse
      */
     public function createDedicatedHostAccount($request)
     {
@@ -286,6 +347,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Creates a dedicated cluster.
+     *
+     * @param request - CreateDedicatedHostGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDedicatedHostGroupResponse
+     *
      * @param CreateDedicatedHostGroupRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -293,69 +361,89 @@ class Cddc extends OpenApiClient
      */
     public function createDedicatedHostGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allocationPolicy)) {
-            $query['AllocationPolicy'] = $request->allocationPolicy;
+        if (null !== $request->allocationPolicy) {
+            @$query['AllocationPolicy'] = $request->allocationPolicy;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->cpuAllocationRatio)) {
-            $query['CpuAllocationRatio'] = $request->cpuAllocationRatio;
+
+        if (null !== $request->cpuAllocationRatio) {
+            @$query['CpuAllocationRatio'] = $request->cpuAllocationRatio;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupDesc)) {
-            $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
+
+        if (null !== $request->dedicatedHostGroupDesc) {
+            @$query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
         }
-        if (!Utils::isUnset($request->diskAllocationRatio)) {
-            $query['DiskAllocationRatio'] = $request->diskAllocationRatio;
+
+        if (null !== $request->diskAllocationRatio) {
+            @$query['DiskAllocationRatio'] = $request->diskAllocationRatio;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->hostReplacePolicy)) {
-            $query['HostReplacePolicy'] = $request->hostReplacePolicy;
+
+        if (null !== $request->hostReplacePolicy) {
+            @$query['HostReplacePolicy'] = $request->hostReplacePolicy;
         }
-        if (!Utils::isUnset($request->memAllocationRatio)) {
-            $query['MemAllocationRatio'] = $request->memAllocationRatio;
+
+        if (null !== $request->memAllocationRatio) {
+            @$query['MemAllocationRatio'] = $request->memAllocationRatio;
         }
-        if (!Utils::isUnset($request->openPermission)) {
-            $query['OpenPermission'] = $request->openPermission;
+
+        if (null !== $request->openPermission) {
+            @$query['OpenPermission'] = $request->openPermission;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDedicatedHostGroup',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDedicatedHostGroup',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDedicatedHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a dedicated cluster.
+     *
+     * @param request - CreateDedicatedHostGroupRequest
+     *
+     * @returns CreateDedicatedHostGroupResponse
+     *
      * @param CreateDedicatedHostGroupRequest $request
      *
      * @return CreateDedicatedHostGroupResponse
@@ -368,6 +456,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * 创建专属集群（包含主机信息，附加服务信息）.
+     *
+     * @param tmpReq - CreateMyBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMyBaseResponse
+     *
      * @param CreateMyBaseRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
@@ -375,131 +470,171 @@ class Cddc extends OpenApiClient
      */
     public function createMyBaseWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateMyBaseShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ECSClassList)) {
-            $request->ECSClassListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ECSClassList, 'ECSClassList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ECSClassList) {
+            $request->ECSClassListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ECSClassList, 'ECSClassList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupDescription)) {
-            $query['DedicatedHostGroupDescription'] = $request->dedicatedHostGroupDescription;
+
+        if (null !== $request->dedicatedHostGroupDescription) {
+            @$query['DedicatedHostGroupDescription'] = $request->dedicatedHostGroupDescription;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->ECSClassListShrink)) {
-            $query['ECSClassList'] = $request->ECSClassListShrink;
+
+        if (null !== $request->ECSClassListShrink) {
+            @$query['ECSClassList'] = $request->ECSClassListShrink;
         }
-        if (!Utils::isUnset($request->ecsDeploymentSetId)) {
-            $query['EcsDeploymentSetId'] = $request->ecsDeploymentSetId;
+
+        if (null !== $request->ecsDeploymentSetId) {
+            @$query['EcsDeploymentSetId'] = $request->ecsDeploymentSetId;
         }
-        if (!Utils::isUnset($request->ecsHostName)) {
-            $query['EcsHostName'] = $request->ecsHostName;
+
+        if (null !== $request->ecsHostName) {
+            @$query['EcsHostName'] = $request->ecsHostName;
         }
-        if (!Utils::isUnset($request->ecsInstanceName)) {
-            $query['EcsInstanceName'] = $request->ecsInstanceName;
+
+        if (null !== $request->ecsInstanceName) {
+            @$query['EcsInstanceName'] = $request->ecsInstanceName;
         }
-        if (!Utils::isUnset($request->ecsUniqueSuffix)) {
-            $query['EcsUniqueSuffix'] = $request->ecsUniqueSuffix;
+
+        if (null !== $request->ecsUniqueSuffix) {
+            @$query['EcsUniqueSuffix'] = $request->ecsUniqueSuffix;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->internetChargeType)) {
-            $query['InternetChargeType'] = $request->internetChargeType;
+
+        if (null !== $request->internetChargeType) {
+            @$query['InternetChargeType'] = $request->internetChargeType;
         }
-        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
-            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
+
+        if (null !== $request->internetMaxBandwidthOut) {
+            @$query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->osPassword)) {
-            $query['OsPassword'] = $request->osPassword;
+
+        if (null !== $request->osPassword) {
+            @$query['OsPassword'] = $request->osPassword;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->passwordInherit)) {
-            $query['PasswordInherit'] = $request->passwordInherit;
+
+        if (null !== $request->passwordInherit) {
+            @$query['PasswordInherit'] = $request->passwordInherit;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->userDataInBase64)) {
-            $query['UserDataInBase64'] = $request->userDataInBase64;
+
+        if (null !== $request->userDataInBase64) {
+            @$query['UserDataInBase64'] = $request->userDataInBase64;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMyBase',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMyBase',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMyBaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建专属集群（包含主机信息，附加服务信息）.
+     *
+     * @param request - CreateMyBaseRequest
+     *
+     * @returns CreateMyBaseResponse
+     *
      * @param CreateMyBaseRequest $request
      *
      * @return CreateMyBaseResponse
@@ -512,6 +647,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Deletes a host account.
+     *
+     * @param request - DeleteDedicatedHostAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDedicatedHostAccountResponse
+     *
      * @param DeleteDedicatedHostAccountRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -519,45 +661,57 @@ class Cddc extends OpenApiClient
      */
     public function deleteDedicatedHostAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDedicatedHostAccount',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDedicatedHostAccount',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a host account.
+     *
+     * @param request - DeleteDedicatedHostAccountRequest
+     *
+     * @returns DeleteDedicatedHostAccountResponse
+     *
      * @param DeleteDedicatedHostAccountRequest $request
      *
      * @return DeleteDedicatedHostAccountResponse
@@ -570,56 +724,76 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
-     *   *
-     * @param DeleteDedicatedHostGroupRequest $request DeleteDedicatedHostGroupRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a dedicated cluster.
      *
-     * @return DeleteDedicatedHostGroupResponse DeleteDedicatedHostGroupResponse
+     * @remarks
+     * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
+     *
+     * @param request - DeleteDedicatedHostGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDedicatedHostGroupResponse
+     *
+     * @param DeleteDedicatedHostGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDedicatedHostGroupResponse
      */
     public function deleteDedicatedHostGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDedicatedHostGroup',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDedicatedHostGroup',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDedicatedHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
-     *   *
-     * @param DeleteDedicatedHostGroupRequest $request DeleteDedicatedHostGroupRequest
+     * Deletes a dedicated cluster.
      *
-     * @return DeleteDedicatedHostGroupResponse DeleteDedicatedHostGroupResponse
+     * @remarks
+     * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
+     *
+     * @param request - DeleteDedicatedHostGroupRequest
+     *
+     * @returns DeleteDedicatedHostGroupResponse
+     *
+     * @param DeleteDedicatedHostGroupRequest $request
+     *
+     * @return DeleteDedicatedHostGroupResponse
      */
     public function deleteDedicatedHostGroup($request)
     {
@@ -629,6 +803,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Queries the parameter settings of a host in a dedicated cluster.
+     *
+     * @param request - DescribeDedicatedHostAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDedicatedHostAttributeResponse
+     *
      * @param DescribeDedicatedHostAttributeRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -636,45 +817,57 @@ class Cddc extends OpenApiClient
      */
     public function describeDedicatedHostAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedHostAttribute',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedHostAttribute',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDedicatedHostAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the parameter settings of a host in a dedicated cluster.
+     *
+     * @param request - DescribeDedicatedHostAttributeRequest
+     *
+     * @returns DescribeDedicatedHostAttributeResponse
+     *
      * @param DescribeDedicatedHostAttributeRequest $request
      *
      * @return DescribeDedicatedHostAttributeResponse
@@ -687,6 +880,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Queries the information about disks on a host.
+     *
+     * @param request - DescribeDedicatedHostDisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDedicatedHostDisksResponse
+     *
      * @param DescribeDedicatedHostDisksRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -694,42 +894,53 @@ class Cddc extends OpenApiClient
      */
     public function describeDedicatedHostDisksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedHostDisks',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedHostDisks',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDedicatedHostDisksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about disks on a host.
+     *
+     * @param request - DescribeDedicatedHostDisksRequest
+     *
+     * @returns DescribeDedicatedHostDisksResponse
+     *
      * @param DescribeDedicatedHostDisksRequest $request
      *
      * @return DescribeDedicatedHostDisksResponse
@@ -742,6 +953,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Queries the information about hosts in dedicated clusters.
+     *
+     * @param request - DescribeDedicatedHostGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDedicatedHostGroupsResponse
+     *
      * @param DescribeDedicatedHostGroupsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -749,48 +967,61 @@ class Cddc extends OpenApiClient
      */
     public function describeDedicatedHostGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedHostGroups',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedHostGroups',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDedicatedHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about hosts in dedicated clusters.
+     *
+     * @param request - DescribeDedicatedHostGroupsRequest
+     *
+     * @returns DescribeDedicatedHostGroupsResponse
+     *
      * @param DescribeDedicatedHostGroupsRequest $request
      *
      * @return DescribeDedicatedHostGroupsResponse
@@ -803,83 +1034,112 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
-     *   *
-     * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about hosts in a dedicated cluster.
      *
-     * @return DescribeDedicatedHostsResponse DescribeDedicatedHostsResponse
+     * @remarks
+     * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
+     *
+     * @param request - DescribeDedicatedHostsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDedicatedHostsResponse
+     *
+     * @param DescribeDedicatedHostsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDedicatedHostsResponse
      */
     public function describeDedicatedHostsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allocationStatus)) {
-            $query['AllocationStatus'] = $request->allocationStatus;
+        if (null !== $request->allocationStatus) {
+            @$query['AllocationStatus'] = $request->allocationStatus;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->hostStatus)) {
-            $query['HostStatus'] = $request->hostStatus;
+
+        if (null !== $request->hostStatus) {
+            @$query['HostStatus'] = $request->hostStatus;
         }
-        if (!Utils::isUnset($request->hostType)) {
-            $query['HostType'] = $request->hostType;
+
+        if (null !== $request->hostType) {
+            @$query['HostType'] = $request->hostType;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumbers)) {
-            $query['PageNumbers'] = $request->pageNumbers;
+
+        if (null !== $request->pageNumbers) {
+            @$query['PageNumbers'] = $request->pageNumbers;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedHosts',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedHosts',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDedicatedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
-     *   *
-     * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
+     * Queries the information about hosts in a dedicated cluster.
      *
-     * @return DescribeDedicatedHostsResponse DescribeDedicatedHostsResponse
+     * @remarks
+     * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
+     *
+     * @param request - DescribeDedicatedHostsRequest
+     *
+     * @returns DescribeDedicatedHostsResponse
+     *
+     * @param DescribeDedicatedHostsRequest $request
+     *
+     * @return DescribeDedicatedHostsResponse
      */
     public function describeDedicatedHosts($request)
     {
@@ -889,65 +1149,88 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
-     *   *
-     * @param DescribeHostEcsLevelInfoRequest $request DescribeHostEcsLevelInfoRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about host specifications.
      *
-     * @return DescribeHostEcsLevelInfoResponse DescribeHostEcsLevelInfoResponse
+     * @remarks
+     * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
+     *
+     * @param request - DescribeHostEcsLevelInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHostEcsLevelInfoResponse
+     *
+     * @param DescribeHostEcsLevelInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHostEcsLevelInfoResponse
      */
     public function describeHostEcsLevelInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHostEcsLevelInfo',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHostEcsLevelInfo',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHostEcsLevelInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
-     *   *
-     * @param DescribeHostEcsLevelInfoRequest $request DescribeHostEcsLevelInfoRequest
+     * Queries the information about host specifications.
      *
-     * @return DescribeHostEcsLevelInfoResponse DescribeHostEcsLevelInfoResponse
+     * @remarks
+     * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
+     *
+     * @param request - DescribeHostEcsLevelInfoRequest
+     *
+     * @returns DescribeHostEcsLevelInfoResponse
+     *
+     * @param DescribeHostEcsLevelInfoRequest $request
+     *
+     * @return DescribeHostEcsLevelInfoResponse
      */
     public function describeHostEcsLevelInfo($request)
     {
@@ -957,59 +1240,80 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](~~205456~~).
-     *   *
-     * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the URL of a webshell that is used to access a host.
      *
-     * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
+     * @remarks
+     * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](https://help.aliyun.com/document_detail/205456.html).
+     *
+     * @param request - DescribeHostWebShellRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHostWebShellResponse
+     *
+     * @param DescribeHostWebShellRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeHostWebShellResponse
      */
     public function describeHostWebShellWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHostWebShell',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHostWebShell',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHostWebShellResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](~~205456~~).
-     *   *
-     * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
+     * Queries the URL of a webshell that is used to access a host.
      *
-     * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
+     * @remarks
+     * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](https://help.aliyun.com/document_detail/205456.html).
+     *
+     * @param request - DescribeHostWebShellRequest
+     *
+     * @returns DescribeHostWebShellResponse
+     *
+     * @param DescribeHostWebShellRequest $request
+     *
+     * @return DescribeHostWebShellResponse
      */
     public function describeHostWebShell($request)
     {
@@ -1019,44 +1323,60 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * For more information about region IDs, see [Region IDs](~~198326~~).
-     *   *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the most recent region list.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @remarks
+     * For more information about region IDs, see [Region IDs](https://help.aliyun.com/document_detail/198326.html).
+     *
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * For more information about region IDs, see [Region IDs](~~198326~~).
-     *   *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the most recent region list.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @remarks
+     * For more information about region IDs, see [Region IDs](https://help.aliyun.com/document_detail/198326.html).
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1066,6 +1386,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Queries the information about tags that are added to hosts.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1073,48 +1400,61 @@ class Cddc extends OpenApiClient
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about tags that are added to hosts.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      *
      * @return ListTagResourcesResponse
@@ -1127,6 +1467,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Changes the account name and password of a host.
+     *
+     * @param request - ModifyDedicatedHostAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDedicatedHostAccountResponse
+     *
      * @param ModifyDedicatedHostAccountRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1134,48 +1481,61 @@ class Cddc extends OpenApiClient
      */
     public function modifyDedicatedHostAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedHostAccount',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedHostAccount',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Changes the account name and password of a host.
+     *
+     * @param request - ModifyDedicatedHostAccountRequest
+     *
+     * @returns ModifyDedicatedHostAccountResponse
+     *
      * @param ModifyDedicatedHostAccountRequest $request
      *
      * @return ModifyDedicatedHostAccountResponse
@@ -1188,6 +1548,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Specifies whether instances can be deployed on a host in a dedicated cluster.
+     *
+     * @param request - ModifyDedicatedHostAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDedicatedHostAttributeResponse
+     *
      * @param ModifyDedicatedHostAttributeRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1195,48 +1562,61 @@ class Cddc extends OpenApiClient
      */
     public function modifyDedicatedHostAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allocationStatus)) {
-            $query['AllocationStatus'] = $request->allocationStatus;
+        if (null !== $request->allocationStatus) {
+            @$query['AllocationStatus'] = $request->allocationStatus;
         }
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->hostName)) {
-            $query['HostName'] = $request->hostName;
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedHostAttribute',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedHostAttribute',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDedicatedHostAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Specifies whether instances can be deployed on a host in a dedicated cluster.
+     *
+     * @param request - ModifyDedicatedHostAttributeRequest
+     *
+     * @returns ModifyDedicatedHostAttributeResponse
+     *
      * @param ModifyDedicatedHostAttributeRequest $request
      *
      * @return ModifyDedicatedHostAttributeResponse
@@ -1249,67 +1629,90 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](~~262822~~).
-     *   * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](~~141772~~).
-     *   *
-     * @param ModifyDedicatedHostClassRequest $request ModifyDedicatedHostClassRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Upgrades host specifications.
      *
-     * @return ModifyDedicatedHostClassResponse ModifyDedicatedHostClassResponse
+     * @remarks
+     * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](https://help.aliyun.com/document_detail/262822.html).
+     * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](https://help.aliyun.com/document_detail/141772.html).
+     *
+     * @param request - ModifyDedicatedHostClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDedicatedHostClassResponse
+     *
+     * @param ModifyDedicatedHostClassRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDedicatedHostClassResponse
      */
     public function modifyDedicatedHostClassWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
         }
-        if (!Utils::isUnset($request->targetClassCode)) {
-            $query['TargetClassCode'] = $request->targetClassCode;
+
+        if (null !== $request->targetClassCode) {
+            @$query['TargetClassCode'] = $request->targetClassCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedHostClass',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedHostClass',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDedicatedHostClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](~~262822~~).
-     *   * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](~~141772~~).
-     *   *
-     * @param ModifyDedicatedHostClassRequest $request ModifyDedicatedHostClassRequest
+     * Upgrades host specifications.
      *
-     * @return ModifyDedicatedHostClassResponse ModifyDedicatedHostClassResponse
+     * @remarks
+     * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](https://help.aliyun.com/document_detail/262822.html).
+     * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](https://help.aliyun.com/document_detail/141772.html).
+     *
+     * @param request - ModifyDedicatedHostClassRequest
+     *
+     * @returns ModifyDedicatedHostClassResponse
+     *
+     * @param ModifyDedicatedHostClassRequest $request
+     *
+     * @return ModifyDedicatedHostClassResponse
      */
     public function modifyDedicatedHostClass($request)
     {
@@ -1319,77 +1722,104 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * For more information, see [Manage dedicated clusters](~~182328~~).
-     *   *
-     * @param ModifyDedicatedHostGroupAttributeRequest $request ModifyDedicatedHostGroupAttributeRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Modifies configurations such as the CPU overcommit ratio, memory usage, storage overcommit ratio, and resource allocation policy for a dedicated cluster.
      *
-     * @return ModifyDedicatedHostGroupAttributeResponse ModifyDedicatedHostGroupAttributeResponse
+     * @remarks
+     * For more information, see [Manage dedicated clusters](https://help.aliyun.com/document_detail/182328.html).
+     *
+     * @param request - ModifyDedicatedHostGroupAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDedicatedHostGroupAttributeResponse
+     *
+     * @param ModifyDedicatedHostGroupAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyDedicatedHostGroupAttributeResponse
      */
     public function modifyDedicatedHostGroupAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allocationPolicy)) {
-            $query['AllocationPolicy'] = $request->allocationPolicy;
+        if (null !== $request->allocationPolicy) {
+            @$query['AllocationPolicy'] = $request->allocationPolicy;
         }
-        if (!Utils::isUnset($request->cpuAllocationRatio)) {
-            $query['CpuAllocationRatio'] = $request->cpuAllocationRatio;
+
+        if (null !== $request->cpuAllocationRatio) {
+            @$query['CpuAllocationRatio'] = $request->cpuAllocationRatio;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupDesc)) {
-            $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
+
+        if (null !== $request->dedicatedHostGroupDesc) {
+            @$query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
         }
-        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
-            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+
+        if (null !== $request->dedicatedHostGroupId) {
+            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-        if (!Utils::isUnset($request->diskAllocationRatio)) {
-            $query['DiskAllocationRatio'] = $request->diskAllocationRatio;
+
+        if (null !== $request->diskAllocationRatio) {
+            @$query['DiskAllocationRatio'] = $request->diskAllocationRatio;
         }
-        if (!Utils::isUnset($request->hostReplacePolicy)) {
-            $query['HostReplacePolicy'] = $request->hostReplacePolicy;
+
+        if (null !== $request->hostReplacePolicy) {
+            @$query['HostReplacePolicy'] = $request->hostReplacePolicy;
         }
-        if (!Utils::isUnset($request->memAllocationRatio)) {
-            $query['MemAllocationRatio'] = $request->memAllocationRatio;
+
+        if (null !== $request->memAllocationRatio) {
+            @$query['MemAllocationRatio'] = $request->memAllocationRatio;
         }
-        if (!Utils::isUnset($request->openPermission)) {
-            $query['OpenPermission'] = $request->openPermission;
+
+        if (null !== $request->openPermission) {
+            @$query['OpenPermission'] = $request->openPermission;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedHostGroupAttribute',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedHostGroupAttribute',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDedicatedHostGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * For more information, see [Manage dedicated clusters](~~182328~~).
-     *   *
-     * @param ModifyDedicatedHostGroupAttributeRequest $request ModifyDedicatedHostGroupAttributeRequest
+     * Modifies configurations such as the CPU overcommit ratio, memory usage, storage overcommit ratio, and resource allocation policy for a dedicated cluster.
      *
-     * @return ModifyDedicatedHostGroupAttributeResponse ModifyDedicatedHostGroupAttributeResponse
+     * @remarks
+     * For more information, see [Manage dedicated clusters](https://help.aliyun.com/document_detail/182328.html).
+     *
+     * @param request - ModifyDedicatedHostGroupAttributeRequest
+     *
+     * @returns ModifyDedicatedHostGroupAttributeResponse
+     *
+     * @param ModifyDedicatedHostGroupAttributeRequest $request
+     *
+     * @return ModifyDedicatedHostGroupAttributeResponse
      */
     public function modifyDedicatedHostGroupAttribute($request)
     {
@@ -1399,59 +1829,80 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
-     *   *
-     * @param ModifyDedicatedHostPasswordRequest $request ModifyDedicatedHostPasswordRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Changes the root account password of a host.
      *
-     * @return ModifyDedicatedHostPasswordResponse ModifyDedicatedHostPasswordResponse
+     * @remarks
+     * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
+     *
+     * @param request - ModifyDedicatedHostPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDedicatedHostPasswordResponse
+     *
+     * @param ModifyDedicatedHostPasswordRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDedicatedHostPasswordResponse
      */
     public function modifyDedicatedHostPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->newPassword)) {
-            $query['NewPassword'] = $request->newPassword;
+
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedHostPassword',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedHostPassword',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDedicatedHostPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
-     *   *
-     * @param ModifyDedicatedHostPasswordRequest $request ModifyDedicatedHostPasswordRequest
+     * Changes the root account password of a host.
      *
-     * @return ModifyDedicatedHostPasswordResponse ModifyDedicatedHostPasswordResponse
+     * @remarks
+     * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
+     *
+     * @param request - ModifyDedicatedHostPasswordRequest
+     *
+     * @returns ModifyDedicatedHostPasswordResponse
+     *
+     * @param ModifyDedicatedHostPasswordRequest $request
+     *
+     * @return ModifyDedicatedHostPasswordResponse
      */
     public function modifyDedicatedHostPassword($request)
     {
@@ -1461,6 +1912,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Queries the basic information about the host on which an instance is deployed.
+     *
+     * @param request - QueryHostBaseInfoByInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHostBaseInfoByInstanceResponse
+     *
      * @param QueryHostBaseInfoByInstanceRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1468,42 +1926,53 @@ class Cddc extends OpenApiClient
      */
     public function queryHostBaseInfoByInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryHostBaseInfoByInstance',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryHostBaseInfoByInstance',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryHostBaseInfoByInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the basic information about the host on which an instance is deployed.
+     *
+     * @param request - QueryHostBaseInfoByInstanceRequest
+     *
+     * @returns QueryHostBaseInfoByInstanceResponse
+     *
      * @param QueryHostBaseInfoByInstanceRequest $request
      *
      * @return QueryHostBaseInfoByInstanceResponse
@@ -1516,6 +1985,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Queries the information about instances that are deployed on a host.
+     *
+     * @param request - QueryHostInstanceConsoleInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHostInstanceConsoleInfoResponse
+     *
      * @param QueryHostInstanceConsoleInfoRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1523,42 +1999,53 @@ class Cddc extends OpenApiClient
      */
     public function queryHostInstanceConsoleInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryHostInstanceConsoleInfo',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryHostInstanceConsoleInfo',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryHostInstanceConsoleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about instances that are deployed on a host.
+     *
+     * @param request - QueryHostInstanceConsoleInfoRequest
+     *
+     * @returns QueryHostInstanceConsoleInfoResponse
+     *
      * @param QueryHostInstanceConsoleInfoRequest $request
      *
      * @return QueryHostInstanceConsoleInfoResponse
@@ -1571,61 +2058,82 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
-     *   * >  You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the value of the **HostStatus** parameter.
-     *   *
-     * @param ReplaceDedicatedHostRequest $request ReplaceDedicatedHostRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Replaces a host in a dedicated cluster.
      *
-     * @return ReplaceDedicatedHostResponse ReplaceDedicatedHostResponse
+     * @remarks
+     * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
+     * >  You can call the [DescribeDedicatedHostAttribute](https://help.aliyun.com/document_detail/213010.html) operation to query the value of the **HostStatus** parameter.
+     *
+     * @param request - ReplaceDedicatedHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceDedicatedHostResponse
+     *
+     * @param ReplaceDedicatedHostRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ReplaceDedicatedHostResponse
      */
     public function replaceDedicatedHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->failoverMode)) {
-            $query['FailoverMode'] = $request->failoverMode;
+
+        if (null !== $request->failoverMode) {
+            @$query['FailoverMode'] = $request->failoverMode;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReplaceDedicatedHost',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReplaceDedicatedHost',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReplaceDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
-     *   * >  You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the value of the **HostStatus** parameter.
-     *   *
-     * @param ReplaceDedicatedHostRequest $request ReplaceDedicatedHostRequest
+     * Replaces a host in a dedicated cluster.
      *
-     * @return ReplaceDedicatedHostResponse ReplaceDedicatedHostResponse
+     * @remarks
+     * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
+     * >  You can call the [DescribeDedicatedHostAttribute](https://help.aliyun.com/document_detail/213010.html) operation to query the value of the **HostStatus** parameter.
+     *
+     * @param request - ReplaceDedicatedHostRequest
+     *
+     * @returns ReplaceDedicatedHostResponse
+     *
+     * @param ReplaceDedicatedHostRequest $request
+     *
+     * @return ReplaceDedicatedHostResponse
      */
     public function replaceDedicatedHost($request)
     {
@@ -1635,6 +2143,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Restarts a host in a dedicated cluster.
+     *
+     * @param request - RestartDedicatedHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartDedicatedHostResponse
+     *
      * @param RestartDedicatedHostRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1642,48 +2157,61 @@ class Cddc extends OpenApiClient
      */
     public function restartDedicatedHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (null !== $request->dedicatedHostId) {
+            @$query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-        if (!Utils::isUnset($request->failoverMode)) {
-            $query['FailoverMode'] = $request->failoverMode;
+
+        if (null !== $request->failoverMode) {
+            @$query['FailoverMode'] = $request->failoverMode;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $query['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDedicatedHost',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDedicatedHost',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestartDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Restarts a host in a dedicated cluster.
+     *
+     * @param request - RestartDedicatedHostRequest
+     *
+     * @returns RestartDedicatedHostResponse
+     *
      * @param RestartDedicatedHostRequest $request
      *
      * @return RestartDedicatedHostResponse
@@ -1696,6 +2224,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Adds tags to hosts.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1703,48 +2238,61 @@ class Cddc extends OpenApiClient
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adds tags to hosts.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      *
      * @return TagResourcesResponse
@@ -1757,6 +2305,13 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * Removes tags from hosts.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1764,51 +2319,65 @@ class Cddc extends OpenApiClient
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes tags from hosts.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      *
      * @return UntagResourcesResponse

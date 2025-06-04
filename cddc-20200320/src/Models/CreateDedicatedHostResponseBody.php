@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostResponseBody\dedicateHostList;
-use AlibabaCloud\Tea\Model;
 
 class CreateDedicatedHostResponseBody extends Model
 {
@@ -15,52 +15,49 @@ class CreateDedicatedHostResponseBody extends Model
     public $clusterName;
 
     /**
-     * @description The created hosts.
-     *
      * @var dedicateHostList
      */
     public $dedicateHostList;
 
     /**
-     * @description The order ID.
-     *
-     * @example 102565235
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example C860658E-68A6-46C1-AF6E-3AE7C4D32375
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clusterName'      => 'ClusterName',
+        'clusterName' => 'ClusterName',
         'dedicateHostList' => 'DedicateHostList',
-        'orderId'          => 'OrderId',
-        'requestId'        => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->dedicateHostList) {
+            $this->dedicateHostList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->dedicateHostList) {
-            $res['DedicateHostList'] = null !== $this->dedicateHostList ? $this->dedicateHostList->toMap() : null;
+            $res['DedicateHostList'] = null !== $this->dedicateHostList ? $this->dedicateHostList->toArray($noStream) : $this->dedicateHostList;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -68,23 +65,26 @@ class CreateDedicatedHostResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDedicatedHostResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['DedicateHostList'])) {
             $model->dedicateHostList = dedicateHostList::fromMap($map['DedicateHostList']);
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

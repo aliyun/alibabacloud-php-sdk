@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseRequest\ECSClassList;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class CreateMyBaseRequest extends Model
 {
@@ -16,36 +16,26 @@ class CreateMyBaseRequest extends Model
     public $autoPay;
 
     /**
-     * @example false
-     *
      * @var string
      */
     public $autoRenew;
 
     /**
-     * @example 4ed77dd1-ff52-407e-ac58-dc251822****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example testDedicatedGroupName
-     *
      * @var string
      */
     public $dedicatedHostGroupDescription;
 
     /**
-     * @example dhg-6dx5n9gjs96u****
-     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
-     * @example [{"sysDiskCapacity":40,"instanceType":"ecs.d2s.10xlarge","nodeCount":1,"sysDiskType":"cloud_essd"}]
-     *
      * @var ECSClassList[]
      */
     public $ECSClassList;
@@ -71,8 +61,6 @@ class CreateMyBaseRequest extends Model
     public $ecsUniqueSuffix;
 
     /**
-     * @example alisql
-     *
      * @var string
      */
     public $engine;
@@ -83,8 +71,6 @@ class CreateMyBaseRequest extends Model
     public $imageId;
 
     /**
-     * @example PayByBandwidth
-     *
      * @var string
      */
     public $internetChargeType;
@@ -100,8 +86,6 @@ class CreateMyBaseRequest extends Model
     public $keyPairName;
 
     /**
-     * @example Test123456
-     *
      * @var string
      */
     public $osPassword;
@@ -117,29 +101,21 @@ class CreateMyBaseRequest extends Model
     public $passwordInherit;
 
     /**
-     * @example PrePaid
-     *
      * @var string
      */
     public $payType;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $period;
 
     /**
-     * @example Monthly
-     *
      * @var string
      */
     public $periodType;
 
     /**
-     * @example ap-southeast-1
-     *
      * @var string
      */
     public $regionId;
@@ -160,8 +136,6 @@ class CreateMyBaseRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example sg-t4neld965n89ocvt****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -182,172 +156,204 @@ class CreateMyBaseRequest extends Model
     public $userDataInBase64;
 
     /**
-     * @example vsw-t4ni3mzqqw98vt317****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example vpc-t4nbtmekgxotv0d3y****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @example ap-southeast-1a
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoPay'                       => 'AutoPay',
-        'autoRenew'                     => 'AutoRenew',
-        'clientToken'                   => 'ClientToken',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'clientToken' => 'ClientToken',
         'dedicatedHostGroupDescription' => 'DedicatedHostGroupDescription',
-        'dedicatedHostGroupId'          => 'DedicatedHostGroupId',
-        'ECSClassList'                  => 'ECSClassList',
-        'ecsDeploymentSetId'            => 'EcsDeploymentSetId',
-        'ecsHostName'                   => 'EcsHostName',
-        'ecsInstanceName'               => 'EcsInstanceName',
-        'ecsUniqueSuffix'               => 'EcsUniqueSuffix',
-        'engine'                        => 'Engine',
-        'imageId'                       => 'ImageId',
-        'internetChargeType'            => 'InternetChargeType',
-        'internetMaxBandwidthOut'       => 'InternetMaxBandwidthOut',
-        'keyPairName'                   => 'KeyPairName',
-        'osPassword'                    => 'OsPassword',
-        'ownerId'                       => 'OwnerId',
-        'passwordInherit'               => 'PasswordInherit',
-        'payType'                       => 'PayType',
-        'period'                        => 'Period',
-        'periodType'                    => 'PeriodType',
-        'regionId'                      => 'RegionId',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'securityGroupId'               => 'SecurityGroupId',
-        'tags'                          => 'Tags',
-        'userData'                      => 'UserData',
-        'userDataInBase64'              => 'UserDataInBase64',
-        'vSwitchId'                     => 'VSwitchId',
-        'vpcId'                         => 'VpcId',
-        'zoneId'                        => 'ZoneId',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'ECSClassList' => 'ECSClassList',
+        'ecsDeploymentSetId' => 'EcsDeploymentSetId',
+        'ecsHostName' => 'EcsHostName',
+        'ecsInstanceName' => 'EcsInstanceName',
+        'ecsUniqueSuffix' => 'EcsUniqueSuffix',
+        'engine' => 'Engine',
+        'imageId' => 'ImageId',
+        'internetChargeType' => 'InternetChargeType',
+        'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
+        'keyPairName' => 'KeyPairName',
+        'osPassword' => 'OsPassword',
+        'ownerId' => 'OwnerId',
+        'passwordInherit' => 'PasswordInherit',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'periodType' => 'PeriodType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityGroupId' => 'SecurityGroupId',
+        'tags' => 'Tags',
+        'userData' => 'UserData',
+        'userDataInBase64' => 'UserDataInBase64',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ECSClassList)) {
+            Model::validateArray($this->ECSClassList);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dedicatedHostGroupDescription) {
             $res['DedicatedHostGroupDescription'] = $this->dedicatedHostGroupDescription;
         }
+
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
+
         if (null !== $this->ECSClassList) {
-            $res['ECSClassList'] = [];
-            if (null !== $this->ECSClassList && \is_array($this->ECSClassList)) {
-                $n = 0;
-                foreach ($this->ECSClassList as $item) {
-                    $res['ECSClassList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ECSClassList)) {
+                $res['ECSClassList'] = [];
+                $n1 = 0;
+                foreach ($this->ECSClassList as $item1) {
+                    $res['ECSClassList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ecsDeploymentSetId) {
             $res['EcsDeploymentSetId'] = $this->ecsDeploymentSetId;
         }
+
         if (null !== $this->ecsHostName) {
             $res['EcsHostName'] = $this->ecsHostName;
         }
+
         if (null !== $this->ecsInstanceName) {
             $res['EcsInstanceName'] = $this->ecsInstanceName;
         }
+
         if (null !== $this->ecsUniqueSuffix) {
             $res['EcsUniqueSuffix'] = $this->ecsUniqueSuffix;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
+
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
         }
+
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+
         if (null !== $this->osPassword) {
             $res['OsPassword'] = $this->osPassword;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->passwordInherit) {
             $res['PasswordInherit'] = $this->passwordInherit;
         }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
+
         if (null !== $this->userDataInBase64) {
             $res['UserDataInBase64'] = $this->userDataInBase64;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -355,119 +361,150 @@ class CreateMyBaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMyBaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DedicatedHostGroupDescription'])) {
             $model->dedicatedHostGroupDescription = $map['DedicatedHostGroupDescription'];
         }
+
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
+
         if (isset($map['ECSClassList'])) {
             if (!empty($map['ECSClassList'])) {
                 $model->ECSClassList = [];
-                $n                   = 0;
-                foreach ($map['ECSClassList'] as $item) {
-                    $model->ECSClassList[$n++] = null !== $item ? ECSClassList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ECSClassList'] as $item1) {
+                    $model->ECSClassList[$n1++] = ECSClassList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EcsDeploymentSetId'])) {
             $model->ecsDeploymentSetId = $map['EcsDeploymentSetId'];
         }
+
         if (isset($map['EcsHostName'])) {
             $model->ecsHostName = $map['EcsHostName'];
         }
+
         if (isset($map['EcsInstanceName'])) {
             $model->ecsInstanceName = $map['EcsInstanceName'];
         }
+
         if (isset($map['EcsUniqueSuffix'])) {
             $model->ecsUniqueSuffix = $map['EcsUniqueSuffix'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
+
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
         }
+
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
+
         if (isset($map['OsPassword'])) {
             $model->osPassword = $map['OsPassword'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PasswordInherit'])) {
             $model->passwordInherit = $map['PasswordInherit'];
         }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }
+
         if (isset($map['UserDataInBase64'])) {
             $model->userDataInBase64 = $map['UserDataInBase64'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

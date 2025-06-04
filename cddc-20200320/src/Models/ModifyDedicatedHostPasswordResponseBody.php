@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDedicatedHostPasswordResponseBody extends Model
 {
     /**
-     * @description The name of the host.
-     *
-     * @example test123****
-     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
-     * @description The request ID.
-     *
-     * @example D6E068C3-25BC-455A-85FE-45F0B22E12AS
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dedicatedHostName' => 'DedicatedHostName',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostName) {
             $res['DedicatedHostName'] = $this->dedicatedHostName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class ModifyDedicatedHostPasswordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDedicatedHostPasswordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostName'])) {
             $model->dedicatedHostName = $map['DedicatedHostName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

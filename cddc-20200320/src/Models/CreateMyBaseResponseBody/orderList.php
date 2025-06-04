@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponseBody\orderList\orderList;
 
 class orderList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponseBody\orderList\orderList[]
+     * @var orderList[]
      */
     public $orderList;
     protected $_name = [
@@ -18,17 +19,21 @@ class orderList extends Model
 
     public function validate()
     {
+        if (\is_array($this->orderList)) {
+            Model::validateArray($this->orderList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderList) {
-            $res['OrderList'] = [];
-            if (null !== $this->orderList && \is_array($this->orderList)) {
-                $n = 0;
-                foreach ($this->orderList as $item) {
-                    $res['OrderList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orderList)) {
+                $res['OrderList'] = [];
+                $n1 = 0;
+                foreach ($this->orderList as $item1) {
+                    $res['OrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class orderList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderList'])) {
             if (!empty($map['OrderList'])) {
                 $model->orderList = [];
-                $n                = 0;
-                foreach ($map['OrderList'] as $item) {
-                    $model->orderList[$n++] = null !== $item ? \AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponseBody\orderList\orderList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OrderList'] as $item1) {
+                    $model->orderList[$n1++] = self::fromMap($item1);
                 }
             }
         }

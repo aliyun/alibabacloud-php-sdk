@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoResponseBody\hostEcsLevelInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHostEcsLevelInfoResponseBody extends Model
 {
     /**
-     * @description The queried host.
-     *
      * @var hostEcsLevelInfos[]
      */
     public $hostEcsLevelInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example 395858E2-2A82-4ED7-BB93-2DB60119EF4C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'hostEcsLevelInfos' => 'HostEcsLevelInfos',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->hostEcsLevelInfos)) {
+            Model::validateArray($this->hostEcsLevelInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostEcsLevelInfos) {
-            $res['HostEcsLevelInfos'] = [];
-            if (null !== $this->hostEcsLevelInfos && \is_array($this->hostEcsLevelInfos)) {
-                $n = 0;
-                foreach ($this->hostEcsLevelInfos as $item) {
-                    $res['HostEcsLevelInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hostEcsLevelInfos)) {
+                $res['HostEcsLevelInfos'] = [];
+                $n1 = 0;
+                foreach ($this->hostEcsLevelInfos as $item1) {
+                    $res['HostEcsLevelInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +51,24 @@ class DescribeHostEcsLevelInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHostEcsLevelInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostEcsLevelInfos'])) {
             if (!empty($map['HostEcsLevelInfos'])) {
                 $model->hostEcsLevelInfos = [];
-                $n                        = 0;
-                foreach ($map['HostEcsLevelInfos'] as $item) {
-                    $model->hostEcsLevelInfos[$n++] = null !== $item ? hostEcsLevelInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HostEcsLevelInfos'] as $item1) {
+                    $model->hostEcsLevelInfos[$n1++] = hostEcsLevelInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

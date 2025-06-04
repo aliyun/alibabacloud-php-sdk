@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponseBody\orderList;
-use AlibabaCloud\Tea\Model;
 
 class CreateMyBaseResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class CreateMyBaseResponseBody extends Model
     public $orderList;
 
     /**
-     * @example 937F6B32-A796-53A0-99C8-F7A9660E****
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +25,19 @@ class CreateMyBaseResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->orderList) {
+            $this->orderList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderList) {
-            $res['OrderList'] = null !== $this->orderList ? $this->orderList->toMap() : null;
+            $res['OrderList'] = null !== $this->orderList ? $this->orderList->toArray($noStream) : $this->orderList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class CreateMyBaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMyBaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderList'])) {
             $model->orderList = orderList::fromMap($map['OrderList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
