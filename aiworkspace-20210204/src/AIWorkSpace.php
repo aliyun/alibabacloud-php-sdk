@@ -704,7 +704,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建连接.
+     * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
      *
      * @param request - CreateConnectionRequest
      * @param headers - map
@@ -778,7 +778,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建连接.
+     * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
      *
      * @param request - CreateConnectionRequest
      *
@@ -837,6 +837,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->edition) {
+            @$body['Edition'] = $request->edition;
         }
 
         if (null !== $request->importInfo) {
@@ -3620,7 +3624,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取连接.
+     * Obtains the connection details.
      *
      * @param request - GetConnectionRequest
      * @param headers - map
@@ -3663,7 +3667,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取连接.
+     * Obtains the connection details.
      *
      * @param request - GetConnectionRequest
      *
@@ -7638,6 +7642,10 @@ class AIWorkSpace extends OpenApiClient
         $body = [];
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->edition) {
+            @$body['Edition'] = $request->edition;
         }
 
         if (null !== $request->mountAccessReadWriteRoleIdList) {

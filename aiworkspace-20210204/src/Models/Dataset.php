@@ -36,6 +36,11 @@ class Dataset extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $gmtCreateTime;
 
     /**
@@ -138,6 +143,7 @@ class Dataset extends Model
         'dataType' => 'DataType',
         'datasetId' => 'DatasetId',
         'description' => 'Description',
+        'edition' => 'Edition',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'importInfo' => 'ImportInfo',
@@ -195,6 +201,10 @@ class Dataset extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->gmtCreateTime) {
@@ -318,6 +328,10 @@ class Dataset extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['GmtCreateTime'])) {

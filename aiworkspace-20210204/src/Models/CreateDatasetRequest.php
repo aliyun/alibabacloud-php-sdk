@@ -41,6 +41,11 @@ class CreateDatasetRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $importInfo;
 
     /**
@@ -129,6 +134,7 @@ class CreateDatasetRequest extends Model
         'dataSourceType' => 'DataSourceType',
         'dataType' => 'DataType',
         'description' => 'Description',
+        'edition' => 'Edition',
         'importInfo' => 'ImportInfo',
         'labels' => 'Labels',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
@@ -187,6 +193,10 @@ class CreateDatasetRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->importInfo) {
@@ -308,6 +318,10 @@ class CreateDatasetRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['ImportInfo'])) {

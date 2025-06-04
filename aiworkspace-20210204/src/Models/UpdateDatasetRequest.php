@@ -14,6 +14,11 @@ class UpdateDatasetRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $edition;
+
+    /**
      * @var string[]
      */
     public $mountAccessReadWriteRoleIdList;
@@ -29,6 +34,7 @@ class UpdateDatasetRequest extends Model
     public $options;
     protected $_name = [
         'description' => 'Description',
+        'edition' => 'Edition',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
         'name' => 'Name',
         'options' => 'Options',
@@ -47,6 +53,10 @@ class UpdateDatasetRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->mountAccessReadWriteRoleIdList) {
@@ -80,6 +90,10 @@ class UpdateDatasetRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['MountAccessReadWriteRoleIdList'])) {
