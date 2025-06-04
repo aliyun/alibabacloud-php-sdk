@@ -169,6 +169,11 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $predictWorkerMemory;
 
     /**
+     * @var string
+     */
+    public $resourceConfig;
+
+    /**
      * @var float
      */
     public $sampleRate;
@@ -265,6 +270,7 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         'predictWorkerCount' => 'PredictWorkerCount',
         'predictWorkerCpu' => 'PredictWorkerCpu',
         'predictWorkerMemory' => 'PredictWorkerMemory',
+        'resourceConfig' => 'ResourceConfig',
         'sampleRate' => 'SampleRate',
         'sceneId' => 'SceneId',
         'securityGroupId' => 'SecurityGroupId',
@@ -414,6 +420,10 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
 
         if (null !== $this->predictWorkerMemory) {
             $res['PredictWorkerMemory'] = $this->predictWorkerMemory;
+        }
+
+        if (null !== $this->resourceConfig) {
+            $res['ResourceConfig'] = $this->resourceConfig;
         }
 
         if (null !== $this->sampleRate) {
@@ -605,6 +615,10 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
 
         if (isset($map['PredictWorkerMemory'])) {
             $model->predictWorkerMemory = $map['PredictWorkerMemory'];
+        }
+
+        if (isset($map['ResourceConfig'])) {
+            $model->resourceConfig = $map['ResourceConfig'];
         }
 
         if (isset($map['SampleRate'])) {

@@ -1944,6 +1944,10 @@ class PaiRecService extends OpenApiClient
             @$body['PredictWorkerMemory'] = $request->predictWorkerMemory;
         }
 
+        if (null !== $request->resourceConfig) {
+            @$body['ResourceConfig'] = $request->resourceConfig;
+        }
+
         if (null !== $request->sampleRate) {
             @$body['SampleRate'] = $request->sampleRate;
         }
@@ -9825,6 +9829,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->predictWorkerMemory) {
             @$body['PredictWorkerMemory'] = $request->predictWorkerMemory;
+        }
+
+        if (null !== $request->resourceConfig) {
+            @$body['ResourceConfig'] = $request->resourceConfig;
         }
 
         if (null !== $request->sampleRate) {
