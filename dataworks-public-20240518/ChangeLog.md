@@ -1,3 +1,10 @@
+2025-06-05 Version: 6.1.2
+- Update API ListFunctions: add request parameters Name.
+- Update API ListNodes: add request parameters Name.
+- Update API ListResources: add request parameters Name.
+- Update API ListWorkflowDefinitions: add request parameters Name.
+
+
 2025-06-03 Version: 6.1.1
 - Generated php 2024-05-18 for dataworks-public.
 

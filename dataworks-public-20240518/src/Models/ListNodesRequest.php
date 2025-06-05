@@ -14,6 +14,11 @@ class ListNodesRequest extends Model
     public $containerId;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -44,6 +49,7 @@ class ListNodesRequest extends Model
     public $scene;
     protected $_name = [
         'containerId' => 'ContainerId',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -62,6 +68,10 @@ class ListNodesRequest extends Model
         $res = [];
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->pageNumber) {
@@ -101,6 +111,10 @@ class ListNodesRequest extends Model
         $model = new self();
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PageNumber'])) {
