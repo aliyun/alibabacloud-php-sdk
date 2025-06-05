@@ -31,12 +31,18 @@ class ListEcsSpecsRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $sortBy;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'resourceType' => 'ResourceType',
         'sortBy' => 'SortBy',
     ];
 
@@ -62,6 +68,10 @@ class ListEcsSpecsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->sortBy) {
@@ -93,6 +103,10 @@ class ListEcsSpecsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['SortBy'])) {

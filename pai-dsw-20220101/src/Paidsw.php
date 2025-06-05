@@ -239,6 +239,10 @@ class Paidsw extends OpenApiClient
             @$body['Labels'] = $request->labels;
         }
 
+        if (null !== $request->oversoldType) {
+            @$body['OversoldType'] = $request->oversoldType;
+        }
+
         if (null !== $request->priority) {
             @$body['Priority'] = $request->priority;
         }
@@ -1493,6 +1497,10 @@ class Paidsw extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
         if (null !== $request->sortBy) {
             @$query['SortBy'] = $request->sortBy;
         }
@@ -2046,6 +2054,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->oversoldType) {
+            @$body['OversoldType'] = $request->oversoldType;
         }
 
         if (null !== $request->priority) {

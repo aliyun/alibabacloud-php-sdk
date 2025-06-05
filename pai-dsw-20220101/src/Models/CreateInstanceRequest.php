@@ -86,6 +86,11 @@ class CreateInstanceRequest extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $oversoldType;
+
+    /**
      * @var int
      */
     public $priority;
@@ -139,6 +144,7 @@ class CreateInstanceRequest extends Model
         'imageUrl' => 'ImageUrl',
         'instanceName' => 'InstanceName',
         'labels' => 'Labels',
+        'oversoldType' => 'OversoldType',
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
         'resourceId' => 'ResourceId',
@@ -264,6 +270,10 @@ class CreateInstanceRequest extends Model
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->oversoldType) {
+            $res['OversoldType'] = $this->oversoldType;
         }
 
         if (null !== $this->priority) {
@@ -392,6 +402,10 @@ class CreateInstanceRequest extends Model
                     $model->labels[$n1++] = labels::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['OversoldType'])) {
+            $model->oversoldType = $map['OversoldType'];
         }
 
         if (isset($map['Priority'])) {

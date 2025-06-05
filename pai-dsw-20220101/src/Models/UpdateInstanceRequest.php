@@ -99,6 +99,11 @@ class UpdateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @var string
+     */
+    public $oversoldType;
+
+    /**
      * @var int
      */
     public $priority;
@@ -140,6 +145,7 @@ class UpdateInstanceRequest extends Model
         'imageId' => 'ImageId',
         'imageUrl' => 'ImageUrl',
         'instanceName' => 'InstanceName',
+        'oversoldType' => 'OversoldType',
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
         'userId' => 'UserId',
@@ -256,6 +262,10 @@ class UpdateInstanceRequest extends Model
             $res['InstanceName'] = $this->instanceName;
         }
 
+        if (null !== $this->oversoldType) {
+            $res['OversoldType'] = $this->oversoldType;
+        }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -365,6 +375,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['OversoldType'])) {
+            $model->oversoldType = $map['OversoldType'];
         }
 
         if (isset($map['Priority'])) {
