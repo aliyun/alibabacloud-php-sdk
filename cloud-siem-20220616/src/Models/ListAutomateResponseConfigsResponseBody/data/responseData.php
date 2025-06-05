@@ -56,6 +56,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $responseRuleType;
+
+    /**
+     * @var string
+     */
     public $ruleName;
 
     /**
@@ -77,6 +82,7 @@ class responseData extends Model
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'id' => 'Id',
+        'responseRuleType' => 'ResponseRuleType',
         'ruleName' => 'RuleName',
         'status' => 'Status',
         'subUserId' => 'SubUserId',
@@ -124,6 +130,10 @@ class responseData extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->responseRuleType) {
+            $res['ResponseRuleType'] = $this->responseRuleType;
         }
 
         if (null !== $this->ruleName) {
@@ -183,6 +193,10 @@ class responseData extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['ResponseRuleType'])) {
+            $model->responseRuleType = $map['ResponseRuleType'];
         }
 
         if (isset($map['RuleName'])) {

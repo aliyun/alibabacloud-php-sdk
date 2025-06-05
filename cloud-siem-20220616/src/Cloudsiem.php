@@ -4543,6 +4543,10 @@ class Cloudsiem extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->responseRuleType) {
+            @$body['ResponseRuleType'] = $request->responseRuleType;
+        }
+
         if (null !== $request->roleFor) {
             @$body['RoleFor'] = $request->roleFor;
         }

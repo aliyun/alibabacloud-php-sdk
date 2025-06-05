@@ -44,6 +44,11 @@ class ListAutomateResponseConfigsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $responseRuleType;
+
+    /**
      * @var int
      */
     public $roleFor;
@@ -75,6 +80,7 @@ class ListAutomateResponseConfigsRequest extends Model
         'pageSize' => 'PageSize',
         'playbookUuid' => 'PlaybookUuid',
         'regionId' => 'RegionId',
+        'responseRuleType' => 'ResponseRuleType',
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
         'ruleName' => 'RuleName',
@@ -116,6 +122,10 @@ class ListAutomateResponseConfigsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->responseRuleType) {
+            $res['ResponseRuleType'] = $this->responseRuleType;
         }
 
         if (null !== $this->roleFor) {
@@ -175,6 +185,10 @@ class ListAutomateResponseConfigsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResponseRuleType'])) {
+            $model->responseRuleType = $map['ResponseRuleType'];
         }
 
         if (isset($map['RoleFor'])) {
