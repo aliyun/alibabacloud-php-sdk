@@ -79,6 +79,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateProgramRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateProgramResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateRecognitionEntityRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateRecognitionEntityResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateRecognitionLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateRecognitionLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateRecognitionSampleRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateRecognitionSampleResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchLibRequest;
@@ -168,6 +174,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePlayInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePlayInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteProgramRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteProgramResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteRecognitionEntityRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteRecognitionEntityResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteRecognitionLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteRecognitionLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteRecognitionSampleRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteRecognitionSampleResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceLocationRequest;
@@ -417,6 +429,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListProgramsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListProgramsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListRecognitionEntitiesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListRecognitionEntitiesResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListRecognitionLibsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListRecognitionLibsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListRecognitionSamplesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListRecognitionSamplesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSchedulesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSchedulesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSearchLibRequest;
@@ -3435,6 +3453,261 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 创建自定义实体.
+     *
+     * @param request - CreateRecognitionEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecognitionEntityResponse
+     *
+     * @param CreateRecognitionEntityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateRecognitionEntityResponse
+     */
+    public function createRecognitionEntityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->entityInfo) {
+            @$query['EntityInfo'] = $request->entityInfo;
+        }
+
+        if (null !== $request->entityName) {
+            @$query['EntityName'] = $request->entityName;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecognitionEntity',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecognitionEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义实体.
+     *
+     * @param request - CreateRecognitionEntityRequest
+     *
+     * @returns CreateRecognitionEntityResponse
+     *
+     * @param CreateRecognitionEntityRequest $request
+     *
+     * @return CreateRecognitionEntityResponse
+     */
+    public function createRecognitionEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRecognitionEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建自定义库。
+     *
+     * @param request - CreateRecognitionLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecognitionLibResponse
+     *
+     * @param CreateRecognitionLibRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateRecognitionLibResponse
+     */
+    public function createRecognitionLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->libDescription) {
+            @$query['LibDescription'] = $request->libDescription;
+        }
+
+        if (null !== $request->libName) {
+            @$query['LibName'] = $request->libName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecognitionLib',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecognitionLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义库。
+     *
+     * @param request - CreateRecognitionLibRequest
+     *
+     * @returns CreateRecognitionLibResponse
+     *
+     * @param CreateRecognitionLibRequest $request
+     *
+     * @return CreateRecognitionLibResponse
+     */
+    public function createRecognitionLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRecognitionLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * 注册自定义实体照片.
+     *
+     * @param request - CreateRecognitionSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecognitionSampleResponse
+     *
+     * @param CreateRecognitionSampleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateRecognitionSampleResponse
+     */
+    public function createRecognitionSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$query['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->labelPrompt) {
+            @$query['LabelPrompt'] = $request->labelPrompt;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecognitionSample',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecognitionSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 注册自定义实体照片.
+     *
+     * @param request - CreateRecognitionSampleRequest
+     *
+     * @returns CreateRecognitionSampleResponse
+     *
+     * @param CreateRecognitionSampleRequest $request
+     *
+     * @return CreateRecognitionSampleResponse
+     */
+    public function createRecognitionSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRecognitionSampleWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建搜索索引.
      *
      * @remarks
@@ -6257,6 +6530,249 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteProgramWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义库实体.
+     *
+     * @param request - DeleteRecognitionEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecognitionEntityResponse
+     *
+     * @param DeleteRecognitionEntityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteRecognitionEntityResponse
+     */
+    public function deleteRecognitionEntityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecognitionEntity',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecognitionEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义库实体.
+     *
+     * @param request - DeleteRecognitionEntityRequest
+     *
+     * @returns DeleteRecognitionEntityResponse
+     *
+     * @param DeleteRecognitionEntityRequest $request
+     *
+     * @return DeleteRecognitionEntityResponse
+     */
+    public function deleteRecognitionEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRecognitionEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义库.
+     *
+     * @param request - DeleteRecognitionLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecognitionLibResponse
+     *
+     * @param DeleteRecognitionLibRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteRecognitionLibResponse
+     */
+    public function deleteRecognitionLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecognitionLib',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecognitionLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义库.
+     *
+     * @param request - DeleteRecognitionLibRequest
+     *
+     * @returns DeleteRecognitionLibResponse
+     *
+     * @param DeleteRecognitionLibRequest $request
+     *
+     * @return DeleteRecognitionLibResponse
+     */
+    public function deleteRecognitionLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRecognitionLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义实体照片.
+     *
+     * @param request - DeleteRecognitionSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecognitionSampleResponse
+     *
+     * @param DeleteRecognitionSampleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteRecognitionSampleResponse
+     */
+    public function deleteRecognitionSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sampleId) {
+            @$query['SampleId'] = $request->sampleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecognitionSample',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecognitionSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义实体照片.
+     *
+     * @param request - DeleteRecognitionSampleRequest
+     *
+     * @returns DeleteRecognitionSampleResponse
+     *
+     * @param DeleteRecognitionSampleRequest $request
+     *
+     * @return DeleteRecognitionSampleResponse
+     */
+    public function deleteRecognitionSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRecognitionSampleWithOptions($request, $runtime);
     }
 
     /**
@@ -14633,6 +15149,261 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPublicMediaBasicInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义库下实体列表.
+     *
+     * @param request - ListRecognitionEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecognitionEntitiesResponse
+     *
+     * @param ListRecognitionEntitiesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListRecognitionEntitiesResponse
+     */
+    public function listRecognitionEntitiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecognitionEntities',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecognitionEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义库下实体列表.
+     *
+     * @param request - ListRecognitionEntitiesRequest
+     *
+     * @returns ListRecognitionEntitiesResponse
+     *
+     * @param ListRecognitionEntitiesRequest $request
+     *
+     * @return ListRecognitionEntitiesResponse
+     */
+    public function listRecognitionEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecognitionEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义库列表.
+     *
+     * @param request - ListRecognitionLibsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecognitionLibsResponse
+     *
+     * @param ListRecognitionLibsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListRecognitionLibsResponse
+     */
+    public function listRecognitionLibsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecognitionLibs',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecognitionLibsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义库列表.
+     *
+     * @param request - ListRecognitionLibsRequest
+     *
+     * @returns ListRecognitionLibsResponse
+     *
+     * @param ListRecognitionLibsRequest $request
+     *
+     * @return ListRecognitionLibsResponse
+     */
+    public function listRecognitionLibs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecognitionLibsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义库实体的图片列表.
+     *
+     * @param request - ListRecognitionSamplesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecognitionSamplesResponse
+     *
+     * @param ListRecognitionSamplesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListRecognitionSamplesResponse
+     */
+    public function listRecognitionSamplesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecognitionSamples',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecognitionSamplesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义库实体的图片列表.
+     *
+     * @param request - ListRecognitionSamplesRequest
+     *
+     * @returns ListRecognitionSamplesResponse
+     *
+     * @param ListRecognitionSamplesRequest $request
+     *
+     * @return ListRecognitionSamplesResponse
+     */
+    public function listRecognitionSamples($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecognitionSamplesWithOptions($request, $runtime);
     }
 
     /**
