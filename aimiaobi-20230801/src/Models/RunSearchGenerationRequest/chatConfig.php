@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\chatCo
 class chatConfig extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableThinking;
+
+    /**
      * @var string
      */
     public $generateLevel;
@@ -29,6 +34,7 @@ class chatConfig extends Model
      */
     public $searchParam;
     protected $_name = [
+        'enableThinking' => 'EnableThinking',
         'generateLevel' => 'GenerateLevel',
         'generateTechnology' => 'GenerateTechnology',
         'searchModels' => 'SearchModels',
@@ -49,6 +55,10 @@ class chatConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableThinking) {
+            $res['EnableThinking'] = $this->enableThinking;
+        }
+
         if (null !== $this->generateLevel) {
             $res['GenerateLevel'] = $this->generateLevel;
         }
@@ -82,6 +92,10 @@ class chatConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableThinking'])) {
+            $model->enableThinking = $map['EnableThinking'];
+        }
+
         if (isset($map['GenerateLevel'])) {
             $model->generateLevel = $map['GenerateLevel'];
         }
