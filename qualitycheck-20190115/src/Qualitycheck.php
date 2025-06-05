@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
@@ -905,7 +907,10 @@ class Qualitycheck extends OpenApiClient
         return $this->createSchemeTaskConfigWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
+     *
      * @param request - CreateSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -946,7 +951,10 @@ class Qualitycheck extends OpenApiClient
         return CreateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
+     *
      * @param request - CreateSkillGroupConfigRequest
      *
      * @returns CreateSkillGroupConfigResponse
@@ -1812,7 +1820,10 @@ class Qualitycheck extends OpenApiClient
         return $this->deleteSchemeTaskConfigWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
+     *
      * @param request - DeleteSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1853,7 +1864,10 @@ class Qualitycheck extends OpenApiClient
         return DeleteSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
+     *
      * @param request - DeleteSkillGroupConfigRequest
      *
      * @returns DeleteSkillGroupConfigResponse
@@ -2976,6 +2990,67 @@ class Qualitycheck extends OpenApiClient
         return $this->getRulesCountListWithOptions($request, $runtime);
     }
 
+    /**
+     * 获取质检任务配置详情.
+     *
+     * @param request - GetSchemeTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSchemeTaskConfigResponse
+     *
+     * @param GetSchemeTaskConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSchemeTaskConfigResponse
+     */
+    public function getSchemeTaskConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSchemeTaskConfig',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质检任务配置详情.
+     *
+     * @param request - GetSchemeTaskConfigRequest
+     *
+     * @returns GetSchemeTaskConfigResponse
+     *
+     * @param GetSchemeTaskConfigRequest $request
+     *
+     * @return GetSchemeTaskConfigResponse
+     */
+    public function getSchemeTaskConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSchemeTaskConfigWithOptions($request, $runtime);
+    }
+
     // Deprecated
     /**
      * @deprecated OpenAPI GetScoreInfo is deprecated
@@ -3039,7 +3114,10 @@ class Qualitycheck extends OpenApiClient
         return $this->getScoreInfoWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI GetSkillGroupConfig is deprecated
+     *
      * @param request - GetSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3080,7 +3158,10 @@ class Qualitycheck extends OpenApiClient
         return GetSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI GetSkillGroupConfig is deprecated
+     *
      * @param request - GetSkillGroupConfigRequest
      *
      * @returns GetSkillGroupConfigResponse
@@ -3936,7 +4017,10 @@ class Qualitycheck extends OpenApiClient
         return $this->listSessionGroupWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI ListSkillGroupConfig is deprecated
+     *
      * @param request - ListSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3977,7 +4061,10 @@ class Qualitycheck extends OpenApiClient
         return ListSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI ListSkillGroupConfig is deprecated
+     *
      * @param request - ListSkillGroupConfigRequest
      *
      * @returns ListSkillGroupConfigResponse
@@ -5335,7 +5422,10 @@ class Qualitycheck extends OpenApiClient
         return $this->updateSchemeTaskConfigWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
+     *
      * @param request - UpdateSkillGroupConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5376,7 +5466,10 @@ class Qualitycheck extends OpenApiClient
         return UpdateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
+     *
      * @param request - UpdateSkillGroupConfigRequest
      *
      * @returns UpdateSkillGroupConfigResponse
