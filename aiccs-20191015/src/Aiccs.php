@@ -277,6 +277,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineInQueueRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineInQueueResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberRequest;
@@ -8970,6 +8972,83 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAiCallTaskPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询通话详情信息.
+     *
+     * @param request - QueryConversationDetailInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConversationDetailInfoResponse
+     *
+     * @param QueryConversationDetailInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryConversationDetailInfoResponse
+     */
+    public function queryConversationDetailInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
+        }
+
+        if (null !== $request->detailId) {
+            @$query['DetailId'] = $request->detailId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryConversationDetailInfo',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryConversationDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询通话详情信息.
+     *
+     * @param request - QueryConversationDetailInfoRequest
+     *
+     * @returns QueryConversationDetailInfoResponse
+     *
+     * @param QueryConversationDetailInfoRequest $request
+     *
+     * @return QueryConversationDetailInfoResponse
+     */
+    public function queryConversationDetailInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryConversationDetailInfoWithOptions($request, $runtime);
     }
 
     /**
