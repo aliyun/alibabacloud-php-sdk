@@ -310,6 +310,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyBackupPolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConnectionStringRequest;
@@ -12513,6 +12515,91 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Collection.
+     *
+     * @param request - ModifyCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCollectionResponse
+     *
+     * @param ModifyCollectionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyCollectionResponse
+     */
+    public function modifyCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->metadata) {
+            @$query['Metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Collection.
+     *
+     * @param request - ModifyCollectionRequest
+     *
+     * @returns ModifyCollectionResponse
+     *
+     * @param ModifyCollectionRequest $request
+     *
+     * @return ModifyCollectionResponse
+     */
+    public function modifyCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCollectionWithOptions($request, $runtime);
     }
 
     /**
