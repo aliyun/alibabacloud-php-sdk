@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceOpsRecordsRequest extends Model
 {
     /**
-     * @description The ID of the elastic container instance.
-     *
-     * This parameter is required.
-     * @example eci-bp1dvysdafbh00t7****
-     *
      * @var string
      */
     public $containerGroupId;
 
     /**
-     * @description The type of the O\\&M task. Valid values:
-     *
-     *   coredump
-     *   tcpdump
-     *
-     * This parameter is required.
-     * @example coredump
-     *
      * @var string
      */
     public $opsType;
@@ -42,11 +29,6 @@ class DescribeInstanceOpsRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -61,40 +43,47 @@ class DescribeInstanceOpsRecordsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'containerGroupId'     => 'ContainerGroupId',
-        'opsType'              => 'OpsType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'containerGroupId' => 'ContainerGroupId',
+        'opsType' => 'OpsType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
         }
+
         if (null !== $this->opsType) {
             $res['OpsType'] = $this->opsType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -102,32 +91,38 @@ class DescribeInstanceOpsRecordsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceOpsRecordsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
         }
+
         if (isset($map['OpsType'])) {
             $model->opsType = $map['OpsType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

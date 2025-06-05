@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\UpdateContainerGroupRequest\initContainer;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\UpdateContainerGroupRequest\initContainer\securityContext\capability;
-use AlibabaCloud\Tea\Model;
 
 class securityContext extends Model
 {
@@ -24,24 +24,30 @@ class securityContext extends Model
      */
     public $runAsUser;
     protected $_name = [
-        'capability'             => 'Capability',
+        'capability' => 'Capability',
         'readOnlyRootFilesystem' => 'ReadOnlyRootFilesystem',
-        'runAsUser'              => 'RunAsUser',
+        'runAsUser' => 'RunAsUser',
     ];
 
     public function validate()
     {
+        if (null !== $this->capability) {
+            $this->capability->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capability) {
-            $res['Capability'] = null !== $this->capability ? $this->capability->toMap() : null;
+            $res['Capability'] = null !== $this->capability ? $this->capability->toArray($noStream) : $this->capability;
         }
+
         if (null !== $this->readOnlyRootFilesystem) {
             $res['ReadOnlyRootFilesystem'] = $this->readOnlyRootFilesystem;
         }
+
         if (null !== $this->runAsUser) {
             $res['RunAsUser'] = $this->runAsUser;
         }
@@ -49,20 +55,22 @@ class securityContext extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Capability'])) {
             $model->capability = capability::fromMap($map['Capability']);
         }
+
         if (isset($map['ReadOnlyRootFilesystem'])) {
             $model->readOnlyRootFilesystem = $map['ReadOnlyRootFilesystem'];
         }
+
         if (isset($map['RunAsUser'])) {
             $model->runAsUser = $map['RunAsUser'];
         }

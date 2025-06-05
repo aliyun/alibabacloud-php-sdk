@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\volume;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class emptyDirVolume extends Model
 {
@@ -18,20 +18,22 @@ class emptyDirVolume extends Model
      */
     public $sizeLimit;
     protected $_name = [
-        'medium'    => 'Medium',
+        'medium' => 'Medium',
         'sizeLimit' => 'SizeLimit',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->medium) {
             $res['Medium'] = $this->medium;
         }
+
         if (null !== $this->sizeLimit) {
             $res['SizeLimit'] = $this->sizeLimit;
         }
@@ -39,17 +41,18 @@ class emptyDirVolume extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return emptyDirVolume
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Medium'])) {
             $model->medium = $map['Medium'];
         }
+
         if (isset($map['SizeLimit'])) {
             $model->sizeLimit = $map['SizeLimit'];
         }

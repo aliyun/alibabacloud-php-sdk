@@ -4,99 +4,86 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupEventsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupEventsResponseBody\data\events;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The annotations of the elastic container instance.
-     *
-     * @example "{\\"tenancy.x-k8s.io/namespace\\":\\"redis\\"}"
-     *
      * @var string
      */
     public $annotations;
 
     /**
-     * @description The ID of the elastic container instance.
-     *
-     * @example eci-uf6fonnghi50v6nq****
-     *
      * @var string
      */
     public $containerGroupId;
 
     /**
-     * @description The events.
-     *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The name of the elastic container instance.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The namespace where the elastic container instance resides.
-     *
-     * @example redis
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The UUID of the elastic container instance.
-     *
-     * @example 3fc6b309-****-****
-     *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'annotations'      => 'Annotations',
+        'annotations' => 'Annotations',
         'containerGroupId' => 'ContainerGroupId',
-        'events'           => 'Events',
-        'name'             => 'Name',
-        'namespace'        => 'Namespace',
-        'uuid'             => 'uuid',
+        'events' => 'Events',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'uuid' => 'uuid',
     ];
 
     public function validate()
     {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotations) {
             $res['Annotations'] = $this->annotations;
         }
+
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
         }
+
         if (null !== $this->events) {
-            $res['Events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->uuid) {
             $res['uuid'] = $this->uuid;
         }
@@ -104,35 +91,40 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Annotations'])) {
             $model->annotations = $map['Annotations'];
         }
+
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
         }
+
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
-                $n             = 0;
-                foreach ($map['Events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1++] = events::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['uuid'])) {
             $model->uuid = $map['uuid'];
         }

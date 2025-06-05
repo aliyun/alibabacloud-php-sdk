@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateContainerGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example eci-uf6fonnghi50u374****
-     *
      * @var string
      */
     public $containerGroupId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 89945DD3-9072-47D0-A318-353284CFC7B3
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'containerGroupId' => 'ContainerGroupId',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateContainerGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateContainerGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupStatusResponseBody\data\podStatus;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class podIps extends Model
 {
     /**
-     * @description The IP address of the container group.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
@@ -22,9 +18,10 @@ class podIps extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
@@ -34,11 +31,11 @@ class podIps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return podIps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

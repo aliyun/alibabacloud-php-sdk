@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupEventsResponseBody\data\events;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metadata extends Model
 {
     /**
-     * @description The event name.
-     *
-     * @example eci-uto-created-eci-for-ubuntu.167e3fb73cc7f9cb
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The namespace.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'namespace' => 'Namespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -47,17 +41,18 @@ class metadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

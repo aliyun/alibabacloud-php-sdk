@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestartContainerGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 45D5B0AD-3B00-4A9B-9911-6D5303B06712
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RestartContainerGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RestartContainerGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestartContainerGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

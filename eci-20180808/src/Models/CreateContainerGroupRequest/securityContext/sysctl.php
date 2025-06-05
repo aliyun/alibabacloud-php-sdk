@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\securityContext;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sysctl extends Model
 {
     /**
-     * @description The name of the safe sysctl when you modify sysctls by configuring a security context. Valid values:
-     *
-     *   net.ipv4.ping_group_range
-     *   net.ipv4.ip_unprivileged_port_start
-     *
-     * @example kernel.msgmax
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The value of the safe sysctl when you modify sysctls by configuring a security context.
-     *
-     * @example 65536
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -50,17 +41,18 @@ class sysctl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sysctl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,51 +4,44 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUsageResponseBody extends Model
 {
     /**
-     * @description The information about the used amounts and upper limits of privileges and quotas that you have in the specified region. The information contains the following items:
-     *
-     *   UsedCpu: the number of existing vCPUs.
-     *   MaxCpu: the upper limit of vCPUs.
-     *   MaxImageCacheCount: the upper limit of manually created image caches.
-     *   UsedImageCacheCount: the number of existing image caches that are manually created.
-     *   MaxAutoImageCacheCount: the upper limit of automatically created image caches.
-     *   UsedAutoImageCacheCount: the number of existing image caches that are automatically created.
-     *   MaxDataCacheCount: the upper limit of DataCaches.
-     *   UsedDataCacheCount: the number of existing DataCaches.
-     *
-     * @example {"UsedCpu": 11,"MaxCpu": 1000,"MaxImageCacheCount": 50,"UsedImageCacheCount": 0}
-     *
      * @var mixed[]
      */
     public $attributes;
 
     /**
-     * @description The request ID.
-     *
-     * @example 89164E78-FC82-4684-BE97-DCDD85D26546
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'attributes' => 'Attributes',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['Attributes'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,17 +49,23 @@ class ListUsageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUsageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
+            if (!empty($map['Attributes'])) {
+                $model->attributes = [];
+                foreach ($map['Attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

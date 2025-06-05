@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyDataCacheResponseBody extends Model
 {
     /**
-     * @description The ID generated for the DataCache in the destination region.
-     *
-     * @example edc-bp1423y6d7v7l6ua****
-     *
      * @var string
      */
     public $dataCacheId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 58EE0CB3-C864-5395-A4F7-24F425074839
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dataCacheId' => 'DataCacheId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataCacheId) {
             $res['DataCacheId'] = $this->dataCacheId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CopyDataCacheResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyDataCacheResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataCacheId'])) {
             $model->dataCacheId = $map['DataCacheId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

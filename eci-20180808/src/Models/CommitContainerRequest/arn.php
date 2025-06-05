@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CommitContainerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class arn extends Model
 {
     /**
-     * @description The ARN of the authorized role.
-     *
-     * @example acs:ram:xxx
-     *
      * @var string
      */
     public $roleArn;
 
     /**
-     * @description The authorization type. A value of service indicates that RAM roles are used for authorization.
-     *
-     * @example user
-     *
      * @var string
      */
     public $roleType;
     protected $_name = [
-        'roleArn'  => 'RoleArn',
+        'roleArn' => 'RoleArn',
         'roleType' => 'RoleType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
@@ -47,17 +41,18 @@ class arn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return arn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eci\V20180808\Models\CommitContainerRequest;
 use AlibabaCloud\SDK\Eci\V20180808\Models\CommitContainerResponse;
 use AlibabaCloud\SDK\Eci\V20180808\Models\CopyDataCacheRequest;
@@ -78,11 +77,10 @@ use AlibabaCloud\SDK\Eci\V20180808\Models\UpdateImageCacheRequest;
 use AlibabaCloud\SDK\Eci\V20180808\Models\UpdateImageCacheResponse;
 use AlibabaCloud\SDK\Eci\V20180808\Models\UpdateVirtualNodeRequest;
 use AlibabaCloud\SDK\Eci\V20180808\Models\UpdateVirtualNodeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eci extends OpenApiClient
 {
@@ -107,89 +105,112 @@ class Eci extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates an asynchronous task to store a specified container in an elastic container instance as an image and pushes the image to an image repository of Alibaba Cloud Container Registry.
-     *  *
-     * @description You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
-     *  *
-     * @param CommitContainerRequest $request CommitContainerRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates an asynchronous task to store a specified container in an elastic container instance as an image and pushes the image to an image repository of Alibaba Cloud Container Registry.
      *
-     * @return CommitContainerResponse CommitContainerResponse
+     * @remarks
+     * You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
+     *
+     * @param request - CommitContainerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommitContainerResponse
+     *
+     * @param CommitContainerRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CommitContainerResponse
      */
     public function commitContainerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acrRegistryInfo)) {
-            $query['AcrRegistryInfo'] = $request->acrRegistryInfo;
+        if (null !== $request->acrRegistryInfo) {
+            @$query['AcrRegistryInfo'] = $request->acrRegistryInfo;
         }
-        if (!Utils::isUnset($request->arn)) {
-            $query['Arn'] = $request->arn;
+
+        if (null !== $request->arn) {
+            @$query['Arn'] = $request->arn;
         }
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->containerName)) {
-            $query['ContainerName'] = $request->containerName;
+
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
         }
-        if (!Utils::isUnset($request->image)) {
-            $query['Image'] = $request->image;
+
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CommitContainer',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CommitContainer',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CommitContainerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an asynchronous task to store a specified container in an elastic container instance as an image and pushes the image to an image repository of Alibaba Cloud Container Registry.
-     *  *
-     * @description You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
-     *  *
-     * @param CommitContainerRequest $request CommitContainerRequest
+     * Creates an asynchronous task to store a specified container in an elastic container instance as an image and pushes the image to an image repository of Alibaba Cloud Container Registry.
      *
-     * @return CommitContainerResponse CommitContainerResponse
+     * @remarks
+     * You must specify the Alibaba Cloud Resource Name (ARN) of the RAM role of the Container Registry Enterprise Edition instance to grant the elastic container instance to assume the RAM role to push images.
+     *
+     * @param request - CommitContainerRequest
+     *
+     * @returns CommitContainerResponse
+     *
+     * @param CommitContainerRequest $request
+     *
+     * @return CommitContainerResponse
      */
     public function commitContainer($request)
     {
@@ -199,96 +220,122 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Copies a DataCache from one region to another region.
-     *  *
-     * @description You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
+     * Copies a DataCache from one region to another region.
+     *
+     * @remarks
+     * You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
      * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
      * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
      * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
-     *  *
-     * @param CopyDataCacheRequest $request CopyDataCacheRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyDataCacheResponse CopyDataCacheResponse
+     * @param request - CopyDataCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyDataCacheResponse
+     *
+     * @param CopyDataCacheRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CopyDataCacheResponse
      */
     public function copyDataCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataCacheId)) {
-            $query['DataCacheId'] = $request->dataCacheId;
+
+        if (null !== $request->dataCacheId) {
+            @$query['DataCacheId'] = $request->dataCacheId;
         }
-        if (!Utils::isUnset($request->destinationRegionId)) {
-            $query['DestinationRegionId'] = $request->destinationRegionId;
+
+        if (null !== $request->destinationRegionId) {
+            @$query['DestinationRegionId'] = $request->destinationRegionId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyDataCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyDataCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopyDataCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Copies a DataCache from one region to another region.
-     *  *
-     * @description You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
+     * Copies a DataCache from one region to another region.
+     *
+     * @remarks
+     * You cannot directly use a DataCache across regions. You can call this operation to copy a DataCache from one region to another region. This operation is suitable for the following scenarios:
      * *   If you want to use a DataCache across regions and the DataCache exists in Region A, you can call this operation to quickly copy the DataCache to Region B.
      * *   If you directly pull data from a region outside China to a region inside the Chinese mainland when you create a DataCache, the data may be pulled at a slow speed due to network limits. In this case, you can create a DataCache in a region outside the Chinese mainland but inside China, such as the China (Hong Kong) region, and call this operation to copy the data to the region inside the Chinese mainland.
      * > The process of copying a DataCache is equivalent to copying a snapshot. You are charged for the traffic generated during the copy process and the storage of the generated DataCache.
-     *  *
-     * @param CopyDataCacheRequest $request CopyDataCacheRequest
      *
-     * @return CopyDataCacheResponse CopyDataCacheResponse
+     * @param request - CopyDataCacheRequest
+     *
+     * @returns CopyDataCacheResponse
+     *
+     * @param CopyDataCacheRequest $request
+     *
+     * @return CopyDataCacheResponse
      */
     public function copyDataCache($request)
     {
@@ -298,9 +345,10 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Creates an elastic container instance.
-     *  *
-     * @description When you call the CreateContainerGroup operation to create an elastic container instance, the system automatically creates a service-linked role named AliyunServiceRoleForECI. You can assume the service-linked role to access relevant cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
+     * Creates an elastic container instance.
+     *
+     * @remarks
+     * When you call the CreateContainerGroup operation to create an elastic container instance, the system automatically creates a service-linked role named AliyunServiceRoleForECI. You can assume the service-linked role to access relevant cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
      * When you create an elastic container instance, you can configure features that are related to instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
      * **Instances**
      * You can use one of the following methods to create an elastic container instance:
@@ -337,254 +385,332 @@ class Eci extends OpenApiClient
      * **Logging and O\\&M**
      * *   [Use environment variables to configure log collection](https://help.aliyun.com/document_detail/121973.html)
      * *   [Save core files to volumes](https://help.aliyun.com/document_detail/167801.html)
-     *  *
-     * @param CreateContainerGroupRequest $request CreateContainerGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateContainerGroupResponse CreateContainerGroupResponse
+     * @param request - CreateContainerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContainerGroupResponse
+     *
+     * @param CreateContainerGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateContainerGroupResponse
      */
     public function createContainerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acrRegistryInfo)) {
-            $query['AcrRegistryInfo'] = $request->acrRegistryInfo;
+        if (null !== $request->acrRegistryInfo) {
+            @$query['AcrRegistryInfo'] = $request->acrRegistryInfo;
+        }
+
+        if (null !== $request->activeDeadlineSeconds) {
+            @$query['ActiveDeadlineSeconds'] = $request->activeDeadlineSeconds;
+        }
+
+        if (null !== $request->autoCreateEip) {
+            @$query['AutoCreateEip'] = $request->autoCreateEip;
+        }
+
+        if (null !== $request->autoMatchImageCache) {
+            @$query['AutoMatchImageCache'] = $request->autoMatchImageCache;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->computeCategory) {
+            @$query['ComputeCategory'] = $request->computeCategory;
+        }
+
+        if (null !== $request->container) {
+            @$query['Container'] = $request->container;
+        }
+
+        if (null !== $request->containerGroupName) {
+            @$query['ContainerGroupName'] = $request->containerGroupName;
+        }
+
+        if (null !== $request->containerResourceView) {
+            @$query['ContainerResourceView'] = $request->containerResourceView;
+        }
+
+        if (null !== $request->corePattern) {
+            @$query['CorePattern'] = $request->corePattern;
+        }
+
+        if (null !== $request->cpu) {
+            @$query['Cpu'] = $request->cpu;
+        }
+
+        if (null !== $request->cpuArchitecture) {
+            @$query['CpuArchitecture'] = $request->cpuArchitecture;
+        }
+
+        if (null !== $request->cpuOptionsCore) {
+            @$query['CpuOptionsCore'] = $request->cpuOptionsCore;
+        }
+
+        if (null !== $request->cpuOptionsNuma) {
+            @$query['CpuOptionsNuma'] = $request->cpuOptionsNuma;
+        }
+
+        if (null !== $request->cpuOptionsThreadsPerCore) {
+            @$query['CpuOptionsThreadsPerCore'] = $request->cpuOptionsThreadsPerCore;
+        }
+
+        if (null !== $request->dataCacheBucket) {
+            @$query['DataCacheBucket'] = $request->dataCacheBucket;
+        }
+
+        if (null !== $request->dataCacheBurstingEnabled) {
+            @$query['DataCacheBurstingEnabled'] = $request->dataCacheBurstingEnabled;
+        }
+
+        if (null !== $request->dataCachePL) {
+            @$query['DataCachePL'] = $request->dataCachePL;
+        }
+
+        if (null !== $request->dataCacheProvisionedIops) {
+            @$query['DataCacheProvisionedIops'] = $request->dataCacheProvisionedIops;
+        }
+
+        if (null !== $request->dnsPolicy) {
+            @$query['DnsPolicy'] = $request->dnsPolicy;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->egressBandwidth) {
+            @$query['EgressBandwidth'] = $request->egressBandwidth;
+        }
+
+        if (null !== $request->eipBandwidth) {
+            @$query['EipBandwidth'] = $request->eipBandwidth;
+        }
+
+        if (null !== $request->eipCommonBandwidthPackage) {
+            @$query['EipCommonBandwidthPackage'] = $request->eipCommonBandwidthPackage;
+        }
+
+        if (null !== $request->eipISP) {
+            @$query['EipISP'] = $request->eipISP;
+        }
+
+        if (null !== $request->eipInstanceId) {
+            @$query['EipInstanceId'] = $request->eipInstanceId;
+        }
+
+        if (null !== $request->ephemeralStorage) {
+            @$query['EphemeralStorage'] = $request->ephemeralStorage;
+        }
+
+        if (null !== $request->fixedIp) {
+            @$query['FixedIp'] = $request->fixedIp;
+        }
+
+        if (null !== $request->fixedIpRetainHour) {
+            @$query['FixedIpRetainHour'] = $request->fixedIpRetainHour;
+        }
+
+        if (null !== $request->gpuDriverVersion) {
+            @$query['GpuDriverVersion'] = $request->gpuDriverVersion;
+        }
+
+        if (null !== $request->hostAliase) {
+            @$query['HostAliase'] = $request->hostAliase;
+        }
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
+        }
+
+        if (null !== $request->imageAccelerateMode) {
+            @$query['ImageAccelerateMode'] = $request->imageAccelerateMode;
+        }
+
+        if (null !== $request->imageRegistryCredential) {
+            @$query['ImageRegistryCredential'] = $request->imageRegistryCredential;
+        }
+
+        if (null !== $request->imageSnapshotId) {
+            @$query['ImageSnapshotId'] = $request->imageSnapshotId;
+        }
+
+        if (null !== $request->ingressBandwidth) {
+            @$query['IngressBandwidth'] = $request->ingressBandwidth;
+        }
+
+        if (null !== $request->initContainer) {
+            @$query['InitContainer'] = $request->initContainer;
+        }
+
+        if (null !== $request->insecureRegistry) {
+            @$query['InsecureRegistry'] = $request->insecureRegistry;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->ipv6AddressCount) {
+            @$query['Ipv6AddressCount'] = $request->ipv6AddressCount;
+        }
+
+        if (null !== $request->ipv6GatewayBandwidth) {
+            @$query['Ipv6GatewayBandwidth'] = $request->ipv6GatewayBandwidth;
+        }
+
+        if (null !== $request->ipv6GatewayBandwidthEnable) {
+            @$query['Ipv6GatewayBandwidthEnable'] = $request->ipv6GatewayBandwidthEnable;
+        }
+
+        if (null !== $request->maxPendingMinute) {
+            @$query['MaxPendingMinute'] = $request->maxPendingMinute;
+        }
+
+        if (null !== $request->memory) {
+            @$query['Memory'] = $request->memory;
+        }
+
+        if (null !== $request->ntpServer) {
+            @$query['NtpServer'] = $request->ntpServer;
+        }
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->activeDeadlineSeconds)) {
-            $query['ActiveDeadlineSeconds'] = $request->activeDeadlineSeconds;
+
+        if (null !== $request->plainHttpRegistry) {
+            @$query['PlainHttpRegistry'] = $request->plainHttpRegistry;
         }
-        if (!Utils::isUnset($request->autoCreateEip)) {
-            $query['AutoCreateEip'] = $request->autoCreateEip;
+
+        if (null !== $request->privateIpAddress) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-        if (!Utils::isUnset($request->autoMatchImageCache)) {
-            $query['AutoMatchImageCache'] = $request->autoMatchImageCache;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->computeCategory)) {
-            $query['ComputeCategory'] = $request->computeCategory;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->container)) {
-            $query['Container'] = $request->container;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->containerGroupName)) {
-            $query['ContainerGroupName'] = $request->containerGroupName;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->containerResourceView)) {
-            $query['ContainerResourceView'] = $request->containerResourceView;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->corePattern)) {
-            $query['CorePattern'] = $request->corePattern;
+
+        if (null !== $request->restartPolicy) {
+            @$query['RestartPolicy'] = $request->restartPolicy;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $query['Cpu'] = $request->cpu;
+
+        if (null !== $request->scheduleStrategy) {
+            @$query['ScheduleStrategy'] = $request->scheduleStrategy;
         }
-        if (!Utils::isUnset($request->cpuArchitecture)) {
-            $query['CpuArchitecture'] = $request->cpuArchitecture;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->cpuOptionsCore)) {
-            $query['CpuOptionsCore'] = $request->cpuOptionsCore;
+
+        if (null !== $request->shareProcessNamespace) {
+            @$query['ShareProcessNamespace'] = $request->shareProcessNamespace;
         }
-        if (!Utils::isUnset($request->cpuOptionsNuma)) {
-            $query['CpuOptionsNuma'] = $request->cpuOptionsNuma;
+
+        if (null !== $request->spotDuration) {
+            @$query['SpotDuration'] = $request->spotDuration;
         }
-        if (!Utils::isUnset($request->cpuOptionsThreadsPerCore)) {
-            $query['CpuOptionsThreadsPerCore'] = $request->cpuOptionsThreadsPerCore;
+
+        if (null !== $request->spotPriceLimit) {
+            @$query['SpotPriceLimit'] = $request->spotPriceLimit;
         }
-        if (!Utils::isUnset($request->dataCacheBucket)) {
-            $query['DataCacheBucket'] = $request->dataCacheBucket;
+
+        if (null !== $request->spotStrategy) {
+            @$query['SpotStrategy'] = $request->spotStrategy;
         }
-        if (!Utils::isUnset($request->dataCacheBurstingEnabled)) {
-            $query['DataCacheBurstingEnabled'] = $request->dataCacheBurstingEnabled;
+
+        if (null !== $request->strictSpot) {
+            @$query['StrictSpot'] = $request->strictSpot;
         }
-        if (!Utils::isUnset($request->dataCachePL)) {
-            $query['DataCachePL'] = $request->dataCachePL;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->dataCacheProvisionedIops)) {
-            $query['DataCacheProvisionedIops'] = $request->dataCacheProvisionedIops;
+
+        if (null !== $request->terminationGracePeriodSeconds) {
+            @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
-        if (!Utils::isUnset($request->dnsPolicy)) {
-            $query['DnsPolicy'] = $request->dnsPolicy;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
-        if (!Utils::isUnset($request->egressBandwidth)) {
-            $query['EgressBandwidth'] = $request->egressBandwidth;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
-        if (!Utils::isUnset($request->eipBandwidth)) {
-            $query['EipBandwidth'] = $request->eipBandwidth;
+
+        if (null !== $request->dnsConfig) {
+            @$query['DnsConfig'] = $request->dnsConfig;
         }
-        if (!Utils::isUnset($request->eipCommonBandwidthPackage)) {
-            $query['EipCommonBandwidthPackage'] = $request->eipCommonBandwidthPackage;
+
+        if (null !== $request->hostSecurityContext) {
+            @$query['HostSecurityContext'] = $request->hostSecurityContext;
         }
-        if (!Utils::isUnset($request->eipISP)) {
-            $query['EipISP'] = $request->eipISP;
+
+        if (null !== $request->securityContext) {
+            @$query['SecurityContext'] = $request->securityContext;
         }
-        if (!Utils::isUnset($request->eipInstanceId)) {
-            $query['EipInstanceId'] = $request->eipInstanceId;
-        }
-        if (!Utils::isUnset($request->ephemeralStorage)) {
-            $query['EphemeralStorage'] = $request->ephemeralStorage;
-        }
-        if (!Utils::isUnset($request->fixedIp)) {
-            $query['FixedIp'] = $request->fixedIp;
-        }
-        if (!Utils::isUnset($request->fixedIpRetainHour)) {
-            $query['FixedIpRetainHour'] = $request->fixedIpRetainHour;
-        }
-        if (!Utils::isUnset($request->gpuDriverVersion)) {
-            $query['GpuDriverVersion'] = $request->gpuDriverVersion;
-        }
-        if (!Utils::isUnset($request->hostAliase)) {
-            $query['HostAliase'] = $request->hostAliase;
-        }
-        if (!Utils::isUnset($request->hostName)) {
-            $query['HostName'] = $request->hostName;
-        }
-        if (!Utils::isUnset($request->imageAccelerateMode)) {
-            $query['ImageAccelerateMode'] = $request->imageAccelerateMode;
-        }
-        if (!Utils::isUnset($request->imageRegistryCredential)) {
-            $query['ImageRegistryCredential'] = $request->imageRegistryCredential;
-        }
-        if (!Utils::isUnset($request->imageSnapshotId)) {
-            $query['ImageSnapshotId'] = $request->imageSnapshotId;
-        }
-        if (!Utils::isUnset($request->ingressBandwidth)) {
-            $query['IngressBandwidth'] = $request->ingressBandwidth;
-        }
-        if (!Utils::isUnset($request->initContainer)) {
-            $query['InitContainer'] = $request->initContainer;
-        }
-        if (!Utils::isUnset($request->insecureRegistry)) {
-            $query['InsecureRegistry'] = $request->insecureRegistry;
-        }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
-        }
-        if (!Utils::isUnset($request->ipv6AddressCount)) {
-            $query['Ipv6AddressCount'] = $request->ipv6AddressCount;
-        }
-        if (!Utils::isUnset($request->ipv6GatewayBandwidth)) {
-            $query['Ipv6GatewayBandwidth'] = $request->ipv6GatewayBandwidth;
-        }
-        if (!Utils::isUnset($request->ipv6GatewayBandwidthEnable)) {
-            $query['Ipv6GatewayBandwidthEnable'] = $request->ipv6GatewayBandwidthEnable;
-        }
-        if (!Utils::isUnset($request->memory)) {
-            $query['Memory'] = $request->memory;
-        }
-        if (!Utils::isUnset($request->ntpServer)) {
-            $query['NtpServer'] = $request->ntpServer;
-        }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
-        }
-        if (!Utils::isUnset($request->overheadReservationOption)) {
-            $query['OverheadReservationOption'] = $request->overheadReservationOption;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->plainHttpRegistry)) {
-            $query['PlainHttpRegistry'] = $request->plainHttpRegistry;
-        }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddress;
-        }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->restartPolicy)) {
-            $query['RestartPolicy'] = $request->restartPolicy;
-        }
-        if (!Utils::isUnset($request->scheduleStrategy)) {
-            $query['ScheduleStrategy'] = $request->scheduleStrategy;
-        }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
-        }
-        if (!Utils::isUnset($request->shareProcessNamespace)) {
-            $query['ShareProcessNamespace'] = $request->shareProcessNamespace;
-        }
-        if (!Utils::isUnset($request->spotDuration)) {
-            $query['SpotDuration'] = $request->spotDuration;
-        }
-        if (!Utils::isUnset($request->spotPriceLimit)) {
-            $query['SpotPriceLimit'] = $request->spotPriceLimit;
-        }
-        if (!Utils::isUnset($request->spotStrategy)) {
-            $query['SpotStrategy'] = $request->spotStrategy;
-        }
-        if (!Utils::isUnset($request->strictSpot)) {
-            $query['StrictSpot'] = $request->strictSpot;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
-            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
-        }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
-        }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        if (!Utils::isUnset($request->dnsConfig)) {
-            $query['DnsConfig'] = $request->dnsConfig;
-        }
-        if (!Utils::isUnset($request->hostSecurityContext)) {
-            $query['HostSecurityContext'] = $request->hostSecurityContext;
-        }
-        if (!Utils::isUnset($request->securityContext)) {
-            $query['SecurityContext'] = $request->securityContext;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateContainerGroup',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateContainerGroup',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateContainerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an elastic container instance.
-     *  *
-     * @description When you call the CreateContainerGroup operation to create an elastic container instance, the system automatically creates a service-linked role named AliyunServiceRoleForECI. You can assume the service-linked role to access relevant cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
+     * Creates an elastic container instance.
+     *
+     * @remarks
+     * When you call the CreateContainerGroup operation to create an elastic container instance, the system automatically creates a service-linked role named AliyunServiceRoleForECI. You can assume the service-linked role to access relevant cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
      * When you create an elastic container instance, you can configure features that are related to instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
      * **Instances**
      * You can use one of the following methods to create an elastic container instance:
@@ -621,10 +747,14 @@ class Eci extends OpenApiClient
      * **Logging and O\\&M**
      * *   [Use environment variables to configure log collection](https://help.aliyun.com/document_detail/121973.html)
      * *   [Save core files to volumes](https://help.aliyun.com/document_detail/167801.html)
-     *  *
-     * @param CreateContainerGroupRequest $request CreateContainerGroupRequest
      *
-     * @return CreateContainerGroupResponse CreateContainerGroupResponse
+     * @param request - CreateContainerGroupRequest
+     *
+     * @returns CreateContainerGroupResponse
+     *
+     * @param CreateContainerGroupRequest $request
+     *
+     * @return CreateContainerGroupResponse
      */
     public function createContainerGroup($request)
     {
@@ -634,108 +764,138 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Creates a DataCache.
-     *  *
-     * @description *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](https://help.aliyun.com/document_detail/2503093.html).
+     * Creates a DataCache.
+     *
+     * @remarks
+     *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](https://help.aliyun.com/document_detail/2503093.html).
      * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
      * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
      * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
-     *  *
-     * @param CreateDataCacheRequest $request CreateDataCacheRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataCacheResponse CreateDataCacheResponse
+     * @param request - CreateDataCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataCacheResponse
+     *
+     * @param CreateDataCacheRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDataCacheResponse
      */
     public function createDataCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $query['DataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$query['DataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->eipCreateParam)) {
-            $query['EipCreateParam'] = $request->eipCreateParam;
+
+        if (null !== $request->eipCreateParam) {
+            @$query['EipCreateParam'] = $request->eipCreateParam;
         }
-        if (!Utils::isUnset($request->eipInstanceId)) {
-            $query['EipInstanceId'] = $request->eipInstanceId;
+
+        if (null !== $request->eipInstanceId) {
+            @$query['EipInstanceId'] = $request->eipInstanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDataCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a DataCache.
-     *  *
-     * @description *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](https://help.aliyun.com/document_detail/2503093.html).
+     * Creates a DataCache.
+     *
+     * @remarks
+     *   You are charged for the creation of image caches. We recommend that you learn the relevant billing information in advance. For more information, see [DataCaches](https://help.aliyun.com/document_detail/2503093.html).
      * *   Before you create an image cache, you must evaluate the size of the data to be cached. If the size of the data exceeds the specified cache size, the image cache fails to be created.
      * *   When a data cache is being created, the system automatically creates a temporary elastic container instance (ECI) and an enhanced SSD (ESSD) for the data cache. During the creation, do not delete the ECI and ESSD. Otherwise, the data cache fails to be created.
      * *   When a data cache is being created, a snapshot is generated for the data cache. Do not delete the snapshot. Otherwise, the data cache becomes invalid.
-     *  *
-     * @param CreateDataCacheRequest $request CreateDataCacheRequest
      *
-     * @return CreateDataCacheResponse CreateDataCacheResponse
+     * @param request - CreateDataCacheRequest
+     *
+     * @returns CreateDataCacheResponse
+     *
+     * @param CreateDataCacheRequest $request
+     *
+     * @return CreateDataCacheResponse
      */
     public function createDataCache($request)
     {
@@ -745,9 +905,10 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Creates an image cache. The image cache can accelerate image pulling and reduce the instance startup time when you create an elastic container instance later.
-     *  *
-     * @description *   **Precautions**
+     * Creates an image cache. The image cache can accelerate image pulling and reduce the instance startup time when you create an elastic container instance later.
+     *
+     * @remarks
+     *   **Precautions**
      *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](https://help.aliyun.com/document_detail/447682.html).
      *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
      *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
@@ -757,119 +918,156 @@ class Eci extends OpenApiClient
      *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
      *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
      * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
-     *  *
-     * @param CreateImageCacheRequest $request CreateImageCacheRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageCacheResponse CreateImageCacheResponse
+     * @param request - CreateImageCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageCacheResponse
+     *
+     * @param CreateImageCacheRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateImageCacheResponse
      */
     public function createImageCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acrRegistryInfo)) {
-            $query['AcrRegistryInfo'] = $request->acrRegistryInfo;
+        if (null !== $request->acrRegistryInfo) {
+            @$query['AcrRegistryInfo'] = $request->acrRegistryInfo;
         }
-        if (!Utils::isUnset($request->annotations)) {
-            $query['Annotations'] = $request->annotations;
+
+        if (null !== $request->annotations) {
+            @$query['Annotations'] = $request->annotations;
         }
-        if (!Utils::isUnset($request->autoMatchImageCache)) {
-            $query['AutoMatchImageCache'] = $request->autoMatchImageCache;
+
+        if (null !== $request->autoMatchImageCache) {
+            @$query['AutoMatchImageCache'] = $request->autoMatchImageCache;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->eipInstanceId)) {
-            $query['EipInstanceId'] = $request->eipInstanceId;
+
+        if (null !== $request->eipInstanceId) {
+            @$query['EipInstanceId'] = $request->eipInstanceId;
         }
-        if (!Utils::isUnset($request->eliminationStrategy)) {
-            $query['EliminationStrategy'] = $request->eliminationStrategy;
+
+        if (null !== $request->eliminationStrategy) {
+            @$query['EliminationStrategy'] = $request->eliminationStrategy;
         }
-        if (!Utils::isUnset($request->flash)) {
-            $query['Flash'] = $request->flash;
+
+        if (null !== $request->flash) {
+            @$query['Flash'] = $request->flash;
         }
-        if (!Utils::isUnset($request->flashCopyCount)) {
-            $query['FlashCopyCount'] = $request->flashCopyCount;
+
+        if (null !== $request->flashCopyCount) {
+            @$query['FlashCopyCount'] = $request->flashCopyCount;
         }
-        if (!Utils::isUnset($request->image)) {
-            $query['Image'] = $request->image;
+
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
         }
-        if (!Utils::isUnset($request->imageCacheName)) {
-            $query['ImageCacheName'] = $request->imageCacheName;
+
+        if (null !== $request->imageCacheName) {
+            @$query['ImageCacheName'] = $request->imageCacheName;
         }
-        if (!Utils::isUnset($request->imageCacheSize)) {
-            $query['ImageCacheSize'] = $request->imageCacheSize;
+
+        if (null !== $request->imageCacheSize) {
+            @$query['ImageCacheSize'] = $request->imageCacheSize;
         }
-        if (!Utils::isUnset($request->imageRegistryCredential)) {
-            $query['ImageRegistryCredential'] = $request->imageRegistryCredential;
+
+        if (null !== $request->imageRegistryCredential) {
+            @$query['ImageRegistryCredential'] = $request->imageRegistryCredential;
         }
-        if (!Utils::isUnset($request->insecureRegistry)) {
-            $query['InsecureRegistry'] = $request->insecureRegistry;
+
+        if (null !== $request->insecureRegistry) {
+            @$query['InsecureRegistry'] = $request->insecureRegistry;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->plainHttpRegistry)) {
-            $query['PlainHttpRegistry'] = $request->plainHttpRegistry;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->plainHttpRegistry) {
+            @$query['PlainHttpRegistry'] = $request->plainHttpRegistry;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->standardCopyCount)) {
-            $query['StandardCopyCount'] = $request->standardCopyCount;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->standardCopyCount) {
+            @$query['StandardCopyCount'] = $request->standardCopyCount;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateImageCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateImageCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateImageCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an image cache. The image cache can accelerate image pulling and reduce the instance startup time when you create an elastic container instance later.
-     *  *
-     * @description *   **Precautions**
+     * Creates an image cache. The image cache can accelerate image pulling and reduce the instance startup time when you create an elastic container instance later.
+     *
+     * @remarks
+     *   **Precautions**
      *     *   You are charged for creation of image caches. We recommend that you learn the relevant billing information in advance. For more information about billing of image caches, see [Image caches](https://help.aliyun.com/document_detail/447682.html).
      *     *   Before you create an image cache, you must estimate the total size of the images that you want to cache. If the total size of the images exceeds the specified cache size, the image cache cannot be created.
      *     *   When an image cache is being created, the system creates an intermediate elastic container instance and an intermediate enhanced SSD (ESSD) at performance level 1 (PL1). Do not delete the intermediate instance and the ESSD while the image cache is being created. If you delete the intermediate instance or the ESSD, the image cache cannot be created.
@@ -879,10 +1077,14 @@ class Eci extends OpenApiClient
      *     *   For images that are created based on Container Registry Enterprise Edition instances and use custom domain names, if you want to configure password-free access to the image caches, you must use AcrRegistryInfo-related parameters to specify Container Registry instances. When you configure AcrRegistryInfo-related parameters, you must set the AcrRegistryInfo.N.InstanceId parameter.
      *     *   If the image cache that you created will be used to create more than 1,000 elastic container instances at a time, we recommend that you use the StandardCopyCount and FlashCopyCount parameters to create multiple temporary local snapshots and regular snapshots of the image. The multiple snapshots are billed based on incremental data. If no incremental data exists on the multiple snapshots, you are not charged for the multiple snapshots.
      * >  When you call the CreateImageCache operation to create an image cache, the system automatically creates a service-linked role named AliyunServiceRoleForECI. The role is used to access other Alibaba Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC). For more information, see [Elastic Container Instance service-linked role](https://help.aliyun.com/document_detail/212914.html).
-     *  *
-     * @param CreateImageCacheRequest $request CreateImageCacheRequest
      *
-     * @return CreateImageCacheResponse CreateImageCacheResponse
+     * @param request - CreateImageCacheRequest
+     *
+     * @returns CreateImageCacheResponse
+     *
+     * @param CreateImageCacheRequest $request
+     *
+     * @return CreateImageCacheResponse
      */
     public function createImageCache($request)
     {
@@ -892,76 +1094,96 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Creates an O&M task.
-     *  *
-     * @description O&M tasks are classified into:
+     * Creates an O&M task.
+     *
+     * @remarks
+     * O&M tasks are classified into:
      * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](https://help.aliyun.com/document_detail/167801.html).
      * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](https://help.aliyun.com/document_detail/429749.html).
-     *  *
-     * @param CreateInstanceOpsTaskRequest $request CreateInstanceOpsTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceOpsTaskResponse CreateInstanceOpsTaskResponse
+     * @param request - CreateInstanceOpsTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceOpsTaskResponse
+     *
+     * @param CreateInstanceOpsTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateInstanceOpsTaskResponse
      */
     public function createInstanceOpsTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->opsType)) {
-            $query['OpsType'] = $request->opsType;
+
+        if (null !== $request->opsType) {
+            @$query['OpsType'] = $request->opsType;
         }
-        if (!Utils::isUnset($request->opsValue)) {
-            $query['OpsValue'] = $request->opsValue;
+
+        if (null !== $request->opsValue) {
+            @$query['OpsValue'] = $request->opsValue;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceOpsTask',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstanceOpsTask',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstanceOpsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an O&M task.
-     *  *
-     * @description O&M tasks are classified into:
+     * Creates an O&M task.
+     *
+     * @remarks
+     * O&M tasks are classified into:
      * *   coredump: After you enable coredump, the system generates a core dump file when a container unexpectedly stops. You can use the core dump file to analyze the exception and find out the cause of the problem. For more information, see [Enable coredump](https://help.aliyun.com/document_detail/167801.html).
      * *   tcpdump: After you enable tcpdump, the system captures network packets when a container unexpectedly stops. You can analyze the packets and locate network problems. For more information, see Enable [tcpdump](https://help.aliyun.com/document_detail/429749.html).
-     *  *
-     * @param CreateInstanceOpsTaskRequest $request CreateInstanceOpsTaskRequest
      *
-     * @return CreateInstanceOpsTaskResponse CreateInstanceOpsTaskResponse
+     * @param request - CreateInstanceOpsTaskRequest
+     *
+     * @returns CreateInstanceOpsTaskResponse
+     *
+     * @param CreateInstanceOpsTaskRequest $request
+     *
+     * @return CreateInstanceOpsTaskResponse
      */
     public function createInstanceOpsTask($request)
     {
@@ -971,110 +1193,142 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Creates a VNode to connect self-managed Kubernetes clusters to elastic container instances.
-     *  *
-     * @description *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](https://help.aliyun.com/document_detail/311014.html).
-     * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
-     *  *
-     * @param CreateVirtualNodeRequest $request CreateVirtualNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a VNode to connect self-managed Kubernetes clusters to elastic container instances.
      *
-     * @return CreateVirtualNodeResponse CreateVirtualNodeResponse
+     * @remarks
+     *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](https://help.aliyun.com/document_detail/311014.html).
+     * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
+     *
+     * @param request - CreateVirtualNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirtualNodeResponse
+     *
+     * @param CreateVirtualNodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateVirtualNodeResponse
      */
     public function createVirtualNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterDNS)) {
-            $query['ClusterDNS'] = $request->clusterDNS;
+
+        if (null !== $request->clusterDNS) {
+            @$query['ClusterDNS'] = $request->clusterDNS;
         }
-        if (!Utils::isUnset($request->clusterDomain)) {
-            $query['ClusterDomain'] = $request->clusterDomain;
+
+        if (null !== $request->clusterDomain) {
+            @$query['ClusterDomain'] = $request->clusterDomain;
         }
-        if (!Utils::isUnset($request->customResources)) {
-            $query['CustomResources'] = $request->customResources;
+
+        if (null !== $request->customResources) {
+            @$query['CustomResources'] = $request->customResources;
         }
-        if (!Utils::isUnset($request->eipInstanceId)) {
-            $query['EipInstanceId'] = $request->eipInstanceId;
+
+        if (null !== $request->eipInstanceId) {
+            @$query['EipInstanceId'] = $request->eipInstanceId;
         }
-        if (!Utils::isUnset($request->enablePublicNetwork)) {
-            $query['EnablePublicNetwork'] = $request->enablePublicNetwork;
+
+        if (null !== $request->enablePublicNetwork) {
+            @$query['EnablePublicNetwork'] = $request->enablePublicNetwork;
         }
-        if (!Utils::isUnset($request->kubeConfig)) {
-            $query['KubeConfig'] = $request->kubeConfig;
+
+        if (null !== $request->kubeConfig) {
+            @$query['KubeConfig'] = $request->kubeConfig;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->taint)) {
-            $query['Taint'] = $request->taint;
+
+        if (null !== $request->taint) {
+            @$query['Taint'] = $request->taint;
         }
-        if (!Utils::isUnset($request->tlsBootstrapEnabled)) {
-            $query['TlsBootstrapEnabled'] = $request->tlsBootstrapEnabled;
+
+        if (null !== $request->tlsBootstrapEnabled) {
+            @$query['TlsBootstrapEnabled'] = $request->tlsBootstrapEnabled;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->virtualNodeName)) {
-            $query['VirtualNodeName'] = $request->virtualNodeName;
+
+        if (null !== $request->virtualNodeName) {
+            @$query['VirtualNodeName'] = $request->virtualNodeName;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVirtualNode',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVirtualNode',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateVirtualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a VNode to connect self-managed Kubernetes clusters to elastic container instances.
-     *  *
-     * @description *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](https://help.aliyun.com/document_detail/311014.html).
-     * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
-     *  *
-     * @param CreateVirtualNodeRequest $request CreateVirtualNodeRequest
+     * Creates a VNode to connect self-managed Kubernetes clusters to elastic container instances.
      *
-     * @return CreateVirtualNodeResponse CreateVirtualNodeResponse
+     * @remarks
+     *   When you call this operation to create a virtual node, the system automatically creates a service-linked role AliyunServiceRoleForECIVnode. This way, you can use the service-linked role to access relevant cloud services such as Elastic Container Instance, Elastic Compute Service (ECS), and Virtual Private Cloud (VPC). For more information, see [Service-linked role for virtual nodes](https://help.aliyun.com/document_detail/311014.html).
+     * *   You are charged for virtual nodes based on number of virtual nodes that you use. Each virtual node has a resident node, which is equivalent to an ECI instance with 2 vCPU cores and 8 GiB memory. You are charged for virtual nodes based on elastic container instances.
+     *
+     * @param request - CreateVirtualNodeRequest
+     *
+     * @returns CreateVirtualNodeResponse
+     *
+     * @param CreateVirtualNodeRequest $request
+     *
+     * @return CreateVirtualNodeResponse
      */
     public function createVirtualNode($request)
     {
@@ -1084,72 +1338,92 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a container group.
-     *  *
-     * @description You can delete a container group that you no longer need. Before you delete a container group, make sure that you understand the lifecycle of container groups. For more information, see [Lifecycle of an elastic container instance](https://help.aliyun.com/document_detail/122385.html).
-     *  *
-     * @param DeleteContainerGroupRequest $request DeleteContainerGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a container group.
      *
-     * @return DeleteContainerGroupResponse DeleteContainerGroupResponse
+     * @remarks
+     * You can delete a container group that you no longer need. Before you delete a container group, make sure that you understand the lifecycle of container groups. For more information, see [Lifecycle of an elastic container instance](https://help.aliyun.com/document_detail/122385.html).
+     *
+     * @param request - DeleteContainerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContainerGroupResponse
+     *
+     * @param DeleteContainerGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteContainerGroupResponse
      */
     public function deleteContainerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteContainerGroup',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteContainerGroup',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteContainerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a container group.
-     *  *
-     * @description You can delete a container group that you no longer need. Before you delete a container group, make sure that you understand the lifecycle of container groups. For more information, see [Lifecycle of an elastic container instance](https://help.aliyun.com/document_detail/122385.html).
-     *  *
-     * @param DeleteContainerGroupRequest $request DeleteContainerGroupRequest
+     * Deletes a container group.
      *
-     * @return DeleteContainerGroupResponse DeleteContainerGroupResponse
+     * @remarks
+     * You can delete a container group that you no longer need. Before you delete a container group, make sure that you understand the lifecycle of container groups. For more information, see [Lifecycle of an elastic container instance](https://help.aliyun.com/document_detail/122385.html).
+     *
+     * @param request - DeleteContainerGroupRequest
+     *
+     * @returns DeleteContainerGroupResponse
+     *
+     * @param DeleteContainerGroupRequest $request
+     *
+     * @return DeleteContainerGroupResponse
      */
     public function deleteContainerGroup($request)
     {
@@ -1159,71 +1433,90 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a DataCache.
-     *  *
-     * @param DeleteDataCacheRequest $request DeleteDataCacheRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes a DataCache.
      *
-     * @return DeleteDataCacheResponse DeleteDataCacheResponse
+     * @param request - DeleteDataCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataCacheResponse
+     *
+     * @param DeleteDataCacheRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDataCacheResponse
      */
     public function deleteDataCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataCacheId)) {
-            $query['DataCacheId'] = $request->dataCacheId;
+
+        if (null !== $request->dataCacheId) {
+            @$query['DataCacheId'] = $request->dataCacheId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDataCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a DataCache.
-     *  *
-     * @param DeleteDataCacheRequest $request DeleteDataCacheRequest
+     * Deletes a DataCache.
      *
-     * @return DeleteDataCacheResponse DeleteDataCacheResponse
+     * @param request - DeleteDataCacheRequest
+     *
+     * @returns DeleteDataCacheResponse
+     *
+     * @param DeleteDataCacheRequest $request
+     *
+     * @return DeleteDataCacheResponse
      */
     public function deleteDataCache($request)
     {
@@ -1233,65 +1526,82 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an image cache.
-     *  *
-     * @param DeleteImageCacheRequest $request DeleteImageCacheRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes an image cache.
      *
-     * @return DeleteImageCacheResponse DeleteImageCacheResponse
+     * @param request - DeleteImageCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteImageCacheResponse
+     *
+     * @param DeleteImageCacheRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteImageCacheResponse
      */
     public function deleteImageCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageCacheId)) {
-            $query['ImageCacheId'] = $request->imageCacheId;
+
+        if (null !== $request->imageCacheId) {
+            @$query['ImageCacheId'] = $request->imageCacheId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteImageCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteImageCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteImageCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an image cache.
-     *  *
-     * @param DeleteImageCacheRequest $request DeleteImageCacheRequest
+     * Deletes an image cache.
      *
-     * @return DeleteImageCacheResponse DeleteImageCacheResponse
+     * @param request - DeleteImageCacheRequest
+     *
+     * @returns DeleteImageCacheResponse
+     *
+     * @param DeleteImageCacheRequest $request
+     *
+     * @return DeleteImageCacheResponse
      */
     public function deleteImageCache($request)
     {
@@ -1301,65 +1611,82 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a virtual node.
-     *  *
-     * @param DeleteVirtualNodeRequest $request DeleteVirtualNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a virtual node.
      *
-     * @return DeleteVirtualNodeResponse DeleteVirtualNodeResponse
+     * @param request - DeleteVirtualNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirtualNodeResponse
+     *
+     * @param DeleteVirtualNodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteVirtualNodeResponse
      */
     public function deleteVirtualNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->virtualNodeId)) {
-            $query['VirtualNodeId'] = $request->virtualNodeId;
+
+        if (null !== $request->virtualNodeId) {
+            @$query['VirtualNodeId'] = $request->virtualNodeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVirtualNode',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVirtualNode',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteVirtualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a virtual node.
-     *  *
-     * @param DeleteVirtualNodeRequest $request DeleteVirtualNodeRequest
+     * Deletes a virtual node.
      *
-     * @return DeleteVirtualNodeResponse DeleteVirtualNodeResponse
+     * @param request - DeleteVirtualNodeRequest
+     *
+     * @returns DeleteVirtualNodeResponse
+     *
+     * @param DeleteVirtualNodeRequest $request
+     *
+     * @return DeleteVirtualNodeResponse
      */
     public function deleteVirtualNode($request)
     {
@@ -1369,72 +1696,92 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Elastic Compute Service (ECS) instance families that are available in a specified region and zone.
-     *  *
-     * @description When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
-     *  *
-     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the Elastic Compute Service (ECS) instance families that are available in a specified region and zone.
      *
-     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
+     * @remarks
+     * When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
+     *
+     * @param request - DescribeAvailableResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAvailableResourceResponse
+     *
+     * @param DescribeAvailableResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->destinationResource)) {
-            $query['DestinationResource'] = $request->destinationResource;
+        if (null !== $request->destinationResource) {
+            @$query['DestinationResource'] = $request->destinationResource;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->spotResource)) {
-            $query['SpotResource'] = $request->spotResource;
+
+        if (null !== $request->spotResource) {
+            @$query['SpotResource'] = $request->spotResource;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableResource',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableResource',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Elastic Compute Service (ECS) instance families that are available in a specified region and zone.
-     *  *
-     * @description When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
-     *  *
-     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * Queries the Elastic Compute Service (ECS) instance families that are available in a specified region and zone.
      *
-     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
+     * @remarks
+     * When you call the CreateContainerGroup operation to create an elastic container instance, you can use the InstanceType parameter to specify ECS instance types that fit your specific needs. To ensure that the elastic container instance can be created, you can call the DescribeAvailableResource operation to query which ECS instance types and instance families are available in the specified region and zone before you create the elastic container instance.
+     *
+     * @param request - DescribeAvailableResourceRequest
+     *
+     * @returns DescribeAvailableResourceResponse
+     *
+     * @param DescribeAvailableResourceRequest $request
+     *
+     * @return DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -1444,74 +1791,94 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a CommitContainer task.
-     *  *
-     * @param DescribeCommitContainerTaskRequest $request DescribeCommitContainerTaskRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a CommitContainer task.
      *
-     * @return DescribeCommitContainerTaskResponse DescribeCommitContainerTaskResponse
+     * @param request - DescribeCommitContainerTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCommitContainerTaskResponse
+     *
+     * @param DescribeCommitContainerTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCommitContainerTaskResponse
      */
     public function describeCommitContainerTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCommitContainerTask',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCommitContainerTask',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCommitContainerTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a CommitContainer task.
-     *  *
-     * @param DescribeCommitContainerTaskRequest $request DescribeCommitContainerTaskRequest
+     * Queries the details of a CommitContainer task.
      *
-     * @return DescribeCommitContainerTaskResponse DescribeCommitContainerTaskResponse
+     * @param request - DescribeCommitContainerTaskRequest
+     *
+     * @returns DescribeCommitContainerTaskResponse
+     *
+     * @param DescribeCommitContainerTaskRequest $request
+     *
+     * @return DescribeCommitContainerTaskResponse
      */
     public function describeCommitContainerTask($request)
     {
@@ -1521,75 +1888,96 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries event information about multiple container groups at a time.
-     *  *
-     * @description You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
-     *  *
-     * @param DescribeContainerGroupEventsRequest $request DescribeContainerGroupEventsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries event information about multiple container groups at a time.
      *
-     * @return DescribeContainerGroupEventsResponse DescribeContainerGroupEventsResponse
+     * @remarks
+     * You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
+     *
+     * @param request - DescribeContainerGroupEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerGroupEventsResponse
+     *
+     * @param DescribeContainerGroupEventsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeContainerGroupEventsResponse
      */
     public function describeContainerGroupEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupIds)) {
-            $query['ContainerGroupIds'] = $request->containerGroupIds;
+        if (null !== $request->containerGroupIds) {
+            @$query['ContainerGroupIds'] = $request->containerGroupIds;
         }
-        if (!Utils::isUnset($request->eventSource)) {
-            $query['EventSource'] = $request->eventSource;
+
+        if (null !== $request->eventSource) {
+            @$query['EventSource'] = $request->eventSource;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sinceSecond)) {
-            $query['SinceSecond'] = $request->sinceSecond;
+
+        if (null !== $request->sinceSecond) {
+            @$query['SinceSecond'] = $request->sinceSecond;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContainerGroupEvents',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContainerGroupEvents',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContainerGroupEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries event information about multiple container groups at a time.
-     *  *
-     * @description You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
-     *  *
-     * @param DescribeContainerGroupEventsRequest $request DescribeContainerGroupEventsRequest
+     * Queries event information about multiple container groups at a time.
      *
-     * @return DescribeContainerGroupEventsResponse DescribeContainerGroupEventsResponse
+     * @remarks
+     * You can call this operation to query the event information about multiple elastic container instances at a time. By default, the most recent 50 entries of events of each elastic container instance are returned.
+     *
+     * @param request - DescribeContainerGroupEventsRequest
+     *
+     * @returns DescribeContainerGroupEventsResponse
+     *
+     * @param DescribeContainerGroupEventsRequest $request
+     *
+     * @return DescribeContainerGroupEventsResponse
      */
     public function describeContainerGroupEvents($request)
     {
@@ -1599,76 +1987,96 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of an elastic container instance.
-     *  *
-     * @description *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
+     * Queries the monitoring data of an elastic container instance.
+     *
+     * @remarks
+     *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
      * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
      * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
-     *  *
-     * @param DescribeContainerGroupMetricRequest $request DescribeContainerGroupMetricRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerGroupMetricResponse DescribeContainerGroupMetricResponse
+     * @param request - DescribeContainerGroupMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerGroupMetricResponse
+     *
+     * @param DescribeContainerGroupMetricRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeContainerGroupMetricResponse
      */
     public function describeContainerGroupMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContainerGroupMetric',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContainerGroupMetric',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContainerGroupMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring data of an elastic container instance.
-     *  *
-     * @description *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
+     * Queries the monitoring data of an elastic container instance.
+     *
+     * @remarks
+     *   A maximum of 50 monitoring data entries can be returned. If the number of monitoring data entries exceeds this limit, an error message is returned.
      * *   You can query real-time monitoring data (data generated within the last 5 minutes) and historical data (data generated more than 5 minutes ago). If the time range to query starts or ends later than the current time, historical monitoring data generated more than 5 minutes ago is returned.
      * *   The elastic container instance whose monitoring data you want to query must be created after April 3, 2019, 15:00 UTC+8.
-     *  *
-     * @param DescribeContainerGroupMetricRequest $request DescribeContainerGroupMetricRequest
      *
-     * @return DescribeContainerGroupMetricResponse DescribeContainerGroupMetricResponse
+     * @param request - DescribeContainerGroupMetricRequest
+     *
+     * @returns DescribeContainerGroupMetricResponse
+     *
+     * @param DescribeContainerGroupMetricRequest $request
+     *
+     * @return DescribeContainerGroupMetricResponse
      */
     public function describeContainerGroupMetric($request)
     {
@@ -1678,96 +2086,122 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the price of an elastic container instance.
-     *  *
-     * @description *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
+     * Queries the price of an elastic container instance.
+     *
+     * @remarks
+     *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
      * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
      *     *   [vCPU and memory specifications](https://help.aliyun.com/document_detail/114662.html).
      *     *   [ECS instance types that are supported by Elastic Container Instance](https://help.aliyun.com/document_detail/114664.html).
-     *  *
-     * @param DescribeContainerGroupPriceRequest $request DescribeContainerGroupPriceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerGroupPriceResponse DescribeContainerGroupPriceResponse
+     * @param request - DescribeContainerGroupPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerGroupPriceResponse
+     *
+     * @param DescribeContainerGroupPriceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeContainerGroupPriceResponse
      */
     public function describeContainerGroupPriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->computeCategory)) {
-            $query['ComputeCategory'] = $request->computeCategory;
+        if (null !== $request->computeCategory) {
+            @$query['ComputeCategory'] = $request->computeCategory;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $query['Cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$query['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->ephemeralStorage)) {
-            $query['EphemeralStorage'] = $request->ephemeralStorage;
+
+        if (null !== $request->ephemeralStorage) {
+            @$query['EphemeralStorage'] = $request->ephemeralStorage;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->memory)) {
-            $query['Memory'] = $request->memory;
+
+        if (null !== $request->memory) {
+            @$query['Memory'] = $request->memory;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->spotDuration)) {
-            $query['SpotDuration'] = $request->spotDuration;
+
+        if (null !== $request->spotDuration) {
+            @$query['SpotDuration'] = $request->spotDuration;
         }
-        if (!Utils::isUnset($request->spotPriceLimit)) {
-            $query['SpotPriceLimit'] = $request->spotPriceLimit;
+
+        if (null !== $request->spotPriceLimit) {
+            @$query['SpotPriceLimit'] = $request->spotPriceLimit;
         }
-        if (!Utils::isUnset($request->spotStrategy)) {
-            $query['SpotStrategy'] = $request->spotStrategy;
+
+        if (null !== $request->spotStrategy) {
+            @$query['SpotStrategy'] = $request->spotStrategy;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContainerGroupPrice',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContainerGroupPrice',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContainerGroupPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the price of an elastic container instance.
-     *  *
-     * @description *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
+     * Queries the price of an elastic container instance.
+     *
+     * @remarks
+     *   When you call this operation, you cannot use resource groups to control the permissions of a RAM user.
      * *   You can create an elastic container instance by specifying vCPU and memory resource specifications or by specifying ECS instance types. When you call this operation to query the prices of elastic container instances, pass in specifications of the elastic container instances.
      *     *   [vCPU and memory specifications](https://help.aliyun.com/document_detail/114662.html).
      *     *   [ECS instance types that are supported by Elastic Container Instance](https://help.aliyun.com/document_detail/114664.html).
-     *  *
-     * @param DescribeContainerGroupPriceRequest $request DescribeContainerGroupPriceRequest
      *
-     * @return DescribeContainerGroupPriceResponse DescribeContainerGroupPriceResponse
+     * @param request - DescribeContainerGroupPriceRequest
+     *
+     * @returns DescribeContainerGroupPriceResponse
+     *
+     * @param DescribeContainerGroupPriceRequest $request
+     *
+     * @return DescribeContainerGroupPriceResponse
      */
     public function describeContainerGroupPrice($request)
     {
@@ -1777,68 +2211,86 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statuses of multiple container groups at a time.
-     *  *
-     * @param DescribeContainerGroupStatusRequest $request DescribeContainerGroupStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the statuses of multiple container groups at a time.
      *
-     * @return DescribeContainerGroupStatusResponse DescribeContainerGroupStatusResponse
+     * @param request - DescribeContainerGroupStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerGroupStatusResponse
+     *
+     * @param DescribeContainerGroupStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeContainerGroupStatusResponse
      */
     public function describeContainerGroupStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupIds)) {
-            $query['ContainerGroupIds'] = $request->containerGroupIds;
+        if (null !== $request->containerGroupIds) {
+            @$query['ContainerGroupIds'] = $request->containerGroupIds;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sinceSecond)) {
-            $query['SinceSecond'] = $request->sinceSecond;
+
+        if (null !== $request->sinceSecond) {
+            @$query['SinceSecond'] = $request->sinceSecond;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContainerGroupStatus',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContainerGroupStatus',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContainerGroupStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statuses of multiple container groups at a time.
-     *  *
-     * @param DescribeContainerGroupStatusRequest $request DescribeContainerGroupStatusRequest
+     * Queries the statuses of multiple container groups at a time.
      *
-     * @return DescribeContainerGroupStatusResponse DescribeContainerGroupStatusResponse
+     * @param request - DescribeContainerGroupStatusRequest
+     *
+     * @returns DescribeContainerGroupStatusResponse
+     *
+     * @param DescribeContainerGroupStatusRequest $request
+     *
+     * @return DescribeContainerGroupStatusResponse
      */
     public function describeContainerGroupStatus($request)
     {
@@ -1848,105 +2300,134 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about multiple elastic container instances at a time.
-     *  *
-     * @description *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
+     * Queries information about multiple elastic container instances at a time.
+     *
+     * @remarks
+     *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
      * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
      *     *   All metadata information is retained within 1 hour since the instance enters the final status.
      *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
-     *  *
-     * @param DescribeContainerGroupsRequest $request DescribeContainerGroupsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerGroupsResponse DescribeContainerGroupsResponse
+     * @param request - DescribeContainerGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerGroupsResponse
+     *
+     * @param DescribeContainerGroupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeContainerGroupsResponse
      */
     public function describeContainerGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->computeCategory)) {
-            $query['ComputeCategory'] = $request->computeCategory;
+        if (null !== $request->computeCategory) {
+            @$query['ComputeCategory'] = $request->computeCategory;
         }
-        if (!Utils::isUnset($request->containerGroupIds)) {
-            $query['ContainerGroupIds'] = $request->containerGroupIds;
+
+        if (null !== $request->containerGroupIds) {
+            @$query['ContainerGroupIds'] = $request->containerGroupIds;
         }
-        if (!Utils::isUnset($request->containerGroupName)) {
-            $query['ContainerGroupName'] = $request->containerGroupName;
+
+        if (null !== $request->containerGroupName) {
+            @$query['ContainerGroupName'] = $request->containerGroupName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->withEvent)) {
-            $query['WithEvent'] = $request->withEvent;
+
+        if (null !== $request->withEvent) {
+            @$query['WithEvent'] = $request->withEvent;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContainerGroups',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContainerGroups',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContainerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about multiple elastic container instances at a time.
-     *  *
-     * @description *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
+     * Queries information about multiple elastic container instances at a time.
+     *
+     * @remarks
+     *   After an elastic container instance is terminated, its underlying computing resources are recycled. By default, other resources, such as elastic IP addresses (EIPs), that are created together with the instance are released together with the instance.
      * *   The metadata of an instance in the final status (Failed, Succeeded, or Expired) is retained based on the following rules:
      *     *   All metadata information is retained within 1 hour since the instance enters the final status.
      *     *   One hour after the instance enters the final status, only the latest 100 entries of metadata information in each region are retained.
-     *  *
-     * @param DescribeContainerGroupsRequest $request DescribeContainerGroupsRequest
      *
-     * @return DescribeContainerGroupsResponse DescribeContainerGroupsResponse
+     * @param request - DescribeContainerGroupsRequest
+     *
+     * @returns DescribeContainerGroupsResponse
+     *
+     * @param DescribeContainerGroupsRequest $request
+     *
+     * @return DescribeContainerGroupsResponse
      */
     public function describeContainerGroups($request)
     {
@@ -1956,80 +2437,102 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of a container in a container group.
-     *  *
-     * @param DescribeContainerLogRequest $request DescribeContainerLogRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the logs of a container in a container group.
      *
-     * @return DescribeContainerLogResponse DescribeContainerLogResponse
+     * @param request - DescribeContainerLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerLogResponse
+     *
+     * @param DescribeContainerLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeContainerLogResponse
      */
     public function describeContainerLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->containerName)) {
-            $query['ContainerName'] = $request->containerName;
+
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
         }
-        if (!Utils::isUnset($request->lastTime)) {
-            $query['LastTime'] = $request->lastTime;
+
+        if (null !== $request->lastTime) {
+            @$query['LastTime'] = $request->lastTime;
         }
-        if (!Utils::isUnset($request->limitBytes)) {
-            $query['LimitBytes'] = $request->limitBytes;
+
+        if (null !== $request->limitBytes) {
+            @$query['LimitBytes'] = $request->limitBytes;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sinceSeconds)) {
-            $query['SinceSeconds'] = $request->sinceSeconds;
+
+        if (null !== $request->sinceSeconds) {
+            @$query['SinceSeconds'] = $request->sinceSeconds;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tail)) {
-            $query['Tail'] = $request->tail;
+
+        if (null !== $request->tail) {
+            @$query['Tail'] = $request->tail;
         }
-        if (!Utils::isUnset($request->timestamps)) {
-            $query['Timestamps'] = $request->timestamps;
+
+        if (null !== $request->timestamps) {
+            @$query['Timestamps'] = $request->timestamps;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContainerLog',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContainerLog',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContainerLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logs of a container in a container group.
-     *  *
-     * @param DescribeContainerLogRequest $request DescribeContainerLogRequest
+     * Queries the logs of a container in a container group.
      *
-     * @return DescribeContainerLogResponse DescribeContainerLogResponse
+     * @param request - DescribeContainerLogRequest
+     *
+     * @returns DescribeContainerLogResponse
+     *
+     * @param DescribeContainerLogRequest $request
+     *
+     * @return DescribeContainerLogResponse
      */
     public function describeContainerLog($request)
     {
@@ -2039,80 +2542,102 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about data caches.
-     *  *
-     * @param DescribeDataCachesRequest $request DescribeDataCachesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about data caches.
      *
-     * @return DescribeDataCachesResponse DescribeDataCachesResponse
+     * @param request - DescribeDataCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataCachesResponse
+     *
+     * @param DescribeDataCachesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDataCachesResponse
      */
     public function describeDataCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
         }
-        if (!Utils::isUnset($request->dataCacheId)) {
-            $query['DataCacheId'] = $request->dataCacheId;
+
+        if (null !== $request->dataCacheId) {
+            @$query['DataCacheId'] = $request->dataCacheId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataCaches',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataCaches',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about data caches.
-     *  *
-     * @param DescribeDataCachesRequest $request DescribeDataCachesRequest
+     * Queries the information about data caches.
      *
-     * @return DescribeDataCachesResponse DescribeDataCachesResponse
+     * @param request - DescribeDataCachesRequest
+     *
+     * @returns DescribeDataCachesResponse
+     *
+     * @param DescribeDataCachesRequest $request
+     *
+     * @return DescribeDataCachesResponse
      */
     public function describeDataCaches($request)
     {
@@ -2122,92 +2647,118 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about image caches.
-     *  *
-     * @param DescribeImageCachesRequest $request DescribeImageCachesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries information about image caches.
      *
-     * @return DescribeImageCachesResponse DescribeImageCachesResponse
+     * @param request - DescribeImageCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImageCachesResponse
+     *
+     * @param DescribeImageCachesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeImageCachesResponse
      */
     public function describeImageCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->image)) {
-            $query['Image'] = $request->image;
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
         }
-        if (!Utils::isUnset($request->imageCacheId)) {
-            $query['ImageCacheId'] = $request->imageCacheId;
+
+        if (null !== $request->imageCacheId) {
+            @$query['ImageCacheId'] = $request->imageCacheId;
         }
-        if (!Utils::isUnset($request->imageCacheName)) {
-            $query['ImageCacheName'] = $request->imageCacheName;
+
+        if (null !== $request->imageCacheName) {
+            @$query['ImageCacheName'] = $request->imageCacheName;
         }
-        if (!Utils::isUnset($request->imageFullMatch)) {
-            $query['ImageFullMatch'] = $request->imageFullMatch;
+
+        if (null !== $request->imageFullMatch) {
+            @$query['ImageFullMatch'] = $request->imageFullMatch;
         }
-        if (!Utils::isUnset($request->imageMatchCountRequest)) {
-            $query['ImageMatchCountRequest'] = $request->imageMatchCountRequest;
+
+        if (null !== $request->imageMatchCountRequest) {
+            @$query['ImageMatchCountRequest'] = $request->imageMatchCountRequest;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->matchImage)) {
-            $query['MatchImage'] = $request->matchImage;
+
+        if (null !== $request->matchImage) {
+            @$query['MatchImage'] = $request->matchImage;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeImageCaches',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeImageCaches',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeImageCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about image caches.
-     *  *
-     * @param DescribeImageCachesRequest $request DescribeImageCachesRequest
+     * Queries information about image caches.
      *
-     * @return DescribeImageCachesResponse DescribeImageCachesResponse
+     * @param request - DescribeImageCachesRequest
+     *
+     * @returns DescribeImageCachesResponse
+     *
+     * @param DescribeImageCachesRequest $request
+     *
+     * @return DescribeImageCachesResponse
      */
     public function describeImageCaches($request)
     {
@@ -2217,65 +2768,82 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about operations and maintenance tasks of an elastic container instance.
-     *  *
-     * @param DescribeInstanceOpsRecordsRequest $request DescribeInstanceOpsRecordsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about operations and maintenance tasks of an elastic container instance.
      *
-     * @return DescribeInstanceOpsRecordsResponse DescribeInstanceOpsRecordsResponse
+     * @param request - DescribeInstanceOpsRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceOpsRecordsResponse
+     *
+     * @param DescribeInstanceOpsRecordsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceOpsRecordsResponse
      */
     public function describeInstanceOpsRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->opsType)) {
-            $query['OpsType'] = $request->opsType;
+
+        if (null !== $request->opsType) {
+            @$query['OpsType'] = $request->opsType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceOpsRecords',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceOpsRecords',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceOpsRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about operations and maintenance tasks of an elastic container instance.
-     *  *
-     * @param DescribeInstanceOpsRecordsRequest $request DescribeInstanceOpsRecordsRequest
+     * Queries the information about operations and maintenance tasks of an elastic container instance.
      *
-     * @return DescribeInstanceOpsRecordsResponse DescribeInstanceOpsRecordsResponse
+     * @param request - DescribeInstanceOpsRecordsRequest
+     *
+     * @returns DescribeInstanceOpsRecordsResponse
+     *
+     * @param DescribeInstanceOpsRecordsRequest $request
+     *
+     * @return DescribeInstanceOpsRecordsResponse
      */
     public function describeInstanceOpsRecords($request)
     {
@@ -2285,71 +2853,90 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of elastic container instances.
-     *  *
-     * @description *   Only the latest entry of monitoring data of each elastic container instance is returned.
-     * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
-     *  *
-     * @param DescribeMultiContainerGroupMetricRequest $request DescribeMultiContainerGroupMetricRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the monitoring data of elastic container instances.
      *
-     * @return DescribeMultiContainerGroupMetricResponse DescribeMultiContainerGroupMetricResponse
+     * @remarks
+     *   Only the latest entry of monitoring data of each elastic container instance is returned.
+     * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
+     *
+     * @param request - DescribeMultiContainerGroupMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMultiContainerGroupMetricResponse
+     *
+     * @param DescribeMultiContainerGroupMetricRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeMultiContainerGroupMetricResponse
      */
     public function describeMultiContainerGroupMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerGroupIds)) {
-            $query['ContainerGroupIds'] = $request->containerGroupIds;
+        if (null !== $request->containerGroupIds) {
+            @$query['ContainerGroupIds'] = $request->containerGroupIds;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMultiContainerGroupMetric',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMultiContainerGroupMetric',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMultiContainerGroupMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring data of elastic container instances.
-     *  *
-     * @description *   Only the latest entry of monitoring data of each elastic container instance is returned.
-     * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
-     *  *
-     * @param DescribeMultiContainerGroupMetricRequest $request DescribeMultiContainerGroupMetricRequest
+     * Queries the monitoring data of elastic container instances.
      *
-     * @return DescribeMultiContainerGroupMetricResponse DescribeMultiContainerGroupMetricResponse
+     * @remarks
+     *   Only the latest entry of monitoring data of each elastic container instance is returned.
+     * *   You can query only the monitoring data of elastic container instances that are created after April 3, 2019 15:00:00 UTC+8.
+     *
+     * @param request - DescribeMultiContainerGroupMetricRequest
+     *
+     * @returns DescribeMultiContainerGroupMetricResponse
+     *
+     * @param DescribeMultiContainerGroupMetricRequest $request
+     *
+     * @return DescribeMultiContainerGroupMetricResponse
      */
     public function describeMultiContainerGroupMetric($request)
     {
@@ -2359,59 +2946,74 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions and zones in which Elastic Container Instance is available.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the regions and zones in which Elastic Container Instance is available.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the regions and zones in which Elastic Container Instance is available.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the regions and zones in which Elastic Container Instance is available.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2421,83 +3023,106 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about virtual nodes.
-     *  *
-     * @param DescribeVirtualNodesRequest $request DescribeVirtualNodesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries information about virtual nodes.
      *
-     * @return DescribeVirtualNodesResponse DescribeVirtualNodesResponse
+     * @param request - DescribeVirtualNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVirtualNodesResponse
+     *
+     * @param DescribeVirtualNodesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVirtualNodesResponse
      */
     public function describeVirtualNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->virtualNodeIds)) {
-            $query['VirtualNodeIds'] = $request->virtualNodeIds;
+
+        if (null !== $request->virtualNodeIds) {
+            @$query['VirtualNodeIds'] = $request->virtualNodeIds;
         }
-        if (!Utils::isUnset($request->virtualNodeName)) {
-            $query['VirtualNodeName'] = $request->virtualNodeName;
+
+        if (null !== $request->virtualNodeName) {
+            @$query['VirtualNodeName'] = $request->virtualNodeName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVirtualNodes',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVirtualNodes',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVirtualNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about virtual nodes.
-     *  *
-     * @param DescribeVirtualNodesRequest $request DescribeVirtualNodesRequest
+     * Queries information about virtual nodes.
      *
-     * @return DescribeVirtualNodesResponse DescribeVirtualNodesResponse
+     * @param request - DescribeVirtualNodesRequest
+     *
+     * @returns DescribeVirtualNodesResponse
+     *
+     * @param DescribeVirtualNodesRequest $request
+     *
+     * @return DescribeVirtualNodesResponse
      */
     public function describeVirtualNodes($request)
     {
@@ -2507,77 +3132,98 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Runs commands in a container.
-     *  *
-     * @param ExecContainerCommandRequest $request ExecContainerCommandRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Runs commands in a container.
      *
-     * @return ExecContainerCommandResponse ExecContainerCommandResponse
+     * @param request - ExecContainerCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecContainerCommandResponse
+     *
+     * @param ExecContainerCommandRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ExecContainerCommandResponse
      */
     public function execContainerCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->command)) {
-            $query['Command'] = $request->command;
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->containerName)) {
-            $query['ContainerName'] = $request->containerName;
+
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->stdin)) {
-            $query['Stdin'] = $request->stdin;
+
+        if (null !== $request->stdin) {
+            @$query['Stdin'] = $request->stdin;
         }
-        if (!Utils::isUnset($request->sync)) {
-            $query['Sync'] = $request->sync;
+
+        if (null !== $request->sync) {
+            @$query['Sync'] = $request->sync;
         }
-        if (!Utils::isUnset($request->TTY)) {
-            $query['TTY'] = $request->TTY;
+
+        if (null !== $request->TTY) {
+            @$query['TTY'] = $request->TTY;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecContainerCommand',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecContainerCommand',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExecContainerCommandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Runs commands in a container.
-     *  *
-     * @param ExecContainerCommandRequest $request ExecContainerCommandRequest
+     * Runs commands in a container.
      *
-     * @return ExecContainerCommandResponse ExecContainerCommandResponse
+     * @param request - ExecContainerCommandRequest
+     *
+     * @returns ExecContainerCommandResponse
+     *
+     * @param ExecContainerCommandRequest $request
+     *
+     * @return ExecContainerCommandResponse
      */
     public function execContainerCommand($request)
     {
@@ -2587,74 +3233,94 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户tag
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to an Elastic Container Instance resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户tag
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are added to an Elastic Container Instance resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2664,63 +3330,80 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Queries the used amounts and upper limits of privileges and quotas that you have in a specified region.
-     *  *
-     * @description This operation does not support resource group authentication.
-     *  *
-     * @param ListUsageRequest $request ListUsageRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the used amounts and upper limits of privileges and quotas that you have in a specified region.
      *
-     * @return ListUsageResponse ListUsageResponse
+     * @remarks
+     * This operation does not support resource group authentication.
+     *
+     * @param request - ListUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsageResponse
+     *
+     * @param ListUsageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsageResponse
      */
     public function listUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsage',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsage',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the used amounts and upper limits of privileges and quotas that you have in a specified region.
-     *  *
-     * @description This operation does not support resource group authentication.
-     *  *
-     * @param ListUsageRequest $request ListUsageRequest
+     * Queries the used amounts and upper limits of privileges and quotas that you have in a specified region.
      *
-     * @return ListUsageResponse ListUsageResponse
+     * @remarks
+     * This operation does not support resource group authentication.
+     *
+     * @param request - ListUsageRequest
+     *
+     * @returns ListUsageResponse
+     *
+     * @param ListUsageRequest $request
+     *
+     * @return ListUsageResponse
      */
     public function listUsage($request)
     {
@@ -2730,75 +3413,100 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Scales out volumes on an elastic container instance.
-     *  *
-     * @description You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
-     *  *
-     * @param ResizeContainerGroupVolumeRequest $request ResizeContainerGroupVolumeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Scales up a disk volume that is mounted to an elastic container instance.
      *
-     * @return ResizeContainerGroupVolumeResponse ResizeContainerGroupVolumeResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * *   You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation.
+     * *   Only volumes of the disk type can be scaled up. Volumes of other types cannot be scaled up.
+     *
+     * @param request - ResizeContainerGroupVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResizeContainerGroupVolumeResponse
+     *
+     * @param ResizeContainerGroupVolumeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ResizeContainerGroupVolumeResponse
      */
     public function resizeContainerGroupVolumeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->newSize)) {
-            $query['NewSize'] = $request->newSize;
+
+        if (null !== $request->newSize) {
+            @$query['NewSize'] = $request->newSize;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->volumeName)) {
-            $query['VolumeName'] = $request->volumeName;
+
+        if (null !== $request->volumeName) {
+            @$query['VolumeName'] = $request->volumeName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResizeContainerGroupVolume',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResizeContainerGroupVolume',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResizeContainerGroupVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Scales out volumes on an elastic container instance.
-     *  *
-     * @description You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation. Only volumes of Alibaba Cloud disks can be scaled up.
-     *  *
-     * @param ResizeContainerGroupVolumeRequest $request ResizeContainerGroupVolumeRequest
+     * Scales up a disk volume that is mounted to an elastic container instance.
      *
-     * @return ResizeContainerGroupVolumeResponse ResizeContainerGroupVolumeResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * *   You can scale up volumes by calling this operation. You cannot scale down volumes by calling this operation.
+     * *   Only volumes of the disk type can be scaled up. Volumes of other types cannot be scaled up.
+     *
+     * @param request - ResizeContainerGroupVolumeRequest
+     *
+     * @returns ResizeContainerGroupVolumeResponse
+     *
+     * @param ResizeContainerGroupVolumeRequest $request
+     *
+     * @return ResizeContainerGroupVolumeResponse
      */
     public function resizeContainerGroupVolume($request)
     {
@@ -2808,73 +3516,92 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Restarts an elastic container instance.
-     *  *
-     * @description *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
+     * Restarts an elastic container instance.
+     *
+     * @remarks
+     *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
      * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
      * *   When an elastic container instance is being restarted, its status changes into Restarting.
-     *  *
-     * @param RestartContainerGroupRequest $request RestartContainerGroupRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartContainerGroupResponse RestartContainerGroupResponse
+     * @param request - RestartContainerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartContainerGroupResponse
+     *
+     * @param RestartContainerGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RestartContainerGroupResponse
      */
     public function restartContainerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartContainerGroup',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartContainerGroup',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestartContainerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts an elastic container instance.
-     *  *
-     * @description *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
+     * Restarts an elastic container instance.
+     *
+     * @remarks
+     *   Only elastic container instances that are in the Pending or Running state can be restarted. Instances that are in the Succeeded or Failed state cannot be restarted.
      * *   Elastic container instances that were created before 15:00:00 on March 7, 2019 cannot be restarted.
      * *   When an elastic container instance is being restarted, its status changes into Restarting.
-     *  *
-     * @param RestartContainerGroupRequest $request RestartContainerGroupRequest
      *
-     * @return RestartContainerGroupResponse RestartContainerGroupResponse
+     * @param request - RestartContainerGroupRequest
+     *
+     * @returns RestartContainerGroupResponse
+     *
+     * @param RestartContainerGroupRequest $request
+     *
+     * @return RestartContainerGroupResponse
      */
     public function restartContainerGroup($request)
     {
@@ -2884,68 +3611,86 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary 打用户tag
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to an Elastic Container Instance resource.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 打用户tag
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to an Elastic Container Instance resource.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2955,74 +3700,94 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary 去除用户tag
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from an Elastic Container Instance resource.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 去除用户tag
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from an Elastic Container Instance resource.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -3032,107 +3797,138 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Updates an elastic container instance.
-     *  *
-     * @description *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
-     * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
-     *  *
-     * @param UpdateContainerGroupRequest $request UpdateContainerGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Updates an elastic container instance.
      *
-     * @return UpdateContainerGroupResponse UpdateContainerGroupResponse
+     * @remarks
+     *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+     * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
+     *
+     * @param request - UpdateContainerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContainerGroupResponse
+     *
+     * @param UpdateContainerGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateContainerGroupResponse
      */
     public function updateContainerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acrRegistryInfo)) {
-            $query['AcrRegistryInfo'] = $request->acrRegistryInfo;
+        if (null !== $request->acrRegistryInfo) {
+            @$query['AcrRegistryInfo'] = $request->acrRegistryInfo;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->container)) {
-            $query['Container'] = $request->container;
+
+        if (null !== $request->container) {
+            @$query['Container'] = $request->container;
         }
-        if (!Utils::isUnset($request->containerGroupId)) {
-            $query['ContainerGroupId'] = $request->containerGroupId;
+
+        if (null !== $request->containerGroupId) {
+            @$query['ContainerGroupId'] = $request->containerGroupId;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $query['Cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$query['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->imageRegistryCredential)) {
-            $query['ImageRegistryCredential'] = $request->imageRegistryCredential;
+
+        if (null !== $request->imageRegistryCredential) {
+            @$query['ImageRegistryCredential'] = $request->imageRegistryCredential;
         }
-        if (!Utils::isUnset($request->initContainer)) {
-            $query['InitContainer'] = $request->initContainer;
+
+        if (null !== $request->initContainer) {
+            @$query['InitContainer'] = $request->initContainer;
         }
-        if (!Utils::isUnset($request->memory)) {
-            $query['Memory'] = $request->memory;
+
+        if (null !== $request->memory) {
+            @$query['Memory'] = $request->memory;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->restartPolicy)) {
-            $query['RestartPolicy'] = $request->restartPolicy;
+
+        if (null !== $request->restartPolicy) {
+            @$query['RestartPolicy'] = $request->restartPolicy;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->updateType)) {
-            $query['UpdateType'] = $request->updateType;
+
+        if (null !== $request->updateType) {
+            @$query['UpdateType'] = $request->updateType;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
-        if (!Utils::isUnset($request->dnsConfig)) {
-            $query['DnsConfig'] = $request->dnsConfig;
+
+        if (null !== $request->dnsConfig) {
+            @$query['DnsConfig'] = $request->dnsConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateContainerGroup',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateContainerGroup',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateContainerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an elastic container instance.
-     *  *
-     * @description *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
-     * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
-     *  *
-     * @param UpdateContainerGroupRequest $request UpdateContainerGroupRequest
+     * Updates an elastic container instance.
      *
-     * @return UpdateContainerGroupResponse UpdateContainerGroupResponse
+     * @remarks
+     *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+     * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
+     *
+     * @param request - UpdateContainerGroupRequest
+     *
+     * @returns UpdateContainerGroupResponse
+     *
+     * @param UpdateContainerGroupRequest $request
+     *
+     * @return UpdateContainerGroupResponse
      */
     public function updateContainerGroup($request)
     {
@@ -3142,98 +3938,126 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Updates a data cache.
-     *  *
-     * @param UpdateDataCacheRequest $request UpdateDataCacheRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Updates a data cache.
      *
-     * @return UpdateDataCacheResponse UpdateDataCacheResponse
+     * @param request - UpdateDataCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataCacheResponse
+     *
+     * @param UpdateDataCacheRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateDataCacheResponse
      */
     public function updateDataCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataCacheId)) {
-            $query['DataCacheId'] = $request->dataCacheId;
+
+        if (null !== $request->dataCacheId) {
+            @$query['DataCacheId'] = $request->dataCacheId;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $query['DataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$query['DataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->eipCreateParam)) {
-            $query['EipCreateParam'] = $request->eipCreateParam;
+
+        if (null !== $request->eipCreateParam) {
+            @$query['EipCreateParam'] = $request->eipCreateParam;
         }
-        if (!Utils::isUnset($request->eipInstanceId)) {
-            $query['EipInstanceId'] = $request->eipInstanceId;
+
+        if (null !== $request->eipInstanceId) {
+            @$query['EipInstanceId'] = $request->eipInstanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDataCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDataCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a data cache.
-     *  *
-     * @param UpdateDataCacheRequest $request UpdateDataCacheRequest
+     * Updates a data cache.
      *
-     * @return UpdateDataCacheResponse UpdateDataCacheResponse
+     * @param request - UpdateDataCacheRequest
+     *
+     * @returns UpdateDataCacheResponse
+     *
+     * @param UpdateDataCacheRequest $request
+     *
+     * @return UpdateDataCacheResponse
      */
     public function updateDataCache($request)
     {
@@ -3243,117 +4067,152 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Updates an image cache.
-     *  *
-     * @description Only image caches that are in the Ready or UpdateFailed state can be updated.
-     *  *
-     * @param UpdateImageCacheRequest $request UpdateImageCacheRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates an image cache.
      *
-     * @return UpdateImageCacheResponse UpdateImageCacheResponse
+     * @remarks
+     * Only image caches that are in the Ready or UpdateFailed state can be updated.
+     *
+     * @param request - UpdateImageCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateImageCacheResponse
+     *
+     * @param UpdateImageCacheRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateImageCacheResponse
      */
     public function updateImageCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acrRegistryInfo)) {
-            $query['AcrRegistryInfo'] = $request->acrRegistryInfo;
+        if (null !== $request->acrRegistryInfo) {
+            @$query['AcrRegistryInfo'] = $request->acrRegistryInfo;
         }
-        if (!Utils::isUnset($request->autoMatchImageCache)) {
-            $query['AutoMatchImageCache'] = $request->autoMatchImageCache;
+
+        if (null !== $request->autoMatchImageCache) {
+            @$query['AutoMatchImageCache'] = $request->autoMatchImageCache;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->eipInstanceId)) {
-            $query['EipInstanceId'] = $request->eipInstanceId;
+
+        if (null !== $request->eipInstanceId) {
+            @$query['EipInstanceId'] = $request->eipInstanceId;
         }
-        if (!Utils::isUnset($request->eliminationStrategy)) {
-            $query['EliminationStrategy'] = $request->eliminationStrategy;
+
+        if (null !== $request->eliminationStrategy) {
+            @$query['EliminationStrategy'] = $request->eliminationStrategy;
         }
-        if (!Utils::isUnset($request->flash)) {
-            $query['Flash'] = $request->flash;
+
+        if (null !== $request->flash) {
+            @$query['Flash'] = $request->flash;
         }
-        if (!Utils::isUnset($request->flashCopyCount)) {
-            $query['FlashCopyCount'] = $request->flashCopyCount;
+
+        if (null !== $request->flashCopyCount) {
+            @$query['FlashCopyCount'] = $request->flashCopyCount;
         }
-        if (!Utils::isUnset($request->image)) {
-            $query['Image'] = $request->image;
+
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
         }
-        if (!Utils::isUnset($request->imageCacheId)) {
-            $query['ImageCacheId'] = $request->imageCacheId;
+
+        if (null !== $request->imageCacheId) {
+            @$query['ImageCacheId'] = $request->imageCacheId;
         }
-        if (!Utils::isUnset($request->imageCacheName)) {
-            $query['ImageCacheName'] = $request->imageCacheName;
+
+        if (null !== $request->imageCacheName) {
+            @$query['ImageCacheName'] = $request->imageCacheName;
         }
-        if (!Utils::isUnset($request->imageCacheSize)) {
-            $query['ImageCacheSize'] = $request->imageCacheSize;
+
+        if (null !== $request->imageCacheSize) {
+            @$query['ImageCacheSize'] = $request->imageCacheSize;
         }
-        if (!Utils::isUnset($request->imageRegistryCredential)) {
-            $query['ImageRegistryCredential'] = $request->imageRegistryCredential;
+
+        if (null !== $request->imageRegistryCredential) {
+            @$query['ImageRegistryCredential'] = $request->imageRegistryCredential;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->standardCopyCount)) {
-            $query['StandardCopyCount'] = $request->standardCopyCount;
+
+        if (null !== $request->standardCopyCount) {
+            @$query['StandardCopyCount'] = $request->standardCopyCount;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateImageCache',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateImageCache',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateImageCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an image cache.
-     *  *
-     * @description Only image caches that are in the Ready or UpdateFailed state can be updated.
-     *  *
-     * @param UpdateImageCacheRequest $request UpdateImageCacheRequest
+     * Updates an image cache.
      *
-     * @return UpdateImageCacheResponse UpdateImageCacheResponse
+     * @remarks
+     * Only image caches that are in the Ready or UpdateFailed state can be updated.
+     *
+     * @param request - UpdateImageCacheRequest
+     *
+     * @returns UpdateImageCacheResponse
+     *
+     * @param UpdateImageCacheRequest $request
+     *
+     * @return UpdateImageCacheResponse
      */
     public function updateImageCache($request)
     {
@@ -3363,86 +4222,110 @@ class Eci extends OpenApiClient
     }
 
     /**
-     * @summary Updates attributes of a virtual node.
-     *  *
-     * @description ## Usage notes
-     * Only virtual nodes that are in the Ready state can be updated.
-     *  *
-     * @param UpdateVirtualNodeRequest $request UpdateVirtualNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates attributes of a virtual node.
      *
-     * @return UpdateVirtualNodeResponse UpdateVirtualNodeResponse
+     * @remarks
+     * ## Usage notes
+     * Only virtual nodes that are in the Ready state can be updated.
+     *
+     * @param request - UpdateVirtualNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVirtualNodeResponse
+     *
+     * @param UpdateVirtualNodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateVirtualNodeResponse
      */
     public function updateVirtualNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterDNS)) {
-            $query['ClusterDNS'] = $request->clusterDNS;
+
+        if (null !== $request->clusterDNS) {
+            @$query['ClusterDNS'] = $request->clusterDNS;
         }
-        if (!Utils::isUnset($request->clusterDomain)) {
-            $query['ClusterDomain'] = $request->clusterDomain;
+
+        if (null !== $request->clusterDomain) {
+            @$query['ClusterDomain'] = $request->clusterDomain;
         }
-        if (!Utils::isUnset($request->customResources)) {
-            $query['CustomResources'] = $request->customResources;
+
+        if (null !== $request->customResources) {
+            @$query['CustomResources'] = $request->customResources;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->virtualNodeId)) {
-            $query['VirtualNodeId'] = $request->virtualNodeId;
+
+        if (null !== $request->virtualNodeId) {
+            @$query['VirtualNodeId'] = $request->virtualNodeId;
         }
-        if (!Utils::isUnset($request->virtualNodeName)) {
-            $query['VirtualNodeName'] = $request->virtualNodeName;
+
+        if (null !== $request->virtualNodeName) {
+            @$query['VirtualNodeName'] = $request->virtualNodeName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVirtualNode',
-            'version'     => '2018-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVirtualNode',
+            'version' => '2018-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateVirtualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates attributes of a virtual node.
-     *  *
-     * @description ## Usage notes
-     * Only virtual nodes that are in the Ready state can be updated.
-     *  *
-     * @param UpdateVirtualNodeRequest $request UpdateVirtualNodeRequest
+     * Updates attributes of a virtual node.
      *
-     * @return UpdateVirtualNodeResponse UpdateVirtualNodeResponse
+     * @remarks
+     * ## Usage notes
+     * Only virtual nodes that are in the Ready state can be updated.
+     *
+     * @param request - UpdateVirtualNodeRequest
+     *
+     * @returns UpdateVirtualNodeResponse
+     *
+     * @param UpdateVirtualNodeRequest $request
+     *
+     * @return UpdateVirtualNodeResponse
      */
     public function updateVirtualNode($request)
     {

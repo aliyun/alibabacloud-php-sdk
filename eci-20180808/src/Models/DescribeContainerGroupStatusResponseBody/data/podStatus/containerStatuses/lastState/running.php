@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupStatusResponseBody\data\podStatus\containerStatuses\lastState;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class running extends Model
 {
     /**
-     * @description The time when the container started to run.
-     *
-     * @example 2021-05-23T20:49:31Z
-     *
      * @var string
      */
     public $startedAtstartedAt;
@@ -22,9 +18,10 @@ class running extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->startedAtstartedAt) {
@@ -34,11 +31,11 @@ class running extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return running
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

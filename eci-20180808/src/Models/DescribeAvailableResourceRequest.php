@@ -4,16 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeAvailableResourceRequest\destinationResource;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeAvailableResourceRequest\spotResource;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableResourceRequest extends Model
 {
     /**
-     * @description The information about the resource that you want to query.
-     *
-     * This parameter is required.
      * @var destinationResource
      */
     public $destinationResource;
@@ -29,11 +26,6 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the ECS instance families.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -49,60 +41,67 @@ class DescribeAvailableResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The information about the preemptible instances that you want to query.
-     *
      * @var spotResource
      */
     public $spotResource;
 
     /**
-     * @description The zone ID of the ECS instance families.
-     *
-     * This parameter is empty by default, which indicates that ECS instance families available in all zones in the specified region are queried.
-     * @example cn-hangzhou-e
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'destinationResource'  => 'DestinationResource',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'destinationResource' => 'DestinationResource',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'spotResource'         => 'SpotResource',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'spotResource' => 'SpotResource',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (null !== $this->destinationResource) {
+            $this->destinationResource->validate();
+        }
+        if (null !== $this->spotResource) {
+            $this->spotResource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationResource) {
-            $res['DestinationResource'] = null !== $this->destinationResource ? $this->destinationResource->toMap() : null;
+            $res['DestinationResource'] = null !== $this->destinationResource ? $this->destinationResource->toArray($noStream) : $this->destinationResource;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->spotResource) {
-            $res['SpotResource'] = null !== $this->spotResource ? $this->spotResource->toMap() : null;
+            $res['SpotResource'] = null !== $this->spotResource ? $this->spotResource->toArray($noStream) : $this->spotResource;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -110,35 +109,42 @@ class DescribeAvailableResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationResource'])) {
             $model->destinationResource = destinationResource::fromMap($map['DestinationResource']);
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SpotResource'])) {
             $model->spotResource = spotResource::fromMap($map['SpotResource']);
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

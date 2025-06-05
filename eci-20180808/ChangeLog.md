@@ -1,3 +1,7 @@
+2025-06-05 Version: 1.1.2
+- Update API CreateContainerGroup: add request parameters MaxPendingMinute.
+
+
 2024-06-28 Version: 1.1.1
 - Update API DeleteContainerGroup: add param Force.
 

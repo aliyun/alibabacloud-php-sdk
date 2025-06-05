@@ -4,119 +4,128 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\containers;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\CPU;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\disk;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\filesystem;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\memory;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\network;
-use AlibabaCloud\Tea\Model;
 
 class records extends Model
 {
     /**
-     * @description The monitoring data of vCPUs.
-     *
      * @var CPU
      */
     public $CPU;
 
     /**
-     * @description The monitoring data of containers.
-     *
      * @var containers[]
      */
     public $containers;
 
     /**
-     * @description The monitoring data of disks.
-     *
      * @var disk[]
      */
     public $disk;
 
     /**
-     * @description The monitoring data of file system partitions.
-     *
      * @var filesystem[]
      */
     public $filesystem;
 
     /**
-     * @description The monitoring data of the memory.
-     *
      * @var memory
      */
     public $memory;
 
     /**
-     * @description The monitoring data of the network.
-     *
      * @var network
      */
     public $network;
 
     /**
-     * @description The time when the entry of monitoring data was collected. The time follows the RFC 3339 format.
-     *
-     * @example 2019-12-19T02:31:54Z
-     *
      * @var string
      */
     public $timestamp;
     protected $_name = [
-        'CPU'        => 'CPU',
+        'CPU' => 'CPU',
         'containers' => 'Containers',
-        'disk'       => 'Disk',
+        'disk' => 'Disk',
         'filesystem' => 'Filesystem',
-        'memory'     => 'Memory',
-        'network'    => 'Network',
-        'timestamp'  => 'Timestamp',
+        'memory' => 'Memory',
+        'network' => 'Network',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
     {
+        if (null !== $this->CPU) {
+            $this->CPU->validate();
+        }
+        if (\is_array($this->containers)) {
+            Model::validateArray($this->containers);
+        }
+        if (\is_array($this->disk)) {
+            Model::validateArray($this->disk);
+        }
+        if (\is_array($this->filesystem)) {
+            Model::validateArray($this->filesystem);
+        }
+        if (null !== $this->memory) {
+            $this->memory->validate();
+        }
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CPU) {
-            $res['CPU'] = null !== $this->CPU ? $this->CPU->toMap() : null;
+            $res['CPU'] = null !== $this->CPU ? $this->CPU->toArray($noStream) : $this->CPU;
         }
+
         if (null !== $this->containers) {
-            $res['Containers'] = [];
-            if (null !== $this->containers && \is_array($this->containers)) {
-                $n = 0;
-                foreach ($this->containers as $item) {
-                    $res['Containers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->containers)) {
+                $res['Containers'] = [];
+                $n1 = 0;
+                foreach ($this->containers as $item1) {
+                    $res['Containers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->disk) {
-            $res['Disk'] = [];
-            if (null !== $this->disk && \is_array($this->disk)) {
-                $n = 0;
-                foreach ($this->disk as $item) {
-                    $res['Disk'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->disk)) {
+                $res['Disk'] = [];
+                $n1 = 0;
+                foreach ($this->disk as $item1) {
+                    $res['Disk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->filesystem) {
-            $res['Filesystem'] = [];
-            if (null !== $this->filesystem && \is_array($this->filesystem)) {
-                $n = 0;
-                foreach ($this->filesystem as $item) {
-                    $res['Filesystem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filesystem)) {
+                $res['Filesystem'] = [];
+                $n1 = 0;
+                foreach ($this->filesystem as $item1) {
+                    $res['Filesystem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->memory) {
-            $res['Memory'] = null !== $this->memory ? $this->memory->toMap() : null;
+            $res['Memory'] = null !== $this->memory ? $this->memory->toArray($noStream) : $this->memory;
         }
+
         if (null !== $this->network) {
-            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+            $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -124,50 +133,56 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CPU'])) {
             $model->CPU = CPU::fromMap($map['CPU']);
         }
+
         if (isset($map['Containers'])) {
             if (!empty($map['Containers'])) {
                 $model->containers = [];
-                $n                 = 0;
-                foreach ($map['Containers'] as $item) {
-                    $model->containers[$n++] = null !== $item ? containers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Containers'] as $item1) {
+                    $model->containers[$n1++] = containers::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Disk'])) {
             if (!empty($map['Disk'])) {
                 $model->disk = [];
-                $n           = 0;
-                foreach ($map['Disk'] as $item) {
-                    $model->disk[$n++] = null !== $item ? disk::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Disk'] as $item1) {
+                    $model->disk[$n1++] = disk::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Filesystem'])) {
             if (!empty($map['Filesystem'])) {
                 $model->filesystem = [];
-                $n                 = 0;
-                foreach ($map['Filesystem'] as $item) {
-                    $model->filesystem[$n++] = null !== $item ? filesystem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Filesystem'] as $item1) {
+                    $model->filesystem[$n1++] = filesystem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Memory'])) {
             $model->memory = memory::fromMap($map['Memory']);
         }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

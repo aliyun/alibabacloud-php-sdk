@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeMultiContainerGroupMetricResponseBody\monitorDatas\records\network\interfaces;
-use AlibabaCloud\Tea\Model;
 
 class network extends Model
 {
     /**
-     * @description The monitoring data of network interface controllers (NICs).
-     *
      * @var interfaces[]
      */
     public $interfaces;
@@ -21,17 +19,21 @@ class network extends Model
 
     public function validate()
     {
+        if (\is_array($this->interfaces)) {
+            Model::validateArray($this->interfaces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->interfaces) {
-            $res['Interfaces'] = [];
-            if (null !== $this->interfaces && \is_array($this->interfaces)) {
-                $n = 0;
-                foreach ($this->interfaces as $item) {
-                    $res['Interfaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->interfaces)) {
+                $res['Interfaces'] = [];
+                $n1 = 0;
+                foreach ($this->interfaces as $item1) {
+                    $res['Interfaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class network extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return network
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Interfaces'])) {
             if (!empty($map['Interfaces'])) {
                 $model->interfaces = [];
-                $n                 = 0;
-                foreach ($map['Interfaces'] as $item) {
-                    $model->interfaces[$n++] = null !== $item ? interfaces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Interfaces'] as $item1) {
+                    $model->interfaces[$n1++] = interfaces::fromMap($item1);
                 }
             }
         }

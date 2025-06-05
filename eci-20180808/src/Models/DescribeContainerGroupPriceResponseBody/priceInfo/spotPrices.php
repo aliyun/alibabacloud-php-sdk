@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupPriceResponseBody\priceInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupPriceResponseBody\priceInfo\spotPrices\spotPrice;
-use AlibabaCloud\Tea\Model;
 
 class spotPrices extends Model
 {
@@ -19,17 +19,21 @@ class spotPrices extends Model
 
     public function validate()
     {
+        if (\is_array($this->spotPrice)) {
+            Model::validateArray($this->spotPrice);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->spotPrice) {
-            $res['SpotPrice'] = [];
-            if (null !== $this->spotPrice && \is_array($this->spotPrice)) {
-                $n = 0;
-                foreach ($this->spotPrice as $item) {
-                    $res['SpotPrice'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->spotPrice)) {
+                $res['SpotPrice'] = [];
+                $n1 = 0;
+                foreach ($this->spotPrice as $item1) {
+                    $res['SpotPrice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class spotPrices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spotPrices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpotPrice'])) {
             if (!empty($map['SpotPrice'])) {
                 $model->spotPrice = [];
-                $n                = 0;
-                foreach ($map['SpotPrice'] as $item) {
-                    $model->spotPrice[$n++] = null !== $item ? spotPrice::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpotPrice'] as $item1) {
+                    $model->spotPrice[$n1++] = spotPrice::fromMap($item1);
                 }
             }
         }

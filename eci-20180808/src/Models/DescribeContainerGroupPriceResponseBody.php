@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupPriceResponseBody\priceInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeContainerGroupPriceResponseBody extends Model
 {
     /**
-     * @description The information about the prices and discount rules.
-     *
      * @var priceInfo
      */
     public $priceInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7A872585-33C7-4D69-AB8E-412E81EBA387
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +25,19 @@ class DescribeContainerGroupPriceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->priceInfo) {
+            $this->priceInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->priceInfo) {
-            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
+            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toArray($noStream) : $this->priceInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeContainerGroupPriceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContainerGroupPriceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,92 +4,116 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\dnsConfig\option;
-use AlibabaCloud\Tea\Model;
 
 class dnsConfig extends Model
 {
     /**
-     * @description The IP addresses of DNS servers.
-     *
-     * @example 172.10.*.**
-     *
      * @var string[]
      */
     public $nameServer;
 
     /**
-     * @description Configuration options of the DNS server.
-     *
      * @var option[]
      */
     public $option;
 
     /**
-     * @description The search domains of DNS servers.
-     *
-     * @example svc.local.kubenetes
-     *
      * @var string[]
      */
     public $search;
     protected $_name = [
         'nameServer' => 'NameServer',
-        'option'     => 'Option',
-        'search'     => 'Search',
+        'option' => 'Option',
+        'search' => 'Search',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nameServer)) {
+            Model::validateArray($this->nameServer);
+        }
+        if (\is_array($this->option)) {
+            Model::validateArray($this->option);
+        }
+        if (\is_array($this->search)) {
+            Model::validateArray($this->search);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nameServer) {
-            $res['NameServer'] = $this->nameServer;
-        }
-        if (null !== $this->option) {
-            $res['Option'] = [];
-            if (null !== $this->option && \is_array($this->option)) {
-                $n = 0;
-                foreach ($this->option as $item) {
-                    $res['Option'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nameServer)) {
+                $res['NameServer'] = [];
+                $n1 = 0;
+                foreach ($this->nameServer as $item1) {
+                    $res['NameServer'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->option) {
+            if (\is_array($this->option)) {
+                $res['Option'] = [];
+                $n1 = 0;
+                foreach ($this->option as $item1) {
+                    $res['Option'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->search) {
-            $res['Search'] = $this->search;
+            if (\is_array($this->search)) {
+                $res['Search'] = [];
+                $n1 = 0;
+                foreach ($this->search as $item1) {
+                    $res['Search'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dnsConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameServer'])) {
             if (!empty($map['NameServer'])) {
-                $model->nameServer = $map['NameServer'];
-            }
-        }
-        if (isset($map['Option'])) {
-            if (!empty($map['Option'])) {
-                $model->option = [];
-                $n             = 0;
-                foreach ($map['Option'] as $item) {
-                    $model->option[$n++] = null !== $item ? option::fromMap($item) : $item;
+                $model->nameServer = [];
+                $n1 = 0;
+                foreach ($map['NameServer'] as $item1) {
+                    $model->nameServer[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['Option'])) {
+            if (!empty($map['Option'])) {
+                $model->option = [];
+                $n1 = 0;
+                foreach ($map['Option'] as $item1) {
+                    $model->option[$n1++] = option::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Search'])) {
             if (!empty($map['Search'])) {
-                $model->search = $map['Search'];
+                $model->search = [];
+                $n1 = 0;
+                foreach ($map['Search'] as $item1) {
+                    $model->search[$n1++] = $item1;
+                }
             }
         }
 

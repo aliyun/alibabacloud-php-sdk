@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\volume\configFileVolume;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configFileToPath extends Model
 {
@@ -24,23 +24,26 @@ class configFileToPath extends Model
     public $path;
     protected $_name = [
         'content' => 'Content',
-        'mode'    => 'Mode',
-        'path'    => 'Path',
+        'mode' => 'Mode',
+        'path' => 'Path',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -48,20 +51,22 @@ class configFileToPath extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configFileToPath
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

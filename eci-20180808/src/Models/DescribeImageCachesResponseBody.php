@@ -4,73 +4,66 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeImageCachesResponseBody\imageCaches;
-use AlibabaCloud\Tea\Model;
 
 class DescribeImageCachesResponseBody extends Model
 {
     /**
-     * @description The information about image caches.
-     *
      * @var imageCaches[]
      */
     public $imageCaches;
 
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 39FC2E43-3DD7-4CEF-9EF4-E4AD6E635301
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'imageCaches' => 'ImageCaches',
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->imageCaches)) {
+            Model::validateArray($this->imageCaches);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageCaches) {
-            $res['ImageCaches'] = [];
-            if (null !== $this->imageCaches && \is_array($this->imageCaches)) {
-                $n = 0;
-                foreach ($this->imageCaches as $item) {
-                    $res['ImageCaches'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageCaches)) {
+                $res['ImageCaches'] = [];
+                $n1 = 0;
+                foreach ($this->imageCaches as $item1) {
+                    $res['ImageCaches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +71,32 @@ class DescribeImageCachesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageCachesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageCaches'])) {
             if (!empty($map['ImageCaches'])) {
                 $model->imageCaches = [];
-                $n                  = 0;
-                foreach ($map['ImageCaches'] as $item) {
-                    $model->imageCaches[$n++] = null !== $item ? imageCaches::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageCaches'] as $item1) {
+                    $model->imageCaches[$n1++] = imageCaches::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

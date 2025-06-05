@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupsResponseBody\containerGroups\containers\environmentVars\valueFrom;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fieldRef extends Model
 {
     /**
-     * @description The path of the field.
-     *
-     * @example status.podIP
-     *
      * @var string
      */
     public $fieldPath;
@@ -22,9 +18,10 @@ class fieldRef extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldPath) {
@@ -34,11 +31,11 @@ class fieldRef extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fieldRef
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

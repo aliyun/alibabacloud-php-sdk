@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupMetricResponseBody\records;
-use AlibabaCloud\Tea\Model;
 
 class DescribeContainerGroupMetricResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example eci-bp1dqpye03ke5s6p****
-     *
      * @var string
      */
     public $containerGroupId;
 
     /**
-     * @description The monitoring data of the elastic container instance.
-     *
      * @var records[]
      */
     public $records;
 
     /**
-     * @description The request ID.
-     *
-     * @example D81A4A13-6DCC-4579-AC62-90A6C3EC7BBC
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'containerGroupId' => 'ContainerGroupId',
-        'records'          => 'Records',
-        'requestId'        => 'RequestId',
+        'records' => 'Records',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->records)) {
+            Model::validateArray($this->records);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
         }
+
         if (null !== $this->records) {
-            $res['Records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->records)) {
+                $res['Records'] = [];
+                $n1 = 0;
+                foreach ($this->records as $item1) {
+                    $res['Records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +61,28 @@ class DescribeContainerGroupMetricResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContainerGroupMetricResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
         }
+
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
-                foreach ($map['Records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Records'] as $item1) {
+                    $model->records[$n1++] = records::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

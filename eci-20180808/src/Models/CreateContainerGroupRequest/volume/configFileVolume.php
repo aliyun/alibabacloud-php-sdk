@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\volume;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\volume\configFileVolume\configFileToPath;
-use AlibabaCloud\Tea\Model;
 
 class configFileVolume extends Model
 {
@@ -20,25 +20,30 @@ class configFileVolume extends Model
     public $defaultMode;
     protected $_name = [
         'configFileToPath' => 'ConfigFileToPath',
-        'defaultMode'      => 'DefaultMode',
+        'defaultMode' => 'DefaultMode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->configFileToPath)) {
+            Model::validateArray($this->configFileToPath);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configFileToPath) {
-            $res['ConfigFileToPath'] = [];
-            if (null !== $this->configFileToPath && \is_array($this->configFileToPath)) {
-                $n = 0;
-                foreach ($this->configFileToPath as $item) {
-                    $res['ConfigFileToPath'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configFileToPath)) {
+                $res['ConfigFileToPath'] = [];
+                $n1 = 0;
+                foreach ($this->configFileToPath as $item1) {
+                    $res['ConfigFileToPath'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->defaultMode) {
             $res['DefaultMode'] = $this->defaultMode;
         }
@@ -46,23 +51,24 @@ class configFileVolume extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configFileVolume
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigFileToPath'])) {
             if (!empty($map['ConfigFileToPath'])) {
                 $model->configFileToPath = [];
-                $n                       = 0;
-                foreach ($map['ConfigFileToPath'] as $item) {
-                    $model->configFileToPath[$n++] = null !== $item ? configFileToPath::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigFileToPath'] as $item1) {
+                    $model->configFileToPath[$n1++] = configFileToPath::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DefaultMode'])) {
             $model->defaultMode = $map['DefaultMode'];
         }

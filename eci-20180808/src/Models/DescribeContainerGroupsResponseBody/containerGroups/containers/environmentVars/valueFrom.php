@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupsResponseBody\containerGroups\containers\environmentVars;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupsResponseBody\containerGroups\containers\environmentVars\valueFrom\fieldRef;
-use AlibabaCloud\Tea\Model;
 
 class valueFrom extends Model
 {
     /**
-     * @description The specified field.
-     *
      * @var fieldRef
      */
     public $fieldRef;
@@ -21,23 +19,27 @@ class valueFrom extends Model
 
     public function validate()
     {
+        if (null !== $this->fieldRef) {
+            $this->fieldRef->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldRef) {
-            $res['FieldRef'] = null !== $this->fieldRef ? $this->fieldRef->toMap() : null;
+            $res['FieldRef'] = null !== $this->fieldRef ? $this->fieldRef->toArray($noStream) : $this->fieldRef;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return valueFrom
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

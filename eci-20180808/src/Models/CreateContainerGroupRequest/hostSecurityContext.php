@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eci\V20180808\Models\CreateContainerGroupRequest\hostSecurityContext\sysctl;
-use AlibabaCloud\Tea\Model;
 
 class hostSecurityContext extends Model
 {
     /**
-     * @description Configure a security context to modify unsafe sysctls. For more information, see [Configure a security context](https://help.aliyun.com/document_detail/462313.html).
-     *
      * @var sysctl[]
      */
     public $sysctl;
@@ -21,17 +19,21 @@ class hostSecurityContext extends Model
 
     public function validate()
     {
+        if (\is_array($this->sysctl)) {
+            Model::validateArray($this->sysctl);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sysctl) {
-            $res['Sysctl'] = [];
-            if (null !== $this->sysctl && \is_array($this->sysctl)) {
-                $n = 0;
-                foreach ($this->sysctl as $item) {
-                    $res['Sysctl'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sysctl)) {
+                $res['Sysctl'] = [];
+                $n1 = 0;
+                foreach ($this->sysctl as $item1) {
+                    $res['Sysctl'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class hostSecurityContext extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostSecurityContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sysctl'])) {
             if (!empty($map['Sysctl'])) {
                 $model->sysctl = [];
-                $n             = 0;
-                foreach ($map['Sysctl'] as $item) {
-                    $model->sysctl[$n++] = null !== $item ? sysctl::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Sysctl'] as $item1) {
+                    $model->sysctl[$n1++] = sysctl::fromMap($item1);
                 }
             }
         }

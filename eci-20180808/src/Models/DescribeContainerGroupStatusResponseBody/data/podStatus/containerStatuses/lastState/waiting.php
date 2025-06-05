@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eci\V20180808\Models\DescribeContainerGroupStatusResponseBody\data\podStatus\containerStatuses\lastState;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class waiting extends Model
 {
     /**
-     * @description The message about the event.
-     *
-     * @example Back-off
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The reason for the transition into the current status of the event.
-     *
-     * @example Started
-     *
      * @var string
      */
     public $reason;
     protected $_name = [
         'message' => 'Message',
-        'reason'  => 'Reason',
+        'reason' => 'Reason',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -47,17 +41,18 @@ class waiting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return waiting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
