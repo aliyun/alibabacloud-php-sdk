@@ -20,12 +20,24 @@ class configs extends Model
     public $configValue;
 
     /**
+     * @var string
+     */
+    public $gmtCreateTime;
+
+    /**
+     * @var string
+     */
+    public $gmtModifiedTime;
+
+    /**
      * @var labels[]
      */
     public $labels;
     protected $_name = [
         'configKey' => 'ConfigKey',
         'configValue' => 'ConfigValue',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
         'labels' => 'Labels',
     ];
 
@@ -46,6 +58,14 @@ class configs extends Model
 
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
+        }
+
+        if (null !== $this->gmtCreateTime) {
+            $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
+
+        if (null !== $this->gmtModifiedTime) {
+            $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
 
         if (null !== $this->labels) {
@@ -75,6 +95,14 @@ class configs extends Model
 
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
+        }
+
+        if (isset($map['GmtCreateTime'])) {
+            $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
+
+        if (isset($map['GmtModifiedTime'])) {
+            $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
 
         if (isset($map['Labels'])) {

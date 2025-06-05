@@ -25,6 +25,16 @@ class GetConfigResponseBody extends Model
     public $configValue;
 
     /**
+     * @var string
+     */
+    public $gmtCreateTime;
+
+    /**
+     * @var string
+     */
+    public $gmtModifiedTime;
+
+    /**
      * @var labels[]
      */
     public $labels;
@@ -42,6 +52,8 @@ class GetConfigResponseBody extends Model
         'categoryName' => 'CategoryName',
         'configKey' => 'ConfigKey',
         'configValue' => 'ConfigValue',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
         'labels' => 'Labels',
         'requestId' => 'RequestId',
         'workspaceId' => 'WorkspaceId',
@@ -68,6 +80,14 @@ class GetConfigResponseBody extends Model
 
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
+        }
+
+        if (null !== $this->gmtCreateTime) {
+            $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
+
+        if (null !== $this->gmtModifiedTime) {
+            $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
 
         if (null !== $this->labels) {
@@ -109,6 +129,14 @@ class GetConfigResponseBody extends Model
 
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
+        }
+
+        if (isset($map['GmtCreateTime'])) {
+            $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
+
+        if (isset($map['GmtModifiedTime'])) {
+            $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
 
         if (isset($map['Labels'])) {
