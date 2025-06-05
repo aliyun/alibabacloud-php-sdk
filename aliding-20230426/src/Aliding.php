@@ -69,6 +69,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AuthorizeSkillHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AuthorizeSkillRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AuthorizeSkillResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AuthorizeSkillShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AuthorizeSkillShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListResponse;
@@ -761,6 +766,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListSkillHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListSkillRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListSkillResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListSkillShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTableIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTableIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTableIdResponse;
@@ -2490,6 +2499,88 @@ class Aliding extends OpenApiClient
         $headers = new AssignTicketHeaders([]);
 
         return $this->assignTicketWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 校验AI技能调用权限.
+     *
+     * @param tmpReq - AuthorizeSkillRequest
+     * @param tmpHeader - AuthorizeSkillHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeSkillResponse
+     *
+     * @param AuthorizeSkillRequest $tmpReq
+     * @param AuthorizeSkillHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AuthorizeSkillResponse
+     */
+    public function authorizeSkillWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AuthorizeSkillShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new AuthorizeSkillShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->permissionCodes) {
+            $request->permissionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->permissionCodes, 'PermissionCodes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->permissionCodesShrink) {
+            @$body['PermissionCodes'] = $request->permissionCodesShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeSkill',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/authorizeSkill',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验AI技能调用权限.
+     *
+     * @param request - AuthorizeSkillRequest
+     *
+     * @returns AuthorizeSkillResponse
+     *
+     * @param AuthorizeSkillRequest $request
+     *
+     * @return AuthorizeSkillResponse
+     */
+    public function authorizeSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AuthorizeSkillHeaders([]);
+
+        return $this->authorizeSkillWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15631,6 +15722,10 @@ class Aliding extends OpenApiClient
             @$body['SkillId'] = $request->skillId;
         }
 
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
         $realHeaders = [];
         if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
@@ -16950,6 +17045,82 @@ class Aliding extends OpenApiClient
         $headers = new ListReportHeaders([]);
 
         return $this->listReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出AI技能.
+     *
+     * @param request - ListSkillRequest
+     * @param tmpHeader - ListSkillHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillResponse
+     *
+     * @param ListSkillRequest $request
+     * @param ListSkillHeaders $tmpHeader
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListSkillResponse
+     */
+    public function listSkillWithOptions($request, $tmpHeader, $runtime)
+    {
+        $request->validate();
+        $headers = new ListSkillShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkill',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/listSkill',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出AI技能.
+     *
+     * @param request - ListSkillRequest
+     *
+     * @returns ListSkillResponse
+     *
+     * @param ListSkillRequest $request
+     *
+     * @return ListSkillResponse
+     */
+    public function listSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListSkillHeaders([]);
+
+        return $this->listSkillWithOptions($request, $headers, $runtime);
     }
 
     /**

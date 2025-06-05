@@ -17,9 +17,15 @@ class InvokeSkillRequest extends Model
      * @var string
      */
     public $skillId;
+
+    /**
+     * @var bool
+     */
+    public $stream;
     protected $_name = [
         'params' => 'Params',
         'skillId' => 'SkillId',
+        'stream' => 'Stream',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class InvokeSkillRequest extends Model
             $res['SkillId'] = $this->skillId;
         }
 
+        if (null !== $this->stream) {
+            $res['Stream'] = $this->stream;
+        }
+
         return $res;
     }
 
@@ -68,6 +78,10 @@ class InvokeSkillRequest extends Model
 
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
+        }
+
+        if (isset($map['Stream'])) {
+            $model->stream = $map['Stream'];
         }
 
         return $model;
