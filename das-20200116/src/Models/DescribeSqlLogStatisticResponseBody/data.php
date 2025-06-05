@@ -37,6 +37,11 @@ class data extends Model
      * @var int
      */
     public $timestamp;
+
+    /**
+     * @var int
+     */
+    public $totalSqlSize;
     protected $_name = [
         'coldSqlSize' => 'ColdSqlSize',
         'freeColdSqlSize' => 'FreeColdSqlSize',
@@ -44,6 +49,7 @@ class data extends Model
         'hotSqlSize' => 'HotSqlSize',
         'importSqlSize' => 'ImportSqlSize',
         'timestamp' => 'Timestamp',
+        'totalSqlSize' => 'TotalSqlSize',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class data extends Model
 
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
+        }
+
+        if (null !== $this->totalSqlSize) {
+            $res['TotalSqlSize'] = $this->totalSqlSize;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class data extends Model
 
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
+        }
+
+        if (isset($map['TotalSqlSize'])) {
+            $model->totalSqlSize = $map['TotalSqlSize'];
         }
 
         return $model;

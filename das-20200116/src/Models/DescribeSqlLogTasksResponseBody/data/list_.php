@@ -42,6 +42,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $innerResult;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -95,6 +100,7 @@ class list_ extends Model
         'end' => 'End',
         'expire' => 'Expire',
         'filters' => 'Filters',
+        'innerResult' => 'InnerResult',
         'instanceId' => 'InstanceId',
         'logCount' => 'LogCount',
         'name' => 'Name',
@@ -146,6 +152,10 @@ class list_ extends Model
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->innerResult) {
+            $res['InnerResult'] = $this->innerResult;
         }
 
         if (null !== $this->instanceId) {
@@ -227,6 +237,10 @@ class list_ extends Model
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['InnerResult'])) {
+            $model->innerResult = $map['InnerResult'];
         }
 
         if (isset($map['InstanceId'])) {
