@@ -65,6 +65,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile2MetaVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile2MetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailStandardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailStandardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyRequest;
@@ -2709,6 +2711,71 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->livenessFaceVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 手机二要素核验.
+     *
+     * @param request - Mobile2MetaVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns Mobile2MetaVerifyResponse
+     *
+     * @param Mobile2MetaVerifyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return Mobile2MetaVerifyResponse
+     */
+    public function mobile2MetaVerifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->mobile) {
+            @$body['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->paramType) {
+            @$body['ParamType'] = $request->paramType;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'Mobile2MetaVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return Mobile2MetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手机二要素核验.
+     *
+     * @param request - Mobile2MetaVerifyRequest
+     *
+     * @returns Mobile2MetaVerifyResponse
+     *
+     * @param Mobile2MetaVerifyRequest $request
+     *
+     * @return Mobile2MetaVerifyResponse
+     */
+    public function mobile2MetaVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile2MetaVerifyWithOptions($request, $runtime);
     }
 
     /**
