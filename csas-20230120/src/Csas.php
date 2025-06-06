@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAccelerateTargetRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAccelerateTargetResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
@@ -49,6 +51,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAcceleratePolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAcceleratePolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAccelerateTargetRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAccelerateTargetResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteOtpConfigRequest;
@@ -70,6 +76,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachPolicy2ApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachPolicy2ApprovalProcessResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DisableEnterpriseAcceleratePolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DisableEnterpriseAcceleratePolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\EnableEnterpriseAcceleratePolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\EnableEnterpriseAcceleratePolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetActiveIdpConfigResponse;
@@ -100,6 +110,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ImportEnterpriseAccelerateTargetsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ImportEnterpriseAccelerateTargetsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRequest;
@@ -123,6 +135,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicDisposalProcessesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRouteRegionsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateLogsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateLogsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAcceleratePoliciesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAcceleratePoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateTargetsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateTargetsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsRequest;
@@ -177,6 +195,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest;
@@ -732,6 +752,70 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnterpriseAcceleratePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建加速对象
+     *
+     * @param request - CreateEnterpriseAccelerateTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEnterpriseAccelerateTargetResponse
+     *
+     * @param CreateEnterpriseAccelerateTargetRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateEnterpriseAccelerateTargetResponse
+     */
+    public function createEnterpriseAccelerateTargetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->target) {
+            @$bodyFlat['Target'] = $request->target;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEnterpriseAccelerateTarget',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEnterpriseAccelerateTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建加速对象
+     *
+     * @param request - CreateEnterpriseAccelerateTargetRequest
+     *
+     * @returns CreateEnterpriseAccelerateTargetResponse
+     *
+     * @param CreateEnterpriseAccelerateTargetRequest $request
+     *
+     * @return CreateEnterpriseAccelerateTargetResponse
+     */
+    public function createEnterpriseAccelerateTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnterpriseAccelerateTargetWithOptions($request, $runtime);
     }
 
     /**
@@ -1483,6 +1567,10 @@ class Csas extends OpenApiClient
             @$query['CsvControl'] = $request->csvControlShrink;
         }
 
+        if (null !== $request->isClientEmbed) {
+            @$query['IsClientEmbed'] = $request->isClientEmbed;
+        }
+
         $body = [];
         if (null !== $request->documentIsCapture) {
             @$body['DocumentIsCapture'] = $request->documentIsCapture;
@@ -1786,6 +1874,127 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除加速策略.
+     *
+     * @param request - DeleteEnterpriseAcceleratePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEnterpriseAcceleratePolicyResponse
+     *
+     * @param DeleteEnterpriseAcceleratePolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteEnterpriseAcceleratePolicyResponse
+     */
+    public function deleteEnterpriseAcceleratePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEnterpriseAcceleratePolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEnterpriseAcceleratePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除加速策略.
+     *
+     * @param request - DeleteEnterpriseAcceleratePolicyRequest
+     *
+     * @returns DeleteEnterpriseAcceleratePolicyResponse
+     *
+     * @param DeleteEnterpriseAcceleratePolicyRequest $request
+     *
+     * @return DeleteEnterpriseAcceleratePolicyResponse
+     */
+    public function deleteEnterpriseAcceleratePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnterpriseAcceleratePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除加速对象
+     *
+     * @param request - DeleteEnterpriseAccelerateTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEnterpriseAccelerateTargetResponse
+     *
+     * @param DeleteEnterpriseAccelerateTargetRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteEnterpriseAccelerateTargetResponse
+     */
+    public function deleteEnterpriseAccelerateTargetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->target) {
+            @$bodyFlat['Target'] = $request->target;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEnterpriseAccelerateTarget',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEnterpriseAccelerateTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除加速对象
+     *
+     * @param request - DeleteEnterpriseAccelerateTargetRequest
+     *
+     * @returns DeleteEnterpriseAccelerateTargetResponse
+     *
+     * @param DeleteEnterpriseAccelerateTargetRequest $request
+     *
+     * @return DeleteEnterpriseAccelerateTargetResponse
+     */
+    public function deleteEnterpriseAccelerateTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnterpriseAccelerateTargetWithOptions($request, $runtime);
     }
 
     /**
@@ -2384,6 +2593,120 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachPolicy2ApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用加速策略.
+     *
+     * @param request - DisableEnterpriseAcceleratePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableEnterpriseAcceleratePolicyResponse
+     *
+     * @param DisableEnterpriseAcceleratePolicyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DisableEnterpriseAcceleratePolicyResponse
+     */
+    public function disableEnterpriseAcceleratePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableEnterpriseAcceleratePolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableEnterpriseAcceleratePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用加速策略.
+     *
+     * @param request - DisableEnterpriseAcceleratePolicyRequest
+     *
+     * @returns DisableEnterpriseAcceleratePolicyResponse
+     *
+     * @param DisableEnterpriseAcceleratePolicyRequest $request
+     *
+     * @return DisableEnterpriseAcceleratePolicyResponse
+     */
+    public function disableEnterpriseAcceleratePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableEnterpriseAcceleratePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用加速策略.
+     *
+     * @param request - EnableEnterpriseAcceleratePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableEnterpriseAcceleratePolicyResponse
+     *
+     * @param EnableEnterpriseAcceleratePolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return EnableEnterpriseAcceleratePolicyResponse
+     */
+    public function enableEnterpriseAcceleratePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableEnterpriseAcceleratePolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableEnterpriseAcceleratePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用加速策略.
+     *
+     * @param request - EnableEnterpriseAcceleratePolicyRequest
+     *
+     * @returns EnableEnterpriseAcceleratePolicyResponse
+     *
+     * @param EnableEnterpriseAcceleratePolicyRequest $request
+     *
+     * @return EnableEnterpriseAcceleratePolicyResponse
+     */
+    public function enableEnterpriseAcceleratePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableEnterpriseAcceleratePolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -3280,6 +3603,67 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * 批量导入加速对象异步任务
+     *
+     * @param request - ImportEnterpriseAccelerateTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportEnterpriseAccelerateTargetsResponse
+     *
+     * @param ImportEnterpriseAccelerateTargetsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ImportEnterpriseAccelerateTargetsResponse
+     */
+    public function importEnterpriseAccelerateTargetsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportEnterpriseAccelerateTargets',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportEnterpriseAccelerateTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量导入加速对象异步任务
+     *
+     * @param request - ImportEnterpriseAccelerateTargetsRequest
+     *
+     * @returns ImportEnterpriseAccelerateTargetsResponse
+     *
+     * @param ImportEnterpriseAccelerateTargetsRequest $request
+     *
+     * @return ImportEnterpriseAccelerateTargetsResponse
+     */
+    public function importEnterpriseAccelerateTargets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importEnterpriseAccelerateTargetsWithOptions($request, $runtime);
+    }
+
+    /**
      * 批量查询内网访问策略的应用.
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
@@ -3757,7 +4141,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态策略处置流程.
+     * Batch Query Dynamic Policy Disposal Processes.
      *
      * @param request - ListDynamicDisposalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3792,7 +4176,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态策略处置流程.
+     * Batch Query Dynamic Policy Disposal Processes.
      *
      * @param request - ListDynamicDisposalProcessesRequest
      *
@@ -3904,6 +4288,165 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDynamicRoutesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询加速策略日志列表.
+     *
+     * @param request - ListEnterpriseAccelerateLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnterpriseAccelerateLogsResponse
+     *
+     * @param ListEnterpriseAccelerateLogsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListEnterpriseAccelerateLogsResponse
+     */
+    public function listEnterpriseAccelerateLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEnterpriseAccelerateLogs',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEnterpriseAccelerateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询加速策略日志列表.
+     *
+     * @param request - ListEnterpriseAccelerateLogsRequest
+     *
+     * @returns ListEnterpriseAccelerateLogsResponse
+     *
+     * @param ListEnterpriseAccelerateLogsRequest $request
+     *
+     * @return ListEnterpriseAccelerateLogsResponse
+     */
+    public function listEnterpriseAccelerateLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnterpriseAccelerateLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询加速策略列表.
+     *
+     * @param request - ListEnterpriseAcceleratePoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnterpriseAcceleratePoliciesResponse
+     *
+     * @param ListEnterpriseAcceleratePoliciesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListEnterpriseAcceleratePoliciesResponse
+     */
+    public function listEnterpriseAcceleratePoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEnterpriseAcceleratePolicies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEnterpriseAcceleratePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询加速策略列表.
+     *
+     * @param request - ListEnterpriseAcceleratePoliciesRequest
+     *
+     * @returns ListEnterpriseAcceleratePoliciesResponse
+     *
+     * @param ListEnterpriseAcceleratePoliciesRequest $request
+     *
+     * @return ListEnterpriseAcceleratePoliciesResponse
+     */
+    public function listEnterpriseAcceleratePolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnterpriseAcceleratePoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询加速对象列表.
+     *
+     * @param request - ListEnterpriseAccelerateTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnterpriseAccelerateTargetsResponse
+     *
+     * @param ListEnterpriseAccelerateTargetsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListEnterpriseAccelerateTargetsResponse
+     */
+    public function listEnterpriseAccelerateTargetsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEnterpriseAccelerateTargets',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEnterpriseAccelerateTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询加速对象列表.
+     *
+     * @param request - ListEnterpriseAccelerateTargetsRequest
+     *
+     * @returns ListEnterpriseAccelerateTargetsResponse
+     *
+     * @param ListEnterpriseAccelerateTargetsRequest $request
+     *
+     * @return ListEnterpriseAccelerateTargetsResponse
+     */
+    public function listEnterpriseAccelerateTargets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnterpriseAccelerateTargetsWithOptions($request, $runtime);
     }
 
     /**
@@ -5367,6 +5910,103 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->lookupWmInfoMappingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改加速策略.
+     *
+     * @param request - ModifyEnterpriseAcceleratePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyEnterpriseAcceleratePolicyResponse
+     *
+     * @param ModifyEnterpriseAcceleratePolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyEnterpriseAcceleratePolicyResponse
+     */
+    public function modifyEnterpriseAcceleratePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accelerationType) {
+            @$body['AccelerationType'] = $request->accelerationType;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->eapId) {
+            @$body['EapId'] = $request->eapId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->onTls) {
+            @$body['OnTls'] = $request->onTls;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->showInClient) {
+            @$body['ShowInClient'] = $request->showInClient;
+        }
+
+        if (null !== $request->upstreamHost) {
+            @$body['UpstreamHost'] = $request->upstreamHost;
+        }
+
+        if (null !== $request->upstreamPort) {
+            @$body['UpstreamPort'] = $request->upstreamPort;
+        }
+
+        if (null !== $request->upstreamType) {
+            @$body['UpstreamType'] = $request->upstreamType;
+        }
+
+        if (null !== $request->userAttributeGroup) {
+            @$body['UserAttributeGroup'] = $request->userAttributeGroup;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyEnterpriseAcceleratePolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyEnterpriseAcceleratePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改加速策略.
+     *
+     * @param request - ModifyEnterpriseAcceleratePolicyRequest
+     *
+     * @returns ModifyEnterpriseAcceleratePolicyResponse
+     *
+     * @param ModifyEnterpriseAcceleratePolicyRequest $request
+     *
+     * @return ModifyEnterpriseAcceleratePolicyResponse
+     */
+    public function modifyEnterpriseAcceleratePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEnterpriseAcceleratePolicyWithOptions($request, $runtime);
     }
 
     // Deprecated

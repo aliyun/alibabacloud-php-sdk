@@ -32,6 +32,11 @@ class CreateWmExtractTaskRequest extends Model
     /**
      * @var bool
      */
+    public $isClientEmbed;
+
+    /**
+     * @var bool
+     */
     public $videoIsLong;
 
     /**
@@ -53,6 +58,7 @@ class CreateWmExtractTaskRequest extends Model
         'documentIsCapture' => 'DocumentIsCapture',
         'fileUrl' => 'FileUrl',
         'filename' => 'Filename',
+        'isClientEmbed' => 'IsClientEmbed',
         'videoIsLong' => 'VideoIsLong',
         'videoSpeed' => 'VideoSpeed',
         'wmInfoSize' => 'WmInfoSize',
@@ -84,6 +90,10 @@ class CreateWmExtractTaskRequest extends Model
 
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+
+        if (null !== $this->isClientEmbed) {
+            $res['IsClientEmbed'] = $this->isClientEmbed;
         }
 
         if (null !== $this->videoIsLong) {
@@ -127,6 +137,10 @@ class CreateWmExtractTaskRequest extends Model
 
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+
+        if (isset($map['IsClientEmbed'])) {
+            $model->isClientEmbed = $map['IsClientEmbed'];
         }
 
         if (isset($map['VideoIsLong'])) {

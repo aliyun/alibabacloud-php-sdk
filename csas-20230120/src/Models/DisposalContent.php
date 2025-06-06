@@ -29,6 +29,11 @@ class DisposalContent extends Model
     public $alertTitleEn;
 
     /**
+     * @var string[]
+     */
+    public $nacDemotionPolicyIds;
+
+    /**
      * @var string
      */
     public $noticeContent;
@@ -52,6 +57,7 @@ class DisposalContent extends Model
         'alertContentEn' => 'AlertContentEn',
         'alertTitle' => 'AlertTitle',
         'alertTitleEn' => 'AlertTitleEn',
+        'nacDemotionPolicyIds' => 'NacDemotionPolicyIds',
         'noticeContent' => 'NoticeContent',
         'noticeContentEn' => 'NoticeContentEn',
         'notifyActions' => 'NotifyActions',
@@ -60,6 +66,9 @@ class DisposalContent extends Model
 
     public function validate()
     {
+        if (\is_array($this->nacDemotionPolicyIds)) {
+            Model::validateArray($this->nacDemotionPolicyIds);
+        }
         if (\is_array($this->notifyActions)) {
             Model::validateArray($this->notifyActions);
         }
@@ -86,6 +95,16 @@ class DisposalContent extends Model
 
         if (null !== $this->alertTitleEn) {
             $res['AlertTitleEn'] = $this->alertTitleEn;
+        }
+
+        if (null !== $this->nacDemotionPolicyIds) {
+            if (\is_array($this->nacDemotionPolicyIds)) {
+                $res['NacDemotionPolicyIds'] = [];
+                $n1 = 0;
+                foreach ($this->nacDemotionPolicyIds as $item1) {
+                    $res['NacDemotionPolicyIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->noticeContent) {
@@ -141,6 +160,16 @@ class DisposalContent extends Model
 
         if (isset($map['AlertTitleEn'])) {
             $model->alertTitleEn = $map['AlertTitleEn'];
+        }
+
+        if (isset($map['NacDemotionPolicyIds'])) {
+            if (!empty($map['NacDemotionPolicyIds'])) {
+                $model->nacDemotionPolicyIds = [];
+                $n1 = 0;
+                foreach ($map['NacDemotionPolicyIds'] as $item1) {
+                    $model->nacDemotionPolicyIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['NoticeContent'])) {
