@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\domainInfos;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\environmentInfo;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\mcpServerInfo;
 
 class HttpRoute extends Model
 {
@@ -51,6 +52,11 @@ class HttpRoute extends Model
     public $match;
 
     /**
+     * @var mcpServerInfo
+     */
+    public $mcpServerInfo;
+
+    /**
      * @var string
      */
     public $name;
@@ -73,6 +79,7 @@ class HttpRoute extends Model
         'environmentInfo' => 'environmentInfo',
         'gatewayStatus' => 'gatewayStatus',
         'match' => 'match',
+        'mcpServerInfo' => 'mcpServerInfo',
         'name' => 'name',
         'routeId' => 'routeId',
         'updateTimestamp' => 'updateTimestamp',
@@ -94,6 +101,9 @@ class HttpRoute extends Model
         }
         if (null !== $this->match) {
             $this->match->validate();
+        }
+        if (null !== $this->mcpServerInfo) {
+            $this->mcpServerInfo->validate();
         }
         parent::validate();
     }
@@ -142,6 +152,10 @@ class HttpRoute extends Model
 
         if (null !== $this->match) {
             $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
+        }
+
+        if (null !== $this->mcpServerInfo) {
+            $res['mcpServerInfo'] = null !== $this->mcpServerInfo ? $this->mcpServerInfo->toArray($noStream) : $this->mcpServerInfo;
         }
 
         if (null !== $this->name) {
@@ -208,6 +222,10 @@ class HttpRoute extends Model
 
         if (isset($map['match'])) {
             $model->match = HttpRouteMatch::fromMap($map['match']);
+        }
+
+        if (isset($map['mcpServerInfo'])) {
+            $model->mcpServerInfo = mcpServerInfo::fromMap($map['mcpServerInfo']);
         }
 
         if (isset($map['name'])) {
