@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devs\V20230714\Models\DeployOllamaModelInput\httpTrigger;
+namespace AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\httpTrigger;
 
 use AlibabaCloud\Dara\Model;
 

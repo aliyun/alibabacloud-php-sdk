@@ -2,13 +2,19 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput;
+namespace AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\modelConfig\fmkSGLangConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ModelConfig;
 
 class modelConfig extends Model
 {
+    /**
+     * @var fmkSGLangConfig
+     */
+    public $fmkSGLangConfig;
+
     /**
      * @var string
      */
@@ -64,6 +70,7 @@ class modelConfig extends Model
      */
     public $syncStrategy;
     protected $_name = [
+        'fmkSGLangConfig' => 'fmkSGLangConfig',
         'framework' => 'framework',
         'multiModelConfig' => 'multiModelConfig',
         'prefix' => 'prefix',
@@ -79,6 +86,9 @@ class modelConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->fmkSGLangConfig) {
+            $this->fmkSGLangConfig->validate();
+        }
         if (\is_array($this->multiModelConfig)) {
             Model::validateArray($this->multiModelConfig);
         }
@@ -88,6 +98,10 @@ class modelConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fmkSGLangConfig) {
+            $res['fmkSGLangConfig'] = null !== $this->fmkSGLangConfig ? $this->fmkSGLangConfig->toArray($noStream) : $this->fmkSGLangConfig;
+        }
+
         if (null !== $this->framework) {
             $res['framework'] = $this->framework;
         }
@@ -149,6 +163,10 @@ class modelConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fmkSGLangConfig'])) {
+            $model->fmkSGLangConfig = fmkSGLangConfig::fromMap($map['fmkSGLangConfig']);
+        }
+
         if (isset($map['framework'])) {
             $model->framework = $map['framework'];
         }

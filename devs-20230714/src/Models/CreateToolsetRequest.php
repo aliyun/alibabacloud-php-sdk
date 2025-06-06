@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ToolsetSpec extends Model
+class CreateToolsetRequest extends Model
 {
     /**
-     * @var ToolsetSchema
+     * @var Toolset
      */
-    public $schema;
+    public $body;
     protected $_name = [
-        'schema' => 'schema',
+        'body' => 'body',
     ];
 
     public function validate()
     {
-        if (null !== $this->schema) {
-            $this->schema->validate();
+        if (null !== $this->body) {
+            $this->body->validate();
         }
         parent::validate();
     }
@@ -27,8 +27,8 @@ class ToolsetSpec extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->schema) {
-            $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
@@ -42,8 +42,8 @@ class ToolsetSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schema'])) {
-            $model->schema = ToolsetSchema::fromMap($map['schema']);
+        if (isset($map['body'])) {
+            $model->body = Toolset::fromMap($map['body']);
         }
 
         return $model;

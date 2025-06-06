@@ -58,6 +58,11 @@ class modelConfig extends Model
      * @var string
      */
     public $srcOssRegion;
+
+    /**
+     * @var string
+     */
+    public $syncStrategy;
     protected $_name = [
         'framework' => 'framework',
         'multiModelConfig' => 'multiModelConfig',
@@ -69,6 +74,7 @@ class modelConfig extends Model
         'srcOssBucket' => 'srcOssBucket',
         'srcOssPath' => 'srcOssPath',
         'srcOssRegion' => 'srcOssRegion',
+        'syncStrategy' => 'syncStrategy',
     ];
 
     public function validate()
@@ -128,6 +134,10 @@ class modelConfig extends Model
             $res['srcOssRegion'] = $this->srcOssRegion;
         }
 
+        if (null !== $this->syncStrategy) {
+            $res['syncStrategy'] = $this->syncStrategy;
+        }
+
         return $res;
     }
 
@@ -183,6 +193,10 @@ class modelConfig extends Model
 
         if (isset($map['srcOssRegion'])) {
             $model->srcOssRegion = $map['srcOssRegion'];
+        }
+
+        if (isset($map['syncStrategy'])) {
+            $model->syncStrategy = $map['syncStrategy'];
         }
 
         return $model;

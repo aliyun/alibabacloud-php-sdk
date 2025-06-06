@@ -44,6 +44,11 @@ class customContainerConfig extends Model
      * @var int
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $role;
     protected $_name = [
         'command' => 'command',
         'entrypoint' => 'entrypoint',
@@ -52,6 +57,7 @@ class customContainerConfig extends Model
         'instanceConcurrency' => 'instanceConcurrency',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
         'port' => 'port',
+        'role' => 'role',
     ];
 
     public function validate()
@@ -114,6 +120,10 @@ class customContainerConfig extends Model
             $res['port'] = $this->port;
         }
 
+        if (null !== $this->role) {
+            $res['role'] = $this->role;
+        }
+
         return $res;
     }
 
@@ -163,6 +173,10 @@ class customContainerConfig extends Model
 
         if (isset($map['port'])) {
             $model->port = $map['port'];
+        }
+
+        if (isset($map['role'])) {
+            $model->role = $map['role'];
         }
 
         return $model;

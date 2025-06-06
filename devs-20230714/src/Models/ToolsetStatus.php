@@ -9,17 +9,35 @@ use AlibabaCloud\Dara\Model;
 class ToolsetStatus extends Model
 {
     /**
-     * @var Tool[]
+     * @var int
      */
-    public $tools;
+    public $observedGeneration;
+
+    /**
+     * @var string
+     */
+    public $observedTime;
+
+    /**
+     * @var mixed[]
+     */
+    public $outputs;
+
+    /**
+     * @var string
+     */
+    public $phase;
     protected $_name = [
-        'tools' => 'tools',
+        'observedGeneration' => 'observedGeneration',
+        'observedTime' => 'observedTime',
+        'outputs' => 'outputs',
+        'phase' => 'phase',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tools)) {
-            Model::validateArray($this->tools);
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
         }
         parent::validate();
     }
@@ -27,13 +45,25 @@ class ToolsetStatus extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->tools) {
-            if (\is_array($this->tools)) {
-                $res['tools'] = [];
-                foreach ($this->tools as $key1 => $value1) {
-                    $res['tools'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+        if (null !== $this->observedGeneration) {
+            $res['observedGeneration'] = $this->observedGeneration;
+        }
+
+        if (null !== $this->observedTime) {
+            $res['observedTime'] = $this->observedTime;
+        }
+
+        if (null !== $this->outputs) {
+            if (\is_array($this->outputs)) {
+                $res['outputs'] = [];
+                foreach ($this->outputs as $key1 => $value1) {
+                    $res['outputs'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->phase) {
+            $res['phase'] = $this->phase;
         }
 
         return $res;
@@ -47,13 +77,25 @@ class ToolsetStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['tools'])) {
-            if (!empty($map['tools'])) {
-                $model->tools = [];
-                foreach ($map['tools'] as $key1 => $value1) {
-                    $model->tools[$key1] = Tool::fromMap($value1);
+        if (isset($map['observedGeneration'])) {
+            $model->observedGeneration = $map['observedGeneration'];
+        }
+
+        if (isset($map['observedTime'])) {
+            $model->observedTime = $map['observedTime'];
+        }
+
+        if (isset($map['outputs'])) {
+            if (!empty($map['outputs'])) {
+                $model->outputs = [];
+                foreach ($map['outputs'] as $key1 => $value1) {
+                    $model->outputs[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['phase'])) {
+            $model->phase = $map['phase'];
         }
 
         return $model;

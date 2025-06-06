@@ -2,33 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devs\V20230714\Models;
+namespace AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\asyncInvokeConfig\destinationConfig;
 
 use AlibabaCloud\Dara\Model;
 
-class ToolsetSpec extends Model
+class onSuccess extends Model
 {
     /**
-     * @var ToolsetSchema
+     * @var string
      */
-    public $schema;
+    public $destination;
     protected $_name = [
-        'schema' => 'schema',
+        'destination' => 'destination',
     ];
 
     public function validate()
     {
-        if (null !== $this->schema) {
-            $this->schema->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->schema) {
-            $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
+        if (null !== $this->destination) {
+            $res['destination'] = $this->destination;
         }
 
         return $res;
@@ -42,8 +39,8 @@ class ToolsetSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schema'])) {
-            $model->schema = ToolsetSchema::fromMap($map['schema']);
+        if (isset($map['destination'])) {
+            $model->destination = $map['destination'];
         }
 
         return $model;

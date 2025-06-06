@@ -19,12 +19,18 @@ class DefaultBuilderConfig extends Model
     public $languages;
 
     /**
+     * @var string
+     */
+    public $rootPath;
+
+    /**
      * @var mixed[]
      */
     public $steps;
     protected $_name = [
         'cache' => 'cache',
         'languages' => 'languages',
+        'rootPath' => 'rootPath',
         'steps' => 'steps',
     ];
 
@@ -57,6 +63,10 @@ class DefaultBuilderConfig extends Model
                     $res['languages'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->rootPath) {
+            $res['rootPath'] = $this->rootPath;
         }
 
         if (null !== $this->steps) {
@@ -92,6 +102,10 @@ class DefaultBuilderConfig extends Model
                     $model->languages[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['rootPath'])) {
+            $model->rootPath = $map['rootPath'];
         }
 
         if (isset($map['steps'])) {

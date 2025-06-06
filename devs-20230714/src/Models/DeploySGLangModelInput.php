@@ -5,29 +5,21 @@
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\asyncInvokeConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\concurrencyConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\customContainerConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\gpuConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\httpTrigger;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\logConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\modelConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\nasConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\ossMountConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\provisionConfig;
-use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\vpcConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\concurrencyConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\gpuConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\httpTrigger;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\logConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\modelConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\nasConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\provisionConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\vpcConfig;
 
-class DeployCustomContainerInput extends Model
+class DeploySGLangModelInput extends Model
 {
     /**
      * @var string
      */
     public $accountID;
-
-    /**
-     * @var asyncInvokeConfig
-     */
-    public $asyncInvokeConfig;
 
     /**
      * @var concurrencyConfig
@@ -38,11 +30,6 @@ class DeployCustomContainerInput extends Model
      * @var float
      */
     public $cpu;
-
-    /**
-     * @var customContainerConfig
-     */
-    public $customContainerConfig;
 
     /**
      * @var string
@@ -75,6 +62,16 @@ class DeployCustomContainerInput extends Model
     public $httpTrigger;
 
     /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
+     * @var int
+     */
+    public $instanceConcurrency;
+
+    /**
      * @var logConfig
      */
     public $logConfig;
@@ -103,11 +100,6 @@ class DeployCustomContainerInput extends Model
      * @var string
      */
     public $originalName;
-
-    /**
-     * @var ossMountConfig
-     */
-    public $ossMountConfig;
 
     /**
      * @var string
@@ -150,23 +142,22 @@ class DeployCustomContainerInput extends Model
     public $vpcConfig;
     protected $_name = [
         'accountID' => 'accountID',
-        'asyncInvokeConfig' => 'asyncInvokeConfig',
         'concurrencyConfig' => 'concurrencyConfig',
         'cpu' => 'cpu',
-        'customContainerConfig' => 'customContainerConfig',
         'description' => 'description',
         'diskSize' => 'diskSize',
         'envName' => 'envName',
         'environmentVariables' => 'environmentVariables',
         'gpuConfig' => 'gpuConfig',
         'httpTrigger' => 'httpTrigger',
+        'imageName' => 'imageName',
+        'instanceConcurrency' => 'instanceConcurrency',
         'logConfig' => 'logConfig',
         'memorySize' => 'memorySize',
         'modelConfig' => 'modelConfig',
         'name' => 'name',
         'nasConfig' => 'nasConfig',
         'originalName' => 'originalName',
-        'ossMountConfig' => 'ossMountConfig',
         'projectName' => 'projectName',
         'provisionConfig' => 'provisionConfig',
         'region' => 'region',
@@ -179,14 +170,8 @@ class DeployCustomContainerInput extends Model
 
     public function validate()
     {
-        if (null !== $this->asyncInvokeConfig) {
-            $this->asyncInvokeConfig->validate();
-        }
         if (null !== $this->concurrencyConfig) {
             $this->concurrencyConfig->validate();
-        }
-        if (null !== $this->customContainerConfig) {
-            $this->customContainerConfig->validate();
         }
         if (\is_array($this->environmentVariables)) {
             Model::validateArray($this->environmentVariables);
@@ -206,9 +191,6 @@ class DeployCustomContainerInput extends Model
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
         }
-        if (null !== $this->ossMountConfig) {
-            $this->ossMountConfig->validate();
-        }
         if (null !== $this->provisionConfig) {
             $this->provisionConfig->validate();
         }
@@ -225,20 +207,12 @@ class DeployCustomContainerInput extends Model
             $res['accountID'] = $this->accountID;
         }
 
-        if (null !== $this->asyncInvokeConfig) {
-            $res['asyncInvokeConfig'] = null !== $this->asyncInvokeConfig ? $this->asyncInvokeConfig->toArray($noStream) : $this->asyncInvokeConfig;
-        }
-
         if (null !== $this->concurrencyConfig) {
             $res['concurrencyConfig'] = null !== $this->concurrencyConfig ? $this->concurrencyConfig->toArray($noStream) : $this->concurrencyConfig;
         }
 
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
-        }
-
-        if (null !== $this->customContainerConfig) {
-            $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toArray($noStream) : $this->customContainerConfig;
         }
 
         if (null !== $this->description) {
@@ -270,6 +244,14 @@ class DeployCustomContainerInput extends Model
             $res['httpTrigger'] = null !== $this->httpTrigger ? $this->httpTrigger->toArray($noStream) : $this->httpTrigger;
         }
 
+        if (null !== $this->imageName) {
+            $res['imageName'] = $this->imageName;
+        }
+
+        if (null !== $this->instanceConcurrency) {
+            $res['instanceConcurrency'] = $this->instanceConcurrency;
+        }
+
         if (null !== $this->logConfig) {
             $res['logConfig'] = null !== $this->logConfig ? $this->logConfig->toArray($noStream) : $this->logConfig;
         }
@@ -292,10 +274,6 @@ class DeployCustomContainerInput extends Model
 
         if (null !== $this->originalName) {
             $res['originalName'] = $this->originalName;
-        }
-
-        if (null !== $this->ossMountConfig) {
-            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
         if (null !== $this->projectName) {
@@ -345,20 +323,12 @@ class DeployCustomContainerInput extends Model
             $model->accountID = $map['accountID'];
         }
 
-        if (isset($map['asyncInvokeConfig'])) {
-            $model->asyncInvokeConfig = asyncInvokeConfig::fromMap($map['asyncInvokeConfig']);
-        }
-
         if (isset($map['concurrencyConfig'])) {
             $model->concurrencyConfig = concurrencyConfig::fromMap($map['concurrencyConfig']);
         }
 
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
-        }
-
-        if (isset($map['customContainerConfig'])) {
-            $model->customContainerConfig = customContainerConfig::fromMap($map['customContainerConfig']);
         }
 
         if (isset($map['description'])) {
@@ -390,6 +360,14 @@ class DeployCustomContainerInput extends Model
             $model->httpTrigger = httpTrigger::fromMap($map['httpTrigger']);
         }
 
+        if (isset($map['imageName'])) {
+            $model->imageName = $map['imageName'];
+        }
+
+        if (isset($map['instanceConcurrency'])) {
+            $model->instanceConcurrency = $map['instanceConcurrency'];
+        }
+
         if (isset($map['logConfig'])) {
             $model->logConfig = logConfig::fromMap($map['logConfig']);
         }
@@ -412,10 +390,6 @@ class DeployCustomContainerInput extends Model
 
         if (isset($map['originalName'])) {
             $model->originalName = $map['originalName'];
-        }
-
-        if (isset($map['ossMountConfig'])) {
-            $model->ossMountConfig = ossMountConfig::fromMap($map['ossMountConfig']);
         }
 
         if (isset($map['projectName'])) {

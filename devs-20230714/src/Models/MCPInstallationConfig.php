@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ToolsetSpec extends Model
+class MCPInstallationConfig extends Model
 {
     /**
-     * @var ToolsetSchema
+     * @var MCPServerInstallationConfig
      */
-    public $schema;
+    public $mcpServers;
     protected $_name = [
-        'schema' => 'schema',
+        'mcpServers' => 'mcpServers',
     ];
 
     public function validate()
     {
-        if (null !== $this->schema) {
-            $this->schema->validate();
+        if (null !== $this->mcpServers) {
+            $this->mcpServers->validate();
         }
         parent::validate();
     }
@@ -27,8 +27,8 @@ class ToolsetSpec extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->schema) {
-            $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
+        if (null !== $this->mcpServers) {
+            $res['mcpServers'] = null !== $this->mcpServers ? $this->mcpServers->toArray($noStream) : $this->mcpServers;
         }
 
         return $res;
@@ -42,8 +42,8 @@ class ToolsetSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schema'])) {
-            $model->schema = ToolsetSchema::fromMap($map['schema']);
+        if (isset($map['mcpServers'])) {
+            $model->mcpServers = MCPServerInstallationConfig::fromMap($map['mcpServers']);
         }
 
         return $model;

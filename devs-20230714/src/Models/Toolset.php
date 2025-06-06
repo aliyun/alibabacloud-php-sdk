@@ -34,6 +34,11 @@ class Toolset extends Model
     public $name;
 
     /**
+     * @var ToolsetSpec
+     */
+    public $spec;
+
+    /**
      * @var ToolsetStatus
      */
     public $status;
@@ -48,6 +53,7 @@ class Toolset extends Model
         'kind' => 'kind',
         'labels' => 'labels',
         'name' => 'name',
+        'spec' => 'spec',
         'status' => 'status',
         'uid' => 'uid',
     ];
@@ -56,6 +62,9 @@ class Toolset extends Model
     {
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
+        }
+        if (null !== $this->spec) {
+            $this->spec->validate();
         }
         if (null !== $this->status) {
             $this->status->validate();
@@ -89,6 +98,10 @@ class Toolset extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->spec) {
+            $res['spec'] = null !== $this->spec ? $this->spec->toArray($noStream) : $this->spec;
         }
 
         if (null !== $this->status) {
@@ -133,6 +146,10 @@ class Toolset extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['spec'])) {
+            $model->spec = ToolsetSpec::fromMap($map['spec']);
         }
 
         if (isset($map['status'])) {

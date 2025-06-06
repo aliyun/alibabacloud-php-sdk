@@ -16,6 +16,11 @@ class triggerConfig extends Model
     /**
      * @var bool
      */
+    public $disableURLInternet;
+
+    /**
+     * @var bool
+     */
     public $dsableURLInternet;
 
     /**
@@ -24,6 +29,7 @@ class triggerConfig extends Model
     public $methods;
     protected $_name = [
         'authType' => 'authType',
+        'disableURLInternet' => 'disableURLInternet',
         'dsableURLInternet' => 'dsableURLInternet',
         'methods' => 'methods',
     ];
@@ -41,6 +47,10 @@ class triggerConfig extends Model
         $res = [];
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
+        }
+
+        if (null !== $this->disableURLInternet) {
+            $res['disableURLInternet'] = $this->disableURLInternet;
         }
 
         if (null !== $this->dsableURLInternet) {
@@ -70,6 +80,10 @@ class triggerConfig extends Model
         $model = new self();
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
+        }
+
+        if (isset($map['disableURLInternet'])) {
+            $model->disableURLInternet = $map['disableURLInternet'];
         }
 
         if (isset($map['dsableURLInternet'])) {

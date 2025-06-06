@@ -2,33 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devs\V20230714\Models;
+namespace AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput;
 
 use AlibabaCloud\Dara\Model;
 
-class ToolsetSpec extends Model
+class concurrencyConfig extends Model
 {
     /**
-     * @var ToolsetSchema
+     * @var int
      */
-    public $schema;
+    public $reservedConcurrency;
     protected $_name = [
-        'schema' => 'schema',
+        'reservedConcurrency' => 'reservedConcurrency',
     ];
 
     public function validate()
     {
-        if (null !== $this->schema) {
-            $this->schema->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->schema) {
-            $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
+        if (null !== $this->reservedConcurrency) {
+            $res['reservedConcurrency'] = $this->reservedConcurrency;
         }
 
         return $res;
@@ -42,8 +39,8 @@ class ToolsetSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['schema'])) {
-            $model->schema = ToolsetSchema::fromMap($map['schema']);
+        if (isset($map['reservedConcurrency'])) {
+            $model->reservedConcurrency = $map['reservedConcurrency'];
         }
 
         return $model;

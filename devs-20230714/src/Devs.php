@@ -20,12 +20,15 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\CreateToolsetRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\CreateToolsetResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteArtifactResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteConnectionRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteConnectionResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteToolsetResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\FetchArtifactDownloadUrlResponse;
@@ -39,6 +42,7 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetRepositoryResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetServiceDeploymentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\GetToolsetResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListConnectionsRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListConnectionsResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListConnectionsShrinkRequest;
@@ -57,6 +61,9 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\ListServiceDeploymentsShrinkRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListTasksShrinkRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListToolsetsRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListToolsetsResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListToolsetsShrinkRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PreviewEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PutArtifactRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PutArtifactResponse;
@@ -74,6 +81,8 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\UpdateEnvironmentRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\UpdateEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\UpdateToolsetRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\UpdateToolsetResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -156,11 +165,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActivateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActivateConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActivateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -213,11 +219,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelPipelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -267,11 +270,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -324,11 +324,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +381,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -444,11 +438,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePipelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -503,11 +494,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -562,11 +550,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,6 +571,62 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->createTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建工具集.
+     *
+     * @param request - CreateToolsetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateToolsetResponse
+     *
+     * @param CreateToolsetRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateToolsetResponse
+     */
+    public function createToolsetWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateToolset',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/toolsets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateToolsetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工具集.
+     *
+     * @param request - CreateToolsetRequest
+     *
+     * @returns CreateToolsetResponse
+     *
+     * @param CreateToolsetRequest $request
+     *
+     * @return CreateToolsetResponse
+     */
+    public function createToolset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createToolsetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -618,11 +659,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -681,11 +719,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -739,11 +774,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -803,11 +835,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -828,6 +857,57 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->deleteProjectWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除工具集.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteToolsetResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteToolsetResponse
+     */
+    public function deleteToolsetWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteToolset',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/toolsets/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteToolsetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工具集.
+     *
+     * @returns DeleteToolsetResponse
+     *
+     * @param string $name
+     *
+     * @return DeleteToolsetResponse
+     */
+    public function deleteToolset($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteToolsetWithOptions($name, $headers, $runtime);
     }
 
     /**
@@ -865,11 +945,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeployEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeployEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeployEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -923,11 +1000,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FetchArtifactDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FetchArtifactDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return FetchArtifactDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -976,11 +1050,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FetchArtifactTempBucketTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FetchArtifactTempBucketTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return FetchArtifactTempBucketTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,11 +1099,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FetchConnectionCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FetchConnectionCredentialResponse::fromMap($this->execute($params, $req, $runtime));
+        return FetchConnectionCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,11 +1150,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1137,11 +1202,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1192,11 +1254,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEnvironmentDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEnvironmentDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEnvironmentDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1246,11 +1305,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPipelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1300,11 +1356,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1354,11 +1407,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1408,11 +1458,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetServiceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1462,11 +1509,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1484,6 +1528,57 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->getTaskWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 查询工具集.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetToolsetResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetToolsetResponse
+     */
+    public function getToolsetWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetToolset',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/toolsets/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetToolsetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询工具集.
+     *
+     * @returns GetToolsetResponse
+     *
+     * @param string $name
+     *
+     * @return GetToolsetResponse
+     */
+    public function getToolset($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getToolsetWithOptions($name, $headers, $runtime);
     }
 
     /**
@@ -1542,11 +1637,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1625,11 +1717,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEnvironmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1696,11 +1785,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'array',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPipelinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1778,11 +1864,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1860,11 +1943,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListServiceDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServiceDeploymentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServiceDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1930,11 +2010,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'array',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1954,6 +2031,85 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->listTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量查询工具集.
+     *
+     * @param tmpReq - ListToolsetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListToolsetsResponse
+     *
+     * @param ListToolsetsRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListToolsetsResponse
+     */
+    public function listToolsetsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListToolsetsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelSelector) {
+            $request->labelSelectorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelSelector, 'labelSelector', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->labelSelectorShrink) {
+            @$query['labelSelector'] = $request->labelSelectorShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListToolsets',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/toolsets',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListToolsetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询工具集.
+     *
+     * @param request - ListToolsetsRequest
+     *
+     * @returns ListToolsetsResponse
+     *
+     * @param ListToolsetsRequest $request
+     *
+     * @return ListToolsetsResponse
+     */
+    public function listToolsets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listToolsetsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1987,11 +2143,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PreviewEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreviewEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreviewEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2052,11 +2205,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2119,11 +2269,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutPipelineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutPipelineStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutPipelineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2186,11 +2333,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2267,11 +2411,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenderServicesByTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenderServicesByTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenderServicesByTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2323,11 +2464,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResumeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2377,11 +2515,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetryTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2431,11 +2566,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartPipelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2485,11 +2617,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2544,11 +2673,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2606,11 +2732,8 @@ class Devs extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2631,5 +2754,63 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->updateProjectWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新工具集.
+     *
+     * @param request - UpdateToolsetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateToolsetResponse
+     *
+     * @param string               $name
+     * @param UpdateToolsetRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateToolsetResponse
+     */
+    public function updateToolsetWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateToolset',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/toolsets/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateToolsetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新工具集.
+     *
+     * @param request - UpdateToolsetRequest
+     *
+     * @returns UpdateToolsetResponse
+     *
+     * @param string               $name
+     * @param UpdateToolsetRequest $request
+     *
+     * @return UpdateToolsetResponse
+     */
+    public function updateToolset($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateToolsetWithOptions($name, $request, $headers, $runtime);
     }
 }
