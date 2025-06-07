@@ -72,6 +72,11 @@ class DescribeUsersRequest extends Model
      * @var string
      */
     public $solutionId;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'bizType' => 'BizType',
         'endUserIds' => 'EndUserIds',
@@ -86,6 +91,7 @@ class DescribeUsersRequest extends Model
         'orgId' => 'OrgId',
         'showExtras' => 'ShowExtras',
         'solutionId' => 'SolutionId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -190,6 +196,10 @@ class DescribeUsersRequest extends Model
             $res['SolutionId'] = $this->solutionId;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -278,6 +288,10 @@ class DescribeUsersRequest extends Model
 
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

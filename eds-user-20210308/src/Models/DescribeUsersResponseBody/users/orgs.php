@@ -17,9 +17,15 @@ class orgs extends Model
      * @var string
      */
     public $orgName;
+
+    /**
+     * @var string
+     */
+    public $orgNamePath;
     protected $_name = [
         'orgId' => 'OrgId',
         'orgName' => 'OrgName',
+        'orgNamePath' => 'OrgNamePath',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class orgs extends Model
 
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
+        }
+
+        if (null !== $this->orgNamePath) {
+            $res['OrgNamePath'] = $this->orgNamePath;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class orgs extends Model
 
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
+        }
+
+        if (isset($map['OrgNamePath'])) {
+            $model->orgNamePath = $map['OrgNamePath'];
         }
 
         return $model;

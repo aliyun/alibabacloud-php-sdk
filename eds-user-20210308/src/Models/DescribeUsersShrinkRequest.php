@@ -72,6 +72,11 @@ class DescribeUsersShrinkRequest extends Model
      * @var string
      */
     public $solutionId;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'bizType' => 'BizType',
         'endUserIds' => 'EndUserIds',
@@ -86,6 +91,7 @@ class DescribeUsersShrinkRequest extends Model
         'orgId' => 'OrgId',
         'showExtrasShrink' => 'ShowExtras',
         'solutionId' => 'SolutionId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -166,6 +172,10 @@ class DescribeUsersShrinkRequest extends Model
             $res['SolutionId'] = $this->solutionId;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -239,6 +249,10 @@ class DescribeUsersShrinkRequest extends Model
 
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

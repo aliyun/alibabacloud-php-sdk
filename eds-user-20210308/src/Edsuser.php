@@ -1094,6 +1094,10 @@ class Edsuser extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
         $body = [];
         if (null !== $request->bizType) {
             @$body['BizType'] = $request->bizType;
