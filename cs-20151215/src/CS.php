@@ -1760,6 +1760,10 @@ class CS extends OpenApiClient
             @$body['count'] = $request->count;
         }
 
+        if (null !== $request->efloNodeGroup) {
+            @$body['eflo_node_group'] = $request->efloNodeGroup;
+        }
+
         if (null !== $request->hostNetwork) {
             @$body['host_network'] = $request->hostNetwork;
         }

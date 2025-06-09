@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\autoScaling;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\efloNodeGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\interconnectConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\management;
@@ -25,6 +26,11 @@ class CreateClusterNodePoolRequest extends Model
      * @var int
      */
     public $count;
+
+    /**
+     * @var efloNodeGroup
+     */
+    public $efloNodeGroup;
 
     /**
      * @var bool
@@ -83,6 +89,7 @@ class CreateClusterNodePoolRequest extends Model
     protected $_name = [
         'autoScaling' => 'auto_scaling',
         'count' => 'count',
+        'efloNodeGroup' => 'eflo_node_group',
         'hostNetwork' => 'host_network',
         'interconnectConfig' => 'interconnect_config',
         'interconnectMode' => 'interconnect_mode',
@@ -100,6 +107,9 @@ class CreateClusterNodePoolRequest extends Model
     {
         if (null !== $this->autoScaling) {
             $this->autoScaling->validate();
+        }
+        if (null !== $this->efloNodeGroup) {
+            $this->efloNodeGroup->validate();
         }
         if (null !== $this->interconnectConfig) {
             $this->interconnectConfig->validate();
@@ -134,6 +144,10 @@ class CreateClusterNodePoolRequest extends Model
 
         if (null !== $this->count) {
             $res['count'] = $this->count;
+        }
+
+        if (null !== $this->efloNodeGroup) {
+            $res['eflo_node_group'] = null !== $this->efloNodeGroup ? $this->efloNodeGroup->toArray($noStream) : $this->efloNodeGroup;
         }
 
         if (null !== $this->hostNetwork) {
@@ -197,6 +211,10 @@ class CreateClusterNodePoolRequest extends Model
 
         if (isset($map['count'])) {
             $model->count = $map['count'];
+        }
+
+        if (isset($map['eflo_node_group'])) {
+            $model->efloNodeGroup = efloNodeGroup::fromMap($map['eflo_node_group']);
         }
 
         if (isset($map['host_network'])) {
