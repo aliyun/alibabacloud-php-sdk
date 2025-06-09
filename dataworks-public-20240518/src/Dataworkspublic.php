@@ -3490,6 +3490,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 创建工作流实例.
+     *
      * @param tmpReq - CreateWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3577,6 +3579,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 创建工作流实例.
+     *
      * @param request - CreateWorkflowInstancesRequest
      *
      * @returns CreateWorkflowInstancesResponse
@@ -13967,6 +13971,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates a workflow.
+     *
      * @param request - UpdateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14024,6 +14030,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates a workflow.
+     *
      * @param request - UpdateBusinessRequest
      *
      * @returns UpdateBusinessResponse

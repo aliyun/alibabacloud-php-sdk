@@ -57,6 +57,11 @@ class defaultRunProperties extends Model
     public $parallelism;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var int[]
      */
     public $rootTaskIds;
@@ -80,6 +85,7 @@ class defaultRunProperties extends Model
         'mode' => 'Mode',
         'order' => 'Order',
         'parallelism' => 'Parallelism',
+        'priority' => 'Priority',
         'rootTaskIds' => 'RootTaskIds',
         'runPolicy' => 'RunPolicy',
         'runtimeResource' => 'RuntimeResource',
@@ -177,6 +183,10 @@ class defaultRunProperties extends Model
             $res['Parallelism'] = $this->parallelism;
         }
 
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+
         if (null !== $this->rootTaskIds) {
             if (\is_array($this->rootTaskIds)) {
                 $res['RootTaskIds'] = [];
@@ -264,6 +274,10 @@ class defaultRunProperties extends Model
 
         if (isset($map['Parallelism'])) {
             $model->parallelism = $map['Parallelism'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['RootTaskIds'])) {
