@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Cddc\V20200320;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\AddPrinsInstanceRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\AddPrinsInstanceResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\AddPrinsInstanceShrinkRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupRequest;
@@ -15,6 +18,8 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostShrinkRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseShrinkRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreatePrinsBackupPlanRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreatePrinsBackupPlanResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostGroupRequest;
@@ -31,8 +36,25 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribePrinsBackupPlanRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribePrinsBackupPlanResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribePrinsEcsInstancesRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribePrinsEcsInstancesResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribePrinsInstanceRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribePrinsInstanceResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\GetPrinsEventListRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\GetPrinsEventListResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\GetPrinsMetricsListRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\GetPrinsMetricsListResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsInstancesRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsInstancesResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsInstancesShrinkRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsParamsRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsParamsResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsSQLErrorLogRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListPrinsSQLErrorLogResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostAccountRequest;
@@ -94,6 +116,109 @@ class Cddc extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 纳管实例.
+     *
+     * @param tmpReq - AddPrinsInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPrinsInstanceResponse
+     *
+     * @param AddPrinsInstanceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddPrinsInstanceResponse
+     */
+    public function addPrinsInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddPrinsInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->disk) {
+            $request->diskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->disk, 'Disk', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->diskShrink) {
+            @$query['Disk'] = $request->diskShrink;
+        }
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPrinsInstance',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPrinsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 纳管实例.
+     *
+     * @param request - AddPrinsInstanceRequest
+     *
+     * @returns AddPrinsInstanceResponse
+     *
+     * @param AddPrinsInstanceRequest $request
+     *
+     * @return AddPrinsInstanceResponse
+     */
+    public function addPrinsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPrinsInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -644,6 +769,95 @@ class Cddc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMyBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建备份计划.
+     *
+     * @param request - CreatePrinsBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePrinsBackupPlanResponse
+     *
+     * @param CreatePrinsBackupPlanRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePrinsBackupPlanResponse
+     */
+    public function createPrinsBackupPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupPeriod) {
+            @$query['BackupPeriod'] = $request->backupPeriod;
+        }
+
+        if (null !== $request->backupPlanName) {
+            @$query['BackupPlanName'] = $request->backupPlanName;
+        }
+
+        if (null !== $request->backupStartTime) {
+            @$query['BackupStartTime'] = $request->backupStartTime;
+        }
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+
+        if (null !== $request->instanceClass) {
+            @$query['InstanceClass'] = $request->instanceClass;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePrinsBackupPlan',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePrinsBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建备份计划.
+     *
+     * @param request - CreatePrinsBackupPlanRequest
+     *
+     * @returns CreatePrinsBackupPlanResponse
+     *
+     * @param CreatePrinsBackupPlanRequest $request
+     *
+     * @return CreatePrinsBackupPlanResponse
+     */
+    public function createPrinsBackupPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrinsBackupPlanWithOptions($request, $runtime);
     }
 
     /**
@@ -1323,6 +1537,221 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * 查询备份计划详情.
+     *
+     * @param request - DescribePrinsBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePrinsBackupPlanResponse
+     *
+     * @param DescribePrinsBackupPlanRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePrinsBackupPlanResponse
+     */
+    public function describePrinsBackupPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrinsBackupPlan',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrinsBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询备份计划详情.
+     *
+     * @param request - DescribePrinsBackupPlanRequest
+     *
+     * @returns DescribePrinsBackupPlanResponse
+     *
+     * @param DescribePrinsBackupPlanRequest $request
+     *
+     * @return DescribePrinsBackupPlanResponse
+     */
+    public function describePrinsBackupPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrinsBackupPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询ecs实例信息列表.
+     *
+     * @param request - DescribePrinsEcsInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePrinsEcsInstancesResponse
+     *
+     * @param DescribePrinsEcsInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePrinsEcsInstancesResponse
+     */
+    public function describePrinsEcsInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrinsEcsInstances',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrinsEcsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ecs实例信息列表.
+     *
+     * @param request - DescribePrinsEcsInstancesRequest
+     *
+     * @returns DescribePrinsEcsInstancesResponse
+     *
+     * @param DescribePrinsEcsInstancesRequest $request
+     *
+     * @return DescribePrinsEcsInstancesResponse
+     */
+    public function describePrinsEcsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrinsEcsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取纳管实例详情.
+     *
+     * @param request - DescribePrinsInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePrinsInstanceResponse
+     *
+     * @param DescribePrinsInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePrinsInstanceResponse
+     */
+    public function describePrinsInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->discover) {
+            @$query['Discover'] = $request->discover;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrinsInstance',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrinsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取纳管实例详情.
+     *
+     * @param request - DescribePrinsInstanceRequest
+     *
+     * @returns DescribePrinsInstanceResponse
+     *
+     * @param DescribePrinsInstanceRequest $request
+     *
+     * @return DescribePrinsInstanceResponse
+     */
+    public function describePrinsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrinsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the most recent region list.
      *
      * @remarks
@@ -1383,6 +1812,397 @@ class Cddc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取事件列表.
+     *
+     * @param request - GetPrinsEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPrinsEventListResponse
+     *
+     * @param GetPrinsEventListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetPrinsEventListResponse
+     */
+    public function getPrinsEventListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPrinsEventList',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPrinsEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取事件列表.
+     *
+     * @param request - GetPrinsEventListRequest
+     *
+     * @returns GetPrinsEventListResponse
+     *
+     * @param GetPrinsEventListRequest $request
+     *
+     * @return GetPrinsEventListResponse
+     */
+    public function getPrinsEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPrinsEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取纳管实例性能指标数据.
+     *
+     * @param request - GetPrinsMetricsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPrinsMetricsListResponse
+     *
+     * @param GetPrinsMetricsListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPrinsMetricsListResponse
+     */
+    public function getPrinsMetricsListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->metrics) {
+            @$query['Metrics'] = $request->metrics;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPrinsMetricsList',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPrinsMetricsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取纳管实例性能指标数据.
+     *
+     * @param request - GetPrinsMetricsListRequest
+     *
+     * @returns GetPrinsMetricsListResponse
+     *
+     * @param GetPrinsMetricsListRequest $request
+     *
+     * @return GetPrinsMetricsListResponse
+     */
+    public function getPrinsMetricsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPrinsMetricsListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举纳管实例列表.
+     *
+     * @param tmpReq - ListPrinsInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPrinsInstancesResponse
+     *
+     * @param ListPrinsInstancesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPrinsInstancesResponse
+     */
+    public function listPrinsInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListPrinsInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrinsInstances',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPrinsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举纳管实例列表.
+     *
+     * @param request - ListPrinsInstancesRequest
+     *
+     * @returns ListPrinsInstancesResponse
+     *
+     * @param ListPrinsInstancesRequest $request
+     *
+     * @return ListPrinsInstancesResponse
+     */
+    public function listPrinsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrinsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据库纳管实例参数列表.
+     *
+     * @param request - ListPrinsParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPrinsParamsResponse
+     *
+     * @param ListPrinsParamsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPrinsParamsResponse
+     */
+    public function listPrinsParamsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configName) {
+            @$query['ConfigName'] = $request->configName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrinsParams',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPrinsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据库纳管实例参数列表.
+     *
+     * @param request - ListPrinsParamsRequest
+     *
+     * @returns ListPrinsParamsResponse
+     *
+     * @param ListPrinsParamsRequest $request
+     *
+     * @return ListPrinsParamsResponse
+     */
+    public function listPrinsParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrinsParamsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据库错误日志.
+     *
+     * @param request - ListPrinsSQLErrorLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPrinsSQLErrorLogResponse
+     *
+     * @param ListPrinsSQLErrorLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPrinsSQLErrorLogResponse
+     */
+    public function listPrinsSQLErrorLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->logPath) {
+            @$query['LogPath'] = $request->logPath;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->startLinenum) {
+            @$query['StartLinenum'] = $request->startLinenum;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrinsSQLErrorLog',
+            'version' => '2020-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPrinsSQLErrorLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据库错误日志.
+     *
+     * @param request - ListPrinsSQLErrorLogRequest
+     *
+     * @returns ListPrinsSQLErrorLogResponse
+     *
+     * @param ListPrinsSQLErrorLogRequest $request
+     *
+     * @return ListPrinsSQLErrorLogResponse
+     */
+    public function listPrinsSQLErrorLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrinsSQLErrorLogWithOptions($request, $runtime);
     }
 
     /**
