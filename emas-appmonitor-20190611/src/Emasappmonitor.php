@@ -120,11 +120,8 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErrorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErrorResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErrorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -221,11 +218,8 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErrorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErrorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErrorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -310,11 +304,8 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIssueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIssueResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIssueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -419,11 +410,8 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIssuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -445,6 +433,8 @@ class Emasappmonitor extends OpenApiClient
     }
 
     /**
+     * 获取符号表文件列表.
+     *
      * @param request - GetSymbolicFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -465,6 +455,10 @@ class Emasappmonitor extends OpenApiClient
 
         if (null !== $request->appVersion) {
             @$body['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
         }
 
         if (null !== $request->endTime) {
@@ -517,14 +511,13 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSymbolicFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSymbolicFilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSymbolicFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取符号表文件列表.
+     *
      * @param request - GetSymbolicFilesRequest
      *
      * @returns GetSymbolicFilesResponse
@@ -577,11 +570,8 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RequestUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RequestUploadTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return RequestUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -661,11 +651,8 @@ class Emasappmonitor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitSymbolicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitSymbolicResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitSymbolicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

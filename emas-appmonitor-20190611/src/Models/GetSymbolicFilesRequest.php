@@ -19,6 +19,11 @@ class GetSymbolicFilesRequest extends Model
     public $appVersion;
 
     /**
+     * @var string
+     */
+    public $buildId;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -65,6 +70,7 @@ class GetSymbolicFilesRequest extends Model
     protected $_name = [
         'appKey' => 'AppKey',
         'appVersion' => 'AppVersion',
+        'buildId' => 'BuildId',
         'endTime' => 'EndTime',
         'exportStatus' => 'ExportStatus',
         'fileName' => 'FileName',
@@ -90,6 +96,10 @@ class GetSymbolicFilesRequest extends Model
 
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
+        }
+
+        if (null !== $this->buildId) {
+            $res['BuildId'] = $this->buildId;
         }
 
         if (null !== $this->endTime) {
@@ -145,6 +155,10 @@ class GetSymbolicFilesRequest extends Model
 
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
+        }
+
+        if (isset($map['BuildId'])) {
+            $model->buildId = $map['BuildId'];
         }
 
         if (isset($map['EndTime'])) {
