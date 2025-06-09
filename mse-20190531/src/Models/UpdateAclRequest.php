@@ -22,10 +22,16 @@ class UpdateAclRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $networkType;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'aclEntryList' => 'AclEntryList',
         'instanceId' => 'InstanceId',
+        'networkType' => 'NetworkType',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class UpdateAclRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class UpdateAclRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
 
         return $model;

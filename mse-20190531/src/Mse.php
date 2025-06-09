@@ -15663,6 +15663,10 @@ class Mse extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
