@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\labels;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\requestedResource;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\tag;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userCommand;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userVpc;
 
 class CreateInstanceRequest extends Model
@@ -111,6 +112,11 @@ class CreateInstanceRequest extends Model
     public $tag;
 
     /**
+     * @var userCommand
+     */
+    public $userCommand;
+
+    /**
      * @var string
      */
     public $userId;
@@ -149,6 +155,7 @@ class CreateInstanceRequest extends Model
         'requestedResource' => 'RequestedResource',
         'resourceId' => 'ResourceId',
         'tag' => 'Tag',
+        'userCommand' => 'UserCommand',
         'userId' => 'UserId',
         'userVpc' => 'UserVpc',
         'workspaceId' => 'WorkspaceId',
@@ -183,6 +190,9 @@ class CreateInstanceRequest extends Model
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
+        }
+        if (null !== $this->userCommand) {
+            $this->userCommand->validate();
         }
         if (null !== $this->userVpc) {
             $this->userVpc->validate();
@@ -296,6 +306,10 @@ class CreateInstanceRequest extends Model
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->userCommand) {
+            $res['UserCommand'] = null !== $this->userCommand ? $this->userCommand->toArray($noStream) : $this->userCommand;
         }
 
         if (null !== $this->userId) {
@@ -428,6 +442,10 @@ class CreateInstanceRequest extends Model
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['UserCommand'])) {
+            $model->userCommand = userCommand::fromMap($map['UserCommand']);
         }
 
         if (isset($map['UserId'])) {

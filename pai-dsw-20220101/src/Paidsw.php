@@ -259,6 +259,10 @@ class Paidsw extends OpenApiClient
             @$body['Tag'] = $request->tag;
         }
 
+        if (null !== $request->userCommand) {
+            @$body['UserCommand'] = $request->userCommand;
+        }
+
         if (null !== $request->userId) {
             @$body['UserId'] = $request->userId;
         }
@@ -2020,8 +2024,16 @@ class Paidsw extends OpenApiClient
             @$body['DisassociateDriver'] = $request->disassociateDriver;
         }
 
+        if (null !== $request->disassociateEnvironmentVariables) {
+            @$body['DisassociateEnvironmentVariables'] = $request->disassociateEnvironmentVariables;
+        }
+
         if (null !== $request->disassociateForwardInfos) {
             @$body['DisassociateForwardInfos'] = $request->disassociateForwardInfos;
+        }
+
+        if (null !== $request->disassociateUserCommand) {
+            @$body['DisassociateUserCommand'] = $request->disassociateUserCommand;
         }
 
         if (null !== $request->disassociateVpc) {
@@ -2038,6 +2050,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->ecsSpec) {
             @$body['EcsSpec'] = $request->ecsSpec;
+        }
+
+        if (null !== $request->environmentVariables) {
+            @$body['EnvironmentVariables'] = $request->environmentVariables;
         }
 
         if (null !== $request->imageAuth) {
@@ -2066,6 +2082,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->requestedResource) {
             @$body['RequestedResource'] = $request->requestedResource;
+        }
+
+        if (null !== $request->userCommand) {
+            @$body['UserCommand'] = $request->userCommand;
         }
 
         if (null !== $request->userId) {

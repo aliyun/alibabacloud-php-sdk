@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\affinity;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\requestedResource;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\userCommand;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\userVpc;
 
 class UpdateInstanceRequest extends Model
@@ -56,7 +57,17 @@ class UpdateInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $disassociateEnvironmentVariables;
+
+    /**
+     * @var bool
+     */
     public $disassociateForwardInfos;
+
+    /**
+     * @var bool
+     */
+    public $disassociateUserCommand;
 
     /**
      * @var bool
@@ -77,6 +88,11 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $ecsSpec;
+
+    /**
+     * @var mixed[]
+     */
+    public $environmentVariables;
 
     /**
      * @var string
@@ -114,6 +130,11 @@ class UpdateInstanceRequest extends Model
     public $requestedResource;
 
     /**
+     * @var userCommand
+     */
+    public $userCommand;
+
+    /**
      * @var string
      */
     public $userId;
@@ -136,11 +157,14 @@ class UpdateInstanceRequest extends Model
         'disassociateCredential' => 'DisassociateCredential',
         'disassociateDatasets' => 'DisassociateDatasets',
         'disassociateDriver' => 'DisassociateDriver',
+        'disassociateEnvironmentVariables' => 'DisassociateEnvironmentVariables',
         'disassociateForwardInfos' => 'DisassociateForwardInfos',
+        'disassociateUserCommand' => 'DisassociateUserCommand',
         'disassociateVpc' => 'DisassociateVpc',
         'driver' => 'Driver',
         'dynamicMount' => 'DynamicMount',
         'ecsSpec' => 'EcsSpec',
+        'environmentVariables' => 'EnvironmentVariables',
         'imageAuth' => 'ImageAuth',
         'imageId' => 'ImageId',
         'imageUrl' => 'ImageUrl',
@@ -148,6 +172,7 @@ class UpdateInstanceRequest extends Model
         'oversoldType' => 'OversoldType',
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
+        'userCommand' => 'UserCommand',
         'userId' => 'UserId',
         'userVpc' => 'UserVpc',
         'workspaceSource' => 'WorkspaceSource',
@@ -170,8 +195,14 @@ class UpdateInstanceRequest extends Model
         if (null !== $this->dynamicMount) {
             $this->dynamicMount->validate();
         }
+        if (\is_array($this->environmentVariables)) {
+            Model::validateArray($this->environmentVariables);
+        }
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
+        }
+        if (null !== $this->userCommand) {
+            $this->userCommand->validate();
         }
         if (null !== $this->userVpc) {
             $this->userVpc->validate();
@@ -226,8 +257,16 @@ class UpdateInstanceRequest extends Model
             $res['DisassociateDriver'] = $this->disassociateDriver;
         }
 
+        if (null !== $this->disassociateEnvironmentVariables) {
+            $res['DisassociateEnvironmentVariables'] = $this->disassociateEnvironmentVariables;
+        }
+
         if (null !== $this->disassociateForwardInfos) {
             $res['DisassociateForwardInfos'] = $this->disassociateForwardInfos;
+        }
+
+        if (null !== $this->disassociateUserCommand) {
+            $res['DisassociateUserCommand'] = $this->disassociateUserCommand;
         }
 
         if (null !== $this->disassociateVpc) {
@@ -244,6 +283,15 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
+        }
+
+        if (null !== $this->environmentVariables) {
+            if (\is_array($this->environmentVariables)) {
+                $res['EnvironmentVariables'] = [];
+                foreach ($this->environmentVariables as $key1 => $value1) {
+                    $res['EnvironmentVariables'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->imageAuth) {
@@ -272,6 +320,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->requestedResource) {
             $res['RequestedResource'] = null !== $this->requestedResource ? $this->requestedResource->toArray($noStream) : $this->requestedResource;
+        }
+
+        if (null !== $this->userCommand) {
+            $res['UserCommand'] = null !== $this->userCommand ? $this->userCommand->toArray($noStream) : $this->userCommand;
         }
 
         if (null !== $this->userId) {
@@ -341,8 +393,16 @@ class UpdateInstanceRequest extends Model
             $model->disassociateDriver = $map['DisassociateDriver'];
         }
 
+        if (isset($map['DisassociateEnvironmentVariables'])) {
+            $model->disassociateEnvironmentVariables = $map['DisassociateEnvironmentVariables'];
+        }
+
         if (isset($map['DisassociateForwardInfos'])) {
             $model->disassociateForwardInfos = $map['DisassociateForwardInfos'];
+        }
+
+        if (isset($map['DisassociateUserCommand'])) {
+            $model->disassociateUserCommand = $map['DisassociateUserCommand'];
         }
 
         if (isset($map['DisassociateVpc'])) {
@@ -359,6 +419,15 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
+        }
+
+        if (isset($map['EnvironmentVariables'])) {
+            if (!empty($map['EnvironmentVariables'])) {
+                $model->environmentVariables = [];
+                foreach ($map['EnvironmentVariables'] as $key1 => $value1) {
+                    $model->environmentVariables[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['ImageAuth'])) {
@@ -387,6 +456,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['RequestedResource'])) {
             $model->requestedResource = requestedResource::fromMap($map['RequestedResource']);
+        }
+
+        if (isset($map['UserCommand'])) {
+            $model->userCommand = userCommand::fromMap($map['UserCommand']);
         }
 
         if (isset($map['UserId'])) {
