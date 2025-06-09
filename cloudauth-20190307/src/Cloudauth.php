@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCardVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceGuardRiskRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitCardVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitCardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingRequest;
@@ -1279,6 +1283,63 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * 图片要素核验获取认证结果.
+     *
+     * @param request - DescribeCardVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCardVerifyResponse
+     *
+     * @param DescribeCardVerifyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCardVerifyResponse
+     */
+    public function describeCardVerifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certifyId) {
+            @$query['CertifyId'] = $request->certifyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCardVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 图片要素核验获取认证结果.
+     *
+     * @param request - DescribeCardVerifyRequest
+     *
+     * @returns DescribeCardVerifyResponse
+     *
+     * @param DescribeCardVerifyRequest $request
+     *
+     * @return DescribeCardVerifyResponse
+     */
+    public function describeCardVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCardVerifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2328,6 +2389,99 @@ class Cloudauth extends OpenApiClient
         }
 
         return $this->id2MetaVerifyWithOCRWithOptions($id2MetaVerifyWithOCRReq, $runtime);
+    }
+
+    /**
+     * 图片核验发起认证请求
+     *
+     * @param request - InitCardVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitCardVerifyResponse
+     *
+     * @param InitCardVerifyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InitCardVerifyResponse
+     */
+    public function initCardVerifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callbackToken) {
+            @$query['CallbackToken'] = $request->callbackToken;
+        }
+
+        if (null !== $request->callbackUrl) {
+            @$query['CallbackUrl'] = $request->callbackUrl;
+        }
+
+        if (null !== $request->cardPageNumber) {
+            @$query['CardPageNumber'] = $request->cardPageNumber;
+        }
+
+        if (null !== $request->cardType) {
+            @$query['CardType'] = $request->cardType;
+        }
+
+        if (null !== $request->docScanMode) {
+            @$query['DocScanMode'] = $request->docScanMode;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->metaInfo) {
+            @$query['MetaInfo'] = $request->metaInfo;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->pictureSave) {
+            @$query['PictureSave'] = $request->pictureSave;
+        }
+
+        if (null !== $request->verifyMeta) {
+            @$query['VerifyMeta'] = $request->verifyMeta;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InitCardVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitCardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 图片核验发起认证请求
+     *
+     * @param request - InitCardVerifyRequest
+     *
+     * @returns InitCardVerifyResponse
+     *
+     * @param InitCardVerifyRequest $request
+     *
+     * @return InitCardVerifyResponse
+     */
+    public function initCardVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initCardVerifyWithOptions($request, $runtime);
     }
 
     /**
