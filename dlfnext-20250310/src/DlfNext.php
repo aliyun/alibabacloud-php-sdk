@@ -21,15 +21,23 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\DeleteRoleResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\DropCatalogResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryTrendRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryTrendResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogTokenResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetDatabaseSummaryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRegionStatusResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSummaryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPermissionsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPermissionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListRolesRequest;
@@ -629,6 +637,228 @@ class DlfNext extends OpenApiClient
     }
 
     /**
+     * 查看表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCatalogSummaryResponse
+     *
+     * @param string         $catalogId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCatalogSummaryResponse
+     */
+    public function getCatalogSummaryWithOptions($catalogId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalogSummary',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/storage-summary/' . Url::percentEncode($catalogId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCatalogSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表.
+     *
+     * @returns GetCatalogSummaryResponse
+     *
+     * @param string $catalogId
+     *
+     * @return GetCatalogSummaryResponse
+     */
+    public function getCatalogSummary($catalogId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCatalogSummaryWithOptions($catalogId, $headers, $runtime);
+    }
+
+    /**
+     * 查看表.
+     *
+     * @param request - GetCatalogSummaryTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCatalogSummaryTrendResponse
+     *
+     * @param string                        $catalogId
+     * @param GetCatalogSummaryTrendRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCatalogSummaryTrendResponse
+     */
+    public function getCatalogSummaryTrendWithOptions($catalogId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalogSummaryTrend',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/storage-summary/' . Url::percentEncode($catalogId) . '/trend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCatalogSummaryTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表.
+     *
+     * @param request - GetCatalogSummaryTrendRequest
+     *
+     * @returns GetCatalogSummaryTrendResponse
+     *
+     * @param string                        $catalogId
+     * @param GetCatalogSummaryTrendRequest $request
+     *
+     * @return GetCatalogSummaryTrendResponse
+     */
+    public function getCatalogSummaryTrend($catalogId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCatalogSummaryTrendWithOptions($catalogId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据湖Catalog的临时访问凭证
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCatalogTokenResponse
+     *
+     * @param string         $catalog
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCatalogTokenResponse
+     */
+    public function getCatalogTokenWithOptions($catalog, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalogToken',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/catalogs/' . Url::percentEncode($catalog) . '/token',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCatalogTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据湖Catalog的临时访问凭证
+     *
+     * @returns GetCatalogTokenResponse
+     *
+     * @param string $catalog
+     *
+     * @return GetCatalogTokenResponse
+     */
+    public function getCatalogToken($catalog)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCatalogTokenWithOptions($catalog, $headers, $runtime);
+    }
+
+    /**
+     * 查看表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatabaseSummaryResponse
+     *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDatabaseSummaryResponse
+     */
+    public function getDatabaseSummaryWithOptions($catalogId, $database, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDatabaseSummary',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/storage-summary/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatabaseSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表.
+     *
+     * @returns GetDatabaseSummaryResponse
+     *
+     * @param string $catalogId
+     * @param string $database
+     *
+     * @return GetDatabaseSummaryResponse
+     */
+    public function getDatabaseSummary($catalogId, $database)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatabaseSummaryWithOptions($catalogId, $database, $headers, $runtime);
+    }
+
+    /**
      * 查询 DLF 当前地域开通状态
      *
      * @param headers - map
@@ -735,6 +965,61 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->getRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查看表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableSummaryResponse
+     *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string         $table
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTableSummaryResponse
+     */
+    public function getTableSummaryWithOptions($catalogId, $database, $table, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTableSummary',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/storage-summary/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表.
+     *
+     * @returns GetTableSummaryResponse
+     *
+     * @param string $catalogId
+     * @param string $database
+     * @param string $table
+     *
+     * @return GetTableSummaryResponse
+     */
+    public function getTableSummary($catalogId, $database, $table)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableSummaryWithOptions($catalogId, $database, $table, $headers, $runtime);
     }
 
     /**
@@ -930,6 +1215,81 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listCatalogsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查看表.
+     *
+     * @param request - ListPartitionSummariesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPartitionSummariesResponse
+     *
+     * @param string                        $catalogId
+     * @param string                        $database
+     * @param string                        $table
+     * @param ListPartitionSummariesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListPartitionSummariesResponse
+     */
+    public function listPartitionSummariesWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->pageToken) {
+            @$query['pageToken'] = $request->pageToken;
+        }
+
+        if (null !== $request->partitionNamePattern) {
+            @$query['partitionNamePattern'] = $request->partitionNamePattern;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPartitionSummaries',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/storage-summary/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/partitions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPartitionSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表.
+     *
+     * @param request - ListPartitionSummariesRequest
+     *
+     * @returns ListPartitionSummariesResponse
+     *
+     * @param string                        $catalogId
+     * @param string                        $database
+     * @param string                        $table
+     * @param ListPartitionSummariesRequest $request
+     *
+     * @return ListPartitionSummariesResponse
+     */
+    public function listPartitionSummaries($catalogId, $database, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPartitionSummariesWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
     }
 
     /**
