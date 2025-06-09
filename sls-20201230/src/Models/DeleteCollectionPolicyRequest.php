@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCollectionPolicyRequest extends Model
 {
     /**
-     * @example access_log
-     *
      * @var string
      */
     public $dataCode;
 
     /**
-     * @example oss
-     *
      * @var string
      */
     public $productCode;
     protected $_name = [
-        'dataCode'    => 'dataCode',
+        'dataCode' => 'dataCode',
         'productCode' => 'productCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataCode) {
             $res['dataCode'] = $this->dataCode;
         }
+
         if (null !== $this->productCode) {
             $res['productCode'] = $this->productCode;
         }
@@ -43,17 +41,18 @@ class DeleteCollectionPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCollectionPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataCode'])) {
             $model->dataCode = $map['dataCode'];
         }
+
         if (isset($map['productCode'])) {
             $model->productCode = $map['productCode'];
         }

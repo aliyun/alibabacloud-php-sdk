@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponseBody\data;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponseBody\statistics;
-use AlibabaCloud\Tea\Model;
 
 class ListCollectionPoliciesResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentCount;
 
     /**
-     * @description The data of the policies that are matched against the query conditions. The data is returned based on paginated results.
-     *
      * @var data[]
      */
     public $data;
@@ -30,46 +26,54 @@ class ListCollectionPoliciesResponseBody extends Model
     public $statistics;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'currentCount' => 'currentCount',
-        'data'         => 'data',
-        'statistics'   => 'statistics',
-        'totalCount'   => 'totalCount',
+        'data' => 'data',
+        'statistics' => 'statistics',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (\is_array($this->statistics)) {
+            Model::validateArray($this->statistics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentCount) {
             $res['currentCount'] = $this->currentCount;
         }
+
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->statistics) {
-            $res['statistics'] = [];
-            if (null !== $this->statistics && \is_array($this->statistics)) {
-                $n = 0;
-                foreach ($this->statistics as $item) {
-                    $res['statistics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statistics)) {
+                $res['statistics'] = [];
+                $n1 = 0;
+                foreach ($this->statistics as $item1) {
+                    $res['statistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -77,35 +81,38 @@ class ListCollectionPoliciesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCollectionPoliciesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentCount'])) {
             $model->currentCount = $map['currentCount'];
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1++] = data::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['statistics'])) {
             if (!empty($map['statistics'])) {
                 $model->statistics = [];
-                $n                 = 0;
-                foreach ($map['statistics'] as $item) {
-                    $model->statistics[$n++] = null !== $item ? statistics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['statistics'] as $item1) {
+                    $model->statistics[$n1++] = statistics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

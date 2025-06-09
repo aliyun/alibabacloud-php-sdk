@@ -4,53 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMetricStoresResponseBody extends Model
 {
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The names of the Metricstores.
-     *
      * @var string[]
      */
     public $metricstores;
 
     /**
-     * @description The total number of queried Metricstores.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'        => 'count',
+        'count' => 'count',
         'metricstores' => 'metricstores',
-        'total'        => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->metricstores)) {
+            Model::validateArray($this->metricstores);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->metricstores) {
-            $res['metricstores'] = $this->metricstores;
+            if (\is_array($this->metricstores)) {
+                $res['metricstores'] = [];
+                $n1 = 0;
+                foreach ($this->metricstores as $item1) {
+                    $res['metricstores'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -58,22 +60,28 @@ class ListMetricStoresResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMetricStoresResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['metricstores'])) {
             if (!empty($map['metricstores'])) {
-                $model->metricstores = $map['metricstores'];
+                $model->metricstores = [];
+                $n1 = 0;
+                foreach ($map['metricstores'] as $item1) {
+                    $model->metricstores[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

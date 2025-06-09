@@ -4,71 +4,66 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Machine extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @example 192.168.x.x
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example 1657509674
-     *
      * @var int
      */
     public $lastHeartbeatTime;
 
     /**
-     * @example 3B70F4F1-80F7-46C4-A6C1-100D66C***47
-     *
      * @var string
      */
     public $machineUniqueid;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $userdefinedId;
     protected $_name = [
-        'hostId'            => 'host-id',
-        'ip'                => 'ip',
+        'hostId' => 'host-id',
+        'ip' => 'ip',
         'lastHeartbeatTime' => 'lastHeartbeatTime',
-        'machineUniqueid'   => 'machine-uniqueid',
-        'userdefinedId'     => 'userdefined-id',
+        'machineUniqueid' => 'machine-uniqueid',
+        'userdefinedId' => 'userdefined-id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostId) {
             $res['host-id'] = $this->hostId;
         }
+
         if (null !== $this->ip) {
             $res['ip'] = $this->ip;
         }
+
         if (null !== $this->lastHeartbeatTime) {
             $res['lastHeartbeatTime'] = $this->lastHeartbeatTime;
         }
+
         if (null !== $this->machineUniqueid) {
             $res['machine-uniqueid'] = $this->machineUniqueid;
         }
+
         if (null !== $this->userdefinedId) {
             $res['userdefined-id'] = $this->userdefinedId;
         }
@@ -76,26 +71,30 @@ class Machine extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Machine
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['host-id'])) {
             $model->hostId = $map['host-id'];
         }
+
         if (isset($map['ip'])) {
             $model->ip = $map['ip'];
         }
+
         if (isset($map['lastHeartbeatTime'])) {
             $model->lastHeartbeatTime = $map['lastHeartbeatTime'];
         }
+
         if (isset($map['machine-uniqueid'])) {
             $model->machineUniqueid = $map['machine-uniqueid'];
         }
+
         if (isset($map['userdefined-id'])) {
             $model->userdefinedId = $map['userdefined-id'];
         }

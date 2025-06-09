@@ -4,72 +4,87 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponseBody\dashboardItems;
-use AlibabaCloud\Tea\Model;
 
 class ListDashboardResponseBody extends Model
 {
     /**
-     * @description The details of the dashboard.
-     *
      * @var dashboardItems[]
      */
     public $dashboardItems;
 
     /**
-     * @description The queried dashboards. Each dashboard in the array is specified by dashboardName.
-     *
      * @var string[]
      */
     public $dashboards;
     protected $_name = [
         'dashboardItems' => 'dashboardItems',
-        'dashboards'     => 'dashboards',
+        'dashboards' => 'dashboards',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dashboardItems)) {
+            Model::validateArray($this->dashboardItems);
+        }
+        if (\is_array($this->dashboards)) {
+            Model::validateArray($this->dashboards);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dashboardItems) {
-            $res['dashboardItems'] = [];
-            if (null !== $this->dashboardItems && \is_array($this->dashboardItems)) {
-                $n = 0;
-                foreach ($this->dashboardItems as $item) {
-                    $res['dashboardItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dashboardItems)) {
+                $res['dashboardItems'] = [];
+                $n1 = 0;
+                foreach ($this->dashboardItems as $item1) {
+                    $res['dashboardItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->dashboards) {
-            $res['dashboards'] = $this->dashboards;
+            if (\is_array($this->dashboards)) {
+                $res['dashboards'] = [];
+                $n1 = 0;
+                foreach ($this->dashboards as $item1) {
+                    $res['dashboards'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDashboardResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dashboardItems'])) {
             if (!empty($map['dashboardItems'])) {
                 $model->dashboardItems = [];
-                $n                     = 0;
-                foreach ($map['dashboardItems'] as $item) {
-                    $model->dashboardItems[$n++] = null !== $item ? dashboardItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dashboardItems'] as $item1) {
+                    $model->dashboardItems[$n1++] = dashboardItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['dashboards'])) {
             if (!empty($map['dashboards'])) {
-                $model->dashboards = $map['dashboards'];
+                $model->dashboards = [];
+                $n1 = 0;
+                foreach ($map['dashboards'] as $item1) {
+                    $model->dashboards[$n1++] = $item1;
+                }
             }
         }
 

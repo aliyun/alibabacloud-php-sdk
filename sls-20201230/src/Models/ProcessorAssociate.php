@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProcessorAssociate extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ingest-processor-1
-     *
      * @var string
      */
     public $processorId;
@@ -22,9 +18,10 @@ class ProcessorAssociate extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->processorId) {
@@ -34,11 +31,11 @@ class ProcessorAssociate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProcessorAssociate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

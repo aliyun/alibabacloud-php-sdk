@@ -4,51 +4,49 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateETLRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var ETLConfiguration
      */
     public $configuration;
 
     /**
-     * @example this is description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example this is update
-     *
      * @var string
      */
     public $displayName;
     protected $_name = [
         'configuration' => 'configuration',
-        'description'   => 'description',
-        'displayName'   => 'displayName',
+        'description' => 'description',
+        'displayName' => 'displayName',
     ];
 
     public function validate()
     {
+        if (null !== $this->configuration) {
+            $this->configuration->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configuration) {
-            $res['configuration'] = null !== $this->configuration ? $this->configuration->toMap() : null;
+            $res['configuration'] = null !== $this->configuration ? $this->configuration->toArray($noStream) : $this->configuration;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -56,20 +54,22 @@ class UpdateETLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateETLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configuration'])) {
             $model->configuration = ETLConfiguration::fromMap($map['configuration']);
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

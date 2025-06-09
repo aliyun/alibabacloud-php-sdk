@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EncryptUserCmkConf extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $arn;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $cmkKeyId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'arn'      => 'arn',
+        'arn' => 'arn',
         'cmkKeyId' => 'cmk_key_id',
         'regionId' => 'region_id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
             $res['arn'] = $this->arn;
         }
+
         if (null !== $this->cmkKeyId) {
             $res['cmk_key_id'] = $this->cmkKeyId;
         }
+
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
@@ -54,20 +51,22 @@ class EncryptUserCmkConf extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EncryptUserCmkConf
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arn'])) {
             $model->arn = $map['arn'];
         }
+
         if (isset($map['cmk_key_id'])) {
             $model->cmkKeyId = $map['cmk_key_id'];
         }
+
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }

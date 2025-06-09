@@ -4,68 +4,78 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutWebtrackingRequest extends Model
 {
     /**
-     * @description The logs. Each element is a JSON object that indicates a log.
-     *
-     * >  **Note**: The time in a log that is collected by using the web tracking feature is the time at which Simple Log Service receives the log. You do not need to configure the __time__ field for each log. If this field exists, it is overwritten by the time at which Simple Log Service receives the log.
-     *
-     * This parameter is required.
      * @var string[][]
      */
     public $logs;
 
     /**
-     * @description The source of the logs.
-     *
-     * This parameter is required.
-     * @example source
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description The tags of the logs.
-     *
      * @var string[]
      */
     public $tags;
 
     /**
-     * @description The topic of the logs.
-     *
-     * @example topic
-     *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'logs'   => '__logs__',
+        'logs' => '__logs__',
         'source' => '__source__',
-        'tags'   => '__tags__',
-        'topic'  => '__topic__',
+        'tags' => '__tags__',
+        'topic' => '__topic__',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logs) {
-            $res['__logs__'] = $this->logs;
+            if (\is_array($this->logs)) {
+                $res['__logs__'] = [];
+                $n1 = 0;
+                foreach ($this->logs as $item1) {
+                    if (\is_array($item1)) {
+                        $res['__logs__'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['__logs__'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->source) {
             $res['__source__'] = $this->source;
         }
+
         if (null !== $this->tags) {
-            $res['__tags__'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['__tags__'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['__tags__'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->topic) {
             $res['__topic__'] = $this->topic;
         }
@@ -73,25 +83,42 @@ class PutWebtrackingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutWebtrackingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['__logs__'])) {
             if (!empty($map['__logs__'])) {
-                $model->logs = $map['__logs__'];
+                $model->logs = [];
+                $n1 = 0;
+                foreach ($map['__logs__'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->logs[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->logs[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['__source__'])) {
             $model->source = $map['__source__'];
         }
+
         if (isset($map['__tags__'])) {
-            $model->tags = $map['__tags__'];
+            if (!empty($map['__tags__'])) {
+                $model->tags = [];
+                foreach ($map['__tags__'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['__topic__'])) {
             $model->topic = $map['__topic__'];
         }

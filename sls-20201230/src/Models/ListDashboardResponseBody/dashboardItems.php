@@ -4,42 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dashboardItems extends Model
 {
     /**
-     * @description The dashboard ID. The ID must be unique in a project. Fuzzy search is supported. For example, if you enter da, all dashboards whose IDs start with da are queried.
-     *
-     * @example dashboard-1609294922657-434834
-     *
      * @var string
      */
     public $dashboardName;
 
     /**
-     * @description The display name of the dashboard.
-     *
-     * @example data-ingest
-     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string
      */
     public $displayName;
     protected $_name = [
         'dashboardName' => 'dashboardName',
-        'displayName'   => 'displayName',
+        'description' => 'description',
+        'displayName' => 'displayName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dashboardName) {
             $res['dashboardName'] = $this->dashboardName;
         }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -47,17 +51,22 @@ class dashboardItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dashboardItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dashboardName'])) {
             $model->dashboardName = $map['dashboardName'];
         }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

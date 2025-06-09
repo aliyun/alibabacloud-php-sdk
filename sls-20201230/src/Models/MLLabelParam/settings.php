@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\MLLabelParam;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class settings extends Model
 {
     /**
-     * @example ""
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @example builtin
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @example Trace.RCA
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 0.01
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'config'  => 'config',
-        'mode'    => 'mode',
-        'type'    => 'type',
+        'config' => 'config',
+        'mode' => 'mode',
+        'type' => 'type',
         'version' => 'version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
+
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -65,23 +61,26 @@ class settings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return settings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
+
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

@@ -4,47 +4,57 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateProjectRequest extends Model
 {
     /**
-     * @description The description of the project. The default value is an empty string.
-     *
-     * This parameter is required.
-     * @example Description of my-project-test
-     *
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $recycleBinEnabled;
     protected $_name = [
         'description' => 'description',
+        'recycleBinEnabled' => 'recycleBinEnabled',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->recycleBinEnabled) {
+            $res['recycleBinEnabled'] = $this->recycleBinEnabled;
+        }
+
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['recycleBinEnabled'])) {
+            $model->recycleBinEnabled = $map['recycleBinEnabled'];
         }
 
         return $model;

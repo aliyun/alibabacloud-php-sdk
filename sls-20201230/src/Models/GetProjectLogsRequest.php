@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetProjectLogsRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the Dedicated SQL feature. For more information, see [Enable Dedicated SQL](https://help.aliyun.com/document_detail/223777.html). Valid values:
-     *
-     *   true
-     *   false (default): enables the Standard SQL feature.
-     *
-     * You can use the powerSql or **query** parameter to configure Dedicated SQL.
-     * @example false
-     *
      * @var bool
      */
     public $powerSql;
 
     /**
-     * @description The standard SQL statement. In this example, the SQL statement queries the number of page views (PVs) from 2022-03-01 10:41:40 to 2022-03-01 10:56:40 in a Logstore whose name is nginx-moni.
-     *
-     * This parameter is required.
-     * @example SELECT COUNT(*) as pv FROM nginx-moni where __time__ &gt; 1646102500 and __time__ &lt; 1646103400
-     *
      * @var string
      */
     public $query;
     protected $_name = [
         'powerSql' => 'powerSql',
-        'query'    => 'query',
+        'query' => 'query',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->powerSql) {
             $res['powerSql'] = $this->powerSql;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
@@ -52,17 +41,18 @@ class GetProjectLogsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProjectLogsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['powerSql'])) {
             $model->powerSql = $map['powerSql'];
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }

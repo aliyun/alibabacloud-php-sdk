@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMetricStoreMeteringModeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ChargeByFunction
-     *
      * @var string
      */
     public $meteringMode;
@@ -22,9 +18,10 @@ class UpdateMetricStoreMeteringModeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->meteringMode) {
@@ -34,11 +31,11 @@ class UpdateMetricStoreMeteringModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMetricStoreMeteringModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

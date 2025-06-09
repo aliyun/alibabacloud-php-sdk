@@ -4,59 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMachinesResponseBody extends Model
 {
     /**
-     * @description The number of machines that are returned on the current page.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The machines that are returned.
-     *
      * @var Machine[]
      */
     public $machines;
 
     /**
-     * @description The total number of machines.
-     *
-     * @example 8
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'    => 'count',
+        'count' => 'count',
         'machines' => 'machines',
-        'total'    => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->machines)) {
+            Model::validateArray($this->machines);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->machines) {
-            $res['machines'] = [];
-            if (null !== $this->machines && \is_array($this->machines)) {
-                $n = 0;
-                foreach ($this->machines as $item) {
-                    $res['machines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->machines)) {
+                $res['machines'] = [];
+                $n1 = 0;
+                foreach ($this->machines as $item1) {
+                    $res['machines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -64,26 +60,28 @@ class ListMachinesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMachinesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['machines'])) {
             if (!empty($map['machines'])) {
                 $model->machines = [];
-                $n               = 0;
-                foreach ($map['machines'] as $item) {
-                    $model->machines[$n++] = null !== $item ? Machine::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['machines'] as $item1) {
+                    $model->machines[$n1++] = Machine::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

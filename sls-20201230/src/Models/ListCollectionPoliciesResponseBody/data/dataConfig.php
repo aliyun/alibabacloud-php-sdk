@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataConfig extends Model
 {
     /**
-     * @example ""
-     *
      * @var string
      */
     public $dataProject;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $dataRegion;
     protected $_name = [
         'dataProject' => 'dataProject',
-        'dataRegion'  => 'dataRegion',
+        'dataRegion' => 'dataRegion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataProject) {
             $res['dataProject'] = $this->dataProject;
         }
+
         if (null !== $this->dataRegion) {
             $res['dataRegion'] = $this->dataRegion;
         }
@@ -43,17 +41,18 @@ class dataConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataProject'])) {
             $model->dataProject = $map['dataProject'];
         }
+
         if (isset($map['dataRegion'])) {
             $model->dataRegion = $map['dataRegion'];
         }

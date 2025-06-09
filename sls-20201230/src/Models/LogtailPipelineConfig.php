@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LogtailPipelineConfig extends Model
 {
@@ -14,24 +14,16 @@ class LogtailPipelineConfig extends Model
     public $aggregators;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test-config
-     *
      * @var string
      */
     public $configName;
 
     /**
-     * @example 1655176807
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[][]
      */
     public $flushers;
@@ -42,22 +34,16 @@ class LogtailPipelineConfig extends Model
     public $global;
 
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[][]
      */
     public $inputs;
 
     /**
-     * @example 1655176807
-     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
-     * @example 127.0.0.1 - - [10/Jun/2022:12:36:49 +0800] "GET /index.html HTTP/1.1" 200
-     *
      * @var string
      */
     public $logSample;
@@ -67,96 +53,218 @@ class LogtailPipelineConfig extends Model
      */
     public $processors;
     protected $_name = [
-        'aggregators'    => 'aggregators',
-        'configName'     => 'configName',
-        'createTime'     => 'createTime',
-        'flushers'       => 'flushers',
-        'global'         => 'global',
-        'inputs'         => 'inputs',
+        'aggregators' => 'aggregators',
+        'configName' => 'configName',
+        'createTime' => 'createTime',
+        'flushers' => 'flushers',
+        'global' => 'global',
+        'inputs' => 'inputs',
         'lastModifyTime' => 'lastModifyTime',
-        'logSample'      => 'logSample',
-        'processors'     => 'processors',
+        'logSample' => 'logSample',
+        'processors' => 'processors',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aggregators)) {
+            Model::validateArray($this->aggregators);
+        }
+        if (\is_array($this->flushers)) {
+            Model::validateArray($this->flushers);
+        }
+        if (\is_array($this->global)) {
+            Model::validateArray($this->global);
+        }
+        if (\is_array($this->inputs)) {
+            Model::validateArray($this->inputs);
+        }
+        if (\is_array($this->processors)) {
+            Model::validateArray($this->processors);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregators) {
-            $res['aggregators'] = $this->aggregators;
+            if (\is_array($this->aggregators)) {
+                $res['aggregators'] = [];
+                $n1 = 0;
+                foreach ($this->aggregators as $item1) {
+                    if (\is_array($item1)) {
+                        $res['aggregators'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['aggregators'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->configName) {
             $res['configName'] = $this->configName;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->flushers) {
-            $res['flushers'] = $this->flushers;
+            if (\is_array($this->flushers)) {
+                $res['flushers'] = [];
+                $n1 = 0;
+                foreach ($this->flushers as $item1) {
+                    if (\is_array($item1)) {
+                        $res['flushers'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['flushers'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->global) {
-            $res['global'] = $this->global;
+            if (\is_array($this->global)) {
+                $res['global'] = [];
+                foreach ($this->global as $key1 => $value1) {
+                    $res['global'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->inputs) {
-            $res['inputs'] = $this->inputs;
+            if (\is_array($this->inputs)) {
+                $res['inputs'] = [];
+                $n1 = 0;
+                foreach ($this->inputs as $item1) {
+                    if (\is_array($item1)) {
+                        $res['inputs'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['inputs'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
         }
+
         if (null !== $this->logSample) {
             $res['logSample'] = $this->logSample;
         }
+
         if (null !== $this->processors) {
-            $res['processors'] = $this->processors;
+            if (\is_array($this->processors)) {
+                $res['processors'] = [];
+                $n1 = 0;
+                foreach ($this->processors as $item1) {
+                    if (\is_array($item1)) {
+                        $res['processors'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['processors'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LogtailPipelineConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aggregators'])) {
             if (!empty($map['aggregators'])) {
-                $model->aggregators = $map['aggregators'];
+                $model->aggregators = [];
+                $n1 = 0;
+                foreach ($map['aggregators'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->aggregators[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->aggregators[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['configName'])) {
             $model->configName = $map['configName'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['flushers'])) {
             if (!empty($map['flushers'])) {
-                $model->flushers = $map['flushers'];
+                $model->flushers = [];
+                $n1 = 0;
+                foreach ($map['flushers'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->flushers[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->flushers[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['global'])) {
-            $model->global = $map['global'];
+            if (!empty($map['global'])) {
+                $model->global = [];
+                foreach ($map['global'] as $key1 => $value1) {
+                    $model->global[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['inputs'])) {
             if (!empty($map['inputs'])) {
-                $model->inputs = $map['inputs'];
+                $model->inputs = [];
+                $n1 = 0;
+                foreach ($map['inputs'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->inputs[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->inputs[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
         }
+
         if (isset($map['logSample'])) {
             $model->logSample = $map['logSample'];
         }
+
         if (isset($map['processors'])) {
             if (!empty($map['processors'])) {
-                $model->processors = $map['processors'];
+                $model->processors = [];
+                $n1 = 0;
+                foreach ($map['processors'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->processors[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->processors[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
 

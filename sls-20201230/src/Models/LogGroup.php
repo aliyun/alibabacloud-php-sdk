@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LogGroup extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var LogItem[]
      */
     public $logItems;
@@ -21,53 +19,59 @@ class LogGroup extends Model
     public $logTags;
 
     /**
-     * @example 192.1.1.1
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example topic-test
-     *
      * @var string
      */
     public $topic;
     protected $_name = [
         'logItems' => 'LogItems',
-        'logTags'  => 'LogTags',
-        'source'   => 'Source',
-        'topic'    => 'Topic',
+        'logTags' => 'LogTags',
+        'source' => 'Source',
+        'topic' => 'Topic',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logItems)) {
+            Model::validateArray($this->logItems);
+        }
+        if (\is_array($this->logTags)) {
+            Model::validateArray($this->logTags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logItems) {
-            $res['LogItems'] = [];
-            if (null !== $this->logItems && \is_array($this->logItems)) {
-                $n = 0;
-                foreach ($this->logItems as $item) {
-                    $res['LogItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logItems)) {
+                $res['LogItems'] = [];
+                $n1 = 0;
+                foreach ($this->logItems as $item1) {
+                    $res['LogItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->logTags) {
-            $res['LogTags'] = [];
-            if (null !== $this->logTags && \is_array($this->logTags)) {
-                $n = 0;
-                foreach ($this->logTags as $item) {
-                    $res['LogTags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logTags)) {
+                $res['LogTags'] = [];
+                $n1 = 0;
+                foreach ($this->logTags as $item1) {
+                    $res['LogTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -75,35 +79,38 @@ class LogGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LogGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogItems'])) {
             if (!empty($map['LogItems'])) {
                 $model->logItems = [];
-                $n               = 0;
-                foreach ($map['LogItems'] as $item) {
-                    $model->logItems[$n++] = null !== $item ? LogItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogItems'] as $item1) {
+                    $model->logItems[$n1++] = LogItem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['LogTags'])) {
             if (!empty($map['LogTags'])) {
                 $model->logTags = [];
-                $n              = 0;
-                foreach ($map['LogTags'] as $item) {
-                    $model->logTags[$n++] = null !== $item ? LogTag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogTags'] as $item1) {
+                    $model->logTags[$n1++] = LogTag::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

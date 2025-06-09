@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMLServiceResultsRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $allowBuiltin;
@@ -26,23 +24,29 @@ class GetMLServiceResultsRequest extends Model
     public $version;
     protected $_name = [
         'allowBuiltin' => 'allowBuiltin',
-        'body'         => 'body',
-        'version'      => 'version',
+        'body' => 'body',
+        'version' => 'version',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowBuiltin) {
             $res['allowBuiltin'] = $this->allowBuiltin;
         }
+
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -50,20 +54,22 @@ class GetMLServiceResultsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMLServiceResultsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowBuiltin'])) {
             $model->allowBuiltin = $map['allowBuiltin'];
         }
+
         if (isset($map['body'])) {
             $model->body = MLServiceAnalysisParam::fromMap($map['body']);
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

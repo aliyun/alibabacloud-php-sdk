@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreEncryptionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userCmkInfo extends Model
 {
     /**
-     * @example f5136b95-2420-ab31-xxxxxxxxx
-     *
      * @var string
      */
     public $keyId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example acs:ram::12344***:role/xxxxx
-     *
      * @var string
      */
     public $roleArn;
     protected $_name = [
-        'keyId'    => 'keyId',
+        'keyId' => 'keyId',
         'regionId' => 'regionId',
-        'roleArn'  => 'roleArn',
+        'roleArn' => 'roleArn',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
             $res['keyId'] = $this->keyId;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
         }
@@ -54,20 +51,22 @@ class userCmkInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userCmkInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['keyId'])) {
             $model->keyId = $map['keyId'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
         }

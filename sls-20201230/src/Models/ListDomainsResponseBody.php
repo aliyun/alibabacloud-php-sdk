@@ -4,53 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDomainsResponseBody extends Model
 {
     /**
-     * @description The number of domain names that are returned on the current page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The domain names.
-     *
      * @var string[]
      */
     public $domains;
 
     /**
-     * @description The total number of domain names that are returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'   => 'count',
+        'count' => 'count',
         'domains' => 'domains',
-        'total'   => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->domains) {
-            $res['domains'] = $this->domains;
+            if (\is_array($this->domains)) {
+                $res['domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['domains'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -58,22 +60,28 @@ class ListDomainsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDomainsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['domains'])) {
             if (!empty($map['domains'])) {
-                $model->domains = $map['domains'];
+                $model->domains = [];
+                $n1 = 0;
+                foreach ($map['domains'] as $item1) {
+                    $model->domains[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

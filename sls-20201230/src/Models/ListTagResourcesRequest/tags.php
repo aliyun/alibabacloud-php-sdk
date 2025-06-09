@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The key of the tag that you want to use to filter resources. For example, if you set the key to `"test-key"`, only resources to which the key is added are returned.``
-     *
-     * This parameter is required.
-     * @example key1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the tag that you want to use to filter resources. If you set the value to null, resources are filtered based only on the key of the tag.
-     *
-     * @example value1
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
+        'key' => 'key',
         'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -48,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

@@ -4,42 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\MLLabelParam\settings;
-use AlibabaCloud\Tea\Model;
 
 class MLLabelParam extends Model
 {
     /**
-     * @example 1695090077
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 默认表
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example abbd488f6dd42d294495fb780858e83d
-     *
      * @var string
      */
     public $labelId;
 
     /**
-     * @example 1695090077
-     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
-     * @example 标签表
-     *
      * @var string
      */
     public $name;
@@ -50,52 +40,60 @@ class MLLabelParam extends Model
     public $settings;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'createTime'     => 'createTime',
-        'description'    => 'description',
-        'labelId'        => 'labelId',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'labelId' => 'labelId',
         'lastModifyTime' => 'lastModifyTime',
-        'name'           => 'name',
-        'settings'       => 'settings',
-        'type'           => 'type',
+        'name' => 'name',
+        'settings' => 'settings',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->settings)) {
+            Model::validateArray($this->settings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->labelId) {
             $res['labelId'] = $this->labelId;
         }
+
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->settings) {
-            $res['settings'] = [];
-            if (null !== $this->settings && \is_array($this->settings)) {
-                $n = 0;
-                foreach ($this->settings as $item) {
-                    $res['settings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->settings)) {
+                $res['settings'] = [];
+                $n1 = 0;
+                foreach ($this->settings as $item1) {
+                    $res['settings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -103,38 +101,44 @@ class MLLabelParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MLLabelParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['labelId'])) {
             $model->labelId = $map['labelId'];
         }
+
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['settings'])) {
             if (!empty($map['settings'])) {
                 $model->settings = [];
-                $n               = 0;
-                foreach ($map['settings'] as $item) {
-                    $model->settings[$n++] = null !== $item ? settings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['settings'] as $item1) {
+                    $model->settings[$n1++] = settings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

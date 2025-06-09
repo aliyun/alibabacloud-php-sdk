@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group.
-     *
-     * This parameter is required.
-     * @example rg-aek2i7nhaxifxey
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The ID of the resource.
-     *
-     * This parameter is required.
-     * @example ali-test-project
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Only PROJECT is supported. Set the value to PROJECT.
-     *
-     * @example PROJECT
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'resourceGroupId' => 'resourceGroupId',
-        'resourceId'      => 'resourceId',
-        'resourceType'    => 'resourceType',
+        'resourceId' => 'resourceId',
+        'resourceType' => 'resourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -62,20 +51,22 @@ class ChangeResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\Logging;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class loggingDetails extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example my-logstore
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example consumergroup_log
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'logstore' => 'logstore',
-        'type'     => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -47,17 +41,18 @@ class loggingDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loggingDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAppliedMachineGroupsResponseBody extends Model
 {
     /**
-     * @description The number of returned machine groups.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The names of the returned machine groups.
-     *
-     * @example [ "sample-group1","sample-group2" ]
-     *
      * @var string[]
      */
     public $machinegroups;
     protected $_name = [
-        'count'         => 'count',
+        'count' => 'count',
         'machinegroups' => 'machinegroups',
     ];
 
     public function validate()
     {
+        if (\is_array($this->machinegroups)) {
+            Model::validateArray($this->machinegroups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->machinegroups) {
-            $res['machinegroups'] = $this->machinegroups;
+            if (\is_array($this->machinegroups)) {
+                $res['machinegroups'] = [];
+                $n1 = 0;
+                foreach ($this->machinegroups as $item1) {
+                    $res['machinegroups'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppliedMachineGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['machinegroups'])) {
             if (!empty($map['machinegroups'])) {
-                $model->machinegroups = $map['machinegroups'];
+                $model->machinegroups = [];
+                $n1 = 0;
+                foreach ($map['machinegroups'] as $item1) {
+                    $model->machinegroups[$n1++] = $item1;
+                }
             }
         }
 

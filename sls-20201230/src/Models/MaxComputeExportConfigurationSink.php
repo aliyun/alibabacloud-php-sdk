@@ -4,155 +4,174 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MaxComputeExportConfigurationSink extends Model
 {
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $bufferInterval;
+
+    /**
      * @var string[]
      */
     public $fields;
 
     /**
-     * @example asdfghjk
-     *
-     * @deprecated
-     *
+     * @var bool
+     */
+    public $filterInvalid;
+
+    /**
      * @var string
      */
     public $odpsAccessKeyId;
 
     /**
-     * @example esasdfghjkl
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $odpsAccessSecret;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
-     *
      * @var string
      */
     public $odpsEndpoint;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example demo_project
-     *
      * @var string
      */
     public $odpsProject;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example acs:ram::123456789:role/aliyunlogdefaultrole
-     *
      * @var string
      */
     public $odpsRolearn;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example demo_table
-     *
      * @var string
      */
     public $odpsTable;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://dt.cn-hangzhou.maxcompute.aliyun-inc.com
-     *
      * @var string
      */
     public $odpsTunnelEndpoint;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $partitionColumn;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example %Y_%m_%d
-     *
      * @var string
      */
     public $partitionTimeFormat;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example +0800
-     *
+     * @var string
+     */
+    public $timeFormatType;
+
+    /**
      * @var string
      */
     public $timeZone;
     protected $_name = [
-        'fields'              => 'fields',
-        'odpsAccessKeyId'     => 'odpsAccessKeyId',
-        'odpsAccessSecret'    => 'odpsAccessSecret',
-        'odpsEndpoint'        => 'odpsEndpoint',
-        'odpsProject'         => 'odpsProject',
-        'odpsRolearn'         => 'odpsRolearn',
-        'odpsTable'           => 'odpsTable',
-        'odpsTunnelEndpoint'  => 'odpsTunnelEndpoint',
-        'partitionColumn'     => 'partitionColumn',
+        'bufferInterval' => 'bufferInterval',
+        'fields' => 'fields',
+        'filterInvalid' => 'filterInvalid',
+        'odpsAccessKeyId' => 'odpsAccessKeyId',
+        'odpsAccessSecret' => 'odpsAccessSecret',
+        'odpsEndpoint' => 'odpsEndpoint',
+        'odpsProject' => 'odpsProject',
+        'odpsRolearn' => 'odpsRolearn',
+        'odpsTable' => 'odpsTable',
+        'odpsTunnelEndpoint' => 'odpsTunnelEndpoint',
+        'partitionColumn' => 'partitionColumn',
         'partitionTimeFormat' => 'partitionTimeFormat',
-        'timeZone'            => 'timeZone',
+        'timeFormatType' => 'timeFormatType',
+        'timeZone' => 'timeZone',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        if (\is_array($this->partitionColumn)) {
+            Model::validateArray($this->partitionColumn);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->fields) {
-            $res['fields'] = $this->fields;
+        if (null !== $this->bufferInterval) {
+            $res['bufferInterval'] = $this->bufferInterval;
         }
+
+        if (null !== $this->fields) {
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->filterInvalid) {
+            $res['filterInvalid'] = $this->filterInvalid;
+        }
+
         if (null !== $this->odpsAccessKeyId) {
             $res['odpsAccessKeyId'] = $this->odpsAccessKeyId;
         }
+
         if (null !== $this->odpsAccessSecret) {
             $res['odpsAccessSecret'] = $this->odpsAccessSecret;
         }
+
         if (null !== $this->odpsEndpoint) {
             $res['odpsEndpoint'] = $this->odpsEndpoint;
         }
+
         if (null !== $this->odpsProject) {
             $res['odpsProject'] = $this->odpsProject;
         }
+
         if (null !== $this->odpsRolearn) {
             $res['odpsRolearn'] = $this->odpsRolearn;
         }
+
         if (null !== $this->odpsTable) {
             $res['odpsTable'] = $this->odpsTable;
         }
+
         if (null !== $this->odpsTunnelEndpoint) {
             $res['odpsTunnelEndpoint'] = $this->odpsTunnelEndpoint;
         }
+
         if (null !== $this->partitionColumn) {
-            $res['partitionColumn'] = $this->partitionColumn;
+            if (\is_array($this->partitionColumn)) {
+                $res['partitionColumn'] = [];
+                $n1 = 0;
+                foreach ($this->partitionColumn as $item1) {
+                    $res['partitionColumn'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->partitionTimeFormat) {
             $res['partitionTimeFormat'] = $this->partitionTimeFormat;
         }
+
+        if (null !== $this->timeFormatType) {
+            $res['timeFormatType'] = $this->timeFormatType;
+        }
+
         if (null !== $this->timeZone) {
             $res['timeZone'] = $this->timeZone;
         }
@@ -160,48 +179,78 @@ class MaxComputeExportConfigurationSink extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MaxComputeExportConfigurationSink
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bufferInterval'])) {
+            $model->bufferInterval = $map['bufferInterval'];
+        }
+
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
-                $model->fields = $map['fields'];
+                $model->fields = [];
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1++] = $item1;
+                }
             }
         }
+
+        if (isset($map['filterInvalid'])) {
+            $model->filterInvalid = $map['filterInvalid'];
+        }
+
         if (isset($map['odpsAccessKeyId'])) {
             $model->odpsAccessKeyId = $map['odpsAccessKeyId'];
         }
+
         if (isset($map['odpsAccessSecret'])) {
             $model->odpsAccessSecret = $map['odpsAccessSecret'];
         }
+
         if (isset($map['odpsEndpoint'])) {
             $model->odpsEndpoint = $map['odpsEndpoint'];
         }
+
         if (isset($map['odpsProject'])) {
             $model->odpsProject = $map['odpsProject'];
         }
+
         if (isset($map['odpsRolearn'])) {
             $model->odpsRolearn = $map['odpsRolearn'];
         }
+
         if (isset($map['odpsTable'])) {
             $model->odpsTable = $map['odpsTable'];
         }
+
         if (isset($map['odpsTunnelEndpoint'])) {
             $model->odpsTunnelEndpoint = $map['odpsTunnelEndpoint'];
         }
+
         if (isset($map['partitionColumn'])) {
             if (!empty($map['partitionColumn'])) {
-                $model->partitionColumn = $map['partitionColumn'];
+                $model->partitionColumn = [];
+                $n1 = 0;
+                foreach ($map['partitionColumn'] as $item1) {
+                    $model->partitionColumn[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['partitionTimeFormat'])) {
             $model->partitionTimeFormat = $map['partitionTimeFormat'];
         }
+
+        if (isset($map['timeFormatType'])) {
+            $model->timeFormatType = $map['timeFormatType'];
+        }
+
         if (isset($map['timeZone'])) {
             $model->timeZone = $map['timeZone'];
         }

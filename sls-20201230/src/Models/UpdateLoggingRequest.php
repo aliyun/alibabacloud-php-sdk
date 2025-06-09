@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest\loggingDetails;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLoggingRequest extends Model
 {
     /**
-     * @description The configurations of service logs.
-     *
-     * This parameter is required.
      * @var loggingDetails[]
      */
     public $loggingDetails;
 
     /**
-     * @description The name of the project to which you want to save service logs.
-     *
-     * This parameter is required.
-     * @example my-project
-     *
      * @var string
      */
     public $loggingProject;
@@ -33,20 +25,25 @@ class UpdateLoggingRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->loggingDetails)) {
+            Model::validateArray($this->loggingDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loggingDetails) {
-            $res['loggingDetails'] = [];
-            if (null !== $this->loggingDetails && \is_array($this->loggingDetails)) {
-                $n = 0;
-                foreach ($this->loggingDetails as $item) {
-                    $res['loggingDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->loggingDetails)) {
+                $res['loggingDetails'] = [];
+                $n1 = 0;
+                foreach ($this->loggingDetails as $item1) {
+                    $res['loggingDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->loggingProject) {
             $res['loggingProject'] = $this->loggingProject;
         }
@@ -54,23 +51,24 @@ class UpdateLoggingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLoggingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['loggingDetails'])) {
             if (!empty($map['loggingDetails'])) {
                 $model->loggingDetails = [];
-                $n                     = 0;
-                foreach ($map['loggingDetails'] as $item) {
-                    $model->loggingDetails[$n++] = null !== $item ? loggingDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['loggingDetails'] as $item1) {
+                    $model->loggingDetails[$n1++] = loggingDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['loggingProject'])) {
             $model->loggingProject = $map['loggingProject'];
         }

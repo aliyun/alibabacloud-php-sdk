@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListOSSExportsRequest extends Model
 {
@@ -14,37 +14,36 @@ class ListOSSExportsRequest extends Model
     public $logstore;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $size;
     protected $_name = [
         'logstore' => 'logstore',
-        'offset'   => 'offset',
-        'size'     => 'size',
+        'offset' => 'offset',
+        'size' => 'size',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
+
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -52,20 +51,22 @@ class ListOSSExportsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOSSExportsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
+
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

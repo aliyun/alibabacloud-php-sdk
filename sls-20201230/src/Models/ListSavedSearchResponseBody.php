@@ -4,61 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSavedSearchResponseBody extends Model
 {
     /**
-     * @description The number of saved searches returned on the current page.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The saved searches.
-     *
-     * @example [ "test-1", "test-2" ]
-     *
      * @var SavedSearch[]
      */
     public $savedsearchItems;
 
     /**
-     * @description The total number of saved searches that meet the query conditions.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'            => 'count',
+        'count' => 'count',
         'savedsearchItems' => 'savedsearchItems',
-        'total'            => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->savedsearchItems)) {
+            Model::validateArray($this->savedsearchItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->savedsearchItems) {
-            $res['savedsearchItems'] = [];
-            if (null !== $this->savedsearchItems && \is_array($this->savedsearchItems)) {
-                $n = 0;
-                foreach ($this->savedsearchItems as $item) {
-                    $res['savedsearchItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->savedsearchItems)) {
+                $res['savedsearchItems'] = [];
+                $n1 = 0;
+                foreach ($this->savedsearchItems as $item1) {
+                    $res['savedsearchItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -66,26 +60,28 @@ class ListSavedSearchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSavedSearchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['savedsearchItems'])) {
             if (!empty($map['savedsearchItems'])) {
                 $model->savedsearchItems = [];
-                $n                       = 0;
-                foreach ($map['savedsearchItems'] as $item) {
-                    $model->savedsearchItems[$n++] = null !== $item ? SavedSearch::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['savedsearchItems'] as $item1) {
+                    $model->savedsearchItems[$n1++] = SavedSearch::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

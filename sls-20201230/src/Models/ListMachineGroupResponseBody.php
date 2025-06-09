@@ -4,55 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMachineGroupResponseBody extends Model
 {
     /**
-     * @description The number of machine groups that are returned on the current page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The machine groups that meet the query conditions.
-     *
-     * @example [ "test-machine-group-1", "test-machine-group-2" ]
-     *
      * @var string[]
      */
     public $machinegroups;
 
     /**
-     * @description The total number of machine groups that meet the query conditions.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'         => 'count',
+        'count' => 'count',
         'machinegroups' => 'machinegroups',
-        'total'         => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->machinegroups)) {
+            Model::validateArray($this->machinegroups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->machinegroups) {
-            $res['machinegroups'] = $this->machinegroups;
+            if (\is_array($this->machinegroups)) {
+                $res['machinegroups'] = [];
+                $n1 = 0;
+                foreach ($this->machinegroups as $item1) {
+                    $res['machinegroups'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -60,22 +60,28 @@ class ListMachineGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMachineGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['machinegroups'])) {
             if (!empty($map['machinegroups'])) {
-                $model->machinegroups = $map['machinegroups'];
+                $model->machinegroups = [];
+                $n1 = 0;
+                foreach ($map['machinegroups'] as $item1) {
+                    $model->machinegroups[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

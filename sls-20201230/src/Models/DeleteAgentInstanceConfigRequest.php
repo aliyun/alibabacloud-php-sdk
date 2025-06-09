@@ -4,42 +4,43 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAgentInstanceConfigRequest extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isGray;
+    public $attributes;
     protected $_name = [
-        'isGray' => 'isGray',
+        'attributes' => 'attributes',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->isGray) {
-            $res['isGray'] = $this->isGray;
+        if (null !== $this->attributes) {
+            $res['attributes'] = $this->attributes;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAgentInstanceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['isGray'])) {
-            $model->isGray = $map['isGray'];
+        if (isset($map['attributes'])) {
+            $model->attributes = $map['attributes'];
         }
 
         return $model;

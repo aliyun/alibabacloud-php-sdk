@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewIndexResponseBody\indexes;
-use AlibabaCloud\Tea\Model;
 
 class GetStoreViewIndexResponseBody extends Model
 {
     /**
-     * @description The index configurations.
-     *
      * @var indexes[]
      */
     public $indexes;
@@ -21,17 +19,21 @@ class GetStoreViewIndexResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->indexes)) {
+            Model::validateArray($this->indexes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexes) {
-            $res['indexes'] = [];
-            if (null !== $this->indexes && \is_array($this->indexes)) {
-                $n = 0;
-                foreach ($this->indexes as $item) {
-                    $res['indexes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indexes)) {
+                $res['indexes'] = [];
+                $n1 = 0;
+                foreach ($this->indexes as $item1) {
+                    $res['indexes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class GetStoreViewIndexResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStoreViewIndexResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indexes'])) {
             if (!empty($map['indexes'])) {
                 $model->indexes = [];
-                $n              = 0;
-                foreach ($map['indexes'] as $item) {
-                    $model->indexes[$n++] = null !== $item ? indexes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['indexes'] as $item1) {
+                    $model->indexes[$n1++] = indexes::fromMap($item1);
                 }
             }
         }

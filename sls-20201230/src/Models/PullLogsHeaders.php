@@ -4,32 +4,44 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PullLogsHeaders extends Model
 {
+    /**
+     * @var string[]
+     */
     public $commonHeaders;
 
     /**
-     * @example lz4
-     *
      * @var string
      */
     public $acceptEncoding;
     protected $_name = [
+        'commonHeaders' => 'commonHeaders',
         'acceptEncoding' => 'Accept-Encoding',
     ];
 
     public function validate()
     {
+        if (\is_array($this->commonHeaders)) {
+            Model::validateArray($this->commonHeaders);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commonHeaders) {
-            $res['commonHeaders'] = $this->commonHeaders;
+            if (\is_array($this->commonHeaders)) {
+                $res['commonHeaders'] = [];
+                foreach ($this->commonHeaders as $key1 => $value1) {
+                    $res['commonHeaders'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->acceptEncoding) {
             $res['Accept-Encoding'] = $this->acceptEncoding;
         }
@@ -37,17 +49,23 @@ class PullLogsHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PullLogsHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
-            $model->commonHeaders = $map['commonHeaders'];
+            if (!empty($map['commonHeaders'])) {
+                $model->commonHeaders = [];
+                foreach ($map['commonHeaders'] as $key1 => $value1) {
+                    $model->commonHeaders[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Accept-Encoding'])) {
             $model->acceptEncoding = $map['Accept-Encoding'];
         }

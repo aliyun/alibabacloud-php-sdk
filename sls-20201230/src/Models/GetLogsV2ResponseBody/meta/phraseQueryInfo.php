@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2ResponseBody\meta;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class phraseQueryInfo extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $beginOffset;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $endOffset;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $scanAll;
     protected $_name = [
         'beginOffset' => 'beginOffset',
-        'endOffset'   => 'endOffset',
-        'endTime'     => 'endTime',
-        'scanAll'     => 'scanAll',
+        'endOffset' => 'endOffset',
+        'endTime' => 'endTime',
+        'scanAll' => 'scanAll',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginOffset) {
             $res['beginOffset'] = $this->beginOffset;
         }
+
         if (null !== $this->endOffset) {
             $res['endOffset'] = $this->endOffset;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->scanAll) {
             $res['scanAll'] = $this->scanAll;
         }
@@ -65,23 +61,26 @@ class phraseQueryInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return phraseQueryInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['beginOffset'])) {
             $model->beginOffset = $map['beginOffset'];
         }
+
         if (isset($map['endOffset'])) {
             $model->endOffset = $map['endOffset'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['scanAll'])) {
             $model->scanAll = $map['scanAll'];
         }

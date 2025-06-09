@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConditionConfiguration extends Model
 {
     /**
-     * @example cnt > 100
-     *
      * @var string
      */
     public $condition;
 
     /**
-     * @example __count__ > 5
-     *
      * @var string
      */
     public $countCondition;
     protected $_name = [
-        'condition'      => 'condition',
+        'condition' => 'condition',
         'countCondition' => 'countCondition',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
+
         if (null !== $this->countCondition) {
             $res['countCondition'] = $this->countCondition;
         }
@@ -43,17 +41,18 @@ class ConditionConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConditionConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
+
         if (isset($map['countCondition'])) {
             $model->countCondition = $map['countCondition'];
         }

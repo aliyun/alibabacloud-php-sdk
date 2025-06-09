@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SplitShardRequest extends Model
 {
     /**
-     * @description The position where the shard is split.
-     *
-     * @example ef000000000000000000000000000000
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The number of new shards that are generated after splitting.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $shardCount;
     protected $_name = [
-        'key'        => 'key',
+        'key' => 'key',
         'shardCount' => 'shardCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
         }
@@ -47,17 +41,18 @@ class SplitShardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SplitShardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
         }

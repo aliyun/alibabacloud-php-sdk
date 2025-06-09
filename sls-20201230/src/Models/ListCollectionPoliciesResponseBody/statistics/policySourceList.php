@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponseBody\statistics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class policySourceList extends Model
 {
     /**
-     * @example policy_name1_from148
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @example 148***********50
-     *
      * @var string
      */
     public $policyUid;
     protected $_name = [
         'policyName' => 'policyName',
-        'policyUid'  => 'policyUid',
+        'policyUid' => 'policyUid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyName) {
             $res['policyName'] = $this->policyName;
         }
+
         if (null !== $this->policyUid) {
             $res['policyUid'] = $this->policyUid;
         }
@@ -43,17 +41,18 @@ class policySourceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policySourceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['policyName'])) {
             $model->policyName = $map['policyName'];
         }
+
         if (isset($map['policyUid'])) {
             $model->policyUid = $map['policyUid'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LogGroupList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var LogGroup[]
      */
     public $logGroupList;
@@ -20,17 +18,21 @@ class LogGroupList extends Model
 
     public function validate()
     {
+        if (\is_array($this->logGroupList)) {
+            Model::validateArray($this->logGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logGroupList) {
-            $res['logGroupList'] = [];
-            if (null !== $this->logGroupList && \is_array($this->logGroupList)) {
-                $n = 0;
-                foreach ($this->logGroupList as $item) {
-                    $res['logGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logGroupList)) {
+                $res['logGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->logGroupList as $item1) {
+                    $res['logGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -38,20 +40,20 @@ class LogGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LogGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logGroupList'])) {
             if (!empty($map['logGroupList'])) {
                 $model->logGroupList = [];
-                $n                   = 0;
-                foreach ($map['logGroupList'] as $item) {
-                    $model->logGroupList[$n++] = null !== $item ? LogGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['logGroupList'] as $item1) {
+                    $model->logGroupList[$n1++] = LogGroup::fromMap($item1);
                 }
             }
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSqlInstanceRequest extends Model
 {
     /**
-     * @description The number of compute units (CUs). When you use the Dedicated SQL feature, CUs are used in parallel.
-     *
-     * This parameter is required.
-     * @example 2
-     *
      * @var int
      */
     public $cu;
 
     /**
-     * @description Specifies whether to enable the Dedicated SQL feature for the project. If you set this parameter to true, the Dedicated SQL feature is enabled for the specified project and takes effect for all query statements that you execute in the project, including the query statements for alerts and dashboards.
-     *
-     * This parameter is required.
      * @var bool
      */
     public $useAsDefault;
     protected $_name = [
-        'cu'           => 'cu',
+        'cu' => 'cu',
         'useAsDefault' => 'useAsDefault',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cu) {
             $res['cu'] = $this->cu;
         }
+
         if (null !== $this->useAsDefault) {
             $res['useAsDefault'] = $this->useAsDefault;
         }
@@ -47,17 +41,18 @@ class CreateSqlInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSqlInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cu'])) {
             $model->cu = $map['cu'];
         }
+
         if (isset($map['useAsDefault'])) {
             $model->useAsDefault = $map['useAsDefault'];
         }

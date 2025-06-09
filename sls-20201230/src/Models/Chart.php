@@ -4,75 +4,90 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Chart extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[]
      */
     public $action;
 
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[]
      */
     public $display;
 
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[]
      */
     public $search;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example my-chart
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example linepro
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'action'  => 'action',
+        'action' => 'action',
         'display' => 'display',
-        'search'  => 'search',
-        'title'   => 'title',
-        'type'    => 'type',
+        'search' => 'search',
+        'title' => 'title',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->action)) {
+            Model::validateArray($this->action);
+        }
+        if (\is_array($this->display)) {
+            Model::validateArray($this->display);
+        }
+        if (\is_array($this->search)) {
+            Model::validateArray($this->search);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
-            $res['action'] = $this->action;
+            if (\is_array($this->action)) {
+                $res['action'] = [];
+                foreach ($this->action as $key1 => $value1) {
+                    $res['action'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->display) {
-            $res['display'] = $this->display;
+            if (\is_array($this->display)) {
+                $res['display'] = [];
+                foreach ($this->display as $key1 => $value1) {
+                    $res['display'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->search) {
-            $res['search'] = $this->search;
+            if (\is_array($this->search)) {
+                $res['search'] = [];
+                foreach ($this->search as $key1 => $value1) {
+                    $res['search'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -80,26 +95,45 @@ class Chart extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Chart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['action'])) {
-            $model->action = $map['action'];
+            if (!empty($map['action'])) {
+                $model->action = [];
+                foreach ($map['action'] as $key1 => $value1) {
+                    $model->action[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['display'])) {
-            $model->display = $map['display'];
+            if (!empty($map['display'])) {
+                $model->display = [];
+                foreach ($map['display'] as $key1 => $value1) {
+                    $model->display[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['search'])) {
-            $model->search = $map['search'];
+            if (!empty($map['search'])) {
+                $model->search = [];
+                foreach ($map['search'] as $key1 => $value1) {
+                    $model->search[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

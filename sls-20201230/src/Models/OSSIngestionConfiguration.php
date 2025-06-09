@@ -4,58 +4,58 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OSSIngestionConfiguration extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example myLogstore
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description This parameter is required.
-     *
      * @var OSSIngestionConfigurationSource
      */
     public $source;
     protected $_name = [
         'logstore' => 'logstore',
-        'source'   => 'source',
+        'source' => 'source',
     ];
 
     public function validate()
     {
+        if (null !== $this->source) {
+            $this->source->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
+
         if (null !== $this->source) {
-            $res['source'] = null !== $this->source ? $this->source->toMap() : null;
+            $res['source'] = null !== $this->source ? $this->source->toArray($noStream) : $this->source;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OSSIngestionConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
+
         if (isset($map['source'])) {
             $model->source = OSSIngestionConfigurationSource::fromMap($map['source']);
         }

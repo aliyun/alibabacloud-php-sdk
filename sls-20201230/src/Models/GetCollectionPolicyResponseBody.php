@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyResponseBody\collectionPolicy;
-use AlibabaCloud\Tea\Model;
 
 class GetCollectionPolicyResponseBody extends Model
 {
@@ -19,23 +19,27 @@ class GetCollectionPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->collectionPolicy) {
+            $this->collectionPolicy->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectionPolicy) {
-            $res['collectionPolicy'] = null !== $this->collectionPolicy ? $this->collectionPolicy->toMap() : null;
+            $res['collectionPolicy'] = null !== $this->collectionPolicy ? $this->collectionPolicy->toArray($noStream) : $this->collectionPolicy;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCollectionPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

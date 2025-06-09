@@ -4,56 +4,45 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateStoreViewRequest extends Model
 {
     /**
-     * @description The type of the dataset.
-     *
-     * Valid values:
-     *
-     *   metricstore
-     *
-     * <!-- -->
-     *
-     *   logstore
-     *
-     * This parameter is required.
-     * @example logstore
-     *
      * @var string
      */
     public $storeType;
 
     /**
-     * @description The Logstores or Metricstores.
-     *
-     * This parameter is required.
      * @var StoreViewStore[]
      */
     public $stores;
     protected $_name = [
         'storeType' => 'storeType',
-        'stores'    => 'stores',
+        'stores' => 'stores',
     ];
 
     public function validate()
     {
+        if (\is_array($this->stores)) {
+            Model::validateArray($this->stores);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storeType) {
             $res['storeType'] = $this->storeType;
         }
+
         if (null !== $this->stores) {
-            $res['stores'] = [];
-            if (null !== $this->stores && \is_array($this->stores)) {
-                $n = 0;
-                foreach ($this->stores as $item) {
-                    $res['stores'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stores)) {
+                $res['stores'] = [];
+                $n1 = 0;
+                foreach ($this->stores as $item1) {
+                    $res['stores'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -61,23 +50,24 @@ class UpdateStoreViewRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateStoreViewRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['storeType'])) {
             $model->storeType = $map['storeType'];
         }
+
         if (isset($map['stores'])) {
             if (!empty($map['stores'])) {
                 $model->stores = [];
-                $n             = 0;
-                foreach ($map['stores'] as $item) {
-                    $model->stores[$n++] = null !== $item ? StoreViewStore::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['stores'] as $item1) {
+                    $model->stores[$n1++] = StoreViewStore::fromMap($item1);
                 }
             }
         }

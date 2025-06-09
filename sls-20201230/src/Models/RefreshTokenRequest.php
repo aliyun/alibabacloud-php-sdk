@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshTokenRequest extends Model
 {
     /**
-     * @example 600
-     *
      * @var int
      */
     public $accessTokenExpirationTime;
 
     /**
-     * @description The ticket that is used for logon-free access.
-     *
-     * @example eyJ***************.eyJ******************.KUT****************
-     *
      * @var string
      */
     public $ticket;
     protected $_name = [
         'accessTokenExpirationTime' => 'accessTokenExpirationTime',
-        'ticket'                    => 'ticket',
+        'ticket' => 'ticket',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessTokenExpirationTime) {
             $res['accessTokenExpirationTime'] = $this->accessTokenExpirationTime;
         }
+
         if (null !== $this->ticket) {
             $res['ticket'] = $this->ticket;
         }
@@ -45,17 +41,18 @@ class RefreshTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessTokenExpirationTime'])) {
             $model->accessTokenExpirationTime = $map['accessTokenExpirationTime'];
         }
+
         if (isset($map['ticket'])) {
             $model->ticket = $map['ticket'];
         }

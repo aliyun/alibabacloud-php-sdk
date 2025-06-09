@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GroupConfiguration extends Model
 {
@@ -14,28 +14,35 @@ class GroupConfiguration extends Model
     public $fields;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example custom
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'fields' => 'fields',
-        'type'   => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
-            $res['fields'] = $this->fields;
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -43,19 +50,24 @@ class GroupConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GroupConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
-                $model->fields = $map['fields'];
+                $model->fields = [];
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Histogram extends Model
 {
@@ -28,28 +28,32 @@ class Histogram extends Model
      */
     public $to;
     protected $_name = [
-        'count'    => 'count',
-        'from'     => 'from',
+        'count' => 'count',
+        'from' => 'from',
         'progress' => 'progress',
-        'to'       => 'to',
+        'to' => 'to',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->from) {
             $res['from'] = $this->from;
         }
+
         if (null !== $this->progress) {
             $res['progress'] = $this->progress;
         }
+
         if (null !== $this->to) {
             $res['to'] = $this->to;
         }
@@ -57,23 +61,26 @@ class Histogram extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Histogram
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['from'])) {
             $model->from = $map['from'];
         }
+
         if (isset($map['progress'])) {
             $model->progress = $map['progress'];
         }
+
         if (isset($map['to'])) {
             $model->to = $map['to'];
         }

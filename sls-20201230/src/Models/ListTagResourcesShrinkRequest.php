@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagResourcesShrinkRequest extends Model
 {
     /**
-     * @description The IDs of the resources whose tags you want to query. You must specify at least one of resourceId and tags.
-     *
      * @var string
      */
     public $resourceIdShrink;
 
     /**
-     * @description The type of the resource. Valid values:
-     *
-     *   project
-     *   logstore
-     *   dashboard
-     *   MachineGroup
-     *   LogtailConfig
-     *
-     * This parameter is required.
-     * @example project
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The tags that you want to use to filter resources based on exact match. Each tag is a key-value pair. You must specify at least one of resourceId and tags.
-     *
-     * You can enter up to 20 tags.
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
         'resourceIdShrink' => 'resourceId',
-        'resourceType'     => 'resourceType',
-        'tagsShrink'       => 'tags',
+        'resourceType' => 'resourceType',
+        'tagsShrink' => 'tags',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceIdShrink) {
             $res['resourceId'] = $this->resourceIdShrink;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagsShrink) {
             $res['tags'] = $this->tagsShrink;
         }
@@ -64,20 +51,22 @@ class ListTagResourcesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceId'])) {
             $model->resourceIdShrink = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
+
         if (isset($map['tags'])) {
             $model->tagsShrink = $map['tags'];
         }

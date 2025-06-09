@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProjectRequest extends Model
 {
@@ -14,19 +14,11 @@ class ListProjectRequest extends Model
     public $fetchQuota;
 
     /**
-     * @description The line from which the query starts. Default value: 0.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description The name of the project.
-     *
-     * @example ali-test-project
-     *
      * @var string
      */
     public $projectName;
@@ -37,40 +29,41 @@ class ListProjectRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The number of entries per page. Default value: 100. This operation can return up to 500 projects.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $size;
     protected $_name = [
-        'fetchQuota'      => 'fetchQuota',
-        'offset'          => 'offset',
-        'projectName'     => 'projectName',
+        'fetchQuota' => 'fetchQuota',
+        'offset' => 'offset',
+        'projectName' => 'projectName',
         'resourceGroupId' => 'resourceGroupId',
-        'size'            => 'size',
+        'size' => 'size',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fetchQuota) {
             $res['fetchQuota'] = $this->fetchQuota;
         }
+
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
+
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -78,26 +71,30 @@ class ListProjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fetchQuota'])) {
             $model->fetchQuota = $map['fetchQuota'];
         }
+
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
         }
+
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

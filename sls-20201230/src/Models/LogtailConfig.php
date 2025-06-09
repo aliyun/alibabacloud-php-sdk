@@ -4,111 +4,108 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\LogtailConfig\outputDetail;
-use AlibabaCloud\Tea\Model;
 
 class LogtailConfig extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test-config
-     *
      * @var string
      */
     public $configName;
 
     /**
-     * @example 1655176807
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[]
      */
     public $inputDetail;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example file
-     *
      * @var string
      */
     public $inputType;
 
     /**
-     * @example 1655176807
-     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
-     * @example 2022-06-14 11:13:29.796 | DEBUG    | __main__:<module>:1 - hello world
-     *
      * @var string
      */
     public $logSample;
 
     /**
-     * @description This parameter is required.
-     *
      * @var outputDetail
      */
     public $outputDetail;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example LogService
-     *
      * @var string
      */
     public $outputType;
     protected $_name = [
-        'configName'     => 'configName',
-        'createTime'     => 'createTime',
-        'inputDetail'    => 'inputDetail',
-        'inputType'      => 'inputType',
+        'configName' => 'configName',
+        'createTime' => 'createTime',
+        'inputDetail' => 'inputDetail',
+        'inputType' => 'inputType',
         'lastModifyTime' => 'lastModifyTime',
-        'logSample'      => 'logSample',
-        'outputDetail'   => 'outputDetail',
-        'outputType'     => 'outputType',
+        'logSample' => 'logSample',
+        'outputDetail' => 'outputDetail',
+        'outputType' => 'outputType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->inputDetail)) {
+            Model::validateArray($this->inputDetail);
+        }
+        if (null !== $this->outputDetail) {
+            $this->outputDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configName) {
             $res['configName'] = $this->configName;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->inputDetail) {
-            $res['inputDetail'] = $this->inputDetail;
+            if (\is_array($this->inputDetail)) {
+                $res['inputDetail'] = [];
+                foreach ($this->inputDetail as $key1 => $value1) {
+                    $res['inputDetail'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->inputType) {
             $res['inputType'] = $this->inputType;
         }
+
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
         }
+
         if (null !== $this->logSample) {
             $res['logSample'] = $this->logSample;
         }
+
         if (null !== $this->outputDetail) {
-            $res['outputDetail'] = null !== $this->outputDetail ? $this->outputDetail->toMap() : null;
+            $res['outputDetail'] = null !== $this->outputDetail ? $this->outputDetail->toArray($noStream) : $this->outputDetail;
         }
+
         if (null !== $this->outputType) {
             $res['outputType'] = $this->outputType;
         }
@@ -116,35 +113,47 @@ class LogtailConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LogtailConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configName'])) {
             $model->configName = $map['configName'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['inputDetail'])) {
-            $model->inputDetail = $map['inputDetail'];
+            if (!empty($map['inputDetail'])) {
+                $model->inputDetail = [];
+                foreach ($map['inputDetail'] as $key1 => $value1) {
+                    $model->inputDetail[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['inputType'])) {
             $model->inputType = $map['inputType'];
         }
+
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
         }
+
         if (isset($map['logSample'])) {
             $model->logSample = $map['logSample'];
         }
+
         if (isset($map['outputDetail'])) {
             $model->outputDetail = outputDetail::fromMap($map['outputDetail']);
         }
+
         if (isset($map['outputType'])) {
             $model->outputType = $map['outputType'];
         }

@@ -4,59 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProjectResponseBody extends Model
 {
     /**
-     * @description The number of returned projects on the current page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The projects that meet the query conditions.
-     *
      * @var Project[]
      */
     public $projects;
 
     /**
-     * @description The total number of projects that meet the query conditions.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'    => 'count',
+        'count' => 'count',
         'projects' => 'projects',
-        'total'    => 'total',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->projects)) {
+            Model::validateArray($this->projects);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->projects) {
-            $res['projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
-                $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['projects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projects)) {
+                $res['projects'] = [];
+                $n1 = 0;
+                foreach ($this->projects as $item1) {
+                    $res['projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -64,26 +60,28 @@ class ListProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['projects'])) {
             if (!empty($map['projects'])) {
                 $model->projects = [];
-                $n               = 0;
-                foreach ($map['projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? Project::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['projects'] as $item1) {
+                    $model->projects[$n1++] = Project::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

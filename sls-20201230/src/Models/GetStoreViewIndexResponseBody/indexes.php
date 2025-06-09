@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewIndexResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\Index;
-use AlibabaCloud\Tea\Model;
 
 class indexes extends Model
 {
     /**
-     * @description The index configurations of the Logstore.
-     *
      * @var Index
      */
     public $index;
 
     /**
-     * @description The name of the Logstore.
-     *
-     * @example my-logstore
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description The name of the project to which the Logstore belongs.
-     *
-     * @example example-project
-     *
      * @var string
      */
     public $project;
     protected $_name = [
-        'index'    => 'index',
+        'index' => 'index',
         'logstore' => 'logstore',
-        'project'  => 'project',
+        'project' => 'project',
     ];
 
     public function validate()
     {
+        if (null !== $this->index) {
+            $this->index->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
-            $res['index'] = null !== $this->index ? $this->index->toMap() : null;
+            $res['index'] = null !== $this->index ? $this->index->toArray($noStream) : $this->index;
         }
+
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
@@ -59,20 +55,22 @@ class indexes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indexes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['index'])) {
             $model->index = Index::fromMap($map['index']);
         }
+
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }

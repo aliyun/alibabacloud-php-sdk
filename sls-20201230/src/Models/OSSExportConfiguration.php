@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\OSSExportConfiguration\sink;
-use AlibabaCloud\Tea\Model;
 
 class OSSExportConfiguration extends Model
 {
     /**
-     * @example 1714123644
-     *
      * @var int
      */
     public $fromTime;
 
     /**
-     * @example logstore-demo
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @example acs:ram::123456789:role/aliyunlogdefaultrole
-     *
      * @var string
      */
     public $roleArn;
@@ -36,38 +30,44 @@ class OSSExportConfiguration extends Model
     public $sink;
 
     /**
-     * @example 1714357112
-     *
      * @var int
      */
     public $toTime;
     protected $_name = [
         'fromTime' => 'fromTime',
         'logstore' => 'logstore',
-        'roleArn'  => 'roleArn',
-        'sink'     => 'sink',
-        'toTime'   => 'toTime',
+        'roleArn' => 'roleArn',
+        'sink' => 'sink',
+        'toTime' => 'toTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->sink) {
+            $this->sink->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromTime) {
             $res['fromTime'] = $this->fromTime;
         }
+
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
+
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
         }
+
         if (null !== $this->sink) {
-            $res['sink'] = null !== $this->sink ? $this->sink->toMap() : null;
+            $res['sink'] = null !== $this->sink ? $this->sink->toArray($noStream) : $this->sink;
         }
+
         if (null !== $this->toTime) {
             $res['toTime'] = $this->toTime;
         }
@@ -75,26 +75,30 @@ class OSSExportConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OSSExportConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fromTime'])) {
             $model->fromTime = $map['fromTime'];
         }
+
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
+
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
         }
+
         if (isset($map['sink'])) {
             $model->sink = sink::fromMap($map['sink']);
         }
+
         if (isset($map['toTime'])) {
             $model->toTime = $map['toTime'];
         }

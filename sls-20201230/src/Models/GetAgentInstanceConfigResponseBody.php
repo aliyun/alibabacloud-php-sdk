@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAgentInstanceConfigResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $attributes;
+
     /**
      * @var string
      */
@@ -16,12 +21,7 @@ class GetAgentInstanceConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $configMatcher;
-
-    /**
-     * @var string
-     */
-    public $configName;
+    public $configType;
 
     /**
      * @var int
@@ -29,45 +29,65 @@ class GetAgentInstanceConfigResponseBody extends Model
     public $createTime;
 
     /**
-     * @var bool
+     * @var string[][]
      */
-    public $isGray;
+    public $grayConfigs;
 
     /**
      * @var int
      */
     public $lastModifyTime;
     protected $_name = [
-        'config'         => 'config',
-        'configMatcher'  => 'configMatcher',
-        'configName'     => 'configName',
-        'createTime'     => 'createTime',
-        'isGray'         => 'isGray',
+        'attributes' => 'attributes',
+        'config' => 'config',
+        'configType' => 'configType',
+        'createTime' => 'createTime',
+        'grayConfigs' => 'grayConfigs',
         'lastModifyTime' => 'lastModifyTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->grayConfigs)) {
+            Model::validateArray($this->grayConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['attributes'] = $this->attributes;
+        }
+
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
-        if (null !== $this->configMatcher) {
-            $res['configMatcher'] = $this->configMatcher;
+
+        if (null !== $this->configType) {
+            $res['configType'] = $this->configType;
         }
-        if (null !== $this->configName) {
-            $res['configName'] = $this->configName;
-        }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-        if (null !== $this->isGray) {
-            $res['isGray'] = $this->isGray;
+
+        if (null !== $this->grayConfigs) {
+            if (\is_array($this->grayConfigs)) {
+                $res['grayConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->grayConfigs as $item1) {
+                    if (\is_array($item1)) {
+                        $res['grayConfigs'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['grayConfigs'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
         }
@@ -75,29 +95,45 @@ class GetAgentInstanceConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAgentInstanceConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attributes'])) {
+            $model->attributes = $map['attributes'];
+        }
+
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
-        if (isset($map['configMatcher'])) {
-            $model->configMatcher = $map['configMatcher'];
+
+        if (isset($map['configType'])) {
+            $model->configType = $map['configType'];
         }
-        if (isset($map['configName'])) {
-            $model->configName = $map['configName'];
-        }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-        if (isset($map['isGray'])) {
-            $model->isGray = $map['isGray'];
+
+        if (isset($map['grayConfigs'])) {
+            if (!empty($map['grayConfigs'])) {
+                $model->grayConfigs = [];
+                $n1 = 0;
+                foreach ($map['grayConfigs'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->grayConfigs[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->grayConfigs[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
         }

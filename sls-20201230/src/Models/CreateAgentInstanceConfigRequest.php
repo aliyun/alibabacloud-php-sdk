@@ -4,84 +4,85 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAgentInstanceConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $attributes;
+
+    /**
      * @var string
      */
     public $config;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
-    public $configMatcher;
+    public $configType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
-    public $configName;
-
-    /**
-     * @var bool
-     */
-    public $isGray;
+    public $grayConfigs;
     protected $_name = [
-        'config'        => 'config',
-        'configMatcher' => 'configMatcher',
-        'configName'    => 'configName',
-        'isGray'        => 'isGray',
+        'attributes' => 'attributes',
+        'config' => 'config',
+        'configType' => 'configType',
+        'grayConfigs' => 'grayConfigs',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['attributes'] = $this->attributes;
+        }
+
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
-        if (null !== $this->configMatcher) {
-            $res['configMatcher'] = $this->configMatcher;
+
+        if (null !== $this->configType) {
+            $res['configType'] = $this->configType;
         }
-        if (null !== $this->configName) {
-            $res['configName'] = $this->configName;
-        }
-        if (null !== $this->isGray) {
-            $res['isGray'] = $this->isGray;
+
+        if (null !== $this->grayConfigs) {
+            $res['grayConfigs'] = $this->grayConfigs;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAgentInstanceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attributes'])) {
+            $model->attributes = $map['attributes'];
+        }
+
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
-        if (isset($map['configMatcher'])) {
-            $model->configMatcher = $map['configMatcher'];
+
+        if (isset($map['configType'])) {
+            $model->configType = $map['configType'];
         }
-        if (isset($map['configName'])) {
-            $model->configName = $map['configName'];
-        }
-        if (isset($map['isGray'])) {
-            $model->isGray = $map['isGray'];
+
+        if (isset($map['grayConfigs'])) {
+            $model->grayConfigs = $map['grayConfigs'];
         }
 
         return $model;

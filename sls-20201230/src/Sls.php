@@ -4,8 +4,10 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230;
 
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ApplyConfigToMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CallAiToolsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CallAiToolsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatRequest;
@@ -42,20 +44,18 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMaxComputeExportRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMetricStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMetricStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSExportResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssExternalStoreRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSHDFSExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSIngestionRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLRequest;
@@ -80,17 +80,19 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDownloadJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteETLResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIngestProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMetricStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteScheduledSQLResponse;
@@ -101,6 +103,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DisableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DisableScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableScheduledSQLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAgentInstanceConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAgentInstanceConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataResponse;
@@ -122,10 +125,10 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetDownloadJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetETLResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetIndexResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetIngestProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsResponse;
@@ -136,6 +139,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Response;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMetricStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMetricStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsRequest;
@@ -155,6 +159,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAgentInstanceConfigsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAgentInstanceConfigsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAiToolsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataRequest;
@@ -170,12 +175,15 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDownloadJobsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDownloadJobsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListIngestProcessorsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListIngestProcessorsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogtailPipelineConfigRequest;
@@ -184,6 +192,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaxComputeExportsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaxComputeExportsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMetricStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMetricStoresResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSExportsRequest;
@@ -211,6 +221,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\PullLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PullLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutIngestProcessorRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutIngestProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsHeaders;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsResponse;
@@ -226,10 +238,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSIngestionResponse;
@@ -261,6 +275,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreEncryptionRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreEncryptionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreMeteringModeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreMeteringModeResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreProcessorRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogtailPipelineConfigRequest;
@@ -269,22 +285,22 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMaxComputeExportRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreMeteringModeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreMeteringModeResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreProcessorRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSExportResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSHDFSExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSIngestionRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLRequest;
@@ -295,69 +311,78 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateStoreViewRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewaySls\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Sls extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
+        $this->_productId = 'Sls';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'central';
     }
 
     /**
-     * @summary Applies a Logtail configuration to a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Applies a Logtail configuration to a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyConfigToMachineGroupResponse
+     *
      * @param string         $project
      * @param string         $machineGroup
      * @param string         $configName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ApplyConfigToMachineGroupResponse ApplyConfigToMachineGroupResponse
+     * @return ApplyConfigToMachineGroupResponse
      */
     public function applyConfigToMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ApplyConfigToMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '/configs/' . $configName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyConfigToMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '/configs/' . $configName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return ApplyConfigToMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies a Logtail configuration to a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Applies a Logtail configuration to a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns ApplyConfigToMachineGroupResponse
+     *
      * @param string $project
      * @param string $machineGroup
      * @param string $configName
      *
-     * @return ApplyConfigToMachineGroupResponse ApplyConfigToMachineGroupResponse
+     * @return ApplyConfigToMachineGroupResponse
      */
     public function applyConfigToMachineGroup($project, $machineGroup, $configName)
     {
@@ -368,57 +393,139 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which a resource belongs.
-     *  *
-     * @param string                     $project
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 调用 ai 工具.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - CallAiToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CallAiToolsResponse
+     *
+     * @param CallAiToolsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CallAiToolsResponse
+     */
+    public function callAiToolsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->toolName) {
+            @$body['toolName'] = $request->toolName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CallAiTools',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/tool/call',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+
+        return CallAiToolsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 调用 ai 工具.
+     *
+     * @param request - CallAiToolsRequest
+     *
+     * @returns CallAiToolsResponse
+     *
+     * @param CallAiToolsRequest $request
+     *
+     * @return CallAiToolsResponse
+     */
+    public function callAiTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->callAiToolsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Changes the resource group to which a resource belongs.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param string                     $project
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['resourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/resourcegroup',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourcegroup',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the resource group to which a resource belongs.
-     *  *
-     * @param string                     $project
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Changes the resource group to which a resource belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param string                     $project
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($project, $request)
     {
@@ -429,9 +536,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Sends heartbeats to a server from a consumer.
-     *  *
-     * @description ### Usage notes
+     * Sends heartbeats to a server from a consumer.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * Connections between consumers and Simple Log Service are established by sending heartbeat messages at regular intervals. If Simple Log Service does not receive heartbeat messages from a consumer on schedule, Simple Log Service deletes the consumer.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -443,50 +551,58 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ConsumerGroupHeartBeat`|`acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}`|
-     *  *
+     *
+     * @param request - ConsumerGroupHeartBeatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConsumerGroupHeartBeatResponse
+     *
      * @param string                        $project
      * @param string                        $logstore
      * @param string                        $consumerGroup
-     * @param ConsumerGroupHeartBeatRequest $request       ConsumerGroupHeartBeatRequest
-     * @param string[]                      $headers       map
-     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
+     * @param ConsumerGroupHeartBeatRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return ConsumerGroupHeartBeatResponse ConsumerGroupHeartBeatResponse
+     * @return ConsumerGroupHeartBeatResponse
      */
     public function consumerGroupHeartBeatWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->consumer)) {
-            $query['consumer'] = $request->consumer;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->consumer) {
+            @$query['consumer'] = $request->consumer;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'ConsumerGroupHeartBeat',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '?type=heartbeat',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ConsumerGroupHeartBeat',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '?type=heartbeat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return ConsumerGroupHeartBeatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends heartbeats to a server from a consumer.
-     *  *
-     * @description ### Usage notes
+     * Sends heartbeats to a server from a consumer.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * Connections between consumers and Simple Log Service are established by sending heartbeat messages at regular intervals. If Simple Log Service does not receive heartbeat messages from a consumer on schedule, Simple Log Service deletes the consumer.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -498,13 +614,17 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ConsumerGroupHeartBeat`|`acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}`|
-     *  *
+     *
+     * @param request - ConsumerGroupHeartBeatRequest
+     *
+     * @returns ConsumerGroupHeartBeatResponse
+     *
      * @param string                        $project
      * @param string                        $logstore
      * @param string                        $consumerGroup
-     * @param ConsumerGroupHeartBeatRequest $request       ConsumerGroupHeartBeatRequest
+     * @param ConsumerGroupHeartBeatRequest $request
      *
-     * @return ConsumerGroupHeartBeatResponse ConsumerGroupHeartBeatResponse
+     * @return ConsumerGroupHeartBeatResponse
      */
     public function consumerGroupHeartBeat($project, $logstore, $consumerGroup, $request)
     {
@@ -515,78 +635,94 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the data consumption progress.
-     *  *
-     * @description *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
+     * Updates the checkpoint of a shard for a consumer group.
+     *
+     * @remarks
+     *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-     *  *
+     *
+     * @param request - ConsumerGroupUpdateCheckPointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConsumerGroupUpdateCheckPointResponse
+     *
      * @param string                               $project
      * @param string                               $logstore
      * @param string                               $consumerGroup
-     * @param ConsumerGroupUpdateCheckPointRequest $request       ConsumerGroupUpdateCheckPointRequest
-     * @param string[]                             $headers       map
-     * @param RuntimeOptions                       $runtime       runtime options for this request RuntimeOptions
+     * @param ConsumerGroupUpdateCheckPointRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ConsumerGroupUpdateCheckPointResponse ConsumerGroupUpdateCheckPointResponse
+     * @return ConsumerGroupUpdateCheckPointResponse
      */
     public function consumerGroupUpdateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->consumer)) {
-            $query['consumer'] = $request->consumer;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->consumer) {
+            @$query['consumer'] = $request->consumer;
         }
-        if (!Utils::isUnset($request->forceSuccess)) {
-            $query['forceSuccess'] = $request->forceSuccess;
+
+        if (null !== $request->forceSuccess) {
+            @$query['forceSuccess'] = $request->forceSuccess;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkpoint)) {
-            $body['checkpoint'] = $request->checkpoint;
+        if (null !== $request->checkpoint) {
+            @$body['checkpoint'] = $request->checkpoint;
         }
-        if (!Utils::isUnset($request->shard)) {
-            $body['shard'] = $request->shard;
+
+        if (null !== $request->shard) {
+            @$body['shard'] = $request->shard;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConsumerGroupUpdateCheckPoint',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '?type=checkpoint',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ConsumerGroupUpdateCheckPoint',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '?type=checkpoint',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return ConsumerGroupUpdateCheckPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the data consumption progress.
-     *  *
-     * @description *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
+     * Updates the checkpoint of a shard for a consumer group.
+     *
+     * @remarks
+     *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-     *  *
+     *
+     * @param request - ConsumerGroupUpdateCheckPointRequest
+     *
+     * @returns ConsumerGroupUpdateCheckPointResponse
+     *
      * @param string                               $project
      * @param string                               $logstore
      * @param string                               $consumerGroup
-     * @param ConsumerGroupUpdateCheckPointRequest $request       ConsumerGroupUpdateCheckPointRequest
+     * @param ConsumerGroupUpdateCheckPointRequest $request
      *
-     * @return ConsumerGroupUpdateCheckPointResponse ConsumerGroupUpdateCheckPointResponse
+     * @return ConsumerGroupUpdateCheckPointResponse
      */
     public function consumerGroupUpdateCheckPoint($project, $logstore, $consumerGroup, $request)
     {
@@ -597,55 +733,69 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary CreateAgentInstanceConfig
-     *  *
-     * @param CreateAgentInstanceConfigRequest $request CreateAgentInstanceConfigRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * CreateAgentInstanceConfig.
      *
-     * @return CreateAgentInstanceConfigResponse CreateAgentInstanceConfigResponse
+     * @param request - CreateAgentInstanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentInstanceConfigResponse
+     *
+     * @param CreateAgentInstanceConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAgentInstanceConfigResponse
      */
     public function createAgentInstanceConfigWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+        if (null !== $request->attributes) {
+            @$body['attributes'] = $request->attributes;
         }
-        if (!Utils::isUnset($request->configMatcher)) {
-            $body['configMatcher'] = $request->configMatcher;
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->configName)) {
-            $body['configName'] = $request->configName;
+
+        if (null !== $request->configType) {
+            @$body['configType'] = $request->configType;
         }
-        if (!Utils::isUnset($request->isGray)) {
-            $body['isGray'] = $request->isGray;
+
+        if (null !== $request->grayConfigs) {
+            @$body['grayConfigs'] = $request->grayConfigs;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAgentInstanceConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/agentinstanceconfigs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAgentInstanceConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentinstanceconfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary CreateAgentInstanceConfig
-     *  *
-     * @param CreateAgentInstanceConfigRequest $request CreateAgentInstanceConfigRequest
+     * CreateAgentInstanceConfig.
      *
-     * @return CreateAgentInstanceConfigResponse CreateAgentInstanceConfigResponse
+     * @param request - CreateAgentInstanceConfigRequest
+     *
+     * @returns CreateAgentInstanceConfigResponse
+     *
+     * @param CreateAgentInstanceConfigRequest $request
+     *
+     * @return CreateAgentInstanceConfigResponse
      */
     public function createAgentInstanceConfig($request)
     {
@@ -656,63 +806,78 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary CreateAlert
-     *  *
-     * @param string             $project
-     * @param CreateAlertRequest $request CreateAlertRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * CreateAlert.
      *
-     * @return CreateAlertResponse CreateAlertResponse
+     * @param request - CreateAlertRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertResponse
+     *
+     * @param string             $project
+     * @param CreateAlertRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAlertResponse
      */
     public function createAlertWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAlert',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAlert',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary CreateAlert
-     *  *
-     * @param string             $project
-     * @param CreateAlertRequest $request CreateAlertRequest
+     * CreateAlert.
      *
-     * @return CreateAlertResponse CreateAlertResponse
+     * @param request - CreateAlertRequest
+     *
+     * @returns CreateAlertResponse
+     *
+     * @param string             $project
+     * @param CreateAlertRequest $request
+     *
+     * @return CreateAlertResponse
      */
     public function createAlert($project, $request)
     {
@@ -723,47 +888,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dataset.
-     *  *
-     * @param CreateAnnotationDataSetRequest $request CreateAnnotationDataSetRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a dataset.
      *
-     * @return CreateAnnotationDataSetResponse CreateAnnotationDataSetResponse
+     * @param request - CreateAnnotationDataSetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnnotationDataSetResponse
+     *
+     * @param CreateAnnotationDataSetRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAnnotationDataSetResponse
      */
     public function createAnnotationDataSetWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $query['datasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$query['datasetId'] = $request->datasetId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnnotationDataSet',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAnnotationDataSet',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dataset.
-     *  *
-     * @param CreateAnnotationDataSetRequest $request CreateAnnotationDataSetRequest
+     * Creates a dataset.
      *
-     * @return CreateAnnotationDataSetResponse CreateAnnotationDataSetResponse
+     * @param request - CreateAnnotationDataSetRequest
+     *
+     * @returns CreateAnnotationDataSetResponse
+     *
+     * @param CreateAnnotationDataSetRequest $request
+     *
+     * @return CreateAnnotationDataSetResponse
      */
     public function createAnnotationDataSet($request)
     {
@@ -774,42 +950,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a tag table.
-     *  *
-     * @param CreateAnnotationLabelRequest $request CreateAnnotationLabelRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a tag table.
      *
-     * @return CreateAnnotationLabelResponse CreateAnnotationLabelResponse
+     * @param request - CreateAnnotationLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnnotationLabelResponse
+     *
+     * @param CreateAnnotationLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateAnnotationLabelResponse
      */
     public function createAnnotationLabelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnnotationLabel',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationlabel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAnnotationLabel',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationlabel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a tag table.
-     *  *
-     * @param CreateAnnotationLabelRequest $request CreateAnnotationLabelRequest
+     * Creates a tag table.
      *
-     * @return CreateAnnotationLabelResponse CreateAnnotationLabelResponse
+     * @param request - CreateAnnotationLabelRequest
+     *
+     * @returns CreateAnnotationLabelResponse
+     *
+     * @param CreateAnnotationLabelRequest $request
+     *
+     * @return CreateAnnotationLabelResponse
      */
     public function createAnnotationLabel($request)
     {
@@ -820,63 +1006,75 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Creates a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 100 Logtail configurations in a project.
      * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
-     *  *
-     * @param string              $project
-     * @param CreateConfigRequest $request CreateConfigRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConfigResponse CreateConfigResponse
+     * @param request - CreateConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConfigResponse
+     *
+     * @param string              $project
+     * @param CreateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateConfigResponse
      */
     public function createConfigWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/configs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/configs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Creates a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 100 Logtail configurations in a project.
      * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
-     *  *
-     * @param string              $project
-     * @param CreateConfigRequest $request CreateConfigRequest
      *
-     * @return CreateConfigResponse CreateConfigResponse
+     * @param request - CreateConfigRequest
+     *
+     * @returns CreateConfigResponse
+     *
+     * @param string              $project
+     * @param CreateConfigRequest $request
+     *
+     * @return CreateConfigResponse
      */
     public function createConfig($project, $request)
     {
@@ -887,9 +1085,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a consumer group for a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Creates a consumer group for a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * You can create up to 30 consumer groups for a Logstore. The name of a consumer group must be unique in a project.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -901,54 +1100,64 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:CreateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
-     *  *
+     *
+     * @param request - CreateConsumerGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConsumerGroupResponse
+     *
      * @param string                     $project
      * @param string                     $logstore
-     * @param CreateConsumerGroupRequest $request  CreateConsumerGroupRequest
-     * @param string[]                   $headers  map
-     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
+     * @param CreateConsumerGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->consumerGroup)) {
-            $body['consumerGroup'] = $request->consumerGroup;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->consumerGroup) {
+            @$body['consumerGroup'] = $request->consumerGroup;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $body['timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$body['timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConsumerGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateConsumerGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a consumer group for a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Creates a consumer group for a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * You can create up to 30 consumer groups for a Logstore. The name of a consumer group must be unique in a project.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -960,12 +1169,16 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:CreateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
-     *  *
+     *
+     * @param request - CreateConsumerGroupRequest
+     *
+     * @returns CreateConsumerGroupResponse
+     *
      * @param string                     $project
      * @param string                     $logstore
-     * @param CreateConsumerGroupRequest $request  CreateConsumerGroupRequest
+     * @param CreateConsumerGroupRequest $request
      *
-     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse
      */
     public function createConsumerGroup($project, $logstore, $request)
     {
@@ -976,59 +1189,71 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Creates a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string                 $project
-     * @param CreateDashboardRequest $request CreateDashboardRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDashboardResponse CreateDashboardResponse
+     * @param request - CreateDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDashboardResponse
+     *
+     * @param string                 $project
+     * @param CreateDashboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDashboardResponse
      */
     public function createDashboardWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDashboard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dashboards',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDashboard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dashboards',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateDashboardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Creates a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string                 $project
-     * @param CreateDashboardRequest $request CreateDashboardRequest
      *
-     * @return CreateDashboardResponse CreateDashboardResponse
+     * @param request - CreateDashboardRequest
+     *
+     * @returns CreateDashboardResponse
+     *
+     * @param string                 $project
+     * @param CreateDashboardRequest $request
+     *
+     * @return CreateDashboardResponse
      */
     public function createDashboard($project, $request)
     {
@@ -1039,55 +1264,68 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Binds a new custom domain name to a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string              $project
-     * @param CreateDomainRequest $request CreateDomainRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Binds a new custom domain name to a project.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param string              $project
+     * @param CreateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
      */
     public function createDomainWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $body['domainName'] = $request->domainName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->domainName) {
+            @$body['domainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDomain',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/domains',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDomain',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/domains',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds a new custom domain name to a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string              $project
-     * @param CreateDomainRequest $request CreateDomainRequest
+     * Binds a new custom domain name to a project.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateDomainRequest
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param string              $project
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
      */
     public function createDomain($project, $request)
     {
@@ -1098,60 +1336,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 创建下载任务
-     *  *
-     * @param string                   $project
-     * @param CreateDownloadJobRequest $request CreateDownloadJobRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 创建下载任务
      *
-     * @return CreateDownloadJobResponse CreateDownloadJobResponse
+     * @param request - CreateDownloadJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDownloadJobResponse
+     *
+     * @param string                   $project
+     * @param CreateDownloadJobRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDownloadJobResponse
      */
     public function createDownloadJobWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDownloadJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/downloadjobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDownloadJob',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/downloadjobs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateDownloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建下载任务
-     *  *
-     * @param string                   $project
-     * @param CreateDownloadJobRequest $request CreateDownloadJobRequest
+     * 创建下载任务
      *
-     * @return CreateDownloadJobResponse CreateDownloadJobResponse
+     * @param request - CreateDownloadJobRequest
+     *
+     * @returns CreateDownloadJobResponse
+     *
+     * @param string                   $project
+     * @param CreateDownloadJobRequest $request
+     *
+     * @return CreateDownloadJobResponse
      */
     public function createDownloadJob($project, $request)
     {
@@ -1162,60 +1414,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据加工任务
-     *  *
-     * @param string           $project
-     * @param CreateETLRequest $request CreateETLRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates a data transformation job in a project.
      *
-     * @return CreateETLResponse CreateETLResponse
+     * @param request - CreateETLRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateETLResponse
+     *
+     * @param string           $project
+     * @param CreateETLRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateETLResponse
      */
     public function createETLWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateETL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateETL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateETLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建数据加工任务
-     *  *
-     * @param string           $project
-     * @param CreateETLRequest $request CreateETLRequest
+     * Creates a data transformation job in a project.
      *
-     * @return CreateETLResponse CreateETLResponse
+     * @param request - CreateETLRequest
+     *
+     * @returns CreateETLResponse
+     *
+     * @param string           $project
+     * @param CreateETLRequest $request
+     *
+     * @return CreateETLResponse
      */
     public function createETL($project, $request)
     {
@@ -1226,53 +1492,65 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates indexes for a Logstore.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Creates indexes for a Logstore.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIndexResponse
+     *
      * @param string             $project
      * @param string             $logstore
-     * @param CreateIndexRequest $request  CreateIndexRequest
-     * @param string[]           $headers  map
-     * @param RuntimeOptions     $runtime  runtime options for this request RuntimeOptions
+     * @param CreateIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return CreateIndexResponse CreateIndexResponse
+     * @return CreateIndexResponse
      */
     public function createIndexWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateIndex',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIndex',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/index',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates indexes for a Logstore.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Creates indexes for a Logstore.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateIndexRequest
+     *
+     * @returns CreateIndexResponse
+     *
      * @param string             $project
      * @param string             $logstore
-     * @param CreateIndexRequest $request  CreateIndexRequest
+     * @param CreateIndexRequest $request
      *
-     * @return CreateIndexResponse CreateIndexResponse
+     * @return CreateIndexResponse
      */
     public function createIndex($project, $logstore, $request)
     {
@@ -1283,9 +1561,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Creates a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -1297,83 +1576,103 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:CreateLogStore`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
-     *  *
-     * @param string                $project
-     * @param CreateLogStoreRequest $request CreateLogStoreRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLogStoreResponse CreateLogStoreResponse
+     * @param request - CreateLogStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLogStoreResponse
+     *
+     * @param string                $project
+     * @param CreateLogStoreRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateLogStoreResponse
      */
     public function createLogStoreWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->appendMeta)) {
-            $body['appendMeta'] = $request->appendMeta;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->appendMeta) {
+            @$body['appendMeta'] = $request->appendMeta;
         }
-        if (!Utils::isUnset($request->autoSplit)) {
-            $body['autoSplit'] = $request->autoSplit;
+
+        if (null !== $request->autoSplit) {
+            @$body['autoSplit'] = $request->autoSplit;
         }
-        if (!Utils::isUnset($request->enableTracking)) {
-            $body['enable_tracking'] = $request->enableTracking;
+
+        if (null !== $request->enableTracking) {
+            @$body['enable_tracking'] = $request->enableTracking;
         }
-        if (!Utils::isUnset($request->encryptConf)) {
-            $body['encrypt_conf'] = $request->encryptConf;
+
+        if (null !== $request->encryptConf) {
+            @$body['encrypt_conf'] = $request->encryptConf;
         }
-        if (!Utils::isUnset($request->hotTtl)) {
-            $body['hot_ttl'] = $request->hotTtl;
+
+        if (null !== $request->hotTtl) {
+            @$body['hot_ttl'] = $request->hotTtl;
         }
-        if (!Utils::isUnset($request->infrequentAccessTTL)) {
-            $body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
+
+        if (null !== $request->infrequentAccessTTL) {
+            @$body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
         }
-        if (!Utils::isUnset($request->logstoreName)) {
-            $body['logstoreName'] = $request->logstoreName;
+
+        if (null !== $request->logstoreName) {
+            @$body['logstoreName'] = $request->logstoreName;
         }
-        if (!Utils::isUnset($request->maxSplitShard)) {
-            $body['maxSplitShard'] = $request->maxSplitShard;
+
+        if (null !== $request->maxSplitShard) {
+            @$body['maxSplitShard'] = $request->maxSplitShard;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $body['mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->processorId)) {
-            $body['processorId'] = $request->processorId;
+
+        if (null !== $request->processorId) {
+            @$body['processorId'] = $request->processorId;
         }
-        if (!Utils::isUnset($request->shardCount)) {
-            $body['shardCount'] = $request->shardCount;
+
+        if (null !== $request->shardCount) {
+            @$body['shardCount'] = $request->shardCount;
         }
-        if (!Utils::isUnset($request->telemetryType)) {
-            $body['telemetryType'] = $request->telemetryType;
+
+        if (null !== $request->telemetryType) {
+            @$body['telemetryType'] = $request->telemetryType;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$body['ttl'] = $request->ttl;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLogStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateLogStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Creates a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -1385,11 +1684,15 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:CreateLogStore`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
-     *  *
-     * @param string                $project
-     * @param CreateLogStoreRequest $request CreateLogStoreRequest
      *
-     * @return CreateLogStoreResponse CreateLogStoreResponse
+     * @param request - CreateLogStoreRequest
+     *
+     * @returns CreateLogStoreResponse
+     *
+     * @param string                $project
+     * @param CreateLogStoreRequest $request
+     *
+     * @return CreateLogStoreResponse
      */
     public function createLogStore($project, $request)
     {
@@ -1400,58 +1703,72 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Enables the service log feature for a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string               $project
-     * @param CreateLoggingRequest $request CreateLoggingRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Enables the service log feature for a project.
      *
-     * @return CreateLoggingResponse CreateLoggingResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateLoggingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLoggingResponse
+     *
+     * @param string               $project
+     * @param CreateLoggingRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateLoggingResponse
      */
     public function createLoggingWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->loggingDetails)) {
-            $body['loggingDetails'] = $request->loggingDetails;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->loggingDetails) {
+            @$body['loggingDetails'] = $request->loggingDetails;
         }
-        if (!Utils::isUnset($request->loggingProject)) {
-            $body['loggingProject'] = $request->loggingProject;
+
+        if (null !== $request->loggingProject) {
+            @$body['loggingProject'] = $request->loggingProject;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLogging',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logging',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateLogging',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logging',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateLoggingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the service log feature for a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string               $project
-     * @param CreateLoggingRequest $request CreateLoggingRequest
+     * Enables the service log feature for a project.
      *
-     * @return CreateLoggingResponse CreateLoggingResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateLoggingRequest
+     *
+     * @returns CreateLoggingResponse
+     *
+     * @param string               $project
+     * @param CreateLoggingRequest $request
+     *
+     * @return CreateLoggingResponse
      */
     public function createLogging($project, $request)
     {
@@ -1462,73 +1779,92 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
-     * @param string                             $project
-     * @param CreateLogtailPipelineConfigRequest $request CreateLogtailPipelineConfigRequest
-     * @param string[]                           $headers map
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Creates a Logtail pipeline configuration.
      *
-     * @return CreateLogtailPipelineConfigResponse CreateLogtailPipelineConfigResponse
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param request - CreateLogtailPipelineConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLogtailPipelineConfigResponse
+     *
+     * @param string                             $project
+     * @param CreateLogtailPipelineConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateLogtailPipelineConfigResponse
      */
     public function createLogtailPipelineConfigWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->aggregators)) {
-            $body['aggregators'] = $request->aggregators;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->aggregators) {
+            @$body['aggregators'] = $request->aggregators;
         }
-        if (!Utils::isUnset($request->configName)) {
-            $body['configName'] = $request->configName;
+
+        if (null !== $request->configName) {
+            @$body['configName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->flushers)) {
-            $body['flushers'] = $request->flushers;
+
+        if (null !== $request->flushers) {
+            @$body['flushers'] = $request->flushers;
         }
-        if (!Utils::isUnset($request->global_)) {
-            $body['global'] = $request->global_;
+
+        if (null !== $request->global) {
+            @$body['global'] = $request->global;
         }
-        if (!Utils::isUnset($request->inputs)) {
-            $body['inputs'] = $request->inputs;
+
+        if (null !== $request->inputs) {
+            @$body['inputs'] = $request->inputs;
         }
-        if (!Utils::isUnset($request->logSample)) {
-            $body['logSample'] = $request->logSample;
+
+        if (null !== $request->logSample) {
+            @$body['logSample'] = $request->logSample;
         }
-        if (!Utils::isUnset($request->processors)) {
-            $body['processors'] = $request->processors;
+
+        if (null !== $request->processors) {
+            @$body['processors'] = $request->processors;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLogtailPipelineConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pipelineconfigs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateLogtailPipelineConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pipelineconfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
-     * @param string                             $project
-     * @param CreateLogtailPipelineConfigRequest $request CreateLogtailPipelineConfigRequest
+     * Creates a Logtail pipeline configuration.
      *
-     * @return CreateLogtailPipelineConfigResponse CreateLogtailPipelineConfigResponse
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param request - CreateLogtailPipelineConfigRequest
+     *
+     * @returns CreateLogtailPipelineConfigResponse
+     *
+     * @param string                             $project
+     * @param CreateLogtailPipelineConfigRequest $request
+     *
+     * @return CreateLogtailPipelineConfigResponse
      */
     public function createLogtailPipelineConfig($project, $request)
     {
@@ -1539,69 +1875,86 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a machine group.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                    $project
-     * @param CreateMachineGroupRequest $request CreateMachineGroupRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a machine group.
      *
-     * @return CreateMachineGroupResponse CreateMachineGroupResponse
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateMachineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMachineGroupResponse
+     *
+     * @param string                    $project
+     * @param CreateMachineGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMachineGroupResponse
      */
     public function createMachineGroupWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->groupAttribute)) {
-            $body['groupAttribute'] = $request->groupAttribute;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->groupAttribute) {
+            @$body['groupAttribute'] = $request->groupAttribute;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $body['groupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$body['groupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->groupType)) {
-            $body['groupType'] = $request->groupType;
+
+        if (null !== $request->groupType) {
+            @$body['groupType'] = $request->groupType;
         }
-        if (!Utils::isUnset($request->machineIdentifyType)) {
-            $body['machineIdentifyType'] = $request->machineIdentifyType;
+
+        if (null !== $request->machineIdentifyType) {
+            @$body['machineIdentifyType'] = $request->machineIdentifyType;
         }
-        if (!Utils::isUnset($request->machineList)) {
-            $body['machineList'] = $request->machineList;
+
+        if (null !== $request->machineList) {
+            @$body['machineList'] = $request->machineList;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a machine group.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                    $project
-     * @param CreateMachineGroupRequest $request CreateMachineGroupRequest
+     * Creates a machine group.
      *
-     * @return CreateMachineGroupResponse CreateMachineGroupResponse
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - CreateMachineGroupRequest
+     *
+     * @returns CreateMachineGroupResponse
+     *
+     * @param string                    $project
+     * @param CreateMachineGroupRequest $request
+     *
+     * @return CreateMachineGroupResponse
      */
     public function createMachineGroup($project, $request)
     {
@@ -1612,85 +1965,202 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Metricstore to store metric data.
-     *  *
-     * @description Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
+     * Creates a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+     *
+     * @param request - CreateMaxComputeExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMaxComputeExportResponse
+     *
+     * @param string                        $project
+     * @param CreateMaxComputeExportRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMaxComputeExportResponse
+     */
+    public function createMaxComputeExportWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMaxComputeExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateMaxComputeExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+     *
+     * @param request - CreateMaxComputeExportRequest
+     *
+     * @returns CreateMaxComputeExportResponse
+     *
+     * @param string                        $project
+     * @param CreateMaxComputeExportRequest $request
+     *
+     * @return CreateMaxComputeExportResponse
+     */
+    public function createMaxComputeExport($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMaxComputeExportWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a Metricstore to store metric data.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
-     * @param string                   $project
-     * @param CreateMetricStoreRequest $request CreateMetricStoreRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMetricStoreResponse CreateMetricStoreResponse
+     * @param request - CreateMetricStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMetricStoreResponse
+     *
+     * @param string                   $project
+     * @param CreateMetricStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMetricStoreResponse
      */
     public function createMetricStoreWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->autoSplit)) {
-            $body['autoSplit'] = $request->autoSplit;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->autoSplit) {
+            @$body['autoSplit'] = $request->autoSplit;
         }
-        if (!Utils::isUnset($request->maxSplitShard)) {
-            $body['maxSplitShard'] = $request->maxSplitShard;
+
+        if (null !== $request->hotTtl) {
+            @$body['hot_ttl'] = $request->hotTtl;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $body['metricType'] = $request->metricType;
+
+        if (null !== $request->infrequentAccessTTL) {
+            @$body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $body['mode'] = $request->mode;
+
+        if (null !== $request->maxSplitShard) {
+            @$body['maxSplitShard'] = $request->maxSplitShard;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->metricType) {
+            @$body['metricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->shardCount)) {
-            $body['shardCount'] = $request->shardCount;
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['ttl'] = $request->ttl;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
+        if (null !== $request->shardCount) {
+            @$body['shardCount'] = $request->shardCount;
+        }
+
+        if (null !== $request->ttl) {
+            @$body['ttl'] = $request->ttl;
+        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMetricStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMetricStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateMetricStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Metricstore to store metric data.
-     *  *
-     * @description Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
+     * Creates a Metricstore to store metric data.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
-     * @param string                   $project
-     * @param CreateMetricStoreRequest $request CreateMetricStoreRequest
      *
-     * @return CreateMetricStoreResponse CreateMetricStoreResponse
+     * @param request - CreateMetricStoreRequest
+     *
+     * @returns CreateMetricStoreResponse
+     *
+     * @param string                   $project
+     * @param CreateMetricStoreRequest $request
+     *
+     * @return CreateMetricStoreResponse
      */
     public function createMetricStore($project, $request)
     {
@@ -1701,60 +2171,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
-     *  *
-     * @param string                 $project
-     * @param CreateOSSExportRequest $request CreateOSSExportRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
      *
-     * @return CreateOSSExportResponse CreateOSSExportResponse
+     * @param request - CreateOSSExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOSSExportResponse
+     *
+     * @param string                 $project
+     * @param CreateOSSExportRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateOSSExportResponse
      */
     public function createOSSExportWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOSSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateOSSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
-     *  *
-     * @param string                 $project
-     * @param CreateOSSExportRequest $request CreateOSSExportRequest
+     * Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
      *
-     * @return CreateOSSExportResponse CreateOSSExportResponse
+     * @param request - CreateOSSExportRequest
+     *
+     * @returns CreateOSSExportResponse
+     *
+     * @param string                 $project
+     * @param CreateOSSExportRequest $request
+     *
+     * @return CreateOSSExportResponse
      */
     public function createOSSExport($project, $request)
     {
@@ -1765,60 +2249,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates an OSS-HDFS data shipping job in a project.
-     *  *
-     * @param string                     $project
-     * @param CreateOSSHDFSExportRequest $request CreateOSSHDFSExportRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates an OSS-HDFS data shipping job in a project.
      *
-     * @return CreateOSSHDFSExportResponse CreateOSSHDFSExportResponse
+     * @param request - CreateOSSHDFSExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOSSHDFSExportResponse
+     *
+     * @param string                     $project
+     * @param CreateOSSHDFSExportRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateOSSHDFSExportResponse
      */
     public function createOSSHDFSExportWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOSSHDFSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateOSSHDFSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an OSS-HDFS data shipping job in a project.
-     *  *
-     * @param string                     $project
-     * @param CreateOSSHDFSExportRequest $request CreateOSSHDFSExportRequest
+     * Creates an OSS-HDFS data shipping job in a project.
      *
-     * @return CreateOSSHDFSExportResponse CreateOSSHDFSExportResponse
+     * @param request - CreateOSSHDFSExportRequest
+     *
+     * @returns CreateOSSHDFSExportResponse
+     *
+     * @param string                     $project
+     * @param CreateOSSHDFSExportRequest $request
+     *
+     * @return CreateOSSHDFSExportResponse
      */
     public function createOSSHDFSExport($project, $request)
     {
@@ -1829,63 +2327,78 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Object Storage Service (OSS) data import job in a project.
-     *  *
-     * @param string                    $project
-     * @param CreateOSSIngestionRequest $request CreateOSSIngestionRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates an Object Storage Service (OSS) data import job in a project.
      *
-     * @return CreateOSSIngestionResponse CreateOSSIngestionResponse
+     * @param request - CreateOSSIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOSSIngestionResponse
+     *
+     * @param string                    $project
+     * @param CreateOSSIngestionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateOSSIngestionResponse
      */
     public function createOSSIngestionWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOSSIngestion',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateOSSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an Object Storage Service (OSS) data import job in a project.
-     *  *
-     * @param string                    $project
-     * @param CreateOSSIngestionRequest $request CreateOSSIngestionRequest
+     * Creates an Object Storage Service (OSS) data import job in a project.
      *
-     * @return CreateOSSIngestionResponse CreateOSSIngestionResponse
+     * @param request - CreateOSSIngestionRequest
+     *
+     * @returns CreateOSSIngestionResponse
+     *
+     * @param string                    $project
+     * @param CreateOSSIngestionRequest $request
+     *
+     * @return CreateOSSIngestionResponse
      */
     public function createOSSIngestion($project, $request)
     {
@@ -1896,122 +2409,73 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Object Storage Service (OSS) external store.
-     *  *
-     * @description ### [](#)Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param CreateOssExternalStoreRequest $request CreateOssExternalStoreRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a project.
      *
-     * @return CreateOssExternalStoreResponse CreateOssExternalStoreResponse
-     */
-    public function createOssExternalStoreWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->externalStoreName)) {
-            $body['externalStoreName'] = $request->externalStoreName;
-        }
-        if (!Utils::isUnset($request->parameter)) {
-            $body['parameter'] = $request->parameter;
-        }
-        if (!Utils::isUnset($request->storeType)) {
-            $body['storeType'] = $request->storeType;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOssExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return CreateOssExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Creates an Object Storage Service (OSS) external store.
-     *  *
-     * @description ### [](#)Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param CreateOssExternalStoreRequest $request CreateOssExternalStoreRequest
+     * @param request - CreateProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateOssExternalStoreResponse CreateOssExternalStoreResponse
-     */
-    public function createOssExternalStore($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createOssExternalStoreWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary Creates a project.
-     *  *
-     * @param CreateProjectRequest $request CreateProjectRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @returns CreateProjectResponse
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param CreateProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
      */
     public function createProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dataRedundancyType)) {
-            $body['dataRedundancyType'] = $request->dataRedundancyType;
+        if (null !== $request->dataRedundancyType) {
+            @$body['dataRedundancyType'] = $request->dataRedundancyType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['projectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['projectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->recycleBinEnabled) {
+            @$body['recycleBinEnabled'] = $request->recycleBinEnabled;
         }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateProject',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateProject',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a project.
-     *  *
-     * @param CreateProjectRequest $request CreateProjectRequest
+     * Creates a project.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -2022,134 +2486,104 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates an ApsaraDB RDS external store.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param CreateRdsExternalStoreRequest $request CreateRdsExternalStoreRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a saved search.
      *
-     * @return CreateRdsExternalStoreResponse CreateRdsExternalStoreResponse
-     */
-    public function createRdsExternalStoreWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->externalStoreName)) {
-            $body['externalStoreName'] = $request->externalStoreName;
-        }
-        if (!Utils::isUnset($request->parameter)) {
-            $body['parameter'] = $request->parameter;
-        }
-        if (!Utils::isUnset($request->storeType)) {
-            $body['storeType'] = $request->storeType;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRdsExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return CreateRdsExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Creates an ApsaraDB RDS external store.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param CreateRdsExternalStoreRequest $request CreateRdsExternalStoreRequest
+     * @remarks
+     * ### Usage notes
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:CreateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
      *
-     * @return CreateRdsExternalStoreResponse CreateRdsExternalStoreResponse
-     */
-    public function createRdsExternalStore($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createRdsExternalStoreWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary Creates a saved search.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * @param request - CreateSavedSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSavedSearchResponse
+     *
      * @param string                   $project
-     * @param CreateSavedSearchRequest $request CreateSavedSearchRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param CreateSavedSearchRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateSavedSearchResponse CreateSavedSearchResponse
+     * @return CreateSavedSearchResponse
      */
     public function createSavedSearchWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->logstore)) {
-            $body['logstore'] = $request->logstore;
+
+        if (null !== $request->logstore) {
+            @$body['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->savedsearchName)) {
-            $body['savedsearchName'] = $request->savedsearchName;
+
+        if (null !== $request->savedsearchName) {
+            @$body['savedsearchName'] = $request->savedsearchName;
         }
-        if (!Utils::isUnset($request->searchQuery)) {
-            $body['searchQuery'] = $request->searchQuery;
+
+        if (null !== $request->searchQuery) {
+            @$body['searchQuery'] = $request->searchQuery;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSavedSearch',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/savedsearches',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSavedSearch',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/savedsearches',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a saved search.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                   $project
-     * @param CreateSavedSearchRequest $request CreateSavedSearchRequest
+     * Creates a saved search.
      *
-     * @return CreateSavedSearchResponse CreateSavedSearchResponse
+     * @remarks
+     * ### Usage notes
+     * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+     * ### Authentication resources
+     * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+     * |Action|Resource|
+     * |:---|:---|
+     * |`log:CreateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+     *
+     * @param request - CreateSavedSearchRequest
+     *
+     * @returns CreateSavedSearchResponse
+     *
+     * @param string                   $project
+     * @param CreateSavedSearchRequest $request
+     *
+     * @return CreateSavedSearchResponse
      */
     public function createSavedSearch($project, $request)
     {
@@ -2160,63 +2594,78 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Scheduled SQL job in a project.
-     *  *
-     * @param string                    $project
-     * @param CreateScheduledSQLRequest $request CreateScheduledSQLRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a Scheduled SQL job in a project.
      *
-     * @return CreateScheduledSQLResponse CreateScheduledSQLResponse
+     * @param request - CreateScheduledSQLRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduledSQLResponse
+     *
+     * @param string                    $project
+     * @param CreateScheduledSQLRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateScheduledSQLResponse
      */
     public function createScheduledSQLWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduledSQL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateScheduledSQL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Scheduled SQL job in a project.
-     *  *
-     * @param string                    $project
-     * @param CreateScheduledSQLRequest $request CreateScheduledSQLRequest
+     * Creates a Scheduled SQL job in a project.
      *
-     * @return CreateScheduledSQLResponse CreateScheduledSQLResponse
+     * @param request - CreateScheduledSQLRequest
+     *
+     * @returns CreateScheduledSQLResponse
+     *
+     * @param string                    $project
+     * @param CreateScheduledSQLRequest $request
+     *
+     * @return CreateScheduledSQLResponse
      */
     public function createScheduledSQL($project, $request)
     {
@@ -2227,58 +2676,72 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
-     *  *
-     * @description **Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
-     *  *
-     * @param string                   $project
-     * @param CreateSqlInstanceRequest $request CreateSqlInstanceRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
      *
-     * @return CreateSqlInstanceResponse CreateSqlInstanceResponse
+     * @remarks
+     * *Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
+     *
+     * @param request - CreateSqlInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSqlInstanceResponse
+     *
+     * @param string                   $project
+     * @param CreateSqlInstanceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSqlInstanceResponse
      */
     public function createSqlInstanceWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->cu)) {
-            $body['cu'] = $request->cu;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->cu) {
+            @$body['cu'] = $request->cu;
         }
-        if (!Utils::isUnset($request->useAsDefault)) {
-            $body['useAsDefault'] = $request->useAsDefault;
+
+        if (null !== $request->useAsDefault) {
+            @$body['useAsDefault'] = $request->useAsDefault;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSqlInstance',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sqlinstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSqlInstance',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sqlinstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
-     *  *
-     * @description **Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
-     *  *
-     * @param string                   $project
-     * @param CreateSqlInstanceRequest $request CreateSqlInstanceRequest
+     * If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
      *
-     * @return CreateSqlInstanceResponse CreateSqlInstanceResponse
+     * @remarks
+     * *Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
+     *
+     * @param request - CreateSqlInstanceRequest
+     *
+     * @returns CreateSqlInstanceResponse
+     *
+     * @param string                   $project
+     * @param CreateSqlInstanceRequest $request
+     *
+     * @return CreateSqlInstanceResponse
      */
     public function createSqlInstance($project, $request)
     {
@@ -2289,57 +2752,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 创建StoreView
-     *  *
-     * @param string                 $project
-     * @param CreateStoreViewRequest $request CreateStoreViewRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建StoreView.
      *
-     * @return CreateStoreViewResponse CreateStoreViewResponse
+     * @param request - CreateStoreViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStoreViewResponse
+     *
+     * @param string                 $project
+     * @param CreateStoreViewRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateStoreViewResponse
      */
     public function createStoreViewWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->storeType)) {
-            $body['storeType'] = $request->storeType;
+
+        if (null !== $request->storeType) {
+            @$body['storeType'] = $request->storeType;
         }
-        if (!Utils::isUnset($request->stores)) {
-            $body['stores'] = $request->stores;
+
+        if (null !== $request->stores) {
+            @$body['stores'] = $request->stores;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateStoreView',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/storeviews',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateStoreView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/storeviews',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return CreateStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建StoreView
-     *  *
-     * @param string                 $project
-     * @param CreateStoreViewRequest $request CreateStoreViewRequest
+     * 创建StoreView.
      *
-     * @return CreateStoreViewResponse CreateStoreViewResponse
+     * @param request - CreateStoreViewRequest
+     *
+     * @returns CreateStoreViewResponse
+     *
+     * @param string                 $project
+     * @param CreateStoreViewRequest $request
+     *
+     * @return CreateStoreViewResponse
      */
     public function createStoreView($project, $request)
     {
@@ -2350,49 +2826,61 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ticket to enable logon-free access to the Simple Log Service console or embed console pages into a third-party system.
-     *  *
-     * @param CreateTicketRequest $request CreateTicketRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Obtains a ticket. Simple Log Service allows you to share the query and analysis pages and dashboard pages with other users and embed the console pages into third-party systems. This way, other users can view your logs in password-free mode. The URLs of the shared pages are referred to as password-free URLs. You can call the CreateTicket operation to obtain a ticket and generate a password-free URL based on the ticket and the URL of the console page that you want to share.
      *
-     * @return CreateTicketResponse CreateTicketResponse
+     * @param request - CreateTicketRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTicketResponse
+     *
+     * @param CreateTicketRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateTicketResponse
      */
     public function createTicketWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessTokenExpirationTime)) {
-            $query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
+        if (null !== $request->accessTokenExpirationTime) {
+            @$query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
         }
-        if (!Utils::isUnset($request->expirationTime)) {
-            $query['expirationTime'] = $request->expirationTime;
+
+        if (null !== $request->expirationTime) {
+            @$query['expirationTime'] = $request->expirationTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTicket',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/tickets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTicket',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tickets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ticket to enable logon-free access to the Simple Log Service console or embed console pages into a third-party system.
-     *  *
-     * @param CreateTicketRequest $request CreateTicketRequest
+     * Obtains a ticket. Simple Log Service allows you to share the query and analysis pages and dashboard pages with other users and embed the console pages into third-party systems. This way, other users can view your logs in password-free mode. The URLs of the shared pages are referred to as password-free URLs. You can call the CreateTicket operation to obtain a ticket and generate a password-free URL based on the ticket and the URL of the console page that you want to share.
      *
-     * @return CreateTicketResponse CreateTicketResponse
+     * @param request - CreateTicketRequest
+     *
+     * @returns CreateTicketResponse
+     *
+     * @param CreateTicketRequest $request
+     *
+     * @return CreateTicketResponse
      */
     public function createTicket($request)
     {
@@ -2403,97 +2891,115 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary DeleteAgentInstanceConfig
-     *  *
-     * @param string                           $configName
-     * @param DeleteAgentInstanceConfigRequest $request    DeleteAgentInstanceConfigRequest
-     * @param string[]                         $headers    map
-     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
+     * DeleteAgentInstanceConfig.
      *
-     * @return DeleteAgentInstanceConfigResponse DeleteAgentInstanceConfigResponse
+     * @param request - DeleteAgentInstanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentInstanceConfigResponse
+     *
+     * @param string                           $configType
+     * @param DeleteAgentInstanceConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteAgentInstanceConfigResponse
      */
-    public function deleteAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime)
+    public function deleteAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isGray)) {
-            $query['isGray'] = $request->isGray;
+        if (null !== $request->attributes) {
+            @$query['attributes'] = $request->attributes;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAgentInstanceConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/agentinstanceconfigs/' . $configName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAgentInstanceConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentinstanceconfigs/' . $configType . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary DeleteAgentInstanceConfig
-     *  *
-     * @param string                           $configName
-     * @param DeleteAgentInstanceConfigRequest $request    DeleteAgentInstanceConfigRequest
+     * DeleteAgentInstanceConfig.
      *
-     * @return DeleteAgentInstanceConfigResponse DeleteAgentInstanceConfigResponse
+     * @param request - DeleteAgentInstanceConfigRequest
+     *
+     * @returns DeleteAgentInstanceConfigResponse
+     *
+     * @param string                           $configType
+     * @param DeleteAgentInstanceConfigRequest $request
+     *
+     * @return DeleteAgentInstanceConfigResponse
      */
-    public function deleteAgentInstanceConfig($configName, $request)
+    public function deleteAgentInstanceConfig($configType, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime);
+        return $this->deleteAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes an alert rule.
-     *  *
+     * Deletes an alert rule.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertResponse
+     *
      * @param string         $project
      * @param string         $alertName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAlertResponse DeleteAlertResponse
+     * @return DeleteAlertResponse
      */
     public function deleteAlertWithOptions($project, $alertName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAlert',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts/' . $alertName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAlert',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts/' . $alertName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert rule.
-     *  *
+     * Deletes an alert rule.
+     *
+     * @returns DeleteAlertResponse
+     *
      * @param string $project
      * @param string $alertName
      *
-     * @return DeleteAlertResponse DeleteAlertResponse
+     * @return DeleteAlertResponse
      */
     public function deleteAlert($project, $alertName)
     {
@@ -2504,14 +3010,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Removes data from a dataset.
-     *  *
+     * Removes data from a dataset.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAnnotationDataResponse
+     *
      * @param string         $datasetId
      * @param string         $annotationdataId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAnnotationDataResponse DeleteAnnotationDataResponse
+     * @return DeleteAnnotationDataResponse
      */
     public function deleteAnnotationDataWithOptions($datasetId, $annotationdataId, $headers, $runtime)
     {
@@ -2519,27 +3030,29 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAnnotationData',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata/' . $annotationdataId . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAnnotationData',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '/annotationdata/' . $annotationdataId . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes data from a dataset.
-     *  *
+     * Removes data from a dataset.
+     *
+     * @returns DeleteAnnotationDataResponse
+     *
      * @param string $datasetId
      * @param string $annotationdataId
      *
-     * @return DeleteAnnotationDataResponse DeleteAnnotationDataResponse
+     * @return DeleteAnnotationDataResponse
      */
     public function deleteAnnotationData($datasetId, $annotationdataId)
     {
@@ -2550,15 +3063,21 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a dataset.
-     *  *
-     * @description You can delete a dataset only if no data exists in the dataset.
-     *  *
-     * @param string         $datasetId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Deletes a dataset.
      *
-     * @return DeleteAnnotationDataSetResponse DeleteAnnotationDataSetResponse
+     * @remarks
+     * You can delete a dataset only if no data exists in the dataset.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAnnotationDataSetResponse
+     *
+     * @param string         $datasetId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAnnotationDataSetResponse
      */
     public function deleteAnnotationDataSetWithOptions($datasetId, $headers, $runtime)
     {
@@ -2566,28 +3085,31 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAnnotationDataSet',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAnnotationDataSet',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a dataset.
-     *  *
-     * @description You can delete a dataset only if no data exists in the dataset.
-     *  *
+     * Deletes a dataset.
+     *
+     * @remarks
+     * You can delete a dataset only if no data exists in the dataset.
+     *
+     * @returns DeleteAnnotationDataSetResponse
+     *
      * @param string $datasetId
      *
-     * @return DeleteAnnotationDataSetResponse DeleteAnnotationDataSetResponse
+     * @return DeleteAnnotationDataSetResponse
      */
     public function deleteAnnotationDataSet($datasetId)
     {
@@ -2598,15 +3120,21 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a tag table.
-     *  *
-     * @description Only non-built-in tags can be deleted.
-     *  *
-     * @param string         $labelId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deletes a tag table.
      *
-     * @return DeleteAnnotationLabelResponse DeleteAnnotationLabelResponse
+     * @remarks
+     * Only non-built-in tags can be deleted.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAnnotationLabelResponse
+     *
+     * @param string         $labelId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAnnotationLabelResponse
      */
     public function deleteAnnotationLabelWithOptions($labelId, $headers, $runtime)
     {
@@ -2614,28 +3142,31 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAnnotationLabel',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationlabel/' . $labelId . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAnnotationLabel',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationlabel/' . $labelId . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a tag table.
-     *  *
-     * @description Only non-built-in tags can be deleted.
-     *  *
+     * Deletes a tag table.
+     *
+     * @remarks
+     * Only non-built-in tags can be deleted.
+     *
+     * @returns DeleteAnnotationLabelResponse
+     *
      * @param string $labelId
      *
-     * @return DeleteAnnotationLabelResponse DeleteAnnotationLabelResponse
+     * @return DeleteAnnotationLabelResponse
      */
     public function deleteAnnotationLabel($labelId)
     {
@@ -2646,55 +3177,69 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a log collection policy from a cloud service.
-     *  *
-     * @description You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
-     *  *
-     * @param string                        $policyName
-     * @param DeleteCollectionPolicyRequest $request    DeleteCollectionPolicyRequest
-     * @param string[]                      $headers    map
-     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
+     * Deletes a log collection policy from a cloud service.
      *
-     * @return DeleteCollectionPolicyResponse DeleteCollectionPolicyResponse
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+     *
+     * @param request - DeleteCollectionPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCollectionPolicyResponse
+     *
+     * @param string                        $policyName
+     * @param DeleteCollectionPolicyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteCollectionPolicyResponse
      */
     public function deleteCollectionPolicyWithOptions($policyName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataCode)) {
-            $query['dataCode'] = $request->dataCode;
+        if (null !== $request->dataCode) {
+            @$query['dataCode'] = $request->dataCode;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['productCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['productCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCollectionPolicy',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/collectionpolicy/' . $policyName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCollectionPolicy',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/collectionpolicy/' . $policyName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a log collection policy from a cloud service.
-     *  *
-     * @description You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
-     *  *
-     * @param string                        $policyName
-     * @param DeleteCollectionPolicyRequest $request    DeleteCollectionPolicyRequest
+     * Deletes a log collection policy from a cloud service.
      *
-     * @return DeleteCollectionPolicyResponse DeleteCollectionPolicyResponse
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+     *
+     * @param request - DeleteCollectionPolicyRequest
+     *
+     * @returns DeleteCollectionPolicyResponse
+     *
+     * @param string                        $policyName
+     * @param DeleteCollectionPolicyRequest $request
+     *
+     * @return DeleteCollectionPolicyResponse
      */
     public function deleteCollectionPolicy($policyName, $request)
     {
@@ -2705,61 +3250,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Deletes a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConfigResponse
+     *
      * @param string         $project
      * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteConfigResponse DeleteConfigResponse
+     * @return DeleteConfigResponse
      */
     public function deleteConfigWithOptions($project, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/configs/' . $configName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/configs/' . $configName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Deletes a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
-     *  *
+     *
+     * @returns DeleteConfigResponse
+     *
      * @param string $project
      * @param string $configName
      *
-     * @return DeleteConfigResponse DeleteConfigResponse
+     * @return DeleteConfigResponse
      */
     public function deleteConfig($project, $configName)
     {
@@ -2770,9 +3324,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a consumer group.
-     *  *
-     * @description ### Usage notes
+     * Deletes a consumer group.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -2783,42 +3338,48 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:DeleteConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
      * @param string         $project
      * @param string         $logstore
      * @param string         $consumerGroup
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($project, $logstore, $consumerGroup, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a consumer group.
-     *  *
-     * @description ### Usage notes
+     * Deletes a consumer group.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -2829,12 +3390,14 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:DeleteConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
-     *  *
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
      * @param string $project
      * @param string $logstore
      * @param string $consumerGroup
      *
-     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($project, $logstore, $consumerGroup)
     {
@@ -2845,57 +3408,66 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Deletes a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDashboardResponse
+     *
      * @param string         $project
      * @param string         $dashboardName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteDashboardResponse DeleteDashboardResponse
+     * @return DeleteDashboardResponse
      */
     public function deleteDashboardWithOptions($project, $dashboardName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDashboard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dashboards/' . $dashboardName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDashboard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dashboards/' . $dashboardName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteDashboardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Deletes a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
+     *
+     * @returns DeleteDashboardResponse
+     *
      * @param string $project
      * @param string $dashboardName
      *
-     * @return DeleteDashboardResponse DeleteDashboardResponse
+     * @return DeleteDashboardResponse
      */
     public function deleteDashboard($project, $dashboardName)
     {
@@ -2906,49 +3478,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom domain name that is bound to a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Deletes a custom domain name that is bound to a project.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainResponse
+     *
      * @param string         $project
      * @param string         $domainName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($project, $domainName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomain',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/domains/' . $domainName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDomain',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/domains/' . $domainName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom domain name that is bound to a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Deletes a custom domain name that is bound to a project.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns DeleteDomainResponse
+     *
      * @param string $project
      * @param string $domainName
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($project, $domainName)
     {
@@ -2959,45 +3540,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a download task.
-     *  *
+     * Deletes a download task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDownloadJobResponse
+     *
      * @param string         $project
      * @param string         $downloadJobName
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteDownloadJobResponse DeleteDownloadJobResponse
+     * @return DeleteDownloadJobResponse
      */
     public function deleteDownloadJobWithOptions($project, $downloadJobName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDownloadJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/downloadjobs/' . $downloadJobName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDownloadJob',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/downloadjobs/' . $downloadJobName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteDownloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a download task.
-     *  *
+     * Deletes a download task.
+     *
+     * @returns DeleteDownloadJobResponse
+     *
      * @param string $project
      * @param string $downloadJobName
      *
-     * @return DeleteDownloadJobResponse DeleteDownloadJobResponse
+     * @return DeleteDownloadJobResponse
      */
     public function deleteDownloadJob($project, $downloadJobName)
     {
@@ -3008,45 +3596,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据加工任务
-     *  *
+     * Deletes a data transformation job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteETLResponse
+     *
      * @param string         $project
      * @param string         $etlName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteETLResponse DeleteETLResponse
+     * @return DeleteETLResponse
      */
     public function deleteETLWithOptions($project, $etlName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteETL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls/' . $etlName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteETL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls/' . $etlName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteETLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数据加工任务
-     *  *
+     * Deletes a data transformation job.
+     *
+     * @returns DeleteETLResponse
+     *
      * @param string $project
      * @param string $etlName
      *
-     * @return DeleteETLResponse DeleteETLResponse
+     * @return DeleteETLResponse
      */
     public function deleteETL($project, $etlName)
     {
@@ -3057,104 +3652,60 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an external store.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string         $project
-     * @param string         $externalStoreName
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     * Deletes an index of a Logstore.
      *
-     * @return DeleteExternalStoreResponse DeleteExternalStoreResponse
-     */
-    public function deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores/' . $externalStoreName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return DeleteExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Deletes an external store.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string $project
-     * @param string $externalStoreName
-     *
-     * @return DeleteExternalStoreResponse DeleteExternalStoreResponse
-     */
-    public function deleteExternalStore($project, $externalStoreName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
-    }
-
-    /**
-     * @summary Deletes an index of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndexResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteIndexResponse DeleteIndexResponse
+     * @return DeleteIndexResponse
      */
     public function deleteIndexWithOptions($project, $logstore, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndex',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndex',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/index',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an index of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Deletes an index of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @returns DeleteIndexResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return DeleteIndexResponse DeleteIndexResponse
+     * @return DeleteIndexResponse
      */
     public function deleteIndex($project, $logstore)
     {
@@ -3165,51 +3716,116 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Logstore, including all shards and indexes in the Logstore.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string         $project
-     * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * Deletes an ingest processor.
      *
-     * @return DeleteLogStoreResponse DeleteLogStoreResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIngestProcessorResponse
+     *
+     * @param string         $project
+     * @param string         $processorName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteIngestProcessorResponse
      */
-    public function deleteLogStoreWithOptions($project, $logstore, $headers, $runtime)
+    public function deleteIngestProcessorWithOptions($project, $processorName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteLogStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIngestProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ingestprocessors/' . $processorName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteIngestProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an ingest processor.
+     *
+     * @returns DeleteIngestProcessorResponse
+     *
+     * @param string $project
+     * @param string $processorName
+     *
+     * @return DeleteIngestProcessorResponse
+     */
+    public function deleteIngestProcessor($project, $processorName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIngestProcessorWithOptions($project, $processorName, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a Logstore, including all shards and indexes in the Logstore.
+     *
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLogStoreResponse
+     *
+     * @param string         $project
+     * @param string         $logstore
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteLogStoreResponse
+     */
+    public function deleteLogStoreWithOptions($project, $logstore, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLogStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
         ]);
 
         return DeleteLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Logstore, including all shards and indexes in the Logstore.
-     *  *
-     * @description ### Usage notes
+     * Deletes a Logstore, including all shards and indexes in the Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @returns DeleteLogStoreResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return DeleteLogStoreResponse DeleteLogStoreResponse
+     * @return DeleteLogStoreResponse
      */
     public function deleteLogStore($project, $logstore)
     {
@@ -3220,43 +3836,50 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 关闭项目的服务日志记录。
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 关闭项目的服务日志记录。
      *
-     * @return DeleteLoggingResponse DeleteLoggingResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLoggingResponse
+     *
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteLoggingResponse
      */
     public function deleteLoggingWithOptions($project, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteLogging',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logging',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteLogging',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logging',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteLoggingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭项目的服务日志记录。
-     *  *
+     * 关闭项目的服务日志记录。
+     *
+     * @returns DeleteLoggingResponse
+     *
      * @param string $project
      *
-     * @return DeleteLoggingResponse DeleteLoggingResponse
+     * @return DeleteLoggingResponse
      */
     public function deleteLogging($project)
     {
@@ -3267,49 +3890,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
+     * Deletes a Logtail pipeline configuration.
+     *
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLogtailPipelineConfigResponse
+     *
      * @param string         $project
      * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteLogtailPipelineConfigResponse DeleteLogtailPipelineConfigResponse
+     * @return DeleteLogtailPipelineConfigResponse
      */
     public function deleteLogtailPipelineConfigWithOptions($project, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteLogtailPipelineConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pipelineconfigs/' . $configName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteLogtailPipelineConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pipelineconfigs/' . $configName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
+     * Deletes a Logtail pipeline configuration.
+     *
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @returns DeleteLogtailPipelineConfigResponse
+     *
      * @param string $project
      * @param string $configName
      *
-     * @return DeleteLogtailPipelineConfigResponse DeleteLogtailPipelineConfigResponse
+     * @return DeleteLogtailPipelineConfigResponse
      */
     public function deleteLogtailPipelineConfig($project, $configName)
     {
@@ -3320,51 +3952,60 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a machine group. If the Logtail configurations for log collection are applied to a machine group, the configurations are disassociated from the machine group after the machine group is deleted.
-     *  *
-     * @description ### Usage notes
+     * Deletes a machine group. If the Logtail configurations for log collection are applied to a machine group, the configurations are disassociated from the machine group after the machine group is deleted.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMachineGroupResponse
+     *
      * @param string         $project
      * @param string         $machineGroup
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse
      */
     public function deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a machine group. If the Logtail configurations for log collection are applied to a machine group, the configurations are disassociated from the machine group after the machine group is deleted.
-     *  *
-     * @description ### Usage notes
+     * Deletes a machine group. If the Logtail configurations for log collection are applied to a machine group, the configurations are disassociated from the machine group after the machine group is deleted.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @returns DeleteMachineGroupResponse
+     *
      * @param string $project
      * @param string $machineGroup
      *
-     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse
      */
     public function deleteMachineGroup($project, $machineGroup)
     {
@@ -3375,9 +4016,78 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an existing Metricstore. When you delete a Metricstore, the metric data stored in the Metricstore and associated resources such as associated collection settings and transformation settings are also deleted.
-     *  *
-     * @description Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
+     * Deletes a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaxComputeExportResponse
+     *
+     * @param string         $project
+     * @param string         $mcExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMaxComputeExportResponse
+     */
+    public function deleteMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMaxComputeExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports/' . $mcExportName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteMaxComputeExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @returns DeleteMaxComputeExportResponse
+     *
+     * @param string $project
+     * @param string $mcExportName
+     *
+     * @return DeleteMaxComputeExportResponse
+     */
+    public function deleteMaxComputeExport($project, $mcExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an existing Metricstore. When you delete a Metricstore, the metric data stored in the Metricstore and associated resources such as associated collection settings and transformation settings are also deleted.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
      * *   You must specify an existing Metricstore.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -3385,41 +4095,47 @@ class Sls extends OpenApiClient
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetricStoreResponse
+     *
      * @param string         $project
      * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteMetricStoreResponse DeleteMetricStoreResponse
+     * @return DeleteMetricStoreResponse
      */
     public function deleteMetricStoreWithOptions($project, $name, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetricStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores/' . $name . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMetricStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores/' . $name . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'none',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteMetricStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an existing Metricstore. When you delete a Metricstore, the metric data stored in the Metricstore and associated resources such as associated collection settings and transformation settings are also deleted.
-     *  *
-     * @description Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
+     * Deletes an existing Metricstore. When you delete a Metricstore, the metric data stored in the Metricstore and associated resources such as associated collection settings and transformation settings are also deleted.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
      * *   You must specify an existing Metricstore.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -3427,11 +4143,13 @@ class Sls extends OpenApiClient
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
+     *
+     * @returns DeleteMetricStoreResponse
+     *
      * @param string $project
      * @param string $name
      *
-     * @return DeleteMetricStoreResponse DeleteMetricStoreResponse
+     * @return DeleteMetricStoreResponse
      */
     public function deleteMetricStore($project, $name)
     {
@@ -3442,45 +4160,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Object Storage Service (OSS) data shipping job.
-     *  *
+     * Deletes an Object Storage Service (OSS) data shipping job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOSSExportResponse
+     *
      * @param string         $project
      * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteOSSExportResponse DeleteOSSExportResponse
+     * @return DeleteOSSExportResponse
      */
     public function deleteOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteOSSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports/' . $ossExportName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteOSSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports/' . $ossExportName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Object Storage Service (OSS) data shipping job.
-     *  *
+     * Deletes an Object Storage Service (OSS) data shipping job.
+     *
+     * @returns DeleteOSSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return DeleteOSSExportResponse DeleteOSSExportResponse
+     * @return DeleteOSSExportResponse
      */
     public function deleteOSSExport($project, $ossExportName)
     {
@@ -3491,45 +4216,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 删除OSSHDFS投递任务
-     *  *
+     * 删除OSSHDFS投递任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOSSHDFSExportResponse
+     *
      * @param string         $project
      * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteOSSHDFSExportResponse DeleteOSSHDFSExportResponse
+     * @return DeleteOSSHDFSExportResponse
      */
     public function deleteOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteOSSHDFSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports/' . $ossExportName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteOSSHDFSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports/' . $ossExportName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除OSSHDFS投递任务
-     *  *
+     * 删除OSSHDFS投递任务
+     *
+     * @returns DeleteOSSHDFSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return DeleteOSSHDFSExportResponse DeleteOSSHDFSExportResponse
+     * @return DeleteOSSHDFSExportResponse
      */
     public function deleteOSSHDFSExport($project, $ossExportName)
     {
@@ -3540,45 +4272,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Object Storage Service (OSS) data import job.
-     *  *
+     * Deletes an Object Storage Service (OSS) data import job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOSSIngestionResponse
+     *
      * @param string         $project
      * @param string         $ossIngestionName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteOSSIngestionResponse DeleteOSSIngestionResponse
+     * @return DeleteOSSIngestionResponse
      */
     public function deleteOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteOSSIngestion',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions/' . $ossIngestionName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteOSSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions/' . $ossIngestionName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Object Storage Service (OSS) data import job.
-     *  *
+     * Deletes an Object Storage Service (OSS) data import job.
+     *
+     * @returns DeleteOSSIngestionResponse
+     *
      * @param string $project
      * @param string $ossIngestionName
      *
-     * @return DeleteOSSIngestionResponse DeleteOSSIngestionResponse
+     * @return DeleteOSSIngestionResponse
      */
     public function deleteOSSIngestion($project, $ossIngestionName)
     {
@@ -3589,9 +4328,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a project.
-     *  *
-     * @description ### Usage notes
+     * Deletes a project.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -3601,40 +4341,55 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:DeleteProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @param request - DeleteProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param string               $project
+     * @param DeleteProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
      */
-    public function deleteProjectWithOptions($project, $headers, $runtime)
+    public function deleteProjectWithOptions($project, $request, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->forceDelete) {
+            @$query['forceDelete'] = $request->forceDelete;
+        }
+
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProject',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteProject',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a project.
-     *  *
-     * @description ### Usage notes
+     * Deletes a project.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -3644,69 +4399,83 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:DeleteProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
-     *  *
-     * @param string $project
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @param request - DeleteProjectRequest
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param string               $project
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
      */
-    public function deleteProject($project)
+    public function deleteProject($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProjectWithOptions($project, $headers, $runtime);
+        return $this->deleteProjectWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes a project policy.
-     *  *
-     * @description ### [](#)Usage notes
+     * Deletes a project policy.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectPolicyResponse DeleteProjectPolicyResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectPolicyResponse
+     *
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteProjectPolicyResponse
      */
     public function deleteProjectPolicyWithOptions($project, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteProjectPolicy',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/policy',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteProjectPolicy',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/policy',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a project policy.
-     *  *
-     * @description ### [](#)Usage notes
+     * Deletes a project policy.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-     *  *
+     *
+     * @returns DeleteProjectPolicyResponse
+     *
      * @param string $project
      *
-     * @return DeleteProjectPolicyResponse DeleteProjectPolicyResponse
+     * @return DeleteProjectPolicyResponse
      */
     public function deleteProjectPolicy($project)
     {
@@ -3717,9 +4486,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a saved search.
-     *  *
-     * @description ### Usage notes
+     * Deletes a saved search.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -3730,41 +4500,47 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:DeleteSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSavedSearchResponse
+     *
      * @param string         $project
      * @param string         $savedsearchName
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteSavedSearchResponse DeleteSavedSearchResponse
+     * @return DeleteSavedSearchResponse
      */
     public function deleteSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSavedSearch',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/savedsearches/' . $savedsearchName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSavedSearch',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/savedsearches/' . $savedsearchName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a saved search.
-     *  *
-     * @description ### Usage notes
+     * Deletes a saved search.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -3775,11 +4551,13 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:DeleteSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
-     *  *
+     *
+     * @returns DeleteSavedSearchResponse
+     *
      * @param string $project
      * @param string $savedsearchName
      *
-     * @return DeleteSavedSearchResponse DeleteSavedSearchResponse
+     * @return DeleteSavedSearchResponse
      */
     public function deleteSavedSearch($project, $savedsearchName)
     {
@@ -3790,45 +4568,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Scheduled SQL job.
-     *  *
+     * Deletes a Scheduled SQL job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScheduledSQLResponse
+     *
      * @param string         $project
      * @param string         $scheduledSQLName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteScheduledSQLResponse DeleteScheduledSQLResponse
+     * @return DeleteScheduledSQLResponse
      */
     public function deleteScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteScheduledSQL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteScheduledSQL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls/' . $scheduledSQLName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Scheduled SQL job.
-     *  *
+     * Deletes a Scheduled SQL job.
+     *
+     * @returns DeleteScheduledSQLResponse
+     *
      * @param string $project
      * @param string $scheduledSQLName
      *
-     * @return DeleteScheduledSQLResponse DeleteScheduledSQLResponse
+     * @return DeleteScheduledSQLResponse
      */
     public function deleteScheduledSQL($project, $scheduledSQLName)
     {
@@ -3839,45 +4624,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a dataset by using the name of the dataset.
-     *  *
+     * Deletes a dataset by using the name of the dataset.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStoreViewResponse
+     *
      * @param string         $project
      * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteStoreViewResponse DeleteStoreViewResponse
+     * @return DeleteStoreViewResponse
      */
     public function deleteStoreViewWithOptions($project, $name, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteStoreView',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/storeviews/' . $name . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteStoreView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/storeviews/' . $name . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DeleteStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a dataset by using the name of the dataset.
-     *  *
+     * Deletes a dataset by using the name of the dataset.
+     *
+     * @returns DeleteStoreViewResponse
+     *
      * @param string $project
      * @param string $name
      *
-     * @return DeleteStoreViewResponse DeleteStoreViewResponse
+     * @return DeleteStoreViewResponse
      */
     public function deleteStoreView($project, $name)
     {
@@ -3888,46 +4680,57 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 查询可用的区域
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries supported regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/regions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeRegions',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询可用的区域
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries supported regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -3938,45 +4741,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Disables an alert rule.
-     *  *
+     * Disables an alert rule.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableAlertResponse
+     *
      * @param string         $project
      * @param string         $alertName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DisableAlertResponse DisableAlertResponse
+     * @return DisableAlertResponse
      */
     public function disableAlertWithOptions($project, $alertName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DisableAlert',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts/' . $alertName . '?action=disable',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DisableAlert',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts/' . $alertName . '?action=disable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DisableAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables an alert rule.
-     *  *
+     * Disables an alert rule.
+     *
+     * @returns DisableAlertResponse
+     *
      * @param string $project
      * @param string $alertName
      *
-     * @return DisableAlertResponse DisableAlertResponse
+     * @return DisableAlertResponse
      */
     public function disableAlert($project, $alertName)
     {
@@ -3987,45 +4797,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 禁用定时SQL任务
-     *  *
+     * Disables the Scheduled SQL feature.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableScheduledSQLResponse
+     *
      * @param string         $project
      * @param string         $scheduledSQLName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DisableScheduledSQLResponse DisableScheduledSQLResponse
+     * @return DisableScheduledSQLResponse
      */
     public function disableScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DisableScheduledSQL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '?action=disable',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DisableScheduledSQL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls/' . $scheduledSQLName . '?action=disable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return DisableScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用定时SQL任务
-     *  *
+     * Disables the Scheduled SQL feature.
+     *
+     * @returns DisableScheduledSQLResponse
+     *
      * @param string $project
      * @param string $scheduledSQLName
      *
-     * @return DisableScheduledSQLResponse DisableScheduledSQLResponse
+     * @return DisableScheduledSQLResponse
      */
     public function disableScheduledSQL($project, $scheduledSQLName)
     {
@@ -4036,45 +4853,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Enables an alert rule.
-     *  *
+     * Enables an alert rule.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableAlertResponse
+     *
      * @param string         $project
      * @param string         $alertName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return EnableAlertResponse EnableAlertResponse
+     * @return EnableAlertResponse
      */
     public function enableAlertWithOptions($project, $alertName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'EnableAlert',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts/' . $alertName . '?action=enable',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EnableAlert',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts/' . $alertName . '?action=enable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return EnableAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables an alert rule.
-     *  *
+     * Enables an alert rule.
+     *
+     * @returns EnableAlertResponse
+     *
      * @param string $project
      * @param string $alertName
      *
-     * @return EnableAlertResponse EnableAlertResponse
+     * @return EnableAlertResponse
      */
     public function enableAlert($project, $alertName)
     {
@@ -4085,45 +4909,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Scheduled SQL feature.
-     *  *
+     * Enables the Scheduled SQL feature.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableScheduledSQLResponse
+     *
      * @param string         $project
      * @param string         $scheduledSQLName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return EnableScheduledSQLResponse EnableScheduledSQLResponse
+     * @return EnableScheduledSQLResponse
      */
     public function enableScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'EnableScheduledSQL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '?action=enable',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EnableScheduledSQL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls/' . $scheduledSQLName . '?action=enable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return EnableScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the Scheduled SQL feature.
-     *  *
+     * Enables the Scheduled SQL feature.
+     *
+     * @returns EnableScheduledSQLResponse
+     *
      * @param string $project
      * @param string $scheduledSQLName
      *
-     * @return EnableScheduledSQLResponse EnableScheduledSQLResponse
+     * @return EnableScheduledSQLResponse
      */
     public function enableScheduledSQL($project, $scheduledSQLName)
     {
@@ -4134,89 +4965,115 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary GetAgentInstanceConfig
-     *  *
-     * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * GetAgentInstanceConfig.
      *
-     * @return GetAgentInstanceConfigResponse GetAgentInstanceConfigResponse
+     * @param request - GetAgentInstanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentInstanceConfigResponse
+     *
+     * @param string                        $configType
+     * @param GetAgentInstanceConfigRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAgentInstanceConfigResponse
      */
-    public function getAgentInstanceConfigWithOptions($configName, $headers, $runtime)
+    public function getAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attributes) {
+            @$query['attributes'] = $request->attributes;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentInstanceConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/agentinstanceconfigs/' . $configName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAgentInstanceConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentinstanceconfigs/' . $configType . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary GetAgentInstanceConfig
-     *  *
-     * @param string $configName
+     * GetAgentInstanceConfig.
      *
-     * @return GetAgentInstanceConfigResponse GetAgentInstanceConfigResponse
+     * @param request - GetAgentInstanceConfigRequest
+     *
+     * @returns GetAgentInstanceConfigResponse
+     *
+     * @param string                        $configType
+     * @param GetAgentInstanceConfigRequest $request
+     *
+     * @return GetAgentInstanceConfigResponse
      */
-    public function getAgentInstanceConfig($configName)
+    public function getAgentInstanceConfig($configType, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAgentInstanceConfigWithOptions($configName, $headers, $runtime);
+        return $this->getAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Queries the information about an alert rule.
-     *  *
+     * Queries the information about an alert rule.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlertResponse
+     *
      * @param string         $project
      * @param string         $alertName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAlertResponse GetAlertResponse
+     * @return GetAlertResponse
      */
     public function getAlertWithOptions($project, $alertName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAlert',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts/' . $alertName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlert',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts/' . $alertName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an alert rule.
-     *  *
+     * Queries the information about an alert rule.
+     *
+     * @returns GetAlertResponse
+     *
      * @param string $project
      * @param string $alertName
      *
-     * @return GetAlertResponse GetAlertResponse
+     * @return GetAlertResponse
      */
     public function getAlert($project, $alertName)
     {
@@ -4227,14 +5084,19 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries data in datasets based on the unique identifier of the data.
-     *  *
+     * Queries data in datasets based on the unique identifier of the data.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAnnotationDataResponse
+     *
      * @param string         $datasetId
      * @param string         $annotationdataId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAnnotationDataResponse GetAnnotationDataResponse
+     * @return GetAnnotationDataResponse
      */
     public function getAnnotationDataWithOptions($datasetId, $annotationdataId, $headers, $runtime)
     {
@@ -4242,27 +5104,29 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAnnotationData',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata/' . $annotationdataId . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAnnotationData',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '/annotationdata/' . $annotationdataId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries data in datasets based on the unique identifier of the data.
-     *  *
+     * Queries data in datasets based on the unique identifier of the data.
+     *
+     * @returns GetAnnotationDataResponse
+     *
      * @param string $datasetId
      * @param string $annotationdataId
      *
-     * @return GetAnnotationDataResponse GetAnnotationDataResponse
+     * @return GetAnnotationDataResponse
      */
     public function getAnnotationData($datasetId, $annotationdataId)
     {
@@ -4273,13 +5137,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a dataset.
-     *  *
-     * @param string         $datasetId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Queries a dataset.
      *
-     * @return GetAnnotationDataSetResponse GetAnnotationDataSetResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAnnotationDataSetResponse
+     *
+     * @param string         $datasetId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAnnotationDataSetResponse
      */
     public function getAnnotationDataSetWithOptions($datasetId, $headers, $runtime)
     {
@@ -4287,26 +5156,28 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAnnotationDataSet',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAnnotationDataSet',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a dataset.
-     *  *
+     * Queries a dataset.
+     *
+     * @returns GetAnnotationDataSetResponse
+     *
      * @param string $datasetId
      *
-     * @return GetAnnotationDataSetResponse GetAnnotationDataSetResponse
+     * @return GetAnnotationDataSetResponse
      */
     public function getAnnotationDataSet($datasetId)
     {
@@ -4317,13 +5188,18 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a tag table by using a label ID.
-     *  *
-     * @param string         $labelId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries a tag table by using a label ID.
      *
-     * @return GetAnnotationLabelResponse GetAnnotationLabelResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAnnotationLabelResponse
+     *
+     * @param string         $labelId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAnnotationLabelResponse
      */
     public function getAnnotationLabelWithOptions($labelId, $headers, $runtime)
     {
@@ -4331,26 +5207,28 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAnnotationLabel',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationlabel/' . $labelId . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAnnotationLabel',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationlabel/' . $labelId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a tag table by using a label ID.
-     *  *
+     * Queries a tag table by using a label ID.
+     *
+     * @returns GetAnnotationLabelResponse
+     *
      * @param string $labelId
      *
-     * @return GetAnnotationLabelResponse GetAnnotationLabelResponse
+     * @return GetAnnotationLabelResponse
      */
     public function getAnnotationLabel($labelId)
     {
@@ -4361,49 +5239,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Logtail configurations that are applied to a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the Logtail configurations that are applied to a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppliedConfigsResponse
+     *
      * @param string         $project
      * @param string         $machineGroup
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAppliedConfigsResponse GetAppliedConfigsResponse
+     * @return GetAppliedConfigsResponse
      */
     public function getAppliedConfigsWithOptions($project, $machineGroup, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAppliedConfigs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '/configs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAppliedConfigs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '/configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAppliedConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Logtail configurations that are applied to a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the Logtail configurations that are applied to a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns GetAppliedConfigsResponse
+     *
      * @param string $project
      * @param string $machineGroup
      *
-     * @return GetAppliedConfigsResponse GetAppliedConfigsResponse
+     * @return GetAppliedConfigsResponse
      */
     public function getAppliedConfigs($project, $machineGroup)
     {
@@ -4414,49 +5301,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the machine groups to which a Logtail configuration is bound.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the machine groups to which a Logtail configuration is bound.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppliedMachineGroupsResponse
+     *
      * @param string         $project
      * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAppliedMachineGroupsResponse GetAppliedMachineGroupsResponse
+     * @return GetAppliedMachineGroupsResponse
      */
     public function getAppliedMachineGroupsWithOptions($project, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAppliedMachineGroups',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/configs/' . $configName . '/machinegroups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAppliedMachineGroups',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/configs/' . $configName . '/machinegroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAppliedMachineGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the machine groups to which a Logtail configuration is bound.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the machine groups to which a Logtail configuration is bound.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns GetAppliedMachineGroupsResponse
+     *
      * @param string $project
      * @param string $configName
      *
-     * @return GetAppliedMachineGroupsResponse GetAppliedMachineGroupsResponse
+     * @return GetAppliedMachineGroupsResponse
      */
     public function getAppliedMachineGroups($project, $configName)
     {
@@ -4467,59 +5363,72 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the checkpoints of a shard from which data is consumed by a consumer group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the checkpoints of a shard from which data is consumed by a consumer group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - GetCheckPointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCheckPointResponse
+     *
      * @param string               $project
      * @param string               $logstore
      * @param string               $consumerGroup
-     * @param GetCheckPointRequest $request       GetCheckPointRequest
-     * @param string[]             $headers       map
-     * @param RuntimeOptions       $runtime       runtime options for this request RuntimeOptions
+     * @param GetCheckPointRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetCheckPointResponse GetCheckPointResponse
+     * @return GetCheckPointResponse
      */
     public function getCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->shard)) {
-            $query['shard'] = $request->shard;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->shard) {
+            @$query['shard'] = $request->shard;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCheckPoint',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCheckPoint',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return GetCheckPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the checkpoints of a shard from which data is consumed by a consumer group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the checkpoints of a shard from which data is consumed by a consumer group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - GetCheckPointRequest
+     *
+     * @returns GetCheckPointResponse
+     *
      * @param string               $project
      * @param string               $logstore
      * @param string               $consumerGroup
-     * @param GetCheckPointRequest $request       GetCheckPointRequest
+     * @param GetCheckPointRequest $request
      *
-     * @return GetCheckPointResponse GetCheckPointResponse
+     * @return GetCheckPointResponse
      */
     public function getCheckPoint($project, $logstore, $consumerGroup, $request)
     {
@@ -4530,51 +5439,69 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 调用GetCollectionPolicy获取对应的规则
-     *  *
-     * @param string                     $policyName
-     * @param GetCollectionPolicyRequest $request    GetCollectionPolicyRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * 调用GetCollectionPolicy获取对应的规则.
      *
-     * @return GetCollectionPolicyResponse GetCollectionPolicyResponse
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+     *
+     * @param request - GetCollectionPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCollectionPolicyResponse
+     *
+     * @param string                     $policyName
+     * @param GetCollectionPolicyRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCollectionPolicyResponse
      */
     public function getCollectionPolicyWithOptions($policyName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataCode)) {
-            $query['dataCode'] = $request->dataCode;
+        if (null !== $request->dataCode) {
+            @$query['dataCode'] = $request->dataCode;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['productCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['productCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCollectionPolicy',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/collectionpolicy/' . $policyName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCollectionPolicy',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/collectionpolicy/' . $policyName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用GetCollectionPolicy获取对应的规则
-     *  *
-     * @param string                     $policyName
-     * @param GetCollectionPolicyRequest $request    GetCollectionPolicyRequest
+     * 调用GetCollectionPolicy获取对应的规则.
      *
-     * @return GetCollectionPolicyResponse GetCollectionPolicyResponse
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+     *
+     * @param request - GetCollectionPolicyRequest
+     *
+     * @returns GetCollectionPolicyResponse
+     *
+     * @param string                     $policyName
+     * @param GetCollectionPolicyRequest $request
+     *
+     * @return GetCollectionPolicyResponse
      */
     public function getCollectionPolicy($policyName, $request)
     {
@@ -4585,59 +5512,68 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries the details of a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConfigResponse
+     *
      * @param string         $project
      * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetConfigResponse GetConfigResponse
+     * @return GetConfigResponse
      */
     public function getConfigWithOptions($project, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/configs/' . $configName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/configs/' . $configName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries the details of a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
-     *  *
+     *
+     * @returns GetConfigResponse
+     *
      * @param string $project
      * @param string $configName
      *
-     * @return GetConfigResponse GetConfigResponse
+     * @return GetConfigResponse
      */
     public function getConfig($project, $configName)
     {
@@ -4648,9 +5584,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the contextual logs of a specified log.
-     *  *
-     * @description ### Usage notes
+     * Queries the contextual logs of a specified log.
+     *
+     * @remarks
+     * ### Usage notes
      * * You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -4663,57 +5600,68 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetLogStoreContextLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
-     *  *
+     *
+     * @param request - GetContextLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextLogsResponse
+     *
      * @param string                $project
      * @param string                $logstore
-     * @param GetContextLogsRequest $request  GetContextLogsRequest
-     * @param string[]              $headers  map
-     * @param RuntimeOptions        $runtime  runtime options for this request RuntimeOptions
+     * @param GetContextLogsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetContextLogsResponse GetContextLogsResponse
+     * @return GetContextLogsResponse
      */
     public function getContextLogsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->backLines)) {
-            $query['back_lines'] = $request->backLines;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->backLines) {
+            @$query['back_lines'] = $request->backLines;
         }
-        if (!Utils::isUnset($request->forwardLines)) {
-            $query['forward_lines'] = $request->forwardLines;
+
+        if (null !== $request->forwardLines) {
+            @$query['forward_lines'] = $request->forwardLines;
         }
-        if (!Utils::isUnset($request->packId)) {
-            $query['pack_id'] = $request->packId;
+
+        if (null !== $request->packId) {
+            @$query['pack_id'] = $request->packId;
         }
-        if (!Utils::isUnset($request->packMeta)) {
-            $query['pack_meta'] = $request->packMeta;
+
+        if (null !== $request->packMeta) {
+            @$query['pack_meta'] = $request->packMeta;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetContextLogs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '?type=context_log',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetContextLogs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '?type=context_log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetContextLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the contextual logs of a specified log.
-     *  *
-     * @description ### Usage notes
+     * Queries the contextual logs of a specified log.
+     *
+     * @remarks
+     * ### Usage notes
      * * You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -4726,12 +5674,16 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetLogStoreContextLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
-     *  *
+     *
+     * @param request - GetContextLogsRequest
+     *
+     * @returns GetContextLogsResponse
+     *
      * @param string                $project
      * @param string                $logstore
-     * @param GetContextLogsRequest $request  GetContextLogsRequest
+     * @param GetContextLogsRequest $request
      *
-     * @return GetContextLogsResponse GetContextLogsResponse
+     * @return GetContextLogsResponse
      */
     public function getContextLogs($project, $logstore, $request)
     {
@@ -4742,69 +5694,82 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a cursor based on a point in time.
-     *  *
-     * @description ### Usage notes
+     * Queries a cursor based on a point in time.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
      *     *   A project can have multiple Logstores.
      *     *   A Logstore can have multiple shards.
      *     *   You can use a cursor to obtain a log in a shard.
-     *  *
+     *
+     * @param request - GetCursorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCursorResponse
+     *
      * @param string           $project
      * @param string           $logstore
      * @param string           $shardId
-     * @param GetCursorRequest $request  GetCursorRequest
-     * @param string[]         $headers  map
-     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
+     * @param GetCursorRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
-     * @return GetCursorResponse GetCursorResponse
+     * @return GetCursorResponse
      */
     public function getCursorWithOptions($project, $logstore, $shardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['from'] = $request->from;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCursor',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardId . '?type=cursor',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCursor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/shards/' . $shardId . '?type=cursor',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCursorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a cursor based on a point in time.
-     *  *
-     * @description ### Usage notes
+     * Queries a cursor based on a point in time.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
      *     *   A project can have multiple Logstores.
      *     *   A Logstore can have multiple shards.
      *     *   You can use a cursor to obtain a log in a shard.
-     *  *
+     *
+     * @param request - GetCursorRequest
+     *
+     * @returns GetCursorResponse
+     *
      * @param string           $project
      * @param string           $logstore
      * @param string           $shardId
-     * @param GetCursorRequest $request  GetCursorRequest
+     * @param GetCursorRequest $request
      *
-     * @return GetCursorResponse GetCursorResponse
+     * @return GetCursorResponse
      */
     public function getCursor($project, $logstore, $shardId, $request)
     {
@@ -4815,55 +5780,66 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the server time of a cursor.
-     *  *
+     * Queries the server time of a cursor.
+     *
+     * @param request - GetCursorTimeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCursorTimeResponse
+     *
      * @param string               $project
      * @param string               $logstore
      * @param string               $shardId
-     * @param GetCursorTimeRequest $request  GetCursorTimeRequest
-     * @param string[]             $headers  map
-     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
+     * @param GetCursorTimeRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetCursorTimeResponse GetCursorTimeResponse
+     * @return GetCursorTimeResponse
      */
     public function getCursorTimeWithOptions($project, $logstore, $shardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->cursor)) {
-            $query['cursor'] = $request->cursor;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->cursor) {
+            @$query['cursor'] = $request->cursor;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCursorTime',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardId . '?type=cursor_time',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCursorTime',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/shards/' . $shardId . '?type=cursor_time',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCursorTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the server time of a cursor.
-     *  *
+     * Queries the server time of a cursor.
+     *
+     * @param request - GetCursorTimeRequest
+     *
+     * @returns GetCursorTimeResponse
+     *
      * @param string               $project
      * @param string               $logstore
      * @param string               $shardId
-     * @param GetCursorTimeRequest $request  GetCursorTimeRequest
+     * @param GetCursorTimeRequest $request
      *
-     * @return GetCursorTimeResponse GetCursorTimeResponse
+     * @return GetCursorTimeResponse
      */
     public function getCursorTime($project, $logstore, $shardId, $request)
     {
@@ -4874,57 +5850,66 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDashboardResponse
+     *
      * @param string         $project
      * @param string         $dashboardName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDashboardResponse GetDashboardResponse
+     * @return GetDashboardResponse
      */
     public function getDashboardWithOptions($project, $dashboardName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDashboard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dashboards/' . $dashboardName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDashboard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dashboards/' . $dashboardName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDashboardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
+     *
+     * @returns GetDashboardResponse
+     *
      * @param string $project
      * @param string $dashboardName
      *
-     * @return GetDashboardResponse GetDashboardResponse
+     * @return GetDashboardResponse
      */
     public function getDashboard($project, $dashboardName)
     {
@@ -4935,45 +5920,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a download task.
-     *  *
+     * Queries the information about a download task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDownloadJobResponse
+     *
      * @param string         $project
      * @param string         $downloadJobName
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDownloadJobResponse GetDownloadJobResponse
+     * @return GetDownloadJobResponse
      */
     public function getDownloadJobWithOptions($project, $downloadJobName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDownloadJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/downloadjobs/' . $downloadJobName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDownloadJob',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/downloadjobs/' . $downloadJobName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDownloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a download task.
-     *  *
+     * Queries the information about a download task.
+     *
+     * @returns GetDownloadJobResponse
+     *
      * @param string $project
      * @param string $downloadJobName
      *
-     * @return GetDownloadJobResponse GetDownloadJobResponse
+     * @return GetDownloadJobResponse
      */
     public function getDownloadJob($project, $downloadJobName)
     {
@@ -4984,45 +5976,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据加工任务信息
-     *  *
+     * Queries the configurations of a data transformation job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetETLResponse
+     *
      * @param string         $project
      * @param string         $etlName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetETLResponse GetETLResponse
+     * @return GetETLResponse
      */
     public function getETLWithOptions($project, $etlName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetETL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls/' . $etlName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetETL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls/' . $etlName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetETLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据加工任务信息
-     *  *
+     * Queries the configurations of a data transformation job.
+     *
+     * @returns GetETLResponse
+     *
      * @param string $project
      * @param string $etlName
      *
-     * @return GetETLResponse GetETLResponse
+     * @return GetETLResponse
      */
     public function getETL($project, $etlName)
     {
@@ -5033,64 +6032,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an external store.
-     *  *
-     * @description *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
-     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string         $project
-     * @param string         $externalStoreName
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     * Queries the distribution of logs that meet the specified search conditions in a Logstore.
      *
-     * @return GetExternalStoreResponse GetExternalStoreResponse
-     */
-    public function getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores/' . $externalStoreName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the details of an external store.
-     *  *
-     * @description *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
-     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string $project
-     * @param string $externalStoreName
-     *
-     * @return GetExternalStoreResponse GetExternalStoreResponse
-     */
-    public function getExternalStore($project, $externalStoreName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
-    }
-
-    /**
-     * @summary Queries the distribution of logs that meet the specified search conditions in a Logstore.
-     *  *
-     * @description ### Usage notes
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
      * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
@@ -5100,57 +6045,68 @@ class Sls extends OpenApiClient
      *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
      * > Simple Log Service calculates the difference between the log time that is specified by the __time__ field and the receiving time that is specified by the __tag__:__receive_time__ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval [-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
      * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](https://help.aliyun.com/document_detail/462234.html).
-     *  *
+     *
+     * @param request - GetHistogramsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHistogramsResponse
+     *
      * @param string               $project
      * @param string               $logstore
-     * @param GetHistogramsRequest $request  GetHistogramsRequest
-     * @param string[]             $headers  map
-     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
+     * @param GetHistogramsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetHistogramsResponse GetHistogramsResponse
+     * @return GetHistogramsResponse
      */
     public function getHistogramsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['from'] = $request->from;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['to'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHistograms',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index?type=histogram',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHistograms',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/index?type=histogram',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return GetHistogramsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the distribution of logs that meet the specified search conditions in a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Queries the distribution of logs that meet the specified search conditions in a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
      * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
@@ -5160,12 +6116,16 @@ class Sls extends OpenApiClient
      *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
      * > Simple Log Service calculates the difference between the log time that is specified by the __time__ field and the receiving time that is specified by the __tag__:__receive_time__ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval [-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
      * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](https://help.aliyun.com/document_detail/462234.html).
-     *  *
+     *
+     * @param request - GetHistogramsRequest
+     *
+     * @returns GetHistogramsResponse
+     *
      * @param string               $project
      * @param string               $logstore
-     * @param GetHistogramsRequest $request  GetHistogramsRequest
+     * @param GetHistogramsRequest $request
      *
-     * @return GetHistogramsResponse GetHistogramsResponse
+     * @return GetHistogramsResponse
      */
     public function getHistograms($project, $logstore, $request)
     {
@@ -5176,51 +6136,60 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the index of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Queries the index of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIndexResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetIndexResponse GetIndexResponse
+     * @return GetIndexResponse
      */
     public function getIndexWithOptions($project, $logstore, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetIndex',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIndex',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/index',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the index of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Queries the index of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @returns GetIndexResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return GetIndexResponse GetIndexResponse
+     * @return GetIndexResponse
      */
     public function getIndex($project, $logstore)
     {
@@ -5231,51 +6200,116 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Logstore.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string         $project
-     * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * Queries an ingest processor.
      *
-     * @return GetLogStoreResponse GetLogStoreResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIngestProcessorResponse
+     *
+     * @param string         $project
+     * @param string         $processorName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetIngestProcessorResponse
      */
-    public function getLogStoreWithOptions($project, $logstore, $headers, $runtime)
+    public function getIngestProcessorWithOptions($project, $processorName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetLogStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIngestProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ingestprocessors/' . $processorName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIngestProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries an ingest processor.
+     *
+     * @returns GetIngestProcessorResponse
+     *
+     * @param string $project
+     * @param string $processorName
+     *
+     * @return GetIngestProcessorResponse
+     */
+    public function getIngestProcessor($project, $processorName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIngestProcessorWithOptions($project, $processorName, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogStoreResponse
+     *
+     * @param string         $project
+     * @param string         $logstore
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLogStoreResponse
+     */
+    public function getLogStoreWithOptions($project, $logstore, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetLogStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Queries the details of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @returns GetLogStoreResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return GetLogStoreResponse GetLogStoreResponse
+     * @return GetLogStoreResponse
      */
     public function getLogStore($project, $logstore)
     {
@@ -5286,45 +6320,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the billing mode of a Logstore.
-     *  *
+     * Queries the billing mode of a Logstore.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogStoreMeteringModeResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLogStoreMeteringModeResponse GetLogStoreMeteringModeResponse
+     * @return GetLogStoreMeteringModeResponse
      */
     public function getLogStoreMeteringModeWithOptions($project, $logstore, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetLogStoreMeteringMode',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/meteringmode',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLogStoreMeteringMode',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/meteringmode',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLogStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the billing mode of a Logstore.
-     *  *
+     * Queries the billing mode of a Logstore.
+     *
+     * @returns GetLogStoreMeteringModeResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return GetLogStoreMeteringModeResponse GetLogStoreMeteringModeResponse
+     * @return GetLogStoreMeteringModeResponse
      */
     public function getLogStoreMeteringMode($project, $logstore)
     {
@@ -5335,47 +6376,56 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the service log configuration of a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the service log configuration of a project.
      *
-     * @return GetLoggingResponse GetLoggingResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLoggingResponse
+     *
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLoggingResponse
      */
     public function getLoggingWithOptions($project, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetLogging',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logging',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLogging',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logging',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLoggingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the service log configuration of a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the service log configuration of a project.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns GetLoggingResponse
+     *
      * @param string $project
      *
-     * @return GetLoggingResponse GetLoggingResponse
+     * @return GetLoggingResponse
      */
     public function getLogging($project)
     {
@@ -5386,9 +6436,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of a Logstore in a project.
-     *  *
-     * @description ### Usage notes
+     * Queries the logs of a Logstore in a project.
+     *
+     * @remarks
+     * ### Usage notes
      * **Note** Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a scheduled SQL job](https://help.aliyun.com/document_detail/286457.html).
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -5407,69 +6458,84 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
-     *  *
+     *
+     * @param request - GetLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogsResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param GetLogsRequest $request  GetLogsRequest
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param GetLogsRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLogsResponse GetLogsResponse
+     * @return GetLogsResponse
      */
     public function getLogsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['from'] = $request->from;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
         }
-        if (!Utils::isUnset($request->line)) {
-            $query['line'] = $request->line;
+
+        if (null !== $request->line) {
+            @$query['line'] = $request->line;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->powerSql)) {
-            $query['powerSql'] = $request->powerSql;
+
+        if (null !== $request->powerSql) {
+            @$query['powerSql'] = $request->powerSql;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['reverse'] = $request->reverse;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['to'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLogs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '?type=log',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLogs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '?type=log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return GetLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logs of a Logstore in a project.
-     *  *
-     * @description ### Usage notes
+     * Queries the logs of a Logstore in a project.
+     *
+     * @remarks
+     * ### Usage notes
      * **Note** Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a scheduled SQL job](https://help.aliyun.com/document_detail/286457.html).
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -5488,12 +6554,16 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
-     *  *
+     *
+     * @param request - GetLogsRequest
+     *
+     * @returns GetLogsResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param GetLogsRequest $request  GetLogsRequest
+     * @param GetLogsRequest $request
      *
-     * @return GetLogsResponse GetLogsResponse
+     * @return GetLogsResponse
      */
     public function getLogs($project, $logstore, $request)
     {
@@ -5504,98 +6574,123 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
-     *  *
-     * @description *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
+     * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
+     *
+     * @remarks
+     *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
      * *   You can call this operation by using Simple Log Service SDK for Go or Java.
      * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
-     *  *
+     *
+     * @param request - GetLogsV2Request
+     * @param headers - GetLogsV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogsV2Response
+     *
      * @param string           $project
      * @param string           $logstore
-     * @param GetLogsV2Request $request  GetLogsV2Request
-     * @param GetLogsV2Headers $headers  GetLogsV2Headers
-     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
+     * @param GetLogsV2Request $request
+     * @param GetLogsV2Headers $headers
+     * @param RuntimeOptions   $runtime
      *
-     * @return GetLogsV2Response GetLogsV2Response
+     * @return GetLogsV2Response
      */
     public function getLogsV2WithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->forward)) {
-            $body['forward'] = $request->forward;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->forward) {
+            @$body['forward'] = $request->forward;
         }
-        if (!Utils::isUnset($request->from)) {
-            $body['from'] = $request->from;
+
+        if (null !== $request->from) {
+            @$body['from'] = $request->from;
         }
-        if (!Utils::isUnset($request->highlight)) {
-            $body['highlight'] = $request->highlight;
+
+        if (null !== $request->highlight) {
+            @$body['highlight'] = $request->highlight;
         }
-        if (!Utils::isUnset($request->line)) {
-            $body['line'] = $request->line;
+
+        if (null !== $request->line) {
+            @$body['line'] = $request->line;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $body['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$body['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->powerSql)) {
-            $body['powerSql'] = $request->powerSql;
+
+        if (null !== $request->powerSql) {
+            @$body['powerSql'] = $request->powerSql;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $body['reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$body['reverse'] = $request->reverse;
         }
-        if (!Utils::isUnset($request->session)) {
-            $body['session'] = $request->session;
+
+        if (null !== $request->session) {
+            @$body['session'] = $request->session;
         }
-        if (!Utils::isUnset($request->to)) {
-            $body['to'] = $request->to;
+
+        if (null !== $request->to) {
+            @$body['to'] = $request->to;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['topic'] = $request->topic;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->acceptEncoding)) {
-            $realHeaders['Accept-Encoding'] = Utils::toJSONString($headers->acceptEncoding);
+
+        if (null !== $headers->acceptEncoding) {
+            @$realHeaders['Accept-Encoding'] = '' . $headers->acceptEncoding;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLogsV2',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/logs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLogsV2',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/logs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLogsV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
-     *  *
-     * @description *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
+     * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
+     *
+     * @remarks
+     *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
      * *   You can call this operation by using Simple Log Service SDK for Go or Java.
      * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
-     *  *
+     *
+     * @param request - GetLogsV2Request
+     *
+     * @returns GetLogsV2Response
+     *
      * @param string           $project
      * @param string           $logstore
-     * @param GetLogsV2Request $request  GetLogsV2Request
+     * @param GetLogsV2Request $request
      *
-     * @return GetLogsV2Response GetLogsV2Response
+     * @return GetLogsV2Response
      */
     public function getLogsV2($project, $logstore, $request)
     {
@@ -5606,49 +6701,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
+     * Queries the information about a Logtail pipeline configuration.
+     *
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogtailPipelineConfigResponse
+     *
      * @param string         $project
      * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLogtailPipelineConfigResponse GetLogtailPipelineConfigResponse
+     * @return GetLogtailPipelineConfigResponse
      */
     public function getLogtailPipelineConfigWithOptions($project, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetLogtailPipelineConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pipelineconfigs/' . $configName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLogtailPipelineConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pipelineconfigs/' . $configName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
+     * Queries the information about a Logtail pipeline configuration.
+     *
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @returns GetLogtailPipelineConfigResponse
+     *
      * @param string $project
      * @param string $configName
      *
-     * @return GetLogtailPipelineConfigResponse GetLogtailPipelineConfigResponse
+     * @return GetLogtailPipelineConfigResponse
      */
     public function getLogtailPipelineConfig($project, $configName)
     {
@@ -5659,52 +6763,98 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
-     *  *
-     * @param string                     $serviceName
-     * @param GetMLServiceResultsRequest $request     GetMLServiceResultsRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     * Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
      *
-     * @return GetMLServiceResultsResponse GetMLServiceResultsResponse
+     * @remarks
+     * You must obtain the following basic permissions before you call this operation:
+     *     {
+     *         "Version": "1",
+     *         "Statement": [
+     *             {
+     *                 "Action": [
+     *                     "log:Get*"
+     *                 ],
+     *                 "Resource": [
+     *                     "acs:log:*:*:mlservice/sls_builtin_*"
+     *                 ],
+     *                 "Effect": "Allow"
+     *             }
+     *         ]
+     *     }
+     *
+     * @param request - GetMLServiceResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMLServiceResultsResponse
+     *
+     * @param string                     $serviceName
+     * @param GetMLServiceResultsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMLServiceResultsResponse
      */
     public function getMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowBuiltin)) {
-            $query['allowBuiltin'] = $request->allowBuiltin;
+        if (null !== $request->allowBuiltin) {
+            @$query['allowBuiltin'] = $request->allowBuiltin;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'GetMLServiceResults',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/service/' . $serviceName . '/analysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMLServiceResults',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/service/' . $serviceName . '/analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMLServiceResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
-     *  *
-     * @param string                     $serviceName
-     * @param GetMLServiceResultsRequest $request     GetMLServiceResultsRequest
+     * Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
      *
-     * @return GetMLServiceResultsResponse GetMLServiceResultsResponse
+     * @remarks
+     * You must obtain the following basic permissions before you call this operation:
+     *     {
+     *         "Version": "1",
+     *         "Statement": [
+     *             {
+     *                 "Action": [
+     *                     "log:Get*"
+     *                 ],
+     *                 "Resource": [
+     *                     "acs:log:*:*:mlservice/sls_builtin_*"
+     *                 ],
+     *                 "Effect": "Allow"
+     *             }
+     *         ]
+     *     }
+     *
+     * @param request - GetMLServiceResultsRequest
+     *
+     * @returns GetMLServiceResultsResponse
+     *
+     * @param string                     $serviceName
+     * @param GetMLServiceResultsRequest $request
+     *
+     * @return GetMLServiceResultsResponse
      */
     public function getMLServiceResults($serviceName, $request)
     {
@@ -5715,49 +6865,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the details of a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMachineGroupResponse
+     *
      * @param string         $project
      * @param string         $machineGroup
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetMachineGroupResponse GetMachineGroupResponse
+     * @return GetMachineGroupResponse
      */
     public function getMachineGroupWithOptions($project, $machineGroup, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries the details of a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns GetMachineGroupResponse
+     *
      * @param string $project
      * @param string $machineGroup
      *
-     * @return GetMachineGroupResponse GetMachineGroupResponse
+     * @return GetMachineGroupResponse
      */
     public function getMachineGroup($project, $machineGroup)
     {
@@ -5768,9 +6927,78 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a Metricstore.
-     *  *
-     * @description Metricstores are used to store metric data. For more information about Metricstores, see [Metricstores](https://help.aliyun.com/document_detail/171723.html). For more information about metric data, see [Metric data](https://help.aliyun.com/document_detail/174965.html). You can call this operation to query the settings of a Metricstore. To query the metric data in a Metricstore, see [Query and analysis](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
+     * Queries a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMaxComputeExportResponse
+     *
+     * @param string         $project
+     * @param string         $mcExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMaxComputeExportResponse
+     */
+    public function getMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMaxComputeExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports/' . $mcExportName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMaxComputeExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @returns GetMaxComputeExportResponse
+     *
+     * @param string $project
+     * @param string $mcExportName
+     *
+     * @return GetMaxComputeExportResponse
+     */
+    public function getMaxComputeExport($project, $mcExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime);
+    }
+
+    /**
+     * Queries a Metricstore.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information about Metricstores, see [Metricstores](https://help.aliyun.com/document_detail/171723.html). For more information about metric data, see [Metric data](https://help.aliyun.com/document_detail/174965.html). You can call this operation to query the settings of a Metricstore. To query the metric data in a Metricstore, see [Query and analysis](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
      * *   You must specify an existing Metricstore.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -5778,41 +7006,47 @@ class Sls extends OpenApiClient
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetricStoreResponse
+     *
      * @param string         $project
      * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetMetricStoreResponse GetMetricStoreResponse
+     * @return GetMetricStoreResponse
      */
     public function getMetricStoreWithOptions($project, $name, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetMetricStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores/' . $name . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMetricStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores/' . $name . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'none',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMetricStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a Metricstore.
-     *  *
-     * @description Metricstores are used to store metric data. For more information about Metricstores, see [Metricstores](https://help.aliyun.com/document_detail/171723.html). For more information about metric data, see [Metric data](https://help.aliyun.com/document_detail/174965.html). You can call this operation to query the settings of a Metricstore. To query the metric data in a Metricstore, see [Query and analysis](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
+     * Queries a Metricstore.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information about Metricstores, see [Metricstores](https://help.aliyun.com/document_detail/171723.html). For more information about metric data, see [Metric data](https://help.aliyun.com/document_detail/174965.html). You can call this operation to query the settings of a Metricstore. To query the metric data in a Metricstore, see [Query and analysis](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
      * *   You must specify an existing Metricstore.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -5820,11 +7054,13 @@ class Sls extends OpenApiClient
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
+     *
+     * @returns GetMetricStoreResponse
+     *
      * @param string $project
      * @param string $name
      *
-     * @return GetMetricStoreResponse GetMetricStoreResponse
+     * @return GetMetricStoreResponse
      */
     public function getMetricStore($project, $name)
     {
@@ -5835,45 +7071,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the billing mode of a Metricstore.
-     *  *
+     * Queries the billing mode of a Metricstore.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetricStoreMeteringModeResponse
+     *
      * @param string         $project
      * @param string         $metricStore
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetMetricStoreMeteringModeResponse GetMetricStoreMeteringModeResponse
+     * @return GetMetricStoreMeteringModeResponse
      */
     public function getMetricStoreMeteringModeWithOptions($project, $metricStore, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetMetricStoreMeteringMode',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores/' . $metricStore . '/meteringmode',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMetricStoreMeteringMode',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores/' . $metricStore . '/meteringmode',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMetricStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the billing mode of a Metricstore.
-     *  *
+     * Queries the billing mode of a Metricstore.
+     *
+     * @returns GetMetricStoreMeteringModeResponse
+     *
      * @param string $project
      * @param string $metricStore
      *
-     * @return GetMetricStoreMeteringModeResponse GetMetricStoreMeteringModeResponse
+     * @return GetMetricStoreMeteringModeResponse
      */
     public function getMetricStoreMeteringMode($project, $metricStore)
     {
@@ -5884,45 +7127,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 获取OSS投递任务
-     *  *
+     * 获取OSS投递任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOSSExportResponse
+     *
      * @param string         $project
      * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetOSSExportResponse GetOSSExportResponse
+     * @return GetOSSExportResponse
      */
     public function getOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetOSSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports/' . $ossExportName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOSSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports/' . $ossExportName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取OSS投递任务
-     *  *
+     * 获取OSS投递任务
+     *
+     * @returns GetOSSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return GetOSSExportResponse GetOSSExportResponse
+     * @return GetOSSExportResponse
      */
     public function getOSSExport($project, $ossExportName)
     {
@@ -5933,45 +7183,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Get OSSHDFS Exports
-     *  *
+     * Get OSSHDFS Exports.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOSSHDFSExportResponse
+     *
      * @param string         $project
      * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetOSSHDFSExportResponse GetOSSHDFSExportResponse
+     * @return GetOSSHDFSExportResponse
      */
     public function getOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetOSSHDFSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports/' . $ossExportName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOSSHDFSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports/' . $ossExportName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get OSSHDFS Exports
-     *  *
+     * Get OSSHDFS Exports.
+     *
+     * @returns GetOSSHDFSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return GetOSSHDFSExportResponse GetOSSHDFSExportResponse
+     * @return GetOSSHDFSExportResponse
      */
     public function getOSSHDFSExport($project, $ossExportName)
     {
@@ -5982,45 +7239,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an Object Storage Service (OSS) data import job.
-     *  *
+     * Queries the information about an Object Storage Service (OSS) data import job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOSSIngestionResponse
+     *
      * @param string         $project
      * @param string         $ossIngestionName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetOSSIngestionResponse GetOSSIngestionResponse
+     * @return GetOSSIngestionResponse
      */
     public function getOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetOSSIngestion',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions/' . $ossIngestionName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOSSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions/' . $ossIngestionName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an Object Storage Service (OSS) data import job.
-     *  *
+     * Queries the information about an Object Storage Service (OSS) data import job.
+     *
+     * @returns GetOSSIngestionResponse
+     *
      * @param string $project
      * @param string $ossIngestionName
      *
-     * @return GetOSSIngestionResponse GetOSSIngestionResponse
+     * @return GetOSSIngestionResponse
      */
     public function getOSSIngestion($project, $ossIngestionName)
     {
@@ -6031,49 +7295,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a project.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a project.
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectResponse
+     *
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetProjectResponse
      */
     public function getProjectWithOptions($project, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetProject',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProject',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a project.
-     *  *
-     * @description ### Usage notes
+     * Queries the details of a project.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @returns GetProjectResponse
+     *
      * @param string $project
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @return GetProjectResponse
      */
     public function getProject($project)
     {
@@ -6084,9 +7357,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries logs in a project. You can use this operation to query logs at the project level.
-     *  *
-     * @description ### Usage notes
+     * Queries logs in a project. You can use this operation to query logs at the project level.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -6101,50 +7375,59 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetProjectLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
-     *  *
-     * @param string                $project
-     * @param GetProjectLogsRequest $request GetProjectLogsRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectLogsResponse GetProjectLogsResponse
+     * @param request - GetProjectLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectLogsResponse
+     *
+     * @param string                $project
+     * @param GetProjectLogsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetProjectLogsResponse
      */
     public function getProjectLogsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->powerSql)) {
-            $query['powerSql'] = $request->powerSql;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->powerSql) {
+            @$query['powerSql'] = $request->powerSql;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProjectLogs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProjectLogs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return GetProjectLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries logs in a project. You can use this operation to query logs at the project level.
-     *  *
-     * @description ### Usage notes
+     * Queries logs in a project. You can use this operation to query logs at the project level.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -6159,11 +7442,15 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetProjectLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
-     *  *
-     * @param string                $project
-     * @param GetProjectLogsRequest $request GetProjectLogsRequest
      *
-     * @return GetProjectLogsResponse GetProjectLogsResponse
+     * @param request - GetProjectLogsRequest
+     *
+     * @returns GetProjectLogsResponse
+     *
+     * @param string                $project
+     * @param GetProjectLogsRequest $request
+     *
+     * @return GetProjectLogsResponse
      */
     public function getProjectLogs($project, $request)
     {
@@ -6174,55 +7461,64 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a project policy.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries a project policy.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectPolicyResponse GetProjectPolicyResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectPolicyResponse
+     *
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetProjectPolicyResponse
      */
     public function getProjectPolicyWithOptions($project, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetProjectPolicy',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/policy',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProjectPolicy',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/policy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'string',
+            'bodyType' => 'string',
         ]);
 
         return GetProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a project policy.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries a project policy.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-     *  *
+     *
+     * @returns GetProjectPolicyResponse
+     *
      * @param string $project
      *
-     * @return GetProjectPolicyResponse GetProjectPolicyResponse
+     * @return GetProjectPolicyResponse
      */
     public function getProjectPolicy($project)
     {
@@ -6233,9 +7529,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a saved search.
-     *  *
-     * @description ### Usage notes
+     * Queries a saved search.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -6246,41 +7543,47 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavedSearchResponse
+     *
      * @param string         $project
      * @param string         $savedsearchName
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSavedSearchResponse GetSavedSearchResponse
+     * @return GetSavedSearchResponse
      */
     public function getSavedSearchWithOptions($project, $savedsearchName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSavedSearch',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/savedsearches/' . $savedsearchName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSavedSearch',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/savedsearches/' . $savedsearchName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a saved search.
-     *  *
-     * @description ### Usage notes
+     * Queries a saved search.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -6291,11 +7594,13 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:GetSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
-     *  *
+     *
+     * @returns GetSavedSearchResponse
+     *
      * @param string $project
      * @param string $savedsearchName
      *
-     * @return GetSavedSearchResponse GetSavedSearchResponse
+     * @return GetSavedSearchResponse
      */
     public function getSavedSearch($project, $savedsearchName)
     {
@@ -6306,45 +7611,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a Scheduled SQL job.
-     *  *
+     * Queries the information about a Scheduled SQL job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScheduledSQLResponse
+     *
      * @param string         $project
      * @param string         $scheduledSQLName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetScheduledSQLResponse GetScheduledSQLResponse
+     * @return GetScheduledSQLResponse
      */
     public function getScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetScheduledSQL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetScheduledSQL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls/' . $scheduledSQLName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a Scheduled SQL job.
-     *  *
+     * Queries the information about a Scheduled SQL job.
+     *
+     * @returns GetScheduledSQLResponse
+     *
      * @param string $project
      * @param string $scheduledSQLName
      *
-     * @return GetScheduledSQLResponse GetScheduledSQLResponse
+     * @return GetScheduledSQLResponse
      */
     public function getScheduledSQL($project, $scheduledSQLName)
     {
@@ -6355,12 +7667,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
      *
-     * @return GetSlsServiceResponse GetSlsServiceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSlsServiceResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSlsServiceResponse
      */
     public function getSlsServiceWithOptions($headers, $runtime)
     {
@@ -6368,24 +7685,26 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSlsService',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/slsservice',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSlsService',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/slsservice',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSlsServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
-     *  *
-     * @return GetSlsServiceResponse GetSlsServiceResponse
+     * Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
+     *
+     * @returns GetSlsServiceResponse
+     *
+     * @return GetSlsServiceResponse
      */
     public function getSlsService()
     {
@@ -6396,43 +7715,50 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of the Dedicated SQL feature.
-     *  *
-     * @param string         $project
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of the Dedicated SQL feature.
      *
-     * @return GetSqlInstanceResponse GetSqlInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSqlInstanceResponse
+     *
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSqlInstanceResponse
      */
     public function getSqlInstanceWithOptions($project, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSqlInstance',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sqlinstance',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSqlInstance',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sqlinstance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return GetSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of the Dedicated SQL feature.
-     *  *
+     * Queries the configurations of the Dedicated SQL feature.
+     *
+     * @returns GetSqlInstanceResponse
+     *
      * @param string $project
      *
-     * @return GetSqlInstanceResponse GetSqlInstanceResponse
+     * @return GetSqlInstanceResponse
      */
     public function getSqlInstance($project)
     {
@@ -6443,45 +7769,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a dataset by using the name of the dataset.
-     *  *
+     * Queries the configurations of a dataset by using the name of the dataset.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStoreViewResponse
+     *
      * @param string         $project
      * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetStoreViewResponse GetStoreViewResponse
+     * @return GetStoreViewResponse
      */
     public function getStoreViewWithOptions($project, $name, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetStoreView',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/storeviews/' . $name . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetStoreView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/storeviews/' . $name . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a dataset by using the name of the dataset.
-     *  *
+     * Queries the configurations of a dataset by using the name of the dataset.
+     *
+     * @returns GetStoreViewResponse
+     *
      * @param string $project
      * @param string $name
      *
-     * @return GetStoreViewResponse GetStoreViewResponse
+     * @return GetStoreViewResponse
      */
     public function getStoreView($project, $name)
     {
@@ -6492,45 +7825,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the indexes of a dataset by using the name of the dataset. Only datasets of the logstore type are supported.
-     *  *
+     * Queries the indexes of a dataset by using the name of the dataset. Only datasets of the logstore type are supported.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStoreViewIndexResponse
+     *
      * @param string         $project
      * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetStoreViewIndexResponse GetStoreViewIndexResponse
+     * @return GetStoreViewIndexResponse
      */
     public function getStoreViewIndexWithOptions($project, $name, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetStoreViewIndex',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/storeviews/' . $name . '/index',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetStoreViewIndex',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/storeviews/' . $name . '/index',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetStoreViewIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the indexes of a dataset by using the name of the dataset. Only datasets of the logstore type are supported.
-     *  *
+     * Queries the indexes of a dataset by using the name of the dataset. Only datasets of the logstore type are supported.
+     *
+     * @returns GetStoreViewIndexResponse
+     *
      * @param string $project
      * @param string $name
      *
-     * @return GetStoreViewIndexResponse GetStoreViewIndexResponse
+     * @return GetStoreViewIndexResponse
      */
     public function getStoreViewIndex($project, $name)
     {
@@ -6541,49 +7881,69 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary ListAgentInstanceConfigs
-     *  *
-     * @param ListAgentInstanceConfigsRequest $request ListAgentInstanceConfigsRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * ListAgentInstanceConfigs.
      *
-     * @return ListAgentInstanceConfigsResponse ListAgentInstanceConfigsResponse
+     * @param request - ListAgentInstanceConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentInstanceConfigsResponse
+     *
+     * @param ListAgentInstanceConfigsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAgentInstanceConfigsResponse
      */
     public function listAgentInstanceConfigsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        if (null !== $request->attributes) {
+            @$query['attributes'] = $request->attributes;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->configType) {
+            @$query['configType'] = $request->configType;
         }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgentInstanceConfigs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/agentinstanceconfigs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAgentInstanceConfigs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentinstanceconfigs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAgentInstanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary ListAgentInstanceConfigs
-     *  *
-     * @param ListAgentInstanceConfigsRequest $request ListAgentInstanceConfigsRequest
+     * ListAgentInstanceConfigs.
      *
-     * @return ListAgentInstanceConfigsResponse ListAgentInstanceConfigsResponse
+     * @param request - ListAgentInstanceConfigsRequest
+     *
+     * @returns ListAgentInstanceConfigsResponse
+     *
+     * @param ListAgentInstanceConfigsRequest $request
+     *
+     * @return ListAgentInstanceConfigsResponse
      */
     public function listAgentInstanceConfigs($request)
     {
@@ -6594,57 +7954,118 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of alert rules in a project.
-     *  *
-     * @param string            $project
-     * @param ListAlertsRequest $request ListAlertsRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取 ai 工具列表.
      *
-     * @return ListAlertsResponse ListAlertsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiToolsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAiToolsResponse
+     */
+    public function listAiToolsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListAiTools',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/tool/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'array',
+        ]);
+
+        return ListAiToolsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 ai 工具列表.
+     *
+     * @returns ListAiToolsResponse
+     *
+     * @return ListAiToolsResponse
+     */
+    public function listAiTools()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAiToolsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * Queries a list of alert rules in a project.
+     *
+     * @param request - ListAlertsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertsResponse
+     *
+     * @param string            $project
+     * @param ListAlertsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAlertsResponse
      */
     public function listAlertsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAlerts',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAlerts',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAlertsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of alert rules in a project.
-     *  *
-     * @param string            $project
-     * @param ListAlertsRequest $request ListAlertsRequest
+     * Queries a list of alert rules in a project.
      *
-     * @return ListAlertsResponse ListAlertsResponse
+     * @param request - ListAlertsRequest
+     *
+     * @returns ListAlertsResponse
+     *
+     * @param string            $project
+     * @param ListAlertsRequest $request
+     *
+     * @return ListAlertsResponse
      */
     public function listAlerts($project, $request)
     {
@@ -6655,51 +8076,63 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries data in datasets.
-     *  *
-     * @param string                    $datasetId
-     * @param ListAnnotationDataRequest $request   ListAnnotationDataRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * Queries data in datasets.
      *
-     * @return ListAnnotationDataResponse ListAnnotationDataResponse
+     * @param request - ListAnnotationDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnnotationDataResponse
+     *
+     * @param string                    $datasetId
+     * @param ListAnnotationDataRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAnnotationDataResponse
      */
     public function listAnnotationDataWithOptions($datasetId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAnnotationData',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAnnotationData',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '/annotationdata',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries data in datasets.
-     *  *
-     * @param string                    $datasetId
-     * @param ListAnnotationDataRequest $request   ListAnnotationDataRequest
+     * Queries data in datasets.
      *
-     * @return ListAnnotationDataResponse ListAnnotationDataResponse
+     * @param request - ListAnnotationDataRequest
+     *
+     * @returns ListAnnotationDataResponse
+     *
+     * @param string                    $datasetId
+     * @param ListAnnotationDataRequest $request
+     *
+     * @return ListAnnotationDataResponse
      */
     public function listAnnotationData($datasetId, $request)
     {
@@ -6710,49 +8143,61 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of datasets.
-     *  *
-     * @param ListAnnotationDataSetsRequest $request ListAnnotationDataSetsRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries a list of datasets.
      *
-     * @return ListAnnotationDataSetsResponse ListAnnotationDataSetsResponse
+     * @param request - ListAnnotationDataSetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnnotationDataSetsResponse
+     *
+     * @param ListAnnotationDataSetsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAnnotationDataSetsResponse
      */
     public function listAnnotationDataSetsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAnnotationDataSets',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAnnotationDataSets',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAnnotationDataSetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of datasets.
-     *  *
-     * @param ListAnnotationDataSetsRequest $request ListAnnotationDataSetsRequest
+     * Queries a list of datasets.
      *
-     * @return ListAnnotationDataSetsResponse ListAnnotationDataSetsResponse
+     * @param request - ListAnnotationDataSetsRequest
+     *
+     * @returns ListAnnotationDataSetsResponse
+     *
+     * @param ListAnnotationDataSetsRequest $request
+     *
+     * @return ListAnnotationDataSetsResponse
      */
     public function listAnnotationDataSets($request)
     {
@@ -6763,49 +8208,61 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tag tables.
-     *  *
-     * @param ListAnnotationLabelsRequest $request ListAnnotationLabelsRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of tag tables.
      *
-     * @return ListAnnotationLabelsResponse ListAnnotationLabelsResponse
+     * @param request - ListAnnotationLabelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnnotationLabelsResponse
+     *
+     * @param ListAnnotationLabelsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAnnotationLabelsResponse
      */
     public function listAnnotationLabelsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAnnotationLabels',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationlabel',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAnnotationLabels',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationlabel',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAnnotationLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of tag tables.
-     *  *
-     * @param ListAnnotationLabelsRequest $request ListAnnotationLabelsRequest
+     * Queries a list of tag tables.
      *
-     * @return ListAnnotationLabelsResponse ListAnnotationLabelsResponse
+     * @param request - ListAnnotationLabelsRequest
+     *
+     * @returns ListAnnotationLabelsResponse
+     *
+     * @param ListAnnotationLabelsRequest $request
+     *
+     * @return ListAnnotationLabelsResponse
      */
     public function listAnnotationLabels($request)
     {
@@ -6816,68 +8273,87 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of log collection policies for cloud services.
-     *  *
-     * @description You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
-     *  *
-     * @param ListCollectionPoliciesRequest $request ListCollectionPoliciesRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries a list of log collection policies for cloud services.
      *
-     * @return ListCollectionPoliciesResponse ListCollectionPoliciesResponse
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+     *
+     * @param request - ListCollectionPoliciesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCollectionPoliciesResponse
+     *
+     * @param ListCollectionPoliciesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListCollectionPoliciesResponse
      */
     public function listCollectionPoliciesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->centralProject)) {
-            $query['centralProject'] = $request->centralProject;
+        if (null !== $request->centralProject) {
+            @$query['centralProject'] = $request->centralProject;
         }
-        if (!Utils::isUnset($request->dataCode)) {
-            $query['dataCode'] = $request->dataCode;
+
+        if (null !== $request->dataCode) {
+            @$query['dataCode'] = $request->dataCode;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['policyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['policyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['productCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['productCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCollectionPolicies',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/collectionpolicy',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCollectionPolicies',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/collectionpolicy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCollectionPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of log collection policies for cloud services.
-     *  *
-     * @description You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
-     *  *
-     * @param ListCollectionPoliciesRequest $request ListCollectionPoliciesRequest
+     * Queries a list of log collection policies for cloud services.
      *
-     * @return ListCollectionPoliciesResponse ListCollectionPoliciesResponse
+     * @remarks
+     * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+     *
+     * @param request - ListCollectionPoliciesRequest
+     *
+     * @returns ListCollectionPoliciesResponse
+     *
+     * @param ListCollectionPoliciesRequest $request
+     *
+     * @return ListCollectionPoliciesResponse
      */
     public function listCollectionPolicies($request)
     {
@@ -6888,72 +8364,88 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Logtail configurations in a project.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries all Logtail configurations in a project.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string            $project
-     * @param ListConfigRequest $request ListConfigRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConfigResponse ListConfigResponse
+     * @param request - ListConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConfigResponse
+     *
+     * @param string            $project
+     * @param ListConfigRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListConfigResponse
      */
     public function listConfigWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->configName)) {
-            $query['configName'] = $request->configName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->configName) {
+            @$query['configName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->logstoreName)) {
-            $query['logstoreName'] = $request->logstoreName;
+
+        if (null !== $request->logstoreName) {
+            @$query['logstoreName'] = $request->logstoreName;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/configs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all Logtail configurations in a project.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries all Logtail configurations in a project.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string            $project
-     * @param ListConfigRequest $request ListConfigRequest
      *
-     * @return ListConfigResponse ListConfigResponse
+     * @param request - ListConfigRequest
+     *
+     * @returns ListConfigResponse
+     *
+     * @param string            $project
+     * @param ListConfigRequest $request
+     *
+     * @return ListConfigResponse
      */
     public function listConfig($project, $request)
     {
@@ -6964,9 +8456,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries all consumer groups of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Queries all consumer groups of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -6976,41 +8469,47 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ListConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/*`|
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumerGroupResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListConsumerGroupResponse ListConsumerGroupResponse
+     * @return ListConsumerGroupResponse
      */
     public function listConsumerGroupWithOptions($project, $logstore, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListConsumerGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListConsumerGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return ListConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all consumer groups of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Queries all consumer groups of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -7020,11 +8519,13 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ListConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/*`|
-     *  *
+     *
+     * @returns ListConsumerGroupResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return ListConsumerGroupResponse ListConsumerGroupResponse
+     * @return ListConsumerGroupResponse
      */
     public function listConsumerGroup($project, $logstore)
     {
@@ -7035,66 +8536,98 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of dashboards.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries a list of dashboards.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string               $project
-     * @param ListDashboardRequest $request ListDashboardRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardResponse ListDashboardResponse
+     * @param tmpReq - ListDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDashboardResponse
+     *
+     * @param string               $project
+     * @param ListDashboardRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDashboardResponse
      */
-    public function listDashboardWithOptions($project, $request, $headers, $runtime)
+    public function listDashboardWithOptions($project, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        $tmpReq->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $request = new ListDashboardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        $query = [];
+        if (null !== $request->dashboardName) {
+            @$query['dashboardName'] = $request->dashboardName;
         }
+
+        if (null !== $request->displayName) {
+            @$query['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
+        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDashboard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dashboards',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDashboard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dashboards',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDashboardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of dashboards.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries a list of dashboards.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string               $project
-     * @param ListDashboardRequest $request ListDashboardRequest
      *
-     * @return ListDashboardResponse ListDashboardResponse
+     * @param request - ListDashboardRequest
+     *
+     * @returns ListDashboardResponse
+     *
+     * @param string               $project
+     * @param ListDashboardRequest $request
+     *
+     * @return ListDashboardResponse
      */
     public function listDashboard($project, $request)
     {
@@ -7105,63 +8638,78 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the custom domain names that are bound to projects.
-     *  *
-     * @description *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     * *   Only one custom domain name can be bound to each project.
-     *  *
-     * @param string             $project
-     * @param ListDomainsRequest $request ListDomainsRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the custom domain names that are bound to projects.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   Only one custom domain name can be bound to each project.
+     *
+     * @param request - ListDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param string             $project
+     * @param ListDomainsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
      */
     public function listDomainsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['domainName'] = $request->domainName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['domainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDomains',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/domains',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDomains',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/domains',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the custom domain names that are bound to projects.
-     *  *
-     * @description *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     * *   Only one custom domain name can be bound to each project.
-     *  *
-     * @param string             $project
-     * @param ListDomainsRequest $request ListDomainsRequest
+     * Queries the custom domain names that are bound to projects.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   Only one custom domain name can be bound to each project.
+     *
+     * @param request - ListDomainsRequest
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param string             $project
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
      */
     public function listDomains($project, $request)
     {
@@ -7172,57 +8720,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 列举下载任务
-     *  *
-     * @param string                  $project
-     * @param ListDownloadJobsRequest $request ListDownloadJobsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 列举下载任务
      *
-     * @return ListDownloadJobsResponse ListDownloadJobsResponse
+     * @param request - ListDownloadJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDownloadJobsResponse
+     *
+     * @param string                  $project
+     * @param ListDownloadJobsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDownloadJobsResponse
      */
     public function listDownloadJobsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDownloadJobs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/downloadjobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDownloadJobs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/downloadjobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDownloadJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举下载任务
-     *  *
-     * @param string                  $project
-     * @param ListDownloadJobsRequest $request ListDownloadJobsRequest
+     * 列举下载任务
      *
-     * @return ListDownloadJobsResponse ListDownloadJobsResponse
+     * @param request - ListDownloadJobsRequest
+     *
+     * @returns ListDownloadJobsResponse
+     *
+     * @param string                  $project
+     * @param ListDownloadJobsRequest $request
+     *
+     * @return ListDownloadJobsResponse
      */
     public function listDownloadJobs($project, $request)
     {
@@ -7233,57 +8794,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 列出数据加工任务
-     *  *
-     * @param string          $project
-     * @param ListETLsRequest $request ListETLsRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of data transformation jobs in a project.
      *
-     * @return ListETLsResponse ListETLsResponse
+     * @param request - ListETLsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListETLsResponse
+     *
+     * @param string          $project
+     * @param ListETLsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListETLsResponse
      */
     public function listETLsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListETLs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListETLs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListETLsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列出数据加工任务
-     *  *
-     * @param string          $project
-     * @param ListETLsRequest $request ListETLsRequest
+     * Queries a list of data transformation jobs in a project.
      *
-     * @return ListETLsResponse ListETLsResponse
+     * @param request - ListETLsRequest
+     *
+     * @returns ListETLsResponse
+     *
+     * @param string          $project
+     * @param ListETLsRequest $request
+     *
+     * @return ListETLsResponse
      */
     public function listETLs($project, $request)
     {
@@ -7294,9 +8868,88 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Logstores or Logstores that match specific conditions in a project.
-     *  *
-     * @description ### Usage notes
+     * Queries a list of ingest processors that meet specific conditions.
+     *
+     * @param request - ListIngestProcessorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIngestProcessorsResponse
+     *
+     * @param string                      $project
+     * @param ListIngestProcessorsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListIngestProcessorsResponse
+     */
+    public function listIngestProcessorsWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->processorName) {
+            @$query['processorName'] = $request->processorName;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIngestProcessors',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ingestprocessors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIngestProcessorsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of ingest processors that meet specific conditions.
+     *
+     * @param request - ListIngestProcessorsRequest
+     *
+     * @returns ListIngestProcessorsResponse
+     *
+     * @param string                      $project
+     * @param ListIngestProcessorsRequest $request
+     *
+     * @return ListIngestProcessorsResponse
+     */
+    public function listIngestProcessors($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIngestProcessorsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries all Logstores or Logstores that match specific conditions in a project.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -7306,59 +8959,71 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ListLogStores`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*`|
-     *  *
-     * @param string               $project
-     * @param ListLogStoresRequest $request ListLogStoresRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLogStoresResponse ListLogStoresResponse
+     * @param request - ListLogStoresRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLogStoresResponse
+     *
+     * @param string               $project
+     * @param ListLogStoresRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListLogStoresResponse
      */
     public function listLogStoresWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstoreName)) {
-            $query['logstoreName'] = $request->logstoreName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstoreName) {
+            @$query['logstoreName'] = $request->logstoreName;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
-        if (!Utils::isUnset($request->telemetryType)) {
-            $query['telemetryType'] = $request->telemetryType;
+
+        if (null !== $request->telemetryType) {
+            @$query['telemetryType'] = $request->telemetryType;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLogStores',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListLogStores',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListLogStoresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all Logstores or Logstores that match specific conditions in a project.
-     *  *
-     * @description ### Usage notes
+     * Queries all Logstores or Logstores that match specific conditions in a project.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -7368,11 +9033,15 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ListLogStores`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*`|
-     *  *
-     * @param string               $project
-     * @param ListLogStoresRequest $request ListLogStoresRequest
      *
-     * @return ListLogStoresResponse ListLogStoresResponse
+     * @param request - ListLogStoresRequest
+     *
+     * @returns ListLogStoresResponse
+     *
+     * @param string               $project
+     * @param ListLogStoresRequest $request
+     *
+     * @return ListLogStoresResponse
      */
     public function listLogStores($project, $request)
     {
@@ -7383,64 +9052,80 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Logtail pipeline configurations that meet the specified conditions.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
-     * @param string                           $project
-     * @param ListLogtailPipelineConfigRequest $request ListLogtailPipelineConfigRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Logtail pipeline configurations that meet the specified conditions.
      *
-     * @return ListLogtailPipelineConfigResponse ListLogtailPipelineConfigResponse
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param request - ListLogtailPipelineConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLogtailPipelineConfigResponse
+     *
+     * @param string                           $project
+     * @param ListLogtailPipelineConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLogtailPipelineConfigResponse
      */
     public function listLogtailPipelineConfigWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->configName)) {
-            $query['configName'] = $request->configName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->configName) {
+            @$query['configName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->logstoreName)) {
-            $query['logstoreName'] = $request->logstoreName;
+
+        if (null !== $request->logstoreName) {
+            @$query['logstoreName'] = $request->logstoreName;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLogtailPipelineConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pipelineconfigs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListLogtailPipelineConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pipelineconfigs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Logtail pipeline configurations that meet the specified conditions.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
-     * @param string                           $project
-     * @param ListLogtailPipelineConfigRequest $request ListLogtailPipelineConfigRequest
+     * Queries a list of Logtail pipeline configurations that meet the specified conditions.
      *
-     * @return ListLogtailPipelineConfigResponse ListLogtailPipelineConfigResponse
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param request - ListLogtailPipelineConfigRequest
+     *
+     * @returns ListLogtailPipelineConfigResponse
+     *
+     * @param string                           $project
+     * @param ListLogtailPipelineConfigRequest $request
+     *
+     * @return ListLogtailPipelineConfigResponse
      */
     public function listLogtailPipelineConfig($project, $request)
     {
@@ -7451,61 +9136,76 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the machine groups of a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                  $project
-     * @param ListMachineGroupRequest $request ListMachineGroupRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the machine groups of a project.
      *
-     * @return ListMachineGroupResponse ListMachineGroupResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListMachineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMachineGroupResponse
+     *
+     * @param string                  $project
+     * @param ListMachineGroupRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMachineGroupResponse
      */
     public function listMachineGroupWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['groupName'] = $request->groupName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['groupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the machine groups of a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                  $project
-     * @param ListMachineGroupRequest $request ListMachineGroupRequest
+     * Queries the machine groups of a project.
      *
-     * @return ListMachineGroupResponse ListMachineGroupResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListMachineGroupRequest
+     *
+     * @returns ListMachineGroupResponse
+     *
+     * @param string                  $project
+     * @param ListMachineGroupRequest $request
+     *
+     * @return ListMachineGroupResponse
      */
     public function listMachineGroup($project, $request)
     {
@@ -7516,60 +9216,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of machines that are connected to Simple Log Service in a specified machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries a list of machines that are connected to Simple Log Service in a specified machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListMachinesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMachinesResponse
+     *
      * @param string              $project
      * @param string              $machineGroup
-     * @param ListMachinesRequest $request      ListMachinesRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * @param ListMachinesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return ListMachinesResponse ListMachinesResponse
+     * @return ListMachinesResponse
      */
     public function listMachinesWithOptions($project, $machineGroup, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMachines',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '/machines',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMachines',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '/machines',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMachinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of machines that are connected to Simple Log Service in a specified machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Queries a list of machines that are connected to Simple Log Service in a specified machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListMachinesRequest
+     *
+     * @returns ListMachinesResponse
+     *
      * @param string              $project
      * @param string              $machineGroup
-     * @param ListMachinesRequest $request      ListMachinesRequest
+     * @param ListMachinesRequest $request
      *
-     * @return ListMachinesResponse ListMachinesResponse
+     * @return ListMachinesResponse
      */
     public function listMachines($project, $machineGroup, $request)
     {
@@ -7580,70 +9294,172 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of Metricstores in a project. You can use fuzzy search to query the Metricstores by Metricstore name.
-     *  *
-     * @description *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * Queries a list of MaxCompute data shipping jobs.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-     * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string                  $project
-     * @param ListMetricStoresRequest $request ListMetricStoresRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
      *
-     * @return ListMetricStoresResponse ListMetricStoresResponse
+     * @param request - ListMaxComputeExportsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMaxComputeExportsResponse
+     *
+     * @param string                       $project
+     * @param ListMaxComputeExportsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListMaxComputeExportsResponse
      */
-    public function listMetricStoresWithOptions($project, $request, $headers, $runtime)
+    public function listMaxComputeExportsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->mode)) {
-            $query['mode'] = $request->mode;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
-        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMetricStores',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMaxComputeExports',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMaxComputeExportsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of MaxCompute data shipping jobs.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @param request - ListMaxComputeExportsRequest
+     *
+     * @returns ListMaxComputeExportsResponse
+     *
+     * @param string                       $project
+     * @param ListMaxComputeExportsRequest $request
+     *
+     * @return ListMaxComputeExportsResponse
+     */
+    public function listMaxComputeExports($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMaxComputeExportsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of Metricstores in a project. You can use fuzzy search to query the Metricstores by Metricstore name.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+     *
+     * @param request - ListMetricStoresRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetricStoresResponse
+     *
+     * @param string                  $project
+     * @param ListMetricStoresRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMetricStoresResponse
+     */
+    public function listMetricStoresWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->mode) {
+            @$query['mode'] = $request->mode;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetricStores',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'none',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMetricStoresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of Metricstores in a project. You can use fuzzy search to query the Metricstores by Metricstore name.
-     *  *
-     * @description *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * Queries the list of Metricstores in a project. You can use fuzzy search to query the Metricstores by Metricstore name.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-     *  *
-     * @param string                  $project
-     * @param ListMetricStoresRequest $request ListMetricStoresRequest
      *
-     * @return ListMetricStoresResponse ListMetricStoresResponse
+     * @param request - ListMetricStoresRequest
+     *
+     * @returns ListMetricStoresResponse
+     *
+     * @param string                  $project
+     * @param ListMetricStoresRequest $request
+     *
+     * @return ListMetricStoresResponse
      */
     public function listMetricStores($project, $request)
     {
@@ -7654,57 +9470,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 列出OSS投递任务
-     *  *
-     * @param string                $project
-     * @param ListOSSExportsRequest $request ListOSSExportsRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 列出OSS投递任务
      *
-     * @return ListOSSExportsResponse ListOSSExportsResponse
+     * @param request - ListOSSExportsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOSSExportsResponse
+     *
+     * @param string                $project
+     * @param ListOSSExportsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListOSSExportsResponse
      */
     public function listOSSExportsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOSSExports',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListOSSExports',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListOSSExportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列出OSS投递任务
-     *  *
-     * @param string                $project
-     * @param ListOSSExportsRequest $request ListOSSExportsRequest
+     * 列出OSS投递任务
      *
-     * @return ListOSSExportsResponse ListOSSExportsResponse
+     * @param request - ListOSSExportsRequest
+     *
+     * @returns ListOSSExportsResponse
+     *
+     * @param string                $project
+     * @param ListOSSExportsRequest $request
+     *
+     * @return ListOSSExportsResponse
      */
     public function listOSSExports($project, $request)
     {
@@ -7715,57 +9544,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 列举OSSHDFS投递任务
-     *  *
-     * @param string                    $project
-     * @param ListOSSHDFSExportsRequest $request ListOSSHDFSExportsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 列举OSSHDFS投递任务
      *
-     * @return ListOSSHDFSExportsResponse ListOSSHDFSExportsResponse
+     * @param request - ListOSSHDFSExportsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOSSHDFSExportsResponse
+     *
+     * @param string                    $project
+     * @param ListOSSHDFSExportsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListOSSHDFSExportsResponse
      */
     public function listOSSHDFSExportsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOSSHDFSExports',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListOSSHDFSExports',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListOSSHDFSExportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举OSSHDFS投递任务
-     *  *
-     * @param string                    $project
-     * @param ListOSSHDFSExportsRequest $request ListOSSHDFSExportsRequest
+     * 列举OSSHDFS投递任务
      *
-     * @return ListOSSHDFSExportsResponse ListOSSHDFSExportsResponse
+     * @param request - ListOSSHDFSExportsRequest
+     *
+     * @returns ListOSSHDFSExportsResponse
+     *
+     * @param string                    $project
+     * @param ListOSSHDFSExportsRequest $request
+     *
+     * @return ListOSSHDFSExportsResponse
      */
     public function listOSSHDFSExports($project, $request)
     {
@@ -7776,57 +9618,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Object Storage Service (OSS) data import jobs in a project.
-     *  *
-     * @param string                   $project
-     * @param ListOSSIngestionsRequest $request ListOSSIngestionsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Object Storage Service (OSS) data import jobs in a project.
      *
-     * @return ListOSSIngestionsResponse ListOSSIngestionsResponse
+     * @param request - ListOSSIngestionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOSSIngestionsResponse
+     *
+     * @param string                   $project
+     * @param ListOSSIngestionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListOSSIngestionsResponse
      */
     public function listOSSIngestionsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOSSIngestions',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListOSSIngestions',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListOSSIngestionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Object Storage Service (OSS) data import jobs in a project.
-     *  *
-     * @param string                   $project
-     * @param ListOSSIngestionsRequest $request ListOSSIngestionsRequest
+     * Queries a list of Object Storage Service (OSS) data import jobs in a project.
      *
-     * @return ListOSSIngestionsResponse ListOSSIngestionsResponse
+     * @param request - ListOSSIngestionsRequest
+     *
+     * @returns ListOSSIngestionsResponse
+     *
+     * @param string                   $project
+     * @param ListOSSIngestionsRequest $request
+     *
+     * @return ListOSSIngestionsResponse
      */
     public function listOSSIngestions($project, $request)
     {
@@ -7837,64 +9692,81 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries the projects that meet specified conditions.
-     *  *
-     * @description ### [](#)Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param ListProjectRequest $request ListProjectRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the projects that meet specified conditions.
      *
-     * @return ListProjectResponse ListProjectResponse
+     * @remarks
+     * ### [](#)Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectResponse
+     *
+     * @param ListProjectRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListProjectResponse
      */
     public function listProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fetchQuota)) {
-            $query['fetchQuota'] = $request->fetchQuota;
+        if (null !== $request->fetchQuota) {
+            @$query['fetchQuota'] = $request->fetchQuota;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['projectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['projectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProject',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListProject',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the projects that meet specified conditions.
-     *  *
-     * @description ### [](#)Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param ListProjectRequest $request ListProjectRequest
+     * Queries the projects that meet specified conditions.
      *
-     * @return ListProjectResponse ListProjectResponse
+     * @remarks
+     * ### [](#)Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListProjectRequest
+     *
+     * @returns ListProjectResponse
+     *
+     * @param ListProjectRequest $request
+     *
+     * @return ListProjectResponse
      */
     public function listProject($request)
     {
@@ -7905,60 +9777,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of saved searches.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                 $project
-     * @param ListSavedSearchRequest $request ListSavedSearchRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of saved searches.
      *
-     * @return ListSavedSearchResponse ListSavedSearchResponse
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListSavedSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSavedSearchResponse
+     *
+     * @param string                 $project
+     * @param ListSavedSearchRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListSavedSearchResponse
      */
     public function listSavedSearchWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSavedSearch',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/savedsearches',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSavedSearch',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/savedsearches',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of saved searches.
-     *  *
-     * @description ### Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                 $project
-     * @param ListSavedSearchRequest $request ListSavedSearchRequest
+     * Queries a list of saved searches.
      *
-     * @return ListSavedSearchResponse ListSavedSearchResponse
+     * @remarks
+     * ### Usage notes
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - ListSavedSearchRequest
+     *
+     * @returns ListSavedSearchResponse
+     *
+     * @param string                 $project
+     * @param ListSavedSearchRequest $request
+     *
+     * @return ListSavedSearchResponse
      */
     public function listSavedSearch($project, $request)
     {
@@ -7969,57 +9855,70 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Scheduled SQL jobs in a project.
-     *  *
-     * @param string                   $project
-     * @param ListScheduledSQLsRequest $request ListScheduledSQLsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Scheduled SQL jobs in a project.
      *
-     * @return ListScheduledSQLsResponse ListScheduledSQLsResponse
+     * @param request - ListScheduledSQLsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduledSQLsResponse
+     *
+     * @param string                   $project
+     * @param ListScheduledSQLsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListScheduledSQLsResponse
      */
     public function listScheduledSQLsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScheduledSQLs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListScheduledSQLs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListScheduledSQLsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Scheduled SQL jobs in a project.
-     *  *
-     * @param string                   $project
-     * @param ListScheduledSQLsRequest $request ListScheduledSQLsRequest
+     * Queries a list of Scheduled SQL jobs in a project.
      *
-     * @return ListScheduledSQLsResponse ListScheduledSQLsResponse
+     * @param request - ListScheduledSQLsRequest
+     *
+     * @returns ListScheduledSQLsResponse
+     *
+     * @param string                   $project
+     * @param ListScheduledSQLsRequest $request
+     *
+     * @return ListScheduledSQLsResponse
      */
     public function listScheduledSQLs($project, $request)
     {
@@ -8030,45 +9929,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of shards in a Logstore.
-     *  *
+     * Queries a list of shards in a Logstore.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListShardsResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListShardsResponse ListShardsResponse
+     * @return ListShardsResponse
      */
     public function listShardsWithOptions($project, $logstore, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListShards',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListShards',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/shards',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return ListShardsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of shards in a Logstore.
-     *  *
+     * Queries a list of shards in a Logstore.
+     *
+     * @returns ListShardsResponse
+     *
      * @param string $project
      * @param string $logstore
      *
-     * @return ListShardsResponse ListShardsResponse
+     * @return ListShardsResponse
      */
     public function listShards($project, $logstore)
     {
@@ -8079,60 +9985,74 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries datasets in a project.
-     *  *
-     * @param string                $project
-     * @param ListStoreViewsRequest $request ListStoreViewsRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries datasets in a project.
      *
-     * @return ListStoreViewsResponse ListStoreViewsResponse
+     * @param request - ListStoreViewsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStoreViewsResponse
+     *
+     * @param string                $project
+     * @param ListStoreViewsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListStoreViewsResponse
      */
     public function listStoreViewsWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
-        if (!Utils::isUnset($request->storeType)) {
-            $query['storeType'] = $request->storeType;
+
+        if (null !== $request->storeType) {
+            @$query['storeType'] = $request->storeType;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStoreViews',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/storeviews',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListStoreViews',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/storeviews',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListStoreViewsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries datasets in a project.
-     *  *
-     * @param string                $project
-     * @param ListStoreViewsRequest $request ListStoreViewsRequest
+     * Queries datasets in a project.
      *
-     * @return ListStoreViewsResponse ListStoreViewsResponse
+     * @param request - ListStoreViewsRequest
+     *
+     * @returns ListStoreViewsResponse
+     *
+     * @param string                $project
+     * @param ListStoreViewsRequest $request
+     *
+     * @return ListStoreViewsResponse
      */
     public function listStoreViews($project, $request)
     {
@@ -8143,9 +10063,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags for one or more resources. You can query tags for resources by resource type or filter resources by tag. Each tag is a key-value pair.
-     *  *
-     * @description ### Usage notes
+     * Queries a list of tags for one or more resources. You can query tags for resources by resource type or filter resources by tag. Each tag is a key-value pair.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -8156,57 +10077,69 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ListTagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
-     *  *
-     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['resourceId'] = $request->resourceIdShrink;
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/tags',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTagResources',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of tags for one or more resources. You can query tags for resources by resource type or filter resources by tag. Each tag is a key-value pair.
-     *  *
-     * @description ### Usage notes
+     * Queries a list of tags for one or more resources. You can query tags for resources by resource type or filter resources by tag. Each tag is a key-value pair.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -8217,10 +10150,14 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:ListTagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -8231,47 +10168,54 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
-     *  *
+     * 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MergeShardResponse
+     *
      * @param string         $project
      * @param string         $logstore
      * @param string         $shard
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return MergeShardResponse MergeShardResponse
+     * @return MergeShardResponse
      */
     public function mergeShardWithOptions($project, $logstore, $shard, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'MergeShard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shard . '?action=merge',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MergeShard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/shards/' . $shard . '?action=merge',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return MergeShardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
-     *  *
+     * 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
+     *
+     * @returns MergeShardResponse
+     *
      * @param string $project
      * @param string $logstore
      * @param string $shard
      *
-     * @return MergeShardResponse MergeShardResponse
+     * @return MergeShardResponse
      */
     public function mergeShard($project, $logstore, $shard)
     {
@@ -8282,12 +10226,17 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Activates Simple Log Service. You must activate Simple Log Service before you can use it to collect and manage logs.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Activates Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
      *
-     * @return OpenSlsServiceResponse OpenSlsServiceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenSlsServiceResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return OpenSlsServiceResponse
      */
     public function openSlsServiceWithOptions($headers, $runtime)
     {
@@ -8295,24 +10244,26 @@ class Sls extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'OpenSlsService',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/slsservice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'OpenSlsService',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/slsservice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return OpenSlsServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates Simple Log Service. You must activate Simple Log Service before you can use it to collect and manage logs.
-     *  *
-     * @return OpenSlsServiceResponse OpenSlsServiceResponse
+     * Activates Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
+     *
+     * @returns OpenSlsServiceResponse
+     *
+     * @return OpenSlsServiceResponse
      */
     public function openSlsService()
     {
@@ -8323,72 +10274,98 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Queries logs based on the specified cursors. You can call this operation to obtain raw logs. To query and analyze logs, you can call the GetLogsV2 operation.
-     *  *
-     * @description You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see [SLS SDK Reference](https://help.aliyun.com/document_detail/29063.html).
-     *  *
+     * Queries logs based on the specified cursors. You can call this operation to obtain raw logs. To query and analyze logs, you can call the GetLogsV2 operation.
+     *
+     * @remarks
+     * *
+     * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
+     * *   You must specify a shard when you query the logs.
+     * *   You can query only logs in the Protocol Buffers (protobuf) format. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - PullLogsRequest
+     * @param headers - PullLogsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PullLogsResponse
+     *
      * @param string          $project
      * @param string          $logStore
      * @param string          $shardId
-     * @param PullLogsRequest $request  PullLogsRequest
-     * @param PullLogsHeaders $headers  PullLogsHeaders
-     * @param RuntimeOptions  $runtime  runtime options for this request RuntimeOptions
+     * @param PullLogsRequest $request
+     * @param PullLogsHeaders $headers
+     * @param RuntimeOptions  $runtime
      *
-     * @return PullLogsResponse PullLogsResponse
+     * @return PullLogsResponse
      */
     public function pullLogsWithOptions($project, $logStore, $shardId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->count)) {
-            $query['count'] = $request->count;
+        if (null !== $request->count) {
+            @$query['count'] = $request->count;
         }
-        if (!Utils::isUnset($request->cursor)) {
-            $query['cursor'] = $request->cursor;
+
+        if (null !== $request->cursor) {
+            @$query['cursor'] = $request->cursor;
         }
-        if (!Utils::isUnset($request->endCursor)) {
-            $query['end_cursor'] = $request->endCursor;
+
+        if (null !== $request->endCursor) {
+            @$query['end_cursor'] = $request->endCursor;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->acceptEncoding)) {
-            $realHeaders['Accept-Encoding'] = Utils::toJSONString($headers->acceptEncoding);
+
+        if (null !== $headers->acceptEncoding) {
+            @$realHeaders['Accept-Encoding'] = '' . $headers->acceptEncoding;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PullLogs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logStore . '/shards/' . $shardId . '?type=log',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PullLogs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logStore . '/shards/' . $shardId . '?type=log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'none',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PullLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries logs based on the specified cursors. You can call this operation to obtain raw logs. To query and analyze logs, you can call the GetLogsV2 operation.
-     *  *
-     * @description You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see [SLS SDK Reference](https://help.aliyun.com/document_detail/29063.html).
-     *  *
+     * Queries logs based on the specified cursors. You can call this operation to obtain raw logs. To query and analyze logs, you can call the GetLogsV2 operation.
+     *
+     * @remarks
+     * *
+     * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
+     * *   You must specify a shard when you query the logs.
+     * *   You can query only logs in the Protocol Buffers (protobuf) format. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
+     * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - PullLogsRequest
+     *
+     * @returns PullLogsResponse
+     *
      * @param string          $project
      * @param string          $logStore
      * @param string          $shardId
-     * @param PullLogsRequest $request  PullLogsRequest
+     * @param PullLogsRequest $request
      *
-     * @return PullLogsResponse PullLogsResponse
+     * @return PullLogsResponse
      */
     public function pullLogs($project, $logStore, $shardId, $request)
     {
@@ -8399,56 +10376,69 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Adds data to a dataset for storage.
-     *  *
-     * @param string                   $datasetId
-     * @param PutAnnotationDataRequest $request   PutAnnotationDataRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * Adds data to a dataset for storage.
      *
-     * @return PutAnnotationDataResponse PutAnnotationDataResponse
+     * @param request - PutAnnotationDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutAnnotationDataResponse
+     *
+     * @param string                   $datasetId
+     * @param PutAnnotationDataRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PutAnnotationDataResponse
      */
     public function putAnnotationDataWithOptions($datasetId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationdataId)) {
-            $query['annotationdataId'] = $request->annotationdataId;
+        if (null !== $request->annotationdataId) {
+            @$query['annotationdataId'] = $request->annotationdataId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->mlDataParam)) {
-            $body['mlDataParam'] = $request->mlDataParam;
+        if (null !== $request->mlDataParam) {
+            @$body['mlDataParam'] = $request->mlDataParam;
         }
-        if (!Utils::isUnset($request->rawLog)) {
-            $body['rawLog'] = $request->rawLog;
+
+        if (null !== $request->rawLog) {
+            @$body['rawLog'] = $request->rawLog;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutAnnotationData',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PutAnnotationData',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '/annotationdata',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return PutAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds data to a dataset for storage.
-     *  *
-     * @param string                   $datasetId
-     * @param PutAnnotationDataRequest $request   PutAnnotationDataRequest
+     * Adds data to a dataset for storage.
      *
-     * @return PutAnnotationDataResponse PutAnnotationDataResponse
+     * @param request - PutAnnotationDataRequest
+     *
+     * @returns PutAnnotationDataResponse
+     *
+     * @param string                   $datasetId
+     * @param PutAnnotationDataRequest $request
+     *
+     * @return PutAnnotationDataResponse
      */
     public function putAnnotationData($datasetId, $request)
     {
@@ -8459,60 +10449,166 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Sends logs to Simple Log Service.
-     *  *
-     * @description You cannot call this operation by using cloud service SDKs that are provided by Alibaba Cloud OpenAPI Portal. You can use Simple Log Service SDK to call this operation. For more information, see [SLS SDK Reference](https://help.aliyun.com/document_detail/29063.html).
-     *  *
+     * Creates or modifies an ingest processor.
+     *
+     * @param request - PutIngestProcessorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutIngestProcessorResponse
+     *
+     * @param string                    $project
+     * @param string                    $processorName
+     * @param PutIngestProcessorRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutIngestProcessorResponse
+     */
+    public function putIngestProcessorWithOptions($project, $processorName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PutIngestProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ingestprocessors/' . $processorName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return PutIngestProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates or modifies an ingest processor.
+     *
+     * @param request - PutIngestProcessorRequest
+     *
+     * @returns PutIngestProcessorResponse
+     *
+     * @param string                    $project
+     * @param string                    $processorName
+     * @param PutIngestProcessorRequest $request
+     *
+     * @return PutIngestProcessorResponse
+     */
+    public function putIngestProcessor($project, $processorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putIngestProcessorWithOptions($project, $processorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Writes logs to a Logstore.
+     *
+     * @remarks
+     * *
+     * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
+     * *   When you call the PutLogs operation to write logs to Simple Log Service, Simple Log Servicechecks the format of the logs. If a log does not meet the format requirements, the request fails and no logs are written to Simple Log Service.
+     * *   You can write logs only in the Protocol Buffers (Protobuf) format as log groups. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
+     * *   You can write logs in one of the following modes:
+     *     *   LoadBalance mode: In this mode, Log Service automatically writes logs to all writable shards in a Logstore. This mode delivers high availability for write operations and is suitable for data consumption scenarios in which you do not need to preserve the order of logs.
+     *     *   KeyHash: In this mode, a key field is added in the URL parameter. Log Service writes logs to a shard based on the key field. The hash key is optional. If you do not configure the hash key, logs are written to shards in LoadBalance mode. For example, you can use the KeyHash mode to write data from a producer, such as an instance, to the shard whose hash value range includes the hash value of the producer name. This ensures that the data that is written to the shard is ordered and the data in the shard is consumed based on the order. This way, when a shard is split or when shards are merged, the data that is associated with the same hash key is stored only in one shard at a point in time. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
+     * *   You can call the PutLogs operation to write up to 10 MB of raw logs at a time. We recommend that you keep the total size of the values for each log in a log group to or below 1 MB. Historical versions of SDKs may have different limits. We recommend that you upgrade your SDK to the latest version.
+     * *   The references for Log Service SDK for Java and Log Service SDK for Python provide examples on how to call the PutLogs operation. For more information, see [Get started with Simple Log Service SDK for Java](https://help.aliyun.com/document_detail/279525.html) and [Get started with Simple Log Service SDK for Python](https://help.aliyun.com/document_detail/284638.html).
+     *
+     * @param request - PutLogsRequest
+     * @param headers - PutLogsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutLogsResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param PutLogsRequest $request  PutLogsRequest
-     * @param PutLogsHeaders $headers  PutLogsHeaders
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param PutLogsRequest $request
+     * @param PutLogsHeaders $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return PutLogsResponse PutLogsResponse
+     * @return PutLogsResponse
      */
     public function putLogsWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $realHeaders        = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xLogCompresstype)) {
-            $realHeaders['x-log-compresstype'] = Utils::toJSONString($headers->xLogCompresstype);
+
+        if (null !== $headers->xLogCompresstype) {
+            @$realHeaders['x-log-compresstype'] = '' . $headers->xLogCompresstype;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'PutLogs',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/lb',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PutLogs',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/shards/lb',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'protobuf',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return PutLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends logs to Simple Log Service.
-     *  *
-     * @description You cannot call this operation by using cloud service SDKs that are provided by Alibaba Cloud OpenAPI Portal. You can use Simple Log Service SDK to call this operation. For more information, see [SLS SDK Reference](https://help.aliyun.com/document_detail/29063.html).
-     *  *
+     * Writes logs to a Logstore.
+     *
+     * @remarks
+     * *
+     * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
+     * *   When you call the PutLogs operation to write logs to Simple Log Service, Simple Log Servicechecks the format of the logs. If a log does not meet the format requirements, the request fails and no logs are written to Simple Log Service.
+     * *   You can write logs only in the Protocol Buffers (Protobuf) format as log groups. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
+     * *   You can write logs in one of the following modes:
+     *     *   LoadBalance mode: In this mode, Log Service automatically writes logs to all writable shards in a Logstore. This mode delivers high availability for write operations and is suitable for data consumption scenarios in which you do not need to preserve the order of logs.
+     *     *   KeyHash: In this mode, a key field is added in the URL parameter. Log Service writes logs to a shard based on the key field. The hash key is optional. If you do not configure the hash key, logs are written to shards in LoadBalance mode. For example, you can use the KeyHash mode to write data from a producer, such as an instance, to the shard whose hash value range includes the hash value of the producer name. This ensures that the data that is written to the shard is ordered and the data in the shard is consumed based on the order. This way, when a shard is split or when shards are merged, the data that is associated with the same hash key is stored only in one shard at a point in time. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
+     * *   You can call the PutLogs operation to write up to 10 MB of raw logs at a time. We recommend that you keep the total size of the values for each log in a log group to or below 1 MB. Historical versions of SDKs may have different limits. We recommend that you upgrade your SDK to the latest version.
+     * *   The references for Log Service SDK for Java and Log Service SDK for Python provide examples on how to call the PutLogs operation. For more information, see [Get started with Simple Log Service SDK for Java](https://help.aliyun.com/document_detail/279525.html) and [Get started with Simple Log Service SDK for Python](https://help.aliyun.com/document_detail/284638.html).
+     *
+     * @param request - PutLogsRequest
+     *
+     * @returns PutLogsResponse
+     *
      * @param string         $project
      * @param string         $logstore
-     * @param PutLogsRequest $request  PutLogsRequest
+     * @param PutLogsRequest $request
      *
-     * @return PutLogsResponse PutLogsResponse
+     * @return PutLogsResponse
      */
     public function putLogs($project, $logstore, $request)
     {
@@ -8523,61 +10619,73 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates a project policy.
-     *  *
-     * @description ### Usage notes
+     * Creates a project policy.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
      *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](https://help.aliyun.com/document_detail/128139.html).
      *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
      *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
-     *  *
-     * @param string                  $project
-     * @param PutProjectPolicyRequest $request PutProjectPolicyRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutProjectPolicyResponse PutProjectPolicyResponse
+     * @param request - PutProjectPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutProjectPolicyResponse
+     *
+     * @param string                  $project
+     * @param PutProjectPolicyRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PutProjectPolicyResponse
      */
     public function putProjectPolicyWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'PutProjectPolicy',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/policy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PutProjectPolicy',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/policy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return PutProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a project policy.
-     *  *
-     * @description ### Usage notes
+     * Creates a project policy.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
      *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](https://help.aliyun.com/document_detail/128139.html).
      *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
      *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
-     *  *
-     * @param string                  $project
-     * @param PutProjectPolicyRequest $request PutProjectPolicyRequest
      *
-     * @return PutProjectPolicyResponse PutProjectPolicyResponse
+     * @param request - PutProjectPolicyRequest
+     *
+     * @returns PutProjectPolicyResponse
+     *
+     * @param string                  $project
+     * @param PutProjectPolicyRequest $request
+     *
+     * @return PutProjectPolicyResponse
      */
     public function putProjectPolicy($project, $request)
     {
@@ -8588,51 +10696,62 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 设置project传输加速状态
-     *  *
-     * @param string                                $project
-     * @param PutProjectTransferAccelerationRequest $request PutProjectTransferAccelerationRequest
-     * @param string[]                              $headers map
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 设置project传输加速状态
      *
-     * @return PutProjectTransferAccelerationResponse PutProjectTransferAccelerationResponse
+     * @param request - PutProjectTransferAccelerationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutProjectTransferAccelerationResponse
+     *
+     * @param string                                $project
+     * @param PutProjectTransferAccelerationRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return PutProjectTransferAccelerationResponse
      */
     public function putProjectTransferAccelerationWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->enabled)) {
-            $body['enabled'] = $request->enabled;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutProjectTransferAcceleration',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/transferacceleration',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PutProjectTransferAcceleration',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/transferacceleration',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return PutProjectTransferAccelerationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置project传输加速状态
-     *  *
-     * @param string                                $project
-     * @param PutProjectTransferAccelerationRequest $request PutProjectTransferAccelerationRequest
+     * 设置project传输加速状态
      *
-     * @return PutProjectTransferAccelerationResponse PutProjectTransferAccelerationResponse
+     * @param request - PutProjectTransferAccelerationRequest
+     *
+     * @returns PutProjectTransferAccelerationResponse
+     *
+     * @param string                                $project
+     * @param PutProjectTransferAccelerationRequest $request
+     *
+     * @return PutProjectTransferAccelerationResponse
      */
     public function putProjectTransferAcceleration($project, $request)
     {
@@ -8643,9 +10762,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Sends multiple logs to Simple Log Service in one request.
-     *  *
-     * @description ### [](#)Usage notes
+     * Sends multiple logs to Simple Log Service in one request.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      * *   You can call this operation to collect logs from web pages or clients.
      * *   If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
@@ -8653,57 +10773,68 @@ class Sls extends OpenApiClient
      * *   Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
      * *   You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
      * *   If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
-     *  *
+     *
+     * @param request - PutWebtrackingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutWebtrackingResponse
+     *
      * @param string                $project
      * @param string                $logstoreName
-     * @param PutWebtrackingRequest $request      PutWebtrackingRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * @param PutWebtrackingRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return PutWebtrackingResponse PutWebtrackingResponse
+     * @return PutWebtrackingResponse
      */
     public function putWebtrackingWithOptions($project, $logstoreName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->logs)) {
-            $body['__logs__'] = $request->logs;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->logs) {
+            @$body['__logs__'] = $request->logs;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['__source__'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['__source__'] = $request->source;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['__tags__'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['__tags__'] = $request->tags;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['__topic__'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['__topic__'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutWebtracking',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstoreName . '/track',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'PutWebtracking',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstoreName . '/track',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return PutWebtrackingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends multiple logs to Simple Log Service in one request.
-     *  *
-     * @description ### [](#)Usage notes
+     * Sends multiple logs to Simple Log Service in one request.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      * *   You can call this operation to collect logs from web pages or clients.
      * *   If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
@@ -8711,12 +10842,16 @@ class Sls extends OpenApiClient
      * *   Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
      * *   You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
      * *   If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
-     *  *
+     *
+     * @param request - PutWebtrackingRequest
+     *
+     * @returns PutWebtrackingResponse
+     *
      * @param string                $project
      * @param string                $logstoreName
-     * @param PutWebtrackingRequest $request      PutWebtrackingRequest
+     * @param PutWebtrackingRequest $request
      *
-     * @return PutWebtrackingResponse PutWebtrackingResponse
+     * @return PutWebtrackingResponse
      */
     public function putWebtracking($project, $logstoreName, $request)
     {
@@ -8727,49 +10862,61 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 刷新token
-     *  *
-     * @param RefreshTokenRequest $request RefreshTokenRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 刷新token.
      *
-     * @return RefreshTokenResponse RefreshTokenResponse
+     * @param request - RefreshTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshTokenResponse
+     *
+     * @param RefreshTokenRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RefreshTokenResponse
      */
     public function refreshTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessTokenExpirationTime)) {
-            $query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
+        if (null !== $request->accessTokenExpirationTime) {
+            @$query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
         }
-        if (!Utils::isUnset($request->ticket)) {
-            $query['ticket'] = $request->ticket;
+
+        if (null !== $request->ticket) {
+            @$query['ticket'] = $request->ticket;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshToken',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/token/refresh',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RefreshToken',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/token/refresh',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefreshTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 刷新token
-     *  *
-     * @param RefreshTokenRequest $request RefreshTokenRequest
+     * 刷新token.
      *
-     * @return RefreshTokenResponse RefreshTokenResponse
+     * @param request - RefreshTokenRequest
+     *
+     * @returns RefreshTokenResponse
+     *
+     * @param RefreshTokenRequest $request
+     *
+     * @return RefreshTokenResponse
      */
     public function refreshToken($request)
     {
@@ -8780,51 +10927,60 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Removes a Logtail configuration from a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Removes a Logtail configuration from a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveConfigFromMachineGroupResponse
+     *
      * @param string         $project
      * @param string         $machineGroup
      * @param string         $configName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveConfigFromMachineGroupResponse RemoveConfigFromMachineGroupResponse
+     * @return RemoveConfigFromMachineGroupResponse
      */
     public function removeConfigFromMachineGroupWithOptions($project, $machineGroup, $configName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveConfigFromMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '/configs/' . $configName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveConfigFromMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '/configs/' . $configName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return RemoveConfigFromMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a Logtail configuration from a machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Removes a Logtail configuration from a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @returns RemoveConfigFromMachineGroupResponse
+     *
      * @param string $project
      * @param string $machineGroup
      * @param string $configName
      *
-     * @return RemoveConfigFromMachineGroupResponse RemoveConfigFromMachineGroupResponse
+     * @return RemoveConfigFromMachineGroupResponse
      */
     public function removeConfigFromMachineGroup($project, $machineGroup, $configName)
     {
@@ -8835,66 +10991,80 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Splits a shard in the readwrite state.
-     *  *
-     * @description ### Usage notes
+     * Splits a shard in the readwrite state.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
-     *  *
+     *
+     * @param request - SplitShardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SplitShardResponse
+     *
      * @param string            $project
      * @param string            $logstore
      * @param string            $shard
-     * @param SplitShardRequest $request  SplitShardRequest
-     * @param string[]          $headers  map
-     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
+     * @param SplitShardRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return SplitShardResponse SplitShardResponse
+     * @return SplitShardResponse
      */
     public function splitShardWithOptions($project, $logstore, $shard, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['key'] = $request->key;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->key) {
+            @$query['key'] = $request->key;
         }
-        if (!Utils::isUnset($request->shardCount)) {
-            $query['shardCount'] = $request->shardCount;
+
+        if (null !== $request->shardCount) {
+            @$query['shardCount'] = $request->shardCount;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SplitShard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shard . '?action=split',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SplitShard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/shards/' . $shard . '?action=split',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return SplitShardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Splits a shard in the readwrite state.
-     *  *
-     * @description ### Usage notes
+     * Splits a shard in the readwrite state.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
-     *  *
+     *
+     * @param request - SplitShardRequest
+     *
+     * @returns SplitShardResponse
+     *
      * @param string            $project
      * @param string            $logstore
      * @param string            $shard
-     * @param SplitShardRequest $request  SplitShardRequest
+     * @param SplitShardRequest $request
      *
-     * @return SplitShardResponse SplitShardResponse
+     * @return SplitShardResponse
      */
     public function splitShard($project, $logstore, $shard, $request)
     {
@@ -8905,45 +11075,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 启动数据加工任务
-     *  *
+     * Starts a data transformation job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartETLResponse
+     *
      * @param string         $project
      * @param string         $etlName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartETLResponse StartETLResponse
+     * @return StartETLResponse
      */
     public function startETLWithOptions($project, $etlName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartETL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls/' . $etlName . '?action=START',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartETL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls/' . $etlName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return StartETLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启动数据加工任务
-     *  *
+     * Starts a data transformation job.
+     *
+     * @returns StartETLResponse
+     *
      * @param string $project
      * @param string $etlName
      *
-     * @return StartETLResponse StartETLResponse
+     * @return StartETLResponse
      */
     public function startETL($project, $etlName)
     {
@@ -8954,45 +11131,120 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 启动OSS投递任务
-     *  *
-     * @param string         $project
-     * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * Starts a MaxCompute data shipping job.
      *
-     * @return StartOSSExportResponse StartOSSExportResponse
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartMaxComputeExportResponse
+     *
+     * @param string         $project
+     * @param string         $mcExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartMaxComputeExportResponse
      */
-    public function startOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    public function startMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartOSSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports/' . $ossExportName . '?action=START',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartMaxComputeExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports/' . $mcExportName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
+        ]);
+
+        return StartMaxComputeExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Starts a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+     *
+     * @returns StartMaxComputeExportResponse
+     *
+     * @param string $project
+     * @param string $mcExportName
+     *
+     * @return StartMaxComputeExportResponse
+     */
+    public function startMaxComputeExport($project, $mcExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime);
+    }
+
+    /**
+     * 启动OSS投递任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartOSSExportResponse
+     *
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartOSSExportResponse
+     */
+    public function startOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StartOSSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports/' . $ossExportName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
         ]);
 
         return StartOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启动OSS投递任务
-     *  *
+     * 启动OSS投递任务
+     *
+     * @returns StartOSSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return StartOSSExportResponse StartOSSExportResponse
+     * @return StartOSSExportResponse
      */
     public function startOSSExport($project, $ossExportName)
     {
@@ -9003,45 +11255,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 启动OSSHDFS投递任务
-     *  *
+     * 启动OSSHDFS投递任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartOSSHDFSExportResponse
+     *
      * @param string         $project
      * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartOSSHDFSExportResponse StartOSSHDFSExportResponse
+     * @return StartOSSHDFSExportResponse
      */
     public function startOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartOSSHDFSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports/' . $ossExportName . '?action=START',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartOSSHDFSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports/' . $ossExportName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return StartOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启动OSSHDFS投递任务
-     *  *
+     * 启动OSSHDFS投递任务
+     *
+     * @returns StartOSSHDFSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return StartOSSHDFSExportResponse StartOSSHDFSExportResponse
+     * @return StartOSSHDFSExportResponse
      */
     public function startOSSHDFSExport($project, $ossExportName)
     {
@@ -9052,45 +11311,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Starts an Object Storage Service (OSS) data import job.
-     *  *
+     * Starts an Object Storage Service (OSS) data import job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartOSSIngestionResponse
+     *
      * @param string         $project
      * @param string         $ossIngestionName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartOSSIngestionResponse StartOSSIngestionResponse
+     * @return StartOSSIngestionResponse
      */
     public function startOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartOSSIngestion',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions/' . $ossIngestionName . '?action=START',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartOSSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions/' . $ossIngestionName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return StartOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts an Object Storage Service (OSS) data import job.
-     *  *
+     * Starts an Object Storage Service (OSS) data import job.
+     *
+     * @returns StartOSSIngestionResponse
+     *
      * @param string $project
      * @param string $ossIngestionName
      *
-     * @return StartOSSIngestionResponse StartOSSIngestionResponse
+     * @return StartOSSIngestionResponse
      */
     public function startOSSIngestion($project, $ossIngestionName)
     {
@@ -9101,45 +11367,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 停止数据加工任务
-     *  *
+     * Stops a data transformation job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopETLResponse
+     *
      * @param string         $project
      * @param string         $etlName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopETLResponse StopETLResponse
+     * @return StopETLResponse
      */
     public function stopETLWithOptions($project, $etlName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopETL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls/' . $etlName . '?action=STOP',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopETL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls/' . $etlName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return StopETLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止数据加工任务
-     *  *
+     * Stops a data transformation job.
+     *
+     * @returns StopETLResponse
+     *
      * @param string $project
      * @param string $etlName
      *
-     * @return StopETLResponse StopETLResponse
+     * @return StopETLResponse
      */
     public function stopETL($project, $etlName)
     {
@@ -9150,45 +11423,120 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 停止OSS投递任务
-     *  *
-     * @param string         $project
-     * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * Stops a MaxCompute data shipping job.
      *
-     * @return StopOSSExportResponse StopOSSExportResponse
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopMaxComputeExportResponse
+     *
+     * @param string         $project
+     * @param string         $mcExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopMaxComputeExportResponse
      */
-    public function stopOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    public function stopMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopOSSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports/' . $ossExportName . '?action=STOP',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopMaxComputeExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports/' . $mcExportName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
+        ]);
+
+        return StopMaxComputeExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @returns StopMaxComputeExportResponse
+     *
+     * @param string $project
+     * @param string $mcExportName
+     *
+     * @return StopMaxComputeExportResponse
+     */
+    public function stopMaxComputeExport($project, $mcExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopMaxComputeExportWithOptions($project, $mcExportName, $headers, $runtime);
+    }
+
+    /**
+     * 停止OSS投递任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopOSSExportResponse
+     *
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopOSSExportResponse
+     */
+    public function stopOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopOSSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports/' . $ossExportName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
         ]);
 
         return StopOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止OSS投递任务
-     *  *
+     * 停止OSS投递任务
+     *
+     * @returns StopOSSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return StopOSSExportResponse StopOSSExportResponse
+     * @return StopOSSExportResponse
      */
     public function stopOSSExport($project, $ossExportName)
     {
@@ -9199,45 +11547,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 停止OSSHDFS投递任务
-     *  *
+     * 停止OSSHDFS投递任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopOSSHDFSExportResponse
+     *
      * @param string         $project
      * @param string         $ossExportName
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopOSSHDFSExportResponse StopOSSHDFSExportResponse
+     * @return StopOSSHDFSExportResponse
      */
     public function stopOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopOSSHDFSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports/' . $ossExportName . '?action=STOP',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopOSSHDFSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports/' . $ossExportName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return StopOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止OSSHDFS投递任务
-     *  *
+     * 停止OSSHDFS投递任务
+     *
+     * @returns StopOSSHDFSExportResponse
+     *
      * @param string $project
      * @param string $ossExportName
      *
-     * @return StopOSSHDFSExportResponse StopOSSHDFSExportResponse
+     * @return StopOSSHDFSExportResponse
      */
     public function stopOSSHDFSExport($project, $ossExportName)
     {
@@ -9248,45 +11603,52 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Stops an Object Storage Service (OSS) data import job.
-     *  *
+     * Stops an Object Storage Service (OSS) data import job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopOSSIngestionResponse
+     *
      * @param string         $project
      * @param string         $ossIngestionName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopOSSIngestionResponse StopOSSIngestionResponse
+     * @return StopOSSIngestionResponse
      */
     public function stopOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
     {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopOSSIngestion',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions/' . $ossIngestionName . '?action=STOP',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopOSSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions/' . $ossIngestionName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return StopOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops an Object Storage Service (OSS) data import job.
-     *  *
+     * Stops an Object Storage Service (OSS) data import job.
+     *
+     * @returns StopOSSIngestionResponse
+     *
      * @param string $project
      * @param string $ossIngestionName
      *
-     * @return StopOSSIngestionResponse StopOSSIngestionResponse
+     * @return StopOSSIngestionResponse
      */
     public function stopOSSIngestion($project, $ossIngestionName)
     {
@@ -9297,9 +11659,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Creates and adds tags to a resource. You can add tags only to projects.
-     *  *
-     * @description ### Usage notes
+     * Creates and adds tags to a resource. You can add tags only to projects.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -9310,49 +11673,59 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:TagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['resourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/tag',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TagResources',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tag',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates and adds tags to a resource. You can add tags only to projects.
-     *  *
-     * @description ### Usage notes
+     * Creates and adds tags to a resource. You can add tags only to projects.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -9363,10 +11736,14 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:TagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -9377,9 +11754,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Detaches one or more tags from a resource. You can detach tags only from Simple Log Service projects. You can detach multiple or all tags from a Simple Log Service project at a time.
-     *  *
-     * @description ### Usage notes
+     * Detaches one or more tags from a resource. You can detach tags only from Simple Log Service projects. You can detach multiple or all tags from a Simple Log Service project at a time.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -9389,52 +11767,63 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UntagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->all)) {
-            $body['all'] = $request->all;
+        if (null !== $request->all) {
+            @$body['all'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['resourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/untag',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UntagResources',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/untag',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Detaches one or more tags from a resource. You can detach tags only from Simple Log Service projects. You can detach multiple or all tags from a Simple Log Service project at a time.
-     *  *
-     * @description ### Usage notes
+     * Detaches one or more tags from a resource. You can detach tags only from Simple Log Service projects. You can detach multiple or all tags from a Simple Log Service project at a time.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -9444,10 +11833,14 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UntagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -9458,120 +11851,149 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary UpdateAgentInstanceConfig
-     *  *
-     * @param string                           $configName
-     * @param UpdateAgentInstanceConfigRequest $request    UpdateAgentInstanceConfigRequest
-     * @param string[]                         $headers    map
-     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
+     * UpdateAgentInstanceConfig.
      *
-     * @return UpdateAgentInstanceConfigResponse UpdateAgentInstanceConfigResponse
+     * @param request - UpdateAgentInstanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentInstanceConfigResponse
+     *
+     * @param string                           $configType
+     * @param UpdateAgentInstanceConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateAgentInstanceConfigResponse
      */
-    public function updateAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime)
+    public function updateAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->attributes) {
+            @$query['attributes'] = $request->attributes;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->configMatcher)) {
-            $body['configMatcher'] = $request->configMatcher;
+
+        if (null !== $request->grayConfigs) {
+            @$body['grayConfigs'] = $request->grayConfigs;
         }
-        if (!Utils::isUnset($request->isGray)) {
-            $body['isGray'] = $request->isGray;
-        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAgentInstanceConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/agentinstanceconfigs/' . $configName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAgentInstanceConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentinstanceconfigs/' . $configType . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary UpdateAgentInstanceConfig
-     *  *
-     * @param string                           $configName
-     * @param UpdateAgentInstanceConfigRequest $request    UpdateAgentInstanceConfigRequest
+     * UpdateAgentInstanceConfig.
      *
-     * @return UpdateAgentInstanceConfigResponse UpdateAgentInstanceConfigResponse
+     * @param request - UpdateAgentInstanceConfigRequest
+     *
+     * @returns UpdateAgentInstanceConfigResponse
+     *
+     * @param string                           $configType
+     * @param UpdateAgentInstanceConfigRequest $request
+     *
+     * @return UpdateAgentInstanceConfigResponse
      */
-    public function updateAgentInstanceConfig($configName, $request)
+    public function updateAgentInstanceConfig($configType, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime);
+        return $this->updateAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Updates an alert rule.
-     *  *
+     * Updates an alert rule.
+     *
+     * @param request - UpdateAlertRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertResponse
+     *
      * @param string             $project
      * @param string             $alertName
-     * @param UpdateAlertRequest $request   UpdateAlertRequest
-     * @param string[]           $headers   map
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateAlertRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return UpdateAlertResponse UpdateAlertResponse
+     * @return UpdateAlertResponse
      */
     public function updateAlertWithOptions($project, $alertName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAlert',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alerts/' . $alertName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAlert',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alerts/' . $alertName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an alert rule.
-     *  *
+     * Updates an alert rule.
+     *
+     * @param request - UpdateAlertRequest
+     *
+     * @returns UpdateAlertResponse
+     *
      * @param string             $project
      * @param string             $alertName
-     * @param UpdateAlertRequest $request   UpdateAlertRequest
+     * @param UpdateAlertRequest $request
      *
-     * @return UpdateAlertResponse UpdateAlertResponse
+     * @return UpdateAlertResponse
      */
     public function updateAlert($project, $alertName, $request)
     {
@@ -9582,44 +12004,54 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a dataset.
-     *  *
-     * @param string                         $datasetId
-     * @param UpdateAnnotationDataSetRequest $request   UpdateAnnotationDataSetRequest
-     * @param string[]                       $headers   map
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * Updates a dataset.
      *
-     * @return UpdateAnnotationDataSetResponse UpdateAnnotationDataSetResponse
+     * @param request - UpdateAnnotationDataSetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAnnotationDataSetResponse
+     *
+     * @param string                         $datasetId
+     * @param UpdateAnnotationDataSetRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAnnotationDataSetResponse
      */
     public function updateAnnotationDataSetWithOptions($datasetId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAnnotationDataSet',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationdataset/' . $datasetId . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAnnotationDataSet',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationdataset/' . $datasetId . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a dataset.
-     *  *
-     * @param string                         $datasetId
-     * @param UpdateAnnotationDataSetRequest $request   UpdateAnnotationDataSetRequest
+     * Updates a dataset.
      *
-     * @return UpdateAnnotationDataSetResponse UpdateAnnotationDataSetResponse
+     * @param request - UpdateAnnotationDataSetRequest
+     *
+     * @returns UpdateAnnotationDataSetResponse
+     *
+     * @param string                         $datasetId
+     * @param UpdateAnnotationDataSetRequest $request
+     *
+     * @return UpdateAnnotationDataSetResponse
      */
     public function updateAnnotationDataSet($datasetId, $request)
     {
@@ -9630,46 +12062,58 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a tag table.
-     *  *
-     * @description You can update only the names of the tags in a tag set.
-     *  *
-     * @param UpdateAnnotationLabelRequest $request UpdateAnnotationLabelRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates a tag table.
      *
-     * @return UpdateAnnotationLabelResponse UpdateAnnotationLabelResponse
+     * @remarks
+     * You can update only the names of the tags in a tag set.
+     *
+     * @param request - UpdateAnnotationLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAnnotationLabelResponse
+     *
+     * @param UpdateAnnotationLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAnnotationLabelResponse
      */
     public function updateAnnotationLabelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAnnotationLabel',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ml/annotationlabel',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAnnotationLabel',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ml/annotationlabel',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a tag table.
-     *  *
-     * @description You can update only the names of the tags in a tag set.
-     *  *
-     * @param UpdateAnnotationLabelRequest $request UpdateAnnotationLabelRequest
+     * Updates a tag table.
      *
-     * @return UpdateAnnotationLabelResponse UpdateAnnotationLabelResponse
+     * @remarks
+     * You can update only the names of the tags in a tag set.
+     *
+     * @param request - UpdateAnnotationLabelRequest
+     *
+     * @returns UpdateAnnotationLabelResponse
+     *
+     * @param UpdateAnnotationLabelRequest $request
+     *
+     * @return UpdateAnnotationLabelResponse
      */
     public function updateAnnotationLabel($request)
     {
@@ -9680,65 +12124,77 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Modifies a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
-     *  *
+     *
+     * @param request - UpdateConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConfigResponse
+     *
      * @param string              $project
      * @param string              $configName
-     * @param UpdateConfigRequest $request    UpdateConfigRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return UpdateConfigResponse UpdateConfigResponse
+     * @return UpdateConfigResponse
      */
     public function updateConfigWithOptions($project, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/configs/' . $configName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/configs/' . $configName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a Logtail configuration.
-     *  *
-     * @description ### [](#)Usage notes
+     * Modifies a Logtail configuration.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
      * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
-     *  *
+     *
+     * @param request - UpdateConfigRequest
+     *
+     * @returns UpdateConfigResponse
+     *
      * @param string              $project
      * @param string              $configName
-     * @param UpdateConfigRequest $request    UpdateConfigRequest
+     * @param UpdateConfigRequest $request
      *
-     * @return UpdateConfigResponse UpdateConfigResponse
+     * @return UpdateConfigResponse
      */
     public function updateConfig($project, $configName, $request)
     {
@@ -9749,9 +12205,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes of a consumer group.
-     *  *
-     * @description ### Usage notes
+     * Updates the attributes of a consumer group.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -9761,52 +12218,61 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UpdateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
-     *  *
+     *
+     * @param request - UpdateConsumerGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConsumerGroupResponse
+     *
      * @param string                     $project
      * @param string                     $logstore
      * @param string                     $consumerGroup
-     * @param UpdateConsumerGroupRequest $request       UpdateConsumerGroupRequest
-     * @param string[]                   $headers       map
-     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateConsumerGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse
      */
     public function updateConsumerGroupWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $body['timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$body['timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConsumerGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateConsumerGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes of a consumer group.
-     *  *
-     * @description ### Usage notes
+     * Updates the attributes of a consumer group.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -9816,13 +12282,17 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UpdateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
-     *  *
+     *
+     * @param request - UpdateConsumerGroupRequest
+     *
+     * @returns UpdateConsumerGroupResponse
+     *
      * @param string                     $project
      * @param string                     $logstore
      * @param string                     $consumerGroup
-     * @param UpdateConsumerGroupRequest $request       UpdateConsumerGroupRequest
+     * @param UpdateConsumerGroupRequest $request
      *
-     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse
      */
     public function updateConsumerGroup($project, $logstore, $consumerGroup, $request)
     {
@@ -9833,71 +12303,88 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Updates a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param request - UpdateDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDashboardResponse
+     *
      * @param string                 $project
      * @param string                 $dashboardName
-     * @param UpdateDashboardRequest $request       UpdateDashboardRequest
-     * @param string[]               $headers       map
-     * @param RuntimeOptions         $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateDashboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return UpdateDashboardResponse UpdateDashboardResponse
+     * @return UpdateDashboardResponse
      */
     public function updateDashboardWithOptions($project, $dashboardName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->attribute)) {
-            $body['attribute'] = $request->attribute;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->attribute) {
+            @$body['attribute'] = $request->attribute;
         }
-        if (!Utils::isUnset($request->charts)) {
-            $body['charts'] = $request->charts;
+
+        if (null !== $request->charts) {
+            @$body['charts'] = $request->charts;
         }
-        if (!Utils::isUnset($request->dashboardName)) {
-            $body['dashboardName'] = $request->dashboardName;
+
+        if (null !== $request->dashboardName) {
+            @$body['dashboardName'] = $request->dashboardName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDashboard',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dashboards/' . $dashboardName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDashboard',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dashboards/' . $dashboardName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateDashboardResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a dashboard.
-     *  *
-     * @description ### [](#)Usage notes
+     * Updates a dashboard.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param request - UpdateDashboardRequest
+     *
+     * @returns UpdateDashboardResponse
+     *
      * @param string                 $project
      * @param string                 $dashboardName
-     * @param UpdateDashboardRequest $request       UpdateDashboardRequest
+     * @param UpdateDashboardRequest $request
      *
-     * @return UpdateDashboardResponse UpdateDashboardResponse
+     * @return UpdateDashboardResponse
      */
     public function updateDashboard($project, $dashboardName, $request)
     {
@@ -9908,59 +12395,72 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据加工任务
-     *  *
+     * Updates a data transformation job.
+     *
+     * @param request - UpdateETLRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateETLResponse
+     *
      * @param string           $project
      * @param string           $etlName
-     * @param UpdateETLRequest $request UpdateETLRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param UpdateETLRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
-     * @return UpdateETLResponse UpdateETLResponse
+     * @return UpdateETLResponse
      */
     public function updateETLWithOptions($project, $etlName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateETL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etls/' . $etlName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateETL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/etls/' . $etlName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateETLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新数据加工任务
-     *  *
+     * Updates a data transformation job.
+     *
+     * @param request - UpdateETLRequest
+     *
+     * @returns UpdateETLResponse
+     *
      * @param string           $project
      * @param string           $etlName
-     * @param UpdateETLRequest $request UpdateETLRequest
+     * @param UpdateETLRequest $request
      *
-     * @return UpdateETLResponse UpdateETLResponse
+     * @return UpdateETLResponse
      */
     public function updateETL($project, $etlName, $request)
     {
@@ -9971,55 +12471,67 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the indexes of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Updates the indexes of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param request - UpdateIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIndexResponse
+     *
      * @param string             $project
      * @param string             $logstore
-     * @param UpdateIndexRequest $request  UpdateIndexRequest
-     * @param string[]           $headers  map
-     * @param RuntimeOptions     $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return UpdateIndexResponse UpdateIndexResponse
+     * @return UpdateIndexResponse
      */
     public function updateIndexWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIndex',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateIndex',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/index',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the indexes of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Updates the indexes of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
+     *
+     * @param request - UpdateIndexRequest
+     *
+     * @returns UpdateIndexResponse
+     *
      * @param string             $project
      * @param string             $logstore
-     * @param UpdateIndexRequest $request  UpdateIndexRequest
+     * @param UpdateIndexRequest $request
      *
-     * @return UpdateIndexResponse UpdateIndexResponse
+     * @return UpdateIndexResponse
      */
     public function updateIndex($project, $logstore, $request)
     {
@@ -10030,94 +12542,118 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Updates the attributes of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
      * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
-     *  *
+     *
+     * @param request - UpdateLogStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLogStoreResponse
+     *
      * @param string                $project
      * @param string                $logstore
-     * @param UpdateLogStoreRequest $request  UpdateLogStoreRequest
-     * @param string[]              $headers  map
-     * @param RuntimeOptions        $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateLogStoreRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateLogStoreResponse UpdateLogStoreResponse
+     * @return UpdateLogStoreResponse
      */
     public function updateLogStoreWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->appendMeta)) {
-            $body['appendMeta'] = $request->appendMeta;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->appendMeta) {
+            @$body['appendMeta'] = $request->appendMeta;
         }
-        if (!Utils::isUnset($request->autoSplit)) {
-            $body['autoSplit'] = $request->autoSplit;
+
+        if (null !== $request->autoSplit) {
+            @$body['autoSplit'] = $request->autoSplit;
         }
-        if (!Utils::isUnset($request->enableTracking)) {
-            $body['enable_tracking'] = $request->enableTracking;
+
+        if (null !== $request->enableTracking) {
+            @$body['enable_tracking'] = $request->enableTracking;
         }
-        if (!Utils::isUnset($request->encryptConf)) {
-            $body['encrypt_conf'] = $request->encryptConf;
+
+        if (null !== $request->encryptConf) {
+            @$body['encrypt_conf'] = $request->encryptConf;
         }
-        if (!Utils::isUnset($request->hotTtl)) {
-            $body['hot_ttl'] = $request->hotTtl;
+
+        if (null !== $request->hotTtl) {
+            @$body['hot_ttl'] = $request->hotTtl;
         }
-        if (!Utils::isUnset($request->infrequentAccessTTL)) {
-            $body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
+
+        if (null !== $request->infrequentAccessTTL) {
+            @$body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
         }
-        if (!Utils::isUnset($request->logstoreName)) {
-            $body['logstoreName'] = $request->logstoreName;
+
+        if (null !== $request->logstoreName) {
+            @$body['logstoreName'] = $request->logstoreName;
         }
-        if (!Utils::isUnset($request->maxSplitShard)) {
-            $body['maxSplitShard'] = $request->maxSplitShard;
+
+        if (null !== $request->maxSplitShard) {
+            @$body['maxSplitShard'] = $request->maxSplitShard;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $body['mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->shardCount)) {
-            $body['shardCount'] = $request->shardCount;
+
+        if (null !== $request->shardCount) {
+            @$body['shardCount'] = $request->shardCount;
         }
-        if (!Utils::isUnset($request->telemetryType)) {
-            $body['telemetryType'] = $request->telemetryType;
+
+        if (null !== $request->telemetryType) {
+            @$body['telemetryType'] = $request->telemetryType;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$body['ttl'] = $request->ttl;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLogStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLogStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes of a Logstore.
-     *  *
-     * @description ### Usage notes
+     * Updates the attributes of a Logstore.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
      * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
-     *  *
+     *
+     * @param request - UpdateLogStoreRequest
+     *
+     * @returns UpdateLogStoreResponse
+     *
      * @param string                $project
      * @param string                $logstore
-     * @param UpdateLogStoreRequest $request  UpdateLogStoreRequest
+     * @param UpdateLogStoreRequest $request
      *
-     * @return UpdateLogStoreResponse UpdateLogStoreResponse
+     * @return UpdateLogStoreResponse
      */
     public function updateLogStore($project, $logstore, $request)
     {
@@ -10128,59 +12664,94 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新日志库的加密配置
-     *  *
+     * Updates the encryption configuration of a Logstore. You can create encryption configurations for the Logstore and enable or disable the encryption feature.
+     *
+     * @remarks
+     * ## [](#)Limits
+     * If you specify a data encryption method when you configure data encryption settings, you cannot switch to the other method after the configuration. In addition, you cannot change the encryption algorithm or the encryption type. You can only enable or disable the encryption feature by using the enable parameter. If you specify the encryption method by using the service key of Simple Log Service when you configure data encryption settings, you cannot switch to the encryption method by using Bring Your Own Key (BYOK) keys after the configuration.
+     * ## [](#)Create encryption configurations
+     * ### [](#)Encryption by using service keys
+     * Simple Log Service is fully responsible for data encryption and key management. No additional operations are required. When you create encryption configurations for the Logstore, you must specify the enable and encryptType parameters.
+     * ### [](#byok)Encryption by using BYOK keys
+     * You must create a customer master key (CMK) in Key Management Service (KMS). Then, Simple Log Service encrypts logs by using the CMK. When you create encryption configurations for the Logstore, you must specify the enable, encryptType, and userCmkInfo parameters.
+     * ## [](#)Enable or disable the encryption feature
+     * After you create encryption configurations for the Logstore, you cannot modify the encryptType or userCmkInfo parameters. However, you can enable and disable the encryption feature by using the enable parameter.
+     *
+     * @param request - UpdateLogStoreEncryptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLogStoreEncryptionResponse
+     *
      * @param string                          $project
      * @param string                          $logstore
-     * @param UpdateLogStoreEncryptionRequest $request  UpdateLogStoreEncryptionRequest
-     * @param string[]                        $headers  map
-     * @param RuntimeOptions                  $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateLogStoreEncryptionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return UpdateLogStoreEncryptionResponse UpdateLogStoreEncryptionResponse
+     * @return UpdateLogStoreEncryptionResponse
      */
     public function updateLogStoreEncryptionWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->enable)) {
-            $body['enable'] = $request->enable;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->encryptType)) {
-            $body['encryptType'] = $request->encryptType;
+
+        if (null !== $request->encryptType) {
+            @$body['encryptType'] = $request->encryptType;
         }
-        if (!Utils::isUnset($request->userCmkInfo)) {
-            $body['userCmkInfo'] = $request->userCmkInfo;
+
+        if (null !== $request->userCmkInfo) {
+            @$body['userCmkInfo'] = $request->userCmkInfo;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLogStoreEncryption',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/encryption',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLogStoreEncryption',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/encryption',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateLogStoreEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新日志库的加密配置
-     *  *
+     * Updates the encryption configuration of a Logstore. You can create encryption configurations for the Logstore and enable or disable the encryption feature.
+     *
+     * @remarks
+     * ## [](#)Limits
+     * If you specify a data encryption method when you configure data encryption settings, you cannot switch to the other method after the configuration. In addition, you cannot change the encryption algorithm or the encryption type. You can only enable or disable the encryption feature by using the enable parameter. If you specify the encryption method by using the service key of Simple Log Service when you configure data encryption settings, you cannot switch to the encryption method by using Bring Your Own Key (BYOK) keys after the configuration.
+     * ## [](#)Create encryption configurations
+     * ### [](#)Encryption by using service keys
+     * Simple Log Service is fully responsible for data encryption and key management. No additional operations are required. When you create encryption configurations for the Logstore, you must specify the enable and encryptType parameters.
+     * ### [](#byok)Encryption by using BYOK keys
+     * You must create a customer master key (CMK) in Key Management Service (KMS). Then, Simple Log Service encrypts logs by using the CMK. When you create encryption configurations for the Logstore, you must specify the enable, encryptType, and userCmkInfo parameters.
+     * ## [](#)Enable or disable the encryption feature
+     * After you create encryption configurations for the Logstore, you cannot modify the encryptType or userCmkInfo parameters. However, you can enable and disable the encryption feature by using the enable parameter.
+     *
+     * @param request - UpdateLogStoreEncryptionRequest
+     *
+     * @returns UpdateLogStoreEncryptionResponse
+     *
      * @param string                          $project
      * @param string                          $logstore
-     * @param UpdateLogStoreEncryptionRequest $request  UpdateLogStoreEncryptionRequest
+     * @param UpdateLogStoreEncryptionRequest $request
      *
-     * @return UpdateLogStoreEncryptionResponse UpdateLogStoreEncryptionResponse
+     * @return UpdateLogStoreEncryptionResponse
      */
     public function updateLogStoreEncryption($project, $logstore, $request)
     {
@@ -10191,53 +12762,64 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Changes the billing mode of a Logstore.
-     *  *
+     * Changes the billing mode of a Logstore.
+     *
+     * @param request - UpdateLogStoreMeteringModeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLogStoreMeteringModeResponse
+     *
      * @param string                            $project
      * @param string                            $logstore
-     * @param UpdateLogStoreMeteringModeRequest $request  UpdateLogStoreMeteringModeRequest
-     * @param string[]                          $headers  map
-     * @param RuntimeOptions                    $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateLogStoreMeteringModeRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
-     * @return UpdateLogStoreMeteringModeResponse UpdateLogStoreMeteringModeResponse
+     * @return UpdateLogStoreMeteringModeResponse
      */
     public function updateLogStoreMeteringModeWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->meteringMode)) {
-            $body['meteringMode'] = $request->meteringMode;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->meteringMode) {
+            @$body['meteringMode'] = $request->meteringMode;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLogStoreMeteringMode',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/meteringmode',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLogStoreMeteringMode',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/meteringmode',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateLogStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the billing mode of a Logstore.
-     *  *
+     * Changes the billing mode of a Logstore.
+     *
+     * @param request - UpdateLogStoreMeteringModeRequest
+     *
+     * @returns UpdateLogStoreMeteringModeResponse
+     *
      * @param string                            $project
      * @param string                            $logstore
-     * @param UpdateLogStoreMeteringModeRequest $request  UpdateLogStoreMeteringModeRequest
+     * @param UpdateLogStoreMeteringModeRequest $request
      *
-     * @return UpdateLogStoreMeteringModeResponse UpdateLogStoreMeteringModeResponse
+     * @return UpdateLogStoreMeteringModeResponse
      */
     public function updateLogStoreMeteringMode($project, $logstore, $request)
     {
@@ -10248,58 +12830,140 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the service log configurations of a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string               $project
-     * @param UpdateLoggingRequest $request UpdateLoggingRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Modifies the ingest processor that is associated with a Logstore.
      *
-     * @return UpdateLoggingResponse UpdateLoggingResponse
+     * @param request - UpdateLogStoreProcessorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLogStoreProcessorResponse
+     *
+     * @param string                         $project
+     * @param string                         $logstore
+     * @param UpdateLogStoreProcessorRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateLogStoreProcessorResponse
      */
-    public function updateLoggingWithOptions($project, $request, $headers, $runtime)
+    public function updateLogStoreProcessorWithOptions($project, $logstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->loggingDetails)) {
-            $body['loggingDetails'] = $request->loggingDetails;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->processorName) {
+            @$body['processorName'] = $request->processorName;
         }
-        if (!Utils::isUnset($request->loggingProject)) {
-            $body['loggingProject'] = $request->loggingProject;
-        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLogging',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logging',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLogStoreProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/processor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
+        ]);
+
+        return UpdateLogStoreProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the ingest processor that is associated with a Logstore.
+     *
+     * @param request - UpdateLogStoreProcessorRequest
+     *
+     * @returns UpdateLogStoreProcessorResponse
+     *
+     * @param string                         $project
+     * @param string                         $logstore
+     * @param UpdateLogStoreProcessorRequest $request
+     *
+     * @return UpdateLogStoreProcessorResponse
+     */
+    public function updateLogStoreProcessor($project, $logstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateLogStoreProcessorWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the service log configurations of a project.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - UpdateLoggingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLoggingResponse
+     *
+     * @param string               $project
+     * @param UpdateLoggingRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateLoggingResponse
+     */
+    public function updateLoggingWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->loggingDetails) {
+            @$body['loggingDetails'] = $request->loggingDetails;
+        }
+
+        if (null !== $request->loggingProject) {
+            @$body['loggingProject'] = $request->loggingProject;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLogging',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logging',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
         ]);
 
         return UpdateLoggingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the service log configurations of a project.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string               $project
-     * @param UpdateLoggingRequest $request UpdateLoggingRequest
+     * Updates the service log configurations of a project.
      *
-     * @return UpdateLoggingResponse UpdateLoggingResponse
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - UpdateLoggingRequest
+     *
+     * @returns UpdateLoggingResponse
+     *
+     * @param string               $project
+     * @param UpdateLoggingRequest $request
+     *
+     * @return UpdateLoggingResponse
      */
     public function updateLogging($project, $request)
     {
@@ -10310,75 +12974,94 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
+     * Updates a Logtail pipeline configuration.
+     *
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param request - UpdateLogtailPipelineConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLogtailPipelineConfigResponse
+     *
      * @param string                             $project
      * @param string                             $configName
-     * @param UpdateLogtailPipelineConfigRequest $request    UpdateLogtailPipelineConfigRequest
-     * @param string[]                           $headers    map
-     * @param RuntimeOptions                     $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateLogtailPipelineConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return UpdateLogtailPipelineConfigResponse UpdateLogtailPipelineConfigResponse
+     * @return UpdateLogtailPipelineConfigResponse
      */
     public function updateLogtailPipelineConfigWithOptions($project, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->aggregators)) {
-            $body['aggregators'] = $request->aggregators;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->aggregators) {
+            @$body['aggregators'] = $request->aggregators;
         }
-        if (!Utils::isUnset($request->configName)) {
-            $body['configName'] = $request->configName;
+
+        if (null !== $request->configName) {
+            @$body['configName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->flushers)) {
-            $body['flushers'] = $request->flushers;
+
+        if (null !== $request->flushers) {
+            @$body['flushers'] = $request->flushers;
         }
-        if (!Utils::isUnset($request->global_)) {
-            $body['global'] = $request->global_;
+
+        if (null !== $request->global) {
+            @$body['global'] = $request->global;
         }
-        if (!Utils::isUnset($request->inputs)) {
-            $body['inputs'] = $request->inputs;
+
+        if (null !== $request->inputs) {
+            @$body['inputs'] = $request->inputs;
         }
-        if (!Utils::isUnset($request->logSample)) {
-            $body['logSample'] = $request->logSample;
+
+        if (null !== $request->logSample) {
+            @$body['logSample'] = $request->logSample;
         }
-        if (!Utils::isUnset($request->processors)) {
-            $body['processors'] = $request->processors;
+
+        if (null !== $request->processors) {
+            @$body['processors'] = $request->processors;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLogtailPipelineConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/pipelineconfigs/' . $configName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLogtailPipelineConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pipelineconfigs/' . $configName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a Logtail pipeline configuration.
-     *  *
-     * @description The UK (London) region is supported. Supported regions are constantly updated.
-     *  *
+     * Updates a Logtail pipeline configuration.
+     *
+     * @remarks
+     * The UK (London) region is supported. Supported regions are constantly updated.
+     *
+     * @param request - UpdateLogtailPipelineConfigRequest
+     *
+     * @returns UpdateLogtailPipelineConfigResponse
+     *
      * @param string                             $project
      * @param string                             $configName
-     * @param UpdateLogtailPipelineConfigRequest $request    UpdateLogtailPipelineConfigRequest
+     * @param UpdateLogtailPipelineConfigRequest $request
      *
-     * @return UpdateLogtailPipelineConfigResponse UpdateLogtailPipelineConfigResponse
+     * @return UpdateLogtailPipelineConfigResponse
      */
     public function updateLogtailPipelineConfig($project, $configName, $request)
     {
@@ -10389,69 +13072,86 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configuration of a machine group.
-     *  *
-     * @description Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Modifies the configuration of a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - UpdateMachineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMachineGroupResponse
+     *
      * @param string                    $project
      * @param string                    $groupName
-     * @param UpdateMachineGroupRequest $request   UpdateMachineGroupRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateMachineGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateMachineGroupResponse UpdateMachineGroupResponse
+     * @return UpdateMachineGroupResponse
      */
     public function updateMachineGroupWithOptions($project, $groupName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->groupAttribute)) {
-            $body['groupAttribute'] = $request->groupAttribute;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->groupAttribute) {
+            @$body['groupAttribute'] = $request->groupAttribute;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $body['groupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$body['groupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->groupType)) {
-            $body['groupType'] = $request->groupType;
+
+        if (null !== $request->groupType) {
+            @$body['groupType'] = $request->groupType;
         }
-        if (!Utils::isUnset($request->machineIdentifyType)) {
-            $body['machineIdentifyType'] = $request->machineIdentifyType;
+
+        if (null !== $request->machineIdentifyType) {
+            @$body['machineIdentifyType'] = $request->machineIdentifyType;
         }
-        if (!Utils::isUnset($request->machineList)) {
-            $body['machineList'] = $request->machineList;
+
+        if (null !== $request->machineList) {
+            @$body['machineList'] = $request->machineList;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMachineGroup',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $groupName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMachineGroup',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $groupName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configuration of a machine group.
-     *  *
-     * @description Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Modifies the configuration of a machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - UpdateMachineGroupRequest
+     *
+     * @returns UpdateMachineGroupResponse
+     *
      * @param string                    $project
      * @param string                    $groupName
-     * @param UpdateMachineGroupRequest $request   UpdateMachineGroupRequest
+     * @param UpdateMachineGroupRequest $request
      *
-     * @return UpdateMachineGroupResponse UpdateMachineGroupResponse
+     * @return UpdateMachineGroupResponse
      */
     public function updateMachineGroup($project, $groupName, $request)
     {
@@ -10462,58 +13162,71 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the machines in a machine group. You can add machine to or remove machines from the machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Modifies the machines in a machine group. You can add machine to or remove machines from the machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - UpdateMachineGroupMachineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMachineGroupMachineResponse
+     *
      * @param string                           $project
      * @param string                           $machineGroup
-     * @param UpdateMachineGroupMachineRequest $request      UpdateMachineGroupMachineRequest
-     * @param string[]                         $headers      map
-     * @param RuntimeOptions                   $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateMachineGroupMachineRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
-     * @return UpdateMachineGroupMachineResponse UpdateMachineGroupMachineResponse
+     * @return UpdateMachineGroupMachineResponse
      */
     public function updateMachineGroupMachineWithOptions($project, $machineGroup, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->action)) {
-            $query['action'] = $request->action;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->action) {
+            @$query['action'] = $request->action;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'UpdateMachineGroupMachine',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/machinegroups/' . $machineGroup . '/machines',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMachineGroupMachine',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/machinegroups/' . $machineGroup . '/machines',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateMachineGroupMachineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the machines in a machine group. You can add machine to or remove machines from the machine group.
-     *  *
-     * @description Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
+     * Modifies the machines in a machine group. You can add machine to or remove machines from the machine group.
+     *
+     * @remarks
+     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     *
+     * @param request - UpdateMachineGroupMachineRequest
+     *
+     * @returns UpdateMachineGroupMachineResponse
+     *
      * @param string                           $project
      * @param string                           $machineGroup
-     * @param UpdateMachineGroupMachineRequest $request      UpdateMachineGroupMachineRequest
+     * @param UpdateMachineGroupMachineRequest $request
      *
-     * @return UpdateMachineGroupMachineResponse UpdateMachineGroupMachineResponse
+     * @return UpdateMachineGroupMachineResponse
      */
     public function updateMachineGroupMachine($project, $machineGroup, $request)
     {
@@ -10524,9 +13237,98 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the settings of an existing Metricstore. Metricstores are used to store metric data.
-     *  *
-     * @description Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
+     * Updates a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @param request - UpdateMaxComputeExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMaxComputeExportResponse
+     *
+     * @param string                        $project
+     * @param string                        $mcExportName
+     * @param UpdateMaxComputeExportRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateMaxComputeExportResponse
+     */
+    public function updateMaxComputeExportWithOptions($project, $mcExportName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMaxComputeExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maxcomputeexports/' . $mcExportName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return UpdateMaxComputeExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a MaxCompute data shipping job.
+     *
+     * @remarks
+     *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+     * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+     * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+     *
+     * @param request - UpdateMaxComputeExportRequest
+     *
+     * @returns UpdateMaxComputeExportResponse
+     *
+     * @param string                        $project
+     * @param string                        $mcExportName
+     * @param UpdateMaxComputeExportRequest $request
+     *
+     * @return UpdateMaxComputeExportResponse
+     */
+    public function updateMaxComputeExport($project, $mcExportName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMaxComputeExportWithOptions($project, $mcExportName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the settings of an existing Metricstore. Metricstores are used to store metric data.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
      * *   You must specify an existing Metricstore.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -10534,57 +13336,76 @@ class Sls extends OpenApiClient
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
+     *
+     * @param request - UpdateMetricStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetricStoreResponse
+     *
      * @param string                   $project
      * @param string                   $name
-     * @param UpdateMetricStoreRequest $request UpdateMetricStoreRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param UpdateMetricStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateMetricStoreResponse UpdateMetricStoreResponse
+     * @return UpdateMetricStoreResponse
      */
     public function updateMetricStoreWithOptions($project, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->autoSplit)) {
-            $body['autoSplit'] = $request->autoSplit;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->autoSplit) {
+            @$body['autoSplit'] = $request->autoSplit;
         }
-        if (!Utils::isUnset($request->maxSplitShard)) {
-            $body['maxSplitShard'] = $request->maxSplitShard;
+
+        if (null !== $request->hotTtl) {
+            @$body['hot_ttl'] = $request->hotTtl;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $body['mode'] = $request->mode;
+
+        if (null !== $request->infrequentAccessTTL) {
+            @$body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $body['ttl'] = $request->ttl;
+
+        if (null !== $request->maxSplitShard) {
+            @$body['maxSplitShard'] = $request->maxSplitShard;
         }
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
+        }
+
+        if (null !== $request->ttl) {
+            @$body['ttl'] = $request->ttl;
+        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMetricStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores/' . $name . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMetricStore',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores/' . $name . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateMetricStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the settings of an existing Metricstore. Metricstores are used to store metric data.
-     *  *
-     * @description Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
+     * Updates the settings of an existing Metricstore. Metricstores are used to store metric data.
+     *
+     * @remarks
+     * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
      * *   You must specify an existing Metricstore.
      * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
@@ -10592,12 +13413,16 @@ class Sls extends OpenApiClient
      * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
      * *   You can create up to 200 Logstores or Metricstores in a project.
      * *   Metric data is automatically deleted when the retention period of the metric data ends.
-     *  *
+     *
+     * @param request - UpdateMetricStoreRequest
+     *
+     * @returns UpdateMetricStoreResponse
+     *
      * @param string                   $project
      * @param string                   $name
-     * @param UpdateMetricStoreRequest $request UpdateMetricStoreRequest
+     * @param UpdateMetricStoreRequest $request
      *
-     * @return UpdateMetricStoreResponse UpdateMetricStoreResponse
+     * @return UpdateMetricStoreResponse
      */
     public function updateMetricStore($project, $name, $request)
     {
@@ -10608,53 +13433,64 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新 MetricStore 计量模式
-     *  *
+     * 更新 MetricStore 计量模式.
+     *
+     * @param request - UpdateMetricStoreMeteringModeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetricStoreMeteringModeResponse
+     *
      * @param string                               $project
      * @param string                               $metricStore
-     * @param UpdateMetricStoreMeteringModeRequest $request     UpdateMetricStoreMeteringModeRequest
-     * @param string[]                             $headers     map
-     * @param RuntimeOptions                       $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateMetricStoreMeteringModeRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return UpdateMetricStoreMeteringModeResponse UpdateMetricStoreMeteringModeResponse
+     * @return UpdateMetricStoreMeteringModeResponse
      */
     public function updateMetricStoreMeteringModeWithOptions($project, $metricStore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->meteringMode)) {
-            $body['meteringMode'] = $request->meteringMode;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->meteringMode) {
+            @$body['meteringMode'] = $request->meteringMode;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMetricStoreMeteringMode',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/metricstores/' . $metricStore . '/meteringmode',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMetricStoreMeteringMode',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores/' . $metricStore . '/meteringmode',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateMetricStoreMeteringModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新 MetricStore 计量模式
-     *  *
+     * 更新 MetricStore 计量模式.
+     *
+     * @param request - UpdateMetricStoreMeteringModeRequest
+     *
+     * @returns UpdateMetricStoreMeteringModeResponse
+     *
      * @param string                               $project
      * @param string                               $metricStore
-     * @param UpdateMetricStoreMeteringModeRequest $request     UpdateMetricStoreMeteringModeRequest
+     * @param UpdateMetricStoreMeteringModeRequest $request
      *
-     * @return UpdateMetricStoreMeteringModeResponse UpdateMetricStoreMeteringModeResponse
+     * @return UpdateMetricStoreMeteringModeResponse
      */
     public function updateMetricStoreMeteringMode($project, $metricStore, $request)
     {
@@ -10665,59 +13501,140 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新OSS投递任务
-     *  *
-     * @param string                 $project
-     * @param string                 $ossExportName
-     * @param UpdateOSSExportRequest $request       UpdateOSSExportRequest
-     * @param string[]               $headers       map
-     * @param RuntimeOptions         $runtime       runtime options for this request RuntimeOptions
+     * Updates the ingest processor that is associated with a Metricstore.
      *
-     * @return UpdateOSSExportResponse UpdateOSSExportResponse
+     * @param request - UpdateMetricStoreProcessorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetricStoreProcessorResponse
+     *
+     * @param string                            $project
+     * @param string                            $metricstore
+     * @param UpdateMetricStoreProcessorRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateMetricStoreProcessorResponse
      */
-    public function updateOSSExportWithOptions($project, $ossExportName, $request, $headers, $runtime)
+    public function updateMetricStoreProcessorWithOptions($project, $metricstore, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->processorName) {
+            @$body['processorName'] = $request->processorName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
-        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateOSSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossexports/' . $ossExportName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMetricStoreProcessor',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/metricstores/' . $metricstore . '/processor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
+        ]);
+
+        return UpdateMetricStoreProcessorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the ingest processor that is associated with a Metricstore.
+     *
+     * @param request - UpdateMetricStoreProcessorRequest
+     *
+     * @returns UpdateMetricStoreProcessorResponse
+     *
+     * @param string                            $project
+     * @param string                            $metricstore
+     * @param UpdateMetricStoreProcessorRequest $request
+     *
+     * @return UpdateMetricStoreProcessorResponse
+     */
+    public function updateMetricStoreProcessor($project, $metricstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMetricStoreProcessorWithOptions($project, $metricstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新OSS投递任务
+     *
+     * @param request - UpdateOSSExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOSSExportResponse
+     *
+     * @param string                 $project
+     * @param string                 $ossExportName
+     * @param UpdateOSSExportRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateOSSExportResponse
+     */
+    public function updateOSSExportWithOptions($project, $ossExportName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOSSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossexports/' . $ossExportName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
         ]);
 
         return UpdateOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新OSS投递任务
-     *  *
+     * 更新OSS投递任务
+     *
+     * @param request - UpdateOSSExportRequest
+     *
+     * @returns UpdateOSSExportResponse
+     *
      * @param string                 $project
      * @param string                 $ossExportName
-     * @param UpdateOSSExportRequest $request       UpdateOSSExportRequest
+     * @param UpdateOSSExportRequest $request
      *
-     * @return UpdateOSSExportResponse UpdateOSSExportResponse
+     * @return UpdateOSSExportResponse
      */
     public function updateOSSExport($project, $ossExportName, $request)
     {
@@ -10728,59 +13645,72 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新OSSHDFS投递任务
-     *  *
+     * 更新OSSHDFS投递任务
+     *
+     * @param request - UpdateOSSHDFSExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOSSHDFSExportResponse
+     *
      * @param string                     $project
      * @param string                     $ossExportName
-     * @param UpdateOSSHDFSExportRequest $request       UpdateOSSHDFSExportRequest
-     * @param string[]                   $headers       map
-     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateOSSHDFSExportRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateOSSHDFSExportResponse UpdateOSSHDFSExportResponse
+     * @return UpdateOSSHDFSExportResponse
      */
     public function updateOSSHDFSExportWithOptions($project, $ossExportName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateOSSHDFSExport',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/osshdfsexports/' . $ossExportName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateOSSHDFSExport',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/osshdfsexports/' . $ossExportName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新OSSHDFS投递任务
-     *  *
+     * 更新OSSHDFS投递任务
+     *
+     * @param request - UpdateOSSHDFSExportRequest
+     *
+     * @returns UpdateOSSHDFSExportResponse
+     *
      * @param string                     $project
      * @param string                     $ossExportName
-     * @param UpdateOSSHDFSExportRequest $request       UpdateOSSHDFSExportRequest
+     * @param UpdateOSSHDFSExportRequest $request
      *
-     * @return UpdateOSSHDFSExportResponse UpdateOSSHDFSExportResponse
+     * @return UpdateOSSHDFSExportResponse
      */
     public function updateOSSHDFSExport($project, $ossExportName, $request)
     {
@@ -10791,62 +13721,76 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 更新oss导入任务
-     *  *
+     * Updates an Object Storage Service (OSS) data import job.
+     *
+     * @param request - UpdateOSSIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOSSIngestionResponse
+     *
      * @param string                    $project
      * @param string                    $ossIngestionName
-     * @param UpdateOSSIngestionRequest $request          UpdateOSSIngestionRequest
-     * @param string[]                  $headers          map
-     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateOSSIngestionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateOSSIngestionResponse UpdateOSSIngestionResponse
+     * @return UpdateOSSIngestionResponse
      */
     public function updateOSSIngestionWithOptions($project, $ossIngestionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateOSSIngestion',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ossingestions/' . $ossIngestionName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateOSSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ossingestions/' . $ossIngestionName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新oss导入任务
-     *  *
+     * Updates an Object Storage Service (OSS) data import job.
+     *
+     * @param request - UpdateOSSIngestionRequest
+     *
+     * @returns UpdateOSSIngestionResponse
+     *
      * @param string                    $project
      * @param string                    $ossIngestionName
-     * @param UpdateOSSIngestionRequest $request          UpdateOSSIngestionRequest
+     * @param UpdateOSSIngestionRequest $request
      *
-     * @return UpdateOSSIngestionResponse UpdateOSSIngestionResponse
+     * @return UpdateOSSIngestionResponse
      */
     public function updateOSSIngestion($project, $ossIngestionName, $request)
     {
@@ -10857,78 +13801,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates an Object Storage Service (OSS) external store.
-     *  *
-     * @description ### [](#)Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param string                        $externalStoreName
-     * @param UpdateOssExternalStoreRequest $request           UpdateOssExternalStoreRequest
-     * @param string[]                      $headers           map
-     * @param RuntimeOptions                $runtime           runtime options for this request RuntimeOptions
+     * Updates a project.
      *
-     * @return UpdateOssExternalStoreResponse UpdateOssExternalStoreResponse
-     */
-    public function updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->externalStoreName)) {
-            $body['externalStoreName'] = $request->externalStoreName;
-        }
-        if (!Utils::isUnset($request->parameter)) {
-            $body['parameter'] = $request->parameter;
-        }
-        if (!Utils::isUnset($request->storeType)) {
-            $body['storeType'] = $request->storeType;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateOssExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores/' . $externalStoreName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UpdateOssExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Updates an Object Storage Service (OSS) external store.
-     *  *
-     * @description ### [](#)Usage notes
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param string                        $externalStoreName
-     * @param UpdateOssExternalStoreRequest $request           UpdateOssExternalStoreRequest
-     *
-     * @return UpdateOssExternalStoreResponse UpdateOssExternalStoreResponse
-     */
-    public function updateOssExternalStore($project, $externalStoreName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary Updates a project.
-     *  *
-     * @description ### Usage notes
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -10937,47 +13813,59 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UpdateProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
-     *  *
-     * @param string               $project
-     * @param UpdateProjectRequest $request UpdateProjectRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @param request - UpdateProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param string               $project
+     * @param UpdateProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
      */
     public function updateProjectWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
+
+        if (null !== $request->recycleBinEnabled) {
+            @$body['recycleBinEnabled'] = $request->recycleBinEnabled;
+        }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProject',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateProject',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a project.
-     *  *
-     * @description ### Usage notes
+     * Updates a project.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -10986,11 +13874,15 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UpdateProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
-     *  *
-     * @param string               $project
-     * @param UpdateProjectRequest $request UpdateProjectRequest
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @param request - UpdateProjectRequest
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param string               $project
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
      */
     public function updateProject($project, $request)
     {
@@ -11001,76 +13893,10 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates an ApsaraDB RDS external store.
-     *  *
-     * @description Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param string                        $externalStoreName
-     * @param UpdateRdsExternalStoreRequest $request           UpdateRdsExternalStoreRequest
-     * @param string[]                      $headers           map
-     * @param RuntimeOptions                $runtime           runtime options for this request RuntimeOptions
+     * Updates a saved search.
      *
-     * @return UpdateRdsExternalStoreResponse UpdateRdsExternalStoreResponse
-     */
-    public function updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->externalStoreName)) {
-            $body['externalStoreName'] = $request->externalStoreName;
-        }
-        if (!Utils::isUnset($request->parameter)) {
-            $body['parameter'] = $request->parameter;
-        }
-        if (!Utils::isUnset($request->storeType)) {
-            $body['storeType'] = $request->storeType;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateRdsExternalStore',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/externalstores/' . $externalStoreName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UpdateRdsExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Updates an ApsaraDB RDS external store.
-     *  *
-     * @description Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-     *  *
-     * @param string                        $project
-     * @param string                        $externalStoreName
-     * @param UpdateRdsExternalStoreRequest $request           UpdateRdsExternalStoreRequest
-     *
-     * @return UpdateRdsExternalStoreResponse UpdateRdsExternalStoreResponse
-     */
-    public function updateRdsExternalStore($project, $externalStoreName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary Updates a saved search.
-     *  *
-     * @description ### Usage notes
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -11081,60 +13907,72 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UpdateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
-     *  *
+     *
+     * @param request - UpdateSavedSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSavedSearchResponse
+     *
      * @param string                   $project
      * @param string                   $savedsearchName
-     * @param UpdateSavedSearchRequest $request         UpdateSavedSearchRequest
-     * @param string[]                 $headers         map
-     * @param RuntimeOptions           $runtime         runtime options for this request RuntimeOptions
+     * @param UpdateSavedSearchRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateSavedSearchResponse UpdateSavedSearchResponse
+     * @return UpdateSavedSearchResponse
      */
     public function updateSavedSearchWithOptions($project, $savedsearchName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->logstore)) {
-            $body['logstore'] = $request->logstore;
+
+        if (null !== $request->logstore) {
+            @$body['logstore'] = $request->logstore;
         }
-        if (!Utils::isUnset($request->savedsearchName)) {
-            $body['savedsearchName'] = $request->savedsearchName;
+
+        if (null !== $request->savedsearchName) {
+            @$body['savedsearchName'] = $request->savedsearchName;
         }
-        if (!Utils::isUnset($request->searchQuery)) {
-            $body['searchQuery'] = $request->searchQuery;
+
+        if (null !== $request->searchQuery) {
+            @$body['searchQuery'] = $request->searchQuery;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSavedSearch',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/savedsearches/' . $savedsearchName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSavedSearch',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/savedsearches/' . $savedsearchName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a saved search.
-     *  *
-     * @description ### Usage notes
+     * Updates a saved search.
+     *
+     * @remarks
+     * ### Usage notes
      * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
      * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
@@ -11145,12 +13983,16 @@ class Sls extends OpenApiClient
      * |Action|Resource|
      * |:---|:---|
      * |`log:UpdateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
-     *  *
+     *
+     * @param request - UpdateSavedSearchRequest
+     *
+     * @returns UpdateSavedSearchResponse
+     *
      * @param string                   $project
      * @param string                   $savedsearchName
-     * @param UpdateSavedSearchRequest $request         UpdateSavedSearchRequest
+     * @param UpdateSavedSearchRequest $request
      *
-     * @return UpdateSavedSearchResponse UpdateSavedSearchResponse
+     * @return UpdateSavedSearchResponse
      */
     public function updateSavedSearch($project, $savedsearchName, $request)
     {
@@ -11161,62 +14003,76 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates a Scheduled SQL job.
-     *  *
+     * Updates a Scheduled SQL job.
+     *
+     * @param request - UpdateScheduledSQLRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateScheduledSQLResponse
+     *
      * @param string                    $project
      * @param string                    $scheduledSQLName
-     * @param UpdateScheduledSQLRequest $request          UpdateScheduledSQLRequest
-     * @param string[]                  $headers          map
-     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateScheduledSQLRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateScheduledSQLResponse UpdateScheduledSQLResponse
+     * @return UpdateScheduledSQLResponse
      */
     public function updateScheduledSQLWithOptions($project, $scheduledSQLName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $body['configuration'] = $request->configuration;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['displayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->schedule)) {
-            $body['schedule'] = $request->schedule;
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScheduledSQL',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateScheduledSQL',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/scheduledsqls/' . $scheduledSQLName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a Scheduled SQL job.
-     *  *
+     * Updates a Scheduled SQL job.
+     *
+     * @param request - UpdateScheduledSQLRequest
+     *
+     * @returns UpdateScheduledSQLResponse
+     *
      * @param string                    $project
      * @param string                    $scheduledSQLName
-     * @param UpdateScheduledSQLRequest $request          UpdateScheduledSQLRequest
+     * @param UpdateScheduledSQLRequest $request
      *
-     * @return UpdateScheduledSQLResponse UpdateScheduledSQLResponse
+     * @return UpdateScheduledSQLResponse
      */
     public function updateScheduledSQL($project, $scheduledSQLName, $request)
     {
@@ -11227,54 +14083,66 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of the Dedicated SQL feature.
-     *  *
-     * @param string                   $project
-     * @param UpdateSqlInstanceRequest $request UpdateSqlInstanceRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates the configurations of the Dedicated SQL feature.
      *
-     * @return UpdateSqlInstanceResponse UpdateSqlInstanceResponse
+     * @param request - UpdateSqlInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSqlInstanceResponse
+     *
+     * @param string                   $project
+     * @param UpdateSqlInstanceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSqlInstanceResponse
      */
     public function updateSqlInstanceWithOptions($project, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->cu)) {
-            $body['cu'] = $request->cu;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->cu) {
+            @$body['cu'] = $request->cu;
         }
-        if (!Utils::isUnset($request->useAsDefault)) {
-            $body['useAsDefault'] = $request->useAsDefault;
+
+        if (null !== $request->useAsDefault) {
+            @$body['useAsDefault'] = $request->useAsDefault;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSqlInstance',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/sqlinstance',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSqlInstance',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/sqlinstance',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the configurations of the Dedicated SQL feature.
-     *  *
-     * @param string                   $project
-     * @param UpdateSqlInstanceRequest $request UpdateSqlInstanceRequest
+     * Updates the configurations of the Dedicated SQL feature.
      *
-     * @return UpdateSqlInstanceResponse UpdateSqlInstanceResponse
+     * @param request - UpdateSqlInstanceRequest
+     *
+     * @returns UpdateSqlInstanceResponse
+     *
+     * @param string                   $project
+     * @param UpdateSqlInstanceRequest $request
+     *
+     * @return UpdateSqlInstanceResponse
      */
     public function updateSqlInstance($project, $request)
     {
@@ -11285,56 +14153,68 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of a dataset.
-     *  *
+     * Updates the configurations of a dataset.
+     *
+     * @param request - UpdateStoreViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStoreViewResponse
+     *
      * @param string                 $project
      * @param string                 $name
-     * @param UpdateStoreViewRequest $request UpdateStoreViewRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param UpdateStoreViewRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return UpdateStoreViewResponse UpdateStoreViewResponse
+     * @return UpdateStoreViewResponse
      */
     public function updateStoreViewWithOptions($project, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->storeType)) {
-            $body['storeType'] = $request->storeType;
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->storeType) {
+            @$body['storeType'] = $request->storeType;
         }
-        if (!Utils::isUnset($request->stores)) {
-            $body['stores'] = $request->stores;
+
+        if (null !== $request->stores) {
+            @$body['stores'] = $request->stores;
         }
+
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStoreView',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/storeviews/' . $name . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateStoreView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/storeviews/' . $name . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpdateStoreViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the configurations of a dataset.
-     *  *
+     * Updates the configurations of a dataset.
+     *
+     * @param request - UpdateStoreViewRequest
+     *
+     * @returns UpdateStoreViewResponse
+     *
      * @param string                 $project
      * @param string                 $name
-     * @param UpdateStoreViewRequest $request UpdateStoreViewRequest
+     * @param UpdateStoreViewRequest $request
      *
-     * @return UpdateStoreViewResponse UpdateStoreViewResponse
+     * @return UpdateStoreViewResponse
      */
     public function updateStoreView($project, $name, $request)
     {
@@ -11345,70 +14225,89 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @summary 调用UpsertCollectionPolicy接口创建或更新日志采集规则
-     *  *
-     * @param UpsertCollectionPolicyRequest $request UpsertCollectionPolicyRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 调用UpsertCollectionPolicy接口创建或更新日志采集规则.
      *
-     * @return UpsertCollectionPolicyResponse UpsertCollectionPolicyResponse
+     * @param request - UpsertCollectionPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertCollectionPolicyResponse
+     *
+     * @param UpsertCollectionPolicyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpsertCollectionPolicyResponse
      */
     public function upsertCollectionPolicyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->centralizeConfig)) {
-            $body['centralizeConfig'] = $request->centralizeConfig;
+        if (null !== $request->centralizeConfig) {
+            @$body['centralizeConfig'] = $request->centralizeConfig;
         }
-        if (!Utils::isUnset($request->centralizeEnabled)) {
-            $body['centralizeEnabled'] = $request->centralizeEnabled;
+
+        if (null !== $request->centralizeEnabled) {
+            @$body['centralizeEnabled'] = $request->centralizeEnabled;
         }
-        if (!Utils::isUnset($request->dataCode)) {
-            $body['dataCode'] = $request->dataCode;
+
+        if (null !== $request->dataCode) {
+            @$body['dataCode'] = $request->dataCode;
         }
-        if (!Utils::isUnset($request->dataConfig)) {
-            $body['dataConfig'] = $request->dataConfig;
+
+        if (null !== $request->dataConfig) {
+            @$body['dataConfig'] = $request->dataConfig;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $body['enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->policyConfig)) {
-            $body['policyConfig'] = $request->policyConfig;
+
+        if (null !== $request->policyConfig) {
+            @$body['policyConfig'] = $request->policyConfig;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $body['policyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$body['policyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['productCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['productCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->resourceDirectory)) {
-            $body['resourceDirectory'] = $request->resourceDirectory;
+
+        if (null !== $request->resourceDirectory) {
+            @$body['resourceDirectory'] = $request->resourceDirectory;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpsertCollectionPolicy',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/collectionpolicy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpsertCollectionPolicy',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/collectionpolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
 
         return UpsertCollectionPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用UpsertCollectionPolicy接口创建或更新日志采集规则
-     *  *
-     * @param UpsertCollectionPolicyRequest $request UpsertCollectionPolicyRequest
+     * 调用UpsertCollectionPolicy接口创建或更新日志采集规则.
      *
-     * @return UpsertCollectionPolicyResponse UpsertCollectionPolicyResponse
+     * @param request - UpsertCollectionPolicyRequest
+     *
+     * @returns UpsertCollectionPolicyResponse
+     *
+     * @param UpsertCollectionPolicyRequest $request
+     *
+     * @return UpsertCollectionPolicyResponse
      */
     public function upsertCollectionPolicy($request)
     {
