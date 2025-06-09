@@ -77,6 +77,11 @@ class data extends Model
     public $outputToken;
 
     /**
+     * @var string
+     */
+    public $pubTime;
+
+    /**
      * @var summary
      */
     public $summary;
@@ -85,6 +90,11 @@ class data extends Model
      * @var string
      */
     public $textSummary;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'category' => 'Category',
         'createTime' => 'CreateTime',
@@ -99,8 +109,10 @@ class data extends Model
         'locations' => 'Locations',
         'news' => 'News',
         'outputToken' => 'OutputToken',
+        'pubTime' => 'PubTime',
         'summary' => 'Summary',
         'textSummary' => 'TextSummary',
+        'url' => 'Url',
     ];
 
     public function validate()
@@ -193,12 +205,20 @@ class data extends Model
             $res['OutputToken'] = $this->outputToken;
         }
 
+        if (null !== $this->pubTime) {
+            $res['PubTime'] = $this->pubTime;
+        }
+
         if (null !== $this->summary) {
             $res['Summary'] = null !== $this->summary ? $this->summary->toArray($noStream) : $this->summary;
         }
 
         if (null !== $this->textSummary) {
             $res['TextSummary'] = $this->textSummary;
+        }
+
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -282,12 +302,20 @@ class data extends Model
             $model->outputToken = $map['OutputToken'];
         }
 
+        if (isset($map['PubTime'])) {
+            $model->pubTime = $map['PubTime'];
+        }
+
         if (isset($map['Summary'])) {
             $model->summary = summary::fromMap($map['Summary']);
         }
 
         if (isset($map['TextSummary'])) {
             $model->textSummary = $map['TextSummary'];
+        }
+
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
