@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStartApplicationsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStartApplicationsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStopApplicationsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStopApplicationsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\BindNlbRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\BindNlbResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BindSlbRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BindSlbResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ConfirmPipelineBatchRequest;
@@ -85,6 +87,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationImageRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationImageResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationNlbsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationNlbsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesRequest;
@@ -590,6 +594,83 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->batchStopApplicationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Associates a Network Load Balancer (NLB) instance with an application.
+     *
+     * @param request - BindNlbRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindNlbResponse
+     *
+     * @param BindNlbRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindNlbResponse
+     */
+    public function bindNlbWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
+        }
+
+        if (null !== $request->nlbId) {
+            @$query['NlbId'] = $request->nlbId;
+        }
+
+        if (null !== $request->zoneMappings) {
+            @$query['ZoneMappings'] = $request->zoneMappings;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindNlb',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/nlb',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BindNlbResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates a Network Load Balancer (NLB) instance with an application.
+     *
+     * @param request - BindNlbRequest
+     *
+     * @returns BindNlbResponse
+     *
+     * @param BindNlbRequest $request
+     *
+     * @return BindNlbResponse
+     */
+    public function bindNlb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->bindNlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3912,6 +3993,67 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->describeApplicationInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the Network Load Balancer (NLB) instances bound to an application and their listeners.
+     *
+     * @param request - DescribeApplicationNlbsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationNlbsResponse
+     *
+     * @param DescribeApplicationNlbsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeApplicationNlbsResponse
+     */
+    public function describeApplicationNlbsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationNlbs',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/nlb',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationNlbsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Network Load Balancer (NLB) instances bound to an application and their listeners.
+     *
+     * @param request - DescribeApplicationNlbsRequest
+     *
+     * @returns DescribeApplicationNlbsResponse
+     *
+     * @param DescribeApplicationNlbsRequest $request
+     *
+     * @return DescribeApplicationNlbsResponse
+     */
+    public function describeApplicationNlbs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeApplicationNlbsWithOptions($request, $headers, $runtime);
     }
 
     /**

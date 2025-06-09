@@ -28,11 +28,17 @@ class timer extends Model
      * @var schedules[]
      */
     public $schedules;
+
+    /**
+     * @var string
+     */
+    public $timeZone;
     protected $_name = [
         'beginDate' => 'BeginDate',
         'endDate' => 'EndDate',
         'period' => 'Period',
         'schedules' => 'Schedules',
+        'timeZone' => 'TimeZone',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class timer extends Model
             }
         }
 
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
+        }
+
         return $res;
     }
 
@@ -99,6 +109,10 @@ class timer extends Model
                     $model->schedules[$n1++] = schedules::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         return $model;
