@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\ListAppsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\ListAppsResponseBody\result\tags;
 
 class result extends Model
 {
@@ -59,6 +60,11 @@ class result extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $version;
@@ -73,11 +79,15 @@ class result extends Model
         'ownerId' => 'ownerId',
         'regionId' => 'regionId',
         'status' => 'status',
+        'tags' => 'tags',
         'version' => 'version',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -122,6 +132,16 @@ class result extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->version) {
@@ -177,6 +197,16 @@ class result extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['version'])) {

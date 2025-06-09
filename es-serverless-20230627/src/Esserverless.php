@@ -115,11 +115,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelSpecReviewTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -228,11 +225,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -306,11 +300,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -382,11 +373,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -440,11 +428,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -507,11 +492,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDictResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDictResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDictResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -564,11 +546,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -620,11 +599,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -685,11 +661,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -742,11 +715,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAppQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAppQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAppQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -799,11 +769,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMonitorDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -855,11 +822,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSnapshotSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -910,11 +874,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSpecReviewTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1001,11 +962,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1070,11 +1028,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDictsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDictsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDictsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1151,11 +1106,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1207,11 +1159,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIndicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1261,11 +1210,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSnapshotRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSnapshotRepositoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSnapshotRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1336,11 +1282,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1422,11 +1365,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSpecReviewTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSpecReviewTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSpecReviewTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1512,11 +1452,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1596,11 +1533,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDictResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1666,11 +1600,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1736,11 +1667,8 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSnapshotSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
