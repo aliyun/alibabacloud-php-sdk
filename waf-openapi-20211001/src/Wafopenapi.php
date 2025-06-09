@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApiExportsRequest;
@@ -336,6 +338,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReCreateCloudResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReCreateCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\SyncProductInstanceRequest;
@@ -904,6 +908,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
 
         if (null !== $request->resourceManagerResourceGroupId) {
@@ -1860,6 +1868,10 @@ class Wafopenapi extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
         if (null !== $request->resourceManagerResourceGroupId) {
             @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
@@ -2198,6 +2210,71 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMemberAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询异常的云产品接入资源.
+     *
+     * @param request - DescribeAbnormalCloudResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAbnormalCloudResourcesResponse
+     *
+     * @param DescribeAbnormalCloudResourcesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAbnormalCloudResourcesResponse
+     */
+    public function describeAbnormalCloudResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAbnormalCloudResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAbnormalCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异常的云产品接入资源.
+     *
+     * @param request - DescribeAbnormalCloudResourcesRequest
+     *
+     * @returns DescribeAbnormalCloudResourcesResponse
+     *
+     * @param DescribeAbnormalCloudResourcesRequest $request
+     *
+     * @return DescribeAbnormalCloudResourcesResponse
+     */
+    public function describeAbnormalCloudResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAbnormalCloudResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -5045,6 +5122,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
 
         if (null !== $request->resourceManagerResourceGroupId) {
@@ -11648,6 +11729,10 @@ class Wafopenapi extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
         if (null !== $request->resourceManagerResourceGroupId) {
             @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
@@ -13080,6 +13165,83 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTemplateResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重新接入云产品
+     *
+     * @param request - ReCreateCloudResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReCreateCloudResourceResponse
+     *
+     * @param ReCreateCloudResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ReCreateCloudResourceResponse
+     */
+    public function reCreateCloudResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReCreateCloudResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReCreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新接入云产品
+     *
+     * @param request - ReCreateCloudResourceRequest
+     *
+     * @returns ReCreateCloudResourceResponse
+     *
+     * @param ReCreateCloudResourceRequest $request
+     *
+     * @return ReCreateCloudResourceResponse
+     */
+    public function reCreateCloudResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reCreateCloudResourceWithOptions($request, $runtime);
     }
 
     /**

@@ -54,6 +54,11 @@ class rules extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $resource;
+
+    /**
      * @var int
      */
     public $ruleId;
@@ -87,6 +92,7 @@ class rules extends Model
         'externalInfo' => 'ExternalInfo',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'resource' => 'Resource',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
         'ruleType' => 'RuleType',
@@ -136,6 +142,10 @@ class rules extends Model
 
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->ruleId) {
@@ -203,6 +213,10 @@ class rules extends Model
 
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         if (isset($map['RuleId'])) {

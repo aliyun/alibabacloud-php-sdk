@@ -26,6 +26,11 @@ class CreateDefenseRuleRequest extends Model
     /**
      * @var string
      */
+    public $resource;
+
+    /**
+     * @var string
+     */
     public $resourceManagerResourceGroupId;
 
     /**
@@ -41,6 +46,7 @@ class CreateDefenseRuleRequest extends Model
         'defenseScene' => 'DefenseScene',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'rules' => 'Rules',
         'templateId' => 'TemplateId',
@@ -64,6 +70,10 @@ class CreateDefenseRuleRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->resourceManagerResourceGroupId) {
@@ -99,6 +109,10 @@ class CreateDefenseRuleRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         if (isset($map['ResourceManagerResourceGroupId'])) {

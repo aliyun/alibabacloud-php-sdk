@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDefenseRuleRequest extends Model
+class DescribeAbnormalCloudResourcesRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $defenseScene;
-
     /**
      * @var string
      */
@@ -26,30 +21,11 @@ class ModifyDefenseRuleRequest extends Model
     /**
      * @var string
      */
-    public $resource;
-
-    /**
-     * @var string
-     */
     public $resourceManagerResourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $rules;
-
-    /**
-     * @var int
-     */
-    public $templateId;
     protected $_name = [
-        'defenseScene' => 'DefenseScene',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
-        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'rules' => 'Rules',
-        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -60,10 +36,6 @@ class ModifyDefenseRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->defenseScene) {
-            $res['DefenseScene'] = $this->defenseScene;
-        }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -72,20 +44,8 @@ class ModifyDefenseRuleRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
-        }
-
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
-        }
-
-        if (null !== $this->rules) {
-            $res['Rules'] = $this->rules;
-        }
-
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -99,10 +59,6 @@ class ModifyDefenseRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefenseScene'])) {
-            $model->defenseScene = $map['DefenseScene'];
-        }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -111,20 +67,8 @@ class ModifyDefenseRuleRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
-        }
-
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
-        }
-
-        if (isset($map['Rules'])) {
-            $model->rules = $map['Rules'];
-        }
-
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

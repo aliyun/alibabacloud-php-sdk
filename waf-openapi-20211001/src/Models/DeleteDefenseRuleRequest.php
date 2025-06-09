@@ -21,6 +21,11 @@ class DeleteDefenseRuleRequest extends Model
     /**
      * @var string
      */
+    public $resource;
+
+    /**
+     * @var string
+     */
     public $resourceManagerResourceGroupId;
 
     /**
@@ -35,6 +40,7 @@ class DeleteDefenseRuleRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'ruleIds' => 'RuleIds',
         'templateId' => 'TemplateId',
@@ -54,6 +60,10 @@ class DeleteDefenseRuleRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->resourceManagerResourceGroupId) {
@@ -85,6 +95,10 @@ class DeleteDefenseRuleRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         if (isset($map['ResourceManagerResourceGroupId'])) {

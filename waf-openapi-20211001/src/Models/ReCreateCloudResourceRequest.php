@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDefenseRuleRequest extends Model
+class ReCreateCloudResourceRequest extends Model
 {
     /**
      * @var string
      */
-    public $defenseScene;
+    public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $port;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class ModifyDefenseRuleRequest extends Model
     /**
      * @var string
      */
-    public $resource;
+    public $resourceInstanceId;
 
     /**
      * @var string
@@ -36,20 +36,14 @@ class ModifyDefenseRuleRequest extends Model
     /**
      * @var string
      */
-    public $rules;
-
-    /**
-     * @var int
-     */
-    public $templateId;
+    public $resourceProduct;
     protected $_name = [
-        'defenseScene' => 'DefenseScene',
         'instanceId' => 'InstanceId',
+        'port' => 'Port',
         'regionId' => 'RegionId',
-        'resource' => 'Resource',
+        'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'rules' => 'Rules',
-        'templateId' => 'TemplateId',
+        'resourceProduct' => 'ResourceProduct',
     ];
 
     public function validate()
@@ -60,32 +54,28 @@ class ModifyDefenseRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->defenseScene) {
-            $res['DefenseScene'] = $this->defenseScene;
-        }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
+        if (null !== $this->resourceInstanceId) {
+            $res['ResourceInstanceId'] = $this->resourceInstanceId;
         }
 
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
 
-        if (null !== $this->rules) {
-            $res['Rules'] = $this->rules;
-        }
-
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->resourceProduct) {
+            $res['ResourceProduct'] = $this->resourceProduct;
         }
 
         return $res;
@@ -99,32 +89,28 @@ class ModifyDefenseRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefenseScene'])) {
-            $model->defenseScene = $map['DefenseScene'];
-        }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
+        if (isset($map['ResourceInstanceId'])) {
+            $model->resourceInstanceId = $map['ResourceInstanceId'];
         }
 
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
 
-        if (isset($map['Rules'])) {
-            $model->rules = $map['Rules'];
-        }
-
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['ResourceProduct'])) {
+            $model->resourceProduct = $map['ResourceProduct'];
         }
 
         return $model;

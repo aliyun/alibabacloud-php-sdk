@@ -29,6 +29,11 @@ class rule extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $resource;
+
+    /**
      * @var int
      */
     public $ruleId;
@@ -52,6 +57,7 @@ class rule extends Model
         'defenseOrigin' => 'DefenseOrigin',
         'defenseScene' => 'DefenseScene',
         'gmtModified' => 'GmtModified',
+        'resource' => 'Resource',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
         'status' => 'Status',
@@ -80,6 +86,10 @@ class rule extends Model
 
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->ruleId) {
@@ -123,6 +133,10 @@ class rule extends Model
 
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         if (isset($map['RuleId'])) {
