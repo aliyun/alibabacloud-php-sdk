@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class UpdateAgentInstanceConfigRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
     public $attributes;
 
@@ -19,7 +19,7 @@ class UpdateAgentInstanceConfigRequest extends Model
     public $config;
 
     /**
-     * @var string
+     * @var AgentInstanceConfigGrayConfigs[]
      */
     public $grayConfigs;
     protected $_name = [
@@ -30,6 +30,12 @@ class UpdateAgentInstanceConfigRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        if (\is_array($this->grayConfigs)) {
+            Model::validateArray($this->grayConfigs);
+        }
         parent::validate();
     }
 
@@ -37,7 +43,12 @@ class UpdateAgentInstanceConfigRequest extends Model
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['attributes'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->config) {
@@ -45,7 +56,13 @@ class UpdateAgentInstanceConfigRequest extends Model
         }
 
         if (null !== $this->grayConfigs) {
-            $res['grayConfigs'] = $this->grayConfigs;
+            if (\is_array($this->grayConfigs)) {
+                $res['grayConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->grayConfigs as $item1) {
+                    $res['grayConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -60,7 +77,12 @@ class UpdateAgentInstanceConfigRequest extends Model
     {
         $model = new self();
         if (isset($map['attributes'])) {
-            $model->attributes = $map['attributes'];
+            if (!empty($map['attributes'])) {
+                $model->attributes = [];
+                foreach ($map['attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['config'])) {
@@ -68,7 +90,13 @@ class UpdateAgentInstanceConfigRequest extends Model
         }
 
         if (isset($map['grayConfigs'])) {
-            $model->grayConfigs = $map['grayConfigs'];
+            if (!empty($map['grayConfigs'])) {
+                $model->grayConfigs = [];
+                $n1 = 0;
+                foreach ($map['grayConfigs'] as $item1) {
+                    $model->grayConfigs[$n1++] = AgentInstanceConfigGrayConfigs::fromMap($item1);
+                }
+            }
         }
 
         return $model;

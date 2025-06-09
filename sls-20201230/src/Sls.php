@@ -68,6 +68,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAgentInstanceConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAgentInstanceConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAgentInstanceConfigShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
@@ -105,6 +106,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\EnableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAgentInstanceConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAgentInstanceConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAgentInstanceConfigShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataSetResponse;
@@ -253,6 +255,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAgentInstanceConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAgentInstanceConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAgentInstanceConfigShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAlertRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationDataSetRequest;
@@ -2893,25 +2896,31 @@ class Sls extends OpenApiClient
     /**
      * DeleteAgentInstanceConfig.
      *
-     * @param request - DeleteAgentInstanceConfigRequest
+     * @param tmpReq - DeleteAgentInstanceConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAgentInstanceConfigResponse
      *
      * @param string                           $configType
-     * @param DeleteAgentInstanceConfigRequest $request
+     * @param DeleteAgentInstanceConfigRequest $tmpReq
      * @param string[]                         $headers
      * @param RuntimeOptions                   $runtime
      *
      * @return DeleteAgentInstanceConfigResponse
      */
-    public function deleteAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime)
+    public function deleteAgentInstanceConfigWithOptions($configType, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DeleteAgentInstanceConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'attributes', 'json');
+        }
+
         $query = [];
-        if (null !== $request->attributes) {
-            @$query['attributes'] = $request->attributes;
+        if (null !== $request->attributesShrink) {
+            @$query['attributes'] = $request->attributesShrink;
         }
 
         $req = new OpenApiRequest([
@@ -4967,25 +4976,31 @@ class Sls extends OpenApiClient
     /**
      * GetAgentInstanceConfig.
      *
-     * @param request - GetAgentInstanceConfigRequest
+     * @param tmpReq - GetAgentInstanceConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAgentInstanceConfigResponse
      *
      * @param string                        $configType
-     * @param GetAgentInstanceConfigRequest $request
+     * @param GetAgentInstanceConfigRequest $tmpReq
      * @param string[]                      $headers
      * @param RuntimeOptions                $runtime
      *
      * @return GetAgentInstanceConfigResponse
      */
-    public function getAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime)
+    public function getAgentInstanceConfigWithOptions($configType, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetAgentInstanceConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'attributes', 'json');
+        }
+
         $query = [];
-        if (null !== $request->attributes) {
-            @$query['attributes'] = $request->attributes;
+        if (null !== $request->attributesShrink) {
+            @$query['attributes'] = $request->attributesShrink;
         }
 
         $req = new OpenApiRequest([
@@ -7899,10 +7914,6 @@ class Sls extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->attributes) {
-            @$query['attributes'] = $request->attributes;
-        }
-
         if (null !== $request->configType) {
             @$query['configType'] = $request->configType;
         }
@@ -8720,7 +8731,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 列举下载任务
+     * Queries a list of log download tasks in a project.
      *
      * @param request - ListDownloadJobsRequest
      * @param headers - map
@@ -8774,7 +8785,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 列举下载任务
+     * Queries a list of log download tasks in a project.
      *
      * @param request - ListDownloadJobsRequest
      *
@@ -11853,25 +11864,31 @@ class Sls extends OpenApiClient
     /**
      * UpdateAgentInstanceConfig.
      *
-     * @param request - UpdateAgentInstanceConfigRequest
+     * @param tmpReq - UpdateAgentInstanceConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateAgentInstanceConfigResponse
      *
      * @param string                           $configType
-     * @param UpdateAgentInstanceConfigRequest $request
+     * @param UpdateAgentInstanceConfigRequest $tmpReq
      * @param string[]                         $headers
      * @param RuntimeOptions                   $runtime
      *
      * @return UpdateAgentInstanceConfigResponse
      */
-    public function updateAgentInstanceConfigWithOptions($configType, $request, $headers, $runtime)
+    public function updateAgentInstanceConfigWithOptions($configType, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateAgentInstanceConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'attributes', 'json');
+        }
+
         $query = [];
-        if (null !== $request->attributes) {
-            @$query['attributes'] = $request->attributes;
+        if (null !== $request->attributesShrink) {
+            @$query['attributes'] = $request->attributesShrink;
         }
 
         $body = [];

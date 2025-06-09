@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetAgentInstanceConfigResponseBody extends Model
+class UpdateAgentInstanceConfigShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $attributes;
+    public $attributesShrink;
 
     /**
      * @var string
@@ -19,38 +19,17 @@ class GetAgentInstanceConfigResponseBody extends Model
     public $config;
 
     /**
-     * @var string
-     */
-    public $configType;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
      * @var AgentInstanceConfigGrayConfigs[]
      */
     public $grayConfigs;
-
-    /**
-     * @var int
-     */
-    public $lastModifyTime;
     protected $_name = [
-        'attributes' => 'attributes',
+        'attributesShrink' => 'attributes',
         'config' => 'config',
-        'configType' => 'configType',
-        'createTime' => 'createTime',
         'grayConfigs' => 'grayConfigs',
-        'lastModifyTime' => 'lastModifyTime',
     ];
 
     public function validate()
     {
-        if (\is_array($this->attributes)) {
-            Model::validateArray($this->attributes);
-        }
         if (\is_array($this->grayConfigs)) {
             Model::validateArray($this->grayConfigs);
         }
@@ -60,25 +39,12 @@ class GetAgentInstanceConfigResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->attributes) {
-            if (\is_array($this->attributes)) {
-                $res['attributes'] = [];
-                foreach ($this->attributes as $key1 => $value1) {
-                    $res['attributes'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->attributesShrink) {
+            $res['attributes'] = $this->attributesShrink;
         }
 
         if (null !== $this->config) {
             $res['config'] = $this->config;
-        }
-
-        if (null !== $this->configType) {
-            $res['configType'] = $this->configType;
-        }
-
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
 
         if (null !== $this->grayConfigs) {
@@ -89,10 +55,6 @@ class GetAgentInstanceConfigResponseBody extends Model
                     $res['grayConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
-        }
-
-        if (null !== $this->lastModifyTime) {
-            $res['lastModifyTime'] = $this->lastModifyTime;
         }
 
         return $res;
@@ -107,24 +69,11 @@ class GetAgentInstanceConfigResponseBody extends Model
     {
         $model = new self();
         if (isset($map['attributes'])) {
-            if (!empty($map['attributes'])) {
-                $model->attributes = [];
-                foreach ($map['attributes'] as $key1 => $value1) {
-                    $model->attributes[$key1] = $value1;
-                }
-            }
+            $model->attributesShrink = $map['attributes'];
         }
 
         if (isset($map['config'])) {
             $model->config = $map['config'];
-        }
-
-        if (isset($map['configType'])) {
-            $model->configType = $map['configType'];
-        }
-
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
         }
 
         if (isset($map['grayConfigs'])) {
@@ -135,10 +84,6 @@ class GetAgentInstanceConfigResponseBody extends Model
                     $model->grayConfigs[$n1++] = AgentInstanceConfigGrayConfigs::fromMap($item1);
                 }
             }
-        }
-
-        if (isset($map['lastModifyTime'])) {
-            $model->lastModifyTime = $map['lastModifyTime'];
         }
 
         return $model;

@@ -1,3 +1,6 @@
+2025-06-09 Version: 4.7.2
+- Generated php 2020-12-30 for Sls.
+
 2025-06-09 Version: 4.7.1
 - Update API CreateAgentInstanceConfig: add request parameters body.attributes.
 - Update API CreateAgentInstanceConfig: add request parameters body.configType.

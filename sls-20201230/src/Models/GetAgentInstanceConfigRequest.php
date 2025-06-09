@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class GetAgentInstanceConfigRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
     public $attributes;
     protected $_name = [
@@ -18,6 +18,9 @@ class GetAgentInstanceConfigRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
         parent::validate();
     }
 
@@ -25,7 +28,12 @@ class GetAgentInstanceConfigRequest extends Model
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['attributes'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
@@ -40,7 +48,12 @@ class GetAgentInstanceConfigRequest extends Model
     {
         $model = new self();
         if (isset($map['attributes'])) {
-            $model->attributes = $map['attributes'];
+            if (!empty($map['attributes'])) {
+                $model->attributes = [];
+                foreach ($map['attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

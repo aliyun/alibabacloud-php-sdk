@@ -11,11 +11,6 @@ class ListAgentInstanceConfigsRequest extends Model
     /**
      * @var string
      */
-    public $attributes;
-
-    /**
-     * @var string
-     */
     public $configType;
 
     /**
@@ -28,7 +23,6 @@ class ListAgentInstanceConfigsRequest extends Model
      */
     public $size;
     protected $_name = [
-        'attributes' => 'attributes',
         'configType' => 'configType',
         'offset' => 'offset',
         'size' => 'size',
@@ -42,10 +36,6 @@ class ListAgentInstanceConfigsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->attributes) {
-            $res['attributes'] = $this->attributes;
-        }
-
         if (null !== $this->configType) {
             $res['configType'] = $this->configType;
         }
@@ -69,10 +59,6 @@ class ListAgentInstanceConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['attributes'])) {
-            $model->attributes = $map['attributes'];
-        }
-
         if (isset($map['configType'])) {
             $model->configType = $map['configType'];
         }
