@@ -11,6 +11,11 @@ class UpgradeLindormV2StreamEngineRequest extends Model
     /**
      * @var string
      */
+    public $customConfig;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -63,6 +68,7 @@ class UpgradeLindormV2StreamEngineRequest extends Model
      */
     public $upgradeType;
     protected $_name = [
+        'customConfig' => 'CustomConfig',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -84,6 +90,10 @@ class UpgradeLindormV2StreamEngineRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customConfig) {
+            $res['CustomConfig'] = $this->customConfig;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -139,6 +149,10 @@ class UpgradeLindormV2StreamEngineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomConfig'])) {
+            $model->customConfig = $map['CustomConfig'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -5126,6 +5126,10 @@ class Hitsdb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customConfig) {
+            @$query['CustomConfig'] = $request->customConfig;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
