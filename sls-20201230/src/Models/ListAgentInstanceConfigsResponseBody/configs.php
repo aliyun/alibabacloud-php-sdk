@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class configs extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
     public $attributes;
 
@@ -24,6 +24,9 @@ class configs extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
         parent::validate();
     }
 
@@ -31,7 +34,12 @@ class configs extends Model
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['attributes'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->configType) {
@@ -50,7 +58,12 @@ class configs extends Model
     {
         $model = new self();
         if (isset($map['attributes'])) {
-            $model->attributes = $map['attributes'];
+            if (!empty($map['attributes'])) {
+                $model->attributes = [];
+                foreach ($map['attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['configType'])) {
