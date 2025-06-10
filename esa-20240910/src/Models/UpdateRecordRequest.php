@@ -54,6 +54,11 @@ class UpdateRecordRequest extends Model
      * @var int
      */
     public $ttl;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authConf' => 'AuthConf',
         'bizName' => 'BizName',
@@ -64,6 +69,7 @@ class UpdateRecordRequest extends Model
         'recordId' => 'RecordId',
         'sourceType' => 'SourceType',
         'ttl' => 'Ttl',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class UpdateRecordRequest extends Model
             $res['Ttl'] = $this->ttl;
         }
 
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -161,6 +171,10 @@ class UpdateRecordRequest extends Model
 
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

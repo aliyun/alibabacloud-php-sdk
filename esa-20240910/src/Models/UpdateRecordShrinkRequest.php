@@ -52,6 +52,11 @@ class UpdateRecordShrinkRequest extends Model
      * @var int
      */
     public $ttl;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authConfShrink' => 'AuthConf',
         'bizName' => 'BizName',
@@ -62,6 +67,7 @@ class UpdateRecordShrinkRequest extends Model
         'recordId' => 'RecordId',
         'sourceType' => 'SourceType',
         'ttl' => 'Ttl',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class UpdateRecordShrinkRequest extends Model
 
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class UpdateRecordShrinkRequest extends Model
 
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

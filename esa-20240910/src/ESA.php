@@ -123,6 +123,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSlrRoleForRealtimeLogResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateVideoProcessingRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRulesetRequest;
@@ -213,6 +215,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRulesetRequest;
@@ -393,6 +397,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserLogDeliveryQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserLogDeliveryQuotaResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetVideoProcessingRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafBotAppKeyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponse;
@@ -503,6 +509,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListVideoProcessingsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListVideoProcessingsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesShrinkRequest;
@@ -667,6 +675,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVideoProcessingRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRulesetRequest;
@@ -5152,6 +5162,107 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 新增站点视频处理配置.
+     *
+     * @param request - CreateVideoProcessingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoProcessingResponse
+     *
+     * @param CreateVideoProcessingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateVideoProcessingResponse
+     */
+    public function createVideoProcessingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flvSeekEnd) {
+            @$query['FlvSeekEnd'] = $request->flvSeekEnd;
+        }
+
+        if (null !== $request->flvSeekStart) {
+            @$query['FlvSeekStart'] = $request->flvSeekStart;
+        }
+
+        if (null !== $request->flvVideoSeekMode) {
+            @$query['FlvVideoSeekMode'] = $request->flvVideoSeekMode;
+        }
+
+        if (null !== $request->mp4SeekEnd) {
+            @$query['Mp4SeekEnd'] = $request->mp4SeekEnd;
+        }
+
+        if (null !== $request->mp4SeekStart) {
+            @$query['Mp4SeekStart'] = $request->mp4SeekStart;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->videoSeekEnable) {
+            @$query['VideoSeekEnable'] = $request->videoSeekEnable;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVideoProcessing',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVideoProcessingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点视频处理配置.
+     *
+     * @param request - CreateVideoProcessingRequest
+     *
+     * @returns CreateVideoProcessingResponse
+     *
+     * @param CreateVideoProcessingRequest $request
+     *
+     * @return CreateVideoProcessingResponse
+     */
+    public function createVideoProcessing($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVideoProcessingWithOptions($request, $runtime);
+    }
+
+    /**
      * Create WAF Rule.
      *
      * @param tmpReq - CreateWafRuleRequest
@@ -7951,6 +8062,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserDeliveryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除站点视频处理配置.
+     *
+     * @param request - DeleteVideoProcessingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVideoProcessingResponse
+     *
+     * @param DeleteVideoProcessingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteVideoProcessingResponse
+     */
+    public function deleteVideoProcessingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVideoProcessing',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVideoProcessingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除站点视频处理配置.
+     *
+     * @param request - DeleteVideoProcessingRequest
+     *
+     * @returns DeleteVideoProcessingResponse
+     *
+     * @param DeleteVideoProcessingRequest $request
+     *
+     * @return DeleteVideoProcessingResponse
+     */
+    public function deleteVideoProcessing($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVideoProcessingWithOptions($request, $runtime);
     }
 
     /**
@@ -13082,6 +13254,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询站点视频处理配置详情.
+     *
+     * @param request - GetVideoProcessingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoProcessingResponse
+     *
+     * @param GetVideoProcessingRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetVideoProcessingResponse
+     */
+    public function getVideoProcessingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoProcessing',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoProcessingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点视频处理配置详情.
+     *
+     * @param request - GetVideoProcessingRequest
+     *
+     * @returns GetVideoProcessingResponse
+     *
+     * @param GetVideoProcessingRequest $request
+     *
+     * @return GetVideoProcessingResponse
+     */
+    public function getVideoProcessing($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoProcessingWithOptions($request, $runtime);
+    }
+
+    /**
      * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
      *
      * @param request - GetWafBotAppKeyRequest
@@ -16228,6 +16461,87 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询站点视频处理配置列表.
+     *
+     * @param request - ListVideoProcessingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVideoProcessingsResponse
+     *
+     * @param ListVideoProcessingsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListVideoProcessingsResponse
+     */
+    public function listVideoProcessingsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->configType) {
+            @$query['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVideoProcessings',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVideoProcessingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点视频处理配置列表.
+     *
+     * @param request - ListVideoProcessingsRequest
+     *
+     * @returns ListVideoProcessingsResponse
+     *
+     * @param ListVideoProcessingsRequest $request
+     *
+     * @return ListVideoProcessingsResponse
+     */
+    public function listVideoProcessings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVideoProcessingsWithOptions($request, $runtime);
+    }
+
+    /**
      * List WAF Managed Rules.
      *
      * @param tmpReq - ListWafManagedRulesRequest
@@ -18812,7 +19126,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modify site CNAME flattening configuration.
+     * Modifies the CNAME flattening configuration of a website.
      *
      * @param request - UpdateCnameFlatteningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18855,7 +19169,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modify site CNAME flattening configuration.
+     * Modifies the CNAME flattening configuration of a website.
      *
      * @param request - UpdateCnameFlatteningRequest
      *
@@ -20816,6 +21130,10 @@ class ESA extends OpenApiClient
             @$query['Ttl'] = $request->ttl;
         }
 
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -21985,6 +22303,107 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserDeliveryTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改站点视频处理配置.
+     *
+     * @param request - UpdateVideoProcessingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoProcessingResponse
+     *
+     * @param UpdateVideoProcessingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateVideoProcessingResponse
+     */
+    public function updateVideoProcessingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->flvSeekEnd) {
+            @$query['FlvSeekEnd'] = $request->flvSeekEnd;
+        }
+
+        if (null !== $request->flvSeekStart) {
+            @$query['FlvSeekStart'] = $request->flvSeekStart;
+        }
+
+        if (null !== $request->flvVideoSeekMode) {
+            @$query['FlvVideoSeekMode'] = $request->flvVideoSeekMode;
+        }
+
+        if (null !== $request->mp4SeekEnd) {
+            @$query['Mp4SeekEnd'] = $request->mp4SeekEnd;
+        }
+
+        if (null !== $request->mp4SeekStart) {
+            @$query['Mp4SeekStart'] = $request->mp4SeekStart;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->videoSeekEnable) {
+            @$query['VideoSeekEnable'] = $request->videoSeekEnable;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVideoProcessing',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVideoProcessingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点视频处理配置.
+     *
+     * @param request - UpdateVideoProcessingRequest
+     *
+     * @returns UpdateVideoProcessingResponse
+     *
+     * @param UpdateVideoProcessingRequest $request
+     *
+     * @return UpdateVideoProcessingResponse
+     */
+    public function updateVideoProcessing($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVideoProcessingWithOptions($request, $runtime);
     }
 
     /**
