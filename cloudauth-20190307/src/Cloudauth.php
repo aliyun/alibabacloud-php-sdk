@@ -20,6 +20,9 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAuthKeyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAuthKeyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialProductVerifyV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialProductVerifyV2Request;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialProductVerifyV2Response;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyShrinkRequest;
@@ -833,6 +836,166 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVerifySettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 商品凭证核验.
+     *
+     * @param request - CredentialProductVerifyV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialProductVerifyV2Response
+     *
+     * @param CredentialProductVerifyV2Request $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CredentialProductVerifyV2Response
+     */
+    public function credentialProductVerifyV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credName) {
+            @$query['CredName'] = $request->credName;
+        }
+
+        if (null !== $request->credType) {
+            @$query['CredType'] = $request->credType;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$query['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->merchantId) {
+            @$query['MerchantId'] = $request->merchantId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $body = [];
+        if (null !== $request->imageFile) {
+            @$body['ImageFile'] = $request->imageFile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialProductVerifyV2',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialProductVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 商品凭证核验.
+     *
+     * @param request - CredentialProductVerifyV2Request
+     *
+     * @returns CredentialProductVerifyV2Response
+     *
+     * @param CredentialProductVerifyV2Request $request
+     *
+     * @return CredentialProductVerifyV2Response
+     */
+    public function credentialProductVerifyV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialProductVerifyV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CredentialProductVerifyV2AdvanceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CredentialProductVerifyV2Response
+     */
+    public function credentialProductVerifyV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'Cloudauth',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $credentialProductVerifyV2Req = new CredentialProductVerifyV2Request([]);
+        Utils::convert($request, $credentialProductVerifyV2Req);
+        if (null !== $request->imageFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->imageFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $credentialProductVerifyV2Req->imageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->credentialProductVerifyV2WithOptions($credentialProductVerifyV2Req, $runtime);
     }
 
     /**
