@@ -21,6 +21,11 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $faceDetail;
+
+    /**
+     * @var string
+     */
     public $ocrCardInfo;
 
     /**
@@ -30,6 +35,7 @@ class resultObject extends Model
     protected $_name = [
         'bizCode' => 'BizCode',
         'cardInfo' => 'CardInfo',
+        'faceDetail' => 'FaceDetail',
         'ocrCardInfo' => 'OcrCardInfo',
         'pictureInfo' => 'PictureInfo',
     ];
@@ -48,6 +54,10 @@ class resultObject extends Model
 
         if (null !== $this->cardInfo) {
             $res['CardInfo'] = $this->cardInfo;
+        }
+
+        if (null !== $this->faceDetail) {
+            $res['FaceDetail'] = $this->faceDetail;
         }
 
         if (null !== $this->ocrCardInfo) {
@@ -75,6 +85,10 @@ class resultObject extends Model
 
         if (isset($map['CardInfo'])) {
             $model->cardInfo = $map['CardInfo'];
+        }
+
+        if (isset($map['FaceDetail'])) {
+            $model->faceDetail = $map['FaceDetail'];
         }
 
         if (isset($map['OcrCardInfo'])) {
