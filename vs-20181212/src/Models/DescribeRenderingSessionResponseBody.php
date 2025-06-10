@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\additionalIngresses;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\location;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\portMappings;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingSessionResponseBody\stateInfo;
 
 class DescribeRenderingSessionResponseBody extends Model
 {
+    /**
+     * @var additionalIngresses[]
+     */
+    public $additionalIngresses;
+
     /**
      * @var string
      */
@@ -25,6 +31,11 @@ class DescribeRenderingSessionResponseBody extends Model
      * @var string
      */
     public $hostname;
+
+    /**
+     * @var string
+     */
+    public $isp;
 
     /**
      * @var location
@@ -56,9 +67,11 @@ class DescribeRenderingSessionResponseBody extends Model
      */
     public $stateInfo;
     protected $_name = [
+        'additionalIngresses' => 'AdditionalIngresses',
         'appId' => 'AppId',
         'clientId' => 'ClientId',
         'hostname' => 'Hostname',
+        'isp' => 'Isp',
         'location' => 'Location',
         'portMappings' => 'PortMappings',
         'requestId' => 'RequestId',
@@ -69,6 +82,9 @@ class DescribeRenderingSessionResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalIngresses)) {
+            Model::validateArray($this->additionalIngresses);
+        }
         if (null !== $this->location) {
             $this->location->validate();
         }
@@ -84,6 +100,16 @@ class DescribeRenderingSessionResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->additionalIngresses) {
+            if (\is_array($this->additionalIngresses)) {
+                $res['AdditionalIngresses'] = [];
+                $n1 = 0;
+                foreach ($this->additionalIngresses as $item1) {
+                    $res['AdditionalIngresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -94,6 +120,10 @@ class DescribeRenderingSessionResponseBody extends Model
 
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
 
         if (null !== $this->location) {
@@ -137,6 +167,16 @@ class DescribeRenderingSessionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalIngresses'])) {
+            if (!empty($map['AdditionalIngresses'])) {
+                $model->additionalIngresses = [];
+                $n1 = 0;
+                foreach ($map['AdditionalIngresses'] as $item1) {
+                    $model->additionalIngresses[$n1++] = additionalIngresses::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -147,6 +187,10 @@ class DescribeRenderingSessionResponseBody extends Model
 
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
+        }
+
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
 
         if (isset($map['Location'])) {

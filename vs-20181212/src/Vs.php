@@ -5360,7 +5360,11 @@ class Vs extends OpenApiClient
     public function describeRenderingInstanceWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->renderingInstanceId) {
+            @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5369,7 +5373,7 @@ class Vs extends OpenApiClient
             'version' => '2018-12-12',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',

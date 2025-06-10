@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\additionalIngresses;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\configInfo;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\portMappings;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\renderingStatus;
@@ -12,6 +13,11 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\s
 
 class DescribeRenderingInstanceResponseBody extends Model
 {
+    /**
+     * @var additionalIngresses[]
+     */
+    public $additionalIngresses;
+
     /**
      * @var configInfo
      */
@@ -31,6 +37,11 @@ class DescribeRenderingInstanceResponseBody extends Model
      * @var string
      */
     public $hostname;
+
+    /**
+     * @var string
+     */
+    public $isp;
 
     /**
      * @var portMappings[]
@@ -67,10 +78,12 @@ class DescribeRenderingInstanceResponseBody extends Model
      */
     public $systemInfo;
     protected $_name = [
+        'additionalIngresses' => 'AdditionalIngresses',
         'configInfo' => 'ConfigInfo',
         'creationTime' => 'CreationTime',
         'egressIp' => 'EgressIp',
         'hostname' => 'Hostname',
+        'isp' => 'Isp',
         'portMappings' => 'PortMappings',
         'renderingInstanceId' => 'RenderingInstanceId',
         'renderingSpec' => 'RenderingSpec',
@@ -82,6 +95,9 @@ class DescribeRenderingInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalIngresses)) {
+            Model::validateArray($this->additionalIngresses);
+        }
         if (null !== $this->configInfo) {
             $this->configInfo->validate();
         }
@@ -100,6 +116,16 @@ class DescribeRenderingInstanceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->additionalIngresses) {
+            if (\is_array($this->additionalIngresses)) {
+                $res['AdditionalIngresses'] = [];
+                $n1 = 0;
+                foreach ($this->additionalIngresses as $item1) {
+                    $res['AdditionalIngresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->configInfo) {
             $res['ConfigInfo'] = null !== $this->configInfo ? $this->configInfo->toArray($noStream) : $this->configInfo;
         }
@@ -114,6 +140,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
 
         if (null !== $this->portMappings) {
@@ -161,6 +191,16 @@ class DescribeRenderingInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalIngresses'])) {
+            if (!empty($map['AdditionalIngresses'])) {
+                $model->additionalIngresses = [];
+                $n1 = 0;
+                foreach ($map['AdditionalIngresses'] as $item1) {
+                    $model->additionalIngresses[$n1++] = additionalIngresses::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['ConfigInfo'])) {
             $model->configInfo = configInfo::fromMap($map['ConfigInfo']);
         }
@@ -175,6 +215,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
+        }
+
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
 
         if (isset($map['PortMappings'])) {
