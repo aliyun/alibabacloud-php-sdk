@@ -1103,6 +1103,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateConvExtensionShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateFormDataHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateFormDataRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateFormDataResponse;
@@ -23811,6 +23816,104 @@ class Aliding extends OpenApiClient
         $headers = new UnsubscribeEventHeaders([]);
 
         return $this->unsubscribeEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param tmpReq - UpdateConvExtensionRequest
+     * @param tmpHeader - UpdateConvExtensionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConvExtensionResponse
+     *
+     * @param UpdateConvExtensionRequest $tmpReq
+     * @param UpdateConvExtensionHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateConvExtensionResponse
+     */
+    public function updateConvExtensionWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateConvExtensionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UpdateConvExtensionShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->staffIdList) {
+            $request->staffIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->staffIdList, 'StaffIdList', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->mobileUrl) {
+            @$body['MobileUrl'] = $request->mobileUrl;
+        }
+
+        if (null !== $request->pcUrl) {
+            @$body['PcUrl'] = $request->pcUrl;
+        }
+
+        if (null !== $request->staffIdListShrink) {
+            @$body['StaffIdList'] = $request->staffIdListShrink;
+        }
+
+        if (null !== $request->systemUid) {
+            @$body['SystemUid'] = $request->systemUid;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConvExtension',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/conversation/updateConvExtension',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConvExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateConvExtensionRequest
+     *
+     * @returns UpdateConvExtensionResponse
+     *
+     * @param UpdateConvExtensionRequest $request
+     *
+     * @return UpdateConvExtensionResponse
+     */
+    public function updateConvExtension($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateConvExtensionHeaders([]);
+
+        return $this->updateConvExtensionWithOptions($request, $headers, $runtime);
     }
 
     /**
