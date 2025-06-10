@@ -8589,6 +8589,10 @@ class Ecd extends OpenApiClient
             @$query['Scope'] = $request->scope;
         }
 
+        if (null !== $request->scopeSet) {
+            @$query['ScopeSet'] = $request->scopeSet;
+        }
+
         if (null !== $request->sortType) {
             @$query['SortType'] = $request->sortType;
         }

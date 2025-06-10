@@ -84,6 +84,11 @@ class DescribeDesktopTypesRequest extends Model
     public $scope;
 
     /**
+     * @var string[]
+     */
+    public $scopeSet;
+
+    /**
      * @var string
      */
     public $sortType;
@@ -113,6 +118,7 @@ class DescribeDesktopTypesRequest extends Model
         'orderType' => 'OrderType',
         'regionId' => 'RegionId',
         'scope' => 'Scope',
+        'scopeSet' => 'ScopeSet',
         'sortType' => 'SortType',
         'supportMinSessionCount' => 'SupportMinSessionCount',
         'zoneId' => 'ZoneId',
@@ -122,6 +128,9 @@ class DescribeDesktopTypesRequest extends Model
     {
         if (\is_array($this->desktopTypeIdList)) {
             Model::validateArray($this->desktopTypeIdList);
+        }
+        if (\is_array($this->scopeSet)) {
+            Model::validateArray($this->scopeSet);
         }
         parent::validate();
     }
@@ -193,6 +202,16 @@ class DescribeDesktopTypesRequest extends Model
 
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
+        }
+
+        if (null !== $this->scopeSet) {
+            if (\is_array($this->scopeSet)) {
+                $res['ScopeSet'] = [];
+                $n1 = 0;
+                foreach ($this->scopeSet as $item1) {
+                    $res['ScopeSet'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->sortType) {
@@ -282,6 +301,16 @@ class DescribeDesktopTypesRequest extends Model
 
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+
+        if (isset($map['ScopeSet'])) {
+            if (!empty($map['ScopeSet'])) {
+                $model->scopeSet = [];
+                $n1 = 0;
+                foreach ($map['ScopeSet'] as $item1) {
+                    $model->scopeSet[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['SortType'])) {
