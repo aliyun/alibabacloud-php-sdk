@@ -19,6 +19,11 @@ class GetNamespaceResponseBody extends Model
     public $code;
 
     /**
+     * @var RepoConfiguration
+     */
+    public $defaultRepoConfiguration;
+
+    /**
      * @var string
      */
     public $defaultRepoType;
@@ -60,6 +65,7 @@ class GetNamespaceResponseBody extends Model
     protected $_name = [
         'autoCreateRepo' => 'AutoCreateRepo',
         'code' => 'Code',
+        'defaultRepoConfiguration' => 'DefaultRepoConfiguration',
         'defaultRepoType' => 'DefaultRepoType',
         'instanceId' => 'InstanceId',
         'isSuccess' => 'IsSuccess',
@@ -72,6 +78,9 @@ class GetNamespaceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->defaultRepoConfiguration) {
+            $this->defaultRepoConfiguration->validate();
+        }
         parent::validate();
     }
 
@@ -84,6 +93,10 @@ class GetNamespaceResponseBody extends Model
 
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->defaultRepoConfiguration) {
+            $res['DefaultRepoConfiguration'] = null !== $this->defaultRepoConfiguration ? $this->defaultRepoConfiguration->toArray($noStream) : $this->defaultRepoConfiguration;
         }
 
         if (null !== $this->defaultRepoType) {
@@ -135,6 +148,10 @@ class GetNamespaceResponseBody extends Model
 
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['DefaultRepoConfiguration'])) {
+            $model->defaultRepoConfiguration = RepoConfiguration::fromMap($map['DefaultRepoConfiguration']);
         }
 
         if (isset($map['DefaultRepoType'])) {

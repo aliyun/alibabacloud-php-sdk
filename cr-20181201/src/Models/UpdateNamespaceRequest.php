@@ -14,6 +14,11 @@ class UpdateNamespaceRequest extends Model
     public $autoCreateRepo;
 
     /**
+     * @var RepoConfiguration
+     */
+    public $defaultRepoConfiguration;
+
+    /**
      * @var string
      */
     public $defaultRepoType;
@@ -29,6 +34,7 @@ class UpdateNamespaceRequest extends Model
     public $namespaceName;
     protected $_name = [
         'autoCreateRepo' => 'AutoCreateRepo',
+        'defaultRepoConfiguration' => 'DefaultRepoConfiguration',
         'defaultRepoType' => 'DefaultRepoType',
         'instanceId' => 'InstanceId',
         'namespaceName' => 'NamespaceName',
@@ -36,6 +42,9 @@ class UpdateNamespaceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->defaultRepoConfiguration) {
+            $this->defaultRepoConfiguration->validate();
+        }
         parent::validate();
     }
 
@@ -44,6 +53,10 @@ class UpdateNamespaceRequest extends Model
         $res = [];
         if (null !== $this->autoCreateRepo) {
             $res['AutoCreateRepo'] = $this->autoCreateRepo;
+        }
+
+        if (null !== $this->defaultRepoConfiguration) {
+            $res['DefaultRepoConfiguration'] = null !== $this->defaultRepoConfiguration ? $this->defaultRepoConfiguration->toArray($noStream) : $this->defaultRepoConfiguration;
         }
 
         if (null !== $this->defaultRepoType) {
@@ -71,6 +84,10 @@ class UpdateNamespaceRequest extends Model
         $model = new self();
         if (isset($map['AutoCreateRepo'])) {
             $model->autoCreateRepo = $map['AutoCreateRepo'];
+        }
+
+        if (isset($map['DefaultRepoConfiguration'])) {
+            $model->defaultRepoConfiguration = RepoConfiguration::fromMap($map['DefaultRepoConfiguration']);
         }
 
         if (isset($map['DefaultRepoType'])) {

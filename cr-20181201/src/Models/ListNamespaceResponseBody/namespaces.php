@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListNamespaceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cr\V20181201\Models\RepoConfiguration;
 
 class namespaces extends Model
 {
@@ -12,6 +13,11 @@ class namespaces extends Model
      * @var bool
      */
     public $autoCreateRepo;
+
+    /**
+     * @var RepoConfiguration
+     */
+    public $defaultRepoConfiguration;
 
     /**
      * @var string
@@ -44,6 +50,7 @@ class namespaces extends Model
     public $resourceGroupId;
     protected $_name = [
         'autoCreateRepo' => 'AutoCreateRepo',
+        'defaultRepoConfiguration' => 'DefaultRepoConfiguration',
         'defaultRepoType' => 'DefaultRepoType',
         'instanceId' => 'InstanceId',
         'namespaceId' => 'NamespaceId',
@@ -54,6 +61,9 @@ class namespaces extends Model
 
     public function validate()
     {
+        if (null !== $this->defaultRepoConfiguration) {
+            $this->defaultRepoConfiguration->validate();
+        }
         parent::validate();
     }
 
@@ -62,6 +72,10 @@ class namespaces extends Model
         $res = [];
         if (null !== $this->autoCreateRepo) {
             $res['AutoCreateRepo'] = $this->autoCreateRepo;
+        }
+
+        if (null !== $this->defaultRepoConfiguration) {
+            $res['DefaultRepoConfiguration'] = null !== $this->defaultRepoConfiguration ? $this->defaultRepoConfiguration->toArray($noStream) : $this->defaultRepoConfiguration;
         }
 
         if (null !== $this->defaultRepoType) {
@@ -101,6 +115,10 @@ class namespaces extends Model
         $model = new self();
         if (isset($map['AutoCreateRepo'])) {
             $model->autoCreateRepo = $map['AutoCreateRepo'];
+        }
+
+        if (isset($map['DefaultRepoConfiguration'])) {
+            $model->defaultRepoConfiguration = RepoConfiguration::fromMap($map['DefaultRepoConfiguration']);
         }
 
         if (isset($map['DefaultRepoType'])) {

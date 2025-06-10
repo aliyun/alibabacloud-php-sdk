@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateNamespaceRequest extends Model
+class UpdateNamespaceShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -14,9 +14,9 @@ class CreateNamespaceRequest extends Model
     public $autoCreateRepo;
 
     /**
-     * @var RepoConfiguration
+     * @var string
      */
-    public $defaultRepoConfiguration;
+    public $defaultRepoConfigurationShrink;
 
     /**
      * @var string
@@ -34,7 +34,7 @@ class CreateNamespaceRequest extends Model
     public $namespaceName;
     protected $_name = [
         'autoCreateRepo' => 'AutoCreateRepo',
-        'defaultRepoConfiguration' => 'DefaultRepoConfiguration',
+        'defaultRepoConfigurationShrink' => 'DefaultRepoConfiguration',
         'defaultRepoType' => 'DefaultRepoType',
         'instanceId' => 'InstanceId',
         'namespaceName' => 'NamespaceName',
@@ -42,9 +42,6 @@ class CreateNamespaceRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->defaultRepoConfiguration) {
-            $this->defaultRepoConfiguration->validate();
-        }
         parent::validate();
     }
 
@@ -55,8 +52,8 @@ class CreateNamespaceRequest extends Model
             $res['AutoCreateRepo'] = $this->autoCreateRepo;
         }
 
-        if (null !== $this->defaultRepoConfiguration) {
-            $res['DefaultRepoConfiguration'] = null !== $this->defaultRepoConfiguration ? $this->defaultRepoConfiguration->toArray($noStream) : $this->defaultRepoConfiguration;
+        if (null !== $this->defaultRepoConfigurationShrink) {
+            $res['DefaultRepoConfiguration'] = $this->defaultRepoConfigurationShrink;
         }
 
         if (null !== $this->defaultRepoType) {
@@ -87,7 +84,7 @@ class CreateNamespaceRequest extends Model
         }
 
         if (isset($map['DefaultRepoConfiguration'])) {
-            $model->defaultRepoConfiguration = RepoConfiguration::fromMap($map['DefaultRepoConfiguration']);
+            $model->defaultRepoConfigurationShrink = $map['DefaultRepoConfiguration'];
         }
 
         if (isset($map['DefaultRepoType'])) {

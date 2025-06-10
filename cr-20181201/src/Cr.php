@@ -38,6 +38,7 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceVpcEndpointLinkedVpcReque
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceVpcEndpointLinkedVpcResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateNamespaceResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateNamespaceShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepositoryRequest;
@@ -210,6 +211,7 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateInstanceEndpointStatusRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateInstanceEndpointStatusResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateNamespaceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateNamespaceResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateNamespaceShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepositoryRequest;
@@ -1351,22 +1353,32 @@ class Cr extends OpenApiClient
     /**
      * Creates a namespace of image repositories.
      *
-     * @param request - CreateNamespaceRequest
+     * @param tmpReq - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateNamespaceResponse
      *
-     * @param CreateNamespaceRequest $request
+     * @param CreateNamespaceRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return CreateNamespaceResponse
      */
-    public function createNamespaceWithOptions($request, $runtime)
+    public function createNamespaceWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateNamespaceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->defaultRepoConfiguration) {
+            $request->defaultRepoConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultRepoConfiguration, 'DefaultRepoConfiguration', 'json');
+        }
+
         $query = [];
         if (null !== $request->autoCreateRepo) {
             @$query['AutoCreateRepo'] = $request->autoCreateRepo;
+        }
+
+        if (null !== $request->defaultRepoConfigurationShrink) {
+            @$query['DefaultRepoConfiguration'] = $request->defaultRepoConfigurationShrink;
         }
 
         if (null !== $request->defaultRepoType) {
@@ -1928,6 +1940,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image scan task.
+     *
      * @param request - CreateRepoTagScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1985,6 +1999,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image scan task.
+     *
      * @param request - CreateRepoTagScanTaskRequest
      *
      * @returns CreateRepoTagScanTaskResponse
@@ -4358,6 +4374,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the scanning status of an image tag.
+     *
      * @param request - GetRepoTagScanStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4415,6 +4433,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the scanning status of an image tag.
+     *
      * @param request - GetRepoTagScanStatusRequest
      *
      * @returns GetRepoTagScanStatusResponse
@@ -5455,7 +5475,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * cri-94klsruryslx****.
+     * Queries namespaces in a Container Registry instance.
      *
      * @param request - ListNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5510,7 +5530,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * cri-94klsruryslx****.
+     * Queries namespaces in a Container Registry instance.
      *
      * @param request - ListNamespaceRequest
      *
@@ -5816,7 +5836,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Indicates whether automatic link is used.
+     * Queries image synchronization tasks in an image repository.
      *
      * @param request - ListRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5879,7 +5899,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Indicates whether automatic link is used.
+     * Queries image synchronization tasks in an image repository.
      *
      * @param request - ListRepoSyncTaskRequest
      *
@@ -7182,22 +7202,32 @@ class Cr extends OpenApiClient
     /**
      * Updates a namespace.
      *
-     * @param request - UpdateNamespaceRequest
+     * @param tmpReq - UpdateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateNamespaceResponse
      *
-     * @param UpdateNamespaceRequest $request
+     * @param UpdateNamespaceRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return UpdateNamespaceResponse
      */
-    public function updateNamespaceWithOptions($request, $runtime)
+    public function updateNamespaceWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateNamespaceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->defaultRepoConfiguration) {
+            $request->defaultRepoConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultRepoConfiguration, 'DefaultRepoConfiguration', 'json');
+        }
+
         $query = [];
         if (null !== $request->autoCreateRepo) {
             @$query['AutoCreateRepo'] = $request->autoCreateRepo;
+        }
+
+        if (null !== $request->defaultRepoConfigurationShrink) {
+            @$query['DefaultRepoConfiguration'] = $request->defaultRepoConfigurationShrink;
         }
 
         if (null !== $request->defaultRepoType) {
