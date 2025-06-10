@@ -1167,6 +1167,10 @@ class CS extends OpenApiClient
             @$body['audit_log_config'] = $request->auditLogConfig;
         }
 
+        if (null !== $request->autoMode) {
+            @$body['auto_mode'] = $request->autoMode;
+        }
+
         if (null !== $request->autoRenew) {
             @$body['auto_renew'] = $request->autoRenew;
         }
@@ -1752,6 +1756,10 @@ class CS extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->autoMode) {
+            @$body['auto_mode'] = $request->autoMode;
+        }
+
         if (null !== $request->autoScaling) {
             @$body['auto_scaling'] = $request->autoScaling;
         }

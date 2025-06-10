@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\auditLogConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\workerDataDisks;
@@ -31,6 +32,11 @@ class CreateClusterRequest extends Model
      * @var auditLogConfig
      */
     public $auditLogConfig;
+
+    /**
+     * @var autoMode
+     */
+    public $autoMode;
 
     /**
      * @var bool
@@ -511,6 +517,7 @@ class CreateClusterRequest extends Model
         'addons' => 'addons',
         'apiAudiences' => 'api_audiences',
         'auditLogConfig' => 'audit_log_config',
+        'autoMode' => 'auto_mode',
         'autoRenew' => 'auto_renew',
         'autoRenewPeriod' => 'auto_renew_period',
         'chargeType' => 'charge_type',
@@ -619,6 +626,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->auditLogConfig) {
             $this->auditLogConfig->validate();
         }
+        if (null !== $this->autoMode) {
+            $this->autoMode->validate();
+        }
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
         }
@@ -708,6 +718,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->auditLogConfig) {
             $res['audit_log_config'] = null !== $this->auditLogConfig ? $this->auditLogConfig->toArray($noStream) : $this->auditLogConfig;
+        }
+
+        if (null !== $this->autoMode) {
+            $res['auto_mode'] = null !== $this->autoMode ? $this->autoMode->toArray($noStream) : $this->autoMode;
         }
 
         if (null !== $this->autoRenew) {
@@ -1217,6 +1231,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['audit_log_config'])) {
             $model->auditLogConfig = auditLogConfig::fromMap($map['audit_log_config']);
+        }
+
+        if (isset($map['auto_mode'])) {
+            $model->autoMode = autoMode::fromMap($map['auto_mode']);
         }
 
         if (isset($map['auto_renew'])) {

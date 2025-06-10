@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\efloNodeGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\interconnectConfig;
@@ -17,6 +18,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\teeConfig;
 
 class CreateClusterNodePoolRequest extends Model
 {
+    /**
+     * @var autoMode
+     */
+    public $autoMode;
+
     /**
      * @var autoScaling
      */
@@ -87,6 +93,7 @@ class CreateClusterNodePoolRequest extends Model
      */
     public $teeConfig;
     protected $_name = [
+        'autoMode' => 'auto_mode',
         'autoScaling' => 'auto_scaling',
         'count' => 'count',
         'efloNodeGroup' => 'eflo_node_group',
@@ -105,6 +112,9 @@ class CreateClusterNodePoolRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->autoMode) {
+            $this->autoMode->validate();
+        }
         if (null !== $this->autoScaling) {
             $this->autoScaling->validate();
         }
@@ -138,6 +148,10 @@ class CreateClusterNodePoolRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoMode) {
+            $res['auto_mode'] = null !== $this->autoMode ? $this->autoMode->toArray($noStream) : $this->autoMode;
+        }
+
         if (null !== $this->autoScaling) {
             $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toArray($noStream) : $this->autoScaling;
         }
@@ -205,6 +219,10 @@ class CreateClusterNodePoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auto_mode'])) {
+            $model->autoMode = autoMode::fromMap($map['auto_mode']);
+        }
+
         if (isset($map['auto_scaling'])) {
             $model->autoScaling = autoScaling::fromMap($map['auto_scaling']);
         }

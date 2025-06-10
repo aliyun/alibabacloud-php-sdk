@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\operationPolicy;
 
 class DescribeClusterDetailResponseBody extends Model
 {
+    /**
+     * @var autoMode
+     */
+    public $autoMode;
+
     /**
      * @var string
      */
@@ -210,6 +216,7 @@ class DescribeClusterDetailResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoMode' => 'auto_mode',
         'clusterDomain' => 'cluster_domain',
         'clusterId' => 'cluster_id',
         'clusterSpec' => 'cluster_spec',
@@ -254,6 +261,9 @@ class DescribeClusterDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->autoMode) {
+            $this->autoMode->validate();
+        }
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
         }
@@ -278,6 +288,10 @@ class DescribeClusterDetailResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoMode) {
+            $res['auto_mode'] = null !== $this->autoMode ? $this->autoMode->toArray($noStream) : $this->autoMode;
+        }
+
         if (null !== $this->clusterDomain) {
             $res['cluster_domain'] = $this->clusterDomain;
         }
@@ -466,6 +480,10 @@ class DescribeClusterDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auto_mode'])) {
+            $model->autoMode = autoMode::fromMap($map['auto_mode']);
+        }
+
         if (isset($map['cluster_domain'])) {
             $model->clusterDomain = $map['cluster_domain'];
         }
