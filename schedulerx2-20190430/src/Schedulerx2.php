@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateDetailRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateDetailResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\RerunJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\RerunJobResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\RetryJobInstanceRequest;
@@ -2790,6 +2792,79 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->readSchedulerxDesignateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取指定机器基本信息.
+     *
+     * @param request - ReadSchedulerxDesignateInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadSchedulerxDesignateInfoResponse
+     *
+     * @param ReadSchedulerxDesignateInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReadSchedulerxDesignateInfoResponse
+     */
+    public function readSchedulerxDesignateInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespaceSource) {
+            @$query['NamespaceSource'] = $request->namespaceSource;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReadSchedulerxDesignateInfo',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadSchedulerxDesignateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定机器基本信息.
+     *
+     * @param request - ReadSchedulerxDesignateInfoRequest
+     *
+     * @returns ReadSchedulerxDesignateInfoResponse
+     *
+     * @param ReadSchedulerxDesignateInfoRequest $request
+     *
+     * @return ReadSchedulerxDesignateInfoResponse
+     */
+    public function readSchedulerxDesignateInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readSchedulerxDesignateInfoWithOptions($request, $runtime);
     }
 
     /**
