@@ -181,6 +181,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DownloadDataTrackResultShrin
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditLogicDatabaseShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditMetaKnowledgeAssetRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EditMetaKnowledgeAssetResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteDataCorrectRequest;
@@ -313,6 +315,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectFlowReq
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeInfoRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphRequest;
@@ -447,6 +451,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLRespon
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTableColumnsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTableColumnsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsRequest;
@@ -6795,6 +6801,79 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 编辑指定guid的元数据业务知识.
+     *
+     * @param request - EditMetaKnowledgeAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditMetaKnowledgeAssetResponse
+     *
+     * @param EditMetaKnowledgeAssetRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EditMetaKnowledgeAssetResponse
+     */
+    public function editMetaKnowledgeAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetDescription) {
+            @$query['AssetDescription'] = $request->assetDescription;
+        }
+
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
+        }
+
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->tableSchemaName) {
+            @$query['TableSchemaName'] = $request->tableSchemaName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EditMetaKnowledgeAsset',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EditMetaKnowledgeAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑指定guid的元数据业务知识.
+     *
+     * @param request - EditMetaKnowledgeAssetRequest
+     *
+     * @returns EditMetaKnowledgeAssetResponse
+     *
+     * @param EditMetaKnowledgeAssetRequest $request
+     *
+     * @return EditMetaKnowledgeAssetResponse
+     */
+    public function editMetaKnowledgeAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editMetaKnowledgeAssetWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
      *
      * @remarks
@@ -11036,6 +11115,71 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableDesignProjectInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取指定guid的元数据知识.
+     *
+     * @param request - GetTableKnowledgeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableKnowledgeInfoResponse
+     *
+     * @param GetTableKnowledgeInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetTableKnowledgeInfoResponse
+     */
+    public function getTableKnowledgeInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->tableSchemaName) {
+            @$query['TableSchemaName'] = $request->tableSchemaName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableKnowledgeInfo',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableKnowledgeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定guid的元数据知识.
+     *
+     * @param request - GetTableKnowledgeInfoRequest
+     *
+     * @returns GetTableKnowledgeInfoResponse
+     *
+     * @param GetTableKnowledgeInfoRequest $request
+     *
+     * @return GetTableKnowledgeInfoResponse
+     */
+    public function getTableKnowledgeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableKnowledgeInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -15900,6 +16044,75 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listStandardGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取表字段信息.
+     *
+     * @param request - ListTableColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTableColumnsResponse
+     *
+     * @param ListTableColumnsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTableColumnsResponse
+     */
+    public function listTableColumnsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->tableSchemaName) {
+            @$query['TableSchemaName'] = $request->tableSchemaName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTableColumns',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTableColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取表字段信息.
+     *
+     * @param request - ListTableColumnsRequest
+     *
+     * @returns ListTableColumnsResponse
+     *
+     * @param ListTableColumnsRequest $request
+     *
+     * @return ListTableColumnsResponse
+     */
+    public function listTableColumns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTableColumnsWithOptions($request, $runtime);
     }
 
     /**
