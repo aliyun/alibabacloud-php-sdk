@@ -20,6 +20,11 @@ class CreateChatappTemplateRequest extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $categoryChangePaused;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -66,6 +71,7 @@ class CreateChatappTemplateRequest extends Model
     protected $_name = [
         'allowCategoryChange' => 'AllowCategoryChange',
         'category' => 'Category',
+        'categoryChangePaused' => 'CategoryChangePaused',
         'components' => 'Components',
         'custSpaceId' => 'CustSpaceId',
         'custWabaId' => 'CustWabaId',
@@ -97,6 +103,10 @@ class CreateChatappTemplateRequest extends Model
 
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->categoryChangePaused) {
+            $res['CategoryChangePaused'] = $this->categoryChangePaused;
         }
 
         if (null !== $this->components) {
@@ -163,6 +173,10 @@ class CreateChatappTemplateRequest extends Model
 
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['CategoryChangePaused'])) {
+            $model->categoryChangePaused = $map['CategoryChangePaused'];
         }
 
         if (isset($map['Components'])) {

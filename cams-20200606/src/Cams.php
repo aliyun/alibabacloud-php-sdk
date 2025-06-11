@@ -98,6 +98,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplatePropertiesRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplatePropertiesResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
@@ -1163,6 +1165,10 @@ class Cams extends OpenApiClient
 
         if (null !== $request->category) {
             @$body['Category'] = $request->category;
+        }
+
+        if (null !== $request->categoryChangePaused) {
+            @$body['CategoryChangePaused'] = $request->categoryChangePaused;
         }
 
         if (null !== $request->componentsShrink) {
@@ -3591,6 +3597,10 @@ class Cams extends OpenApiClient
             @$body['Category'] = $request->category;
         }
 
+        if (null !== $request->categoryChangePaused) {
+            @$body['CategoryChangePaused'] = $request->categoryChangePaused;
+        }
+
         if (null !== $request->componentsShrink) {
             @$body['Components'] = $request->componentsShrink;
         }
@@ -3668,6 +3678,95 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyChatappTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改模板上的一些属性.
+     *
+     * @param request - ModifyChatappTemplatePropertiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyChatappTemplatePropertiesResponse
+     *
+     * @param ModifyChatappTemplatePropertiesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyChatappTemplatePropertiesResponse
+     */
+    public function modifyChatappTemplatePropertiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowSend) {
+            @$query['AllowSend'] = $request->allowSend;
+        }
+
+        if (null !== $request->categoryChangePaused) {
+            @$query['CategoryChangePaused'] = $request->categoryChangePaused;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->templateCode) {
+            @$query['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyChatappTemplateProperties',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyChatappTemplatePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改模板上的一些属性.
+     *
+     * @param request - ModifyChatappTemplatePropertiesRequest
+     *
+     * @returns ModifyChatappTemplatePropertiesResponse
+     *
+     * @param ModifyChatappTemplatePropertiesRequest $request
+     *
+     * @return ModifyChatappTemplatePropertiesResponse
+     */
+    public function modifyChatappTemplateProperties($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyChatappTemplatePropertiesWithOptions($request, $runtime);
     }
 
     /**

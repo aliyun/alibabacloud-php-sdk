@@ -14,6 +14,11 @@ class ModifyChatappTemplateShrinkRequest extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $categoryChangePaused;
+
+    /**
      * @var string
      */
     public $componentsShrink;
@@ -64,6 +69,7 @@ class ModifyChatappTemplateShrinkRequest extends Model
     public $templateType;
     protected $_name = [
         'category' => 'Category',
+        'categoryChangePaused' => 'CategoryChangePaused',
         'componentsShrink' => 'Components',
         'custSpaceId' => 'CustSpaceId',
         'custWabaId' => 'CustWabaId',
@@ -86,6 +92,10 @@ class ModifyChatappTemplateShrinkRequest extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->categoryChangePaused) {
+            $res['CategoryChangePaused'] = $this->categoryChangePaused;
         }
 
         if (null !== $this->componentsShrink) {
@@ -141,6 +151,10 @@ class ModifyChatappTemplateShrinkRequest extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['CategoryChangePaused'])) {
+            $model->categoryChangePaused = $map['CategoryChangePaused'];
         }
 
         if (isset($map['Components'])) {

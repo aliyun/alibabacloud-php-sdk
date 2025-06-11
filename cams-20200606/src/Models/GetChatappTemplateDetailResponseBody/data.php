@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowSend;
+
+    /**
      * @var string
      */
     public $auditStatus;
@@ -18,6 +23,11 @@ class data extends Model
      * @var string
      */
     public $category;
+
+    /**
+     * @var bool
+     */
+    public $categoryChangePaused;
 
     /**
      * @var components[]
@@ -64,8 +74,10 @@ class data extends Model
      */
     public $templateType;
     protected $_name = [
+        'allowSend' => 'AllowSend',
         'auditStatus' => 'AuditStatus',
         'category' => 'Category',
+        'categoryChangePaused' => 'CategoryChangePaused',
         'components' => 'Components',
         'example' => 'Example',
         'language' => 'Language',
@@ -91,12 +103,20 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowSend) {
+            $res['AllowSend'] = $this->allowSend;
+        }
+
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
         }
 
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->categoryChangePaused) {
+            $res['CategoryChangePaused'] = $this->categoryChangePaused;
         }
 
         if (null !== $this->components) {
@@ -157,12 +177,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowSend'])) {
+            $model->allowSend = $map['AllowSend'];
+        }
+
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
         }
 
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['CategoryChangePaused'])) {
+            $model->categoryChangePaused = $map['CategoryChangePaused'];
         }
 
         if (isset($map['Components'])) {

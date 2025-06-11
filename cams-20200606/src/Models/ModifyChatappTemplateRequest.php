@@ -15,6 +15,11 @@ class ModifyChatappTemplateRequest extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $categoryChangePaused;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -65,6 +70,7 @@ class ModifyChatappTemplateRequest extends Model
     public $templateType;
     protected $_name = [
         'category' => 'Category',
+        'categoryChangePaused' => 'CategoryChangePaused',
         'components' => 'Components',
         'custSpaceId' => 'CustSpaceId',
         'custWabaId' => 'CustWabaId',
@@ -93,6 +99,10 @@ class ModifyChatappTemplateRequest extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->categoryChangePaused) {
+            $res['CategoryChangePaused'] = $this->categoryChangePaused;
         }
 
         if (null !== $this->components) {
@@ -159,6 +169,10 @@ class ModifyChatappTemplateRequest extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['CategoryChangePaused'])) {
+            $model->categoryChangePaused = $map['CategoryChangePaused'];
         }
 
         if (isset($map['Components'])) {
