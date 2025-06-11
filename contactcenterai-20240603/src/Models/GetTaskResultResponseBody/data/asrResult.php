@@ -29,6 +29,11 @@ class asrResult extends Model
     public $role;
 
     /**
+     * @var string
+     */
+    public $roleName;
+
+    /**
      * @var int
      */
     public $speechRate;
@@ -42,6 +47,7 @@ class asrResult extends Model
         'emotionValue' => 'emotionValue',
         'end' => 'end',
         'role' => 'role',
+        'roleName' => 'roleName',
         'speechRate' => 'speechRate',
         'words' => 'words',
     ];
@@ -68,6 +74,10 @@ class asrResult extends Model
 
         if (null !== $this->role) {
             $res['role'] = $this->role;
+        }
+
+        if (null !== $this->roleName) {
+            $res['roleName'] = $this->roleName;
         }
 
         if (null !== $this->speechRate) {
@@ -103,6 +113,10 @@ class asrResult extends Model
 
         if (isset($map['role'])) {
             $model->role = $map['role'];
+        }
+
+        if (isset($map['roleName'])) {
+            $model->roleName = $map['roleName'];
         }
 
         if (isset($map['speechRate'])) {
