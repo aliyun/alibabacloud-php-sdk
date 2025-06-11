@@ -12,33 +12,38 @@ class AllocateClusterPublicConnectionRequest extends Model
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBClusterId'            => 'DBClusterId',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'DBClusterId' => 'DBClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

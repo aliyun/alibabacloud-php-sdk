@@ -12,23 +12,26 @@ class ModifyDBClusterConfigInXMLRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'config'      => 'Config',
+        'config' => 'Config',
         'DBClusterId' => 'DBClusterId',
-        'reason'      => 'Reason',
-        'regionId'    => 'RegionId',
+        'reason' => 'Reason',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

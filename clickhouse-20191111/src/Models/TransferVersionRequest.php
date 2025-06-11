@@ -12,83 +12,98 @@ class TransferVersionRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $disableWriteWindows;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceAccount;
+
     /**
      * @var string
      */
     public $sourceClusterName;
+
     /**
      * @var string
      */
     public $sourcePassword;
+
     /**
      * @var string
      */
     public $sourceShards;
+
     /**
      * @var string
      */
     public $targetAccount;
+
     /**
      * @var string
      */
     public $targetDbClusterId;
+
     /**
      * @var string
      */
     public $targetPassword;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'disableWriteWindows'  => 'DisableWriteWindows',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'disableWriteWindows' => 'DisableWriteWindows',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceAccount'        => 'SourceAccount',
-        'sourceClusterName'    => 'SourceClusterName',
-        'sourcePassword'       => 'SourcePassword',
-        'sourceShards'         => 'SourceShards',
-        'targetAccount'        => 'TargetAccount',
-        'targetDbClusterId'    => 'TargetDbClusterId',
-        'targetPassword'       => 'TargetPassword',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceAccount' => 'SourceAccount',
+        'sourceClusterName' => 'SourceClusterName',
+        'sourcePassword' => 'SourcePassword',
+        'sourceShards' => 'SourceShards',
+        'targetAccount' => 'TargetAccount',
+        'targetDbClusterId' => 'TargetDbClusterId',
+        'targetPassword' => 'TargetPassword',
     ];
 
     public function validate()

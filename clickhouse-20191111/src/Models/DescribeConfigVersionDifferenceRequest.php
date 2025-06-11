@@ -12,12 +12,13 @@ class DescribeConfigVersionDifferenceRequest extends Model
      * @var string
      */
     public $changeId;
+
     /**
      * @var string
      */
     public $DBClusterId;
     protected $_name = [
-        'changeId'    => 'ChangeId',
+        'changeId' => 'ChangeId',
         'DBClusterId' => 'DBClusterId',
     ];
 

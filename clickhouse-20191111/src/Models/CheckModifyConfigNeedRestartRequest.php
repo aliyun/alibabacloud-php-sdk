@@ -12,12 +12,13 @@ class CheckModifyConfigNeedRestartRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $DBClusterId;
     protected $_name = [
-        'config'      => 'Config',
+        'config' => 'Config',
         'DBClusterId' => 'DBClusterId',
     ];
 

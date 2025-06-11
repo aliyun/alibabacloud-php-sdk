@@ -12,48 +12,56 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
      * @var string
      */
     public $DBClusterIPArrayAttribute;
+
     /**
      * @var string
      */
     public $DBClusterIPArrayName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $modifyMode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityIps;
     protected $_name = [
         'DBClusterIPArrayAttribute' => 'DBClusterIPArrayAttribute',
-        'DBClusterIPArrayName'      => 'DBClusterIPArrayName',
-        'DBClusterId'               => 'DBClusterId',
-        'modifyMode'                => 'ModifyMode',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'securityIps'               => 'SecurityIps',
+        'DBClusterIPArrayName' => 'DBClusterIPArrayName',
+        'DBClusterId' => 'DBClusterId',
+        'modifyMode' => 'ModifyMode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()

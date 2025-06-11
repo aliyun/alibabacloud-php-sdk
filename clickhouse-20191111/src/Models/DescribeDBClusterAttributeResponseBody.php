@@ -13,6 +13,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @var DBCluster
      */
     public $DBCluster;
+
     /**
      * @var string
      */

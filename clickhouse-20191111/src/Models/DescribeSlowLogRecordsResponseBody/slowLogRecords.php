@@ -15,28 +15,32 @@ class slowLogRecords extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $rows;
+
     /**
      * @var string
      */
     public $rowsBeforeLimitAtLeast;
+
     /**
      * @var statistics
      */
     public $statistics;
+
     /**
      * @var tableSchema
      */
     public $tableSchema;
     protected $_name = [
-        'data'                   => 'Data',
-        'rows'                   => 'Rows',
+        'data' => 'Data',
+        'rows' => 'Rows',
         'rowsBeforeLimitAtLeast' => 'RowsBeforeLimitAtLeast',
-        'statistics'             => 'Statistics',
-        'tableSchema'            => 'TableSchema',
+        'statistics' => 'Statistics',
+        'tableSchema' => 'TableSchema',
     ];
 
     public function validate()

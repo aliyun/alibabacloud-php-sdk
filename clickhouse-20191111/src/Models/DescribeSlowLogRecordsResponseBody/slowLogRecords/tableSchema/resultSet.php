@@ -12,6 +12,7 @@ class resultSet extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */

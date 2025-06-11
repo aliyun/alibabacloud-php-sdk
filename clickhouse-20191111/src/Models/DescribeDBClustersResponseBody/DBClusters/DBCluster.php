@@ -14,168 +14,200 @@ class DBCluster extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $bid;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $controlVersion;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBClusterNetworkType;
+
     /**
      * @var string
      */
     public $DBClusterStatus;
+
     /**
      * @var string
      */
     public $DBNodeClass;
+
     /**
      * @var int
      */
     public $DBNodeCount;
+
     /**
      * @var int
      */
     public $DBNodeStorage;
+
     /**
      * @var string
      */
     public $dbVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $extStorageSize;
+
     /**
      * @var string
      */
     public $extStorageType;
+
     /**
      * @var string
      */
     public $isExpired;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $scaleOutDisableWriteWindows;
+
     /**
      * @var scaleOutStatus
      */
     public $scaleOutStatus;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcCloudInstanceId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'aliUid'                      => 'AliUid',
-        'bid'                         => 'Bid',
-        'category'                    => 'Category',
-        'commodityCode'               => 'CommodityCode',
-        'connectionString'            => 'ConnectionString',
-        'controlVersion'              => 'ControlVersion',
-        'createTime'                  => 'CreateTime',
-        'DBClusterDescription'        => 'DBClusterDescription',
-        'DBClusterId'                 => 'DBClusterId',
-        'DBClusterNetworkType'        => 'DBClusterNetworkType',
-        'DBClusterStatus'             => 'DBClusterStatus',
-        'DBNodeClass'                 => 'DBNodeClass',
-        'DBNodeCount'                 => 'DBNodeCount',
-        'DBNodeStorage'               => 'DBNodeStorage',
-        'dbVersion'                   => 'DbVersion',
-        'expireTime'                  => 'ExpireTime',
-        'extStorageSize'              => 'ExtStorageSize',
-        'extStorageType'              => 'ExtStorageType',
-        'isExpired'                   => 'IsExpired',
-        'lockMode'                    => 'LockMode',
-        'lockReason'                  => 'LockReason',
-        'payType'                     => 'PayType',
-        'port'                        => 'Port',
-        'regionId'                    => 'RegionId',
-        'resourceGroupId'             => 'ResourceGroupId',
+        'aliUid' => 'AliUid',
+        'bid' => 'Bid',
+        'category' => 'Category',
+        'commodityCode' => 'CommodityCode',
+        'connectionString' => 'ConnectionString',
+        'controlVersion' => 'ControlVersion',
+        'createTime' => 'CreateTime',
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterId' => 'DBClusterId',
+        'DBClusterNetworkType' => 'DBClusterNetworkType',
+        'DBClusterStatus' => 'DBClusterStatus',
+        'DBNodeClass' => 'DBNodeClass',
+        'DBNodeCount' => 'DBNodeCount',
+        'DBNodeStorage' => 'DBNodeStorage',
+        'dbVersion' => 'DbVersion',
+        'expireTime' => 'ExpireTime',
+        'extStorageSize' => 'ExtStorageSize',
+        'extStorageType' => 'ExtStorageType',
+        'isExpired' => 'IsExpired',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'scaleOutDisableWriteWindows' => 'ScaleOutDisableWriteWindows',
-        'scaleOutStatus'              => 'ScaleOutStatus',
-        'storageType'                 => 'StorageType',
-        'tags'                        => 'Tags',
-        'vSwitchId'                   => 'VSwitchId',
-        'vpcCloudInstanceId'          => 'VpcCloudInstanceId',
-        'vpcId'                       => 'VpcId',
-        'zoneId'                      => 'ZoneId',
+        'scaleOutStatus' => 'ScaleOutStatus',
+        'storageType' => 'StorageType',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

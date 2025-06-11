@@ -12,10 +12,12 @@ class CheckClickhouseToRDSResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
@@ -23,7 +25,7 @@ class CheckClickhouseToRDSResponseBody extends Model
     protected $_name = [
         'errorCode' => 'ErrorCode',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class ModifyDBClusterConfigRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $userConfig;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'reason'               => 'Reason',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'reason' => 'Reason',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userConfig'           => 'UserConfig',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userConfig' => 'UserConfig',
     ];
 
     public function validate()

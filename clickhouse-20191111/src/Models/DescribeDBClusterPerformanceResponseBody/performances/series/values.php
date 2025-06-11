@@ -30,7 +30,7 @@ class values extends Model
         if (null !== $this->point) {
             if (\is_array($this->point)) {
                 $res['Point'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->point as $item1) {
                     $res['Point'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class values extends Model
         if (isset($map['Point'])) {
             if (!empty($map['Point'])) {
                 $model->point = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Point'] as $item1) {
                     $model->point[$n1++] = $item1;
                 }

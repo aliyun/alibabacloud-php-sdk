@@ -12,27 +12,31 @@ class DescribeOSSStorageResponseBody extends Model
      * @var bool
      */
     public $coldStorage;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $storageUsage;
     protected $_name = [
-        'coldStorage'  => 'ColdStorage',
-        'policy'       => 'Policy',
-        'requestId'    => 'RequestId',
-        'state'        => 'State',
+        'coldStorage' => 'ColdStorage',
+        'policy' => 'Policy',
+        'requestId' => 'RequestId',
+        'state' => 'State',
         'storageUsage' => 'StorageUsage',
     ];
 

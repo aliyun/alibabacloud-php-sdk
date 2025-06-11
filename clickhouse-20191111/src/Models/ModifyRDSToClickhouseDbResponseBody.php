@@ -12,23 +12,26 @@ class ModifyRDSToClickhouseDbResponseBody extends Model
      * @var int
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'errorCode' => 'ErrorCode',
-        'errorMsg'  => 'ErrorMsg',
+        'errorMsg' => 'ErrorMsg',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

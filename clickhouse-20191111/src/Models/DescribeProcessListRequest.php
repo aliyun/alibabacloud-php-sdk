@@ -12,68 +12,80 @@ class DescribeProcessListRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $initialQueryId;
+
     /**
      * @var string
      */
     public $initialUser;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $queryDurationMs;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'initialQueryId'       => 'InitialQueryId',
-        'initialUser'          => 'InitialUser',
-        'keyword'              => 'Keyword',
-        'order'                => 'Order',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'queryDurationMs'      => 'QueryDurationMs',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'initialQueryId' => 'InitialQueryId',
+        'initialUser' => 'InitialUser',
+        'keyword' => 'Keyword',
+        'order' => 'Order',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryDurationMs' => 'QueryDurationMs',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

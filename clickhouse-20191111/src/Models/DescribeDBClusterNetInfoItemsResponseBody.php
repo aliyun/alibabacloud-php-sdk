@@ -13,23 +13,26 @@ class DescribeDBClusterNetInfoItemsResponseBody extends Model
      * @var string
      */
     public $clusterNetworkType;
+
     /**
      * @var bool
      */
     public $enableSLB;
+
     /**
      * @var netInfoItems
      */
     public $netInfoItems;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterNetworkType' => 'ClusterNetworkType',
-        'enableSLB'          => 'EnableSLB',
-        'netInfoItems'       => 'NetInfoItems',
-        'requestId'          => 'RequestId',
+        'enableSLB' => 'EnableSLB',
+        'netInfoItems' => 'NetInfoItems',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

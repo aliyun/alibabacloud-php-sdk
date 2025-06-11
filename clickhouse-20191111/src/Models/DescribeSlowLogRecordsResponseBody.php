@@ -13,12 +13,13 @@ class DescribeSlowLogRecordsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var slowLogRecords
      */
     public $slowLogRecords;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'slowLogRecords' => 'SlowLogRecords',
     ];
 

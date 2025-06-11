@@ -12,53 +12,62 @@ class items extends Model
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var string
      */
     public $backupSetInfo;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $expireDate;
     protected $_name = [
-        'backupEndTime'   => 'BackupEndTime',
-        'backupId'        => 'BackupId',
-        'backupMethod'    => 'BackupMethod',
-        'backupSetInfo'   => 'BackupSetInfo',
-        'backupSize'      => 'BackupSize',
+        'backupEndTime' => 'BackupEndTime',
+        'backupId' => 'BackupId',
+        'backupMethod' => 'BackupMethod',
+        'backupSetInfo' => 'BackupSetInfo',
+        'backupSize' => 'BackupSize',
         'backupStartTime' => 'BackupStartTime',
-        'backupStatus'    => 'BackupStatus',
-        'backupType'      => 'BackupType',
-        'DBClusterId'     => 'DBClusterId',
-        'expireDate'      => 'ExpireDate',
+        'backupStatus' => 'BackupStatus',
+        'backupType' => 'BackupType',
+        'DBClusterId' => 'DBClusterId',
+        'expireDate' => 'ExpireDate',
     ];
 
     public function validate()

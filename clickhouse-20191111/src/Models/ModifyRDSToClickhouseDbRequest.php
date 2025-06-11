@@ -12,88 +12,104 @@ class ModifyRDSToClickhouseDbRequest extends Model
      * @var string
      */
     public $ckPassword;
+
     /**
      * @var string
      */
     public $ckUserName;
+
     /**
      * @var int
      */
     public $clickhousePort;
+
     /**
      * @var string
      */
     public $dbClusterId;
+
     /**
      * @var int
      */
     public $limitUpper;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $rdsId;
+
     /**
      * @var string
      */
     public $rdsPassword;
+
     /**
      * @var int
      */
     public $rdsPort;
+
     /**
      * @var string
      */
     public $rdsSynDb;
+
     /**
      * @var string
      */
     public $rdsSynTables;
+
     /**
      * @var string
      */
     public $rdsUserName;
+
     /**
      * @var string
      */
     public $rdsVpcId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $skipUnsupported;
     protected $_name = [
-        'ckPassword'           => 'CkPassword',
-        'ckUserName'           => 'CkUserName',
-        'clickhousePort'       => 'ClickhousePort',
-        'dbClusterId'          => 'DbClusterId',
-        'limitUpper'           => 'LimitUpper',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'rdsId'                => 'RdsId',
-        'rdsPassword'          => 'RdsPassword',
-        'rdsPort'              => 'RdsPort',
-        'rdsSynDb'             => 'RdsSynDb',
-        'rdsSynTables'         => 'RdsSynTables',
-        'rdsUserName'          => 'RdsUserName',
-        'rdsVpcId'             => 'RdsVpcId',
+        'ckPassword' => 'CkPassword',
+        'ckUserName' => 'CkUserName',
+        'clickhousePort' => 'ClickhousePort',
+        'dbClusterId' => 'DbClusterId',
+        'limitUpper' => 'LimitUpper',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'rdsId' => 'RdsId',
+        'rdsPassword' => 'RdsPassword',
+        'rdsPort' => 'RdsPort',
+        'rdsSynDb' => 'RdsSynDb',
+        'rdsSynTables' => 'RdsSynTables',
+        'rdsUserName' => 'RdsUserName',
+        'rdsVpcId' => 'RdsVpcId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'skipUnsupported'      => 'SkipUnsupported',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'skipUnsupported' => 'SkipUnsupported',
     ];
 
     public function validate()

@@ -12,10 +12,12 @@ class DescribeConfigVersionDifferenceResponseBody extends Model
      * @var string
      */
     public $newConfigXML;
+
     /**
      * @var string
      */
     public $oldConfigXML;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DescribeConfigVersionDifferenceResponseBody extends Model
     protected $_name = [
         'newConfigXML' => 'NewConfigXML',
         'oldConfigXML' => 'OldConfigXML',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

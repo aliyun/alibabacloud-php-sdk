@@ -12,22 +12,25 @@ class tableDetail extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var int
      */
     public $detail;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'cluster'   => 'Cluster',
-        'database'  => 'Database',
-        'detail'    => 'Detail',
+        'cluster' => 'Cluster',
+        'database' => 'Database',
+        'detail' => 'Detail',
         'tableName' => 'TableName',
     ];
 

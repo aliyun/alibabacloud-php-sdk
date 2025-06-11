@@ -12,18 +12,20 @@ class table extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'schemaName'  => 'SchemaName',
-        'tableName'   => 'TableName',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

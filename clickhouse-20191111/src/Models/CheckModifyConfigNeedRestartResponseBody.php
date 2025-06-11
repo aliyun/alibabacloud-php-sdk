@@ -12,13 +12,14 @@ class CheckModifyConfigNeedRestartResponseBody extends Model
      * @var bool
      */
     public $needRestart;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'needRestart' => 'NeedRestart',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

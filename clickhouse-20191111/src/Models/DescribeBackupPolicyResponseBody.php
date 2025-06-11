@@ -12,33 +12,38 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var int
      */
     public $backupRetentionPeriod;
+
     /**
      * @var string
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $switch;
     protected $_name = [
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
-        'backupSize'            => 'BackupSize',
+        'backupSize' => 'BackupSize',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
-        'preferredBackupTime'   => 'PreferredBackupTime',
-        'requestId'             => 'RequestId',
-        'switch'                => 'Switch',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'requestId' => 'RequestId',
+        'switch' => 'Switch',
     ];
 
     public function validate()

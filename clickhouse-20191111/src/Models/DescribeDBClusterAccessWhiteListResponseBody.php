@@ -13,13 +13,14 @@ class DescribeDBClusterAccessWhiteListResponseBody extends Model
      * @var DBClusterAccessWhiteList
      */
     public $DBClusterAccessWhiteList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterAccessWhiteList' => 'DBClusterAccessWhiteList',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

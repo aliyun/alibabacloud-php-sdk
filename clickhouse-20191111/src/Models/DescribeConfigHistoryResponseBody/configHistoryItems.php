@@ -12,28 +12,32 @@ class configHistoryItems extends Model
      * @var string
      */
     public $changeId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
         'changeId' => 'ChangeId',
-        'ownerId'  => 'OwnerId',
-        'reason'   => 'Reason',
-        'success'  => 'Success',
-        'time'     => 'Time',
+        'ownerId' => 'OwnerId',
+        'reason' => 'Reason',
+        'success' => 'Success',
+        'time' => 'Time',
     ];
 
     public function validate()

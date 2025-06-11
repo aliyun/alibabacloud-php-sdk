@@ -142,51 +142,51 @@ class Clickhouse extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'clickhouse.aliyuncs.com',
-            'ap-southeast-1'              => 'clickhouse.aliyuncs.com',
-            'cn-beijing'                  => 'clickhouse.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'clickhouse.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'clickhouse.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'clickhouse.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'clickhouse.aliyuncs.com',
-            'cn-edge-1'                   => 'clickhouse.aliyuncs.com',
-            'cn-fujian'                   => 'clickhouse.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'clickhouse.aliyuncs.com',
-            'cn-hangzhou'                 => 'clickhouse.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'clickhouse.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'clickhouse.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-2-pop' => 'clickhouse.aliyuncs.com',
+            'ap-southeast-1' => 'clickhouse.aliyuncs.com',
+            'cn-beijing' => 'clickhouse.aliyuncs.com',
+            'cn-beijing-finance-1' => 'clickhouse.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'clickhouse.aliyuncs.com',
+            'cn-beijing-gov-1' => 'clickhouse.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'clickhouse.aliyuncs.com',
+            'cn-edge-1' => 'clickhouse.aliyuncs.com',
+            'cn-fujian' => 'clickhouse.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'clickhouse.aliyuncs.com',
+            'cn-hangzhou' => 'clickhouse.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'clickhouse.aliyuncs.com',
+            'cn-hangzhou-finance' => 'clickhouse.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'clickhouse.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'clickhouse.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'clickhouse.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'clickhouse.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'clickhouse.aliyuncs.com',
-            'cn-hongkong'                 => 'clickhouse.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'clickhouse.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'clickhouse.aliyuncs.com',
-            'cn-qingdao'                  => 'clickhouse.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'clickhouse.aliyuncs.com',
-            'cn-shanghai'                 => 'clickhouse.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'clickhouse.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'clickhouse.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'clickhouse.aliyuncs.com',
-            'cn-shanghai-inner'           => 'clickhouse.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'clickhouse.aliyuncs.com',
+            'cn-hongkong' => 'clickhouse.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'clickhouse.aliyuncs.com',
+            'cn-north-2-gov-1' => 'clickhouse.aliyuncs.com',
+            'cn-qingdao' => 'clickhouse.aliyuncs.com',
+            'cn-qingdao-nebula' => 'clickhouse.aliyuncs.com',
+            'cn-shanghai' => 'clickhouse.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'clickhouse.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'clickhouse.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'clickhouse.aliyuncs.com',
+            'cn-shanghai-inner' => 'clickhouse.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'clickhouse.aliyuncs.com',
-            'cn-shenzhen'                 => 'clickhouse.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'clickhouse.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'clickhouse.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'clickhouse.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'clickhouse.aliyuncs.com',
-            'cn-wuhan'                    => 'clickhouse.aliyuncs.com',
-            'cn-yushanfang'               => 'clickhouse.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'clickhouse.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'clickhouse.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'clickhouse.aliyuncs.com',
-            'eu-west-1-oxs'               => 'clickhouse.aliyuncs.com',
-            'me-east-1'                   => 'clickhouse.aliyuncs.com',
-            'rus-west-1-pop'              => 'clickhouse.aliyuncs.com',
-            'us-east-1'                   => 'clickhouse.aliyuncs.com',
-            'us-west-1'                   => 'clickhouse.aliyuncs.com',
+            'cn-shenzhen' => 'clickhouse.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'clickhouse.aliyuncs.com',
+            'cn-shenzhen-inner' => 'clickhouse.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'clickhouse.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'clickhouse.aliyuncs.com',
+            'cn-wuhan' => 'clickhouse.aliyuncs.com',
+            'cn-yushanfang' => 'clickhouse.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'clickhouse.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'clickhouse.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'clickhouse.aliyuncs.com',
+            'eu-west-1-oxs' => 'clickhouse.aliyuncs.com',
+            'me-east-1' => 'clickhouse.aliyuncs.com',
+            'rus-west-1-pop' => 'clickhouse.aliyuncs.com',
+            'us-east-1' => 'clickhouse.aliyuncs.com',
+            'us-west-1' => 'clickhouse.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('clickhouse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -221,6 +221,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - AllocateClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateClusterPublicConnectionResponse
      *
      * @param AllocateClusterPublicConnectionRequest $request
@@ -260,27 +261,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateClusterPublicConnection',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateClusterPublicConnection',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateClusterPublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
      *
      * @param request - AllocateClusterPublicConnectionRequest
+     *
      * @returns AllocateClusterPublicConnectionResponse
      *
      * @param AllocateClusterPublicConnectionRequest $request
@@ -299,6 +298,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CheckClickhouseToRDSRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckClickhouseToRDSResponse
      *
      * @param CheckClickhouseToRDSRequest $request
@@ -370,27 +370,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckClickhouseToRDS',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckClickhouseToRDS',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckClickhouseToRDSResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckClickhouseToRDSResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckClickhouseToRDSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
      * @param request - CheckClickhouseToRDSRequest
+     *
      * @returns CheckClickhouseToRDSResponse
      *
      * @param CheckClickhouseToRDSRequest $request
@@ -412,6 +410,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CheckModifyConfigNeedRestartRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckModifyConfigNeedRestartResponse
      *
      * @param CheckModifyConfigNeedRestartRequest $request
@@ -435,21 +434,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckModifyConfigNeedRestart',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckModifyConfigNeedRestart',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckModifyConfigNeedRestartResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckModifyConfigNeedRestartResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckModifyConfigNeedRestartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -459,6 +455,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
      *
      * @param request - CheckModifyConfigNeedRestartRequest
+     *
      * @returns CheckModifyConfigNeedRestartResponse
      *
      * @param CheckModifyConfigNeedRestartRequest $request
@@ -477,6 +474,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CheckMonitorAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckMonitorAlertResponse
      *
      * @param CheckMonitorAlertRequest $request
@@ -516,27 +514,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckMonitorAlert',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckMonitorAlert',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckMonitorAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckMonitorAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckMonitorAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
      *
      * @param request - CheckMonitorAlertRequest
+     *
      * @returns CheckMonitorAlertResponse
      *
      * @param CheckMonitorAlertRequest $request
@@ -555,6 +551,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CheckScaleOutBalancedRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckScaleOutBalancedResponse
      *
      * @param CheckScaleOutBalancedRequest $request
@@ -602,27 +599,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckScaleOutBalanced',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckScaleOutBalanced',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckScaleOutBalancedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckScaleOutBalancedResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckScaleOutBalancedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
      *
      * @param request - CheckScaleOutBalancedRequest
+     *
      * @returns CheckScaleOutBalancedResponse
      *
      * @param CheckScaleOutBalancedRequest $request
@@ -641,6 +636,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckServiceLinkedRoleResponse
      *
      * @param CheckServiceLinkedRoleRequest $request
@@ -672,27 +668,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckServiceLinkedRole',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckServiceLinkedRole',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the service-linked role of ApsaraDB for ClickHouse.
      *
      * @param request - CheckServiceLinkedRoleRequest
+     *
      * @returns CheckServiceLinkedRoleResponse
      *
      * @param CheckServiceLinkedRoleRequest $request
@@ -711,6 +705,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -758,27 +753,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a database account for an ApsaraDB for ClickHouse cluster.
      *
      * @param request - CreateAccountRequest
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -793,10 +786,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Create an account and its permissions.
+     * Creates an account and grants permissions to the account.
      *
      * @param request - CreateAccountAndAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAccountAndAuthorityResponse
      *
      * @param CreateAccountAndAuthorityRequest $request
@@ -872,27 +866,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccountAndAuthority',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccountAndAuthority',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountAndAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountAndAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountAndAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Create an account and its permissions.
+     * Creates an account and grants permissions to the account.
      *
      * @param request - CreateAccountAndAuthorityRequest
+     *
      * @returns CreateAccountAndAuthorityResponse
      *
      * @param CreateAccountAndAuthorityRequest $request
@@ -914,6 +906,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBackupPolicyResponse
      *
      * @param CreateBackupPolicyRequest $request
@@ -965,21 +958,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackupPolicy',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackupPolicy',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -989,6 +979,7 @@ class Clickhouse extends OpenApiClient
      * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
      *
      * @param request - CreateBackupPolicyRequest
+     *
      * @returns CreateBackupPolicyResponse
      *
      * @param CreateBackupPolicyRequest $request
@@ -1010,6 +1001,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDBInstanceResponse
      *
      * @param CreateDBInstanceRequest $request
@@ -1145,21 +1137,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBInstance',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBInstance',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1169,6 +1158,7 @@ class Clickhouse extends OpenApiClient
      * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - CreateDBInstanceRequest
+     *
      * @returns CreateDBInstanceResponse
      *
      * @param CreateDBInstanceRequest $request
@@ -1187,6 +1177,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateMonitorDataReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMonitorDataReportResponse
      *
      * @param CreateMonitorDataReportRequest $request
@@ -1226,27 +1217,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitorDataReport',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitorDataReport',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMonitorDataReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMonitorDataReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMonitorDataReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
      *
      * @param request - CreateMonitorDataReportRequest
+     *
      * @returns CreateMonitorDataReportResponse
      *
      * @param CreateMonitorDataReportRequest $request
@@ -1268,6 +1257,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateOSSStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateOSSStorageResponse
      *
      * @param CreateOSSStorageRequest $request
@@ -1307,21 +1297,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateOSSStorage',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOSSStorage',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOSSStorageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1331,6 +1318,7 @@ class Clickhouse extends OpenApiClient
      * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
      *
      * @param request - CreateOSSStorageRequest
+     *
      * @returns CreateOSSStorageResponse
      *
      * @param CreateOSSStorageRequest $request
@@ -1352,6 +1340,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreatePortsForClickHouseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePortsForClickHouseResponse
      *
      * @param CreatePortsForClickHouseRequest $request
@@ -1395,21 +1384,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePortsForClickHouse',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePortsForClickHouse',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePortsForClickHouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePortsForClickHouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePortsForClickHouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1419,6 +1405,7 @@ class Clickhouse extends OpenApiClient
      * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
      *
      * @param request - CreatePortsForClickHouseRequest
+     *
      * @returns CreatePortsForClickHouseResponse
      *
      * @param CreatePortsForClickHouseRequest $request
@@ -1440,6 +1427,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateRDSToClickhouseDbRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRDSToClickhouseDbResponse
      *
      * @param CreateRDSToClickhouseDbRequest $request
@@ -1523,21 +1511,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRDSToClickhouseDb',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRDSToClickhouseDb',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRDSToClickhouseDbResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1547,6 +1532,7 @@ class Clickhouse extends OpenApiClient
      * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
      *
      * @param request - CreateRDSToClickhouseDbRequest
+     *
      * @returns CreateRDSToClickhouseDbResponse
      *
      * @param CreateRDSToClickhouseDbRequest $request
@@ -1568,6 +1554,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateSQLAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSQLAccountResponse
      *
      * @param CreateSQLAccountRequest $request
@@ -1619,21 +1606,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSQLAccount',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSQLAccount',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSQLAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSQLAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSQLAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1643,6 +1627,7 @@ class Clickhouse extends OpenApiClient
      * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
      *
      * @param request - CreateSQLAccountRequest
+     *
      * @returns CreateSQLAccountResponse
      *
      * @param CreateSQLAccountRequest $request
@@ -1661,6 +1646,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceLinkedRoleResponse
      *
      * @param CreateServiceLinkedRoleRequest $request
@@ -1692,27 +1678,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRole',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleRequest
+     *
      * @returns CreateServiceLinkedRoleResponse
      *
      * @param CreateServiceLinkedRoleRequest $request
@@ -1734,6 +1718,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -1773,21 +1758,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1797,6 +1779,7 @@ class Clickhouse extends OpenApiClient
      * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
      *
      * @param request - DeleteAccountRequest
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -1818,6 +1801,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DeleteDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDBClusterResponse
      *
      * @param DeleteDBClusterRequest $request
@@ -1853,21 +1837,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBCluster',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBCluster',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1877,6 +1858,7 @@ class Clickhouse extends OpenApiClient
      * *Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
      *
      * @param request - DeleteDBClusterRequest
+     *
      * @returns DeleteDBClusterResponse
      *
      * @param DeleteDBClusterRequest $request
@@ -1895,6 +1877,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DeleteSyndbRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSyndbResponse
      *
      * @param DeleteSyndbRequest $request
@@ -1934,27 +1917,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSyndb',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSyndb',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSyndbResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSyndbResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSyndbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a database used for data synchronization.
      *
      * @param request - DeleteSyndbRequest
+     *
      * @returns DeleteSyndbResponse
      *
      * @param DeleteSyndbRequest $request
@@ -1973,6 +1954,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountAuthorityResponse
      *
      * @param DescribeAccountAuthorityRequest $request
@@ -2016,27 +1998,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccountAuthority',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountAuthority',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the permissions of an account.
      *
      * @param request - DescribeAccountAuthorityRequest
+     *
      * @returns DescribeAccountAuthorityResponse
      *
      * @param DescribeAccountAuthorityRequest $request
@@ -2055,6 +2035,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountsResponse
      *
      * @param DescribeAccountsRequest $request
@@ -2102,27 +2083,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAccountsRequest
+     *
      * @returns DescribeAccountsResponse
      *
      * @param DescribeAccountsRequest $request
@@ -2141,6 +2120,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeAllDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAllDataSourceResponse
      *
      * @param DescribeAllDataSourceRequest $request
@@ -2184,27 +2164,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAllDataSource',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllDataSource',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAllDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAllDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAllDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAllDataSourceRequest
+     *
      * @returns DescribeAllDataSourceResponse
      *
      * @param DescribeAllDataSourceRequest $request
@@ -2223,6 +2201,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeAllDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAllDataSourcesResponse
      *
      * @param DescribeAllDataSourcesRequest $request
@@ -2266,27 +2245,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAllDataSources',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllDataSources',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAllDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAllDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAllDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the data sources of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAllDataSourcesRequest
+     *
      * @returns DescribeAllDataSourcesResponse
      *
      * @param DescribeAllDataSourcesRequest $request
@@ -2308,6 +2285,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -2343,21 +2321,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2367,6 +2342,7 @@ class Clickhouse extends OpenApiClient
      * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
      *
      * @param request - DescribeBackupPolicyRequest
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -2383,8 +2359,12 @@ class Clickhouse extends OpenApiClient
     /**
      * Queries the backup sets of an ApsaraDB for ClickHouse cluster.
      *
+     * @remarks
+     * >  This operation is available only for ApsaraDB for ClickHouse clusters of version 21.8 and later.
+     *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupsResponse
      *
      * @param DescribeBackupsRequest $request
@@ -2440,27 +2420,28 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackups',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the backup sets of an ApsaraDB for ClickHouse cluster.
      *
+     * @remarks
+     * >  This operation is available only for ApsaraDB for ClickHouse clusters of version 21.8 and later.
+     *
      * @param request - DescribeBackupsRequest
+     *
      * @returns DescribeBackupsResponse
      *
      * @param DescribeBackupsRequest $request
@@ -2479,6 +2460,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeColumnsResponse
      *
      * @param DescribeColumnsRequest $request
@@ -2522,27 +2504,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeColumns',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeColumns',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries information about columns.
      *
      * @param request - DescribeColumnsRequest
+     *
      * @returns DescribeColumnsResponse
      *
      * @param DescribeColumnsRequest $request
@@ -2564,6 +2544,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeConfigHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeConfigHistoryResponse
      *
      * @param DescribeConfigHistoryRequest $request
@@ -2575,25 +2556,22 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeConfigHistory',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeConfigHistory',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeConfigHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2603,6 +2581,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
      *
      * @param request - DescribeConfigHistoryRequest
+     *
      * @returns DescribeConfigHistoryResponse
      *
      * @param DescribeConfigHistoryRequest $request
@@ -2624,6 +2603,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeConfigVersionDifferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeConfigVersionDifferenceResponse
      *
      * @param DescribeConfigVersionDifferenceRequest $request
@@ -2635,25 +2615,22 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeConfigVersionDifference',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeConfigVersionDifference',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeConfigVersionDifferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeConfigVersionDifferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeConfigVersionDifferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2663,6 +2640,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
      *
      * @param request - DescribeConfigVersionDifferenceRequest
+     *
      * @returns DescribeConfigVersionDifferenceResponse
      *
      * @param DescribeConfigVersionDifferenceRequest $request
@@ -2681,6 +2659,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClusterAccessWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterAccessWhiteListResponse
      *
      * @param DescribeDBClusterAccessWhiteListRequest $request
@@ -2716,27 +2695,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAccessWhiteList',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAccessWhiteList',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterAccessWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAccessWhiteListRequest
+     *
      * @returns DescribeDBClusterAccessWhiteListResponse
      *
      * @param DescribeDBClusterAccessWhiteListRequest $request
@@ -2755,6 +2732,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterAttributeResponse
      *
      * @param DescribeDBClusterAttributeRequest $request
@@ -2790,27 +2768,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAttribute',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAttribute',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
+     *
      * @returns DescribeDBClusterAttributeResponse
      *
      * @param DescribeDBClusterAttributeRequest $request
@@ -2829,6 +2805,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClusterConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterConfigResponse
      *
      * @param DescribeDBClusterConfigRequest $request
@@ -2868,27 +2845,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterConfig',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterConfig',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterConfigRequest
+     *
      * @returns DescribeDBClusterConfigResponse
      *
      * @param DescribeDBClusterConfigRequest $request
@@ -2910,6 +2885,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClusterConfigInXMLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterConfigInXMLResponse
      *
      * @param DescribeDBClusterConfigInXMLRequest $request
@@ -2933,21 +2909,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterConfigInXML',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterConfigInXML',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterConfigInXMLResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2957,6 +2930,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
      *
      * @param request - DescribeDBClusterConfigInXMLRequest
+     *
      * @returns DescribeDBClusterConfigInXMLResponse
      *
      * @param DescribeDBClusterConfigInXMLRequest $request
@@ -2975,6 +2949,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClusterNetInfoItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterNetInfoItemsResponse
      *
      * @param DescribeDBClusterNetInfoItemsRequest $request
@@ -3010,27 +2985,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterNetInfoItems',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterNetInfoItems',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterNetInfoItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterNetInfoItemsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterNetInfoItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the network information about an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterNetInfoItemsRequest
+     *
      * @returns DescribeDBClusterNetInfoItemsResponse
      *
      * @param DescribeDBClusterNetInfoItemsRequest $request
@@ -3053,6 +3026,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterPerformanceResponse
      *
      * @param DescribeDBClusterPerformanceRequest $request
@@ -3100,21 +3074,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterPerformance',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterPerformance',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClusterPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3125,6 +3096,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
      *
      * @param request - DescribeDBClusterPerformanceRequest
+     *
      * @returns DescribeDBClusterPerformanceResponse
      *
      * @param DescribeDBClusterPerformanceRequest $request
@@ -3143,6 +3115,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClustersResponse
      *
      * @param DescribeDBClustersRequest $request
@@ -3206,27 +3179,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusters',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusters',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about ApsaraDB for ClickHouse clusters in a region.
      *
      * @param request - DescribeDBClustersRequest
+     *
      * @returns DescribeDBClustersResponse
      *
      * @param DescribeDBClustersRequest $request
@@ -3245,6 +3216,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeDBConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBConfigResponse
      *
      * @param DescribeDBConfigRequest $request
@@ -3284,27 +3256,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBConfig',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBConfig',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries configuration information about an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBConfigRequest
+     *
      * @returns DescribeDBConfigResponse
      *
      * @param DescribeDBConfigRequest $request
@@ -3323,6 +3293,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeOSSStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOSSStorageResponse
      *
      * @param DescribeOSSStorageRequest $request
@@ -3362,27 +3333,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOSSStorage',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOSSStorage',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOSSStorageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the storage of cold data.
      *
      * @param request - DescribeOSSStorageRequest
+     *
      * @returns DescribeOSSStorageResponse
      *
      * @param DescribeOSSStorageRequest $request
@@ -3401,6 +3370,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeProcessListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProcessListResponse
      *
      * @param DescribeProcessListRequest $request
@@ -3468,27 +3438,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProcessList',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProcessList',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProcessListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeProcessListRequest
+     *
      * @returns DescribeProcessListResponse
      *
      * @param DescribeProcessListRequest $request
@@ -3507,6 +3475,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -3538,27 +3507,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -3577,6 +3544,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSchemasResponse
      *
      * @param DescribeSchemasRequest $request
@@ -3612,27 +3580,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSchemas',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSchemas',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeSchemasRequest
+     *
      * @returns DescribeSchemasResponse
      *
      * @param DescribeSchemasRequest $request
@@ -3651,6 +3617,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlowLogRecordsResponse
      *
      * @param DescribeSlowLogRecordsRequest $request
@@ -3710,27 +3677,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogRecords',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogRecords',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details about slow query logs.
      *
      * @param request - DescribeSlowLogRecordsRequest
+     *
      * @returns DescribeSlowLogRecordsResponse
      *
      * @param DescribeSlowLogRecordsRequest $request
@@ -3749,6 +3714,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeSynDbTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynDbTablesResponse
      *
      * @param DescribeSynDbTablesRequest $request
@@ -3788,27 +3754,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynDbTables',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynDbTables',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynDbTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynDbTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynDbTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeSynDbTablesRequest
+     *
      * @returns DescribeSynDbTablesResponse
      *
      * @param DescribeSynDbTablesRequest $request
@@ -3827,6 +3791,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeSynDbsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynDbsResponse
      *
      * @param DescribeSynDbsRequest $request
@@ -3870,27 +3835,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynDbs',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynDbs',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSynDbsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSynDbsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSynDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
      * @param request - DescribeSynDbsRequest
+     *
      * @returns DescribeSynDbsResponse
      *
      * @param DescribeSynDbsRequest $request
@@ -3909,6 +3872,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTablesResponse
      *
      * @param DescribeTablesRequest $request
@@ -3948,27 +3912,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTables',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTables',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeTablesRequest
+     *
      * @returns DescribeTablesResponse
      *
      * @param DescribeTablesRequest $request
@@ -3990,6 +3952,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - DescribeTransferHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTransferHistoryResponse
      *
      * @param DescribeTransferHistoryRequest $request
@@ -4025,21 +3988,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTransferHistory',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTransferHistory',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTransferHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTransferHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTransferHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4049,6 +4009,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
      *
      * @param request - DescribeTransferHistoryRequest
+     *
      * @returns DescribeTransferHistoryResponse
      *
      * @param DescribeTransferHistoryRequest $request
@@ -4067,6 +4028,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - KillProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns KillProcessResponse
      *
      * @param KillProcessRequest $request
@@ -4110,27 +4072,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'KillProcess',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'KillProcess',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return KillProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Terminates an ongoing task.
      *
      * @param request - KillProcessRequest
+     *
      * @returns KillProcessResponse
      *
      * @param KillProcessRequest $request
@@ -4149,6 +4109,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountAuthorityResponse
      *
      * @param ModifyAccountAuthorityRequest $request
@@ -4216,27 +4177,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountAuthority',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountAuthority',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the permissions of an account.
      *
      * @param request - ModifyAccountAuthorityRequest
+     *
      * @returns ModifyAccountAuthorityResponse
      *
      * @param ModifyAccountAuthorityRequest $request
@@ -4255,6 +4214,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -4298,27 +4258,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountDescription',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyAccountDescriptionRequest
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -4340,6 +4298,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBackupPolicyResponse
      *
      * @param ModifyBackupPolicyRequest $request
@@ -4387,21 +4346,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4411,6 +4367,7 @@ class Clickhouse extends OpenApiClient
      * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
      *
      * @param request - ModifyBackupPolicyRequest
+     *
      * @returns ModifyBackupPolicyResponse
      *
      * @param ModifyBackupPolicyRequest $request
@@ -4429,6 +4386,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterResponse
      *
      * @param ModifyDBClusterRequest $request
@@ -4488,27 +4446,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBCluster',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBCluster',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterRequest
+     *
      * @returns ModifyDBClusterResponse
      *
      * @param ModifyDBClusterRequest $request
@@ -4527,6 +4483,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyDBClusterAccessWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterAccessWhiteListResponse
      *
      * @param ModifyDBClusterAccessWhiteListRequest $request
@@ -4578,27 +4535,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterAccessWhiteList',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterAccessWhiteList',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterAccessWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterAccessWhiteListRequest
+     *
      * @returns ModifyDBClusterAccessWhiteListResponse
      *
      * @param ModifyDBClusterAccessWhiteListRequest $request
@@ -4617,6 +4572,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyDBClusterConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterConfigResponse
      *
      * @param ModifyDBClusterConfigRequest $request
@@ -4664,27 +4620,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterConfig',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterConfig',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterConfigRequest
+     *
      * @returns ModifyDBClusterConfigResponse
      *
      * @param ModifyDBClusterConfigRequest $request
@@ -4699,13 +4653,14 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
+     * Changes the configuration parameters of an ApsaraDB for ClickHouse cluster that runs Community-compatible Edition.
      *
      * @remarks
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
      *
      * @param request - ModifyDBClusterConfigInXMLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterConfigInXMLResponse
      *
      * @param ModifyDBClusterConfigInXMLRequest $request
@@ -4737,30 +4692,28 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterConfigInXML',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterConfigInXML',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterConfigInXMLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
+     * Changes the configuration parameters of an ApsaraDB for ClickHouse cluster that runs Community-compatible Edition.
      *
      * @remarks
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
      *
      * @param request - ModifyDBClusterConfigInXMLRequest
+     *
      * @returns ModifyDBClusterConfigInXMLResponse
      *
      * @param ModifyDBClusterConfigInXMLRequest $request
@@ -4779,6 +4732,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyDBClusterDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterDescriptionResponse
      *
      * @param ModifyDBClusterDescriptionRequest $request
@@ -4818,27 +4772,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterDescription',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterDescription',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Changes the name of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterDescriptionRequest
+     *
      * @returns ModifyDBClusterDescriptionResponse
      *
      * @param ModifyDBClusterDescriptionRequest $request
@@ -4857,6 +4809,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterMaintainTimeResponse
      *
      * @param ModifyDBClusterMaintainTimeRequest $request
@@ -4896,27 +4849,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterMaintainTime',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterMaintainTime',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBClusterMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBClusterMaintainTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBClusterMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
+     *
      * @returns ModifyDBClusterMaintainTimeResponse
      *
      * @param ModifyDBClusterMaintainTimeRequest $request
@@ -4935,6 +4886,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyDBConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBConfigResponse
      *
      * @param ModifyDBConfigRequest $request
@@ -4978,27 +4930,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBConfig',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBConfig',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBConfigRequest
+     *
      * @returns ModifyDBConfigResponse
      *
      * @param ModifyDBConfigRequest $request
@@ -5017,6 +4967,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyMinorVersionGreadeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyMinorVersionGreadeTypeResponse
      *
      * @param ModifyMinorVersionGreadeTypeRequest $request
@@ -5056,27 +5007,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMinorVersionGreadeType',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMinorVersionGreadeType',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyMinorVersionGreadeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyMinorVersionGreadeTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyMinorVersionGreadeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the type of a minor version update in ApsaraDB for ClickHouse.
      *
      * @param request - ModifyMinorVersionGreadeTypeRequest
+     *
      * @returns ModifyMinorVersionGreadeTypeResponse
      *
      * @param ModifyMinorVersionGreadeTypeRequest $request
@@ -5098,6 +5047,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ModifyRDSToClickhouseDbRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRDSToClickhouseDbResponse
      *
      * @param ModifyRDSToClickhouseDbRequest $request
@@ -5181,21 +5131,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRDSToClickhouseDb',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRDSToClickhouseDb',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyRDSToClickhouseDbResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5205,6 +5152,7 @@ class Clickhouse extends OpenApiClient
      * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
      *
      * @param request - ModifyRDSToClickhouseDbRequest
+     *
      * @returns ModifyRDSToClickhouseDbResponse
      *
      * @param ModifyRDSToClickhouseDbRequest $request
@@ -5223,6 +5171,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ReleaseClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseClusterPublicConnectionResponse
      *
      * @param ReleaseClusterPublicConnectionRequest $request
@@ -5258,27 +5207,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseClusterPublicConnection',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseClusterPublicConnection',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseClusterPublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ReleaseClusterPublicConnectionRequest
+     *
      * @returns ReleaseClusterPublicConnectionResponse
      *
      * @param ReleaseClusterPublicConnectionRequest $request
@@ -5297,6 +5244,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -5340,27 +5288,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccountPassword',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ResetAccountPasswordRequest
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -5379,6 +5325,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - RestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartInstanceResponse
      *
      * @param RestartInstanceRequest $request
@@ -5430,27 +5377,25 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartInstance',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartInstance',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Restarts an ApsaraDB for ClickHouse cluster.
      *
      * @param request - RestartInstanceRequest
+     *
      * @returns RestartInstanceResponse
      *
      * @param RestartInstanceRequest $request
@@ -5475,6 +5420,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - TransferVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferVersionResponse
      *
      * @param TransferVersionRequest $request
@@ -5554,21 +5500,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferVersion',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferVersion',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5581,6 +5524,7 @@ class Clickhouse extends OpenApiClient
      * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - TransferVersionRequest
+     *
      * @returns TransferVersionResponse
      *
      * @param TransferVersionRequest $request
@@ -5602,6 +5546,7 @@ class Clickhouse extends OpenApiClient
      *
      * @param request - UpgradeMinorVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeMinorVersionResponse
      *
      * @param UpgradeMinorVersionRequest $request
@@ -5649,21 +5594,18 @@ class Clickhouse extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeMinorVersion',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeMinorVersion',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeMinorVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5673,6 +5615,7 @@ class Clickhouse extends OpenApiClient
      * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
      *
      * @param request - UpgradeMinorVersionRequest
+     *
      * @returns UpgradeMinorVersionResponse
      *
      * @param UpgradeMinorVersionRequest $request

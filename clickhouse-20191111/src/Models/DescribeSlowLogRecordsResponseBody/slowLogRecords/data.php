@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->resultSet) {
             if (\is_array($this->resultSet)) {
                 $res['ResultSet'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resultSet as $item1) {
                     $res['ResultSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['ResultSet'])) {
             if (!empty($map['ResultSet'])) {
                 $model->resultSet = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ResultSet'] as $item1) {
                     $model->resultSet[$n1++] = resultSet::fromMap($item1);
                 }

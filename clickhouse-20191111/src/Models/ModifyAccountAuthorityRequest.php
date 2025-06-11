@@ -12,68 +12,80 @@ class ModifyAccountAuthorityRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $allowDatabases;
+
     /**
      * @var string
      */
     public $allowDictionaries;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $ddlAuthority;
+
     /**
      * @var string
      */
     public $dmlAuthority;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $totalDatabases;
+
     /**
      * @var string
      */
     public $totalDictionaries;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'allowDatabases'       => 'AllowDatabases',
-        'allowDictionaries'    => 'AllowDictionaries',
-        'DBClusterId'          => 'DBClusterId',
-        'ddlAuthority'         => 'DdlAuthority',
-        'dmlAuthority'         => 'DmlAuthority',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'accountName' => 'AccountName',
+        'allowDatabases' => 'AllowDatabases',
+        'allowDictionaries' => 'AllowDictionaries',
+        'DBClusterId' => 'DBClusterId',
+        'ddlAuthority' => 'DdlAuthority',
+        'dmlAuthority' => 'DmlAuthority',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'totalDatabases'       => 'TotalDatabases',
-        'totalDictionaries'    => 'TotalDictionaries',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'totalDatabases' => 'TotalDatabases',
+        'totalDictionaries' => 'TotalDictionaries',
     ];
 
     public function validate()

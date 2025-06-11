@@ -13,13 +13,14 @@ class DescribeProcessListResponseBody extends Model
      * @var processList
      */
     public $processList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'processList' => 'ProcessList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

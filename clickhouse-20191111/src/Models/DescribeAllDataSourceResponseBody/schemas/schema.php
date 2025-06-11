@@ -12,13 +12,14 @@ class schema extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $schemaName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'schemaName'  => 'SchemaName',
+        'schemaName' => 'SchemaName',
     ];
 
     public function validate()

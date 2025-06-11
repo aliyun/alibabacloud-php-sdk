@@ -12,33 +12,38 @@ class DescribeTablesRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $schemaName;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'DBClusterId' => 'DBClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'schemaName'           => 'SchemaName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'schemaName' => 'SchemaName',
     ];
 
     public function validate()

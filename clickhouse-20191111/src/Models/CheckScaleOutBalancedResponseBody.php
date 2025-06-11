@@ -13,38 +13,44 @@ class CheckScaleOutBalancedResponseBody extends Model
      * @var string
      */
     public $checkCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tableDetails
      */
     public $tableDetails;
+
     /**
      * @var string
      */
     public $timeDuration;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'checkCode'    => 'CheckCode',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
+        'checkCode' => 'CheckCode',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'tableDetails' => 'TableDetails',
         'timeDuration' => 'TimeDuration',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

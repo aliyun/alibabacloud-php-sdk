@@ -12,13 +12,14 @@ class scaleOutStatus extends Model
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $ratio;
     protected $_name = [
         'progress' => 'Progress',
-        'ratio'    => 'Ratio',
+        'ratio' => 'Ratio',
     ];
 
     public function validate()

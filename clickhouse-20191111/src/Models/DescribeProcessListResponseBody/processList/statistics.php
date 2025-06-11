@@ -12,18 +12,20 @@ class statistics extends Model
      * @var int
      */
     public $bytesRead;
+
     /**
      * @var float
      */
     public $elapsedTime;
+
     /**
      * @var int
      */
     public $rowsRead;
     protected $_name = [
-        'bytesRead'   => 'BytesRead',
+        'bytesRead' => 'BytesRead',
         'elapsedTime' => 'ElapsedTime',
-        'rowsRead'    => 'RowsRead',
+        'rowsRead' => 'RowsRead',
     ];
 
     public function validate()

@@ -12,153 +12,182 @@ class CreateDBInstanceRequest extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $backupSetID;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBClusterCategory;
+
     /**
      * @var string
      */
     public $DBClusterClass;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterNetworkType;
+
     /**
      * @var string
      */
     public $DBClusterVersion;
+
     /**
      * @var string
      */
     public $DBNodeGroupCount;
+
     /**
      * @var string
      */
     public $DBNodeStorage;
+
     /**
      * @var string
      */
     public $dbNodeStorageType;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $encryptionType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceDBClusterId;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchBak;
+
     /**
      * @var string
      */
     public $vSwitchBak2;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zondIdBak2;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdBak;
     protected $_name = [
-        'autoRenew'            => 'AutoRenew',
-        'backupSetID'          => 'BackupSetID',
-        'clientToken'          => 'ClientToken',
-        'DBClusterCategory'    => 'DBClusterCategory',
-        'DBClusterClass'       => 'DBClusterClass',
+        'autoRenew' => 'AutoRenew',
+        'backupSetID' => 'BackupSetID',
+        'clientToken' => 'ClientToken',
+        'DBClusterCategory' => 'DBClusterCategory',
+        'DBClusterClass' => 'DBClusterClass',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterNetworkType' => 'DBClusterNetworkType',
-        'DBClusterVersion'     => 'DBClusterVersion',
-        'DBNodeGroupCount'     => 'DBNodeGroupCount',
-        'DBNodeStorage'        => 'DBNodeStorage',
-        'dbNodeStorageType'    => 'DbNodeStorageType',
-        'encryptionKey'        => 'EncryptionKey',
-        'encryptionType'       => 'EncryptionType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
-        'period'               => 'Period',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBClusterVersion' => 'DBClusterVersion',
+        'DBNodeGroupCount' => 'DBNodeGroupCount',
+        'DBNodeStorage' => 'DBNodeStorage',
+        'dbNodeStorageType' => 'DbNodeStorageType',
+        'encryptionKey' => 'EncryptionKey',
+        'encryptionType' => 'EncryptionType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceDBClusterId'    => 'SourceDBClusterId',
-        'usedTime'             => 'UsedTime',
-        'VPCId'                => 'VPCId',
-        'vSwitchBak'           => 'VSwitchBak',
-        'vSwitchBak2'          => 'VSwitchBak2',
-        'vSwitchId'            => 'VSwitchId',
-        'zondIdBak2'           => 'ZondIdBak2',
-        'zoneId'               => 'ZoneId',
-        'zoneIdBak'            => 'ZoneIdBak',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceDBClusterId' => 'SourceDBClusterId',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchBak' => 'VSwitchBak',
+        'vSwitchBak2' => 'VSwitchBak2',
+        'vSwitchId' => 'VSwitchId',
+        'zondIdBak2' => 'ZondIdBak2',
+        'zoneId' => 'ZoneId',
+        'zoneIdBak' => 'ZoneIdBak',
     ];
 
     public function validate()

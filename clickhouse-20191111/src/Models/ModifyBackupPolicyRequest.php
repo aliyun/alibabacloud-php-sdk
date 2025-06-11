@@ -12,43 +12,50 @@ class ModifyBackupPolicyRequest extends Model
      * @var string
      */
     public $backupRetentionPeriod;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
-        'DBClusterId'           => 'DBClusterId',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
+        'DBClusterId' => 'DBClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
-        'preferredBackupTime'   => 'PreferredBackupTime',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

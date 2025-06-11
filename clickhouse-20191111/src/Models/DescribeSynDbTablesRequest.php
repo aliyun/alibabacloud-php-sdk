@@ -12,33 +12,38 @@ class DescribeSynDbTablesRequest extends Model
      * @var string
      */
     public $dbClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $synDb;
     protected $_name = [
-        'dbClusterId'          => 'DbClusterId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'dbClusterId' => 'DbClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'synDb'                => 'SynDb',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'synDb' => 'SynDb',
     ];
 
     public function validate()

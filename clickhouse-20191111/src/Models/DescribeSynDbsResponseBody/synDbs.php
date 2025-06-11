@@ -12,33 +12,38 @@ class synDbs extends Model
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $rdsId;
+
     /**
      * @var string
      */
     public $rdsUserName;
+
     /**
      * @var string
      */
     public $rdsVpcUrl;
+
     /**
      * @var string
      */
     public $synDb;
+
     /**
      * @var bool
      */
     public $synStatus;
     protected $_name = [
-        'errorMsg'    => 'ErrorMsg',
-        'rdsId'       => 'RdsId',
+        'errorMsg' => 'ErrorMsg',
+        'rdsId' => 'RdsId',
         'rdsUserName' => 'RdsUserName',
-        'rdsVpcUrl'   => 'RdsVpcUrl',
-        'synDb'       => 'SynDb',
-        'synStatus'   => 'SynStatus',
+        'rdsVpcUrl' => 'RdsVpcUrl',
+        'synDb' => 'SynDb',
+        'synStatus' => 'SynStatus',
     ];
 
     public function validate()

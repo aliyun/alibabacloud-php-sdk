@@ -13,13 +13,14 @@ class region extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var zones
      */
     public $zones;
     protected $_name = [
         'regionId' => 'RegionId',
-        'zones'    => 'Zones',
+        'zones' => 'Zones',
     ];
 
     public function validate()

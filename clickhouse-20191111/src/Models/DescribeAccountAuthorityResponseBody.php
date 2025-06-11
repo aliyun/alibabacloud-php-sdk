@@ -12,42 +12,49 @@ class DescribeAccountAuthorityResponseBody extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string[]
      */
     public $allowDatabases;
+
     /**
      * @var string[]
      */
     public $allowDictionaries;
+
     /**
      * @var bool
      */
     public $ddlAuthority;
+
     /**
      * @var string
      */
     public $dmlAuthority;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $totalDatabases;
+
     /**
      * @var string[]
      */
     public $totalDictionaries;
     protected $_name = [
-        'accountName'       => 'AccountName',
-        'allowDatabases'    => 'AllowDatabases',
+        'accountName' => 'AccountName',
+        'allowDatabases' => 'AllowDatabases',
         'allowDictionaries' => 'AllowDictionaries',
-        'ddlAuthority'      => 'DdlAuthority',
-        'dmlAuthority'      => 'DmlAuthority',
-        'requestId'         => 'RequestId',
-        'totalDatabases'    => 'TotalDatabases',
+        'ddlAuthority' => 'DdlAuthority',
+        'dmlAuthority' => 'DmlAuthority',
+        'requestId' => 'RequestId',
+        'totalDatabases' => 'TotalDatabases',
         'totalDictionaries' => 'TotalDictionaries',
     ];
 
@@ -78,7 +85,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (null !== $this->allowDatabases) {
             if (\is_array($this->allowDatabases)) {
                 $res['AllowDatabases'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->allowDatabases as $item1) {
                     $res['AllowDatabases'][$n1++] = $item1;
                 }
@@ -88,7 +95,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (null !== $this->allowDictionaries) {
             if (\is_array($this->allowDictionaries)) {
                 $res['AllowDictionaries'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->allowDictionaries as $item1) {
                     $res['AllowDictionaries'][$n1++] = $item1;
                 }
@@ -110,7 +117,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (null !== $this->totalDatabases) {
             if (\is_array($this->totalDatabases)) {
                 $res['TotalDatabases'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->totalDatabases as $item1) {
                     $res['TotalDatabases'][$n1++] = $item1;
                 }
@@ -120,7 +127,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (null !== $this->totalDictionaries) {
             if (\is_array($this->totalDictionaries)) {
                 $res['TotalDictionaries'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->totalDictionaries as $item1) {
                     $res['TotalDictionaries'][$n1++] = $item1;
                 }
@@ -145,7 +152,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (isset($map['AllowDatabases'])) {
             if (!empty($map['AllowDatabases'])) {
                 $model->allowDatabases = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['AllowDatabases'] as $item1) {
                     $model->allowDatabases[$n1++] = $item1;
                 }
@@ -155,7 +162,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (isset($map['AllowDictionaries'])) {
             if (!empty($map['AllowDictionaries'])) {
                 $model->allowDictionaries = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['AllowDictionaries'] as $item1) {
                     $model->allowDictionaries[$n1++] = $item1;
                 }
@@ -177,7 +184,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (isset($map['TotalDatabases'])) {
             if (!empty($map['TotalDatabases'])) {
                 $model->totalDatabases = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['TotalDatabases'] as $item1) {
                     $model->totalDatabases[$n1++] = $item1;
                 }
@@ -187,7 +194,7 @@ class DescribeAccountAuthorityResponseBody extends Model
         if (isset($map['TotalDictionaries'])) {
             if (!empty($map['TotalDictionaries'])) {
                 $model->totalDictionaries = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TotalDictionaries'] as $item1) {
                     $model->totalDictionaries[$n1++] = $item1;
                 }

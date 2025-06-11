@@ -13,13 +13,14 @@ class DescribeTransferHistoryResponseBody extends Model
      * @var historyDetails
      */
     public $historyDetails;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'historyDetails' => 'HistoryDetails',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

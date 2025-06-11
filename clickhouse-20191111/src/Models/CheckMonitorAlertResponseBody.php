@@ -12,10 +12,12 @@ class CheckMonitorAlertResponseBody extends Model
      * @var string
      */
     public $parameter;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class CheckMonitorAlertResponseBody extends Model
     protected $_name = [
         'parameter' => 'Parameter',
         'requestId' => 'RequestId',
-        'state'     => 'State',
+        'state' => 'State',
     ];
 
     public function validate()

@@ -15,23 +15,26 @@ class DescribeAllDataSourceResponseBody extends Model
      * @var columns
      */
     public $columns;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var schemas
      */
     public $schemas;
+
     /**
      * @var tables
      */
     public $tables;
     protected $_name = [
-        'columns'   => 'Columns',
+        'columns' => 'Columns',
         'requestId' => 'RequestId',
-        'schemas'   => 'Schemas',
-        'tables'    => 'Tables',
+        'schemas' => 'Schemas',
+        'tables' => 'Tables',
     ];
 
     public function validate()

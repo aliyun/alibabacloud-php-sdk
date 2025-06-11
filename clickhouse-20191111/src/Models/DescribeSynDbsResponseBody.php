@@ -13,27 +13,31 @@ class DescribeSynDbsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var synDbs[]
      */
     public $synDbs;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'synDbs'     => 'SynDbs',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'synDbs' => 'SynDbs',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,7 +67,7 @@ class DescribeSynDbsResponseBody extends Model
         if (null !== $this->synDbs) {
             if (\is_array($this->synDbs)) {
                 $res['SynDbs'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->synDbs as $item1) {
                     $res['SynDbs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class DescribeSynDbsResponseBody extends Model
         if (isset($map['SynDbs'])) {
             if (!empty($map['SynDbs'])) {
                 $model->synDbs = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['SynDbs'] as $item1) {
                     $model->synDbs[$n1++] = synDbs::fromMap($item1);
                 }

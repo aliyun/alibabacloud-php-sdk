@@ -31,7 +31,7 @@ class netInfoItems extends Model
         if (null !== $this->netInfoItem) {
             if (\is_array($this->netInfoItem)) {
                 $res['NetInfoItem'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->netInfoItem as $item1) {
                     $res['NetInfoItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class netInfoItems extends Model
         if (isset($map['NetInfoItem'])) {
             if (!empty($map['NetInfoItem'])) {
                 $model->netInfoItem = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['NetInfoItem'] as $item1) {
                     $model->netInfoItem[$n1++] = netInfoItem::fromMap($item1);
                 }

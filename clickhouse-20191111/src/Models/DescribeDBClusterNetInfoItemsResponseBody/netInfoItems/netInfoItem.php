@@ -12,48 +12,56 @@ class netInfoItem extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $httpPort;
+
     /**
      * @var string
      */
     public $httpsPort;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $jdbcPort;
+
     /**
      * @var string
      */
     public $mySQLPort;
+
     /**
      * @var string
      */
     public $netType;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'httpPort'         => 'HttpPort',
-        'httpsPort'        => 'HttpsPort',
-        'IPAddress'        => 'IPAddress',
-        'jdbcPort'         => 'JdbcPort',
-        'mySQLPort'        => 'MySQLPort',
-        'netType'          => 'NetType',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
+        'httpPort' => 'HttpPort',
+        'httpsPort' => 'HttpsPort',
+        'IPAddress' => 'IPAddress',
+        'jdbcPort' => 'JdbcPort',
+        'mySQLPort' => 'MySQLPort',
+        'netType' => 'NetType',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

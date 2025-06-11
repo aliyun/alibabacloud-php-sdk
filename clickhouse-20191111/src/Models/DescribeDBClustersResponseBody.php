@@ -13,18 +13,22 @@ class DescribeDBClustersResponseBody extends Model
      * @var DBClusters
      */
     public $DBClusters;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -32,8 +36,8 @@ class DescribeDBClustersResponseBody extends Model
     protected $_name = [
         'DBClusters' => 'DBClusters',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

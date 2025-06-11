@@ -14,263 +14,338 @@ class DBCluster extends Model
      * @var string
      */
     public $aliUid;
+
+    /**
+     * @var bool
+     */
+    public $appointmentElectZookeeperDisableWrite;
+
+    /**
+     * @var string
+     */
+    public $appointmentElectZookeeperTime;
+
+    /**
+     * @var string
+     */
+    public $appointmentRestartNodeList;
+
+    /**
+     * @var string
+     */
+    public $appointmentRestartNodeTime;
+
     /**
      * @var string
      */
     public $appointmentRestartTime;
+
     /**
      * @var mixed[]
      */
     public $availableUpgradeMajorVersion;
+
     /**
      * @var string
      */
     public $bid;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $controlVersion;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBClusterNetworkType;
+
     /**
      * @var string
      */
     public $DBClusterStatus;
+
     /**
      * @var string
      */
     public $DBClusterType;
+
     /**
      * @var string
      */
     public $DBNodeClass;
+
     /**
      * @var int
      */
     public $DBNodeCount;
+
     /**
      * @var int
      */
     public $DBNodeStorage;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $encryptionType;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineLatestMinorVersion;
+
     /**
      * @var string
      */
     public $engineMinorVersion;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $extStorageSize;
+
     /**
      * @var string
      */
     public $extStorageType;
+
     /**
      * @var string
      */
     public $isExpired;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var bool
      */
     public $maintainAutoType;
+
     /**
      * @var string
      */
     public $maintainTime;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $publicConnectionString;
+
     /**
      * @var string
      */
     public $publicIpAddr;
+
     /**
      * @var string
      */
     public $publicPort;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var scaleOutStatus
      */
     public $scaleOutStatus;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var int
      */
     public $supportBackup;
+
     /**
      * @var bool
      */
     public $supportHttpsPort;
+
     /**
      * @var bool
      */
     public $supportMysqlPort;
+
     /**
      * @var int
      */
     public $supportOss;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcCloudInstanceId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcIpAddr;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var mixed[]
      */
     public $zoneIdVswitchMap;
+
     /**
      * @var string
      */
     public $zookeeperClass;
     protected $_name = [
-        'aliUid'                       => 'AliUid',
-        'appointmentRestartTime'       => 'AppointmentRestartTime',
+        'aliUid' => 'AliUid',
+        'appointmentElectZookeeperDisableWrite' => 'AppointmentElectZookeeperDisableWrite',
+        'appointmentElectZookeeperTime' => 'AppointmentElectZookeeperTime',
+        'appointmentRestartNodeList' => 'AppointmentRestartNodeList',
+        'appointmentRestartNodeTime' => 'AppointmentRestartNodeTime',
+        'appointmentRestartTime' => 'AppointmentRestartTime',
         'availableUpgradeMajorVersion' => 'AvailableUpgradeMajorVersion',
-        'bid'                          => 'Bid',
-        'category'                     => 'Category',
-        'commodityCode'                => 'CommodityCode',
-        'connectionString'             => 'ConnectionString',
-        'controlVersion'               => 'ControlVersion',
-        'createTime'                   => 'CreateTime',
-        'DBClusterDescription'         => 'DBClusterDescription',
-        'DBClusterId'                  => 'DBClusterId',
-        'DBClusterNetworkType'         => 'DBClusterNetworkType',
-        'DBClusterStatus'              => 'DBClusterStatus',
-        'DBClusterType'                => 'DBClusterType',
-        'DBNodeClass'                  => 'DBNodeClass',
-        'DBNodeCount'                  => 'DBNodeCount',
-        'DBNodeStorage'                => 'DBNodeStorage',
-        'encryptionKey'                => 'EncryptionKey',
-        'encryptionType'               => 'EncryptionType',
-        'engine'                       => 'Engine',
-        'engineLatestMinorVersion'     => 'EngineLatestMinorVersion',
-        'engineMinorVersion'           => 'EngineMinorVersion',
-        'engineVersion'                => 'EngineVersion',
-        'expireTime'                   => 'ExpireTime',
-        'extStorageSize'               => 'ExtStorageSize',
-        'extStorageType'               => 'ExtStorageType',
-        'isExpired'                    => 'IsExpired',
-        'lockMode'                     => 'LockMode',
-        'lockReason'                   => 'LockReason',
-        'maintainAutoType'             => 'MaintainAutoType',
-        'maintainTime'                 => 'MaintainTime',
-        'payType'                      => 'PayType',
-        'port'                         => 'Port',
-        'publicConnectionString'       => 'PublicConnectionString',
-        'publicIpAddr'                 => 'PublicIpAddr',
-        'publicPort'                   => 'PublicPort',
-        'regionId'                     => 'RegionId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'scaleOutStatus'               => 'ScaleOutStatus',
-        'storageType'                  => 'StorageType',
-        'supportBackup'                => 'SupportBackup',
-        'supportHttpsPort'             => 'SupportHttpsPort',
-        'supportMysqlPort'             => 'SupportMysqlPort',
-        'supportOss'                   => 'SupportOss',
-        'tags'                         => 'Tags',
-        'vSwitchId'                    => 'VSwitchId',
-        'vpcCloudInstanceId'           => 'VpcCloudInstanceId',
-        'vpcId'                        => 'VpcId',
-        'vpcIpAddr'                    => 'VpcIpAddr',
-        'zoneId'                       => 'ZoneId',
-        'zoneIdVswitchMap'             => 'ZoneIdVswitchMap',
-        'zookeeperClass'               => 'ZookeeperClass',
+        'bid' => 'Bid',
+        'category' => 'Category',
+        'commodityCode' => 'CommodityCode',
+        'connectionString' => 'ConnectionString',
+        'controlVersion' => 'ControlVersion',
+        'createTime' => 'CreateTime',
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterId' => 'DBClusterId',
+        'DBClusterNetworkType' => 'DBClusterNetworkType',
+        'DBClusterStatus' => 'DBClusterStatus',
+        'DBClusterType' => 'DBClusterType',
+        'DBNodeClass' => 'DBNodeClass',
+        'DBNodeCount' => 'DBNodeCount',
+        'DBNodeStorage' => 'DBNodeStorage',
+        'encryptionKey' => 'EncryptionKey',
+        'encryptionType' => 'EncryptionType',
+        'engine' => 'Engine',
+        'engineLatestMinorVersion' => 'EngineLatestMinorVersion',
+        'engineMinorVersion' => 'EngineMinorVersion',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'extStorageSize' => 'ExtStorageSize',
+        'extStorageType' => 'ExtStorageType',
+        'isExpired' => 'IsExpired',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'maintainAutoType' => 'MaintainAutoType',
+        'maintainTime' => 'MaintainTime',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'publicConnectionString' => 'PublicConnectionString',
+        'publicIpAddr' => 'PublicIpAddr',
+        'publicPort' => 'PublicPort',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'scaleOutStatus' => 'ScaleOutStatus',
+        'storageType' => 'StorageType',
+        'supportBackup' => 'SupportBackup',
+        'supportHttpsPort' => 'SupportHttpsPort',
+        'supportMysqlPort' => 'SupportMysqlPort',
+        'supportOss' => 'SupportOss',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
+        'vpcId' => 'VpcId',
+        'vpcIpAddr' => 'VpcIpAddr',
+        'zoneId' => 'ZoneId',
+        'zoneIdVswitchMap' => 'ZoneIdVswitchMap',
+        'zookeeperClass' => 'ZookeeperClass',
     ];
 
     public function validate()
@@ -295,6 +370,22 @@ class DBCluster extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+
+        if (null !== $this->appointmentElectZookeeperDisableWrite) {
+            $res['AppointmentElectZookeeperDisableWrite'] = $this->appointmentElectZookeeperDisableWrite;
+        }
+
+        if (null !== $this->appointmentElectZookeeperTime) {
+            $res['AppointmentElectZookeeperTime'] = $this->appointmentElectZookeeperTime;
+        }
+
+        if (null !== $this->appointmentRestartNodeList) {
+            $res['AppointmentRestartNodeList'] = $this->appointmentRestartNodeList;
+        }
+
+        if (null !== $this->appointmentRestartNodeTime) {
+            $res['AppointmentRestartNodeTime'] = $this->appointmentRestartNodeTime;
         }
 
         if (null !== $this->appointmentRestartTime) {
@@ -524,6 +615,22 @@ class DBCluster extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+
+        if (isset($map['AppointmentElectZookeeperDisableWrite'])) {
+            $model->appointmentElectZookeeperDisableWrite = $map['AppointmentElectZookeeperDisableWrite'];
+        }
+
+        if (isset($map['AppointmentElectZookeeperTime'])) {
+            $model->appointmentElectZookeeperTime = $map['AppointmentElectZookeeperTime'];
+        }
+
+        if (isset($map['AppointmentRestartNodeList'])) {
+            $model->appointmentRestartNodeList = $map['AppointmentRestartNodeList'];
+        }
+
+        if (isset($map['AppointmentRestartNodeTime'])) {
+            $model->appointmentRestartNodeTime = $map['AppointmentRestartNodeTime'];
         }
 
         if (isset($map['AppointmentRestartTime'])) {

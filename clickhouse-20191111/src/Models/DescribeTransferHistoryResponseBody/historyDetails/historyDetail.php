@@ -12,68 +12,80 @@ class historyDetail extends Model
      * @var int
      */
     public $bytesPerMinute;
+
     /**
      * @var string
      */
     public $disableWriteWindows;
+
     /**
      * @var float
      */
     public $partsPerMinute;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $sourceControlVersion;
+
     /**
      * @var string
      */
     public $sourceDBCluster;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subJob;
+
     /**
      * @var string
      */
     public $subJobStatus;
+
     /**
      * @var string
      */
     public $targetControlVersion;
+
     /**
      * @var string
      */
     public $targetDBCluster;
+
     /**
      * @var int
      */
     public $unsyncedBytes;
+
     /**
      * @var int
      */
     public $unsyncedParts;
     protected $_name = [
-        'bytesPerMinute'       => 'BytesPerMinute',
-        'disableWriteWindows'  => 'DisableWriteWindows',
-        'partsPerMinute'       => 'PartsPerMinute',
-        'progress'             => 'Progress',
+        'bytesPerMinute' => 'BytesPerMinute',
+        'disableWriteWindows' => 'DisableWriteWindows',
+        'partsPerMinute' => 'PartsPerMinute',
+        'progress' => 'Progress',
         'sourceControlVersion' => 'SourceControlVersion',
-        'sourceDBCluster'      => 'SourceDBCluster',
-        'status'               => 'Status',
-        'subJob'               => 'SubJob',
-        'subJobStatus'         => 'SubJobStatus',
+        'sourceDBCluster' => 'SourceDBCluster',
+        'status' => 'Status',
+        'subJob' => 'SubJob',
+        'subJobStatus' => 'SubJobStatus',
         'targetControlVersion' => 'TargetControlVersion',
-        'targetDBCluster'      => 'TargetDBCluster',
-        'unsyncedBytes'        => 'UnsyncedBytes',
-        'unsyncedParts'        => 'UnsyncedParts',
+        'targetDBCluster' => 'TargetDBCluster',
+        'unsyncedBytes' => 'UnsyncedBytes',
+        'unsyncedParts' => 'UnsyncedParts',
     ];
 
     public function validate()

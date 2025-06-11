@@ -12,28 +12,32 @@ class account extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $configType;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'accountStatus'      => 'AccountStatus',
-        'accountType'        => 'AccountType',
-        'configType'         => 'ConfigType',
+        'accountName' => 'AccountName',
+        'accountStatus' => 'AccountStatus',
+        'accountType' => 'AccountType',
+        'configType' => 'ConfigType',
     ];
 
     public function validate()

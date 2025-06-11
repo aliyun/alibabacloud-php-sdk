@@ -13,13 +13,14 @@ class DescribeConfigHistoryResponseBody extends Model
      * @var configHistoryItems[]
      */
     public $configHistoryItems;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configHistoryItems' => 'ConfigHistoryItems',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeConfigHistoryResponseBody extends Model
         if (null !== $this->configHistoryItems) {
             if (\is_array($this->configHistoryItems)) {
                 $res['ConfigHistoryItems'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->configHistoryItems as $item1) {
                     $res['ConfigHistoryItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeConfigHistoryResponseBody extends Model
         if (isset($map['ConfigHistoryItems'])) {
             if (!empty($map['ConfigHistoryItems'])) {
                 $model->configHistoryItems = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ConfigHistoryItems'] as $item1) {
                     $model->configHistoryItems[$n1++] = configHistoryItems::fromMap($item1);
                 }

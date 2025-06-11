@@ -12,43 +12,50 @@ class UpgradeMinorVersionRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $upgradeImmediately;
+
     /**
      * @var string
      */
     public $upgradeTime;
+
     /**
      * @var string
      */
     public $upgradeVersion;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'DBClusterId' => 'DBClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'upgradeImmediately'   => 'UpgradeImmediately',
-        'upgradeTime'          => 'UpgradeTime',
-        'upgradeVersion'       => 'UpgradeVersion',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'upgradeImmediately' => 'UpgradeImmediately',
+        'upgradeTime' => 'UpgradeTime',
+        'upgradeVersion' => 'UpgradeVersion',
     ];
 
     public function validate()

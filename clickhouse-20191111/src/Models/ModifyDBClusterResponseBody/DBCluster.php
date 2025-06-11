@@ -12,13 +12,14 @@ class DBCluster extends Model
      * @var string
      */
     public $dbClusterId;
+
     /**
      * @var string
      */
     public $orderId;
     protected $_name = [
         'dbClusterId' => 'dbClusterId',
-        'orderId'     => 'orderId',
+        'orderId' => 'orderId',
     ];
 
     public function validate()

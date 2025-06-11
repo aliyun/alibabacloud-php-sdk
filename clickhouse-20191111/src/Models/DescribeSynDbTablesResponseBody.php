@@ -12,13 +12,14 @@ class DescribeSynDbTablesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $tables;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tables'    => 'Tables',
+        'tables' => 'Tables',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class DescribeSynDbTablesResponseBody extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DescribeSynDbTablesResponseBody extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = $item1;
                 }

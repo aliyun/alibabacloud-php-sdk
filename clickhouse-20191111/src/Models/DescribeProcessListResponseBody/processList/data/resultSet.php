@@ -12,33 +12,38 @@ class resultSet extends Model
      * @var string
      */
     public $initialAddress;
+
     /**
      * @var string
      */
     public $initialQueryId;
+
     /**
      * @var string
      */
     public $initialUser;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $queryDurationMs;
+
     /**
      * @var string
      */
     public $queryStartTime;
     protected $_name = [
-        'initialAddress'  => 'InitialAddress',
-        'initialQueryId'  => 'InitialQueryId',
-        'initialUser'     => 'InitialUser',
-        'query'           => 'Query',
+        'initialAddress' => 'InitialAddress',
+        'initialQueryId' => 'InitialQueryId',
+        'initialUser' => 'InitialUser',
+        'query' => 'Query',
         'queryDurationMs' => 'QueryDurationMs',
-        'queryStartTime'  => 'QueryStartTime',
+        'queryStartTime' => 'QueryStartTime',
     ];
 
     public function validate()

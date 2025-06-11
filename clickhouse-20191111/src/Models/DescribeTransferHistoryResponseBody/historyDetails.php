@@ -31,7 +31,7 @@ class historyDetails extends Model
         if (null !== $this->historyDetail) {
             if (\is_array($this->historyDetail)) {
                 $res['HistoryDetail'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->historyDetail as $item1) {
                     $res['HistoryDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class historyDetails extends Model
         if (isset($map['HistoryDetail'])) {
             if (!empty($map['HistoryDetail'])) {
                 $model->historyDetail = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['HistoryDetail'] as $item1) {
                     $model->historyDetail[$n1++] = historyDetail::fromMap($item1);
                 }

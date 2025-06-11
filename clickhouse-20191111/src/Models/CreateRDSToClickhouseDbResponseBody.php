@@ -12,23 +12,26 @@ class CreateRDSToClickhouseDbResponseBody extends Model
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string[]
      */
     public $repeatedDbs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'errorMsg'    => 'ErrorMsg',
+        'errorMsg' => 'ErrorMsg',
         'repeatedDbs' => 'RepeatedDbs',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class CreateRDSToClickhouseDbResponseBody extends Model
         if (null !== $this->repeatedDbs) {
             if (\is_array($this->repeatedDbs)) {
                 $res['RepeatedDbs'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->repeatedDbs as $item1) {
                     $res['RepeatedDbs'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class CreateRDSToClickhouseDbResponseBody extends Model
         if (isset($map['RepeatedDbs'])) {
             if (!empty($map['RepeatedDbs'])) {
                 $model->repeatedDbs = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RepeatedDbs'] as $item1) {
                     $model->repeatedDbs[$n1++] = $item1;
                 }

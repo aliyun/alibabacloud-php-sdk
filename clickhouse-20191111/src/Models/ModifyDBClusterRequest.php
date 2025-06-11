@@ -12,58 +12,68 @@ class ModifyDBClusterRequest extends Model
      * @var string
      */
     public $DBClusterClass;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBNodeGroupCount;
+
     /**
      * @var string
      */
     public $DBNodeStorage;
+
     /**
      * @var string
      */
     public $dbNodeStorageType;
+
     /**
      * @var string
      */
     public $disableWriteWindows;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterClass'       => 'DBClusterClass',
-        'DBClusterId'          => 'DBClusterId',
-        'DBNodeGroupCount'     => 'DBNodeGroupCount',
-        'DBNodeStorage'        => 'DBNodeStorage',
-        'dbNodeStorageType'    => 'DbNodeStorageType',
-        'disableWriteWindows'  => 'DisableWriteWindows',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBClusterClass' => 'DBClusterClass',
+        'DBClusterId' => 'DBClusterId',
+        'DBNodeGroupCount' => 'DBNodeGroupCount',
+        'DBNodeStorage' => 'DBNodeStorage',
+        'dbNodeStorageType' => 'DbNodeStorageType',
+        'disableWriteWindows' => 'DisableWriteWindows',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

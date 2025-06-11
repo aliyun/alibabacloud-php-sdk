@@ -12,58 +12,68 @@ class resultSet extends Model
      * @var string
      */
     public $initialAddress;
+
     /**
      * @var string
      */
     public $initialQueryId;
+
     /**
      * @var string
      */
     public $initialUser;
+
     /**
      * @var string
      */
     public $memoryUsage;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $queryDurationMs;
+
     /**
      * @var string
      */
     public $queryStartTime;
+
     /**
      * @var string
      */
     public $readBytes;
+
     /**
      * @var string
      */
     public $readRows;
+
     /**
      * @var string
      */
     public $resultBytes;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'initialAddress'  => 'InitialAddress',
-        'initialQueryId'  => 'InitialQueryId',
-        'initialUser'     => 'InitialUser',
-        'memoryUsage'     => 'MemoryUsage',
-        'query'           => 'Query',
+        'initialAddress' => 'InitialAddress',
+        'initialQueryId' => 'InitialQueryId',
+        'initialUser' => 'InitialUser',
+        'memoryUsage' => 'MemoryUsage',
+        'query' => 'Query',
         'queryDurationMs' => 'QueryDurationMs',
-        'queryStartTime'  => 'QueryStartTime',
-        'readBytes'       => 'ReadBytes',
-        'readRows'        => 'ReadRows',
-        'resultBytes'     => 'ResultBytes',
-        'type'            => 'Type',
+        'queryStartTime' => 'QueryStartTime',
+        'readBytes' => 'ReadBytes',
+        'readRows' => 'ReadRows',
+        'resultBytes' => 'ResultBytes',
+        'type' => 'Type',
     ];
 
     public function validate()
