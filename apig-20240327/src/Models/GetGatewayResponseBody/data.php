@@ -46,6 +46,11 @@ class data extends Model
     public $gatewayId;
 
     /**
+     * @var string
+     */
+    public $gatewayType;
+
+    /**
      * @var loadBalancers[]
      */
     public $loadBalancers;
@@ -121,6 +126,7 @@ class data extends Model
         'environments' => 'environments',
         'expireTimestamp' => 'expireTimestamp',
         'gatewayId' => 'gatewayId',
+        'gatewayType' => 'gatewayType',
         'loadBalancers' => 'loadBalancers',
         'name' => 'name',
         'replicas' => 'replicas',
@@ -194,6 +200,10 @@ class data extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['gatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->loadBalancers) {
@@ -309,6 +319,10 @@ class data extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['gatewayType'])) {
+            $model->gatewayType = $map['gatewayType'];
         }
 
         if (isset($map['loadBalancers'])) {

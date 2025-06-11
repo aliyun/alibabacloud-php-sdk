@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesRequest;
@@ -3214,6 +3216,99 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listHttpApisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取挂载列表.
+     *
+     * @param request - ListPluginAttachmentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPluginAttachmentsResponse
+     *
+     * @param ListPluginAttachmentsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListPluginAttachmentsResponse
+     */
+    public function listPluginAttachmentsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attachResourceId) {
+            @$query['attachResourceId'] = $request->attachResourceId;
+        }
+
+        if (null !== $request->attachResourceType) {
+            @$query['attachResourceType'] = $request->attachResourceType;
+        }
+
+        if (null !== $request->attachResourceTypes) {
+            @$query['attachResourceTypes'] = $request->attachResourceTypes;
+        }
+
+        if (null !== $request->environmentId) {
+            @$query['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['pluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->withParentResource) {
+            @$query['withParentResource'] = $request->withParentResource;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPluginAttachments',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-attachments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPluginAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取挂载列表.
+     *
+     * @param request - ListPluginAttachmentsRequest
+     *
+     * @returns ListPluginAttachmentsResponse
+     *
+     * @param ListPluginAttachmentsRequest $request
+     *
+     * @return ListPluginAttachmentsResponse
+     */
+    public function listPluginAttachments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPluginAttachmentsWithOptions($request, $headers, $runtime);
     }
 
     /**
