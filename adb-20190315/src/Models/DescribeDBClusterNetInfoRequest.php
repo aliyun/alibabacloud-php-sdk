@@ -16,6 +16,11 @@ class DescribeDBClusterNetInfoRequest extends Model
     /**
      * @var string
      */
+    public $engine;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -39,6 +44,7 @@ class DescribeDBClusterNetInfoRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'engine' => 'Engine',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -56,6 +62,10 @@ class DescribeDBClusterNetInfoRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         if (null !== $this->ownerAccount) {
@@ -91,6 +101,10 @@ class DescribeDBClusterNetInfoRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         if (isset($map['OwnerAccount'])) {

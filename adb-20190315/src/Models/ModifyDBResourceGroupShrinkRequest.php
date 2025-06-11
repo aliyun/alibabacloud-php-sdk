@@ -16,7 +16,22 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clusterMode;
+
+    /**
+     * @var string
+     */
+    public $clusterSizeResource;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $engineParamsShrink;
 
     /**
      * @var string
@@ -27,6 +42,26 @@ class ModifyDBResourceGroupShrinkRequest extends Model
      * @var string
      */
     public $groupType;
+
+    /**
+     * @var int
+     */
+    public $maxClusterCount;
+
+    /**
+     * @var string
+     */
+    public $maxComputeResource;
+
+    /**
+     * @var int
+     */
+    public $minClusterCount;
+
+    /**
+     * @var string
+     */
+    public $minComputeResource;
 
     /**
      * @var int
@@ -59,9 +94,16 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'clusterMode' => 'ClusterMode',
+        'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId' => 'DBClusterId',
+        'engineParamsShrink' => 'EngineParams',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
+        'maxClusterCount' => 'MaxClusterCount',
+        'maxComputeResource' => 'MaxComputeResource',
+        'minClusterCount' => 'MinClusterCount',
+        'minComputeResource' => 'MinComputeResource',
         'nodeNum' => 'NodeNum',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -82,8 +124,20 @@ class ModifyDBResourceGroupShrinkRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->clusterMode) {
+            $res['ClusterMode'] = $this->clusterMode;
+        }
+
+        if (null !== $this->clusterSizeResource) {
+            $res['ClusterSizeResource'] = $this->clusterSizeResource;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->engineParamsShrink) {
+            $res['EngineParams'] = $this->engineParamsShrink;
         }
 
         if (null !== $this->groupName) {
@@ -92,6 +146,22 @@ class ModifyDBResourceGroupShrinkRequest extends Model
 
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
+        }
+
+        if (null !== $this->maxClusterCount) {
+            $res['MaxClusterCount'] = $this->maxClusterCount;
+        }
+
+        if (null !== $this->maxComputeResource) {
+            $res['MaxComputeResource'] = $this->maxComputeResource;
+        }
+
+        if (null !== $this->minClusterCount) {
+            $res['MinClusterCount'] = $this->minClusterCount;
+        }
+
+        if (null !== $this->minComputeResource) {
+            $res['MinComputeResource'] = $this->minComputeResource;
         }
 
         if (null !== $this->nodeNum) {
@@ -133,8 +203,20 @@ class ModifyDBResourceGroupShrinkRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['ClusterMode'])) {
+            $model->clusterMode = $map['ClusterMode'];
+        }
+
+        if (isset($map['ClusterSizeResource'])) {
+            $model->clusterSizeResource = $map['ClusterSizeResource'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['EngineParams'])) {
+            $model->engineParamsShrink = $map['EngineParams'];
         }
 
         if (isset($map['GroupName'])) {
@@ -143,6 +225,22 @@ class ModifyDBResourceGroupShrinkRequest extends Model
 
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
+        }
+
+        if (isset($map['MaxClusterCount'])) {
+            $model->maxClusterCount = $map['MaxClusterCount'];
+        }
+
+        if (isset($map['MaxComputeResource'])) {
+            $model->maxComputeResource = $map['MaxComputeResource'];
+        }
+
+        if (isset($map['MinClusterCount'])) {
+            $model->minClusterCount = $map['MinClusterCount'];
+        }
+
+        if (isset($map['MinComputeResource'])) {
+            $model->minComputeResource = $map['MinComputeResource'];
         }
 
         if (isset($map['NodeNum'])) {

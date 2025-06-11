@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourceGroupResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateElasticPlanRequest;
@@ -1322,26 +1323,48 @@ class Adb extends OpenApiClient
      * ## Precautions
      * This operation is applicable only for elastic clusters of 32 cores or more.
      *
-     * @param request - CreateDBResourceGroupRequest
+     * @param tmpReq - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDBResourceGroupResponse
      *
-     * @param CreateDBResourceGroupRequest $request
+     * @param CreateDBResourceGroupRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return CreateDBResourceGroupResponse
      */
-    public function createDBResourceGroupWithOptions($request, $runtime)
+    public function createDBResourceGroupWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateDBResourceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->engineParams) {
+            $request->engineParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
+        }
+
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->clusterMode) {
+            @$query['ClusterMode'] = $request->clusterMode;
+        }
+
+        if (null !== $request->clusterSizeResource) {
+            @$query['ClusterSizeResource'] = $request->clusterSizeResource;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->engineParamsShrink) {
+            @$query['EngineParams'] = $request->engineParamsShrink;
         }
 
         if (null !== $request->groupName) {
@@ -1350,6 +1373,22 @@ class Adb extends OpenApiClient
 
         if (null !== $request->groupType) {
             @$query['GroupType'] = $request->groupType;
+        }
+
+        if (null !== $request->maxClusterCount) {
+            @$query['MaxClusterCount'] = $request->maxClusterCount;
+        }
+
+        if (null !== $request->maxComputeResource) {
+            @$query['MaxComputeResource'] = $request->maxComputeResource;
+        }
+
+        if (null !== $request->minClusterCount) {
+            @$query['MinClusterCount'] = $request->minClusterCount;
+        }
+
+        if (null !== $request->minComputeResource) {
+            @$query['MinComputeResource'] = $request->minComputeResource;
         }
 
         if (null !== $request->nodeNum) {
@@ -4193,6 +4232,10 @@ class Adb extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
 
         if (null !== $request->ownerAccount) {
@@ -11378,6 +11421,10 @@ class Adb extends OpenApiClient
         $tmpReq->validate();
         $request = new ModifyDBResourceGroupShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->engineParams) {
+            $request->engineParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
+        }
+
         if (null !== $tmpReq->poolUserList) {
             $request->poolUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->poolUserList, 'PoolUserList', 'json');
         }
@@ -11387,8 +11434,20 @@ class Adb extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->clusterMode) {
+            @$query['ClusterMode'] = $request->clusterMode;
+        }
+
+        if (null !== $request->clusterSizeResource) {
+            @$query['ClusterSizeResource'] = $request->clusterSizeResource;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->engineParamsShrink) {
+            @$query['EngineParams'] = $request->engineParamsShrink;
         }
 
         if (null !== $request->groupName) {
@@ -11397,6 +11456,22 @@ class Adb extends OpenApiClient
 
         if (null !== $request->groupType) {
             @$query['GroupType'] = $request->groupType;
+        }
+
+        if (null !== $request->maxClusterCount) {
+            @$query['MaxClusterCount'] = $request->maxClusterCount;
+        }
+
+        if (null !== $request->maxComputeResource) {
+            @$query['MaxComputeResource'] = $request->maxComputeResource;
+        }
+
+        if (null !== $request->minClusterCount) {
+            @$query['MinClusterCount'] = $request->minClusterCount;
+        }
+
+        if (null !== $request->minComputeResource) {
+            @$query['MinComputeResource'] = $request->minComputeResource;
         }
 
         if (null !== $request->nodeNum) {

@@ -16,7 +16,22 @@ class ModifyDBResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $clusterMode;
+
+    /**
+     * @var string
+     */
+    public $clusterSizeResource;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
+
+    /**
+     * @var mixed[]
+     */
+    public $engineParams;
 
     /**
      * @var string
@@ -27,6 +42,26 @@ class ModifyDBResourceGroupRequest extends Model
      * @var string
      */
     public $groupType;
+
+    /**
+     * @var int
+     */
+    public $maxClusterCount;
+
+    /**
+     * @var string
+     */
+    public $maxComputeResource;
+
+    /**
+     * @var int
+     */
+    public $minClusterCount;
+
+    /**
+     * @var string
+     */
+    public $minComputeResource;
 
     /**
      * @var int
@@ -59,9 +94,16 @@ class ModifyDBResourceGroupRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'clusterMode' => 'ClusterMode',
+        'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId' => 'DBClusterId',
+        'engineParams' => 'EngineParams',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
+        'maxClusterCount' => 'MaxClusterCount',
+        'maxComputeResource' => 'MaxComputeResource',
+        'minClusterCount' => 'MinClusterCount',
+        'minComputeResource' => 'MinComputeResource',
         'nodeNum' => 'NodeNum',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -72,6 +114,9 @@ class ModifyDBResourceGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->engineParams)) {
+            Model::validateArray($this->engineParams);
+        }
         if (\is_array($this->poolUserList)) {
             Model::validateArray($this->poolUserList);
         }
@@ -85,8 +130,25 @@ class ModifyDBResourceGroupRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->clusterMode) {
+            $res['ClusterMode'] = $this->clusterMode;
+        }
+
+        if (null !== $this->clusterSizeResource) {
+            $res['ClusterSizeResource'] = $this->clusterSizeResource;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->engineParams) {
+            if (\is_array($this->engineParams)) {
+                $res['EngineParams'] = [];
+                foreach ($this->engineParams as $key1 => $value1) {
+                    $res['EngineParams'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->groupName) {
@@ -95,6 +157,22 @@ class ModifyDBResourceGroupRequest extends Model
 
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
+        }
+
+        if (null !== $this->maxClusterCount) {
+            $res['MaxClusterCount'] = $this->maxClusterCount;
+        }
+
+        if (null !== $this->maxComputeResource) {
+            $res['MaxComputeResource'] = $this->maxComputeResource;
+        }
+
+        if (null !== $this->minClusterCount) {
+            $res['MinClusterCount'] = $this->minClusterCount;
+        }
+
+        if (null !== $this->minComputeResource) {
+            $res['MinComputeResource'] = $this->minComputeResource;
         }
 
         if (null !== $this->nodeNum) {
@@ -142,8 +220,25 @@ class ModifyDBResourceGroupRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['ClusterMode'])) {
+            $model->clusterMode = $map['ClusterMode'];
+        }
+
+        if (isset($map['ClusterSizeResource'])) {
+            $model->clusterSizeResource = $map['ClusterSizeResource'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['EngineParams'])) {
+            if (!empty($map['EngineParams'])) {
+                $model->engineParams = [];
+                foreach ($map['EngineParams'] as $key1 => $value1) {
+                    $model->engineParams[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['GroupName'])) {
@@ -152,6 +247,22 @@ class ModifyDBResourceGroupRequest extends Model
 
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
+        }
+
+        if (isset($map['MaxClusterCount'])) {
+            $model->maxClusterCount = $map['MaxClusterCount'];
+        }
+
+        if (isset($map['MaxComputeResource'])) {
+            $model->maxComputeResource = $map['MaxComputeResource'];
+        }
+
+        if (isset($map['MinClusterCount'])) {
+            $model->minClusterCount = $map['MinClusterCount'];
+        }
+
+        if (isset($map['MinComputeResource'])) {
+            $model->minComputeResource = $map['MinComputeResource'];
         }
 
         if (isset($map['NodeNum'])) {

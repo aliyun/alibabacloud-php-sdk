@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateDBResourceGroupRequest extends Model
+class CreateDBResourceGroupShrinkRequest extends Model
 {
     /**
      * @var string
@@ -34,9 +34,9 @@ class CreateDBResourceGroupRequest extends Model
     public $engine;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $engineParams;
+    public $engineParamsShrink;
 
     /**
      * @var string
@@ -98,7 +98,7 @@ class CreateDBResourceGroupRequest extends Model
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId' => 'DBClusterId',
         'engine' => 'Engine',
-        'engineParams' => 'EngineParams',
+        'engineParamsShrink' => 'EngineParams',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
         'maxClusterCount' => 'MaxClusterCount',
@@ -114,9 +114,6 @@ class CreateDBResourceGroupRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->engineParams)) {
-            Model::validateArray($this->engineParams);
-        }
         parent::validate();
     }
 
@@ -143,13 +140,8 @@ class CreateDBResourceGroupRequest extends Model
             $res['Engine'] = $this->engine;
         }
 
-        if (null !== $this->engineParams) {
-            if (\is_array($this->engineParams)) {
-                $res['EngineParams'] = [];
-                foreach ($this->engineParams as $key1 => $value1) {
-                    $res['EngineParams'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->engineParamsShrink) {
+            $res['EngineParams'] = $this->engineParamsShrink;
         }
 
         if (null !== $this->groupName) {
@@ -228,12 +220,7 @@ class CreateDBResourceGroupRequest extends Model
         }
 
         if (isset($map['EngineParams'])) {
-            if (!empty($map['EngineParams'])) {
-                $model->engineParams = [];
-                foreach ($map['EngineParams'] as $key1 => $value1) {
-                    $model->engineParams[$key1] = $value1;
-                }
-            }
+            $model->engineParamsShrink = $map['EngineParams'];
         }
 
         if (isset($map['GroupName'])) {
