@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserProvisioningResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F6F90F3D-4502-5877-B80B-97476F6AE2CC
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteUserProvisioningResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteUserProvisioningResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserProvisioningResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

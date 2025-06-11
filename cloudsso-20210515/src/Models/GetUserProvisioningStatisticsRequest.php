@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserProvisioningStatisticsRequest extends Model
 {
     /**
-     * @description The ID of the resource directory.
-     *
-     * @example d-003qew84****
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The ID of the RAM user provisioning.
-     *
-     * @example up-002axzhapcbz6e63****
-     *
      * @var string
      */
     public $userProvisioningId;
     protected $_name = [
-        'directoryId'        => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
         'userProvisioningId' => 'UserProvisioningId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->userProvisioningId) {
             $res['UserProvisioningId'] = $this->userProvisioningId;
         }
@@ -47,17 +41,18 @@ class GetUserProvisioningStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserProvisioningStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['UserProvisioningId'])) {
             $model->userProvisioningId = $map['UserProvisioningId'];
         }

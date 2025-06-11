@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableServiceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 3257EAD2-8723-1F26-B69C-F8707D8B565D
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisableServiceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisableServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

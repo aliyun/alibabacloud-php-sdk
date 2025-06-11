@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskRequest extends Model
 {
     /**
-     * @description The directory ID.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The task ID.
-     *
-     * @example t-shfqw1u1edszvxw5****
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
         'directoryId' => 'DirectoryId',
-        'taskId'      => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -47,17 +41,18 @@ class GetTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

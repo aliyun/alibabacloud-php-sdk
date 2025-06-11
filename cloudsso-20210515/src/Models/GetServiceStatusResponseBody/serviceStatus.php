@@ -4,73 +4,65 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetServiceStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serviceStatus extends Model
 {
     /**
-     * @description The ID of your Alibaba Cloud account.
-     *
-     * @example 151266687691****
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description Indicates whether you have permissions to enable CloudSSO. Valid values:
-     *
-     *   Success: You have permissions to enable CloudSSO.
-     *   Failed: You do not have permissions to enable CloudSSO.
-     *
-     * >  The value of this parameter is returned only if the value of `Status` is `Disabled`.
-     * @example Success
-     *
      * @var string
      */
     public $prerequisiteCheckResult;
 
     /**
-     * @description The ID of the region.
-     *
      * @var string[]
      */
     public $regionsInUse;
 
     /**
-     * @description Indicates whether CloudSSO is enabled. Valid values:
-     *
-     *   Enabled
-     *   Disabled
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'accountId'               => 'AccountId',
+        'accountId' => 'AccountId',
         'prerequisiteCheckResult' => 'PrerequisiteCheckResult',
-        'regionsInUse'            => 'RegionsInUse',
-        'status'                  => 'Status',
+        'regionsInUse' => 'RegionsInUse',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->regionsInUse)) {
+            Model::validateArray($this->regionsInUse);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->prerequisiteCheckResult) {
             $res['PrerequisiteCheckResult'] = $this->prerequisiteCheckResult;
         }
+
         if (null !== $this->regionsInUse) {
-            $res['RegionsInUse'] = $this->regionsInUse;
+            if (\is_array($this->regionsInUse)) {
+                $res['RegionsInUse'] = [];
+                $n1 = 0;
+                foreach ($this->regionsInUse as $item1) {
+                    $res['RegionsInUse'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -78,25 +70,32 @@ class serviceStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['PrerequisiteCheckResult'])) {
             $model->prerequisiteCheckResult = $map['PrerequisiteCheckResult'];
         }
+
         if (isset($map['RegionsInUse'])) {
             if (!empty($map['RegionsInUse'])) {
-                $model->regionsInUse = $map['RegionsInUse'];
+                $model->regionsInUse = [];
+                $n1 = 0;
+                foreach ($map['RegionsInUse'] as $item1) {
+                    $model->regionsInUse[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddPermissionPolicyToAccessConfigurationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B7C6E839-FB65-59BE-B753-003AA8AF7DF7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AddPermissionPolicyToAccessConfigurationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AddPermissionPolicyToAccessConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddPermissionPolicyToAccessConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

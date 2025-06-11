@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddExternalSAMLIdPCertificateResponseBody extends Model
 {
     /**
-     * @description The ID of the SAML signing certificate.
-     *
-     * @example idp-c-00wk2fb4foracls0****
-     *
      * @var string
      */
     public $certificateId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 12B3E332-DD16-515B-B695-39BA233AA172
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class AddExternalSAMLIdPCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddExternalSAMLIdPCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

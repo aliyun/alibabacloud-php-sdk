@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMFADeviceForUserResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 8B9982ED-FD0D-5622-8EA0-7B768685DCE7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteMFADeviceForUserResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteMFADeviceForUserResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMFADeviceForUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

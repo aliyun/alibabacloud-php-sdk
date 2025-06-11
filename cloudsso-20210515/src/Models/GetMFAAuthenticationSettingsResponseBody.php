@@ -4,46 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMFAAuthenticationSettingsResponseBody extends Model
 {
     /**
-     * @description Indicates whether MFA is enabled for all users. Valid values:
-     *
-     *   Enabled: MFA is enabled for all users.
-     *   Byuser: User-specific settings are applied.
-     *   Disabled: MFA is disabled for all users.
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $MFAAuthenticationAdvanceSettings;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example A2BC00C5-76A2-5FFC-A340-927940A98377
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'MFAAuthenticationAdvanceSettings' => 'MFAAuthenticationAdvanceSettings',
-        'requestId'                        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->MFAAuthenticationAdvanceSettings) {
             $res['MFAAuthenticationAdvanceSettings'] = $this->MFAAuthenticationAdvanceSettings;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,17 +41,18 @@ class GetMFAAuthenticationSettingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMFAAuthenticationSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MFAAuthenticationAdvanceSettings'])) {
             $model->MFAAuthenticationAdvanceSettings = $map['MFAAuthenticationAdvanceSettings'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

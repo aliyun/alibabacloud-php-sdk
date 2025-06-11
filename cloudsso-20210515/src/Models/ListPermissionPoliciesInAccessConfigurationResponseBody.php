@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListPermissionPoliciesInAccessConfigurationResponseBody\permissionPolicies;
-use AlibabaCloud\Tea\Model;
 
 class ListPermissionPoliciesInAccessConfigurationResponseBody extends Model
 {
     /**
-     * @description The policies.
-     *
      * @var permissionPolicies[]
      */
     public $permissionPolicies;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3A5E771F-1F5A-5555-A64E-579748AAFD98
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of policies.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCounts;
     protected $_name = [
         'permissionPolicies' => 'PermissionPolicies',
-        'requestId'          => 'RequestId',
-        'totalCounts'        => 'TotalCounts',
+        'requestId' => 'RequestId',
+        'totalCounts' => 'TotalCounts',
     ];
 
     public function validate()
     {
+        if (\is_array($this->permissionPolicies)) {
+            Model::validateArray($this->permissionPolicies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permissionPolicies) {
-            $res['PermissionPolicies'] = [];
-            if (null !== $this->permissionPolicies && \is_array($this->permissionPolicies)) {
-                $n = 0;
-                foreach ($this->permissionPolicies as $item) {
-                    $res['PermissionPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->permissionPolicies)) {
+                $res['PermissionPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->permissionPolicies as $item1) {
+                    $res['PermissionPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCounts) {
             $res['TotalCounts'] = $this->totalCounts;
         }
@@ -65,26 +61,28 @@ class ListPermissionPoliciesInAccessConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPermissionPoliciesInAccessConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PermissionPolicies'])) {
             if (!empty($map['PermissionPolicies'])) {
                 $model->permissionPolicies = [];
-                $n                         = 0;
-                foreach ($map['PermissionPolicies'] as $item) {
-                    $model->permissionPolicies[$n++] = null !== $item ? permissionPolicies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PermissionPolicies'] as $item1) {
+                    $model->permissionPolicies[$n1++] = permissionPolicies::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCounts'])) {
             $model->totalCounts = $map['TotalCounts'];
         }

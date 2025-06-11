@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateDirectoryResponseBody\directory;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDirectoryResponseBody extends Model
 {
     /**
-     * @description The information about the directory.
-     *
      * @var directory
      */
     public $directory;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example B182C041-8C64-5F2F-A07B-FC67FAF89CF9
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +25,19 @@ class UpdateDirectoryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->directory) {
+            $this->directory->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directory) {
-            $res['Directory'] = null !== $this->directory ? $this->directory->toMap() : null;
+            $res['Directory'] = null !== $this->directory ? $this->directory->toArray($noStream) : $this->directory;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class UpdateDirectoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDirectoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Directory'])) {
             $model->directory = directory::fromMap($map['Directory']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveExternalSAMLIdPCertificateRequest extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
-     * You can call the [ListExternalSAMLIdPCertificates](https://help.aliyun.com/document_detail/341629.html) operation to query the IDs of certificates.
-     * @example idp-c-00dt9gnl7fmjaw9c****
-     *
      * @var string
      */
     public $certificateId;
 
     /**
-     * @description The ID of the directory.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'directoryId'   => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
@@ -48,17 +41,18 @@ class RemoveExternalSAMLIdPCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveExternalSAMLIdPCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }

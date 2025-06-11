@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ClearExternalSAMLIdentityProviderResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 96D1E5FF-0301-5636-8D33-071E033CFB82
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ClearExternalSAMLIdentityProviderResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ClearExternalSAMLIdentityProviderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ClearExternalSAMLIdentityProviderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

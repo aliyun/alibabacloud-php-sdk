@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableDelegateAccountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 768F908D-A66A-5A5D-816C-20C93CBBFEE3
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class EnableDelegateAccountResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class EnableDelegateAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableDelegateAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

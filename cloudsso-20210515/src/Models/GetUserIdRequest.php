@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserIdRequest\externalId;
-use AlibabaCloud\Tea\Model;
 
 class GetUserIdRequest extends Model
 {
     /**
-     * @description The ID of the resource directory.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The identifier information about the user that is synchronized from an external identity provider (IdP).
-     *
      * @var externalId
      */
     public $externalId;
     protected $_name = [
         'directoryId' => 'DirectoryId',
-        'externalId'  => 'ExternalId',
+        'externalId' => 'ExternalId',
     ];
 
     public function validate()
     {
+        if (null !== $this->externalId) {
+            $this->externalId->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->externalId) {
-            $res['ExternalId'] = null !== $this->externalId ? $this->externalId->toMap() : null;
+            $res['ExternalId'] = null !== $this->externalId ? $this->externalId->toArray($noStream) : $this->externalId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['ExternalId'])) {
             $model->externalId = externalId::fromMap($map['ExternalId']);
         }

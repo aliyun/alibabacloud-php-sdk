@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserProvisioningRdAccountStatisticsResponseBody\userProvisioningStatistics;
-use AlibabaCloud\Tea\Model;
 
 class GetUserProvisioningRdAccountStatisticsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F6F90F3D-4502-5877-B80B-97476F6AE2CC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The statistics of the RAM user provisioning.
-     *
      * @var userProvisioningStatistics
      */
     public $userProvisioningStatistics;
     protected $_name = [
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
         'userProvisioningStatistics' => 'UserProvisioningStatistics',
     ];
 
     public function validate()
     {
+        if (null !== $this->userProvisioningStatistics) {
+            $this->userProvisioningStatistics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userProvisioningStatistics) {
-            $res['UserProvisioningStatistics'] = null !== $this->userProvisioningStatistics ? $this->userProvisioningStatistics->toMap() : null;
+            $res['UserProvisioningStatistics'] = null !== $this->userProvisioningStatistics ? $this->userProvisioningStatistics->toArray($noStream) : $this->userProvisioningStatistics;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserProvisioningRdAccountStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserProvisioningStatistics'])) {
             $model->userProvisioningStatistics = userProvisioningStatistics::fromMap($map['UserProvisioningStatistics']);
         }

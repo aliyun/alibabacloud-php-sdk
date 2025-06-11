@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMFAAuthenticationSettingsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A1C748E3-8944-5593-81BC-7D96AE24F77B
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateMFAAuthenticationSettingsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateMFAAuthenticationSettingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMFAAuthenticationSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

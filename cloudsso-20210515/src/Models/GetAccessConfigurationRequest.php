@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccessConfigurationRequest extends Model
 {
     /**
-     * @description The ID of the access configuration.
-     *
-     * @example ac-00ccule7tadaijxc****
-     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
-     * @description The ID of the directory.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
     protected $_name = [
         'accessConfigurationId' => 'AccessConfigurationId',
-        'directoryId'           => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessConfigurationId) {
             $res['AccessConfigurationId'] = $this->accessConfigurationId;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
@@ -47,17 +41,18 @@ class GetAccessConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessConfigurationId'])) {
             $model->accessConfigurationId = $map['AccessConfigurationId'];
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }

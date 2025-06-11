@@ -4,104 +4,86 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUserProvisioningEventsResponseBody\userProvisioningEvents;
-use AlibabaCloud\Tea\Model;
 
 class ListUserProvisioningEventsResponseBody extends Model
 {
     /**
-     * @description Indicates whether the queried entries are truncated. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isTruncated;
 
     /**
-     * @description The maximum number of entries per page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the next request.
-     *
-     * >  This parameter is returned only when the `IsTruncated` parameter is set to `true`.
-     * @example 2eEMmhmLa1b7Bbj9UzCgZUGj8DpDeG5TbNknuNKNP2h84KjJRnAb7vzzSDkYNmsidnAybyJYBfnPPB6xfgw54B1Wub2KQmC8LofzqBW2Y****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0D85B43D-EF98-396D-B426-837E428D2D39
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 110
-     *
      * @var int
      */
     public $totalCounts;
 
     /**
-     * @description The RAM user provisioning events.
-     *
      * @var userProvisioningEvents[]
      */
     public $userProvisioningEvents;
     protected $_name = [
-        'isTruncated'            => 'IsTruncated',
-        'maxResults'             => 'MaxResults',
-        'nextToken'              => 'NextToken',
-        'requestId'              => 'RequestId',
-        'totalCounts'            => 'TotalCounts',
+        'isTruncated' => 'IsTruncated',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCounts' => 'TotalCounts',
         'userProvisioningEvents' => 'UserProvisioningEvents',
     ];
 
     public function validate()
     {
+        if (\is_array($this->userProvisioningEvents)) {
+            Model::validateArray($this->userProvisioningEvents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCounts) {
             $res['TotalCounts'] = $this->totalCounts;
         }
+
         if (null !== $this->userProvisioningEvents) {
-            $res['UserProvisioningEvents'] = [];
-            if (null !== $this->userProvisioningEvents && \is_array($this->userProvisioningEvents)) {
-                $n = 0;
-                foreach ($this->userProvisioningEvents as $item) {
-                    $res['UserProvisioningEvents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userProvisioningEvents)) {
+                $res['UserProvisioningEvents'] = [];
+                $n1 = 0;
+                foreach ($this->userProvisioningEvents as $item1) {
+                    $res['UserProvisioningEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -109,35 +91,40 @@ class ListUserProvisioningEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserProvisioningEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCounts'])) {
             $model->totalCounts = $map['TotalCounts'];
         }
+
         if (isset($map['UserProvisioningEvents'])) {
             if (!empty($map['UserProvisioningEvents'])) {
                 $model->userProvisioningEvents = [];
-                $n                             = 0;
-                foreach ($map['UserProvisioningEvents'] as $item) {
-                    $model->userProvisioningEvents[$n++] = null !== $item ? userProvisioningEvents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserProvisioningEvents'] as $item1) {
+                    $model->userProvisioningEvents[$n1++] = userProvisioningEvents::fromMap($item1);
                 }
             }
         }

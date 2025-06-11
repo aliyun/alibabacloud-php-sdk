@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSCIMServerCredentialResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 8CE8B990-193D-50CE-A604-69F3E7DCE740
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteSCIMServerCredentialResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteSCIMServerCredentialResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSCIMServerCredentialResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

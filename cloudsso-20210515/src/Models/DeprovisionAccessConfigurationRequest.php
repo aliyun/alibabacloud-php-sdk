@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeprovisionAccessConfigurationRequest extends Model
 {
     /**
-     * @description The ID of the access configuration.
-     *
-     * @example ac-00jhtfl8thteu6uj****
-     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
-     * @description The directory ID.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The ID of the task object.
-     *
-     * @example 114240524784****
-     *
      * @var string
      */
     public $targetId;
 
     /**
-     * @description The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
-     *
-     * @example RD-Account
-     *
      * @var string
      */
     public $targetType;
     protected $_name = [
         'accessConfigurationId' => 'AccessConfigurationId',
-        'directoryId'           => 'DirectoryId',
-        'targetId'              => 'TargetId',
-        'targetType'            => 'TargetType',
+        'directoryId' => 'DirectoryId',
+        'targetId' => 'TargetId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessConfigurationId) {
             $res['AccessConfigurationId'] = $this->accessConfigurationId;
         }
+
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -73,23 +61,26 @@ class DeprovisionAccessConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeprovisionAccessConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessConfigurationId'])) {
             $model->accessConfigurationId = $map['AccessConfigurationId'];
         }
+
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

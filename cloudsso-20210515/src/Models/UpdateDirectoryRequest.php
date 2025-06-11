@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDirectoryRequest extends Model
 {
     /**
-     * @description The ID of the directory.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The new name of the directory. The name must be globally unique.
-     *
-     * The name must be 2 to 64 characters in length.
-     * @example new-example
-     *
      * @var string
      */
     public $newDirectoryName;
     protected $_name = [
-        'directoryId'      => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
         'newDirectoryName' => 'NewDirectoryName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->newDirectoryName) {
             $res['NewDirectoryName'] = $this->newDirectoryName;
         }
@@ -48,17 +41,18 @@ class UpdateDirectoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDirectoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['NewDirectoryName'])) {
             $model->newDirectoryName = $map['NewDirectoryName'];
         }

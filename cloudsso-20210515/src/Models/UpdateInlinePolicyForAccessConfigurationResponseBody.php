@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInlinePolicyForAccessConfigurationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9B13E4EE-3853-5852-9165-597C32AD8FB7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateInlinePolicyForAccessConfigurationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateInlinePolicyForAccessConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInlinePolicyForAccessConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

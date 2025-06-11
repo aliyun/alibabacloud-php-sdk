@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMFAAuthenticationStatusResponseBody extends Model
 {
     /**
-     * @description The status of MFA. Valid values:
-     *
-     *   Enabled
-     *   Disabled
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $MFAAuthenticationStatus;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 5E688346-DF1A-5537-9BFC-8A9974D29586
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'MFAAuthenticationStatus' => 'MFAAuthenticationStatus',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->MFAAuthenticationStatus) {
             $res['MFAAuthenticationStatus'] = $this->MFAAuthenticationStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +41,18 @@ class GetMFAAuthenticationStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMFAAuthenticationStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MFAAuthenticationStatus'])) {
             $model->MFAAuthenticationStatus = $map['MFAAuthenticationStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

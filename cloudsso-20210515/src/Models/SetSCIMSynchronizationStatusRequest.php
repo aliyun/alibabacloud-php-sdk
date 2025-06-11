@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetSCIMSynchronizationStatusRequest extends Model
 {
     /**
-     * @description The ID of the directory.
-     *
-     * @example d-00fc2p61****
-     *
      * @var string
      */
     public $directoryId;
 
     /**
-     * @description The status of SCIM synchronization. Valid values:
-     *
-     *   Enabled
-     *   Disabled
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $SCIMSynchronizationStatus;
     protected $_name = [
-        'directoryId'               => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
         'SCIMSynchronizationStatus' => 'SCIMSynchronizationStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->SCIMSynchronizationStatus) {
             $res['SCIMSynchronizationStatus'] = $this->SCIMSynchronizationStatus;
         }
@@ -50,17 +41,18 @@ class SetSCIMSynchronizationStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetSCIMSynchronizationStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['SCIMSynchronizationStatus'])) {
             $model->SCIMSynchronizationStatus = $map['SCIMSynchronizationStatus'];
         }
