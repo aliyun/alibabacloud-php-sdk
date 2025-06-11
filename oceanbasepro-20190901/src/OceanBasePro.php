@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateLabelRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateLabelResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateMySqlDataSourceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateMySqlDataSourceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOasOutlineTaskRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOasOutlineTaskResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOceanBaseDataSourceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOceanBaseDataSourceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateOmsMysqlDataSourceRequest;
@@ -89,6 +91,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDataBackupSetRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDataBackupSetResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDatabasesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDatabasesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceAvailableZonesRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceAvailableZonesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceCreatableZoneRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceCreatableZoneResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceRequest;
@@ -344,6 +348,10 @@ class OceanBasePro extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->byObSessionId) {
+            @$body['ByObSessionId'] = $request->byObSessionId;
+        }
+
         if (null !== $request->instanceId) {
             @$body['InstanceId'] = $request->instanceId;
         }
@@ -370,11 +378,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchKillProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchKillProcessListResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchKillProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -438,11 +443,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchKillSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchKillSessionListResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchKillSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -498,11 +500,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelProjectModifyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelProjectModifyRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelProjectModifyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -562,11 +561,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBackupSetDownloadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBackupSetDownloadLinkResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBackupSetDownloadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -646,11 +642,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -778,11 +771,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,11 +828,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLabelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -942,11 +929,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMySqlDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMySqlDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMySqlDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -965,6 +949,123 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMySqlDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * CreateOasOutlineTask.
+     *
+     * @param request - CreateOasOutlineTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOasOutlineTaskResponse
+     *
+     * @param CreateOasOutlineTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateOasOutlineTaskResponse
+     */
+    public function createOasOutlineTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bySqlId) {
+            @$body['BySqlId'] = $request->bySqlId;
+        }
+
+        if (null !== $request->databaseName) {
+            @$body['DatabaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->dynamicSql) {
+            @$body['DynamicSql'] = $request->dynamicSql;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->indexName) {
+            @$body['IndexName'] = $request->indexName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isConcurrentLimit) {
+            @$body['IsConcurrentLimit'] = $request->isConcurrentLimit;
+        }
+
+        if (null !== $request->maxConcurrent) {
+            @$body['MaxConcurrent'] = $request->maxConcurrent;
+        }
+
+        if (null !== $request->planData) {
+            @$body['PlanData'] = $request->planData;
+        }
+
+        if (null !== $request->sqlId) {
+            @$body['SqlId'] = $request->sqlId;
+        }
+
+        if (null !== $request->sqlText) {
+            @$body['SqlText'] = $request->sqlText;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statementId) {
+            @$body['StatementId'] = $request->statementId;
+        }
+
+        if (null !== $request->tableName) {
+            @$body['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->UId) {
+            @$body['UId'] = $request->UId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOasOutlineTask',
+            'version' => '2019-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOasOutlineTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateOasOutlineTask.
+     *
+     * @param request - CreateOasOutlineTaskRequest
+     *
+     * @returns CreateOasOutlineTaskResponse
+     *
+     * @param CreateOasOutlineTaskRequest $request
+     *
+     * @return CreateOasOutlineTaskResponse
+     */
+    public function createOasOutlineTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOasOutlineTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1062,11 +1163,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOceanBaseDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOceanBaseDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOceanBaseDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1165,11 +1263,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOmsMysqlDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOmsMysqlDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOmsMysqlDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1334,11 +1429,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1412,11 +1504,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProjectModifyRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1492,11 +1581,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRdsPostgreSQLDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRdsPostgreSQLDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRdsPostgreSQLDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1560,11 +1646,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSecurityIpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1624,11 +1707,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1692,11 +1772,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTagValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1818,11 +1895,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTenantResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTenantResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1894,11 +1968,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTenantReadOnlyConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTenantReadOnlyConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTenantReadOnlyConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1966,11 +2037,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTenantSecurityIpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2058,11 +2126,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTenantUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTenantUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTenantUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2118,11 +2183,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2186,11 +2248,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2259,11 +2318,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2324,11 +2380,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2388,11 +2441,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSecurityIpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2448,11 +2498,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2512,11 +2559,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTagValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2580,11 +2624,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTenantSecurityIpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2648,11 +2689,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTenantUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTenantUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTenantUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2712,11 +2750,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTenantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2842,11 +2877,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAnomalySQLListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAnomalySQLListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAnomalySQLListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2910,11 +2942,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableCpuResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableCpuResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableCpuResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2982,11 +3011,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableMemResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableMemResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableMemResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3050,11 +3076,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3130,11 +3153,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3194,11 +3214,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupEncryptedStringResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupEncryptedStringResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupEncryptedStringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3258,11 +3275,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupSetDownloadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupSetDownloadLinkResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupSetDownloadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3326,11 +3340,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCharsetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCharsetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCharsetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3410,11 +3421,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDataBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDataBackupSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDataBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3494,11 +3502,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3558,11 +3563,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3581,6 +3583,63 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeInstanceAvailableZones.
+     *
+     * @param request - DescribeInstanceAvailableZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAvailableZonesResponse
+     *
+     * @param DescribeInstanceAvailableZonesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeInstanceAvailableZonesResponse
+     */
+    public function describeInstanceAvailableZonesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceAvailableZones',
+            'version' => '2019-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeInstanceAvailableZones.
+     *
+     * @param request - DescribeInstanceAvailableZonesRequest
+     *
+     * @returns DescribeInstanceAvailableZonesResponse
+     *
+     * @param DescribeInstanceAvailableZonesRequest $request
+     *
+     * @return DescribeInstanceAvailableZonesResponse
+     */
+    public function describeInstanceAvailableZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceAvailableZonesWithOptions($request, $runtime);
     }
 
     /**
@@ -3618,11 +3677,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceCreatableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceCreatableZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceCreatableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3682,11 +3738,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3746,11 +3799,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceSecurityConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceSecurityConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceSecurityConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3810,11 +3860,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3874,11 +3921,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3934,11 +3978,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceTenantModesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceTenantModesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceTenantModesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3994,11 +4035,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4060,6 +4098,10 @@ class OceanBasePro extends OpenApiClient
             @$body['SearchKey'] = $request->searchKey;
         }
 
+        if (null !== $request->withOBCloudInstances) {
+            @$body['WithOBCloudInstances'] = $request->withOBCloudInstances;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -4074,11 +4116,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4172,11 +4211,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMetricsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMetricsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMetricsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4264,11 +4300,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNodeMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNodeMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNodeMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4392,11 +4425,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOasAnomalySQLListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOasAnomalySQLListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOasAnomalySQLListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4480,11 +4510,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOasSQLDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOasSQLDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOasSQLDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4572,11 +4599,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOasSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOasSQLHistoryListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOasSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4668,11 +4692,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOasSQLPlansResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOasSQLPlansResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOasSQLPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4788,11 +4809,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOasSlowSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOasSlowSQLListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOasSlowSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4832,6 +4850,10 @@ class OceanBasePro extends OpenApiClient
         $body = [];
         if (null !== $request->acceptLanguage) {
             @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->customColumns) {
+            @$body['CustomColumns'] = $request->customColumns;
         }
 
         if (null !== $request->dbName) {
@@ -4908,11 +4930,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOasTopSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOasTopSQLListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOasTopSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4988,11 +5007,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOutlineBindingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOutlineBindingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOutlineBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5056,11 +5072,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5140,11 +5153,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParametersHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParametersHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParametersHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5190,6 +5200,10 @@ class OceanBasePro extends OpenApiClient
             @$body['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->mergeDynamicSql) {
+            @$body['MergeDynamicSql'] = $request->mergeDynamicSql;
+        }
+
         if (null !== $request->serverIp) {
             @$body['ServerIp'] = $request->serverIp;
         }
@@ -5228,11 +5242,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProcessStatsCompositionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProcessStatsCompositionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProcessStatsCompositionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5288,11 +5299,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5348,11 +5356,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectComponentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5408,11 +5413,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5492,11 +5494,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectStepMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectStepMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectStepMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5552,11 +5551,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectStepsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectStepsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectStepsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5612,11 +5608,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProxyServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProxyServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProxyServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5682,11 +5675,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecommendIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecommendIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecommendIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5768,11 +5758,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRestorableTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRestorableTenantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRestorableTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5832,11 +5819,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSQLDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSQLDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSQLDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5912,11 +5896,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSQLHistoryListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5976,11 +5957,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSQLPlansResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSQLPlansResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSQLPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6060,11 +6038,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSQLSamplesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSQLSamplesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSQLSamplesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6144,11 +6119,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSQLTuningAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSQLTuningAdvicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSQLTuningAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6236,11 +6208,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSampleSqlRawTextsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSampleSqlRawTextsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSampleSqlRawTextsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6296,11 +6265,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityIpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityIpGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityIpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6360,11 +6326,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSessionListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6440,11 +6403,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowSQLHistoryListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6562,11 +6522,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowSQLListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6642,11 +6599,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSqlAuditStatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSqlAuditStatResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSqlAuditStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6706,11 +6660,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeStandbyCreateModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeStandbyCreateModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeStandbyCreateModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6766,11 +6717,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6830,11 +6778,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6906,11 +6851,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6998,11 +6940,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7062,11 +7001,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantReadableScnResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantReadableScnResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantReadableScnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7130,11 +7066,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantSecurityConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantSecurityConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantSecurityConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7194,11 +7127,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantSecurityIpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantSecurityIpGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantSecurityIpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7262,11 +7192,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7326,11 +7253,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantUserRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7402,11 +7326,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7466,11 +7387,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantZonesReadResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantZonesReadResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantZonesReadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7546,11 +7464,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7597,11 +7512,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTimeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTimeZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTimeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7715,11 +7627,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTopSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTopSQLListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTopSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7783,11 +7692,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7847,11 +7753,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUploadOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUploadOssUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUploadOssUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7915,11 +7818,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return KillProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return KillProcessListResponse::fromMap($this->execute($params, $req, $runtime));
+        return KillProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7966,11 +7866,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAllLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAllLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAllLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8048,11 +7945,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8138,11 +8032,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectFullVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectFullVerifyResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectFullVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8198,11 +8089,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectModifyRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8320,11 +8208,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8410,11 +8295,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkerInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8482,11 +8364,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDatabaseDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8554,11 +8433,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDatabaseUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDatabaseUserRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDatabaseUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8618,11 +8494,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8686,11 +8559,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceNodeNumResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceNodeNumResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceNodeNumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8757,11 +8627,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8840,11 +8707,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8904,11 +8768,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8976,11 +8837,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceTemporaryCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceTemporaryCapacityResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceTemporaryCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9048,11 +8906,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9116,11 +8971,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9178,11 +9030,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTagNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTagNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTagNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9244,11 +9093,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTagValueNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTagValueNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTagValueNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9316,11 +9162,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantEncryptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9412,11 +9255,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantPrimaryZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantPrimaryZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantPrimaryZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9492,11 +9332,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9564,11 +9401,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantSecurityIpGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9632,11 +9466,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9704,11 +9535,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantUserDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9780,11 +9608,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9864,11 +9689,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantUserRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9936,11 +9758,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTenantUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTenantUserStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTenantUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9996,11 +9815,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10056,11 +9872,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseWorkerInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseWorkerInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseWorkerInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10124,11 +9937,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveStandbyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveStandbyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveStandbyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10184,11 +9994,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10244,11 +10051,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetryProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetryProjectModifyRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetryProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10304,11 +10108,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10364,11 +10165,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartProjectsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartProjectsByLabelResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartProjectsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10424,11 +10222,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10484,11 +10279,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopProjectModifyRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopProjectModifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10544,11 +10336,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopProjectsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopProjectsByLabelResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopProjectsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10612,11 +10401,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchoverInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchoverInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchoverInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10706,11 +10492,8 @@ class OceanBasePro extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateProjectConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -64,6 +64,11 @@ class tenantConnections extends Model
     public $internetRpcPort;
 
     /**
+     * @var int
+     */
+    public $internetSqlPort;
+
+    /**
      * @var string
      */
     public $intranetAddress;
@@ -154,6 +159,7 @@ class tenantConnections extends Model
         'internetMaxConnectionNum' => 'InternetMaxConnectionNum',
         'internetPort' => 'InternetPort',
         'internetRpcPort' => 'InternetRpcPort',
+        'internetSqlPort' => 'InternetSqlPort',
         'intranetAddress' => 'IntranetAddress',
         'intranetAddressMasterZoneId' => 'IntranetAddressMasterZoneId',
         'intranetAddressSlaveZoneId' => 'IntranetAddressSlaveZoneId',
@@ -240,6 +246,10 @@ class tenantConnections extends Model
 
         if (null !== $this->internetRpcPort) {
             $res['InternetRpcPort'] = $this->internetRpcPort;
+        }
+
+        if (null !== $this->internetSqlPort) {
+            $res['InternetSqlPort'] = $this->internetSqlPort;
         }
 
         if (null !== $this->intranetAddress) {
@@ -371,6 +381,10 @@ class tenantConnections extends Model
 
         if (isset($map['InternetRpcPort'])) {
             $model->internetRpcPort = $map['InternetRpcPort'];
+        }
+
+        if (isset($map['InternetSqlPort'])) {
+            $model->internetSqlPort = $map['InternetSqlPort'];
         }
 
         if (isset($map['IntranetAddress'])) {

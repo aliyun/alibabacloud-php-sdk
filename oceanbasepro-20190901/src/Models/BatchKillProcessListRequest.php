@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class BatchKillProcessListRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $byObSessionId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -23,6 +28,7 @@ class BatchKillProcessListRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'byObSessionId' => 'ByObSessionId',
         'instanceId' => 'InstanceId',
         'sessionList' => 'SessionList',
         'tenantId' => 'TenantId',
@@ -36,6 +42,10 @@ class BatchKillProcessListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->byObSessionId) {
+            $res['ByObSessionId'] = $this->byObSessionId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -59,6 +69,10 @@ class BatchKillProcessListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ByObSessionId'])) {
+            $model->byObSessionId = $map['ByObSessionId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

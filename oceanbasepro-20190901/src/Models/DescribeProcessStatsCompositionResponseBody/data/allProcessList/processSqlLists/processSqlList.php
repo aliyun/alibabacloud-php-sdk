@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data;
+namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data\allProcessList\processSqlLists;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data\allProcessList\processSqlLists;
 
-class allProcessList extends Model
+class processSqlList extends Model
 {
     /**
      * @var string
@@ -45,11 +44,6 @@ class allProcessList extends Model
     public $planId;
 
     /**
-     * @var processSqlLists[]
-     */
-    public $processSqlLists;
-
-    /**
      * @var string
      */
     public $proxySessId;
@@ -58,11 +52,6 @@ class allProcessList extends Model
      * @var string
      */
     public $serverIp;
-
-    /**
-     * @var string
-     */
-    public $serverSn;
 
     /**
      * @var int
@@ -106,10 +95,8 @@ class allProcessList extends Model
         'dynamicSql' => 'DynamicSql',
         'executeTime' => 'ExecuteTime',
         'planId' => 'PlanId',
-        'processSqlLists' => 'ProcessSqlLists',
         'proxySessId' => 'ProxySessId',
         'serverIp' => 'ServerIp',
-        'serverSn' => 'ServerSn',
         'sessionId' => 'SessionId',
         'sqlId' => 'SqlId',
         'sqlText' => 'SqlText',
@@ -121,9 +108,6 @@ class allProcessList extends Model
 
     public function validate()
     {
-        if (\is_array($this->processSqlLists)) {
-            Model::validateArray($this->processSqlLists);
-        }
         parent::validate();
     }
 
@@ -158,26 +142,12 @@ class allProcessList extends Model
             $res['PlanId'] = $this->planId;
         }
 
-        if (null !== $this->processSqlLists) {
-            if (\is_array($this->processSqlLists)) {
-                $res['ProcessSqlLists'] = [];
-                $n1 = 0;
-                foreach ($this->processSqlLists as $item1) {
-                    $res['ProcessSqlLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
         if (null !== $this->proxySessId) {
             $res['ProxySessId'] = $this->proxySessId;
         }
 
         if (null !== $this->serverIp) {
             $res['ServerIp'] = $this->serverIp;
-        }
-
-        if (null !== $this->serverSn) {
-            $res['ServerSn'] = $this->serverSn;
         }
 
         if (null !== $this->sessionId) {
@@ -247,26 +217,12 @@ class allProcessList extends Model
             $model->planId = $map['PlanId'];
         }
 
-        if (isset($map['ProcessSqlLists'])) {
-            if (!empty($map['ProcessSqlLists'])) {
-                $model->processSqlLists = [];
-                $n1 = 0;
-                foreach ($map['ProcessSqlLists'] as $item1) {
-                    $model->processSqlLists[$n1++] = processSqlLists::fromMap($item1);
-                }
-            }
-        }
-
         if (isset($map['ProxySessId'])) {
             $model->proxySessId = $map['ProxySessId'];
         }
 
         if (isset($map['ServerIp'])) {
             $model->serverIp = $map['ServerIp'];
-        }
-
-        if (isset($map['ServerSn'])) {
-            $model->serverSn = $map['ServerSn'];
         }
 
         if (isset($map['SessionId'])) {

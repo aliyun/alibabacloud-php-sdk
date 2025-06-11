@@ -31,12 +31,24 @@ class outlineBinding extends Model
     /**
      * @var string
      */
+    public $sqlText;
+
+    /**
+     * @var int
+     */
+    public $sqlTextConcurrentNum;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'bindIndex' => 'BindIndex',
         'bindPlan' => 'BindPlan',
         'maxConcurrent' => 'MaxConcurrent',
         'outlineId' => 'OutlineId',
+        'sqlText' => 'SqlText',
+        'sqlTextConcurrentNum' => 'SqlTextConcurrentNum',
         'tableName' => 'TableName',
     ];
 
@@ -62,6 +74,14 @@ class outlineBinding extends Model
 
         if (null !== $this->outlineId) {
             $res['OutlineId'] = $this->outlineId;
+        }
+
+        if (null !== $this->sqlText) {
+            $res['SqlText'] = $this->sqlText;
+        }
+
+        if (null !== $this->sqlTextConcurrentNum) {
+            $res['SqlTextConcurrentNum'] = $this->sqlTextConcurrentNum;
         }
 
         if (null !== $this->tableName) {
@@ -93,6 +113,14 @@ class outlineBinding extends Model
 
         if (isset($map['OutlineId'])) {
             $model->outlineId = $map['OutlineId'];
+        }
+
+        if (isset($map['SqlText'])) {
+            $model->sqlText = $map['SqlText'];
+        }
+
+        if (isset($map['SqlTextConcurrentNum'])) {
+            $model->sqlTextConcurrentNum = $map['SqlTextConcurrentNum'];
         }
 
         if (isset($map['TableName'])) {

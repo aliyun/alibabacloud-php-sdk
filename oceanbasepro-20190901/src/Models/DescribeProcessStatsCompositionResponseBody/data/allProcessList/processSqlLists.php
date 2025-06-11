@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data;
+namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data\allProcessList;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data\allProcessList\processSqlLists;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponseBody\data\allProcessList\processSqlLists\processSqlList;
 
-class allProcessList extends Model
+class processSqlLists extends Model
 {
     /**
      * @var string
@@ -45,9 +45,9 @@ class allProcessList extends Model
     public $planId;
 
     /**
-     * @var processSqlLists[]
+     * @var processSqlList[]
      */
-    public $processSqlLists;
+    public $processSqlList;
 
     /**
      * @var string
@@ -58,11 +58,6 @@ class allProcessList extends Model
      * @var string
      */
     public $serverIp;
-
-    /**
-     * @var string
-     */
-    public $serverSn;
 
     /**
      * @var int
@@ -106,10 +101,9 @@ class allProcessList extends Model
         'dynamicSql' => 'DynamicSql',
         'executeTime' => 'ExecuteTime',
         'planId' => 'PlanId',
-        'processSqlLists' => 'ProcessSqlLists',
+        'processSqlList' => 'ProcessSqlList',
         'proxySessId' => 'ProxySessId',
         'serverIp' => 'ServerIp',
-        'serverSn' => 'ServerSn',
         'sessionId' => 'SessionId',
         'sqlId' => 'SqlId',
         'sqlText' => 'SqlText',
@@ -121,8 +115,8 @@ class allProcessList extends Model
 
     public function validate()
     {
-        if (\is_array($this->processSqlLists)) {
-            Model::validateArray($this->processSqlLists);
+        if (\is_array($this->processSqlList)) {
+            Model::validateArray($this->processSqlList);
         }
         parent::validate();
     }
@@ -158,12 +152,12 @@ class allProcessList extends Model
             $res['PlanId'] = $this->planId;
         }
 
-        if (null !== $this->processSqlLists) {
-            if (\is_array($this->processSqlLists)) {
-                $res['ProcessSqlLists'] = [];
+        if (null !== $this->processSqlList) {
+            if (\is_array($this->processSqlList)) {
+                $res['ProcessSqlList'] = [];
                 $n1 = 0;
-                foreach ($this->processSqlLists as $item1) {
-                    $res['ProcessSqlLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->processSqlList as $item1) {
+                    $res['ProcessSqlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -174,10 +168,6 @@ class allProcessList extends Model
 
         if (null !== $this->serverIp) {
             $res['ServerIp'] = $this->serverIp;
-        }
-
-        if (null !== $this->serverSn) {
-            $res['ServerSn'] = $this->serverSn;
         }
 
         if (null !== $this->sessionId) {
@@ -247,12 +237,12 @@ class allProcessList extends Model
             $model->planId = $map['PlanId'];
         }
 
-        if (isset($map['ProcessSqlLists'])) {
-            if (!empty($map['ProcessSqlLists'])) {
-                $model->processSqlLists = [];
+        if (isset($map['ProcessSqlList'])) {
+            if (!empty($map['ProcessSqlList'])) {
+                $model->processSqlList = [];
                 $n1 = 0;
-                foreach ($map['ProcessSqlLists'] as $item1) {
-                    $model->processSqlLists[$n1++] = processSqlLists::fromMap($item1);
+                foreach ($map['ProcessSqlList'] as $item1) {
+                    $model->processSqlList[$n1++] = processSqlList::fromMap($item1);
                 }
             }
         }
@@ -263,10 +253,6 @@ class allProcessList extends Model
 
         if (isset($map['ServerIp'])) {
             $model->serverIp = $map['ServerIp'];
-        }
-
-        if (isset($map['ServerSn'])) {
-            $model->serverSn = $map['ServerSn'];
         }
 
         if (isset($map['SessionId'])) {

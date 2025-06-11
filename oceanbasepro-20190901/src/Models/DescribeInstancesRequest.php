@@ -37,6 +37,11 @@ class DescribeInstancesRequest extends Model
      * @var string
      */
     public $searchKey;
+
+    /**
+     * @var bool
+     */
+    public $withOBCloudInstances;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -44,6 +49,7 @@ class DescribeInstancesRequest extends Model
         'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
         'searchKey' => 'SearchKey',
+        'withOBCloudInstances' => 'WithOBCloudInstances',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class DescribeInstancesRequest extends Model
 
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
+        }
+
+        if (null !== $this->withOBCloudInstances) {
+            $res['WithOBCloudInstances'] = $this->withOBCloudInstances;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class DescribeInstancesRequest extends Model
 
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
+        }
+
+        if (isset($map['WithOBCloudInstances'])) {
+            $model->withOBCloudInstances = $map['WithOBCloudInstances'];
         }
 
         return $model;

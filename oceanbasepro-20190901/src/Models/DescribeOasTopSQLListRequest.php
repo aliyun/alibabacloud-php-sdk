@@ -16,6 +16,11 @@ class DescribeOasTopSQLListRequest extends Model
     /**
      * @var string
      */
+    public $customColumns;
+
+    /**
+     * @var string
+     */
     public $dbName;
 
     /**
@@ -89,6 +94,7 @@ class DescribeOasTopSQLListRequest extends Model
     public $tenantId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'customColumns' => 'CustomColumns',
         'dbName' => 'DbName',
         'dynamicSql' => 'DynamicSql',
         'endTime' => 'EndTime',
@@ -116,6 +122,10 @@ class DescribeOasTopSQLListRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->customColumns) {
+            $res['CustomColumns'] = $this->customColumns;
         }
 
         if (null !== $this->dbName) {
@@ -191,6 +201,10 @@ class DescribeOasTopSQLListRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['CustomColumns'])) {
+            $model->customColumns = $map['CustomColumns'];
         }
 
         if (isset($map['DbName'])) {

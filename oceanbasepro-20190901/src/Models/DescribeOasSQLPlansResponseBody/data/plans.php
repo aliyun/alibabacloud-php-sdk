@@ -169,6 +169,11 @@ class plans extends Model
     public $sqlId;
 
     /**
+     * @var string
+     */
+    public $sqlText;
+
+    /**
      * @var bool
      */
     public $tableScan;
@@ -215,6 +220,7 @@ class plans extends Model
         'server' => 'Server',
         'serverId' => 'ServerId',
         'sqlId' => 'SqlId',
+        'sqlText' => 'SqlText',
         'tableScan' => 'TableScan',
         'timeoutPercentage' => 'TimeoutPercentage',
         'uid' => 'Uid',
@@ -354,6 +360,10 @@ class plans extends Model
 
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
+        }
+
+        if (null !== $this->sqlText) {
+            $res['SqlText'] = $this->sqlText;
         }
 
         if (null !== $this->tableScan) {
@@ -505,6 +515,10 @@ class plans extends Model
 
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];
+        }
+
+        if (isset($map['SqlText'])) {
+            $model->sqlText = $map['SqlText'];
         }
 
         if (isset($map['TableScan'])) {

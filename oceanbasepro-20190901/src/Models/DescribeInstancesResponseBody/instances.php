@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesRespon
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\dataDiskAutoScaleConfig;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\migrationInfo;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponseBody\instances\resource;
 
 class instances extends Model
@@ -121,6 +122,16 @@ class instances extends Model
     public $mem;
 
     /**
+     * @var bool
+     */
+    public $migratable;
+
+    /**
+     * @var migrationInfo
+     */
+    public $migrationInfo;
+
+    /**
      * @var string
      */
     public $obRpmVersion;
@@ -197,6 +208,8 @@ class instances extends Model
         'instanceType' => 'InstanceType',
         'maintainTime' => 'MaintainTime',
         'mem' => 'Mem',
+        'migratable' => 'Migratable',
+        'migrationInfo' => 'MigrationInfo',
         'obRpmVersion' => 'ObRpmVersion',
         'payType' => 'PayType',
         'replicaMode' => 'ReplicaMode',
@@ -217,6 +230,9 @@ class instances extends Model
         }
         if (null !== $this->dataDiskAutoScaleConfig) {
             $this->dataDiskAutoScaleConfig->validate();
+        }
+        if (null !== $this->migrationInfo) {
+            $this->migrationInfo->validate();
         }
         if (null !== $this->resource) {
             $this->resource->validate();
@@ -319,6 +335,14 @@ class instances extends Model
 
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
+        }
+
+        if (null !== $this->migratable) {
+            $res['Migratable'] = $this->migratable;
+        }
+
+        if (null !== $this->migrationInfo) {
+            $res['MigrationInfo'] = null !== $this->migrationInfo ? $this->migrationInfo->toArray($noStream) : $this->migrationInfo;
         }
 
         if (null !== $this->obRpmVersion) {
@@ -468,6 +492,14 @@ class instances extends Model
 
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
+        }
+
+        if (isset($map['Migratable'])) {
+            $model->migratable = $map['Migratable'];
+        }
+
+        if (isset($map['MigrationInfo'])) {
+            $model->migrationInfo = migrationInfo::fromMap($map['MigrationInfo']);
         }
 
         if (isset($map['ObRpmVersion'])) {

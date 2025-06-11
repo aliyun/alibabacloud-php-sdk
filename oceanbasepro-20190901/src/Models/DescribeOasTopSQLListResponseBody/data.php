@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasTopSQLListResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasTopSQLListResponseBody\data\customColumns;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasTopSQLListResponseBody\data\sqlList;
 
 class data extends Model
@@ -170,6 +171,11 @@ class data extends Model
     public $cpuPercentage;
 
     /**
+     * @var customColumns
+     */
+    public $customColumns;
+
+    /**
      * @var string
      */
     public $dbName;
@@ -273,6 +279,11 @@ class data extends Model
      * @var float
      */
     public $missPlans;
+
+    /**
+     * @var string
+     */
+    public $obDbId;
 
     /**
      * @var float
@@ -446,6 +457,7 @@ class data extends Model
         'avgWaitTime' => 'AvgWaitTime',
         'clientIp' => 'ClientIp',
         'cpuPercentage' => 'CpuPercentage',
+        'customColumns' => 'CustomColumns',
         'dbName' => 'DbName',
         'distPlanPercentage' => 'DistPlanPercentage',
         'dynamicSql' => 'DynamicSql',
@@ -467,6 +479,7 @@ class data extends Model
         'maxWaitTime' => 'MaxWaitTime',
         'missPlanPercentage' => 'MissPlanPercentage',
         'missPlans' => 'MissPlans',
+        'obDbId' => 'ObDbId',
         'remotePlanPercentage' => 'RemotePlanPercentage',
         'remotePlans' => 'RemotePlans',
         'retCode4012Count' => 'RetCode4012Count',
@@ -499,6 +512,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->customColumns) {
+            $this->customColumns->validate();
+        }
         if (\is_array($this->sqlList)) {
             Model::validateArray($this->sqlList);
         }
@@ -636,6 +652,10 @@ class data extends Model
             $res['CpuPercentage'] = $this->cpuPercentage;
         }
 
+        if (null !== $this->customColumns) {
+            $res['CustomColumns'] = null !== $this->customColumns ? $this->customColumns->toArray($noStream) : $this->customColumns;
+        }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
@@ -718,6 +738,10 @@ class data extends Model
 
         if (null !== $this->missPlans) {
             $res['MissPlans'] = $this->missPlans;
+        }
+
+        if (null !== $this->obDbId) {
+            $res['ObDbId'] = $this->obDbId;
         }
 
         if (null !== $this->remotePlanPercentage) {
@@ -977,6 +1001,10 @@ class data extends Model
             $model->cpuPercentage = $map['CpuPercentage'];
         }
 
+        if (isset($map['CustomColumns'])) {
+            $model->customColumns = customColumns::fromMap($map['CustomColumns']);
+        }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
@@ -1059,6 +1087,10 @@ class data extends Model
 
         if (isset($map['MissPlans'])) {
             $model->missPlans = $map['MissPlans'];
+        }
+
+        if (isset($map['ObDbId'])) {
+            $model->obDbId = $map['ObDbId'];
         }
 
         if (isset($map['RemotePlanPercentage'])) {

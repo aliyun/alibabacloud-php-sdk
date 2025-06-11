@@ -19,6 +19,11 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $mergeDynamicSql;
+
+    /**
      * @var string
      */
     public $serverIp;
@@ -50,6 +55,7 @@ class DescribeProcessStatsCompositionRequest extends Model
     protected $_name = [
         'clientIp' => 'ClientIp',
         'instanceId' => 'InstanceId',
+        'mergeDynamicSql' => 'MergeDynamicSql',
         'serverIp' => 'ServerIp',
         'sqlText' => 'SqlText',
         'status' => 'Status',
@@ -72,6 +78,10 @@ class DescribeProcessStatsCompositionRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->mergeDynamicSql) {
+            $res['MergeDynamicSql'] = $this->mergeDynamicSql;
         }
 
         if (null !== $this->serverIp) {
@@ -115,6 +125,10 @@ class DescribeProcessStatsCompositionRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['MergeDynamicSql'])) {
+            $model->mergeDynamicSql = $map['MergeDynamicSql'];
         }
 
         if (isset($map['ServerIp'])) {

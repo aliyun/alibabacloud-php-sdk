@@ -20,6 +20,11 @@ class replicas extends Model
     public $nodeNum;
 
     /**
+     * @var int
+     */
+    public $onlineNodeNum;
+
+    /**
      * @var string
      */
     public $readOnlyReplicaType;
@@ -56,6 +61,7 @@ class replicas extends Model
     protected $_name = [
         'logicalZone' => 'LogicalZone',
         'nodeNum' => 'NodeNum',
+        'onlineNodeNum' => 'OnlineNodeNum',
         'readOnlyReplicaType' => 'ReadOnlyReplicaType',
         'replicaResource' => 'ReplicaResource',
         'replicaType' => 'ReplicaType',
@@ -82,6 +88,10 @@ class replicas extends Model
 
         if (null !== $this->nodeNum) {
             $res['NodeNum'] = $this->nodeNum;
+        }
+
+        if (null !== $this->onlineNodeNum) {
+            $res['OnlineNodeNum'] = $this->onlineNodeNum;
         }
 
         if (null !== $this->readOnlyReplicaType) {
@@ -129,6 +139,10 @@ class replicas extends Model
 
         if (isset($map['NodeNum'])) {
             $model->nodeNum = $map['NodeNum'];
+        }
+
+        if (isset($map['OnlineNodeNum'])) {
+            $model->onlineNodeNum = $map['OnlineNodeNum'];
         }
 
         if (isset($map['ReadOnlyReplicaType'])) {

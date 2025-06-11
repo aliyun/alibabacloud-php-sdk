@@ -71,7 +71,7 @@ class data extends Model
     public $progress;
 
     /**
-     * @var int
+     * @var string
      */
     public $setId;
 
