@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpsertChunksShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowInsertWithFilter;
+
+    /**
      * @var string
      */
     public $collection;
@@ -53,6 +58,7 @@ class UpsertChunksShrinkRequest extends Model
      */
     public $textChunksShrink;
     protected $_name = [
+        'allowInsertWithFilter' => 'AllowInsertWithFilter',
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'fileName' => 'FileName',
@@ -72,6 +78,10 @@ class UpsertChunksShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowInsertWithFilter) {
+            $res['AllowInsertWithFilter'] = $this->allowInsertWithFilter;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -119,6 +129,10 @@ class UpsertChunksShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowInsertWithFilter'])) {
+            $model->allowInsertWithFilter = $map['AllowInsertWithFilter'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }

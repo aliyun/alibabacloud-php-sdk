@@ -16806,6 +16806,10 @@ class Gpdb extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->allowInsertWithFilter) {
+            @$query['AllowInsertWithFilter'] = $request->allowInsertWithFilter;
+        }
+
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
         }

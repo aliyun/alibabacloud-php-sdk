@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksRequest\textChunks;
 class UpsertChunksRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowInsertWithFilter;
+
+    /**
      * @var string
      */
     public $collection;
@@ -54,6 +59,7 @@ class UpsertChunksRequest extends Model
      */
     public $textChunks;
     protected $_name = [
+        'allowInsertWithFilter' => 'AllowInsertWithFilter',
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'fileName' => 'FileName',
@@ -76,6 +82,10 @@ class UpsertChunksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowInsertWithFilter) {
+            $res['AllowInsertWithFilter'] = $this->allowInsertWithFilter;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -129,6 +139,10 @@ class UpsertChunksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowInsertWithFilter'])) {
+            $model->allowInsertWithFilter = $map['AllowInsertWithFilter'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }

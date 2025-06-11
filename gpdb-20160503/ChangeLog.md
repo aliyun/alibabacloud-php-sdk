@@ -1,3 +1,7 @@
+2025-06-11 Version: 2.8.1
+- Update API UpsertChunks: add request parameters AllowInsertWithFilter.
+
+
 2025-06-05 Version: 2.8.0
 - Support API ModifyCollection.
 
