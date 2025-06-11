@@ -11,6 +11,11 @@ class InsertMediaToSearchLibRequest extends Model
     /**
      * @var string
      */
+    public $imagesInput;
+
+    /**
+     * @var string
+     */
     public $input;
 
     /**
@@ -33,6 +38,7 @@ class InsertMediaToSearchLibRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
+        'imagesInput' => 'ImagesInput',
         'input' => 'Input',
         'mediaId' => 'MediaId',
         'mediaType' => 'MediaType',
@@ -48,6 +54,10 @@ class InsertMediaToSearchLibRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->imagesInput) {
+            $res['ImagesInput'] = $this->imagesInput;
+        }
+
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
@@ -79,6 +89,10 @@ class InsertMediaToSearchLibRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImagesInput'])) {
+            $model->imagesInput = $map['ImagesInput'];
+        }
+
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }

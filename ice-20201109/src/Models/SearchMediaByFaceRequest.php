@@ -24,6 +24,11 @@ class SearchMediaByFaceRequest extends Model
     public $mediaType;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -46,6 +51,7 @@ class SearchMediaByFaceRequest extends Model
         'entityId' => 'EntityId',
         'faceSearchToken' => 'FaceSearchToken',
         'mediaType' => 'MediaType',
+        'namespace' => 'Namespace',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'personImageUrl' => 'PersonImageUrl',
@@ -70,6 +76,10 @@ class SearchMediaByFaceRequest extends Model
 
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         if (null !== $this->pageNo) {
@@ -109,6 +119,10 @@ class SearchMediaByFaceRequest extends Model
 
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         if (isset($map['PageNo'])) {

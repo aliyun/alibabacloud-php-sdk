@@ -12018,6 +12018,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->imagesInput) {
+            @$query['ImagesInput'] = $request->imagesInput;
+        }
+
         if (null !== $request->input) {
             @$query['Input'] = $request->input;
         }
@@ -17911,6 +17915,10 @@ class ICE extends OpenApiClient
             @$query['MultimodalSearchType'] = $request->multimodalSearchType;
         }
 
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
         if (null !== $request->pageNo) {
             @$query['PageNo'] = $request->pageNo;
         }
@@ -18006,6 +18014,10 @@ class ICE extends OpenApiClient
             @$query['MediaType'] = $request->mediaType;
         }
 
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
         if (null !== $request->pageNo) {
             @$query['PageNo'] = $request->pageNo;
         }
@@ -18086,6 +18098,10 @@ class ICE extends OpenApiClient
             @$query['MediaType'] = $request->mediaType;
         }
 
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
         if (null !== $request->pageNo) {
             @$query['PageNo'] = $request->pageNo;
         }
@@ -18160,6 +18176,10 @@ class ICE extends OpenApiClient
         $query = [];
         if (null !== $request->mediaType) {
             @$query['MediaType'] = $request->mediaType;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
 
         if (null !== $request->pageNo) {

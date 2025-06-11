@@ -19,6 +19,11 @@ class SearchMediaByHybridRequest extends Model
     public $mediaType;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -40,6 +45,7 @@ class SearchMediaByHybridRequest extends Model
     protected $_name = [
         'mediaId' => 'MediaId',
         'mediaType' => 'MediaType',
+        'namespace' => 'Namespace',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'searchLibName' => 'SearchLibName',
@@ -60,6 +66,10 @@ class SearchMediaByHybridRequest extends Model
 
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         if (null !== $this->pageNo) {
@@ -95,6 +105,10 @@ class SearchMediaByHybridRequest extends Model
 
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         if (isset($map['PageNo'])) {

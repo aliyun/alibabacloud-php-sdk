@@ -81,6 +81,11 @@ class mediaBasicInfo extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $referenceId;
 
     /**
@@ -122,6 +127,11 @@ class mediaBasicInfo extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @var string
+     */
+    public $visionDescription;
     protected $_name = [
         'biz' => 'Biz',
         'businessType' => 'BusinessType',
@@ -137,6 +147,7 @@ class mediaBasicInfo extends Model
         'mediaTags' => 'MediaTags',
         'mediaType' => 'MediaType',
         'modifiedTime' => 'ModifiedTime',
+        'namespace' => 'Namespace',
         'referenceId' => 'ReferenceId',
         'snapshots' => 'Snapshots',
         'source' => 'Source',
@@ -146,6 +157,7 @@ class mediaBasicInfo extends Model
         'transcodeStatus' => 'TranscodeStatus',
         'uploadSource' => 'UploadSource',
         'userData' => 'UserData',
+        'visionDescription' => 'VisionDescription',
     ];
 
     public function validate()
@@ -212,6 +224,10 @@ class mediaBasicInfo extends Model
             $res['ModifiedTime'] = $this->modifiedTime;
         }
 
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+
         if (null !== $this->referenceId) {
             $res['ReferenceId'] = $this->referenceId;
         }
@@ -246,6 +262,10 @@ class mediaBasicInfo extends Model
 
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+
+        if (null !== $this->visionDescription) {
+            $res['VisionDescription'] = $this->visionDescription;
         }
 
         return $res;
@@ -315,6 +335,10 @@ class mediaBasicInfo extends Model
             $model->modifiedTime = $map['ModifiedTime'];
         }
 
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+
         if (isset($map['ReferenceId'])) {
             $model->referenceId = $map['ReferenceId'];
         }
@@ -349,6 +373,10 @@ class mediaBasicInfo extends Model
 
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+
+        if (isset($map['VisionDescription'])) {
+            $model->visionDescription = $map['VisionDescription'];
         }
 
         return $model;

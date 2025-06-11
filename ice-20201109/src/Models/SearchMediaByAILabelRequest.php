@@ -29,6 +29,11 @@ class SearchMediaByAILabelRequest extends Model
     public $multimodalSearchType;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -62,6 +67,7 @@ class SearchMediaByAILabelRequest extends Model
         'mediaId' => 'MediaId',
         'mediaType' => 'MediaType',
         'multimodalSearchType' => 'MultimodalSearchType',
+        'namespace' => 'Namespace',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'searchLibName' => 'SearchLibName',
@@ -92,6 +98,10 @@ class SearchMediaByAILabelRequest extends Model
 
         if (null !== $this->multimodalSearchType) {
             $res['MultimodalSearchType'] = $this->multimodalSearchType;
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         if (null !== $this->pageNo) {
@@ -143,6 +153,10 @@ class SearchMediaByAILabelRequest extends Model
 
         if (isset($map['MultimodalSearchType'])) {
             $model->multimodalSearchType = $map['MultimodalSearchType'];
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         if (isset($map['PageNo'])) {

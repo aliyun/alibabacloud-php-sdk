@@ -61,6 +61,11 @@ class fileBasicInfo extends Model
     /**
      * @var string
      */
+    public $imagesInput;
+
+    /**
+     * @var string
+     */
     public $modifiedTime;
 
     /**
@@ -83,6 +88,7 @@ class fileBasicInfo extends Model
         'fileUrl' => 'FileUrl',
         'formatName' => 'FormatName',
         'height' => 'Height',
+        'imagesInput' => 'ImagesInput',
         'modifiedTime' => 'ModifiedTime',
         'region' => 'Region',
         'width' => 'Width',
@@ -134,6 +140,10 @@ class fileBasicInfo extends Model
 
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+
+        if (null !== $this->imagesInput) {
+            $res['ImagesInput'] = $this->imagesInput;
         }
 
         if (null !== $this->modifiedTime) {
@@ -197,6 +207,10 @@ class fileBasicInfo extends Model
 
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+
+        if (isset($map['ImagesInput'])) {
+            $model->imagesInput = $map['ImagesInput'];
         }
 
         if (isset($map['ModifiedTime'])) {
