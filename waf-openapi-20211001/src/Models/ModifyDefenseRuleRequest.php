@@ -16,6 +16,11 @@ class ModifyDefenseRuleRequest extends Model
     /**
      * @var string
      */
+    public $defenseType;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -44,6 +49,7 @@ class ModifyDefenseRuleRequest extends Model
     public $templateId;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
+        'defenseType' => 'DefenseType',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resource' => 'Resource',
@@ -62,6 +68,10 @@ class ModifyDefenseRuleRequest extends Model
         $res = [];
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
+        }
+
+        if (null !== $this->defenseType) {
+            $res['DefenseType'] = $this->defenseType;
         }
 
         if (null !== $this->instanceId) {
@@ -101,6 +111,10 @@ class ModifyDefenseRuleRequest extends Model
         $model = new self();
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
+        }
+
+        if (isset($map['DefenseType'])) {
+            $model->defenseType = $map['DefenseType'];
         }
 
         if (isset($map['InstanceId'])) {

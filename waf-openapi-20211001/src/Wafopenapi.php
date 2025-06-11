@@ -902,6 +902,10 @@ class Wafopenapi extends OpenApiClient
             @$query['DefenseScene'] = $request->defenseScene;
         }
 
+        if (null !== $request->defenseType) {
+            @$query['DefenseType'] = $request->defenseType;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -1860,6 +1864,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->defenseType) {
+            @$query['DefenseType'] = $request->defenseType;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -5116,6 +5124,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->defenseType) {
+            @$query['DefenseType'] = $request->defenseType;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -11719,6 +11731,10 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (null !== $request->defenseScene) {
             @$query['DefenseScene'] = $request->defenseScene;
+        }
+
+        if (null !== $request->defenseType) {
+            @$query['DefenseType'] = $request->defenseType;
         }
 
         if (null !== $request->instanceId) {
