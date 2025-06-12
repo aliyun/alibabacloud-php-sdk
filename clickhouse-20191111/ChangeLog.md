@@ -1,3 +1,6 @@
+2025-06-12 Version: 4.0.10
+- Generated php 2019-11-11 for clickhouse.
+
 2025-06-11 Version: 4.0.9
 - Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.AppointmentElectZookeeperDisableWrite.
 - Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.AppointmentElectZookeeperTime.
