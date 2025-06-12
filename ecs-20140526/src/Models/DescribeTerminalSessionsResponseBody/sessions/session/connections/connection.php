@@ -21,6 +21,11 @@ class connection extends Model
     /**
      * @var string
      */
+    public $failedDetail;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -35,6 +40,7 @@ class connection extends Model
     protected $_name = [
         'closedReason' => 'ClosedReason',
         'endTime' => 'EndTime',
+        'failedDetail' => 'FailedDetail',
         'instanceId' => 'InstanceId',
         'startTime' => 'StartTime',
         'status' => 'Status',
@@ -54,6 +60,10 @@ class connection extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->failedDetail) {
+            $res['FailedDetail'] = $this->failedDetail;
         }
 
         if (null !== $this->instanceId) {
@@ -85,6 +95,10 @@ class connection extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['FailedDetail'])) {
+            $model->failedDetail = $map['FailedDetail'];
         }
 
         if (isset($map['InstanceId'])) {

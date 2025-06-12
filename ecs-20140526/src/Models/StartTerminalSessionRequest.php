@@ -34,6 +34,11 @@ class StartTerminalSessionRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $passwordName;
+
+    /**
      * @var int
      */
     public $portNumber;
@@ -68,6 +73,7 @@ class StartTerminalSessionRequest extends Model
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'passwordName' => 'PasswordName',
         'portNumber' => 'PortNumber',
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -111,6 +117,10 @@ class StartTerminalSessionRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->passwordName) {
+            $res['PasswordName'] = $this->passwordName;
         }
 
         if (null !== $this->portNumber) {
@@ -172,6 +182,10 @@ class StartTerminalSessionRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PasswordName'])) {
+            $model->passwordName = $map['PasswordName'];
         }
 
         if (isset($map['PortNumber'])) {
