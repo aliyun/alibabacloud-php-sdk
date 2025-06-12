@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2ResponseB
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2ResponseBody\data\list_\analyticsReport;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2ResponseBody\data\list_\summaryIndex;
 
 class list_ extends Model
 {
@@ -200,6 +201,11 @@ class list_ extends Model
     public $offsiteAgentOriginatorNumbers;
 
     /**
+     * @var string
+     */
+    public $outsideNumberReleaseReason;
+
+    /**
      * @var int
      */
     public $queueTime;
@@ -270,6 +276,11 @@ class list_ extends Model
     public $startTime;
 
     /**
+     * @var summaryIndex
+     */
+    public $summaryIndex;
+
+    /**
      * @var int
      */
     public $talkTime;
@@ -322,6 +333,7 @@ class list_ extends Model
         'offSiteAgentIds' => 'OffSiteAgentIds',
         'offsiteAgentDestinationNumbers' => 'OffsiteAgentDestinationNumbers',
         'offsiteAgentOriginatorNumbers' => 'OffsiteAgentOriginatorNumbers',
+        'outsideNumberReleaseReason' => 'OutsideNumberReleaseReason',
         'queueTime' => 'QueueTime',
         'recordingDuration' => 'RecordingDuration',
         'recordingReady' => 'RecordingReady',
@@ -336,6 +348,7 @@ class list_ extends Model
         'skillGroupIds' => 'SkillGroupIds',
         'skillGroupNames' => 'SkillGroupNames',
         'startTime' => 'StartTime',
+        'summaryIndex' => 'SummaryIndex',
         'talkTime' => 'TalkTime',
         'transferCount' => 'TransferCount',
         'waitTime' => 'WaitTime',
@@ -345,6 +358,9 @@ class list_ extends Model
     {
         if (null !== $this->analyticsReport) {
             $this->analyticsReport->validate();
+        }
+        if (null !== $this->summaryIndex) {
+            $this->summaryIndex->validate();
         }
         parent::validate();
     }
@@ -504,6 +520,10 @@ class list_ extends Model
             $res['OffsiteAgentOriginatorNumbers'] = $this->offsiteAgentOriginatorNumbers;
         }
 
+        if (null !== $this->outsideNumberReleaseReason) {
+            $res['OutsideNumberReleaseReason'] = $this->outsideNumberReleaseReason;
+        }
+
         if (null !== $this->queueTime) {
             $res['QueueTime'] = $this->queueTime;
         }
@@ -558,6 +578,10 @@ class list_ extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->summaryIndex) {
+            $res['SummaryIndex'] = null !== $this->summaryIndex ? $this->summaryIndex->toArray($noStream) : $this->summaryIndex;
         }
 
         if (null !== $this->talkTime) {
@@ -735,6 +759,10 @@ class list_ extends Model
             $model->offsiteAgentOriginatorNumbers = $map['OffsiteAgentOriginatorNumbers'];
         }
 
+        if (isset($map['OutsideNumberReleaseReason'])) {
+            $model->outsideNumberReleaseReason = $map['OutsideNumberReleaseReason'];
+        }
+
         if (isset($map['QueueTime'])) {
             $model->queueTime = $map['QueueTime'];
         }
@@ -789,6 +817,10 @@ class list_ extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['SummaryIndex'])) {
+            $model->summaryIndex = summaryIndex::fromMap($map['SummaryIndex']);
         }
 
         if (isset($map['TalkTime'])) {

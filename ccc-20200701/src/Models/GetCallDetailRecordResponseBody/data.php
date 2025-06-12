@@ -104,6 +104,11 @@ class data extends Model
     public $ivrEvents;
 
     /**
+     * @var string
+     */
+    public $outsideNumberReleaseReason;
+
+    /**
      * @var queueEvents[]
      */
     public $queueEvents;
@@ -176,6 +181,7 @@ class data extends Model
         'establishedTime' => 'EstablishedTime',
         'instanceId' => 'InstanceId',
         'ivrEvents' => 'IvrEvents',
+        'outsideNumberReleaseReason' => 'OutsideNumberReleaseReason',
         'queueEvents' => 'QueueEvents',
         'recordingReady' => 'RecordingReady',
         'releaseInitiator' => 'ReleaseInitiator',
@@ -300,6 +306,10 @@ class data extends Model
                     $res['IvrEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->outsideNumberReleaseReason) {
+            $res['OutsideNumberReleaseReason'] = $this->outsideNumberReleaseReason;
         }
 
         if (null !== $this->queueEvents) {
@@ -451,6 +461,10 @@ class data extends Model
                     $model->ivrEvents[$n1++] = ivrEvents::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['OutsideNumberReleaseReason'])) {
+            $model->outsideNumberReleaseReason = $map['OutsideNumberReleaseReason'];
         }
 
         if (isset($map['QueueEvents'])) {
