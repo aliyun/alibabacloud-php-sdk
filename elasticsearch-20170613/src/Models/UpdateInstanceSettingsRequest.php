@@ -19,12 +19,18 @@ class UpdateInstanceSettingsRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $updateStrategy;
     protected $_name = [
         'body' => 'body',
         'clientToken' => 'clientToken',
+        'force' => 'force',
         'updateStrategy' => 'updateStrategy',
     ];
 
@@ -42,6 +48,10 @@ class UpdateInstanceSettingsRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->force) {
+            $res['force'] = $this->force;
         }
 
         if (null !== $this->updateStrategy) {
@@ -65,6 +75,10 @@ class UpdateInstanceSettingsRequest extends Model
 
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+
+        if (isset($map['force'])) {
+            $model->force = $map['force'];
         }
 
         if (isset($map['updateStrategy'])) {

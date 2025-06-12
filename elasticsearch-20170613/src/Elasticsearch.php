@@ -4961,8 +4961,14 @@ class Elasticsearch extends OpenApiClient
     public function installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->force) {
+            @$query['force'] = $request->force;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
@@ -6799,6 +6805,10 @@ class Elasticsearch extends OpenApiClient
 
         if (null !== $request->size) {
             @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
 
         if (null !== $request->tags) {
@@ -11776,6 +11786,10 @@ class Elasticsearch extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->force) {
+            @$query['force'] = $request->force;
         }
 
         if (null !== $request->updateStrategy) {

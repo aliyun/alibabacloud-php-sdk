@@ -51,6 +51,11 @@ class ListInstanceRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tags;
 
     /**
@@ -71,6 +76,7 @@ class ListInstanceRequest extends Model
         'paymentType' => 'paymentType',
         'resourceGroupId' => 'resourceGroupId',
         'size' => 'size',
+        'status' => 'status',
         'tags' => 'tags',
         'vpcId' => 'vpcId',
         'zoneId' => 'zoneId',
@@ -114,6 +120,10 @@ class ListInstanceRequest extends Model
 
         if (null !== $this->size) {
             $res['size'] = $this->size;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->tags) {
@@ -169,6 +179,10 @@ class ListInstanceRequest extends Model
 
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['tags'])) {

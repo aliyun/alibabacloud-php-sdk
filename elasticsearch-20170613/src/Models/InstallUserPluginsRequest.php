@@ -12,8 +12,14 @@ class InstallUserPluginsRequest extends Model
      * @var string
      */
     public $body;
+
+    /**
+     * @var bool
+     */
+    public $force;
     protected $_name = [
         'body' => 'body',
+        'force' => 'force',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class InstallUserPluginsRequest extends Model
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
+        }
+
+        if (null !== $this->force) {
+            $res['force'] = $this->force;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class InstallUserPluginsRequest extends Model
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
+        }
+
+        if (isset($map['force'])) {
+            $model->force = $map['force'];
         }
 
         return $model;
