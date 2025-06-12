@@ -51,6 +51,16 @@ class applicationGroup extends Model
     /**
      * @var string
      */
+    public $errorDetail;
+
+    /**
+     * @var string
+     */
+    public $errorType;
+
+    /**
+     * @var string
+     */
     public $importTagKey;
 
     /**
@@ -96,6 +106,8 @@ class applicationGroup extends Model
         'deployParameters' => 'DeployParameters',
         'deployRegionId' => 'DeployRegionId',
         'description' => 'Description',
+        'errorDetail' => 'ErrorDetail',
+        'errorType' => 'ErrorType',
         'importTagKey' => 'ImportTagKey',
         'importTagValue' => 'ImportTagValue',
         'name' => 'Name',
@@ -144,6 +156,14 @@ class applicationGroup extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->errorDetail) {
+            $res['ErrorDetail'] = $this->errorDetail;
+        }
+
+        if (null !== $this->errorType) {
+            $res['ErrorType'] = $this->errorType;
         }
 
         if (null !== $this->importTagKey) {
@@ -219,6 +239,14 @@ class applicationGroup extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['ErrorDetail'])) {
+            $model->errorDetail = $map['ErrorDetail'];
+        }
+
+        if (isset($map['ErrorType'])) {
+            $model->errorType = $map['ErrorType'];
         }
 
         if (isset($map['ImportTagKey'])) {

@@ -1,3 +1,10 @@
+2025-06-12 Version: 2.6.2
+- Update API GetApplicationGroup: add response parameters Body.ApplicationGroup.ErrorDetail.
+- Update API GetApplicationGroup: add response parameters Body.ApplicationGroup.ErrorType.
+- Update API ListApplicationGroups: add response parameters Body.ApplicationGroups.$.ErrorDetail.
+- Update API ListApplicationGroups: add response parameters Body.ApplicationGroups.$.ErrorType.
+
+
 2025-05-12 Version: 2.6.1
 - Generated php 2019-06-01 for oos.
 
