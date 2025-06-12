@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\imageSummary;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\textSummary;
-use AlibabaCloud\Tea\Model;
 
 class pageSummary extends Model
 {
     /**
-     * @description Image Results Summary
-     *
      * @var imageSummary
      */
     public $imageSummary;
 
     /**
-     * @description Number of pages
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageSum;
 
     /**
-     * @description Text Results Summary
-     *
      * @var textSummary
      */
     public $textSummary;
@@ -38,38 +30,51 @@ class pageSummary extends Model
         'textSummary' => 'TextSummary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->imageSummary) {
+            $this->imageSummary->validate();
+        }
+        if (null !== $this->textSummary) {
+            $this->textSummary->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageSummary) {
-            $res['ImageSummary'] = null !== $this->imageSummary ? $this->imageSummary->toMap() : null;
+            $res['ImageSummary'] = null !== $this->imageSummary ? $this->imageSummary->toArray($noStream) : $this->imageSummary;
         }
+
         if (null !== $this->pageSum) {
             $res['PageSum'] = $this->pageSum;
         }
+
         if (null !== $this->textSummary) {
-            $res['TextSummary'] = null !== $this->textSummary ? $this->textSummary->toMap() : null;
+            $res['TextSummary'] = null !== $this->textSummary ? $this->textSummary->toArray($noStream) : $this->textSummary;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageSummary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageSummary'])) {
             $model->imageSummary = imageSummary::fromMap($map['ImageSummary']);
         }
+
         if (isset($map['PageSum'])) {
             $model->pageSum = $map['PageSum'];
         }
+
         if (isset($map['TextSummary'])) {
             $model->textSummary = textSummary::fromMap($map['TextSummary']);
         }

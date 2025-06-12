@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\imageSummary;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageLabels extends Model
 {
     /**
-     * @description The description.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The details of the labels.
-     *
-     * @example contraband
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description The number of times that the label is matched.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $labelSum;
@@ -40,17 +28,22 @@ class imageLabels extends Model
         'labelSum' => 'LabelSum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->labelSum) {
             $res['LabelSum'] = $this->labelSum;
         }
@@ -58,20 +51,22 @@ class imageLabels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageLabels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['LabelSum'])) {
             $model->labelSum = $map['LabelSum'];
         }

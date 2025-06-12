@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sensitiveResult extends Model
 {
     /**
-     * @description Description
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The label
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description The sensitive data.
-     *
      * @var string[]
      */
     public $sensitiveData;
 
     /**
-     * @description The level of sensitivity data
-     *
-     * @example S1
-     *
      * @var string
      */
     public $sensitiveLevel;
@@ -48,20 +34,35 @@ class sensitiveResult extends Model
         'sensitiveLevel' => 'SensitiveLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sensitiveData)) {
+            Model::validateArray($this->sensitiveData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->sensitiveData) {
-            $res['SensitiveData'] = $this->sensitiveData;
+            if (\is_array($this->sensitiveData)) {
+                $res['SensitiveData'] = [];
+                $n1 = 0;
+                foreach ($this->sensitiveData as $item1) {
+                    $res['SensitiveData'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sensitiveLevel) {
             $res['SensitiveLevel'] = $this->sensitiveLevel;
         }
@@ -69,25 +70,32 @@ class sensitiveResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sensitiveResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['SensitiveData'])) {
             if (!empty($map['SensitiveData'])) {
-                $model->sensitiveData = $map['SensitiveData'];
+                $model->sensitiveData = [];
+                $n1 = 0;
+                foreach ($map['SensitiveData'] as $item1) {
+                    $model->sensitiveData[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SensitiveLevel'])) {
             $model->sensitiveLevel = $map['SensitiveLevel'];
         }

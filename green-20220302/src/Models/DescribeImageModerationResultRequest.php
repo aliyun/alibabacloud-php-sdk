@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeImageModerationResultRequest extends Model
 {
     /**
-     * @description The ReqId field returned by the asynchronous Image Moderation 2.0 API.
-     *
-     * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
-     *
      * @var string
      */
     public $reqId;
@@ -20,9 +16,12 @@ class DescribeImageModerationResultRequest extends Model
         'reqId' => 'ReqId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reqId) {
@@ -32,11 +31,11 @@ class DescribeImageModerationResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageModerationResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

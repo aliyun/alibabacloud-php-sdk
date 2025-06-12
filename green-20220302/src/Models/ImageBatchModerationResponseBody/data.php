@@ -4,76 +4,86 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\result;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description To detect the data ID corresponding to the object.
-     *
-     * @example 26769ada6e264e7ba9aa048241e12be9
-     *
      * @var string
      */
     public $dataId;
 
     /**
-     * @description The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
-     *
+     * @var string
+     */
+    public $manualTaskId;
+
+    /**
      * @var result[]
      */
     public $result;
 
     /**
-     * @description The risk labels, confidence scores, and other parameters for each service\\"s image detection, in an array structure.
-     *
      * @var results[]
      */
     public $results;
 
     /**
-     * @description Risk level.
-     *
-     * @example high
-     *
      * @var string
      */
     public $riskLevel;
     protected $_name = [
         'dataId' => 'DataId',
+        'manualTaskId' => 'ManualTaskId',
         'result' => 'Result',
         'results' => 'Results',
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
+
+        if (null !== $this->manualTaskId) {
+            $res['ManualTaskId'] = $this->manualTaskId;
+        }
+
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1 = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -81,35 +91,42 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
+
+        if (isset($map['ManualTaskId'])) {
+            $model->manualTaskId = $map['ManualTaskId'];
+        }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = result::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1++] = results::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

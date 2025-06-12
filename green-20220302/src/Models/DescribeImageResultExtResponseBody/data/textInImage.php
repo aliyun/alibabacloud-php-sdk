@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponseBody\data\textInImage\customTexts;
-use AlibabaCloud\Tea\Model;
 
 class textInImage extends Model
 {
     /**
-     * @description When a custom text library is hit, the custom library ID, custom library name, and custom word are returned.
-     *
      * @var customTexts[]
      */
     public $customTexts;
 
     /**
-     * @description Returns the text information in the recognized image.
-     *
      * @var string[]
      */
     public $ocrDatas;
 
     /**
-     * @description The risk words that are hit. Multiple words are separated by commas (,).
-     *
      * @var string[]
      */
     public $riskWords;
@@ -35,55 +29,91 @@ class textInImage extends Model
         'riskWords' => 'RiskWords',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customTexts)) {
+            Model::validateArray($this->customTexts);
+        }
+        if (\is_array($this->ocrDatas)) {
+            Model::validateArray($this->ocrDatas);
+        }
+        if (\is_array($this->riskWords)) {
+            Model::validateArray($this->riskWords);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customTexts) {
-            $res['CustomTexts'] = [];
-            if (null !== $this->customTexts && \is_array($this->customTexts)) {
-                $n = 0;
-                foreach ($this->customTexts as $item) {
-                    $res['CustomTexts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customTexts)) {
+                $res['CustomTexts'] = [];
+                $n1 = 0;
+                foreach ($this->customTexts as $item1) {
+                    $res['CustomTexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ocrDatas) {
-            $res['OcrDatas'] = $this->ocrDatas;
+            if (\is_array($this->ocrDatas)) {
+                $res['OcrDatas'] = [];
+                $n1 = 0;
+                foreach ($this->ocrDatas as $item1) {
+                    $res['OcrDatas'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->riskWords) {
-            $res['RiskWords'] = $this->riskWords;
+            if (\is_array($this->riskWords)) {
+                $res['RiskWords'] = [];
+                $n1 = 0;
+                foreach ($this->riskWords as $item1) {
+                    $res['RiskWords'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return textInImage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomTexts'])) {
             if (!empty($map['CustomTexts'])) {
                 $model->customTexts = [];
-                $n = 0;
-                foreach ($map['CustomTexts'] as $item) {
-                    $model->customTexts[$n++] = null !== $item ? customTexts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomTexts'] as $item1) {
+                    $model->customTexts[$n1++] = customTexts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OcrDatas'])) {
             if (!empty($map['OcrDatas'])) {
-                $model->ocrDatas = $map['OcrDatas'];
+                $model->ocrDatas = [];
+                $n1 = 0;
+                foreach ($map['OcrDatas'] as $item1) {
+                    $model->ocrDatas[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RiskWords'])) {
             if (!empty($map['RiskWords'])) {
-                $model->riskWords = $map['RiskWords'];
+                $model->riskWords = [];
+                $n1 = 0;
+                foreach ($map['RiskWords'] as $item1) {
+                    $model->riskWords[$n1++] = $item1;
+                }
             }
         }
 
