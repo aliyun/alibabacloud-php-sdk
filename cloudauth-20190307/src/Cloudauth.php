@@ -1191,6 +1191,10 @@ class Cloudauth extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->imageContext) {
+            @$body['ImageContext'] = $request->imageContext;
+        }
+
         if (null !== $request->imageFile) {
             @$body['ImageFile'] = $request->imageFile;
         }

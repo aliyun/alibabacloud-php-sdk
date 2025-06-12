@@ -31,6 +31,11 @@ class CredentialVerifyV2ShrinkRequest extends Model
     /**
      * @var string
      */
+    public $imageContext;
+
+    /**
+     * @var string
+     */
     public $imageFile;
 
     /**
@@ -82,6 +87,7 @@ class CredentialVerifyV2ShrinkRequest extends Model
         'credName' => 'CredName',
         'credType' => 'CredType',
         'identifyNum' => 'IdentifyNum',
+        'imageContext' => 'ImageContext',
         'imageFile' => 'ImageFile',
         'imageUrl' => 'ImageUrl',
         'isCheck' => 'IsCheck',
@@ -116,6 +122,10 @@ class CredentialVerifyV2ShrinkRequest extends Model
 
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
+        }
+
+        if (null !== $this->imageContext) {
+            $res['ImageContext'] = $this->imageContext;
         }
 
         if (null !== $this->imageFile) {
@@ -183,6 +193,10 @@ class CredentialVerifyV2ShrinkRequest extends Model
 
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
+        }
+
+        if (isset($map['ImageContext'])) {
+            $model->imageContext = $map['ImageContext'];
         }
 
         if (isset($map['ImageFile'])) {

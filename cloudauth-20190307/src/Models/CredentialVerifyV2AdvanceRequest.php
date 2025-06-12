@@ -31,6 +31,11 @@ class CredentialVerifyV2AdvanceRequest extends Model
     public $identifyNum;
 
     /**
+     * @var string
+     */
+    public $imageContext;
+
+    /**
      * @var Stream
      */
     public $imageFileObject;
@@ -84,6 +89,7 @@ class CredentialVerifyV2AdvanceRequest extends Model
         'credName' => 'CredName',
         'credType' => 'CredType',
         'identifyNum' => 'IdentifyNum',
+        'imageContext' => 'ImageContext',
         'imageFileObject' => 'ImageFile',
         'imageUrl' => 'ImageUrl',
         'isCheck' => 'IsCheck',
@@ -121,6 +127,10 @@ class CredentialVerifyV2AdvanceRequest extends Model
 
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
+        }
+
+        if (null !== $this->imageContext) {
+            $res['ImageContext'] = $this->imageContext;
         }
 
         if (null !== $this->imageFileObject) {
@@ -194,6 +204,10 @@ class CredentialVerifyV2AdvanceRequest extends Model
 
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
+        }
+
+        if (isset($map['ImageContext'])) {
+            $model->imageContext = $map['ImageContext'];
         }
 
         if (isset($map['ImageFile'])) {
