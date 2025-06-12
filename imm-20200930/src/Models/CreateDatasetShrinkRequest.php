@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateDatasetRequest extends Model
+class CreateDatasetShrinkRequest extends Model
 {
     /**
      * @var int
@@ -54,9 +54,9 @@ class CreateDatasetRequest extends Model
     public $templateId;
 
     /**
-     * @var WorkflowParameter[]
+     * @var string
      */
-    public $workflowParameters;
+    public $workflowParametersShrink;
     protected $_name = [
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
@@ -67,14 +67,11 @@ class CreateDatasetRequest extends Model
         'description' => 'Description',
         'projectName' => 'ProjectName',
         'templateId' => 'TemplateId',
-        'workflowParameters' => 'WorkflowParameters',
+        'workflowParametersShrink' => 'WorkflowParameters',
     ];
 
     public function validate()
     {
-        if (\is_array($this->workflowParameters)) {
-            Model::validateArray($this->workflowParameters);
-        }
         parent::validate();
     }
 
@@ -117,14 +114,8 @@ class CreateDatasetRequest extends Model
             $res['TemplateId'] = $this->templateId;
         }
 
-        if (null !== $this->workflowParameters) {
-            if (\is_array($this->workflowParameters)) {
-                $res['WorkflowParameters'] = [];
-                $n1 = 0;
-                foreach ($this->workflowParameters as $item1) {
-                    $res['WorkflowParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
+        if (null !== $this->workflowParametersShrink) {
+            $res['WorkflowParameters'] = $this->workflowParametersShrink;
         }
 
         return $res;
@@ -175,13 +166,7 @@ class CreateDatasetRequest extends Model
         }
 
         if (isset($map['WorkflowParameters'])) {
-            if (!empty($map['WorkflowParameters'])) {
-                $model->workflowParameters = [];
-                $n1 = 0;
-                foreach ($map['WorkflowParameters'] as $item1) {
-                    $model->workflowParameters[$n1++] = WorkflowParameter::fromMap($item1);
-                }
-            }
+            $model->workflowParametersShrink = $map['WorkflowParameters'];
         }
 
         return $model;

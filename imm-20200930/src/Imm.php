@@ -53,6 +53,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDecodeBlindWatermarkTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDecodeBlindWatermarkTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDecodeBlindWatermarkTaskShrinkRequest;
@@ -257,6 +258,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateDatasetShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterShrinkRequest;
@@ -1776,19 +1778,25 @@ class Imm extends OpenApiClient
      * *   A project has an upper limit on the number of datasets that can be created in the project. You can call the [GetProjcet](https://help.aliyun.com/document_detail/478155.html) operation to query the dataset limit of the project.
      * *   After creating a dataset, you can call the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) operation to index metadata. Metadata indexing enhances [data retrieval efficiency and statistics collection](https://help.aliyun.com/document_detail/478175.html), and enables intelligent data management.
      *
-     * @param request - CreateDatasetRequest
+     * @param tmpReq - CreateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDatasetResponse
      *
-     * @param CreateDatasetRequest $request
+     * @param CreateDatasetRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return CreateDatasetResponse
      */
-    public function createDatasetWithOptions($request, $runtime)
+    public function createDatasetWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateDatasetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->workflowParameters) {
+            $request->workflowParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workflowParameters, 'WorkflowParameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->datasetMaxBindCount) {
             @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
@@ -1824,6 +1832,10 @@ class Imm extends OpenApiClient
 
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->workflowParametersShrink) {
+            @$query['WorkflowParameters'] = $request->workflowParametersShrink;
         }
 
         $req = new OpenApiRequest([
@@ -9446,19 +9458,25 @@ class Imm extends OpenApiClient
     /**
      * Updates a dataset.
      *
-     * @param request - UpdateDatasetRequest
+     * @param tmpReq - UpdateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDatasetResponse
      *
-     * @param UpdateDatasetRequest $request
+     * @param UpdateDatasetRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return UpdateDatasetResponse
      */
-    public function updateDatasetWithOptions($request, $runtime)
+    public function updateDatasetWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateDatasetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->workflowParameters) {
+            $request->workflowParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workflowParameters, 'WorkflowParameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->datasetMaxBindCount) {
             @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
@@ -9494,6 +9512,10 @@ class Imm extends OpenApiClient
 
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->workflowParametersShrink) {
+            @$query['WorkflowParameters'] = $request->workflowParametersShrink;
         }
 
         $req = new OpenApiRequest([

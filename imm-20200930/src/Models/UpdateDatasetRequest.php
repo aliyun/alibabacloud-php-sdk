@@ -52,6 +52,11 @@ class UpdateDatasetRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var WorkflowParameter[]
+     */
+    public $workflowParameters;
     protected $_name = [
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
@@ -62,10 +67,14 @@ class UpdateDatasetRequest extends Model
         'description' => 'Description',
         'projectName' => 'ProjectName',
         'templateId' => 'TemplateId',
+        'workflowParameters' => 'WorkflowParameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->workflowParameters)) {
+            Model::validateArray($this->workflowParameters);
+        }
         parent::validate();
     }
 
@@ -106,6 +115,16 @@ class UpdateDatasetRequest extends Model
 
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->workflowParameters) {
+            if (\is_array($this->workflowParameters)) {
+                $res['WorkflowParameters'] = [];
+                $n1 = 0;
+                foreach ($this->workflowParameters as $item1) {
+                    $res['WorkflowParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -153,6 +172,16 @@ class UpdateDatasetRequest extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['WorkflowParameters'])) {
+            if (!empty($map['WorkflowParameters'])) {
+                $model->workflowParameters = [];
+                $n1 = 0;
+                foreach ($map['WorkflowParameters'] as $item1) {
+                    $model->workflowParameters[$n1++] = WorkflowParameter::fromMap($item1);
+                }
+            }
         }
 
         return $model;

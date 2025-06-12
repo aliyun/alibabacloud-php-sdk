@@ -194,6 +194,11 @@ class File extends Model
     public $imageWidth;
 
     /**
+     * @var Insights
+     */
+    public $insights;
+
+    /**
      * @var Label[]
      */
     public $labels;
@@ -460,6 +465,7 @@ class File extends Model
         'imageHeight' => 'ImageHeight',
         'imageScore' => 'ImageScore',
         'imageWidth' => 'ImageWidth',
+        'insights' => 'Insights',
         'labels' => 'Labels',
         'language' => 'Language',
         'latLong' => 'LatLong',
@@ -533,6 +539,9 @@ class File extends Model
         }
         if (null !== $this->imageScore) {
             $this->imageScore->validate();
+        }
+        if (null !== $this->insights) {
+            $this->insights->validate();
         }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
@@ -751,6 +760,10 @@ class File extends Model
 
         if (null !== $this->imageWidth) {
             $res['ImageWidth'] = $this->imageWidth;
+        }
+
+        if (null !== $this->insights) {
+            $res['Insights'] = null !== $this->insights ? $this->insights->toArray($noStream) : $this->insights;
         }
 
         if (null !== $this->labels) {
@@ -1181,6 +1194,10 @@ class File extends Model
 
         if (isset($map['ImageWidth'])) {
             $model->imageWidth = $map['ImageWidth'];
+        }
+
+        if (isset($map['Insights'])) {
+            $model->insights = Insights::fromMap($map['Insights']);
         }
 
         if (isset($map['Labels'])) {
