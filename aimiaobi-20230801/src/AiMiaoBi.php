@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportCustomSourceAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportCustomSourceAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsRequest;
@@ -76,6 +78,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomSourceTopicAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomSourceTopicAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskRequest;
@@ -303,6 +307,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
@@ -1679,6 +1686,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 导出-自定义数据源-选题视角分析任务结果.
+     *
+     * @param request - ExportCustomSourceAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportCustomSourceAnalysisTaskResponse
+     *
+     * @param ExportCustomSourceAnalysisTaskRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ExportCustomSourceAnalysisTaskResponse
+     */
+    public function exportCustomSourceAnalysisTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportCustomSourceAnalysisTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportCustomSourceAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出-自定义数据源-选题视角分析任务结果.
+     *
+     * @param request - ExportCustomSourceAnalysisTaskRequest
+     *
+     * @returns ExportCustomSourceAnalysisTaskResponse
+     *
+     * @param ExportCustomSourceAnalysisTaskRequest $request
+     *
+     * @return ExportCustomSourceAnalysisTaskResponse
+     */
+    public function exportCustomSourceAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportCustomSourceAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 文档管理-导出。
      *
      * @param request - ExportGeneratedContentRequest
@@ -2461,6 +2529,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCustomHotTopicBroadcastJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义数据源-选题视角分析任务结果.
+     *
+     * @param request - GetCustomSourceTopicAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomSourceTopicAnalysisTaskResponse
+     *
+     * @param GetCustomSourceTopicAnalysisTaskRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetCustomSourceTopicAnalysisTaskResponse
+     */
+    public function getCustomSourceTopicAnalysisTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomSourceTopicAnalysisTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomSourceTopicAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义数据源-选题视角分析任务结果.
+     *
+     * @param request - GetCustomSourceTopicAnalysisTaskRequest
+     *
+     * @returns GetCustomSourceTopicAnalysisTaskResponse
+     *
+     * @param GetCustomSourceTopicAnalysisTaskRequest $request
+     *
+     * @return GetCustomSourceTopicAnalysisTaskResponse
+     */
+    public function getCustomSourceTopicAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomSourceTopicAnalysisTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -10045,6 +10174,85 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCustomHotTopicBroadcastJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 从自定义数据源提交选题热点分析.
+     *
+     * @param tmpReq - SubmitCustomSourceTopicAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitCustomSourceTopicAnalysisResponse
+     *
+     * @param SubmitCustomSourceTopicAnalysisRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitCustomSourceTopicAnalysisResponse
+     */
+    public function submitCustomSourceTopicAnalysisWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitCustomSourceTopicAnalysisShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->news) {
+            $request->newsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->news, 'News', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->maxTopicSize) {
+            @$body['MaxTopicSize'] = $request->maxTopicSize;
+        }
+
+        if (null !== $request->newsShrink) {
+            @$body['News'] = $request->newsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitCustomSourceTopicAnalysis',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitCustomSourceTopicAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从自定义数据源提交选题热点分析.
+     *
+     * @param request - SubmitCustomSourceTopicAnalysisRequest
+     *
+     * @returns SubmitCustomSourceTopicAnalysisResponse
+     *
+     * @param SubmitCustomSourceTopicAnalysisRequest $request
+     *
+     * @return SubmitCustomSourceTopicAnalysisResponse
+     */
+    public function submitCustomSourceTopicAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCustomSourceTopicAnalysisWithOptions($request, $runtime);
     }
 
     /**
