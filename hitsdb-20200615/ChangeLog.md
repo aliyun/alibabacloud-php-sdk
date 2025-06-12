@@ -1,3 +1,7 @@
+2025-06-12 Version: 4.7.0
+- Support API GetLindormV2StreamEngineInfo.
+
+
 2025-06-09 Version: 4.6.5
 - Generated php 2020-06-15 for hitsdb.
 

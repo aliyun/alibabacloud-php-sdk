@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StorageUsageRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StorageUsageResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StreamEngineInfoRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StreamEngineInfoResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRecordsRequest;
@@ -2808,6 +2810,83 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLindormV2StorageUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取流引擎信息.
+     *
+     * @param request - GetLindormV2StreamEngineInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLindormV2StreamEngineInfoResponse
+     *
+     * @param GetLindormV2StreamEngineInfoRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetLindormV2StreamEngineInfoResponse
+     */
+    public function getLindormV2StreamEngineInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLindormV2StreamEngineInfo',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLindormV2StreamEngineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取流引擎信息.
+     *
+     * @param request - GetLindormV2StreamEngineInfoRequest
+     *
+     * @returns GetLindormV2StreamEngineInfoResponse
+     *
+     * @param GetLindormV2StreamEngineInfoRequest $request
+     *
+     * @return GetLindormV2StreamEngineInfoResponse
+     */
+    public function getLindormV2StreamEngineInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLindormV2StreamEngineInfoWithOptions($request, $runtime);
     }
 
     /**
