@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetUserMFAInfoResponseBody\MFADevice;
-use AlibabaCloud\Tea\Model;
 
 class GetUserMFAInfoResponseBody extends Model
 {
     /**
-     * @description The information about the MFA device that is attached to the RAM user.
-     *
      * @var MFADevice
      */
     public $MFADevice;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +25,19 @@ class GetUserMFAInfoResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->MFADevice) {
+            $this->MFADevice->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->MFADevice) {
-            $res['MFADevice'] = null !== $this->MFADevice ? $this->MFADevice->toMap() : null;
+            $res['MFADevice'] = null !== $this->MFADevice ? $this->MFADevice->toArray($noStream) : $this->MFADevice;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class GetUserMFAInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserMFAInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MFADevice'])) {
             $model->MFADevice = MFADevice::fromMap($map['MFADevice']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

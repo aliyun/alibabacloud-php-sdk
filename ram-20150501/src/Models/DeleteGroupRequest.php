@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGroupRequest extends Model
 {
     /**
-     * @description The name of the RAM user group.
-     *
-     * If you want to query the name of a RAM user group, call the [ListGroups](https://help.aliyun.com/document_detail/28703.html) operation.
-     * @example Dev-Team
-     *
      * @var string
      */
     public $groupName;
@@ -23,9 +18,10 @@ class DeleteGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
@@ -35,11 +31,11 @@ class DeleteGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DecodeDiagnosticMessageRequest extends Model
 {
     /**
-     * @description The encoded diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
-     *
-     * @example AQEAAAAAZBgxr0U1MjA1NTM1LUM4BBktMzE5RS1CODgxLUU1QTI0RDNFQTM1****
-     *
      * @var string
      */
     public $encodedDiagnosticMessage;
@@ -22,9 +18,10 @@ class DecodeDiagnosticMessageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encodedDiagnosticMessage) {
@@ -34,11 +31,11 @@ class DecodeDiagnosticMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DecodeDiagnosticMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

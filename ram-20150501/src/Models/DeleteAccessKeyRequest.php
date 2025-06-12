@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccessKeyRequest extends Model
 {
     /**
-     * @description The AccessKey ID in the AccessKey pair that you want to delete.
-     *
-     * @example 0wNEpMMlzy7s****
-     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
-     * @description The name of the RAM user.
-     *
-     * @example zhangq****
-     *
      * @var string
      */
     public $userName;
     protected $_name = [
         'userAccessKeyId' => 'UserAccessKeyId',
-        'userName'        => 'UserName',
+        'userName' => 'UserName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userAccessKeyId) {
             $res['UserAccessKeyId'] = $this->userAccessKeyId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -47,17 +41,18 @@ class DeleteAccessKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccessKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserAccessKeyId'])) {
             $model->userAccessKeyId = $map['UserAccessKeyId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

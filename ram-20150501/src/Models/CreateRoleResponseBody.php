@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleResponseBody\role;
-use AlibabaCloud\Tea\Model;
 
 class CreateRoleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information of the RAM role.
-     *
      * @var role
      */
     public $role;
     protected $_name = [
         'requestId' => 'RequestId',
-        'role'      => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()
     {
+        if (null !== $this->role) {
+            $this->role->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->role) {
-            $res['Role'] = null !== $this->role ? $this->role->toMap() : null;
+            $res['Role'] = null !== $this->role ? $this->role->toArray($noStream) : $this->role;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Role'])) {
             $model->role = role::fromMap($map['Role']);
         }

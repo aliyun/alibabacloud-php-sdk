@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccessKeyLastUsedRequest extends Model
 {
     /**
-     * @example LTAI4GFTgcR8m8cZQDTH****
-     *
      * @var string
      */
     public $userAccessKeyId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $userName;
     protected $_name = [
         'userAccessKeyId' => 'UserAccessKeyId',
-        'userName'        => 'UserName',
+        'userName' => 'UserName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userAccessKeyId) {
             $res['UserAccessKeyId'] = $this->userAccessKeyId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -43,17 +41,18 @@ class GetAccessKeyLastUsedRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessKeyLastUsedRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserAccessKeyId'])) {
             $model->userAccessKeyId = $map['UserAccessKeyId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

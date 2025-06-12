@@ -4,79 +4,101 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesRequest\tag;
 
 class ListPoliciesRequest extends Model
 {
     /**
-     * @description The `Marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-     *
-     * @example EXAMPLE
-     *
      * @var string
      */
     public $marker;
 
     /**
-     * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-     *
-     * Valid values: 1 to 1000. Default value: 100.
-     * @example 100
-     *
      * @var int
      */
     public $maxItems;
 
     /**
-     * @description The type of the `Policy`. Valid values: `System` and `Custom`. If you do not specify the parameter, all policies are returned.
-     *
-     * @example System
-     *
      * @var string
      */
     public $policyType;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'marker'     => 'Marker',
-        'maxItems'   => 'MaxItems',
+        'marker' => 'Marker',
+        'maxItems' => 'MaxItems',
         'policyType' => 'PolicyType',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
+
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
+
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         return $model;

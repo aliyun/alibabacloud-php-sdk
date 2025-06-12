@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUsersForGroupRequest extends Model
 {
     /**
-     * @description The name of the RAM user group.
-     *
-     * @example Dev-Team
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
-     *
-     * @example EXAMPLE
-     *
      * @var string
      */
     public $marker;
 
     /**
-     * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
-     *
-     * Valid values: 1 to 1000. Default value: 100.
-     * @example 100
-     *
      * @var int
      */
     public $maxItems;
     protected $_name = [
         'groupName' => 'GroupName',
-        'marker'    => 'Marker',
-        'maxItems'  => 'MaxItems',
+        'marker' => 'Marker',
+        'maxItems' => 'MaxItems',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
+
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
         }
@@ -61,20 +51,22 @@ class ListUsersForGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUsersForGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
+
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
         }

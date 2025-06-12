@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesForUserResponseBody\policies;
-use AlibabaCloud\Tea\Model;
 
 class ListPoliciesForUserResponseBody extends Model
 {
     /**
-     * @description The information about the policy.
-     *
      * @var policies
      */
     public $policies;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'policies'  => 'Policies',
+        'policies' => 'Policies',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->policies) {
+            $this->policies->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policies) {
-            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
+            $res['Policies'] = null !== $this->policies ? $this->policies->toArray($noStream) : $this->policies;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ListPoliciesForUserResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPoliciesForUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policies'])) {
             $model->policies = policies::fromMap($map['Policies']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

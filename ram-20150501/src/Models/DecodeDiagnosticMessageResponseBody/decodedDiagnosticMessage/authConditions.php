@@ -4,61 +4,71 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\DecodeDiagnosticMessageResponseBody\decodedDiagnosticMessage;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authConditions extends Model
 {
     /**
-     * @description The key of the condition.
-     *
-     * @example acs:SourceIp
-     *
      * @var string
      */
     public $conditionKey;
 
     /**
-     * @description The values that correspond to the key.
-     *
      * @var string[]
      */
     public $conditionValues;
     protected $_name = [
-        'conditionKey'    => 'ConditionKey',
+        'conditionKey' => 'ConditionKey',
         'conditionValues' => 'ConditionValues',
     ];
 
     public function validate()
     {
+        if (\is_array($this->conditionValues)) {
+            Model::validateArray($this->conditionValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionKey) {
             $res['ConditionKey'] = $this->conditionKey;
         }
+
         if (null !== $this->conditionValues) {
-            $res['ConditionValues'] = $this->conditionValues;
+            if (\is_array($this->conditionValues)) {
+                $res['ConditionValues'] = [];
+                $n1 = 0;
+                foreach ($this->conditionValues as $item1) {
+                    $res['ConditionValues'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authConditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionKey'])) {
             $model->conditionKey = $map['ConditionKey'];
         }
+
         if (isset($map['ConditionValues'])) {
             if (!empty($map['ConditionValues'])) {
-                $model->conditionValues = $map['ConditionValues'];
+                $model->conditionValues = [];
+                $n1 = 0;
+                foreach ($map['ConditionValues'] as $item1) {
+                    $model->conditionValues[$n1++] = $item1;
+                }
             }
         }
 

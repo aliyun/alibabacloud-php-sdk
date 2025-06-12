@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyRequest extends Model
 {
@@ -14,28 +14,26 @@ class DeletePolicyRequest extends Model
     public $cascadingDelete;
 
     /**
-     * @description The name of the policy.
-     *
-     * @example OSS-Administrator
-     *
      * @var string
      */
     public $policyName;
     protected $_name = [
         'cascadingDelete' => 'CascadingDelete',
-        'policyName'      => 'PolicyName',
+        'policyName' => 'PolicyName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cascadingDelete) {
             $res['CascadingDelete'] = $this->cascadingDelete;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
@@ -43,17 +41,18 @@ class DeletePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CascadingDelete'])) {
             $model->cascadingDelete = $map['CascadingDelete'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }

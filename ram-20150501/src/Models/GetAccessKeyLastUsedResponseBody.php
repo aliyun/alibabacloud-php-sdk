@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetAccessKeyLastUsedResponseBody\accessKeyLastUsed;
-use AlibabaCloud\Tea\Model;
 
 class GetAccessKeyLastUsedResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class GetAccessKeyLastUsedResponseBody extends Model
     public $accessKeyLastUsed;
 
     /**
-     * @example 5CCE804C-6450-49A7-B1DB-2460F7A97416
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessKeyLastUsed' => 'AccessKeyLastUsed',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->accessKeyLastUsed) {
+            $this->accessKeyLastUsed->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKeyLastUsed) {
-            $res['AccessKeyLastUsed'] = null !== $this->accessKeyLastUsed ? $this->accessKeyLastUsed->toMap() : null;
+            $res['AccessKeyLastUsed'] = null !== $this->accessKeyLastUsed ? $this->accessKeyLastUsed->toArray($noStream) : $this->accessKeyLastUsed;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class GetAccessKeyLastUsedResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessKeyLastUsedResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyLastUsed'])) {
             $model->accessKeyLastUsed = accessKeyLastUsed::fromMap($map['AccessKeyLastUsed']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

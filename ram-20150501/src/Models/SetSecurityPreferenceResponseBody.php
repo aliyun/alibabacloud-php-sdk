@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\SetSecurityPreferenceResponseBody\securityPreference;
-use AlibabaCloud\Tea\Model;
 
 class SetSecurityPreferenceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A978915D-F279-4CA0-A89B-9A71219FFB3E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The security preferences.
-     *
      * @var securityPreference
      */
     public $securityPreference;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'securityPreference' => 'SecurityPreference',
     ];
 
     public function validate()
     {
+        if (null !== $this->securityPreference) {
+            $this->securityPreference->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityPreference) {
-            $res['SecurityPreference'] = null !== $this->securityPreference ? $this->securityPreference->toMap() : null;
+            $res['SecurityPreference'] = null !== $this->securityPreference ? $this->securityPreference->toArray($noStream) : $this->securityPreference;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetSecurityPreferenceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityPreference'])) {
             $model->securityPreference = securityPreference::fromMap($map['SecurityPreference']);
         }

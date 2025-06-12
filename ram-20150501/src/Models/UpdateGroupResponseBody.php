@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateGroupResponseBody\group;
-use AlibabaCloud\Tea\Model;
 
 class UpdateGroupResponseBody extends Model
 {
     /**
-     * @description The information of the RAM user group.
-     *
      * @var group
      */
     public $group;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EC6647CC-0A36-EC7A-BA72-CC81BF3DE182
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'group'     => 'Group',
+        'group' => 'Group',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->group) {
+            $this->group->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
-            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
+            $res['Group'] = null !== $this->group ? $this->group->toArray($noStream) : $this->group;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class UpdateGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             $model->group = group::fromMap($map['Group']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

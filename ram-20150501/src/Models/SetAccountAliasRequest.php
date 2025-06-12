@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetAccountAliasRequest extends Model
 {
     /**
-     * @description The alias of the Alibaba Cloud account.
-     *
-     * > It cannot start or end with a hyphen (-), and cannot contain consecutive hyphens (-).
-     * @example myalias
-     *
      * @var string
      */
     public $accountAlias;
@@ -23,9 +18,10 @@ class SetAccountAliasRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountAlias) {
@@ -35,11 +31,11 @@ class SetAccountAliasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetAccountAliasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

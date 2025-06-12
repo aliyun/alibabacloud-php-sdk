@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DecodeDiagnosticMessageResponseBody\decodedDiagnosticMessage;
-use AlibabaCloud\Tea\Model;
 
 class DecodeDiagnosticMessageResponseBody extends Model
 {
     /**
-     * @description The decoded diagnostic information.
-     *
      * @var decodedDiagnosticMessage
      */
     public $decodedDiagnosticMessage;
 
     /**
-     * @description The request ID.
-     *
-     * @example D2331703-AADF-5564-BA9B-26CD51A33BA0
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'decodedDiagnosticMessage' => 'DecodedDiagnosticMessage',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->decodedDiagnosticMessage) {
+            $this->decodedDiagnosticMessage->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->decodedDiagnosticMessage) {
-            $res['DecodedDiagnosticMessage'] = null !== $this->decodedDiagnosticMessage ? $this->decodedDiagnosticMessage->toMap() : null;
+            $res['DecodedDiagnosticMessage'] = null !== $this->decodedDiagnosticMessage ? $this->decodedDiagnosticMessage->toArray($noStream) : $this->decodedDiagnosticMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DecodeDiagnosticMessageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DecodeDiagnosticMessageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DecodedDiagnosticMessage'])) {
             $model->decodedDiagnosticMessage = decodedDiagnosticMessage::fromMap($map['DecodedDiagnosticMessage']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

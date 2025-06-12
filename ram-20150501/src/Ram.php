@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ram\V20150501\Models\AddUserToGroupRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\AddUserToGroupResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\AttachPolicyToGroupRequest;
@@ -27,10 +26,12 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\CreateLoginProfileRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateLoginProfileResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\CreatePolicyShrinkRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreatePolicyVersionRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreatePolicyVersionResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleShrinkRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateVirtualMFADeviceRequest;
@@ -94,10 +95,15 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesForUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesForUserResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesShrinkRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListPolicyVersionsRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListPolicyVersionsResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesShrinkRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersForGroupRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersForGroupResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersRequest;
@@ -113,8 +119,14 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\SetPasswordPolicyRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\SetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\SetSecurityPreferenceRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\SetSecurityPreferenceResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\TagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UnbindMFADeviceRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UnbindMFADeviceResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateAccessKeyRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateAccessKeyResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateGroupRequest;
@@ -127,11 +139,10 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\UpdateUserResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ram extends OpenApiClient
 {
@@ -156,58 +167,70 @@ class Ram extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds a RAM user to a RAM user group.
-     *  *
-     * @param AddUserToGroupRequest $request AddUserToGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Adds a Resource Access Management (RAM) user to a RAM user group.
      *
-     * @return AddUserToGroupResponse AddUserToGroupResponse
+     * @param request - AddUserToGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserToGroupResponse
+     *
+     * @param AddUserToGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddUserToGroupResponse
      */
     public function addUserToGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserToGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserToGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddUserToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a RAM user to a RAM user group.
-     *  *
-     * @param AddUserToGroupRequest $request AddUserToGroupRequest
+     * Adds a Resource Access Management (RAM) user to a RAM user group.
      *
-     * @return AddUserToGroupResponse AddUserToGroupResponse
+     * @param request - AddUserToGroupRequest
+     *
+     * @returns AddUserToGroupResponse
+     *
+     * @param AddUserToGroupRequest $request
+     *
+     * @return AddUserToGroupResponse
      */
     public function addUserToGroup($request)
     {
@@ -217,50 +240,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Attaches a policy to a RAM user group.
-     *  *
-     * @param AttachPolicyToGroupRequest $request AttachPolicyToGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Attaches a policy to a Resource Access Management (RAM) user group.
      *
-     * @return AttachPolicyToGroupResponse AttachPolicyToGroupResponse
+     * @param request - AttachPolicyToGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachPolicyToGroupResponse
+     *
+     * @param AttachPolicyToGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AttachPolicyToGroupResponse
      */
     public function attachPolicyToGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachPolicyToGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachPolicyToGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachPolicyToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Attaches a policy to a RAM user group.
-     *  *
-     * @param AttachPolicyToGroupRequest $request AttachPolicyToGroupRequest
+     * Attaches a policy to a Resource Access Management (RAM) user group.
      *
-     * @return AttachPolicyToGroupResponse AttachPolicyToGroupResponse
+     * @param request - AttachPolicyToGroupRequest
+     *
+     * @returns AttachPolicyToGroupResponse
+     *
+     * @param AttachPolicyToGroupRequest $request
+     *
+     * @return AttachPolicyToGroupResponse
      */
     public function attachPolicyToGroup($request)
     {
@@ -270,50 +305,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Attaches a policy to a RAM role.
-     *  *
-     * @param AttachPolicyToRoleRequest $request AttachPolicyToRoleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Attaches a policy to a Resource Access Management (RAM) role.
      *
-     * @return AttachPolicyToRoleResponse AttachPolicyToRoleResponse
+     * @param request - AttachPolicyToRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachPolicyToRoleResponse
+     *
+     * @param AttachPolicyToRoleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AttachPolicyToRoleResponse
      */
     public function attachPolicyToRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachPolicyToRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachPolicyToRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachPolicyToRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Attaches a policy to a RAM role.
-     *  *
-     * @param AttachPolicyToRoleRequest $request AttachPolicyToRoleRequest
+     * Attaches a policy to a Resource Access Management (RAM) role.
      *
-     * @return AttachPolicyToRoleResponse AttachPolicyToRoleResponse
+     * @param request - AttachPolicyToRoleRequest
+     *
+     * @returns AttachPolicyToRoleResponse
+     *
+     * @param AttachPolicyToRoleRequest $request
+     *
+     * @return AttachPolicyToRoleResponse
      */
     public function attachPolicyToRole($request)
     {
@@ -323,50 +370,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Attaches a policy to a RAM user.
-     *  *
-     * @param AttachPolicyToUserRequest $request AttachPolicyToUserRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Attaches a policy to a Resource Access Management (RAM) user.
      *
-     * @return AttachPolicyToUserResponse AttachPolicyToUserResponse
+     * @param request - AttachPolicyToUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachPolicyToUserResponse
+     *
+     * @param AttachPolicyToUserRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AttachPolicyToUserResponse
      */
     public function attachPolicyToUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachPolicyToUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachPolicyToUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachPolicyToUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Attaches a policy to a RAM user.
-     *  *
-     * @param AttachPolicyToUserRequest $request AttachPolicyToUserRequest
+     * Attaches a policy to a Resource Access Management (RAM) user.
      *
-     * @return AttachPolicyToUserResponse AttachPolicyToUserResponse
+     * @param request - AttachPolicyToUserRequest
+     *
+     * @returns AttachPolicyToUserResponse
+     *
+     * @param AttachPolicyToUserRequest $request
+     *
+     * @return AttachPolicyToUserResponse
      */
     public function attachPolicyToUser($request)
     {
@@ -376,49 +435,66 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param BindMFADeviceRequest $request BindMFADeviceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
      *
-     * @return BindMFADeviceResponse BindMFADeviceResponse
+     * @param request - BindMFADeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindMFADeviceResponse
+     *
+     * @param BindMFADeviceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BindMFADeviceResponse
      */
     public function bindMFADeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authenticationCode1)) {
-            $query['AuthenticationCode1'] = $request->authenticationCode1;
+        if (null !== $request->authenticationCode1) {
+            @$query['AuthenticationCode1'] = $request->authenticationCode1;
         }
-        if (!Utils::isUnset($request->authenticationCode2)) {
-            $query['AuthenticationCode2'] = $request->authenticationCode2;
+
+        if (null !== $request->authenticationCode2) {
+            @$query['AuthenticationCode2'] = $request->authenticationCode2;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $query['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindMFADevice',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindMFADevice',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param BindMFADeviceRequest $request BindMFADeviceRequest
+     * Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
      *
-     * @return BindMFADeviceResponse BindMFADeviceResponse
+     * @param request - BindMFADeviceRequest
+     *
+     * @returns BindMFADeviceResponse
+     *
+     * @param BindMFADeviceRequest $request
+     *
+     * @return BindMFADeviceResponse
      */
     public function bindMFADevice($request)
     {
@@ -428,47 +504,64 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
-     *  *
-     * @param ChangePasswordRequest $request ChangePasswordRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
      *
-     * @return ChangePasswordResponse ChangePasswordResponse
+     * @remarks
+     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     *
+     * @param request - ChangePasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangePasswordResponse
+     *
+     * @param ChangePasswordRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ChangePasswordResponse
      */
     public function changePasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newPassword)) {
-            $query['NewPassword'] = $request->newPassword;
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
         }
-        if (!Utils::isUnset($request->oldPassword)) {
-            $query['OldPassword'] = $request->oldPassword;
+
+        if (null !== $request->oldPassword) {
+            @$query['OldPassword'] = $request->oldPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangePassword',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangePassword',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
-     *  *
-     * @param ChangePasswordRequest $request ChangePasswordRequest
+     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
      *
-     * @return ChangePasswordResponse ChangePasswordResponse
+     * @remarks
+     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     *
+     * @param request - ChangePasswordRequest
+     *
+     * @returns ChangePasswordResponse
+     *
+     * @param ChangePasswordRequest $request
+     *
+     * @return ChangePasswordResponse
      */
     public function changePassword($request)
     {
@@ -478,30 +571,41 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deletes the alias of an Alibaba Cloud account.
      *
-     * @return ClearAccountAliasResponse ClearAccountAliasResponse
+     * @param request - ClearAccountAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearAccountAliasResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ClearAccountAliasResponse
      */
     public function clearAccountAliasWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ClearAccountAlias',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ClearAccountAlias',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ClearAccountAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return ClearAccountAliasResponse ClearAccountAliasResponse
+     * Deletes the alias of an Alibaba Cloud account.
+     *
+     * @returns ClearAccountAliasResponse
+     *
+     * @return ClearAccountAliasResponse
      */
     public function clearAccountAlias()
     {
@@ -511,40 +615,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates an AccessKey pair for a Resource Access Management (RAM) user.
      *
-     * @return CreateAccessKeyResponse CreateAccessKeyResponse
+     * @param request - CreateAccessKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAccessKeyResponse
+     *
+     * @param CreateAccessKeyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAccessKeyResponse
      */
     public function createAccessKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccessKey',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccessKey',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
+     * Creates an AccessKey pair for a Resource Access Management (RAM) user.
      *
-     * @return CreateAccessKeyResponse CreateAccessKeyResponse
+     * @param request - CreateAccessKeyRequest
+     *
+     * @returns CreateAccessKeyResponse
+     *
+     * @param CreateAccessKeyRequest $request
+     *
+     * @return CreateAccessKeyResponse
      */
     public function createAccessKey($request)
     {
@@ -554,47 +672,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Creates a RAM user group.
-     *  *
-     * @param CreateGroupRequest $request CreateGroupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a RAM user group.
      *
-     * @return CreateGroupResponse CreateGroupResponse
+     * @param request - CreateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comments)) {
-            $query['Comments'] = $request->comments;
+        if (null !== $request->comments) {
+            @$query['Comments'] = $request->comments;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a RAM user group.
-     *  *
-     * @param CreateGroupRequest $request CreateGroupRequest
+     * Creates a RAM user group.
      *
-     * @return CreateGroupResponse CreateGroupResponse
+     * @param request - CreateGroupRequest
+     *
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     *
+     * @return CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -604,53 +733,66 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Enables console logon for a RAM user.
-     *  *
-     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Enables console logon for a Resource Access Management (RAM) user.
      *
-     * @return CreateLoginProfileResponse CreateLoginProfileResponse
+     * @param request - CreateLoginProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLoginProfileResponse
+     *
+     * @param CreateLoginProfileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLoginProfileResponse
      */
     public function createLoginProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->MFABindRequired)) {
-            $query['MFABindRequired'] = $request->MFABindRequired;
+        if (null !== $request->MFABindRequired) {
+            @$query['MFABindRequired'] = $request->MFABindRequired;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->passwordResetRequired)) {
-            $query['PasswordResetRequired'] = $request->passwordResetRequired;
+
+        if (null !== $request->passwordResetRequired) {
+            @$query['PasswordResetRequired'] = $request->passwordResetRequired;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateLoginProfile',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLoginProfile',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables console logon for a RAM user.
-     *  *
-     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
+     * Enables console logon for a Resource Access Management (RAM) user.
      *
-     * @return CreateLoginProfileResponse CreateLoginProfileResponse
+     * @param request - CreateLoginProfileRequest
+     *
+     * @returns CreateLoginProfileResponse
+     *
+     * @param CreateLoginProfileRequest $request
+     *
+     * @return CreateLoginProfileResponse
      */
     public function createLoginProfile($request)
     {
@@ -660,56 +802,80 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom policy.
-     *  *
-     * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
-     * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
-     *  *
-     * @param CreatePolicyRequest $request CreatePolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates a custom policy.
      *
-     * @return CreatePolicyResponse CreatePolicyResponse
+     * @remarks
+     * For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+     * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+     *
+     * @param tmpReq - CreatePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolicyResponse
+     *
+     * @param CreatePolicyRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePolicyResponse
      */
-    public function createPolicyWithOptions($request, $runtime)
+    public function createPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new CreatePolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicy',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicy',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom policy.
-     *  *
-     * @description For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
-     * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
-     *  *
-     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * Creates a custom policy.
      *
-     * @return CreatePolicyResponse CreatePolicyResponse
+     * @remarks
+     * For more information about policies, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+     * This topic provides an example on how to create a custom policy to query Elastic Compute Service (ECS) instances in a specific region.
+     *
+     * @param request - CreatePolicyRequest
+     *
+     * @returns CreatePolicyResponse
+     *
+     * @param CreatePolicyRequest $request
+     *
+     * @return CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -719,49 +885,66 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyVersionRequest $request CreatePolicyVersionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a version for a policy.
      *
-     * @return CreatePolicyVersionResponse CreatePolicyVersionResponse
+     * @param request - CreatePolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolicyVersionResponse
+     *
+     * @param CreatePolicyVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreatePolicyVersionResponse
      */
     public function createPolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->rotateStrategy)) {
-            $query['RotateStrategy'] = $request->rotateStrategy;
+
+        if (null !== $request->rotateStrategy) {
+            @$query['RotateStrategy'] = $request->rotateStrategy;
         }
-        if (!Utils::isUnset($request->setAsDefault)) {
-            $query['SetAsDefault'] = $request->setAsDefault;
+
+        if (null !== $request->setAsDefault) {
+            @$query['SetAsDefault'] = $request->setAsDefault;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicyVersion',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicyVersion',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreatePolicyVersionRequest $request CreatePolicyVersionRequest
+     * Creates a version for a policy.
      *
-     * @return CreatePolicyVersionResponse CreatePolicyVersionResponse
+     * @param request - CreatePolicyVersionRequest
+     *
+     * @returns CreatePolicyVersionResponse
+     *
+     * @param CreatePolicyVersionRequest $request
+     *
+     * @return CreatePolicyVersionResponse
      */
     public function createPolicyVersion($request)
     {
@@ -771,59 +954,84 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Creates a RAM role.
-     *  *
-     * @description ## Description
-     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
-     *  *
-     * @param CreateRoleRequest $request CreateRoleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a Resource Access Management (RAM) role.
      *
-     * @return CreateRoleResponse CreateRoleResponse
+     * @remarks
+     * ### [](#)Operation description
+     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     *
+     * @param tmpReq - CreateRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRoleResponse
+     *
+     * @param CreateRoleRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRoleResponse
      */
-    public function createRoleWithOptions($request, $runtime)
+    public function createRoleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new CreateRoleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->assumeRolePolicyDocument)) {
-            $query['AssumeRolePolicyDocument'] = $request->assumeRolePolicyDocument;
+        if (null !== $request->assumeRolePolicyDocument) {
+            @$query['AssumeRolePolicyDocument'] = $request->assumeRolePolicyDocument;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->maxSessionDuration)) {
-            $query['MaxSessionDuration'] = $request->maxSessionDuration;
+
+        if (null !== $request->maxSessionDuration) {
+            @$query['MaxSessionDuration'] = $request->maxSessionDuration;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a RAM role.
-     *  *
-     * @description ## Description
-     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
-     *  *
-     * @param CreateRoleRequest $request CreateRoleRequest
+     * Creates a Resource Access Management (RAM) role.
      *
-     * @return CreateRoleResponse CreateRoleResponse
+     * @remarks
+     * ### [](#)Operation description
+     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     *
+     * @param request - CreateRoleRequest
+     *
+     * @returns CreateRoleResponse
+     *
+     * @param CreateRoleRequest $request
+     *
+     * @return CreateRoleResponse
      */
     public function createRole($request)
     {
@@ -833,60 +1041,76 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Resource Access Management (RAM) user.
-     *  *
-     * @description This topic provides an example on how to create a RAM user named `alice`.
-     *  *
-     * @param CreateUserRequest $request CreateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a Resource Access Management (RAM) user.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @remarks
+     * This topic provides an example on how to create a RAM user named `alice`.
+     *
+     * @param request - CreateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comments)) {
-            $query['Comments'] = $request->comments;
+        if (null !== $request->comments) {
+            @$query['Comments'] = $request->comments;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->mobilePhone)) {
-            $query['MobilePhone'] = $request->mobilePhone;
+
+        if (null !== $request->mobilePhone) {
+            @$query['MobilePhone'] = $request->mobilePhone;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Resource Access Management (RAM) user.
-     *  *
-     * @description This topic provides an example on how to create a RAM user named `alice`.
-     *  *
-     * @param CreateUserRequest $request CreateUserRequest
+     * Creates a Resource Access Management (RAM) user.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @remarks
+     * This topic provides an example on how to create a RAM user named `alice`.
+     *
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
      */
     public function createUser($request)
     {
@@ -896,40 +1120,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a multi-factor authentication (MFA) device.
      *
-     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
+     * @param request - CreateVirtualMFADeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirtualMFADeviceResponse
+     *
+     * @param CreateVirtualMFADeviceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->virtualMFADeviceName)) {
-            $query['VirtualMFADeviceName'] = $request->virtualMFADeviceName;
+        if (null !== $request->virtualMFADeviceName) {
+            @$query['VirtualMFADeviceName'] = $request->virtualMFADeviceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVirtualMFADevice',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVirtualMFADevice',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateVirtualMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
+     * Creates a multi-factor authentication (MFA) device.
      *
-     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
+     * @param request - CreateVirtualMFADeviceRequest
+     *
+     * @returns CreateVirtualMFADeviceResponse
+     *
+     * @param CreateVirtualMFADeviceRequest $request
+     *
+     * @return CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADevice($request)
     {
@@ -939,44 +1177,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
-     *  *
-     * @param DecodeDiagnosticMessageRequest $request DecodeDiagnosticMessageRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
      *
-     * @return DecodeDiagnosticMessageResponse DecodeDiagnosticMessageResponse
+     * @param request - DecodeDiagnosticMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DecodeDiagnosticMessageResponse
+     *
+     * @param DecodeDiagnosticMessageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DecodeDiagnosticMessageResponse
      */
     public function decodeDiagnosticMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->encodedDiagnosticMessage)) {
-            $query['EncodedDiagnosticMessage'] = $request->encodedDiagnosticMessage;
+        if (null !== $request->encodedDiagnosticMessage) {
+            @$query['EncodedDiagnosticMessage'] = $request->encodedDiagnosticMessage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DecodeDiagnosticMessage',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DecodeDiagnosticMessage',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DecodeDiagnosticMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
-     *  *
-     * @param DecodeDiagnosticMessageRequest $request DecodeDiagnosticMessageRequest
+     * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
      *
-     * @return DecodeDiagnosticMessageResponse DecodeDiagnosticMessageResponse
+     * @param request - DecodeDiagnosticMessageRequest
+     *
+     * @returns DecodeDiagnosticMessageResponse
+     *
+     * @param DecodeDiagnosticMessageRequest $request
+     *
+     * @return DecodeDiagnosticMessageResponse
      */
     public function decodeDiagnosticMessage($request)
     {
@@ -986,43 +1234,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes an AccessKey pair of a Resource Access Management (RAM) user.
      *
-     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
+     * @param request - DeleteAccessKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAccessKeyResponse
+     *
+     * @param DeleteAccessKeyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAccessKeyResponse
      */
     public function deleteAccessKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userAccessKeyId)) {
-            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (null !== $request->userAccessKeyId) {
+            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccessKey',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccessKey',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
+     * Deletes an AccessKey pair of a Resource Access Management (RAM) user.
      *
-     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
+     * @param request - DeleteAccessKeyRequest
+     *
+     * @returns DeleteAccessKeyResponse
+     *
+     * @param DeleteAccessKeyRequest $request
+     *
+     * @return DeleteAccessKeyResponse
      */
     public function deleteAccessKey($request)
     {
@@ -1032,44 +1295,60 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-     *  *
-     * @param DeleteGroupRequest $request DeleteGroupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a Resource Access Management (RAM) user group.
      *
-     * @return DeleteGroupResponse DeleteGroupResponse
+     * @remarks
+     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *
+     * @param request - DeleteGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGroupResponse
+     *
+     * @param DeleteGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-     *  *
-     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * Deletes a Resource Access Management (RAM) user group.
      *
-     * @return DeleteGroupResponse DeleteGroupResponse
+     * @remarks
+     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *
+     * @param request - DeleteGroupRequest
+     *
+     * @returns DeleteGroupResponse
+     *
+     * @param DeleteGroupRequest $request
+     *
+     * @return DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -1079,40 +1358,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Disables console logon for a Resource Access Management (RAM) user.
      *
-     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
+     * @param request - DeleteLoginProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLoginProfileResponse
+     *
+     * @param DeleteLoginProfileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLoginProfileResponse
      */
     public function deleteLoginProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLoginProfile',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLoginProfile',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
+     * Disables console logon for a Resource Access Management (RAM) user.
      *
-     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
+     * @param request - DeleteLoginProfileRequest
+     *
+     * @returns DeleteLoginProfileResponse
+     *
+     * @param DeleteLoginProfileRequest $request
+     *
+     * @return DeleteLoginProfileResponse
      */
     public function deleteLoginProfile($request)
     {
@@ -1122,43 +1415,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request DeletePolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a policy.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @param request - DeletePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolicyResponse
+     *
+     * @param DeletePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cascadingDelete)) {
-            $query['CascadingDelete'] = $request->cascadingDelete;
+        if (null !== $request->cascadingDelete) {
+            @$query['CascadingDelete'] = $request->cascadingDelete;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicy',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicy',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * Deletes a policy.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @param request - DeletePolicyRequest
+     *
+     * @returns DeletePolicyResponse
+     *
+     * @param DeletePolicyRequest $request
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -1168,43 +1476,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a policy version.
      *
-     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
+     * @param request - DeletePolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolicyVersionResponse
+     *
+     * @param DeletePolicyVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeletePolicyVersionResponse
      */
     public function deletePolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicyVersion',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicyVersion',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
+     * Deletes a policy version.
      *
-     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
+     * @param request - DeletePolicyVersionRequest
+     *
+     * @returns DeletePolicyVersionResponse
+     *
+     * @param DeletePolicyVersionRequest $request
+     *
+     * @return DeletePolicyVersionResponse
      */
     public function deletePolicyVersion($request)
     {
@@ -1214,40 +1537,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteRoleRequest $request DeleteRoleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a Resource Access Management (RAM) role.
      *
-     * @return DeleteRoleResponse DeleteRoleResponse
+     * @param request - DeleteRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoleResponse
+     *
+     * @param DeleteRoleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRoleResponse
      */
     public function deleteRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteRoleRequest $request DeleteRoleRequest
+     * Deletes a Resource Access Management (RAM) role.
      *
-     * @return DeleteRoleResponse DeleteRoleResponse
+     * @param request - DeleteRoleRequest
+     *
+     * @returns DeleteRoleResponse
+     *
+     * @param DeleteRoleRequest $request
+     *
+     * @return DeleteRoleResponse
      */
     public function deleteRole($request)
     {
@@ -1257,44 +1594,60 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a Resource Access Management (RAM) user.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @remarks
+     * Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+     *
+     * @param request - DeleteUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
+     * Deletes a Resource Access Management (RAM) user.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @remarks
+     * Before you delete a RAM user, make sure that no policies are attached to the RAM user and that the RAM user does not belong to any groups.
+     *
+     * @param request - DeleteUserRequest
+     *
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1304,40 +1657,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes a multi-factor authentication (MFA) device.
      *
-     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
+     * @param request - DeleteVirtualMFADeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirtualMFADeviceResponse
+     *
+     * @param DeleteVirtualMFADeviceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serialNumber)) {
-            $query['SerialNumber'] = $request->serialNumber;
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVirtualMFADevice',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVirtualMFADevice',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteVirtualMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
+     * Deletes a multi-factor authentication (MFA) device.
      *
-     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
+     * @param request - DeleteVirtualMFADeviceRequest
+     *
+     * @returns DeleteVirtualMFADeviceResponse
+     *
+     * @param DeleteVirtualMFADeviceRequest $request
+     *
+     * @return DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADevice($request)
     {
@@ -1347,50 +1714,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Detaches a policy from a RAM user group.
-     *  *
-     * @param DetachPolicyFromGroupRequest $request DetachPolicyFromGroupRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Detaches a policy from a Resource Access Management (RAM) user group.
      *
-     * @return DetachPolicyFromGroupResponse DetachPolicyFromGroupResponse
+     * @param request - DetachPolicyFromGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachPolicyFromGroupResponse
+     *
+     * @param DetachPolicyFromGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DetachPolicyFromGroupResponse
      */
     public function detachPolicyFromGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachPolicyFromGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachPolicyFromGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachPolicyFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detaches a policy from a RAM user group.
-     *  *
-     * @param DetachPolicyFromGroupRequest $request DetachPolicyFromGroupRequest
+     * Detaches a policy from a Resource Access Management (RAM) user group.
      *
-     * @return DetachPolicyFromGroupResponse DetachPolicyFromGroupResponse
+     * @param request - DetachPolicyFromGroupRequest
+     *
+     * @returns DetachPolicyFromGroupResponse
+     *
+     * @param DetachPolicyFromGroupRequest $request
+     *
+     * @return DetachPolicyFromGroupResponse
      */
     public function detachPolicyFromGroup($request)
     {
@@ -1400,50 +1779,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Detaches a policy from a RAM role.
-     *  *
-     * @param DetachPolicyFromRoleRequest $request DetachPolicyFromRoleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Detaches a policy from a Resource Access Management (RAM) role.
      *
-     * @return DetachPolicyFromRoleResponse DetachPolicyFromRoleResponse
+     * @param request - DetachPolicyFromRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachPolicyFromRoleResponse
+     *
+     * @param DetachPolicyFromRoleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DetachPolicyFromRoleResponse
      */
     public function detachPolicyFromRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachPolicyFromRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachPolicyFromRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachPolicyFromRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detaches a policy from a RAM role.
-     *  *
-     * @param DetachPolicyFromRoleRequest $request DetachPolicyFromRoleRequest
+     * Detaches a policy from a Resource Access Management (RAM) role.
      *
-     * @return DetachPolicyFromRoleResponse DetachPolicyFromRoleResponse
+     * @param request - DetachPolicyFromRoleRequest
+     *
+     * @returns DetachPolicyFromRoleResponse
+     *
+     * @param DetachPolicyFromRoleRequest $request
+     *
+     * @return DetachPolicyFromRoleResponse
      */
     public function detachPolicyFromRole($request)
     {
@@ -1453,50 +1844,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Detaches a policy from a RAM user.
-     *  *
-     * @param DetachPolicyFromUserRequest $request DetachPolicyFromUserRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Detaches a policy from a Resource Access Management (RAM) user.
      *
-     * @return DetachPolicyFromUserResponse DetachPolicyFromUserResponse
+     * @param request - DetachPolicyFromUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachPolicyFromUserResponse
+     *
+     * @param DetachPolicyFromUserRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DetachPolicyFromUserResponse
      */
     public function detachPolicyFromUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachPolicyFromUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachPolicyFromUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachPolicyFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detaches a policy from a RAM user.
-     *  *
-     * @param DetachPolicyFromUserRequest $request DetachPolicyFromUserRequest
+     * Detaches a policy from a Resource Access Management (RAM) user.
      *
-     * @return DetachPolicyFromUserResponse DetachPolicyFromUserResponse
+     * @param request - DetachPolicyFromUserRequest
+     *
+     * @returns DetachPolicyFromUserResponse
+     *
+     * @param DetachPolicyFromUserRequest $request
+     *
+     * @return DetachPolicyFromUserResponse
      */
     public function detachPolicyFromUser($request)
     {
@@ -1506,43 +1909,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAccessKeyLastUsedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
+     * @returns GetAccessKeyLastUsedResponse
+     *
+     * @param GetAccessKeyLastUsedRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userAccessKeyId)) {
-            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (null !== $request->userAccessKeyId) {
+            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccessKeyLastUsed',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccessKeyLastUsed',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAccessKeyLastUsedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
+     * @param request - GetAccessKeyLastUsedRequest
      *
-     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
+     * @returns GetAccessKeyLastUsedResponse
+     *
+     * @param GetAccessKeyLastUsedRequest $request
+     *
+     * @return GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsed($request)
     {
@@ -1552,30 +1966,41 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the alias of an Alibaba Cloud account.
      *
-     * @return GetAccountAliasResponse GetAccountAliasResponse
+     * @param request - GetAccountAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountAliasResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAccountAliasResponse
      */
     public function getAccountAliasWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetAccountAlias',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountAlias',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAccountAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return GetAccountAliasResponse GetAccountAliasResponse
+     * Queries the alias of an Alibaba Cloud account.
+     *
+     * @returns GetAccountAliasResponse
+     *
+     * @return GetAccountAliasResponse
      */
     public function getAccountAlias()
     {
@@ -1585,44 +2010,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a RAM user group.
-     *  *
-     * @param GetGroupRequest $request GetGroupRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries information about a Resource Access Management (RAM) user group.
      *
-     * @return GetGroupResponse GetGroupResponse
+     * @param request - GetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGroupResponse
+     *
+     * @param GetGroupRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of a RAM user group.
-     *  *
-     * @param GetGroupRequest $request GetGroupRequest
+     * Queries information about a Resource Access Management (RAM) user group.
      *
-     * @return GetGroupResponse GetGroupResponse
+     * @param request - GetGroupRequest
+     *
+     * @returns GetGroupResponse
+     *
+     * @param GetGroupRequest $request
+     *
+     * @return GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -1632,40 +2067,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetLoginProfileRequest $request GetLoginProfileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the logon configurations of a Resource Access Management (RAM) user.
      *
-     * @return GetLoginProfileResponse GetLoginProfileResponse
+     * @param request - GetLoginProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLoginProfileResponse
+     *
+     * @param GetLoginProfileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetLoginProfileResponse
      */
     public function getLoginProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLoginProfile',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLoginProfile',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetLoginProfileRequest $request GetLoginProfileRequest
+     * Queries the logon configurations of a Resource Access Management (RAM) user.
      *
-     * @return GetLoginProfileResponse GetLoginProfileResponse
+     * @param request - GetLoginProfileRequest
+     *
+     * @returns GetLoginProfileResponse
+     *
+     * @param GetLoginProfileRequest $request
+     *
+     * @return GetLoginProfileResponse
      */
     public function getLoginProfile($request)
     {
@@ -1675,30 +2124,41 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the password policy of Resource Access Management (RAM) users, including the password strength.
      *
-     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
+     * @param request - GetPasswordPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPasswordPolicyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPasswordPolicyResponse
      */
     public function getPasswordPolicyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetPasswordPolicy',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPasswordPolicy',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
+     * Queries the password policy of Resource Access Management (RAM) users, including the password strength.
+     *
+     * @returns GetPasswordPolicyResponse
+     *
+     * @return GetPasswordPolicyResponse
      */
     public function getPasswordPolicy()
     {
@@ -1708,47 +2168,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a policy.
-     *  *
-     * @param GetPolicyRequest $request GetPolicyRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries information about a policy.
      *
-     * @return GetPolicyResponse GetPolicyResponse
+     * @param request - GetPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolicyResponse
+     *
+     * @param GetPolicyRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetPolicyResponse
      */
     public function getPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicy',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicy',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of a policy.
-     *  *
-     * @param GetPolicyRequest $request GetPolicyRequest
+     * Queries information about a policy.
      *
-     * @return GetPolicyResponse GetPolicyResponse
+     * @param request - GetPolicyRequest
+     *
+     * @returns GetPolicyResponse
+     *
+     * @param GetPolicyRequest $request
+     *
+     * @return GetPolicyResponse
      */
     public function getPolicy($request)
     {
@@ -1758,50 +2229,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a policy version.
-     *  *
-     * @param GetPolicyVersionRequest $request GetPolicyVersionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a policy version.
      *
-     * @return GetPolicyVersionResponse GetPolicyVersionResponse
+     * @param request - GetPolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolicyVersionResponse
+     *
+     * @param GetPolicyVersionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPolicyVersionResponse
      */
     public function getPolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicyVersion',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicyVersion',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of a policy version.
-     *  *
-     * @param GetPolicyVersionRequest $request GetPolicyVersionRequest
+     * Queries the information about a policy version.
      *
-     * @return GetPolicyVersionResponse GetPolicyVersionResponse
+     * @param request - GetPolicyVersionRequest
+     *
+     * @returns GetPolicyVersionResponse
+     *
+     * @param GetPolicyVersionRequest $request
+     *
+     * @return GetPolicyVersionResponse
      */
     public function getPolicyVersion($request)
     {
@@ -1811,44 +2294,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries information of a RAM role.
-     *  *
-     * @param GetRoleRequest $request GetRoleRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries information about a Resource Access Management (RAM) role.
      *
-     * @return GetRoleResponse GetRoleResponse
+     * @param request - GetRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoleResponse
+     *
+     * @param GetRoleRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRoleResponse
      */
     public function getRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information of a RAM role.
-     *  *
-     * @param GetRoleRequest $request GetRoleRequest
+     * Queries information about a Resource Access Management (RAM) role.
      *
-     * @return GetRoleResponse GetRoleResponse
+     * @param request - GetRoleRequest
+     *
+     * @returns GetRoleResponse
+     *
+     * @param GetRoleRequest $request
+     *
+     * @return GetRoleResponse
      */
     public function getRole($request)
     {
@@ -1858,30 +2351,41 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the security preferences.
      *
-     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
+     * @param request - GetSecurityPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityPreferenceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSecurityPreferenceResponse
      */
     public function getSecurityPreferenceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetSecurityPreference',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSecurityPreference',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSecurityPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
+     * Queries the security preferences.
+     *
+     * @returns GetSecurityPreferenceResponse
+     *
+     * @return GetSecurityPreferenceResponse
      */
     public function getSecurityPreference()
     {
@@ -1891,48 +2395,60 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a RAM user.
-     *  *
-     * @description This topic provides an example on how to query the information about the RAM user `alice`.
-     *  *
-     * @param GetUserRequest $request GetUserRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries information about a Resource Access Management (RAM) user.
      *
-     * @return GetUserResponse GetUserResponse
+     * @remarks
+     * This topic provides an example on how to query information about the RAM user `alice`.
+     *
+     * @param request - GetUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a RAM user.
-     *  *
-     * @description This topic provides an example on how to query the information about the RAM user `alice`.
-     *  *
-     * @param GetUserRequest $request GetUserRequest
+     * Queries information about a Resource Access Management (RAM) user.
      *
-     * @return GetUserResponse GetUserResponse
+     * @remarks
+     * This topic provides an example on how to query information about the RAM user `alice`.
+     *
+     * @param request - GetUserRequest
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
      */
     public function getUser($request)
     {
@@ -1942,40 +2458,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
      *
-     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
+     * @param request - GetUserMFAInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserMFAInfoResponse
+     *
+     * @param GetUserMFAInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetUserMFAInfoResponse
      */
     public function getUserMFAInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserMFAInfo',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserMFAInfo',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserMFAInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
+     * Queries the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
      *
-     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
+     * @param request - GetUserMFAInfoRequest
+     *
+     * @returns GetUserMFAInfoResponse
+     *
+     * @param GetUserMFAInfoRequest $request
+     *
+     * @return GetUserMFAInfoResponse
      */
     public function getUserMFAInfo($request)
     {
@@ -1985,44 +2515,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
-     *  *
-     * @param ListAccessKeysRequest $request ListAccessKeysRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
      *
-     * @return ListAccessKeysResponse ListAccessKeysResponse
+     * @param request - ListAccessKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAccessKeysResponse
+     *
+     * @param ListAccessKeysRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAccessKeysResponse
      */
     public function listAccessKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccessKeys',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccessKeys',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAccessKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of all AccessKey pairs that belong to a RAM user.
-     *  *
-     * @param ListAccessKeysRequest $request ListAccessKeysRequest
+     * Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
      *
-     * @return ListAccessKeysResponse ListAccessKeysResponse
+     * @param request - ListAccessKeysRequest
+     *
+     * @returns ListAccessKeysResponse
+     *
+     * @param ListAccessKeysRequest $request
+     *
+     * @return ListAccessKeysResponse
      */
     public function listAccessKeys($request)
     {
@@ -2032,47 +2572,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the entities to which a policy is attached.
-     *  *
-     * @param ListEntitiesForPolicyRequest $request ListEntitiesForPolicyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the entities to which a policy is attached.
      *
-     * @return ListEntitiesForPolicyResponse ListEntitiesForPolicyResponse
+     * @param request - ListEntitiesForPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEntitiesForPolicyResponse
+     *
+     * @param ListEntitiesForPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListEntitiesForPolicyResponse
      */
     public function listEntitiesForPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEntitiesForPolicy',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEntitiesForPolicy',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListEntitiesForPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the entities to which a policy is attached.
-     *  *
-     * @param ListEntitiesForPolicyRequest $request ListEntitiesForPolicyRequest
+     * Queries the entities to which a policy is attached.
      *
-     * @return ListEntitiesForPolicyResponse ListEntitiesForPolicyResponse
+     * @param request - ListEntitiesForPolicyRequest
+     *
+     * @returns ListEntitiesForPolicyResponse
+     *
+     * @param ListEntitiesForPolicyRequest $request
+     *
+     * @return ListEntitiesForPolicyResponse
      */
     public function listEntitiesForPolicy($request)
     {
@@ -2082,47 +2633,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries RAM user groups.
-     *  *
-     * @param ListGroupsRequest $request ListGroupsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries Resource Access Management (RAM) user groups.
      *
-     * @return ListGroupsResponse ListGroupsResponse
+     * @param request - ListGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupsResponse
+     *
+     * @param ListGroupsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->maxItems)) {
-            $query['MaxItems'] = $request->maxItems;
+
+        if (null !== $request->maxItems) {
+            @$query['MaxItems'] = $request->maxItems;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGroups',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGroups',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries RAM user groups.
-     *  *
-     * @param ListGroupsRequest $request ListGroupsRequest
+     * Queries Resource Access Management (RAM) user groups.
      *
-     * @return ListGroupsResponse ListGroupsResponse
+     * @param request - ListGroupsRequest
+     *
+     * @returns ListGroupsResponse
+     *
+     * @param ListGroupsRequest $request
+     *
+     * @return ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -2132,48 +2694,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
-     *  *
-     * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
-     *  *
-     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
      *
-     * @return ListGroupsForUserResponse ListGroupsForUserResponse
+     * @remarks
+     * ### [](#)
+     * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+     *
+     * @param request - ListGroupsForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupsForUserResponse
+     *
+     * @param ListGroupsForUserRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListGroupsForUserResponse
      */
     public function listGroupsForUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGroupsForUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGroupsForUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
-     *  *
-     * @description This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
-     *  *
-     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
+     * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
      *
-     * @return ListGroupsForUserResponse ListGroupsForUserResponse
+     * @remarks
+     * ### [](#)
+     * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+     *
+     * @param request - ListGroupsForUserRequest
+     *
+     * @returns ListGroupsForUserResponse
+     *
+     * @param ListGroupsForUserRequest $request
+     *
+     * @return ListGroupsForUserResponse
      */
     public function listGroupsForUser($request)
     {
@@ -2183,50 +2759,72 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of policies.
-     *  *
-     * @param ListPoliciesRequest $request ListPoliciesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of policies.
      *
-     * @return ListPoliciesResponse ListPoliciesResponse
+     * @param tmpReq - ListPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPoliciesResponse
+     *
+     * @param ListPoliciesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListPoliciesResponse
      */
-    public function listPoliciesWithOptions($request, $runtime)
+    public function listPoliciesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new ListPoliciesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->maxItems)) {
-            $query['MaxItems'] = $request->maxItems;
+
+        if (null !== $request->maxItems) {
+            @$query['MaxItems'] = $request->maxItems;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicies',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicies',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of policies.
-     *  *
-     * @param ListPoliciesRequest $request ListPoliciesRequest
+     * Queries a list of policies.
      *
-     * @return ListPoliciesResponse ListPoliciesResponse
+     * @param request - ListPoliciesRequest
+     *
+     * @returns ListPoliciesResponse
+     *
+     * @param ListPoliciesRequest $request
+     *
+     * @return ListPoliciesResponse
      */
     public function listPolicies($request)
     {
@@ -2236,44 +2834,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies that are attached to a RAM user group.
-     *  *
-     * @param ListPoliciesForGroupRequest $request ListPoliciesForGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the policies that are attached to a Resource Access Management (RAM) user group.
      *
-     * @return ListPoliciesForGroupResponse ListPoliciesForGroupResponse
+     * @param request - ListPoliciesForGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPoliciesForGroupResponse
+     *
+     * @param ListPoliciesForGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPoliciesForGroupResponse
      */
     public function listPoliciesForGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPoliciesForGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPoliciesForGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPoliciesForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the policies that are attached to a RAM user group.
-     *  *
-     * @param ListPoliciesForGroupRequest $request ListPoliciesForGroupRequest
+     * Queries the policies that are attached to a Resource Access Management (RAM) user group.
      *
-     * @return ListPoliciesForGroupResponse ListPoliciesForGroupResponse
+     * @param request - ListPoliciesForGroupRequest
+     *
+     * @returns ListPoliciesForGroupResponse
+     *
+     * @param ListPoliciesForGroupRequest $request
+     *
+     * @return ListPoliciesForGroupResponse
      */
     public function listPoliciesForGroup($request)
     {
@@ -2283,44 +2891,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies that are attached to a RAM role.
-     *  *
-     * @param ListPoliciesForRoleRequest $request ListPoliciesForRoleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the policies that are attached to a Resource Access Management (RAM) role.
      *
-     * @return ListPoliciesForRoleResponse ListPoliciesForRoleResponse
+     * @param request - ListPoliciesForRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPoliciesForRoleResponse
+     *
+     * @param ListPoliciesForRoleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPoliciesForRoleResponse
      */
     public function listPoliciesForRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPoliciesForRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPoliciesForRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPoliciesForRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the policies that are attached to a RAM role.
-     *  *
-     * @param ListPoliciesForRoleRequest $request ListPoliciesForRoleRequest
+     * Queries the policies that are attached to a Resource Access Management (RAM) role.
      *
-     * @return ListPoliciesForRoleResponse ListPoliciesForRoleResponse
+     * @param request - ListPoliciesForRoleRequest
+     *
+     * @returns ListPoliciesForRoleResponse
+     *
+     * @param ListPoliciesForRoleRequest $request
+     *
+     * @return ListPoliciesForRoleResponse
      */
     public function listPoliciesForRole($request)
     {
@@ -2330,48 +2948,60 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies that are attached to a RAM user.
-     *  *
-     * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
-     *  *
-     * @param ListPoliciesForUserRequest $request ListPoliciesForUserRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the policies that are attached to a RAM user.
      *
-     * @return ListPoliciesForUserResponse ListPoliciesForUserResponse
+     * @remarks
+     * > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+     *
+     * @param request - ListPoliciesForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPoliciesForUserResponse
+     *
+     * @param ListPoliciesForUserRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPoliciesForUserResponse
      */
     public function listPoliciesForUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPoliciesForUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPoliciesForUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPoliciesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the policies that are attached to a RAM user.
-     *  *
-     * @description > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
-     *  *
-     * @param ListPoliciesForUserRequest $request ListPoliciesForUserRequest
+     * Queries the policies that are attached to a RAM user.
      *
-     * @return ListPoliciesForUserResponse ListPoliciesForUserResponse
+     * @remarks
+     * > You can call this operation to query only the policies that are attached to Alibaba Cloud accounts. You cannot query the policies that are attached to resource groups.
+     *
+     * @param request - ListPoliciesForUserRequest
+     *
+     * @returns ListPoliciesForUserResponse
+     *
+     * @param ListPoliciesForUserRequest $request
+     *
+     * @return ListPoliciesForUserResponse
      */
     public function listPoliciesForUser($request)
     {
@@ -2381,47 +3011,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the versions of a policy.
-     *  *
-     * @param ListPolicyVersionsRequest $request ListPolicyVersionsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the versions of a policy.
      *
-     * @return ListPolicyVersionsResponse ListPolicyVersionsResponse
+     * @param request - ListPolicyVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPolicyVersionsResponse
+     *
+     * @param ListPolicyVersionsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPolicyVersionsResponse
      */
     public function listPolicyVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicyVersions',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicyVersions',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPolicyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the versions of a policy.
-     *  *
-     * @param ListPolicyVersionsRequest $request ListPolicyVersionsRequest
+     * Queries the versions of a policy.
      *
-     * @return ListPolicyVersionsResponse ListPolicyVersionsResponse
+     * @param request - ListPolicyVersionsRequest
+     *
+     * @returns ListPolicyVersionsResponse
+     *
+     * @param ListPolicyVersionsRequest $request
+     *
+     * @return ListPolicyVersionsResponse
      */
     public function listPolicyVersions($request)
     {
@@ -2431,47 +3072,68 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of all RAM roles.
-     *  *
-     * @param ListRolesRequest $request ListRolesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries all Resource Access Management (RAM) roles.
      *
-     * @return ListRolesResponse ListRolesResponse
+     * @param tmpReq - ListRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRolesResponse
+     *
+     * @param ListRolesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRolesResponse
      */
-    public function listRolesWithOptions($request, $runtime)
+    public function listRolesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new ListRolesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->maxItems)) {
-            $query['MaxItems'] = $request->maxItems;
+
+        if (null !== $request->maxItems) {
+            @$query['MaxItems'] = $request->maxItems;
         }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRoles',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRoles',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of all RAM roles.
-     *  *
-     * @param ListRolesRequest $request ListRolesRequest
+     * Queries all Resource Access Management (RAM) roles.
      *
-     * @return ListRolesResponse ListRolesResponse
+     * @param request - ListRolesRequest
+     *
+     * @returns ListRolesResponse
+     *
+     * @param ListRolesRequest $request
+     *
+     * @return ListRolesResponse
      */
     public function listRoles($request)
     {
@@ -2481,47 +3143,141 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all RAM users.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to resources.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param tmpReq - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceNames) {
+            $request->resourceNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceNames, 'ResourceNames', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceNamesShrink) {
+            @$query['ResourceNames'] = $request->resourceNamesShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the tags that are added to resources.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about all RAM users.
+     *
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->maxItems)) {
-            $query['MaxItems'] = $request->maxItems;
+
+        if (null !== $request->maxItems) {
+            @$query['MaxItems'] = $request->maxItems;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all RAM users.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
+     * Queries the information about all RAM users.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     *
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -2531,46 +3287,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries Resource Access Management (RAM) users in a RAM user group.
      *
-     * @return ListUsersForGroupResponse ListUsersForGroupResponse
+     * @param request - ListUsersForGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersForGroupResponse
+     *
+     * @param ListUsersForGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUsersForGroupResponse
      */
     public function listUsersForGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->maxItems)) {
-            $query['MaxItems'] = $request->maxItems;
+
+        if (null !== $request->maxItems) {
+            @$query['MaxItems'] = $request->maxItems;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsersForGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsersForGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
+     * Queries Resource Access Management (RAM) users in a RAM user group.
      *
-     * @return ListUsersForGroupResponse ListUsersForGroupResponse
+     * @param request - ListUsersForGroupRequest
+     *
+     * @returns ListUsersForGroupResponse
+     *
+     * @param ListUsersForGroupRequest $request
+     *
+     * @return ListUsersForGroupResponse
      */
     public function listUsersForGroup($request)
     {
@@ -2580,34 +3352,41 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of all multi-factor authentication (MFA) devices.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries multi-factor authentication (MFA) devices.
      *
-     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
+     * @param request - ListVirtualMFADevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirtualMFADevicesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevicesWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListVirtualMFADevices',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVirtualMFADevices',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListVirtualMFADevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of all multi-factor authentication (MFA) devices.
-     *  *
-     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
+     * Queries multi-factor authentication (MFA) devices.
+     *
+     * @returns ListVirtualMFADevicesResponse
+     *
+     * @return ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevices()
     {
@@ -2617,43 +3396,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Removes a Resource Access Management (RAM) user from a RAM user group.
      *
-     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
+     * @param request - RemoveUserFromGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserFromGroupResponse
+     *
+     * @param RemoveUserFromGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveUserFromGroupResponse
      */
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUserFromGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUserFromGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveUserFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
+     * Removes a Resource Access Management (RAM) user from a RAM user group.
      *
-     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
+     * @param request - RemoveUserFromGroupRequest
+     *
+     * @returns RemoveUserFromGroupResponse
+     *
+     * @param RemoveUserFromGroupRequest $request
+     *
+     * @return RemoveUserFromGroupResponse
      */
     public function removeUserFromGroup($request)
     {
@@ -2663,44 +3457,54 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
-     *  *
-     * @param SetAccountAliasRequest $request SetAccountAliasRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Configures an alias for an Alibaba Cloud account.
      *
-     * @return SetAccountAliasResponse SetAccountAliasResponse
+     * @param request - SetAccountAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAccountAliasResponse
+     *
+     * @param SetAccountAliasRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetAccountAliasResponse
      */
     public function setAccountAliasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountAlias)) {
-            $query['AccountAlias'] = $request->accountAlias;
+        if (null !== $request->accountAlias) {
+            @$query['AccountAlias'] = $request->accountAlias;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetAccountAlias',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetAccountAlias',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetAccountAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to specify an alias for an Alibaba Cloud account.
-     *  *
-     * @param SetAccountAliasRequest $request SetAccountAliasRequest
+     * Configures an alias for an Alibaba Cloud account.
      *
-     * @return SetAccountAliasResponse SetAccountAliasResponse
+     * @param request - SetAccountAliasRequest
+     *
+     * @returns SetAccountAliasResponse
+     *
+     * @param SetAccountAliasRequest $request
+     *
+     * @return SetAccountAliasResponse
      */
     public function setAccountAlias($request)
     {
@@ -2710,47 +3514,58 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Sets the default version of a policy.
-     *  *
-     * @param SetDefaultPolicyVersionRequest $request SetDefaultPolicyVersionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Specifies a version for a policy as the default version.
      *
-     * @return SetDefaultPolicyVersionResponse SetDefaultPolicyVersionResponse
+     * @param request - SetDefaultPolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDefaultPolicyVersionResponse
+     *
+     * @param SetDefaultPolicyVersionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetDefaultPolicyVersionResponse
      */
     public function setDefaultPolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDefaultPolicyVersion',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDefaultPolicyVersion',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDefaultPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the default version of a policy.
-     *  *
-     * @param SetDefaultPolicyVersionRequest $request SetDefaultPolicyVersionRequest
+     * Specifies a version for a policy as the default version.
      *
-     * @return SetDefaultPolicyVersionResponse SetDefaultPolicyVersionResponse
+     * @param request - SetDefaultPolicyVersionRequest
+     *
+     * @returns SetDefaultPolicyVersionResponse
+     *
+     * @param SetDefaultPolicyVersionRequest $request
+     *
+     * @return SetDefaultPolicyVersionResponse
      */
     public function setDefaultPolicyVersion($request)
     {
@@ -2760,64 +3575,86 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Configures the password policy for Resource Access Management (RAM) users, including the password strength.
      *
-     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
+     * @param request - SetPasswordPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetPasswordPolicyResponse
+     *
+     * @param SetPasswordPolicyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetPasswordPolicyResponse
      */
     public function setPasswordPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hardExpiry)) {
-            $query['HardExpiry'] = $request->hardExpiry;
+        if (null !== $request->hardExpiry) {
+            @$query['HardExpiry'] = $request->hardExpiry;
         }
-        if (!Utils::isUnset($request->maxLoginAttemps)) {
-            $query['MaxLoginAttemps'] = $request->maxLoginAttemps;
+
+        if (null !== $request->maxLoginAttemps) {
+            @$query['MaxLoginAttemps'] = $request->maxLoginAttemps;
         }
-        if (!Utils::isUnset($request->maxPasswordAge)) {
-            $query['MaxPasswordAge'] = $request->maxPasswordAge;
+
+        if (null !== $request->maxPasswordAge) {
+            @$query['MaxPasswordAge'] = $request->maxPasswordAge;
         }
-        if (!Utils::isUnset($request->minimumPasswordLength)) {
-            $query['MinimumPasswordLength'] = $request->minimumPasswordLength;
+
+        if (null !== $request->minimumPasswordLength) {
+            @$query['MinimumPasswordLength'] = $request->minimumPasswordLength;
         }
-        if (!Utils::isUnset($request->passwordReusePrevention)) {
-            $query['PasswordReusePrevention'] = $request->passwordReusePrevention;
+
+        if (null !== $request->passwordReusePrevention) {
+            @$query['PasswordReusePrevention'] = $request->passwordReusePrevention;
         }
-        if (!Utils::isUnset($request->requireLowercaseCharacters)) {
-            $query['RequireLowercaseCharacters'] = $request->requireLowercaseCharacters;
+
+        if (null !== $request->requireLowercaseCharacters) {
+            @$query['RequireLowercaseCharacters'] = $request->requireLowercaseCharacters;
         }
-        if (!Utils::isUnset($request->requireNumbers)) {
-            $query['RequireNumbers'] = $request->requireNumbers;
+
+        if (null !== $request->requireNumbers) {
+            @$query['RequireNumbers'] = $request->requireNumbers;
         }
-        if (!Utils::isUnset($request->requireSymbols)) {
-            $query['RequireSymbols'] = $request->requireSymbols;
+
+        if (null !== $request->requireSymbols) {
+            @$query['RequireSymbols'] = $request->requireSymbols;
         }
-        if (!Utils::isUnset($request->requireUppercaseCharacters)) {
-            $query['RequireUppercaseCharacters'] = $request->requireUppercaseCharacters;
+
+        if (null !== $request->requireUppercaseCharacters) {
+            @$query['RequireUppercaseCharacters'] = $request->requireUppercaseCharacters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPasswordPolicy',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPasswordPolicy',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
+     * Configures the password policy for Resource Access Management (RAM) users, including the password strength.
      *
-     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
+     * @param request - SetPasswordPolicyRequest
+     *
+     * @returns SetPasswordPolicyResponse
+     *
+     * @param SetPasswordPolicyRequest $request
+     *
+     * @return SetPasswordPolicyResponse
      */
     public function setPasswordPolicy($request)
     {
@@ -2827,62 +3664,78 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Configures the security preferences.
-     *  *
-     * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Configures the security preferences.
      *
-     * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
+     * @param request - SetSecurityPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSecurityPreferenceResponse
+     *
+     * @param SetSecurityPreferenceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetSecurityPreferenceResponse
      */
     public function setSecurityPreferenceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowUserToChangePassword)) {
-            $query['AllowUserToChangePassword'] = $request->allowUserToChangePassword;
+        if (null !== $request->allowUserToChangePassword) {
+            @$query['AllowUserToChangePassword'] = $request->allowUserToChangePassword;
         }
-        if (!Utils::isUnset($request->allowUserToManageAccessKeys)) {
-            $query['AllowUserToManageAccessKeys'] = $request->allowUserToManageAccessKeys;
+
+        if (null !== $request->allowUserToManageAccessKeys) {
+            @$query['AllowUserToManageAccessKeys'] = $request->allowUserToManageAccessKeys;
         }
-        if (!Utils::isUnset($request->allowUserToManageMFADevices)) {
-            $query['AllowUserToManageMFADevices'] = $request->allowUserToManageMFADevices;
+
+        if (null !== $request->allowUserToManageMFADevices) {
+            @$query['AllowUserToManageMFADevices'] = $request->allowUserToManageMFADevices;
         }
-        if (!Utils::isUnset($request->allowUserToManagePublicKeys)) {
-            $query['AllowUserToManagePublicKeys'] = $request->allowUserToManagePublicKeys;
+
+        if (null !== $request->allowUserToManagePublicKeys) {
+            @$query['AllowUserToManagePublicKeys'] = $request->allowUserToManagePublicKeys;
         }
-        if (!Utils::isUnset($request->enableSaveMFATicket)) {
-            $query['EnableSaveMFATicket'] = $request->enableSaveMFATicket;
+
+        if (null !== $request->enableSaveMFATicket) {
+            @$query['EnableSaveMFATicket'] = $request->enableSaveMFATicket;
         }
-        if (!Utils::isUnset($request->loginNetworkMasks)) {
-            $query['LoginNetworkMasks'] = $request->loginNetworkMasks;
+
+        if (null !== $request->loginNetworkMasks) {
+            @$query['LoginNetworkMasks'] = $request->loginNetworkMasks;
         }
-        if (!Utils::isUnset($request->loginSessionDuration)) {
-            $query['LoginSessionDuration'] = $request->loginSessionDuration;
+
+        if (null !== $request->loginSessionDuration) {
+            @$query['LoginSessionDuration'] = $request->loginSessionDuration;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetSecurityPreference',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSecurityPreference',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetSecurityPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the security preferences.
-     *  *
-     * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
+     * Configures the security preferences.
      *
-     * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
+     * @param request - SetSecurityPreferenceRequest
+     *
+     * @returns SetSecurityPreferenceResponse
+     *
+     * @param SetSecurityPreferenceRequest $request
+     *
+     * @return SetSecurityPreferenceResponse
      */
     public function setSecurityPreference($request)
     {
@@ -2892,44 +3745,129 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Detaches a multi-factor authentication (MFA) device from a RAM user.
-     *  *
-     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resources.
      *
-     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
+     * @param tmpReq - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceNames) {
+            $request->resourceNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceNames, 'ResourceNames', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->resourceNamesShrink) {
+            @$query['ResourceNames'] = $request->resourceNamesShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds tags to resources.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     *
+     * @param request - UnbindMFADeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindMFADeviceResponse
+     *
+     * @param UnbindMFADeviceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UnbindMFADeviceResponse
      */
     public function unbindMFADeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindMFADevice',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindMFADevice',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detaches a multi-factor authentication (MFA) device from a RAM user.
-     *  *
-     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
+     * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
      *
-     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
+     * @param request - UnbindMFADeviceRequest
+     *
+     * @returns UnbindMFADeviceResponse
+     *
+     * @param UnbindMFADeviceRequest $request
+     *
+     * @return UnbindMFADeviceResponse
      */
     public function unbindMFADevice($request)
     {
@@ -2939,46 +3877,141 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resources.
      *
-     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
+     * @param tmpReq - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UntagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceNames) {
+            $request->resourceNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceNames, 'ResourceNames', 'json');
+        }
+
+        if (null !== $tmpReq->tagKeys) {
+            $request->tagKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'TagKeys', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->resourceNamesShrink) {
+            @$query['ResourceNames'] = $request->resourceNamesShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeysShrink) {
+            @$query['TagKeys'] = $request->tagKeysShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes tags from resources.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the status of an AccessKey pair that belongs to a Resource Access Management (RAM) user.
+     *
+     * @param request - UpdateAccessKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAccessKeyResponse
+     *
+     * @param UpdateAccessKeyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAccessKeyResponse
      */
     public function updateAccessKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userAccessKeyId)) {
-            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+
+        if (null !== $request->userAccessKeyId) {
+            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAccessKey',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAccessKey',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
+     * Changes the status of an AccessKey pair that belongs to a Resource Access Management (RAM) user.
      *
-     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
+     * @param request - UpdateAccessKeyRequest
+     *
+     * @returns UpdateAccessKeyResponse
+     *
+     * @param UpdateAccessKeyRequest $request
+     *
+     * @return UpdateAccessKeyResponse
      */
     public function updateAccessKey($request)
     {
@@ -2988,50 +4021,62 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a RAM user group.
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Modifies a Resource Access Management (RAM) user group.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->newComments)) {
-            $query['NewComments'] = $request->newComments;
+
+        if (null !== $request->newComments) {
+            @$query['NewComments'] = $request->newComments;
         }
-        if (!Utils::isUnset($request->newGroupName)) {
-            $query['NewGroupName'] = $request->newGroupName;
+
+        if (null !== $request->newGroupName) {
+            @$query['NewGroupName'] = $request->newGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGroup',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGroup',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a RAM user group.
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * Modifies a Resource Access Management (RAM) user group.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     *
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -3041,49 +4086,66 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the logon configurations of a Resource Access Management (RAM) user.
      *
-     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
+     * @param request - UpdateLoginProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLoginProfileResponse
+     *
+     * @param UpdateLoginProfileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateLoginProfileResponse
      */
     public function updateLoginProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->MFABindRequired)) {
-            $query['MFABindRequired'] = $request->MFABindRequired;
+        if (null !== $request->MFABindRequired) {
+            @$query['MFABindRequired'] = $request->MFABindRequired;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->passwordResetRequired)) {
-            $query['PasswordResetRequired'] = $request->passwordResetRequired;
+
+        if (null !== $request->passwordResetRequired) {
+            @$query['PasswordResetRequired'] = $request->passwordResetRequired;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLoginProfile',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLoginProfile',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
+     * Modifies the logon configurations of a Resource Access Management (RAM) user.
      *
-     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
+     * @param request - UpdateLoginProfileRequest
+     *
+     * @returns UpdateLoginProfileResponse
+     *
+     * @param UpdateLoginProfileRequest $request
+     *
+     * @return UpdateLoginProfileResponse
      */
     public function updateLoginProfile($request)
     {
@@ -3093,51 +4155,66 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a custom policy.
-     *  *
-     * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
-     *  *
-     * @param UpdatePolicyDescriptionRequest $request UpdatePolicyDescriptionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a custom policy.
      *
-     * @return UpdatePolicyDescriptionResponse UpdatePolicyDescriptionResponse
+     * @remarks
+     * ### [](#)
+     * You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+     *
+     * @param request - UpdatePolicyDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolicyDescriptionResponse
+     *
+     * @param UpdatePolicyDescriptionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdatePolicyDescriptionResponse
      */
     public function updatePolicyDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newDescription)) {
-            $query['NewDescription'] = $request->newDescription;
+        if (null !== $request->newDescription) {
+            @$query['NewDescription'] = $request->newDescription;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePolicyDescription',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePolicyDescription',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdatePolicyDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a custom policy.
-     *  *
-     * @description You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
-     *  *
-     * @param UpdatePolicyDescriptionRequest $request UpdatePolicyDescriptionRequest
+     * Modifies the description of a custom policy.
      *
-     * @return UpdatePolicyDescriptionResponse UpdatePolicyDescriptionResponse
+     * @remarks
+     * ### [](#)
+     * You can call this operation to modify only the description of a custom policy. You cannot modify the description of a system policy.
+     *
+     * @param request - UpdatePolicyDescriptionRequest
+     *
+     * @returns UpdatePolicyDescriptionResponse
+     *
+     * @param UpdatePolicyDescriptionRequest $request
+     *
+     * @return UpdatePolicyDescriptionResponse
      */
     public function updatePolicyDescription($request)
     {
@@ -3147,57 +4224,72 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @summary Changes the description of a RAM role.
-     *  *
-     * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
-     *  *
-     * @param UpdateRoleRequest $request UpdateRoleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Modifies information about a Resource Access Management (RAM) role.
      *
-     * @return UpdateRoleResponse UpdateRoleResponse
+     * @remarks
+     * This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+     *
+     * @param request - UpdateRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRoleResponse
+     *
+     * @param UpdateRoleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateRoleResponse
      */
     public function updateRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newAssumeRolePolicyDocument)) {
-            $query['NewAssumeRolePolicyDocument'] = $request->newAssumeRolePolicyDocument;
+        if (null !== $request->newAssumeRolePolicyDocument) {
+            @$query['NewAssumeRolePolicyDocument'] = $request->newAssumeRolePolicyDocument;
         }
-        if (!Utils::isUnset($request->newDescription)) {
-            $query['NewDescription'] = $request->newDescription;
+
+        if (null !== $request->newDescription) {
+            @$query['NewDescription'] = $request->newDescription;
         }
-        if (!Utils::isUnset($request->newMaxSessionDuration)) {
-            $query['NewMaxSessionDuration'] = $request->newMaxSessionDuration;
+
+        if (null !== $request->newMaxSessionDuration) {
+            @$query['NewMaxSessionDuration'] = $request->newMaxSessionDuration;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRole',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the description of a RAM role.
-     *  *
-     * @description This topic provides an example to show how to change the description of ECSAdmin to ECS administrator.
-     *  *
-     * @param UpdateRoleRequest $request UpdateRoleRequest
+     * Modifies information about a Resource Access Management (RAM) role.
      *
-     * @return UpdateRoleResponse UpdateRoleResponse
+     * @remarks
+     * This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+     *
+     * @param request - UpdateRoleRequest
+     *
+     * @returns UpdateRoleResponse
+     *
+     * @param UpdateRoleRequest $request
+     *
+     * @return UpdateRoleResponse
      */
     public function updateRole($request)
     {
@@ -3207,59 +4299,80 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Modifies information about a Resource Access Management (RAM) user.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @remarks
+     * This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+     *
+     * @param request - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newComments)) {
-            $query['NewComments'] = $request->newComments;
+        if (null !== $request->newComments) {
+            @$query['NewComments'] = $request->newComments;
         }
-        if (!Utils::isUnset($request->newDisplayName)) {
-            $query['NewDisplayName'] = $request->newDisplayName;
+
+        if (null !== $request->newDisplayName) {
+            @$query['NewDisplayName'] = $request->newDisplayName;
         }
-        if (!Utils::isUnset($request->newEmail)) {
-            $query['NewEmail'] = $request->newEmail;
+
+        if (null !== $request->newEmail) {
+            @$query['NewEmail'] = $request->newEmail;
         }
-        if (!Utils::isUnset($request->newMobilePhone)) {
-            $query['NewMobilePhone'] = $request->newMobilePhone;
+
+        if (null !== $request->newMobilePhone) {
+            @$query['NewMobilePhone'] = $request->newMobilePhone;
         }
-        if (!Utils::isUnset($request->newUserName)) {
-            $query['NewUserName'] = $request->newUserName;
+
+        if (null !== $request->newUserName) {
+            @$query['NewUserName'] = $request->newUserName;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUser',
-            'version'     => '2015-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUser',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * Modifies information about a Resource Access Management (RAM) user.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @remarks
+     * This topic provides an example on how to change the name of a RAM user from `zhangq****` to `xiaoq****`.
+     *
+     * @param request - UpdateUserRequest
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {

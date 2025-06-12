@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePolicyDescriptionRequest extends Model
 {
     /**
-     * @description The description of the policy.
-     *
-     * The value of the parameter must be 1 to 1,024 characters in length.
-     * @example This is a test policy.
-     *
      * @var string
      */
     public $newDescription;
 
     /**
-     * @description The name of the policy.
-     *
-     * @example TestPolicy
-     *
      * @var string
      */
     public $policyName;
     protected $_name = [
         'newDescription' => 'NewDescription',
-        'policyName'     => 'PolicyName',
+        'policyName' => 'PolicyName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newDescription) {
             $res['NewDescription'] = $this->newDescription;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
@@ -48,17 +41,18 @@ class UpdatePolicyDescriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePolicyDescriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewDescription'])) {
             $model->newDescription = $map['NewDescription'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }

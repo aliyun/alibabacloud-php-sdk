@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\GetAccessKeyLastUsedResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessKeyLastUsed extends Model
 {
     /**
-     * @example 2020-10-21T06:37:40Z
-     *
      * @var string
      */
     public $lastUsedDate;
@@ -20,9 +18,10 @@ class accessKeyLastUsed extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastUsedDate) {
@@ -32,11 +31,11 @@ class accessKeyLastUsed extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessKeyLastUsed
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

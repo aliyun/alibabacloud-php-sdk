@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetPolicyVersionResponseBody\policyVersion;
-use AlibabaCloud\Tea\Model;
 
 class GetPolicyVersionResponseBody extends Model
 {
     /**
-     * @description The information of the policy version.
-     *
      * @var policyVersion
      */
     public $policyVersion;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'policyVersion' => 'PolicyVersion',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->policyVersion) {
+            $this->policyVersion->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyVersion) {
-            $res['PolicyVersion'] = null !== $this->policyVersion ? $this->policyVersion->toMap() : null;
+            $res['PolicyVersion'] = null !== $this->policyVersion ? $this->policyVersion->toArray($noStream) : $this->policyVersion;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class GetPolicyVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPolicyVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = policyVersion::fromMap($map['PolicyVersion']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

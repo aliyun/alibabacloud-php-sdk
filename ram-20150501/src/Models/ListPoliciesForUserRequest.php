@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPoliciesForUserRequest extends Model
 {
     /**
-     * @description The name of the RAM user.
-     *
-     * @example zhangq****
-     *
      * @var string
      */
     public $userName;
@@ -22,9 +18,10 @@ class ListPoliciesForUserRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userName) {
@@ -34,11 +31,11 @@ class ListPoliciesForUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPoliciesForUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

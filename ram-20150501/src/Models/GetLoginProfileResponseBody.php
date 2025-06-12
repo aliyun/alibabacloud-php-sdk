@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetLoginProfileResponseBody\loginProfile;
-use AlibabaCloud\Tea\Model;
 
 class GetLoginProfileResponseBody extends Model
 {
     /**
-     * @description The logon configurations of the RAM user.
-     *
      * @var loginProfile
      */
     public $loginProfile;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'loginProfile' => 'LoginProfile',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->loginProfile) {
+            $this->loginProfile->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loginProfile) {
-            $res['LoginProfile'] = null !== $this->loginProfile ? $this->loginProfile->toMap() : null;
+            $res['LoginProfile'] = null !== $this->loginProfile ? $this->loginProfile->toArray($noStream) : $this->loginProfile;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class GetLoginProfileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLoginProfileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoginProfile'])) {
             $model->loginProfile = loginProfile::fromMap($map['LoginProfile']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

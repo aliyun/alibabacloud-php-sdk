@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPolicyRequest extends Model
 {
     /**
-     * @description The name of the policy.
-     *
-     * @example OSS-Administrator
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description The type of the policy. Valid values: `System` and `Custom`.
-     *
-     * @example Custom
-     *
      * @var string
      */
     public $policyType;
@@ -32,14 +24,16 @@ class GetPolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -47,17 +41,18 @@ class GetPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
