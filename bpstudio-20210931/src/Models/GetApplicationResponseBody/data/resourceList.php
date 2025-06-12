@@ -12,48 +12,56 @@ class resourceList extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $lifecycle;
+
     /**
      * @var string
      */
     public $nodeLabel;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceCode;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'chargeType'   => 'ChargeType',
-        'lifecycle'    => 'Lifecycle',
-        'nodeLabel'    => 'NodeLabel',
-        'remark'       => 'Remark',
+        'chargeType' => 'ChargeType',
+        'lifecycle' => 'Lifecycle',
+        'nodeLabel' => 'NodeLabel',
+        'remark' => 'Remark',
         'resourceCode' => 'ResourceCode',
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class CreateApplicationShrinkRequest extends Model
      * @var string
      */
     public $areaId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configurationShrink;
+
     /**
      * @var string
      */
     public $instancesShrink;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $variablesShrink;
     protected $_name = [
-        'areaId'              => 'AreaId',
-        'clientToken'         => 'ClientToken',
+        'areaId' => 'AreaId',
+        'clientToken' => 'ClientToken',
         'configurationShrink' => 'Configuration',
-        'instancesShrink'     => 'Instances',
-        'name'                => 'Name',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'templateId'          => 'TemplateId',
-        'variablesShrink'     => 'Variables',
+        'instancesShrink' => 'Instances',
+        'name' => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
+        'templateId' => 'TemplateId',
+        'variablesShrink' => 'Variables',
     ];
 
     public function validate()

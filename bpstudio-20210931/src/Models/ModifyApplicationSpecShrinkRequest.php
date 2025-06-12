@@ -12,12 +12,13 @@ class ModifyApplicationSpecShrinkRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $instanceSpecShrink;
     protected $_name = [
-        'applicationId'      => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'instanceSpecShrink' => 'InstanceSpec',
     ];
 

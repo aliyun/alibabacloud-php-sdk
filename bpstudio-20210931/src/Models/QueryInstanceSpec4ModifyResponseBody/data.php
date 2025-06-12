@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->optionalValues) {
             if (\is_array($this->optionalValues)) {
                 $res['OptionalValues'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->optionalValues as $item1) {
                     $res['OptionalValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['OptionalValues'])) {
             if (!empty($map['OptionalValues'])) {
                 $model->optionalValues = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['OptionalValues'] as $item1) {
                     $model->optionalValues[$n1++] = optionalValues::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class GetResult4QueryInstancePrice4ModifyRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'taskId'        => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

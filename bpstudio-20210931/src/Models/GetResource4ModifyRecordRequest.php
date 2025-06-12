@@ -12,18 +12,20 @@ class GetResource4ModifyRecordRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $nextToken;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

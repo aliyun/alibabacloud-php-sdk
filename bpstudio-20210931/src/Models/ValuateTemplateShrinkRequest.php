@@ -12,32 +12,37 @@ class ValuateTemplateShrinkRequest extends Model
      * @var string
      */
     public $areaId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instancesShrink;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $variablesShrink;
     protected $_name = [
-        'areaId'          => 'AreaId',
-        'clientToken'     => 'ClientToken',
+        'areaId' => 'AreaId',
+        'clientToken' => 'ClientToken',
         'instancesShrink' => 'Instances',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
         'variablesShrink' => 'Variables',
     ];
 

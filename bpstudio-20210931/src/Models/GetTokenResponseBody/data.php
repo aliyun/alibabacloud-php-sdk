@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $accessKeyId;
+
     /**
      * @var string
      */
     public $accessKeySecret;
+
     /**
      * @var string
      */
     public $bucket;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $snapshotBucket;
     protected $_name = [
-        'accessKeyId'     => 'AccessKeyId',
+        'accessKeyId' => 'AccessKeyId',
         'accessKeySecret' => 'AccessKeySecret',
-        'bucket'          => 'Bucket',
-        'endpoint'        => 'Endpoint',
-        'securityToken'   => 'SecurityToken',
-        'snapshotBucket'  => 'SnapshotBucket',
+        'bucket' => 'Bucket',
+        'endpoint' => 'Endpoint',
+        'securityToken' => 'SecurityToken',
+        'snapshotBucket' => 'SnapshotBucket',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class ValidateApplicationRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
-        'clientToken'     => 'ClientToken',
+        'applicationId' => 'ApplicationId',
+        'clientToken' => 'ClientToken',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

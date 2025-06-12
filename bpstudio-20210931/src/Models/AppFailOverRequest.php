@@ -12,13 +12,14 @@ class AppFailOverRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $failZone;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'failZone'      => 'FailZone',
+        'failZone' => 'FailZone',
     ];
 
     public function validate()

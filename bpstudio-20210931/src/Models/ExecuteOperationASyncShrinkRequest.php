@@ -12,33 +12,38 @@ class ExecuteOperationASyncShrinkRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $attributesShrink;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $operation;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceType;
     protected $_name = [
-        'applicationId'    => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'attributesShrink' => 'Attributes',
-        'clientToken'      => 'ClientToken',
-        'operation'        => 'Operation',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'serviceType'      => 'ServiceType',
+        'clientToken' => 'ClientToken',
+        'operation' => 'Operation',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceType' => 'ServiceType',
     ];
 
     public function validate()

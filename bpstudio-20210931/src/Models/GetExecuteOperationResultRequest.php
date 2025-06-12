@@ -12,12 +12,13 @@ class GetExecuteOperationResultRequest extends Model
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'operationId'     => 'OperationId',
+        'operationId' => 'OperationId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

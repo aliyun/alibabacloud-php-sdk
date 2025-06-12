@@ -12,16 +12,18 @@ class instances extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $nodeType;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'nodeName' => 'NodeName',
         'nodeType' => 'NodeType',
     ];

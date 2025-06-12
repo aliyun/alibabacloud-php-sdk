@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $imageURL;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $tagId;
+
     /**
      * @var string
      */
     public $tagName;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'imageURL'        => 'ImageURL',
-        'name'            => 'Name',
+        'createTime' => 'CreateTime',
+        'imageURL' => 'ImageURL',
+        'name' => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
-        'tagId'           => 'TagId',
-        'tagName'         => 'TagName',
-        'templateId'      => 'TemplateId',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

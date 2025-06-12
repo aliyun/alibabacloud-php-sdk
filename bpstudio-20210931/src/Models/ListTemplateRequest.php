@@ -12,38 +12,44 @@ class ListTemplateRequest extends Model
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $tagList;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'keyword'         => 'Keyword',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'orderType'       => 'OrderType',
+        'keyword' => 'Keyword',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderType' => 'OrderType',
         'resourceGroupId' => 'ResourceGroupId',
-        'tagList'         => 'TagList',
-        'type'            => 'Type',
+        'tagList' => 'TagList',
+        'type' => 'Type',
     ];
 
     public function validate()

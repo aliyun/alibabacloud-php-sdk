@@ -13,43 +13,50 @@ class resourceList extends Model
      * @var float
      */
     public $discountAmount;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var priceList[]
      */
     public $priceList;
+
     /**
      * @var string
      */
     public $priceUnit;
+
     /**
      * @var string
      */
     public $promotionName;
+
     /**
      * @var float
      */
     public $tradePrice;
     protected $_name = [
         'discountAmount' => 'DiscountAmount',
-        'error'          => 'Error',
-        'nodeType'       => 'NodeType',
-        'originalPrice'  => 'OriginalPrice',
-        'priceList'      => 'PriceList',
-        'priceUnit'      => 'PriceUnit',
-        'promotionName'  => 'PromotionName',
-        'tradePrice'     => 'TradePrice',
+        'error' => 'Error',
+        'nodeType' => 'NodeType',
+        'originalPrice' => 'OriginalPrice',
+        'priceList' => 'PriceList',
+        'priceUnit' => 'PriceUnit',
+        'promotionName' => 'PromotionName',
+        'tradePrice' => 'TradePrice',
     ];
 
     public function validate()
@@ -82,7 +89,7 @@ class resourceList extends Model
         if (null !== $this->priceList) {
             if (\is_array($this->priceList)) {
                 $res['PriceList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->priceList as $item1) {
                     $res['PriceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +138,7 @@ class resourceList extends Model
         if (isset($map['PriceList'])) {
             if (!empty($map['PriceList'])) {
                 $model->priceList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PriceList'] as $item1) {
                     $model->priceList[$n1++] = priceList::fromMap($item1);
                 }

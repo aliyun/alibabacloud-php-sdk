@@ -16,73 +16,86 @@ class data extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var checklist[]
      */
     public $checklist;
+
     /**
      * @var complianceList[]
      */
     public $complianceList;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var float
      */
     public $deployPercent;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $imageURL;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var priceList[]
      */
     public $priceList;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var resourceList[]
      */
     public $resourceList;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
-        'checklist'       => 'Checklist',
-        'complianceList'  => 'ComplianceList',
-        'createTime'      => 'CreateTime',
-        'deployPercent'   => 'DeployPercent',
-        'description'     => 'Description',
-        'error'           => 'Error',
-        'imageURL'        => 'ImageURL',
-        'name'            => 'Name',
-        'priceList'       => 'PriceList',
+        'applicationId' => 'ApplicationId',
+        'checklist' => 'Checklist',
+        'complianceList' => 'ComplianceList',
+        'createTime' => 'CreateTime',
+        'deployPercent' => 'DeployPercent',
+        'description' => 'Description',
+        'error' => 'Error',
+        'imageURL' => 'ImageURL',
+        'name' => 'Name',
+        'priceList' => 'PriceList',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceList'    => 'ResourceList',
-        'status'          => 'Status',
-        'templateId'      => 'TemplateId',
+        'resourceList' => 'ResourceList',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -112,7 +125,7 @@ class data extends Model
         if (null !== $this->checklist) {
             if (\is_array($this->checklist)) {
                 $res['Checklist'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->checklist as $item1) {
                     $res['Checklist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -122,7 +135,7 @@ class data extends Model
         if (null !== $this->complianceList) {
             if (\is_array($this->complianceList)) {
                 $res['ComplianceList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->complianceList as $item1) {
                     $res['ComplianceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -156,7 +169,7 @@ class data extends Model
         if (null !== $this->priceList) {
             if (\is_array($this->priceList)) {
                 $res['PriceList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->priceList as $item1) {
                     $res['PriceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +183,7 @@ class data extends Model
         if (null !== $this->resourceList) {
             if (\is_array($this->resourceList)) {
                 $res['ResourceList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->resourceList as $item1) {
                     $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -203,7 +216,7 @@ class data extends Model
         if (isset($map['Checklist'])) {
             if (!empty($map['Checklist'])) {
                 $model->checklist = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Checklist'] as $item1) {
                     $model->checklist[$n1++] = checklist::fromMap($item1);
                 }
@@ -213,7 +226,7 @@ class data extends Model
         if (isset($map['ComplianceList'])) {
             if (!empty($map['ComplianceList'])) {
                 $model->complianceList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ComplianceList'] as $item1) {
                     $model->complianceList[$n1++] = complianceList::fromMap($item1);
                 }
@@ -247,7 +260,7 @@ class data extends Model
         if (isset($map['PriceList'])) {
             if (!empty($map['PriceList'])) {
                 $model->priceList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PriceList'] as $item1) {
                     $model->priceList[$n1++] = priceList::fromMap($item1);
                 }
@@ -261,7 +274,7 @@ class data extends Model
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
                 $model->resourceList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ResourceList'] as $item1) {
                     $model->resourceList[$n1++] = resourceList::fromMap($item1);
                 }

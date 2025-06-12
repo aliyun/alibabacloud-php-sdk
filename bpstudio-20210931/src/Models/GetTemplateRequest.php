@@ -12,18 +12,20 @@ class GetTemplateRequest extends Model
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'region'          => 'Region',
+        'region' => 'Region',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

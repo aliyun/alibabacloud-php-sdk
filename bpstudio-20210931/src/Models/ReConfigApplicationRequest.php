@@ -12,12 +12,13 @@ class ReConfigApplicationRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $variables;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'variables' => 'Variables',
     ];
 

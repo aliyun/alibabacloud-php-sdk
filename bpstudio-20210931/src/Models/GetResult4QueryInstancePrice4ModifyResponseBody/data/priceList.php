@@ -12,38 +12,44 @@ class priceList extends Model
      * @var float
      */
     public $discountAmount;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var float
      */
     public $originalAmount;
+
     /**
      * @var string
      */
     public $priceUnit;
+
     /**
      * @var string
      */
     public $promotionName;
+
     /**
      * @var float
      */
     public $tradeAmount;
     protected $_name = [
         'discountAmount' => 'DiscountAmount',
-        'error'          => 'Error',
-        'nodeType'       => 'NodeType',
+        'error' => 'Error',
+        'nodeType' => 'NodeType',
         'originalAmount' => 'OriginalAmount',
-        'priceUnit'      => 'PriceUnit',
-        'promotionName'  => 'PromotionName',
-        'tradeAmount'    => 'TradeAmount',
+        'priceUnit' => 'PriceUnit',
+        'promotionName' => 'PromotionName',
+        'tradeAmount' => 'TradeAmount',
     ];
 
     public function validate()

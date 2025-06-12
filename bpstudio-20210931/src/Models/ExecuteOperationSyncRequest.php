@@ -12,33 +12,38 @@ class ExecuteOperationSyncRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var mixed[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $operation;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceType;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
-        'attributes'      => 'Attributes',
-        'clientToken'     => 'ClientToken',
-        'operation'       => 'Operation',
+        'applicationId' => 'ApplicationId',
+        'attributes' => 'Attributes',
+        'clientToken' => 'ClientToken',
+        'operation' => 'Operation',
         'resourceGroupId' => 'ResourceGroupId',
-        'serviceType'     => 'ServiceType',
+        'serviceType' => 'ServiceType',
     ];
 
     public function validate()

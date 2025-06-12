@@ -12,12 +12,13 @@ class variableList extends Model
      * @var string
      */
     public $value;
+
     /**
      * @var string
      */
     public $variable;
     protected $_name = [
-        'value'    => 'Value',
+        'value' => 'Value',
         'variable' => 'Variable',
     ];
 

@@ -13,18 +13,20 @@ class data extends Model
      * @var priceList[]
      */
     public $priceList;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'priceList' => 'PriceList',
-        'status'    => 'Status',
-        'taskId'    => 'TaskId',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class data extends Model
         if (null !== $this->priceList) {
             if (\is_array($this->priceList)) {
                 $res['PriceList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->priceList as $item1) {
                     $res['PriceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class data extends Model
         if (isset($map['PriceList'])) {
             if (!empty($map['PriceList'])) {
                 $model->priceList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PriceList'] as $item1) {
                     $model->priceList[$n1++] = priceList::fromMap($item1);
                 }

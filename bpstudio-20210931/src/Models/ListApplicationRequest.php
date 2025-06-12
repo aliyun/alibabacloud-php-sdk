@@ -12,43 +12,56 @@ class ListApplicationRequest extends Model
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
+    /**
+     * @var bool
+     */
+    public $showHide;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'keyword'         => 'Keyword',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'orderType'       => 'OrderType',
+        'keyword' => 'Keyword',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderType' => 'OrderType',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'status'          => 'Status',
-        'templateId'      => 'TemplateId',
+        'resourceId' => 'ResourceId',
+        'showHide' => 'ShowHide',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -81,6 +94,10 @@ class ListApplicationRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->showHide) {
+            $res['ShowHide'] = $this->showHide;
         }
 
         if (null !== $this->status) {
@@ -124,6 +141,10 @@ class ListApplicationRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ShowHide'])) {
+            $model->showHide = $map['ShowHide'];
         }
 
         if (isset($map['Status'])) {

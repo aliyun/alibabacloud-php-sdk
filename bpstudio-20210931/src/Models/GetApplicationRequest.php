@@ -12,12 +12,13 @@ class GetApplicationRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

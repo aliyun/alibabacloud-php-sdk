@@ -13,43 +13,50 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $areaId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $configuration;
+
     /**
      * @var instances[]
      */
     public $instances;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var mixed[]
      */
     public $variables;
     protected $_name = [
-        'areaId'          => 'AreaId',
-        'clientToken'     => 'ClientToken',
-        'configuration'   => 'Configuration',
-        'instances'       => 'Instances',
-        'name'            => 'Name',
+        'areaId' => 'AreaId',
+        'clientToken' => 'ClientToken',
+        'configuration' => 'Configuration',
+        'instances' => 'Instances',
+        'name' => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
-        'templateId'      => 'TemplateId',
-        'variables'       => 'Variables',
+        'templateId' => 'TemplateId',
+        'variables' => 'Variables',
     ];
 
     public function validate()
@@ -89,7 +96,7 @@ class CreateApplicationRequest extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['Instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +155,7 @@ class CreateApplicationRequest extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
                     $model->instances[$n1++] = instances::fromMap($item1);
                 }

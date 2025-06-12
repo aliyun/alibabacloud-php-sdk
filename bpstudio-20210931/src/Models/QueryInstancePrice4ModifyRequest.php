@@ -12,10 +12,12 @@ class QueryInstancePrice4ModifyRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var mixed[]
      */
     public $configuration;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class QueryInstancePrice4ModifyRequest extends Model
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'configuration' => 'Configuration',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

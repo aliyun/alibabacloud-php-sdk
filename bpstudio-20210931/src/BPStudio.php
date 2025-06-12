@@ -120,6 +120,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - AppFailBackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AppFailBackResponse
      *
      * @param AppFailBackRequest $request
@@ -139,21 +140,18 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AppFailBack',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AppFailBack',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AppFailBackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AppFailBackResponse::fromMap($this->execute($params, $req, $runtime));
+        return AppFailBackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -163,6 +161,7 @@ class BPStudio extends OpenApiClient
      * You can call this operation to switch a disaster recovery application back to the primary zone.
      *
      * @param request - AppFailBackRequest
+     *
      * @returns AppFailBackResponse
      *
      * @param AppFailBackRequest $request
@@ -184,6 +183,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - AppFailOverRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AppFailOverResponse
      *
      * @param AppFailOverRequest $request
@@ -207,21 +207,18 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AppFailOver',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AppFailOver',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AppFailOverResponse::fromMap($this->execute($params, $req, $runtime));
+        return AppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -231,6 +228,7 @@ class BPStudio extends OpenApiClient
      * You can call this operation to switch a disaster recovery application to another supported zone.
      *
      * @param request - AppFailOverRequest
+     *
      * @returns AppFailOverResponse
      *
      * @param AppFailOverRequest $request
@@ -249,6 +247,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -276,27 +275,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Changes the resource group to which an application or template belongs.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -315,6 +312,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - CreateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApplicationResponse
      *
      * @param CreateApplicationRequest $tmpReq
@@ -376,27 +374,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates an application based on an official template or private template in Cloud Architect Design Tool (CADT). Before you call this operation, make sure that you understand the billing methods and prices of Alibaba Cloud services to be used in the application.
      *
      * @param request - CreateApplicationRequest
+     *
      * @returns CreateApplicationResponse
      *
      * @param CreateApplicationRequest $request
@@ -418,6 +414,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - DeleteApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApplicationResponse
      *
      * @param DeleteApplicationRequest $request
@@ -441,21 +438,18 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -465,6 +459,7 @@ class BPStudio extends OpenApiClient
      * Before you call this operation to delete an application, make sure that the application is in the `Destroyed_Success` state. Otherwise, the application fails to be deleted.`` You can call the [GetApplication](https://www.alibabacloud.com/help/en/bp-studio/latest/api-bpstudio-2021-09-31-getapplication) operation to query the status of an application.
      *
      * @param request - DeleteApplicationRequest
+     *
      * @returns DeleteApplicationResponse
      *
      * @param DeleteApplicationRequest $request
@@ -483,6 +478,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - DeployApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeployApplicationResponse
      *
      * @param DeployApplicationRequest $request
@@ -509,30 +505,28 @@ class BPStudio extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeployApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeployApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeployApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeployApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeployApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deploys an application after the payment.
      *
      * @param request - DeployApplicationRequest
+     *
      * @returns DeployApplicationResponse
      *
      * @param DeployApplicationRequest $request
@@ -551,6 +545,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - ExecuteOperationASyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteOperationASyncResponse
      *
      * @param ExecuteOperationASyncRequest $tmpReq
@@ -596,27 +591,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteOperationASync',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteOperationASync',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteOperationASyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteOperationASyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteOperationASyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Asynchronous execution of product operation functions.
      *
      * @param request - ExecuteOperationASyncRequest
+     *
      * @returns ExecuteOperationASyncResponse
      *
      * @param ExecuteOperationASyncRequest $request
@@ -635,6 +628,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - ExecuteOperationSyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteOperationSyncResponse
      *
      * @param ExecuteOperationSyncRequest $tmpReq
@@ -680,27 +674,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteOperationSync',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteOperationSync',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteOperationSyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteOperationSyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteOperationSyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 维护应用下资源API（同步操作）.
      *
      * @param request - ExecuteOperationSyncRequest
+     *
      * @returns ExecuteOperationSyncResponse
      *
      * @param ExecuteOperationSyncRequest $request
@@ -719,6 +711,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApplicationResponse
      *
      * @param GetApplicationRequest $request
@@ -742,27 +735,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * The URL of the application topology image.
      *
      * @param request - GetApplicationRequest
+     *
      * @returns GetApplicationResponse
      *
      * @param GetApplicationRequest $request
@@ -781,6 +772,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetApplicationVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApplicationVariablesResponse
      *
      * @param GetApplicationVariablesRequest $request
@@ -800,27 +792,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetApplicationVariables',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApplicationVariables',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApplicationVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationVariablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取应用输入参数.
      *
      * @param request - GetApplicationVariablesRequest
+     *
      * @returns GetApplicationVariablesResponse
      *
      * @param GetApplicationVariablesRequest $request
@@ -839,6 +829,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetApplicationVariables4FailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApplicationVariables4FailResponse
      *
      * @param GetApplicationVariables4FailRequest $request
@@ -858,27 +849,25 @@ class BPStudio extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApplicationVariables4Fail',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApplicationVariables4Fail',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApplicationVariables4FailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationVariables4FailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationVariables4FailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取需要重新配置的变量列表.
      *
      * @param request - GetApplicationVariables4FailRequest
+     *
      * @returns GetApplicationVariables4FailResponse
      *
      * @param GetApplicationVariables4FailRequest $request
@@ -897,6 +886,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetExecuteOperationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetExecuteOperationResultResponse
      *
      * @param GetExecuteOperationResultRequest $request
@@ -920,27 +910,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetExecuteOperationResult',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExecuteOperationResult',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetExecuteOperationResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetExecuteOperationResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetExecuteOperationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Asynchronously queries the result of an operation that is performed on a service instance.
      *
      * @param request - GetExecuteOperationResultRequest
+     *
      * @returns GetExecuteOperationResultResponse
      *
      * @param GetExecuteOperationResultRequest $request
@@ -962,6 +950,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetFoTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFoTaskStatusResponse
      *
      * @param GetFoTaskStatusRequest $request
@@ -981,21 +970,18 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFoTaskStatus',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFoTaskStatus',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFoTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFoTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFoTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1005,6 +991,7 @@ class BPStudio extends OpenApiClient
      * You can call this operation to query the status of a disaster recovery switchover task by task ID.
      *
      * @param request - GetFoTaskStatusRequest
+     *
      * @returns GetFoTaskStatusResponse
      *
      * @param GetFoTaskStatusRequest $request
@@ -1026,6 +1013,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetPotentialFailZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPotentialFailZonesResponse
      *
      * @param GetPotentialFailZonesRequest $request
@@ -1049,21 +1037,18 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPotentialFailZones',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPotentialFailZones',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPotentialFailZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPotentialFailZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPotentialFailZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1073,6 +1058,7 @@ class BPStudio extends OpenApiClient
      * You can call this operation to query the zones where the specified disaster recovery service can be switched.
      *
      * @param request - GetPotentialFailZonesRequest
+     *
      * @returns GetPotentialFailZonesResponse
      *
      * @param GetPotentialFailZonesRequest $request
@@ -1091,6 +1077,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetResource4ModifyRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResource4ModifyRecordResponse
      *
      * @param GetResource4ModifyRecordRequest $request
@@ -1118,27 +1105,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetResource4ModifyRecord',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResource4ModifyRecord',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResource4ModifyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResource4ModifyRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResource4ModifyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取询价应用变配记录.
      *
      * @param request - GetResource4ModifyRecordRequest
+     *
      * @returns GetResource4ModifyRecordResponse
      *
      * @param GetResource4ModifyRecordRequest $request
@@ -1157,6 +1142,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetResult4QueryInstancePrice4ModifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResult4QueryInstancePrice4ModifyResponse
      *
      * @param GetResult4QueryInstancePrice4ModifyRequest $request
@@ -1180,27 +1166,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetResult4QueryInstancePrice4Modify',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResult4QueryInstancePrice4Modify',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResult4QueryInstancePrice4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResult4QueryInstancePrice4ModifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResult4QueryInstancePrice4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取询价结果.
      *
      * @param request - GetResult4QueryInstancePrice4ModifyRequest
+     *
      * @returns GetResult4QueryInstancePrice4ModifyResponse
      *
      * @param GetResult4QueryInstancePrice4ModifyRequest $request
@@ -1219,6 +1203,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateResponse
      *
      * @param GetTemplateRequest $request
@@ -1246,27 +1231,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplate',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplate',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Gets template images and information about architecture diagrams.
      *
      * @param request - GetTemplateRequest
+     *
      * @returns GetTemplateResponse
      *
      * @param GetTemplateRequest $request
@@ -1281,7 +1264,6 @@ class BPStudio extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
      *
@@ -1292,6 +1274,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - GetTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTokenResponse
      *
      * @param GetTokenRequest $request
@@ -1311,25 +1294,21 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetToken',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetToken',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * Obtains a temporary token that is used to read the architecture diagram. The validity period of the token is 30 minutes.
      *
@@ -1339,6 +1318,7 @@ class BPStudio extends OpenApiClient
      * @deprecated openAPI GetToken is deprecated, please use BPStudio::2021-09-31::GetApplication instead
      *
      * @param request - GetTokenRequest
+     *
      * @returns GetTokenResponse
      *
      * @param GetTokenRequest $request
@@ -1360,6 +1340,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - InitAppFailOverRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitAppFailOverResponse
      *
      * @param InitAppFailOverRequest $request
@@ -1379,21 +1360,18 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InitAppFailOver',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitAppFailOver',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitAppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitAppFailOverResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitAppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1403,6 +1381,7 @@ class BPStudio extends OpenApiClient
      * You can call this operation to prepare for application switchover and initiate a switchover task.
      *
      * @param request - InitAppFailOverRequest
+     *
      * @returns InitAppFailOverResponse
      *
      * @param InitAppFailOverRequest $request
@@ -1421,6 +1400,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ListApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApplicationResponse
      *
      * @param ListApplicationRequest $request
@@ -1456,6 +1436,10 @@ class BPStudio extends OpenApiClient
             @$body['ResourceId'] = $request->resourceId;
         }
 
+        if (null !== $request->showHide) {
+            @$body['ShowHide'] = $request->showHide;
+        }
+
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
         }
@@ -1468,27 +1452,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * This API provides a list of all applications under the current user. The optional keyword parameter defines the keywords contained in the application name.
      *
      * @param request - ListApplicationRequest
+     *
      * @returns ListApplicationResponse
      *
      * @param ListApplicationRequest $request
@@ -1510,6 +1492,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ListFoCreatedAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFoCreatedAppsResponse
      *
      * @param RuntimeOptions $runtime
@@ -1518,23 +1501,20 @@ class BPStudio extends OpenApiClient
      */
     public function listFoCreatedAppsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListFoCreatedApps',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFoCreatedApps',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFoCreatedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFoCreatedAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFoCreatedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1542,6 +1522,7 @@ class BPStudio extends OpenApiClient
      *
      * @remarks
      * Queries the information about all disaster recovery plans of the current account.
+     *
      * @returns ListFoCreatedAppsResponse
      *
      * @return ListFoCreatedAppsResponse
@@ -1558,6 +1539,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -1600,27 +1582,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the tags of one or more applications or templates.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -1639,6 +1619,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ListTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTemplateResponse
      *
      * @param ListTemplateRequest $request
@@ -1682,27 +1663,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplate',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTemplate',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
      *
      * @param request - ListTemplateRequest
+     *
      * @returns ListTemplateResponse
      *
      * @param ListTemplateRequest $request
@@ -1721,6 +1700,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - ModifyApplicationSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApplicationSpecResponse
      *
      * @param ModifyApplicationSpecRequest $tmpReq
@@ -1750,27 +1730,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApplicationSpec',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApplicationSpec',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyApplicationSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyApplicationSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyApplicationSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 提交应用变配.
      *
      * @param request - ModifyApplicationSpecRequest
+     *
      * @returns ModifyApplicationSpecResponse
      *
      * @param ModifyApplicationSpecRequest $request
@@ -1789,6 +1767,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - QueryInstancePrice4ModifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryInstancePrice4ModifyResponse
      *
      * @param QueryInstancePrice4ModifyRequest $tmpReq
@@ -1822,27 +1801,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstancePrice4Modify',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstancePrice4Modify',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryInstancePrice4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryInstancePrice4ModifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryInstancePrice4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询变配价格
      *
      * @param request - QueryInstancePrice4ModifyRequest
+     *
      * @returns QueryInstancePrice4ModifyResponse
      *
      * @param QueryInstancePrice4ModifyRequest $request
@@ -1861,6 +1838,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - QueryInstanceSpec4ModifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryInstanceSpec4ModifyResponse
      *
      * @param QueryInstanceSpec4ModifyRequest $tmpReq
@@ -1898,27 +1876,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstanceSpec4Modify',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstanceSpec4Modify',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryInstanceSpec4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryInstanceSpec4ModifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryInstanceSpec4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询变配规格列表.
      *
      * @param request - QueryInstanceSpec4ModifyRequest
+     *
      * @returns QueryInstanceSpec4ModifyResponse
      *
      * @param QueryInstanceSpec4ModifyRequest $request
@@ -1937,6 +1913,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ReConfigApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReConfigApplicationResponse
      *
      * @param ReConfigApplicationRequest $request
@@ -1960,27 +1937,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReConfigApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReConfigApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReConfigApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReConfigApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReConfigApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 重新配置应用.
      *
      * @param request - ReConfigApplicationRequest
+     *
      * @returns ReConfigApplicationResponse
      *
      * @param ReConfigApplicationRequest $request
@@ -1999,6 +1974,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ReleaseApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseApplicationResponse
      *
      * @param ReleaseApplicationRequest $request
@@ -2026,27 +2002,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Releases the resources of an application.
      *
      * @param request - ReleaseApplicationRequest
+     *
      * @returns ReleaseApplicationResponse
      *
      * @param ReleaseApplicationRequest $request
@@ -2065,6 +2039,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ValidateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValidateApplicationResponse
      *
      * @param ValidateApplicationRequest $request
@@ -2091,30 +2066,28 @@ class BPStudio extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ValidateApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValidateApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValidateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Verifies the resources of an application. ValidateApplication is an asynchronous operation. You can call the GetApplication operation to query the verification result.
      *
      * @param request - ValidateApplicationRequest
+     *
      * @returns ValidateApplicationResponse
      *
      * @param ValidateApplicationRequest $request
@@ -2133,6 +2106,7 @@ class BPStudio extends OpenApiClient
      *
      * @param request - ValuateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValuateApplicationResponse
      *
      * @param ValuateApplicationRequest $request
@@ -2160,27 +2134,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ValuateApplication',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValuateApplication',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValuateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValuateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValuateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the prices of resources of an application. You can call the GetApplication operation to obtain the query results.
      *
      * @param request - ValuateApplicationRequest
+     *
      * @returns ValuateApplicationResponse
      *
      * @param ValuateApplicationRequest $request
@@ -2199,6 +2171,7 @@ class BPStudio extends OpenApiClient
      *
      * @param tmpReq - ValuateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValuateTemplateResponse
      *
      * @param ValuateTemplateRequest $tmpReq
@@ -2248,27 +2221,25 @@ class BPStudio extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ValuateTemplate',
-            'version'     => '2021-09-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValuateTemplate',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValuateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValuateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValuateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the price of a template.
      *
      * @param request - ValuateTemplateRequest
+     *
      * @returns ValuateTemplateResponse
      *
      * @param ValuateTemplateRequest $request

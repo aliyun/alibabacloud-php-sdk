@@ -12,22 +12,25 @@ class QueryInstanceSpec4ModifyShrinkRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var string
      */
     public $parametersShrink;
     protected $_name = [
-        'applicationId'    => 'ApplicationId',
-        'instanceId'       => 'InstanceId',
-        'methodName'       => 'MethodName',
+        'applicationId' => 'ApplicationId',
+        'instanceId' => 'InstanceId',
+        'methodName' => 'MethodName',
         'parametersShrink' => 'Parameters',
     ];
 

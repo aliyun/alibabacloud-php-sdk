@@ -12,28 +12,32 @@ class variables extends Model
      * @var string
      */
     public $attribute;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $options;
+
     /**
      * @var string
      */
     public $variable;
     protected $_name = [
-        'attribute'    => 'Attribute',
-        'dataType'     => 'DataType',
+        'attribute' => 'Attribute',
+        'dataType' => 'DataType',
         'defaultValue' => 'DefaultValue',
-        'options'      => 'Options',
-        'variable'     => 'Variable',
+        'options' => 'Options',
+        'variable' => 'Variable',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $attribute;
+
     /**
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $placeHolder;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var string
      */
     public $variable;
     protected $_name = [
-        'attribute'    => 'Attribute',
+        'attribute' => 'Attribute',
         'defaultValue' => 'DefaultValue',
-        'placeHolder'  => 'PlaceHolder',
-        'region'       => 'Region',
-        'value'        => 'Value',
-        'variable'     => 'Variable',
+        'placeHolder' => 'PlaceHolder',
+        'region' => 'Region',
+        'value' => 'Value',
+        'variable' => 'Variable',
     ];
 
     public function validate()

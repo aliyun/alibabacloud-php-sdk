@@ -12,6 +12,7 @@ class GetPotentialFailZonesRequest extends Model
      * @var bool
      */
     public $isPlanId;
+
     /**
      * @var string
      */

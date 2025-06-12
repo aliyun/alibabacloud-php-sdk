@@ -12,18 +12,20 @@ class QueryInstancePrice4ModifyShrinkRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $configurationShrink;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'applicationId'       => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'configurationShrink' => 'Configuration',
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

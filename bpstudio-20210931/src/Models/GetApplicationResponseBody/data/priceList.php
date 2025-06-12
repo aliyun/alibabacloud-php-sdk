@@ -12,73 +12,86 @@ class priceList extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lifecycle;
+
     /**
      * @var float
      */
     public $onePrice;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var float
      */
     public $price;
+
     /**
      * @var string
      */
     public $priceUnit;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceCode;
+
     /**
      * @var string
      */
     public $specification;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'chargeType'    => 'ChargeType',
-        'count'         => 'Count',
-        'instanceName'  => 'InstanceName',
-        'lifecycle'     => 'Lifecycle',
-        'onePrice'      => 'OnePrice',
+        'chargeType' => 'ChargeType',
+        'count' => 'Count',
+        'instanceName' => 'InstanceName',
+        'lifecycle' => 'Lifecycle',
+        'onePrice' => 'OnePrice',
         'originalPrice' => 'OriginalPrice',
-        'period'        => 'Period',
-        'price'         => 'Price',
-        'priceUnit'     => 'PriceUnit',
-        'region'        => 'Region',
-        'remark'        => 'Remark',
-        'resourceCode'  => 'ResourceCode',
+        'period' => 'Period',
+        'price' => 'Price',
+        'priceUnit' => 'PriceUnit',
+        'region' => 'Region',
+        'remark' => 'Remark',
+        'resourceCode' => 'ResourceCode',
         'specification' => 'Specification',
-        'type'          => 'type',
+        'type' => 'type',
     ];
 
     public function validate()

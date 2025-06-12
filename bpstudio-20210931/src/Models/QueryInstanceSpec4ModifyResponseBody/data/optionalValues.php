@@ -12,27 +12,31 @@ class optionalValues extends Model
      * @var string
      */
     public $label;
+
     /**
      * @var float
      */
     public $max;
+
     /**
      * @var float
      */
     public $min;
+
     /**
      * @var float
      */
     public $step;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'label' => 'Label',
-        'max'   => 'Max',
-        'min'   => 'Min',
-        'step'  => 'Step',
+        'max' => 'Max',
+        'min' => 'Min',
+        'step' => 'Step',
         'value' => 'Value',
     ];
 

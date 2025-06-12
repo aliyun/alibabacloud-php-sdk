@@ -12,13 +12,14 @@ class instanceSpec extends Model
      * @var mixed[]
      */
     public $configuration;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'configuration' => 'Configuration',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

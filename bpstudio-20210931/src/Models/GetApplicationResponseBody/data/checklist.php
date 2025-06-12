@@ -12,37 +12,43 @@ class checklist extends Model
      * @var string
      */
     public $lifecycle;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceCode;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $specification;
     protected $_name = [
-        'lifecycle'     => 'Lifecycle',
-        'region'        => 'Region',
-        'remark'        => 'Remark',
-        'resourceCode'  => 'ResourceCode',
-        'resourceName'  => 'ResourceName',
-        'result'        => 'Result',
+        'lifecycle' => 'Lifecycle',
+        'region' => 'Region',
+        'remark' => 'Remark',
+        'resourceCode' => 'ResourceCode',
+        'resourceName' => 'ResourceName',
+        'result' => 'Result',
         'specification' => 'Specification',
     ];
 

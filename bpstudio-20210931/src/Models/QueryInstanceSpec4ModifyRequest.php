@@ -12,23 +12,26 @@ class QueryInstanceSpec4ModifyRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var mixed[]
      */
     public $parameters;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'instanceId'    => 'InstanceId',
-        'methodName'    => 'MethodName',
-        'parameters'    => 'Parameters',
+        'instanceId' => 'InstanceId',
+        'methodName' => 'MethodName',
+        'parameters' => 'Parameters',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class priceList extends Model
      * @var float
      */
     public $discountAmount;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var string
      */
     public $priceUnit;
+
     /**
      * @var string
      */
     public $promotionName;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var float
      */
     public $tradePrice;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'discountAmount' => 'DiscountAmount',
-        'error'          => 'Error',
-        'nodeType'       => 'NodeType',
-        'originalPrice'  => 'OriginalPrice',
-        'priceUnit'      => 'PriceUnit',
-        'promotionName'  => 'PromotionName',
-        'resourceId'     => 'ResourceId',
-        'tradePrice'     => 'TradePrice',
-        'type'           => 'Type',
+        'error' => 'Error',
+        'nodeType' => 'NodeType',
+        'originalPrice' => 'OriginalPrice',
+        'priceUnit' => 'PriceUnit',
+        'promotionName' => 'PromotionName',
+        'resourceId' => 'ResourceId',
+        'tradePrice' => 'TradePrice',
+        'type' => 'Type',
     ];
 
     public function validate()
