@@ -20,12 +20,18 @@ class resource extends Model
     public $disks;
 
     /**
+     * @var string[]
+     */
+    public $instanceTypes;
+
+    /**
      * @var float
      */
     public $memory;
     protected $_name = [
         'cores' => 'Cores',
         'disks' => 'Disks',
+        'instanceTypes' => 'InstanceTypes',
         'memory' => 'Memory',
     ];
 
@@ -33,6 +39,9 @@ class resource extends Model
     {
         if (\is_array($this->disks)) {
             Model::validateArray($this->disks);
+        }
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
         }
         parent::validate();
     }
@@ -50,6 +59,16 @@ class resource extends Model
                 $n1 = 0;
                 foreach ($this->disks as $item1) {
                     $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->instanceTypes) {
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1++] = $item1;
                 }
             }
         }
@@ -79,6 +98,16 @@ class resource extends Model
                 $n1 = 0;
                 foreach ($map['Disks'] as $item1) {
                     $model->disks[$n1++] = disks::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['InstanceTypes'])) {
+            if (!empty($map['InstanceTypes'])) {
+                $model->instanceTypes = [];
+                $n1 = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1++] = $item1;
                 }
             }
         }

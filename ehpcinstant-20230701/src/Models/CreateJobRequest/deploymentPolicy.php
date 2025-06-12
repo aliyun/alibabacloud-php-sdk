@@ -26,6 +26,16 @@ class deploymentPolicy extends Model
     public $network;
 
     /**
+     * @var string
+     */
+    public $pool;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -33,6 +43,8 @@ class deploymentPolicy extends Model
         'allocationSpec' => 'AllocationSpec',
         'level' => 'Level',
         'network' => 'Network',
+        'pool' => 'Pool',
+        'priority' => 'Priority',
         'tag' => 'Tag',
     ];
 
@@ -60,6 +72,14 @@ class deploymentPolicy extends Model
 
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->pool) {
+            $res['Pool'] = $this->pool;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->tag) {
@@ -93,6 +113,14 @@ class deploymentPolicy extends Model
 
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
+        }
+
+        if (isset($map['Pool'])) {
+            $model->pool = $map['Pool'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['Tag'])) {

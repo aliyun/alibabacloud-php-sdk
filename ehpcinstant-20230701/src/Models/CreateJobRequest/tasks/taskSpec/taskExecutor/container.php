@@ -17,6 +17,11 @@ class container extends Model
     /**
      * @var string[]
      */
+    public $arg;
+
+    /**
+     * @var string[]
+     */
     public $command;
 
     /**
@@ -35,6 +40,7 @@ class container extends Model
     public $workingDir;
     protected $_name = [
         'appId' => 'AppId',
+        'arg' => 'Arg',
         'command' => 'Command',
         'environmentVars' => 'EnvironmentVars',
         'image' => 'Image',
@@ -43,6 +49,9 @@ class container extends Model
 
     public function validate()
     {
+        if (\is_array($this->arg)) {
+            Model::validateArray($this->arg);
+        }
         if (\is_array($this->command)) {
             Model::validateArray($this->command);
         }
@@ -57,6 +66,16 @@ class container extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->arg) {
+            if (\is_array($this->arg)) {
+                $res['Arg'] = [];
+                $n1 = 0;
+                foreach ($this->arg as $item1) {
+                    $res['Arg'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->command) {
@@ -100,6 +119,16 @@ class container extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['Arg'])) {
+            if (!empty($map['Arg'])) {
+                $model->arg = [];
+                $n1 = 0;
+                foreach ($map['Arg'] as $item1) {
+                    $model->arg[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['Command'])) {

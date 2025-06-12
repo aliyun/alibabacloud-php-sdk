@@ -19,12 +19,18 @@ class volumeMount extends Model
     public $mountPath;
 
     /**
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
      * @var string
      */
     public $volumeDriver;
     protected $_name = [
         'mountOptions' => 'MountOptions',
         'mountPath' => 'MountPath',
+        'readOnly' => 'ReadOnly',
         'volumeDriver' => 'VolumeDriver',
     ];
 
@@ -42,6 +48,10 @@ class volumeMount extends Model
 
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
+        }
+
+        if (null !== $this->readOnly) {
+            $res['ReadOnly'] = $this->readOnly;
         }
 
         if (null !== $this->volumeDriver) {
@@ -65,6 +75,10 @@ class volumeMount extends Model
 
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
+        }
+
+        if (isset($map['ReadOnly'])) {
+            $model->readOnly = $map['ReadOnly'];
         }
 
         if (isset($map['VolumeDriver'])) {

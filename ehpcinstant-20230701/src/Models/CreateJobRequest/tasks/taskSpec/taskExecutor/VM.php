@@ -21,6 +21,11 @@ class VM extends Model
     /**
      * @var string
      */
+    public $password;
+
+    /**
+     * @var string
+     */
     public $prologScript;
 
     /**
@@ -30,6 +35,7 @@ class VM extends Model
     protected $_name = [
         'appId' => 'AppId',
         'image' => 'Image',
+        'password' => 'Password',
         'prologScript' => 'PrologScript',
         'script' => 'Script',
     ];
@@ -48,6 +54,10 @@ class VM extends Model
 
         if (null !== $this->image) {
             $res['Image'] = $this->image;
+        }
+
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
 
         if (null !== $this->prologScript) {
@@ -75,6 +85,10 @@ class VM extends Model
 
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
 
         if (isset($map['PrologScript'])) {
