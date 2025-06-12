@@ -11,12 +11,12 @@ class DeviceRegisterRequest extends Model
     /**
      * @var string
      */
-    public $nonce;
+    public $appId;
 
     /**
      * @var string
      */
-    public $productKey;
+    public $nonce;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class DeviceRegisterRequest extends Model
      */
     public $signature;
     protected $_name = [
+        'appId' => 'appId',
         'nonce' => 'nonce',
-        'productKey' => 'productKey',
         'requestTime' => 'requestTime',
         'signature' => 'signature',
     ];
@@ -42,12 +42,12 @@ class DeviceRegisterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->nonce) {
-            $res['nonce'] = $this->nonce;
+        if (null !== $this->appId) {
+            $res['appId'] = $this->appId;
         }
 
-        if (null !== $this->productKey) {
-            $res['productKey'] = $this->productKey;
+        if (null !== $this->nonce) {
+            $res['nonce'] = $this->nonce;
         }
 
         if (null !== $this->requestTime) {
@@ -69,12 +69,12 @@ class DeviceRegisterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['nonce'])) {
-            $model->nonce = $map['nonce'];
+        if (isset($map['appId'])) {
+            $model->appId = $map['appId'];
         }
 
-        if (isset($map['productKey'])) {
-            $model->productKey = $map['productKey'];
+        if (isset($map['nonce'])) {
+            $model->nonce = $map['nonce'];
         }
 
         if (isset($map['requestTime'])) {

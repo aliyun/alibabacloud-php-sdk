@@ -11,17 +11,17 @@ class GetTokenRequest extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $deviceName;
 
     /**
      * @var string
      */
     public $nonce;
-
-    /**
-     * @var string
-     */
-    public $productKey;
 
     /**
      * @var string
@@ -43,9 +43,9 @@ class GetTokenRequest extends Model
      */
     public $tokenType;
     protected $_name = [
+        'appId' => 'appId',
         'deviceName' => 'deviceName',
         'nonce' => 'nonce',
-        'productKey' => 'productKey',
         'requestTime' => 'requestTime',
         'signature' => 'signature',
         'tokenKey' => 'tokenKey',
@@ -60,16 +60,16 @@ class GetTokenRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['appId'] = $this->appId;
+        }
+
         if (null !== $this->deviceName) {
             $res['deviceName'] = $this->deviceName;
         }
 
         if (null !== $this->nonce) {
             $res['nonce'] = $this->nonce;
-        }
-
-        if (null !== $this->productKey) {
-            $res['productKey'] = $this->productKey;
         }
 
         if (null !== $this->requestTime) {
@@ -99,16 +99,16 @@ class GetTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appId'])) {
+            $model->appId = $map['appId'];
+        }
+
         if (isset($map['deviceName'])) {
             $model->deviceName = $map['deviceName'];
         }
 
         if (isset($map['nonce'])) {
             $model->nonce = $map['nonce'];
-        }
-
-        if (isset($map['productKey'])) {
-            $model->productKey = $map['productKey'];
         }
 
         if (isset($map['requestTime'])) {
