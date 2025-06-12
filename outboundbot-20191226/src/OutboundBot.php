@@ -5339,6 +5339,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 获取系统策略配置.
+     *
      * @param request - GetBaseStrategyPeriodRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5380,6 +5382,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 获取系统策略配置.
+     *
      * @param request - GetBaseStrategyPeriodRequest
      *
      * @returns GetBaseStrategyPeriodResponse
@@ -5436,6 +5440,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * GetContactBlockList.
+     *
      * @param request - GetContactBlockListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5485,6 +5491,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * GetContactBlockList.
+     *
      * @param request - GetContactBlockListRequest
      *
      * @returns GetContactBlockListResponse
@@ -5501,6 +5509,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * GetContactWhiteList.
+     *
      * @param request - GetContactWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5550,6 +5560,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * GetContactWhiteList.
+     *
      * @param request - GetContactWhiteListRequest
      *
      * @returns GetContactWhiteListResponse
@@ -5733,6 +5745,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 获取上传信息.
+     *
      * @param request - GetJobDataUploadParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5786,6 +5800,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 获取上传信息.
+     *
      * @param request - GetJobDataUploadParamsRequest
      *
      * @returns GetJobDataUploadParamsResponse
@@ -9161,6 +9177,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 修改场景.
+     *
      * @param request - ModifyScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9209,6 +9227,10 @@ class OutboundBot extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->labelConfig) {
+            @$query['LabelConfig'] = $request->labelConfig;
         }
 
         if (null !== $request->longWaitEnable) {
@@ -9286,6 +9308,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 修改场景.
+     *
      * @param request - ModifyScriptRequest
      *
      * @returns ModifyScriptResponse

@@ -65,6 +65,11 @@ class script extends Model
     public $isDrafted;
 
     /**
+     * @var string
+     */
+    public $labelConfig;
+
+    /**
      * @var bool
      */
     public $longWaitEnable;
@@ -135,6 +140,7 @@ class script extends Model
         'industry' => 'Industry',
         'isDebugDrafted' => 'IsDebugDrafted',
         'isDrafted' => 'IsDrafted',
+        'labelConfig' => 'LabelConfig',
         'longWaitEnable' => 'LongWaitEnable',
         'miniPlaybackEnable' => 'MiniPlaybackEnable',
         'newBargeInEnable' => 'NewBargeInEnable',
@@ -202,6 +208,10 @@ class script extends Model
 
         if (null !== $this->isDrafted) {
             $res['IsDrafted'] = $this->isDrafted;
+        }
+
+        if (null !== $this->labelConfig) {
+            $res['LabelConfig'] = $this->labelConfig;
         }
 
         if (null !== $this->longWaitEnable) {
@@ -305,6 +315,10 @@ class script extends Model
 
         if (isset($map['IsDrafted'])) {
             $model->isDrafted = $map['IsDrafted'];
+        }
+
+        if (isset($map['LabelConfig'])) {
+            $model->labelConfig = $map['LabelConfig'];
         }
 
         if (isset($map['LongWaitEnable'])) {

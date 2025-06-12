@@ -54,6 +54,11 @@ class ModifyScriptRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $labelConfig;
+
+    /**
      * @var bool
      */
     public $longWaitEnable;
@@ -132,6 +137,7 @@ class ModifyScriptRequest extends Model
         'emotionEnable' => 'EmotionEnable',
         'industry' => 'Industry',
         'instanceId' => 'InstanceId',
+        'labelConfig' => 'LabelConfig',
         'longWaitEnable' => 'LongWaitEnable',
         'miniPlaybackConfigListJsonString' => 'MiniPlaybackConfigListJsonString',
         'miniPlaybackEnable' => 'MiniPlaybackEnable',
@@ -196,6 +202,10 @@ class ModifyScriptRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->labelConfig) {
+            $res['LabelConfig'] = $this->labelConfig;
         }
 
         if (null !== $this->longWaitEnable) {
@@ -311,6 +321,10 @@ class ModifyScriptRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['LabelConfig'])) {
+            $model->labelConfig = $map['LabelConfig'];
         }
 
         if (isset($map['LongWaitEnable'])) {
