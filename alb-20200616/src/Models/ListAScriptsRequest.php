@@ -4,81 +4,96 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAScriptsRequest extends Model
 {
     /**
-     * @description The AScript rule IDs. You can specify at most 20 IDs in each call.
-     *
      * @var string[]
      */
     public $AScriptIds;
 
     /**
-     * @description The AScript rule names. You can specify at most 10 names in each call.
-     *
      * @var string[]
      */
     public $AScriptNames;
 
     /**
-     * @description The listener IDs. You can specify at most 20 listener IDs in each call.
-     *
      * @var string[]
      */
     public $listenerIds;
 
     /**
-     * @description The maximum number of entries to return.
-     *
-     * Valid values: **1** to **100**.
-     *
-     * Default value: **20**. If you do not specify this parameter, the default value is used.
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   You do not need to specify this parameter for the first request.****
-     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'AScriptIds'   => 'AScriptIds',
+        'AScriptIds' => 'AScriptIds',
         'AScriptNames' => 'AScriptNames',
-        'listenerIds'  => 'ListenerIds',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'listenerIds' => 'ListenerIds',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
     {
+        if (\is_array($this->AScriptIds)) {
+            Model::validateArray($this->AScriptIds);
+        }
+        if (\is_array($this->AScriptNames)) {
+            Model::validateArray($this->AScriptNames);
+        }
+        if (\is_array($this->listenerIds)) {
+            Model::validateArray($this->listenerIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AScriptIds) {
-            $res['AScriptIds'] = $this->AScriptIds;
+            if (\is_array($this->AScriptIds)) {
+                $res['AScriptIds'] = [];
+                $n1 = 0;
+                foreach ($this->AScriptIds as $item1) {
+                    $res['AScriptIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->AScriptNames) {
-            $res['AScriptNames'] = $this->AScriptNames;
+            if (\is_array($this->AScriptNames)) {
+                $res['AScriptNames'] = [];
+                $n1 = 0;
+                foreach ($this->AScriptNames as $item1) {
+                    $res['AScriptNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->listenerIds) {
-            $res['ListenerIds'] = $this->listenerIds;
+            if (\is_array($this->listenerIds)) {
+                $res['ListenerIds'] = [];
+                $n1 = 0;
+                foreach ($this->listenerIds as $item1) {
+                    $res['ListenerIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -86,32 +101,51 @@ class ListAScriptsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAScriptsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AScriptIds'])) {
             if (!empty($map['AScriptIds'])) {
-                $model->AScriptIds = $map['AScriptIds'];
+                $model->AScriptIds = [];
+                $n1 = 0;
+                foreach ($map['AScriptIds'] as $item1) {
+                    $model->AScriptIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['AScriptNames'])) {
             if (!empty($map['AScriptNames'])) {
-                $model->AScriptNames = $map['AScriptNames'];
+                $model->AScriptNames = [];
+                $n1 = 0;
+                foreach ($map['AScriptNames'] as $item1) {
+                    $model->AScriptNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ListenerIds'])) {
             if (!empty($map['ListenerIds'])) {
-                $model->listenerIds = $map['ListenerIds'];
+                $model->listenerIds = [];
+                $n1 = 0;
+                foreach ($map['ListenerIds'] as $item1) {
+                    $model->listenerIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

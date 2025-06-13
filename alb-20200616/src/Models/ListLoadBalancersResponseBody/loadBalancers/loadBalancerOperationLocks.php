@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBalancers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class loadBalancerOperationLocks extends Model
 {
     /**
-     * @description The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
-     *
-     * @example Test LockReason
-     *
      * @var string
      */
     public $lockReason;
 
     /**
-     * @description The lock type. Valid values:
-     *
-     *   **SecurityLocked**: The ALB instance is locked due to security risks.
-     *   **RelatedResourceLocked**: The ALB instance is locked due to other resources associated with the ALB instance.
-     *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
-     *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
-     *
-     * @example FinancialLocked
-     *
      * @var string
      */
     public $lockType;
     protected $_name = [
         'lockReason' => 'LockReason',
-        'lockType'   => 'LockType',
+        'lockType' => 'LockType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
         }
+
         if (null !== $this->lockType) {
             $res['LockType'] = $this->lockType;
         }
@@ -52,17 +41,18 @@ class loadBalancerOperationLocks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loadBalancerOperationLocks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
         }
+
         if (isset($map['LockType'])) {
             $model->lockType = $map['LockType'];
         }

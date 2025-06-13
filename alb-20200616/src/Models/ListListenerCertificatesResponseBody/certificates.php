@@ -4,75 +4,56 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListListenerCertificatesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
     /**
-     * @description The certificate ID. Only server certificates are supported.
-     *
-     * @example 12315790343_166f8204689_1714763408_70998****
-     *
      * @var string
      */
     public $certificateId;
 
     /**
-     * @description The type of the certificate.
-     *
-     * @example Server
-     *
      * @var string
      */
     public $certificateType;
 
     /**
-     * @description Indicates whether the certificate is the default certificate of the listener. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isDefault;
 
     /**
-     * @description Indicates whether the certificate is associated with the listener. Valid values:
-     *
-     *   **Associating**
-     *   **Associated**
-     *   **Diassociating**
-     *
-     * @example Associating
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'certificateId'   => 'CertificateId',
+        'certificateId' => 'CertificateId',
         'certificateType' => 'CertificateType',
-        'isDefault'       => 'IsDefault',
-        'status'          => 'Status',
+        'isDefault' => 'IsDefault',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
+
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -80,23 +61,26 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }
+
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

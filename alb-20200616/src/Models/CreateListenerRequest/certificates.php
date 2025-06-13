@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
     /**
-     * @description The ID of the certificate. Only server certificates are supported. You can specify up to 20 certificate IDs.
-     *
-     * @example 103705*******
-     *
      * @var string
      */
     public $certificateId;
@@ -22,9 +18,10 @@ class certificates extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
@@ -34,11 +31,11 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

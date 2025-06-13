@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleIds extends Model
 {
     /**
-     * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
-     *
-     * > The priorities of the forwarding rules created for the same listener must be unique.
-     * @example 10
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description The forwarding rule ID.
-     *
-     * @example rule-a3x3pg1yohq3lq****
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'priority' => 'Priority',
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -48,17 +41,18 @@ class ruleIds extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

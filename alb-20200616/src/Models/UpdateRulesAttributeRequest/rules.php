@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleConditions;
-use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
@@ -26,8 +26,6 @@ class rules extends Model
     public $ruleConditions;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $ruleId;
@@ -37,44 +35,57 @@ class rules extends Model
      */
     public $ruleName;
     protected $_name = [
-        'priority'       => 'Priority',
-        'ruleActions'    => 'RuleActions',
+        'priority' => 'Priority',
+        'ruleActions' => 'RuleActions',
         'ruleConditions' => 'RuleConditions',
-        'ruleId'         => 'RuleId',
-        'ruleName'       => 'RuleName',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ruleActions)) {
+            Model::validateArray($this->ruleActions);
+        }
+        if (\is_array($this->ruleConditions)) {
+            Model::validateArray($this->ruleConditions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->ruleActions) {
-            $res['RuleActions'] = [];
-            if (null !== $this->ruleActions && \is_array($this->ruleActions)) {
-                $n = 0;
-                foreach ($this->ruleActions as $item) {
-                    $res['RuleActions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleActions)) {
+                $res['RuleActions'] = [];
+                $n1 = 0;
+                foreach ($this->ruleActions as $item1) {
+                    $res['RuleActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ruleConditions) {
-            $res['RuleConditions'] = [];
-            if (null !== $this->ruleConditions && \is_array($this->ruleConditions)) {
-                $n = 0;
-                foreach ($this->ruleConditions as $item) {
-                    $res['RuleConditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleConditions)) {
+                $res['RuleConditions'] = [];
+                $n1 = 0;
+                foreach ($this->ruleConditions as $item1) {
+                    $res['RuleConditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -82,38 +93,44 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['RuleActions'])) {
             if (!empty($map['RuleActions'])) {
                 $model->ruleActions = [];
-                $n                  = 0;
-                foreach ($map['RuleActions'] as $item) {
-                    $model->ruleActions[$n++] = null !== $item ? ruleActions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuleActions'] as $item1) {
+                    $model->ruleActions[$n1] = ruleActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RuleConditions'])) {
             if (!empty($map['RuleConditions'])) {
                 $model->ruleConditions = [];
-                $n                     = 0;
-                foreach ($map['RuleConditions'] as $item) {
-                    $model->ruleConditions[$n++] = null !== $item ? ruleConditions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuleConditions'] as $item1) {
+                    $model->ruleConditions[$n1] = ruleConditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

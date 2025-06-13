@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\cookieConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\headerConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\hostConfig;
@@ -13,7 +14,6 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleCondition
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\responseHeaderConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\responseStatusCodeConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions\sourceIpConfig;
-use AlibabaCloud\Tea\Model;
 
 class ruleConditions extends Model
 {
@@ -63,58 +63,93 @@ class ruleConditions extends Model
     public $sourceIpConfig;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'cookieConfig'             => 'CookieConfig',
-        'headerConfig'             => 'HeaderConfig',
-        'hostConfig'               => 'HostConfig',
-        'methodConfig'             => 'MethodConfig',
-        'pathConfig'               => 'PathConfig',
-        'queryStringConfig'        => 'QueryStringConfig',
-        'responseHeaderConfig'     => 'ResponseHeaderConfig',
+        'cookieConfig' => 'CookieConfig',
+        'headerConfig' => 'HeaderConfig',
+        'hostConfig' => 'HostConfig',
+        'methodConfig' => 'MethodConfig',
+        'pathConfig' => 'PathConfig',
+        'queryStringConfig' => 'QueryStringConfig',
+        'responseHeaderConfig' => 'ResponseHeaderConfig',
         'responseStatusCodeConfig' => 'ResponseStatusCodeConfig',
-        'sourceIpConfig'           => 'SourceIpConfig',
-        'type'                     => 'Type',
+        'sourceIpConfig' => 'SourceIpConfig',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->cookieConfig) {
+            $this->cookieConfig->validate();
+        }
+        if (null !== $this->headerConfig) {
+            $this->headerConfig->validate();
+        }
+        if (null !== $this->hostConfig) {
+            $this->hostConfig->validate();
+        }
+        if (null !== $this->methodConfig) {
+            $this->methodConfig->validate();
+        }
+        if (null !== $this->pathConfig) {
+            $this->pathConfig->validate();
+        }
+        if (null !== $this->queryStringConfig) {
+            $this->queryStringConfig->validate();
+        }
+        if (null !== $this->responseHeaderConfig) {
+            $this->responseHeaderConfig->validate();
+        }
+        if (null !== $this->responseStatusCodeConfig) {
+            $this->responseStatusCodeConfig->validate();
+        }
+        if (null !== $this->sourceIpConfig) {
+            $this->sourceIpConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cookieConfig) {
-            $res['CookieConfig'] = null !== $this->cookieConfig ? $this->cookieConfig->toMap() : null;
+            $res['CookieConfig'] = null !== $this->cookieConfig ? $this->cookieConfig->toArray($noStream) : $this->cookieConfig;
         }
+
         if (null !== $this->headerConfig) {
-            $res['HeaderConfig'] = null !== $this->headerConfig ? $this->headerConfig->toMap() : null;
+            $res['HeaderConfig'] = null !== $this->headerConfig ? $this->headerConfig->toArray($noStream) : $this->headerConfig;
         }
+
         if (null !== $this->hostConfig) {
-            $res['HostConfig'] = null !== $this->hostConfig ? $this->hostConfig->toMap() : null;
+            $res['HostConfig'] = null !== $this->hostConfig ? $this->hostConfig->toArray($noStream) : $this->hostConfig;
         }
+
         if (null !== $this->methodConfig) {
-            $res['MethodConfig'] = null !== $this->methodConfig ? $this->methodConfig->toMap() : null;
+            $res['MethodConfig'] = null !== $this->methodConfig ? $this->methodConfig->toArray($noStream) : $this->methodConfig;
         }
+
         if (null !== $this->pathConfig) {
-            $res['PathConfig'] = null !== $this->pathConfig ? $this->pathConfig->toMap() : null;
+            $res['PathConfig'] = null !== $this->pathConfig ? $this->pathConfig->toArray($noStream) : $this->pathConfig;
         }
+
         if (null !== $this->queryStringConfig) {
-            $res['QueryStringConfig'] = null !== $this->queryStringConfig ? $this->queryStringConfig->toMap() : null;
+            $res['QueryStringConfig'] = null !== $this->queryStringConfig ? $this->queryStringConfig->toArray($noStream) : $this->queryStringConfig;
         }
+
         if (null !== $this->responseHeaderConfig) {
-            $res['ResponseHeaderConfig'] = null !== $this->responseHeaderConfig ? $this->responseHeaderConfig->toMap() : null;
+            $res['ResponseHeaderConfig'] = null !== $this->responseHeaderConfig ? $this->responseHeaderConfig->toArray($noStream) : $this->responseHeaderConfig;
         }
+
         if (null !== $this->responseStatusCodeConfig) {
-            $res['ResponseStatusCodeConfig'] = null !== $this->responseStatusCodeConfig ? $this->responseStatusCodeConfig->toMap() : null;
+            $res['ResponseStatusCodeConfig'] = null !== $this->responseStatusCodeConfig ? $this->responseStatusCodeConfig->toArray($noStream) : $this->responseStatusCodeConfig;
         }
+
         if (null !== $this->sourceIpConfig) {
-            $res['SourceIpConfig'] = null !== $this->sourceIpConfig ? $this->sourceIpConfig->toMap() : null;
+            $res['SourceIpConfig'] = null !== $this->sourceIpConfig ? $this->sourceIpConfig->toArray($noStream) : $this->sourceIpConfig;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -122,41 +157,50 @@ class ruleConditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleConditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CookieConfig'])) {
             $model->cookieConfig = cookieConfig::fromMap($map['CookieConfig']);
         }
+
         if (isset($map['HeaderConfig'])) {
             $model->headerConfig = headerConfig::fromMap($map['HeaderConfig']);
         }
+
         if (isset($map['HostConfig'])) {
             $model->hostConfig = hostConfig::fromMap($map['HostConfig']);
         }
+
         if (isset($map['MethodConfig'])) {
             $model->methodConfig = methodConfig::fromMap($map['MethodConfig']);
         }
+
         if (isset($map['PathConfig'])) {
             $model->pathConfig = pathConfig::fromMap($map['PathConfig']);
         }
+
         if (isset($map['QueryStringConfig'])) {
             $model->queryStringConfig = queryStringConfig::fromMap($map['QueryStringConfig']);
         }
+
         if (isset($map['ResponseHeaderConfig'])) {
             $model->responseHeaderConfig = responseHeaderConfig::fromMap($map['ResponseHeaderConfig']);
         }
+
         if (isset($map['ResponseStatusCodeConfig'])) {
             $model->responseStatusCodeConfig = responseStatusCodeConfig::fromMap($map['ResponseStatusCodeConfig']);
         }
+
         if (isset($map['SourceIpConfig'])) {
             $model->sourceIpConfig = sourceIpConfig::fromMap($map['SourceIpConfig']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

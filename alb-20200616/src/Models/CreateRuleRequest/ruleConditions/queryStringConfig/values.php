@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRuleRequest\ruleConditions\queryStringConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class values extends Model
 {
     /**
-     * @description They key of the query string.
-     *
-     *   The key must be 1 to 100 characters in length.
-     *   You can use asterisks (\\*) and question marks (?) as wildcard characters. The key can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`.
-     *
-     * @example test
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the query string.
-     *
-     *   The query string must be 1 to 128 characters in length.
-     *   The value can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-     *
-     * @example test
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -53,17 +41,18 @@ class values extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

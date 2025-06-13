@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateHealthCheckTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the health check template.
-     *
-     * @example hct-1224334
-     *
      * @var string
      */
     public $healthCheckTemplateId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'healthCheckTemplateId' => 'HealthCheckTemplateId',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->healthCheckTemplateId) {
             $res['HealthCheckTemplateId'] = $this->healthCheckTemplateId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateHealthCheckTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHealthCheckTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HealthCheckTemplateId'])) {
             $model->healthCheckTemplateId = $map['HealthCheckTemplateId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
