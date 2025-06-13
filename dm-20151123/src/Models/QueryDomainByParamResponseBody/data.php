@@ -33,7 +33,8 @@ class data extends Model
                 $res['domain'] = [];
                 $n1 = 0;
                 foreach ($this->domain as $item1) {
-                    $res['domain'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['domain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->domain = [];
                 $n1 = 0;
                 foreach ($map['domain'] as $item1) {
-                    $model->domain[$n1++] = domain::fromMap($item1);
+                    $model->domain[$n1] = domain::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

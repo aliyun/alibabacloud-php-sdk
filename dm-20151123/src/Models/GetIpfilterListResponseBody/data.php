@@ -33,7 +33,8 @@ class data extends Model
                 $res['ipfilters'] = [];
                 $n1 = 0;
                 foreach ($this->ipfilters as $item1) {
-                    $res['ipfilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ipfilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->ipfilters = [];
                 $n1 = 0;
                 foreach ($map['ipfilters'] as $item1) {
-                    $model->ipfilters[$n1++] = ipfilters::fromMap($item1);
+                    $model->ipfilters[$n1] = ipfilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

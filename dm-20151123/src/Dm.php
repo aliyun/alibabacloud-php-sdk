@@ -1741,8 +1741,20 @@ class Dm extends OpenApiClient
             @$query['AccountName'] = $request->accountName;
         }
 
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
+        }
+
+        if (null !== $request->dedicatedIpPoolId) {
+            @$query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
         }
 
         if (null !== $request->offset) {
@@ -1846,8 +1858,20 @@ class Dm extends OpenApiClient
             @$query['AccountName'] = $request->accountName;
         }
 
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
+        }
+
+        if (null !== $request->dedicatedIpPoolId) {
+            @$query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
         }
 
         if (null !== $request->offset) {
@@ -3127,8 +3151,20 @@ class Dm extends OpenApiClient
             @$query['AccountName'] = $request->accountName;
         }
 
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
+        }
+
+        if (null !== $request->dedicatedIpPoolId) {
+            @$query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
         }
 
         if (null !== $request->ownerId) {

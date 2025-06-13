@@ -33,7 +33,8 @@ class data extends Model
                 $res['mailAddress'] = [];
                 $n1 = 0;
                 foreach ($this->mailAddress as $item1) {
-                    $res['mailAddress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['mailAddress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->mailAddress = [];
                 $n1 = 0;
                 foreach ($map['mailAddress'] as $item1) {
-                    $model->mailAddress[$n1++] = mailAddress::fromMap($item1);
+                    $model->mailAddress[$n1] = mailAddress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

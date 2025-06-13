@@ -40,6 +40,11 @@ class GetTrackListByMailFromAndTagNameResponseBody extends Model
     public $total;
 
     /**
+     * @var string
+     */
+    public $totalPages;
+
+    /**
      * @var trackList
      */
     public $trackList;
@@ -50,6 +55,7 @@ class GetTrackListByMailFromAndTagNameResponseBody extends Model
         'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
         'total' => 'Total',
+        'totalPages' => 'TotalPages',
         'trackList' => 'TrackList',
     ];
 
@@ -86,6 +92,10 @@ class GetTrackListByMailFromAndTagNameResponseBody extends Model
 
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         if (null !== $this->trackList) {
@@ -125,6 +135,10 @@ class GetTrackListByMailFromAndTagNameResponseBody extends Model
 
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         if (isset($map['TrackList'])) {

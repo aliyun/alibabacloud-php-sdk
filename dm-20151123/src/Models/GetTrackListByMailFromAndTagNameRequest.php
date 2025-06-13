@@ -16,7 +16,22 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
     /**
      * @var string
      */
+    public $dedicatedIp;
+
+    /**
+     * @var string
+     */
+    public $dedicatedIpPoolId;
+
+    /**
+     * @var string
+     */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $esp;
 
     /**
      * @var string
@@ -74,7 +89,10 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
     public $total;
     protected $_name = [
         'accountName' => 'AccountName',
+        'dedicatedIp' => 'DedicatedIp',
+        'dedicatedIpPoolId' => 'DedicatedIpPoolId',
         'endTime' => 'EndTime',
+        'esp' => 'Esp',
         'offset' => 'Offset',
         'offsetCreateTime' => 'OffsetCreateTime',
         'offsetCreateTimeDesc' => 'OffsetCreateTimeDesc',
@@ -100,8 +118,20 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
             $res['AccountName'] = $this->accountName;
         }
 
+        if (null !== $this->dedicatedIp) {
+            $res['DedicatedIp'] = $this->dedicatedIp;
+        }
+
+        if (null !== $this->dedicatedIpPoolId) {
+            $res['DedicatedIpPoolId'] = $this->dedicatedIpPoolId;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->esp) {
+            $res['Esp'] = $this->esp;
         }
 
         if (null !== $this->offset) {
@@ -163,8 +193,20 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
             $model->accountName = $map['AccountName'];
         }
 
+        if (isset($map['DedicatedIp'])) {
+            $model->dedicatedIp = $map['DedicatedIp'];
+        }
+
+        if (isset($map['DedicatedIpPoolId'])) {
+            $model->dedicatedIpPoolId = $map['DedicatedIpPoolId'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Esp'])) {
+            $model->esp = $map['Esp'];
         }
 
         if (isset($map['Offset'])) {
