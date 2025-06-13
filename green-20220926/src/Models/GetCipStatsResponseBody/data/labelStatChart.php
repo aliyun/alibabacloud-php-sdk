@@ -94,7 +94,8 @@ class labelStatChart extends Model
                 $res['ImageTreeChar'] = [];
                 $n1 = 0;
                 foreach ($this->imageTreeChar as $item1) {
-                    $res['ImageTreeChar'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageTreeChar'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class labelStatChart extends Model
                 $res['TextTreeChart'] = [];
                 $n1 = 0;
                 foreach ($this->textTreeChart as $item1) {
-                    $res['TextTreeChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextTreeChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class labelStatChart extends Model
                 $res['TreeChart'] = [];
                 $n1 = 0;
                 foreach ($this->treeChart as $item1) {
-                    $res['TreeChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TreeChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +135,8 @@ class labelStatChart extends Model
                 $res['VoiceTreeChart'] = [];
                 $n1 = 0;
                 foreach ($this->voiceTreeChart as $item1) {
-                    $res['VoiceTreeChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VoiceTreeChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +146,8 @@ class labelStatChart extends Model
                 $res['X'] = [];
                 $n1 = 0;
                 foreach ($this->x as $item1) {
-                    $res['X'][$n1++] = $item1;
+                    $res['X'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +157,8 @@ class labelStatChart extends Model
                 $res['Y'] = [];
                 $n1 = 0;
                 foreach ($this->y as $item1) {
-                    $res['Y'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Y'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +179,8 @@ class labelStatChart extends Model
                 $model->imageTreeChar = [];
                 $n1 = 0;
                 foreach ($map['ImageTreeChar'] as $item1) {
-                    $model->imageTreeChar[$n1++] = imageTreeChar::fromMap($item1);
+                    $model->imageTreeChar[$n1] = imageTreeChar::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +194,8 @@ class labelStatChart extends Model
                 $model->textTreeChart = [];
                 $n1 = 0;
                 foreach ($map['TextTreeChart'] as $item1) {
-                    $model->textTreeChart[$n1++] = textTreeChart::fromMap($item1);
+                    $model->textTreeChart[$n1] = textTreeChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +209,8 @@ class labelStatChart extends Model
                 $model->treeChart = [];
                 $n1 = 0;
                 foreach ($map['TreeChart'] as $item1) {
-                    $model->treeChart[$n1++] = treeChart::fromMap($item1);
+                    $model->treeChart[$n1] = treeChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +220,8 @@ class labelStatChart extends Model
                 $model->voiceTreeChart = [];
                 $n1 = 0;
                 foreach ($map['VoiceTreeChart'] as $item1) {
-                    $model->voiceTreeChart[$n1++] = voiceTreeChart::fromMap($item1);
+                    $model->voiceTreeChart[$n1] = voiceTreeChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +231,8 @@ class labelStatChart extends Model
                 $model->x = [];
                 $n1 = 0;
                 foreach ($map['X'] as $item1) {
-                    $model->x[$n1++] = $item1;
+                    $model->x[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +242,8 @@ class labelStatChart extends Model
                 $model->y = [];
                 $n1 = 0;
                 foreach ($map['Y'] as $item1) {
-                    $model->y[$n1++] = y::fromMap($item1);
+                    $model->y[$n1] = y::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

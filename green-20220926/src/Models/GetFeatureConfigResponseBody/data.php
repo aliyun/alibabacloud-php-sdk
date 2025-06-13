@@ -57,11 +57,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->featureConf as $item1) {
                     if (\is_array($item1)) {
-                        $res['FeatureConf'][$n1++] = [];
+                        $res['FeatureConf'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['FeatureConf'][$n1++][$key2] = $value2;
+                            $res['FeatureConf'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -99,11 +100,12 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['FeatureConf'] as $item1) {
                     if (!empty($item1)) {
-                        $model->featureConf[$n1++] = [];
+                        $model->featureConf[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->featureConf[$n1++][$key2] = $value2;
+                            $model->featureConf[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

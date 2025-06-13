@@ -26,6 +26,11 @@ class UpdateServiceConfigRequest extends Model
     /**
      * @var string
      */
+    public $manualMachineConfig;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -56,6 +61,7 @@ class UpdateServiceConfigRequest extends Model
         'fileConfig' => 'FileConfig',
         'keywordFilterLibs' => 'KeywordFilterLibs',
         'keywordHitLibs' => 'KeywordHitLibs',
+        'manualMachineConfig' => 'ManualMachineConfig',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
         'scene' => 'Scene',
@@ -82,6 +88,10 @@ class UpdateServiceConfigRequest extends Model
 
         if (null !== $this->keywordHitLibs) {
             $res['KeywordHitLibs'] = $this->keywordHitLibs;
+        }
+
+        if (null !== $this->manualMachineConfig) {
+            $res['ManualMachineConfig'] = $this->manualMachineConfig;
         }
 
         if (null !== $this->regionId) {
@@ -129,6 +139,10 @@ class UpdateServiceConfigRequest extends Model
 
         if (isset($map['KeywordHitLibs'])) {
             $model->keywordHitLibs = $map['KeywordHitLibs'];
+        }
+
+        if (isset($map['ManualMachineConfig'])) {
+            $model->manualMachineConfig = $map['ManualMachineConfig'];
         }
 
         if (isset($map['RegionId'])) {

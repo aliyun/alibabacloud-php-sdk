@@ -80,7 +80,8 @@ class data extends Model
                 $res['LabelStatChart'] = [];
                 $n1 = 0;
                 foreach ($this->labelStatChart as $item1) {
-                    $res['LabelStatChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LabelStatChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class data extends Model
                 $res['Uids'] = [];
                 $n1 = 0;
                 foreach ($this->uids as $item1) {
-                    $res['Uids'][$n1++] = $item1;
+                    $res['Uids'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +111,8 @@ class data extends Model
                 $res['X'] = [];
                 $n1 = 0;
                 foreach ($this->x as $item1) {
-                    $res['X'][$n1++] = $item1;
+                    $res['X'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +122,8 @@ class data extends Model
                 $res['Y'] = [];
                 $n1 = 0;
                 foreach ($this->y as $item1) {
-                    $res['Y'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Y'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +133,8 @@ class data extends Model
                 $res['Z'] = [];
                 $n1 = 0;
                 foreach ($this->z as $item1) {
-                    $res['Z'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Z'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +155,8 @@ class data extends Model
                 $model->labelStatChart = [];
                 $n1 = 0;
                 foreach ($map['LabelStatChart'] as $item1) {
-                    $model->labelStatChart[$n1++] = labelStatChart::fromMap($item1);
+                    $model->labelStatChart[$n1] = labelStatChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -169,7 +175,8 @@ class data extends Model
                 $model->uids = [];
                 $n1 = 0;
                 foreach ($map['Uids'] as $item1) {
-                    $model->uids[$n1++] = $item1;
+                    $model->uids[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +186,8 @@ class data extends Model
                 $model->x = [];
                 $n1 = 0;
                 foreach ($map['X'] as $item1) {
-                    $model->x[$n1++] = $item1;
+                    $model->x[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +197,8 @@ class data extends Model
                 $model->y = [];
                 $n1 = 0;
                 foreach ($map['Y'] as $item1) {
-                    $model->y[$n1++] = y::fromMap($item1);
+                    $model->y[$n1] = y::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +208,8 @@ class data extends Model
                 $model->z = [];
                 $n1 = 0;
                 foreach ($map['Z'] as $item1) {
-                    $model->z[$n1++] = z::fromMap($item1);
+                    $model->z[$n1] = z::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

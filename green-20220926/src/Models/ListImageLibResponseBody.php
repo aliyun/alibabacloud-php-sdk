@@ -71,7 +71,8 @@ class ListImageLibResponseBody extends Model
                 $res['LibList'] = [];
                 $n1 = 0;
                 foreach ($this->libList as $item1) {
-                    $res['LibList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LibList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class ListImageLibResponseBody extends Model
                 $model->libList = [];
                 $n1 = 0;
                 foreach ($map['LibList'] as $item1) {
-                    $model->libList[$n1++] = libList::fromMap($item1);
+                    $model->libList[$n1] = libList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

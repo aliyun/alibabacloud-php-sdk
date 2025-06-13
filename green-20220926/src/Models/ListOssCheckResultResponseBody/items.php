@@ -197,7 +197,8 @@ class items extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = $item1;
+                    $res['Labels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +208,8 @@ class items extends Model
                 $res['Labels2'] = [];
                 $n1 = 0;
                 foreach ($this->labels2 as $item1) {
-                    $res['Labels2'][$n1++] = $item1;
+                    $res['Labels2'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +310,8 @@ class items extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = $item1;
+                    $model->labels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +321,8 @@ class items extends Model
                 $model->labels2 = [];
                 $n1 = 0;
                 foreach ($map['Labels2'] as $item1) {
-                    $model->labels2[$n1++] = $item1;
+                    $model->labels2[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

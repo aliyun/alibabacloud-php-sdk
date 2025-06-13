@@ -102,7 +102,8 @@ class keywordsResult extends Model
                 $res['IllegalLengthKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->illegalLengthKeywords as $item1) {
-                    $res['IllegalLengthKeywords'][$n1++] = $item1;
+                    $res['IllegalLengthKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class keywordsResult extends Model
                 $res['InvalidKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->invalidKeywords as $item1) {
-                    $res['InvalidKeywords'][$n1++] = $item1;
+                    $res['InvalidKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class keywordsResult extends Model
                 $res['RepeatKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->repeatKeywords as $item1) {
-                    $res['RepeatKeywords'][$n1++] = $item1;
+                    $res['RepeatKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,7 +178,8 @@ class keywordsResult extends Model
                 $model->illegalLengthKeywords = [];
                 $n1 = 0;
                 foreach ($map['IllegalLengthKeywords'] as $item1) {
-                    $model->illegalLengthKeywords[$n1++] = $item1;
+                    $model->illegalLengthKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +193,8 @@ class keywordsResult extends Model
                 $model->invalidKeywords = [];
                 $n1 = 0;
                 foreach ($map['InvalidKeywords'] as $item1) {
-                    $model->invalidKeywords[$n1++] = $item1;
+                    $model->invalidKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +216,8 @@ class keywordsResult extends Model
                 $model->repeatKeywords = [];
                 $n1 = 0;
                 foreach ($map['RepeatKeywords'] as $item1) {
-                    $model->repeatKeywords[$n1++] = $item1;
+                    $model->repeatKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

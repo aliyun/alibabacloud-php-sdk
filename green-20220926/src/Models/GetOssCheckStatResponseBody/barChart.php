@@ -42,7 +42,8 @@ class barChart extends Model
                 $res['X'] = [];
                 $n1 = 0;
                 foreach ($this->x as $item1) {
-                    $res['X'][$n1++] = $item1;
+                    $res['X'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class barChart extends Model
                 $res['Y'] = [];
                 $n1 = 0;
                 foreach ($this->y as $item1) {
-                    $res['Y'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Y'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class barChart extends Model
                 $model->x = [];
                 $n1 = 0;
                 foreach ($map['X'] as $item1) {
-                    $model->x[$n1++] = $item1;
+                    $model->x[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class barChart extends Model
                 $model->y = [];
                 $n1 = 0;
                 foreach ($map['Y'] as $item1) {
-                    $model->y[$n1++] = y::fromMap($item1);
+                    $model->y[$n1] = y::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,6 +12,31 @@ class items extends Model
     /**
      * @var string
      */
+    public $apiLabels;
+
+    /**
+     * @var string
+     */
+    public $apiRequestTime;
+
+    /**
+     * @var string
+     */
+    public $apiRiskLevel;
+
+    /**
+     * @var string
+     */
+    public $apiService;
+
+    /**
+     * @var string
+     */
+    public $apiTaskId;
+
+    /**
+     * @var string
+     */
     public $attackLevel;
 
     /**
@@ -70,6 +95,11 @@ class items extends Model
     public $labels;
 
     /**
+     * @var bool
+     */
+    public $manualOnly;
+
+    /**
      * @var string[]
      */
     public $noLabels;
@@ -100,9 +130,39 @@ class items extends Model
     public $requestTime;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var result[]
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $reviewLabels;
+
+    /**
+     * @var string
+     */
+    public $reviewRiskLevel;
+
+    /**
+     * @var string
+     */
+    public $reviewTime;
+
+    /**
+     * @var string
+     */
+    public $reviewUid;
+
+    /**
+     * @var bool
+     */
+    public $reviewed;
 
     /**
      * @var string
@@ -189,6 +249,11 @@ class items extends Model
      */
     public $voiceService;
     protected $_name = [
+        'apiLabels' => 'ApiLabels',
+        'apiRequestTime' => 'ApiRequestTime',
+        'apiRiskLevel' => 'ApiRiskLevel',
+        'apiService' => 'ApiService',
+        'apiTaskId' => 'ApiTaskId',
         'attackLevel' => 'AttackLevel',
         'content' => 'Content',
         'dataId' => 'DataId',
@@ -201,13 +266,20 @@ class items extends Model
         'imageService' => 'ImageService',
         'imageUrl' => 'ImageUrl',
         'labels' => 'Labels',
+        'manualOnly' => 'ManualOnly',
         'noLabels' => 'NoLabels',
         'offset' => 'Offset',
         'pageNum' => 'PageNum',
         'requestFrom' => 'RequestFrom',
         'requestId' => 'RequestId',
         'requestTime' => 'RequestTime',
+        'resourceType' => 'ResourceType',
         'result' => 'Result',
+        'reviewLabels' => 'ReviewLabels',
+        'reviewRiskLevel' => 'ReviewRiskLevel',
+        'reviewTime' => 'ReviewTime',
+        'reviewUid' => 'ReviewUid',
+        'reviewed' => 'Reviewed',
         'riskLevel' => 'RiskLevel',
         'riskTips' => 'RiskTips',
         'riskWords' => 'RiskWords',
@@ -253,6 +325,26 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiLabels) {
+            $res['ApiLabels'] = $this->apiLabels;
+        }
+
+        if (null !== $this->apiRequestTime) {
+            $res['ApiRequestTime'] = $this->apiRequestTime;
+        }
+
+        if (null !== $this->apiRiskLevel) {
+            $res['ApiRiskLevel'] = $this->apiRiskLevel;
+        }
+
+        if (null !== $this->apiService) {
+            $res['ApiService'] = $this->apiService;
+        }
+
+        if (null !== $this->apiTaskId) {
+            $res['ApiTaskId'] = $this->apiTaskId;
+        }
+
         if (null !== $this->attackLevel) {
             $res['AttackLevel'] = $this->attackLevel;
         }
@@ -296,11 +388,12 @@ class items extends Model
                 $n1 = 0;
                 foreach ($this->imageLabels as $item1) {
                     if (\is_array($item1)) {
-                        $res['ImageLabels'][$n1++] = [];
+                        $res['ImageLabels'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['ImageLabels'][$n1++][$key2] = $value2;
+                            $res['ImageLabels'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -317,12 +410,17 @@ class items extends Model
             $res['Labels'] = $this->labels;
         }
 
+        if (null !== $this->manualOnly) {
+            $res['ManualOnly'] = $this->manualOnly;
+        }
+
         if (null !== $this->noLabels) {
             if (\is_array($this->noLabels)) {
                 $res['NoLabels'] = [];
                 $n1 = 0;
                 foreach ($this->noLabels as $item1) {
-                    $res['NoLabels'][$n1++] = $item1;
+                    $res['NoLabels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -347,14 +445,39 @@ class items extends Model
             $res['RequestTime'] = $this->requestTime;
         }
 
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['Result'] = [];
                 $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->reviewLabels) {
+            $res['ReviewLabels'] = $this->reviewLabels;
+        }
+
+        if (null !== $this->reviewRiskLevel) {
+            $res['ReviewRiskLevel'] = $this->reviewRiskLevel;
+        }
+
+        if (null !== $this->reviewTime) {
+            $res['ReviewTime'] = $this->reviewTime;
+        }
+
+        if (null !== $this->reviewUid) {
+            $res['ReviewUid'] = $this->reviewUid;
+        }
+
+        if (null !== $this->reviewed) {
+            $res['Reviewed'] = $this->reviewed;
         }
 
         if (null !== $this->riskLevel) {
@@ -403,11 +526,12 @@ class items extends Model
                 $n1 = 0;
                 foreach ($this->textLabels as $item1) {
                     if (\is_array($item1)) {
-                        $res['TextLabels'][$n1++] = [];
+                        $res['TextLabels'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['TextLabels'][$n1++][$key2] = $value2;
+                            $res['TextLabels'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -430,11 +554,12 @@ class items extends Model
                 $n1 = 0;
                 foreach ($this->voiceLabels as $item1) {
                     if (\is_array($item1)) {
-                        $res['VoiceLabels'][$n1++] = [];
+                        $res['VoiceLabels'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['VoiceLabels'][$n1++][$key2] = $value2;
+                            $res['VoiceLabels'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -458,6 +583,26 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiLabels'])) {
+            $model->apiLabels = $map['ApiLabels'];
+        }
+
+        if (isset($map['ApiRequestTime'])) {
+            $model->apiRequestTime = $map['ApiRequestTime'];
+        }
+
+        if (isset($map['ApiRiskLevel'])) {
+            $model->apiRiskLevel = $map['ApiRiskLevel'];
+        }
+
+        if (isset($map['ApiService'])) {
+            $model->apiService = $map['ApiService'];
+        }
+
+        if (isset($map['ApiTaskId'])) {
+            $model->apiTaskId = $map['ApiTaskId'];
+        }
+
         if (isset($map['AttackLevel'])) {
             $model->attackLevel = $map['AttackLevel'];
         }
@@ -501,11 +646,12 @@ class items extends Model
                 $n1 = 0;
                 foreach ($map['ImageLabels'] as $item1) {
                     if (!empty($item1)) {
-                        $model->imageLabels[$n1++] = [];
+                        $model->imageLabels[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->imageLabels[$n1++][$key2] = $value2;
+                            $model->imageLabels[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -522,12 +668,17 @@ class items extends Model
             $model->labels = $map['Labels'];
         }
 
+        if (isset($map['ManualOnly'])) {
+            $model->manualOnly = $map['ManualOnly'];
+        }
+
         if (isset($map['NoLabels'])) {
             if (!empty($map['NoLabels'])) {
                 $model->noLabels = [];
                 $n1 = 0;
                 foreach ($map['NoLabels'] as $item1) {
-                    $model->noLabels[$n1++] = $item1;
+                    $model->noLabels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -552,14 +703,39 @@ class items extends Model
             $model->requestTime = $map['RequestTime'];
         }
 
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
                 $n1 = 0;
                 foreach ($map['Result'] as $item1) {
-                    $model->result[$n1++] = result::fromMap($item1);
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ReviewLabels'])) {
+            $model->reviewLabels = $map['ReviewLabels'];
+        }
+
+        if (isset($map['ReviewRiskLevel'])) {
+            $model->reviewRiskLevel = $map['ReviewRiskLevel'];
+        }
+
+        if (isset($map['ReviewTime'])) {
+            $model->reviewTime = $map['ReviewTime'];
+        }
+
+        if (isset($map['ReviewUid'])) {
+            $model->reviewUid = $map['ReviewUid'];
+        }
+
+        if (isset($map['Reviewed'])) {
+            $model->reviewed = $map['Reviewed'];
         }
 
         if (isset($map['RiskLevel'])) {
@@ -608,11 +784,12 @@ class items extends Model
                 $n1 = 0;
                 foreach ($map['TextLabels'] as $item1) {
                     if (!empty($item1)) {
-                        $model->textLabels[$n1++] = [];
+                        $model->textLabels[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->textLabels[$n1++][$key2] = $value2;
+                            $model->textLabels[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -635,11 +812,12 @@ class items extends Model
                 $n1 = 0;
                 foreach ($map['VoiceLabels'] as $item1) {
                     if (!empty($item1)) {
-                        $model->voiceLabels[$n1++] = [];
+                        $model->voiceLabels[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->voiceLabels[$n1++][$key2] = $value2;
+                            $model->voiceLabels[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

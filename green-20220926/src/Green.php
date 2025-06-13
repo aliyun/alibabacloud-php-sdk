@@ -5273,12 +5273,20 @@ class Green extends OpenApiClient
             @$body['Feedback'] = $request->feedback;
         }
 
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
+        }
+
         if (null !== $request->queryRequestId) {
             @$body['QueryRequestId'] = $request->queryRequestId;
         }
 
         if (null !== $request->resourceType) {
             @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
 
         $req = new OpenApiRequest([
@@ -5350,6 +5358,10 @@ class Green extends OpenApiClient
 
         if (null !== $request->keywordHitLibs) {
             @$body['KeywordHitLibs'] = $request->keywordHitLibs;
+        }
+
+        if (null !== $request->manualMachineConfig) {
+            @$body['ManualMachineConfig'] = $request->manualMachineConfig;
         }
 
         if (null !== $request->resourceType) {

@@ -16,6 +16,11 @@ class UpdateScanResultFeedbackRequest extends Model
     /**
      * @var string
      */
+    public $labels;
+
+    /**
+     * @var string
+     */
     public $queryRequestId;
 
     /**
@@ -27,11 +32,18 @@ class UpdateScanResultFeedbackRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $riskLevel;
     protected $_name = [
         'feedback' => 'Feedback',
+        'labels' => 'Labels',
         'queryRequestId' => 'QueryRequestId',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
@@ -46,6 +58,10 @@ class UpdateScanResultFeedbackRequest extends Model
             $res['Feedback'] = $this->feedback;
         }
 
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
+
         if (null !== $this->queryRequestId) {
             $res['QueryRequestId'] = $this->queryRequestId;
         }
@@ -56,6 +72,10 @@ class UpdateScanResultFeedbackRequest extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -73,6 +93,10 @@ class UpdateScanResultFeedbackRequest extends Model
             $model->feedback = $map['Feedback'];
         }
 
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
+
         if (isset($map['QueryRequestId'])) {
             $model->queryRequestId = $map['QueryRequestId'];
         }
@@ -83,6 +107,10 @@ class UpdateScanResultFeedbackRequest extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

@@ -207,7 +207,8 @@ class config extends Model
                 $res['PrefixFilters'] = [];
                 $n1 = 0;
                 foreach ($this->prefixFilters as $item1) {
-                    $res['PrefixFilters'][$n1++] = $item1;
+                    $res['PrefixFilters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +234,8 @@ class config extends Model
                 $res['ScanService'] = [];
                 $n1 = 0;
                 foreach ($this->scanService as $item1) {
-                    $res['ScanService'][$n1++] = $item1;
+                    $res['ScanService'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +245,8 @@ class config extends Model
                 $res['ScanServiceInfos'] = [];
                 $n1 = 0;
                 foreach ($this->scanServiceInfos as $item1) {
-                    $res['ScanServiceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScanServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +323,8 @@ class config extends Model
                 $model->prefixFilters = [];
                 $n1 = 0;
                 foreach ($map['PrefixFilters'] as $item1) {
-                    $model->prefixFilters[$n1++] = $item1;
+                    $model->prefixFilters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -346,7 +350,8 @@ class config extends Model
                 $model->scanService = [];
                 $n1 = 0;
                 foreach ($map['ScanService'] as $item1) {
-                    $model->scanService[$n1++] = $item1;
+                    $model->scanService[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -356,7 +361,8 @@ class config extends Model
                 $model->scanServiceInfos = [];
                 $n1 = 0;
                 foreach ($map['ScanServiceInfos'] as $item1) {
-                    $model->scanServiceInfos[$n1++] = scanServiceInfos::fromMap($item1);
+                    $model->scanServiceInfos[$n1] = scanServiceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

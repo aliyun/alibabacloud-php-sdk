@@ -79,7 +79,8 @@ class customServiceConf extends Model
                 $res['ImageService'] = [];
                 $n1 = 0;
                 foreach ($this->imageService as $item1) {
-                    $res['ImageService'][$n1++] = $item1;
+                    $res['ImageService'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class customServiceConf extends Model
                 $res['KeywordFilterLibs'] = [];
                 $n1 = 0;
                 foreach ($this->keywordFilterLibs as $item1) {
-                    $res['KeywordFilterLibs'][$n1++] = $item1;
+                    $res['KeywordFilterLibs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +101,8 @@ class customServiceConf extends Model
                 $res['KeywordHitLibs'] = [];
                 $n1 = 0;
                 foreach ($this->keywordHitLibs as $item1) {
-                    $res['KeywordHitLibs'][$n1++] = $item1;
+                    $res['KeywordHitLibs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +112,8 @@ class customServiceConf extends Model
                 $res['Rules'] = [];
                 $n1 = 0;
                 foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +123,8 @@ class customServiceConf extends Model
                 $res['SimilarTextHitLibs'] = [];
                 $n1 = 0;
                 foreach ($this->similarTextHitLibs as $item1) {
-                    $res['SimilarTextHitLibs'][$n1++] = $item1;
+                    $res['SimilarTextHitLibs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +149,8 @@ class customServiceConf extends Model
                 $model->imageService = [];
                 $n1 = 0;
                 foreach ($map['ImageService'] as $item1) {
-                    $model->imageService[$n1++] = $item1;
+                    $model->imageService[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +160,8 @@ class customServiceConf extends Model
                 $model->keywordFilterLibs = [];
                 $n1 = 0;
                 foreach ($map['KeywordFilterLibs'] as $item1) {
-                    $model->keywordFilterLibs[$n1++] = $item1;
+                    $model->keywordFilterLibs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +171,8 @@ class customServiceConf extends Model
                 $model->keywordHitLibs = [];
                 $n1 = 0;
                 foreach ($map['KeywordHitLibs'] as $item1) {
-                    $model->keywordHitLibs[$n1++] = $item1;
+                    $model->keywordHitLibs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +182,8 @@ class customServiceConf extends Model
                 $model->rules = [];
                 $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                    $model->rules[$n1] = rules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +193,8 @@ class customServiceConf extends Model
                 $model->similarTextHitLibs = [];
                 $n1 = 0;
                 foreach ($map['SimilarTextHitLibs'] as $item1) {
-                    $model->similarTextHitLibs[$n1++] = $item1;
+                    $model->similarTextHitLibs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

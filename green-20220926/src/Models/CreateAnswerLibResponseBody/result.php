@@ -93,7 +93,8 @@ class result extends Model
                 $res['IllegalLengthSamples'] = [];
                 $n1 = 0;
                 foreach ($this->illegalLengthSamples as $item1) {
-                    $res['IllegalLengthSamples'][$n1++] = $item1;
+                    $res['IllegalLengthSamples'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class result extends Model
                 $res['RepeatSamples'] = [];
                 $n1 = 0;
                 foreach ($this->repeatSamples as $item1) {
-                    $res['RepeatSamples'][$n1++] = $item1;
+                    $res['RepeatSamples'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class result extends Model
                 $model->illegalLengthSamples = [];
                 $n1 = 0;
                 foreach ($map['IllegalLengthSamples'] as $item1) {
-                    $model->illegalLengthSamples[$n1++] = $item1;
+                    $model->illegalLengthSamples[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +185,8 @@ class result extends Model
                 $model->repeatSamples = [];
                 $n1 = 0;
                 foreach ($map['RepeatSamples'] as $item1) {
-                    $model->repeatSamples[$n1++] = $item1;
+                    $model->repeatSamples[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
