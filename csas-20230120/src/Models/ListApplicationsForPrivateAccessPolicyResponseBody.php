@@ -39,7 +39,8 @@ class ListApplicationsForPrivateAccessPolicyResponseBody extends Model
                 $res['Polices'] = [];
                 $n1 = 0;
                 foreach ($this->polices as $item1) {
-                    $res['Polices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Polices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListApplicationsForPrivateAccessPolicyResponseBody extends Model
                 $model->polices = [];
                 $n1 = 0;
                 foreach ($map['Polices'] as $item1) {
-                    $model->polices[$n1++] = polices::fromMap($item1);
+                    $model->polices[$n1] = polices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

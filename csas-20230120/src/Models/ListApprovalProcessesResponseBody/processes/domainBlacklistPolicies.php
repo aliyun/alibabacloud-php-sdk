@@ -38,7 +38,8 @@ class domainBlacklistPolicies extends Model
                 $res['PolicyIds'] = [];
                 $n1 = 0;
                 foreach ($this->policyIds as $item1) {
-                    $res['PolicyIds'][$n1++] = $item1;
+                    $res['PolicyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class domainBlacklistPolicies extends Model
                 $model->policyIds = [];
                 $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
-                    $model->policyIds[$n1++] = $item1;
+                    $model->policyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

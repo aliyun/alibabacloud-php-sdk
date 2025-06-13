@@ -33,7 +33,8 @@ class requestQueryRewriteConfig extends Model
                 $res['Ops'] = [];
                 $n1 = 0;
                 foreach ($this->ops as $item1) {
-                    $res['Ops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class requestQueryRewriteConfig extends Model
                 $model->ops = [];
                 $n1 = 0;
                 foreach ($map['Ops'] as $item1) {
-                    $model->ops[$n1++] = PAL7ConfigRewriteOp::fromMap($item1);
+                    $model->ops[$n1] = PAL7ConfigRewriteOp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

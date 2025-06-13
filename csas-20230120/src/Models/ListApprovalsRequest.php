@@ -131,7 +131,8 @@ class ListApprovalsRequest extends Model
                 $res['ApprovalIds'] = [];
                 $n1 = 0;
                 foreach ($this->approvalIds as $item1) {
-                    $res['ApprovalIds'][$n1++] = $item1;
+                    $res['ApprovalIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +202,8 @@ class ListApprovalsRequest extends Model
                 $res['Statuses'] = [];
                 $n1 = 0;
                 foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +224,8 @@ class ListApprovalsRequest extends Model
                 $model->approvalIds = [];
                 $n1 = 0;
                 foreach ($map['ApprovalIds'] as $item1) {
-                    $model->approvalIds[$n1++] = $item1;
+                    $model->approvalIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +295,8 @@ class ListApprovalsRequest extends Model
                 $model->statuses = [];
                 $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -91,7 +91,8 @@ class ListDynamicRoutesRequest extends Model
                 $res['DynamicRouteIds'] = [];
                 $n1 = 0;
                 foreach ($this->dynamicRouteIds as $item1) {
-                    $res['DynamicRouteIds'][$n1++] = $item1;
+                    $res['DynamicRouteIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class ListDynamicRoutesRequest extends Model
                 $res['RegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1++] = $item1;
+                    $res['RegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +152,8 @@ class ListDynamicRoutesRequest extends Model
                 $model->dynamicRouteIds = [];
                 $n1 = 0;
                 foreach ($map['DynamicRouteIds'] as $item1) {
-                    $model->dynamicRouteIds[$n1++] = $item1;
+                    $model->dynamicRouteIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class ListDynamicRoutesRequest extends Model
                 $model->regionIds = [];
                 $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1++] = $item1;
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

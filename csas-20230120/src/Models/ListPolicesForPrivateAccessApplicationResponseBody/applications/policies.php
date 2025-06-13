@@ -95,7 +95,8 @@ class policies extends Model
                 $res['CustomUserAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->customUserAttributes as $item1) {
-                    $res['CustomUserAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomUserAttributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class policies extends Model
                 $model->customUserAttributes = [];
                 $n1 = 0;
                 foreach ($map['CustomUserAttributes'] as $item1) {
-                    $model->customUserAttributes[$n1++] = customUserAttributes::fromMap($item1);
+                    $model->customUserAttributes[$n1] = customUserAttributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

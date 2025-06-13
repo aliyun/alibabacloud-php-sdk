@@ -41,7 +41,8 @@ class RiskSceneConfig extends Model
                 $res['DetectChannel'] = [];
                 $n1 = 0;
                 foreach ($this->detectChannel as $item1) {
-                    $res['DetectChannel'][$n1++] = $item1;
+                    $res['DetectChannel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class RiskSceneConfig extends Model
                 $res['OfficeChannel'] = [];
                 $n1 = 0;
                 foreach ($this->officeChannel as $item1) {
-                    $res['OfficeChannel'][$n1++] = $item1;
+                    $res['OfficeChannel'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class RiskSceneConfig extends Model
                 $model->detectChannel = [];
                 $n1 = 0;
                 foreach ($map['DetectChannel'] as $item1) {
-                    $model->detectChannel[$n1++] = $item1;
+                    $model->detectChannel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class RiskSceneConfig extends Model
                 $model->officeChannel = [];
                 $n1 = 0;
                 foreach ($map['OfficeChannel'] as $item1) {
-                    $model->officeChannel[$n1++] = $item1;
+                    $model->officeChannel[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

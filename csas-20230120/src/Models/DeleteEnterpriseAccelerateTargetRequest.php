@@ -42,7 +42,8 @@ class DeleteEnterpriseAccelerateTargetRequest extends Model
                 $res['Target'] = [];
                 $n1 = 0;
                 foreach ($this->target as $item1) {
-                    $res['Target'][$n1++] = $item1;
+                    $res['Target'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DeleteEnterpriseAccelerateTargetRequest extends Model
                 $model->target = [];
                 $n1 = 0;
                 foreach ($map['Target'] as $item1) {
-                    $model->target[$n1++] = $item1;
+                    $model->target[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

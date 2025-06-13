@@ -39,7 +39,8 @@ class UpdateApprovalStatusResponseBody extends Model
                 $res['Approval'] = [];
                 $n1 = 0;
                 foreach ($this->approval as $item1) {
-                    $res['Approval'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Approval'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class UpdateApprovalStatusResponseBody extends Model
                 $model->approval = [];
                 $n1 = 0;
                 foreach ($map['Approval'] as $item1) {
-                    $model->approval[$n1++] = approval::fromMap($item1);
+                    $model->approval[$n1] = approval::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -101,7 +101,8 @@ class Rule extends Model
                 $res['Rules'] = [];
                 $n1 = 0;
                 foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class Rule extends Model
                 $res['Values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class Rule extends Model
                 $model->rules = [];
                 $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = self::fromMap($item1);
+                    $model->rules[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +169,8 @@ class Rule extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
+                    $model->values[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

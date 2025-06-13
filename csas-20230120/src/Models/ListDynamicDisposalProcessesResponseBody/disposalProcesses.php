@@ -140,7 +140,8 @@ class disposalProcesses extends Model
                 $res['DisposalActions'] = [];
                 $n1 = 0;
                 foreach ($this->disposalActions as $item1) {
-                    $res['DisposalActions'][$n1++] = $item1;
+                    $res['DisposalActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +218,8 @@ class disposalProcesses extends Model
                 $model->disposalActions = [];
                 $n1 = 0;
                 foreach ($map['DisposalActions'] as $item1) {
-                    $model->disposalActions[$n1++] = $item1;
+                    $model->disposalActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

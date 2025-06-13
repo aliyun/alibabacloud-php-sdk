@@ -107,7 +107,8 @@ class GetRegistrationPolicyResponseBody extends Model
                 $res['LimitDetail'] = [];
                 $n1 = 0;
                 foreach ($this->limitDetail as $item1) {
-                    $res['LimitDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LimitDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class GetRegistrationPolicyResponseBody extends Model
                 $res['UserGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
-                    $res['UserGroupIds'][$n1++] = $item1;
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class GetRegistrationPolicyResponseBody extends Model
                 $res['Whitelist'] = [];
                 $n1 = 0;
                 foreach ($this->whitelist as $item1) {
-                    $res['Whitelist'][$n1++] = $item1;
+                    $res['Whitelist'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class GetRegistrationPolicyResponseBody extends Model
                 $model->limitDetail = [];
                 $n1 = 0;
                 foreach ($map['LimitDetail'] as $item1) {
-                    $model->limitDetail[$n1++] = limitDetail::fromMap($item1);
+                    $model->limitDetail[$n1] = limitDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +218,8 @@ class GetRegistrationPolicyResponseBody extends Model
                 $model->userGroupIds = [];
                 $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
-                    $model->userGroupIds[$n1++] = $item1;
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +229,8 @@ class GetRegistrationPolicyResponseBody extends Model
                 $model->whitelist = [];
                 $n1 = 0;
                 foreach ($map['Whitelist'] as $item1) {
-                    $model->whitelist[$n1++] = $item1;
+                    $model->whitelist[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

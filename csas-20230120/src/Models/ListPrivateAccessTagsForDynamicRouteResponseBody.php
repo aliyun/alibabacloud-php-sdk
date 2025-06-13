@@ -39,7 +39,8 @@ class ListPrivateAccessTagsForDynamicRouteResponseBody extends Model
                 $res['DynamicRoutes'] = [];
                 $n1 = 0;
                 foreach ($this->dynamicRoutes as $item1) {
-                    $res['DynamicRoutes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DynamicRoutes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListPrivateAccessTagsForDynamicRouteResponseBody extends Model
                 $model->dynamicRoutes = [];
                 $n1 = 0;
                 foreach ($map['DynamicRoutes'] as $item1) {
-                    $model->dynamicRoutes[$n1++] = dynamicRoutes::fromMap($item1);
+                    $model->dynamicRoutes[$n1] = dynamicRoutes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

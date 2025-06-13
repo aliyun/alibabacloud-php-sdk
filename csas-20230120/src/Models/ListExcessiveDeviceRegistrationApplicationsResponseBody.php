@@ -45,7 +45,8 @@ class ListExcessiveDeviceRegistrationApplicationsResponseBody extends Model
                 $res['Applications'] = [];
                 $n1 = 0;
                 foreach ($this->applications as $item1) {
-                    $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Applications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListExcessiveDeviceRegistrationApplicationsResponseBody extends Model
                 $model->applications = [];
                 $n1 = 0;
                 foreach ($map['Applications'] as $item1) {
-                    $model->applications[$n1++] = applications::fromMap($item1);
+                    $model->applications[$n1] = applications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

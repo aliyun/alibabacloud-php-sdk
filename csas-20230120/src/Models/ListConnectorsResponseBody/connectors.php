@@ -89,7 +89,8 @@ class connectors extends Model
                 $res['Applications'] = [];
                 $n1 = 0;
                 foreach ($this->applications as $item1) {
-                    $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Applications'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class connectors extends Model
                 $res['ConnectorClients'] = [];
                 $n1 = 0;
                 foreach ($this->connectorClients as $item1) {
-                    $res['ConnectorClients'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConnectorClients'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +150,8 @@ class connectors extends Model
                 $model->applications = [];
                 $n1 = 0;
                 foreach ($map['Applications'] as $item1) {
-                    $model->applications[$n1++] = applications::fromMap($item1);
+                    $model->applications[$n1] = applications::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class connectors extends Model
                 $model->connectorClients = [];
                 $n1 = 0;
                 foreach ($map['ConnectorClients'] as $item1) {
-                    $model->connectorClients[$n1++] = connectorClients::fromMap($item1);
+                    $model->connectorClients[$n1] = connectorClients::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

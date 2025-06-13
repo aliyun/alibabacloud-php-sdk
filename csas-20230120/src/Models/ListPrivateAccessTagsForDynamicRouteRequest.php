@@ -32,7 +32,8 @@ class ListPrivateAccessTagsForDynamicRouteRequest extends Model
                 $res['DynamicRouteIds'] = [];
                 $n1 = 0;
                 foreach ($this->dynamicRouteIds as $item1) {
-                    $res['DynamicRouteIds'][$n1++] = $item1;
+                    $res['DynamicRouteIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ListPrivateAccessTagsForDynamicRouteRequest extends Model
                 $model->dynamicRouteIds = [];
                 $n1 = 0;
                 foreach ($map['DynamicRouteIds'] as $item1) {
-                    $model->dynamicRouteIds[$n1++] = $item1;
+                    $model->dynamicRouteIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

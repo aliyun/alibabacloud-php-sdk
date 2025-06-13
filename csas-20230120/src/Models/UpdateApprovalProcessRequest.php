@@ -77,12 +77,14 @@ class UpdateApprovalProcessRequest extends Model
                 $n1 = 0;
                 foreach ($this->processNodes as $item1) {
                     if (\is_array($item1)) {
-                        $res['ProcessNodes'][$n1++] = [];
+                        $res['ProcessNodes'][$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $res['ProcessNodes'][$n1++][$n2++] = $item2;
+                            $res['ProcessNodes'][$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -120,12 +122,14 @@ class UpdateApprovalProcessRequest extends Model
                 $n1 = 0;
                 foreach ($map['ProcessNodes'] as $item1) {
                     if (!empty($item1)) {
-                        $model->processNodes[$n1++] = [];
+                        $model->processNodes[$n1] = [];
                         $n2 = 0;
                         foreach ($item1 as $item2) {
-                            $model->processNodes[$n1++][$n2++] = $item2;
+                            $model->processNodes[$n1][$n2] = $item2;
+                            ++$n2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

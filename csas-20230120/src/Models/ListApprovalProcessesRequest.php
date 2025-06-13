@@ -90,7 +90,8 @@ class ListApprovalProcessesRequest extends Model
                 $res['ProcessIds'] = [];
                 $n1 = 0;
                 foreach ($this->processIds as $item1) {
-                    $res['ProcessIds'][$n1++] = $item1;
+                    $res['ProcessIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +140,8 @@ class ListApprovalProcessesRequest extends Model
                 $model->processIds = [];
                 $n1 = 0;
                 foreach ($map['ProcessIds'] as $item1) {
-                    $model->processIds[$n1++] = $item1;
+                    $model->processIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

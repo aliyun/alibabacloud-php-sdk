@@ -62,7 +62,8 @@ class software extends Model
                 $res['Versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['Versions'][$n1++] = $item1;
+                    $res['Versions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class software extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
-                    $model->versions[$n1++] = $item1;
+                    $model->versions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

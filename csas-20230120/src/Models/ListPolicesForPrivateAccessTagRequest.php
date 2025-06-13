@@ -32,7 +32,8 @@ class ListPolicesForPrivateAccessTagRequest extends Model
                 $res['TagIds'] = [];
                 $n1 = 0;
                 foreach ($this->tagIds as $item1) {
-                    $res['TagIds'][$n1++] = $item1;
+                    $res['TagIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ListPolicesForPrivateAccessTagRequest extends Model
                 $model->tagIds = [];
                 $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
-                    $model->tagIds[$n1++] = $item1;
+                    $model->tagIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

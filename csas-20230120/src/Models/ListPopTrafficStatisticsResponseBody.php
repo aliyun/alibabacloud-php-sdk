@@ -43,7 +43,8 @@ class ListPopTrafficStatisticsResponseBody extends Model
                 $res['TrafficData'] = [];
                 $n1 = 0;
                 foreach ($this->trafficData as $item1) {
-                    $res['TrafficData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrafficData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListPopTrafficStatisticsResponseBody extends Model
                 $model->trafficData = [];
                 $n1 = 0;
                 foreach ($map['TrafficData'] as $item1) {
-                    $model->trafficData[$n1++] = trafficData::fromMap($item1);
+                    $model->trafficData[$n1] = trafficData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

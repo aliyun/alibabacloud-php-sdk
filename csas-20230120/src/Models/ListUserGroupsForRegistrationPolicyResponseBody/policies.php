@@ -43,7 +43,8 @@ class policies extends Model
                 $res['UserGroups'] = [];
                 $n1 = 0;
                 foreach ($this->userGroups as $item1) {
-                    $res['UserGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class policies extends Model
                 $model->userGroups = [];
                 $n1 = 0;
                 foreach ($map['UserGroups'] as $item1) {
-                    $model->userGroups[$n1++] = userGroups::fromMap($item1);
+                    $model->userGroups[$n1] = userGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

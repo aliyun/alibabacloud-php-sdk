@@ -58,7 +58,8 @@ class ListEnterpriseAccelerateTargetsResponseBody extends Model
                 $res['Targets'] = [];
                 $n1 = 0;
                 foreach ($this->targets as $item1) {
-                    $res['Targets'][$n1++] = $item1;
+                    $res['Targets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListEnterpriseAccelerateTargetsResponseBody extends Model
                 $model->targets = [];
                 $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
-                    $model->targets[$n1++] = $item1;
+                    $model->targets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

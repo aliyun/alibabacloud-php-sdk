@@ -45,7 +45,8 @@ class ListDynamicDisposalProcessesResponseBody extends Model
                 $res['DisposalProcesses'] = [];
                 $n1 = 0;
                 foreach ($this->disposalProcesses as $item1) {
-                    $res['DisposalProcesses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DisposalProcesses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListDynamicDisposalProcessesResponseBody extends Model
                 $model->disposalProcesses = [];
                 $n1 = 0;
                 foreach ($map['DisposalProcesses'] as $item1) {
-                    $model->disposalProcesses[$n1++] = disposalProcesses::fromMap($item1);
+                    $model->disposalProcesses[$n1] = disposalProcesses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

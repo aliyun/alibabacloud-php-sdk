@@ -49,7 +49,8 @@ class ListApprovalSchemasResponseBody extends Model
                 $res['Schemas'] = [];
                 $n1 = 0;
                 foreach ($this->schemas as $item1) {
-                    $res['Schemas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Schemas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListApprovalSchemasResponseBody extends Model
                 $model->schemas = [];
                 $n1 = 0;
                 foreach ($map['Schemas'] as $item1) {
-                    $model->schemas[$n1++] = schemas::fromMap($item1);
+                    $model->schemas[$n1] = schemas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

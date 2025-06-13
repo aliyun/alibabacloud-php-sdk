@@ -85,7 +85,8 @@ class UpdateBootAndAntiUninstallPolicyRequest extends Model
                 $res['UserGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
-                    $res['UserGroupIds'][$n1++] = $item1;
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class UpdateBootAndAntiUninstallPolicyRequest extends Model
                 $res['WhitelistUsers'] = [];
                 $n1 = 0;
                 foreach ($this->whitelistUsers as $item1) {
-                    $res['WhitelistUsers'][$n1++] = $item1;
+                    $res['WhitelistUsers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class UpdateBootAndAntiUninstallPolicyRequest extends Model
                 $model->userGroupIds = [];
                 $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
-                    $model->userGroupIds[$n1++] = $item1;
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class UpdateBootAndAntiUninstallPolicyRequest extends Model
                 $model->whitelistUsers = [];
                 $n1 = 0;
                 foreach ($map['WhitelistUsers'] as $item1) {
-                    $model->whitelistUsers[$n1++] = $item1;
+                    $model->whitelistUsers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

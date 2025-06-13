@@ -45,7 +45,8 @@ class ListApprovalProcessesResponseBody extends Model
                 $res['Processes'] = [];
                 $n1 = 0;
                 foreach ($this->processes as $item1) {
-                    $res['Processes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Processes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListApprovalProcessesResponseBody extends Model
                 $model->processes = [];
                 $n1 = 0;
                 foreach ($map['Processes'] as $item1) {
-                    $model->processes[$n1++] = processes::fromMap($item1);
+                    $model->processes[$n1] = processes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class UpdateUserDevicesStatusRequest extends Model
                 $res['DeviceTags'] = [];
                 $n1 = 0;
                 foreach ($this->deviceTags as $item1) {
-                    $res['DeviceTags'][$n1++] = $item1;
+                    $res['DeviceTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class UpdateUserDevicesStatusRequest extends Model
                 $model->deviceTags = [];
                 $n1 = 0;
                 foreach ($map['DeviceTags'] as $item1) {
-                    $model->deviceTags[$n1++] = $item1;
+                    $model->deviceTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class CreateUserGroupRequest extends Model
                 $res['Attributes'] = [];
                 $n1 = 0;
                 foreach ($this->attributes as $item1) {
-                    $res['Attributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Attributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class CreateUserGroupRequest extends Model
                 $model->attributes = [];
                 $n1 = 0;
                 foreach ($map['Attributes'] as $item1) {
-                    $model->attributes[$n1++] = attributes::fromMap($item1);
+                    $model->attributes[$n1] = attributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

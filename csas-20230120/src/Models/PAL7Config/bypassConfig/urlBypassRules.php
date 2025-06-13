@@ -41,7 +41,8 @@ class urlBypassRules extends Model
                 $res['Froms'] = [];
                 $n1 = 0;
                 foreach ($this->froms as $item1) {
-                    $res['Froms'][$n1++] = $item1;
+                    $res['Froms'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class urlBypassRules extends Model
                 $res['Paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['Paths'][$n1++] = $item1;
+                    $res['Paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class urlBypassRules extends Model
                 $model->froms = [];
                 $n1 = 0;
                 foreach ($map['Froms'] as $item1) {
-                    $model->froms[$n1++] = $item1;
+                    $model->froms[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class urlBypassRules extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['Paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

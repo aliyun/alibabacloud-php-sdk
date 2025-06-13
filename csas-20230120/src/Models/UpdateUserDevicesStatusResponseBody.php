@@ -39,7 +39,8 @@ class UpdateUserDevicesStatusResponseBody extends Model
                 $res['Devices'] = [];
                 $n1 = 0;
                 foreach ($this->devices as $item1) {
-                    $res['Devices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Devices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class UpdateUserDevicesStatusResponseBody extends Model
                 $model->devices = [];
                 $n1 = 0;
                 foreach ($map['Devices'] as $item1) {
-                    $model->devices[$n1++] = devices::fromMap($item1);
+                    $model->devices[$n1] = devices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

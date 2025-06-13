@@ -88,7 +88,8 @@ class ListUsersRequest extends Model
                 $res['SaseUserIds'] = [];
                 $n1 = 0;
                 foreach ($this->saseUserIds as $item1) {
-                    $res['SaseUserIds'][$n1++] = $item1;
+                    $res['SaseUserIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class ListUsersRequest extends Model
                 $model->saseUserIds = [];
                 $n1 = 0;
                 foreach ($map['SaseUserIds'] as $item1) {
-                    $model->saseUserIds[$n1++] = $item1;
+                    $model->saseUserIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

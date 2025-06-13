@@ -92,7 +92,8 @@ class CreateDynamicRouteRequest extends Model
                 $res['ApplicationIds'] = [];
                 $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1++] = $item1;
+                    $res['ApplicationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class CreateDynamicRouteRequest extends Model
                 $res['RegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1++] = $item1;
+                    $res['RegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +142,8 @@ class CreateDynamicRouteRequest extends Model
                 $res['TagIds'] = [];
                 $n1 = 0;
                 foreach ($this->tagIds as $item1) {
-                    $res['TagIds'][$n1++] = $item1;
+                    $res['TagIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +164,8 @@ class CreateDynamicRouteRequest extends Model
                 $model->applicationIds = [];
                 $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1++] = $item1;
+                    $model->applicationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +199,8 @@ class CreateDynamicRouteRequest extends Model
                 $model->regionIds = [];
                 $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1++] = $item1;
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +214,8 @@ class CreateDynamicRouteRequest extends Model
                 $model->tagIds = [];
                 $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
-                    $model->tagIds[$n1++] = $item1;
+                    $model->tagIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

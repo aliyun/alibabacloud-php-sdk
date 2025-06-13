@@ -43,7 +43,8 @@ class responseRewriteConfig extends Model
                 $res['ReplaceRules'] = [];
                 $n1 = 0;
                 foreach ($this->replaceRules as $item1) {
-                    $res['ReplaceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReplaceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class responseRewriteConfig extends Model
                 $model->replaceRules = [];
                 $n1 = 0;
                 foreach ($map['ReplaceRules'] as $item1) {
-                    $model->replaceRules[$n1++] = PAL7ConfigReplaceRule::fromMap($item1);
+                    $model->replaceRules[$n1] = PAL7ConfigReplaceRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

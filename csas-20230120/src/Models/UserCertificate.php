@@ -92,7 +92,8 @@ class UserCertificate extends Model
                 $res['DnsNames'] = [];
                 $n1 = 0;
                 foreach ($this->dnsNames as $item1) {
-                    $res['DnsNames'][$n1++] = $item1;
+                    $res['DnsNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class UserCertificate extends Model
                 $model->dnsNames = [];
                 $n1 = 0;
                 foreach ($map['DnsNames'] as $item1) {
-                    $model->dnsNames[$n1++] = $item1;
+                    $model->dnsNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

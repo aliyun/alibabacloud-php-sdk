@@ -62,7 +62,8 @@ class ListConnectorsRequest extends Model
                 $res['ConnectorIds'] = [];
                 $n1 = 0;
                 foreach ($this->connectorIds as $item1) {
-                    $res['ConnectorIds'][$n1++] = $item1;
+                    $res['ConnectorIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class ListConnectorsRequest extends Model
                 $model->connectorIds = [];
                 $n1 = 0;
                 foreach ($map['ConnectorIds'] as $item1) {
-                    $model->connectorIds[$n1++] = $item1;
+                    $model->connectorIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

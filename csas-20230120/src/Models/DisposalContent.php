@@ -102,7 +102,8 @@ class DisposalContent extends Model
                 $res['NacDemotionPolicyIds'] = [];
                 $n1 = 0;
                 foreach ($this->nacDemotionPolicyIds as $item1) {
-                    $res['NacDemotionPolicyIds'][$n1++] = $item1;
+                    $res['NacDemotionPolicyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class DisposalContent extends Model
                 $res['NotifyActions'] = [];
                 $n1 = 0;
                 foreach ($this->notifyActions as $item1) {
-                    $res['NotifyActions'][$n1++] = $item1;
+                    $res['NotifyActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class DisposalContent extends Model
                 $res['ProhibitActions'] = [];
                 $n1 = 0;
                 foreach ($this->prohibitActions as $item1) {
-                    $res['ProhibitActions'][$n1++] = $item1;
+                    $res['ProhibitActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +170,8 @@ class DisposalContent extends Model
                 $model->nacDemotionPolicyIds = [];
                 $n1 = 0;
                 foreach ($map['NacDemotionPolicyIds'] as $item1) {
-                    $model->nacDemotionPolicyIds[$n1++] = $item1;
+                    $model->nacDemotionPolicyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +189,8 @@ class DisposalContent extends Model
                 $model->notifyActions = [];
                 $n1 = 0;
                 foreach ($map['NotifyActions'] as $item1) {
-                    $model->notifyActions[$n1++] = $item1;
+                    $model->notifyActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +200,8 @@ class DisposalContent extends Model
                 $model->prohibitActions = [];
                 $n1 = 0;
                 foreach ($map['ProhibitActions'] as $item1) {
-                    $model->prohibitActions[$n1++] = $item1;
+                    $model->prohibitActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

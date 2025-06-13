@@ -82,6 +82,21 @@ class policy extends Model
     /**
      * @var string[]
      */
+    public $trustedProcessGroupIds;
+
+    /**
+     * @var string
+     */
+    public $trustedProcessStatus;
+
+    /**
+     * @var string[]
+     */
+    public $trustedSoftwareIds;
+
+    /**
+     * @var string[]
+     */
     public $userGroupIds;
 
     /**
@@ -103,6 +118,9 @@ class policy extends Model
         'status' => 'Status',
         'tagIds' => 'TagIds',
         'triggerTemplateId' => 'TriggerTemplateId',
+        'trustedProcessGroupIds' => 'TrustedProcessGroupIds',
+        'trustedProcessStatus' => 'TrustedProcessStatus',
+        'trustedSoftwareIds' => 'TrustedSoftwareIds',
         'userGroupIds' => 'UserGroupIds',
         'userGroupMode' => 'UserGroupMode',
     ];
@@ -118,6 +136,12 @@ class policy extends Model
         if (\is_array($this->tagIds)) {
             Model::validateArray($this->tagIds);
         }
+        if (\is_array($this->trustedProcessGroupIds)) {
+            Model::validateArray($this->trustedProcessGroupIds);
+        }
+        if (\is_array($this->trustedSoftwareIds)) {
+            Model::validateArray($this->trustedSoftwareIds);
+        }
         if (\is_array($this->userGroupIds)) {
             Model::validateArray($this->userGroupIds);
         }
@@ -132,7 +156,8 @@ class policy extends Model
                 $res['ApplicationIds'] = [];
                 $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1++] = $item1;
+                    $res['ApplicationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +175,8 @@ class policy extends Model
                 $res['CustomUserAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->customUserAttributes as $item1) {
-                    $res['CustomUserAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomUserAttributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +218,8 @@ class policy extends Model
                 $res['TagIds'] = [];
                 $n1 = 0;
                 foreach ($this->tagIds as $item1) {
-                    $res['TagIds'][$n1++] = $item1;
+                    $res['TagIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,12 +228,39 @@ class policy extends Model
             $res['TriggerTemplateId'] = $this->triggerTemplateId;
         }
 
+        if (null !== $this->trustedProcessGroupIds) {
+            if (\is_array($this->trustedProcessGroupIds)) {
+                $res['TrustedProcessGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->trustedProcessGroupIds as $item1) {
+                    $res['TrustedProcessGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->trustedProcessStatus) {
+            $res['TrustedProcessStatus'] = $this->trustedProcessStatus;
+        }
+
+        if (null !== $this->trustedSoftwareIds) {
+            if (\is_array($this->trustedSoftwareIds)) {
+                $res['TrustedSoftwareIds'] = [];
+                $n1 = 0;
+                foreach ($this->trustedSoftwareIds as $item1) {
+                    $res['TrustedSoftwareIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
-                    $res['UserGroupIds'][$n1++] = $item1;
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -231,7 +285,8 @@ class policy extends Model
                 $model->applicationIds = [];
                 $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1++] = $item1;
+                    $model->applicationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -249,7 +304,8 @@ class policy extends Model
                 $model->customUserAttributes = [];
                 $n1 = 0;
                 foreach ($map['CustomUserAttributes'] as $item1) {
-                    $model->customUserAttributes[$n1++] = customUserAttributes::fromMap($item1);
+                    $model->customUserAttributes[$n1] = customUserAttributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +347,8 @@ class policy extends Model
                 $model->tagIds = [];
                 $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
-                    $model->tagIds[$n1++] = $item1;
+                    $model->tagIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -300,12 +357,39 @@ class policy extends Model
             $model->triggerTemplateId = $map['TriggerTemplateId'];
         }
 
+        if (isset($map['TrustedProcessGroupIds'])) {
+            if (!empty($map['TrustedProcessGroupIds'])) {
+                $model->trustedProcessGroupIds = [];
+                $n1 = 0;
+                foreach ($map['TrustedProcessGroupIds'] as $item1) {
+                    $model->trustedProcessGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TrustedProcessStatus'])) {
+            $model->trustedProcessStatus = $map['TrustedProcessStatus'];
+        }
+
+        if (isset($map['TrustedSoftwareIds'])) {
+            if (!empty($map['TrustedSoftwareIds'])) {
+                $model->trustedSoftwareIds = [];
+                $n1 = 0;
+                foreach ($map['TrustedSoftwareIds'] as $item1) {
+                    $model->trustedSoftwareIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
                 $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
-                    $model->userGroupIds[$n1++] = $item1;
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

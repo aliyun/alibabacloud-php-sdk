@@ -45,7 +45,8 @@ class RecoveryContent extends Model
                 $res['RecoveryActions'] = [];
                 $n1 = 0;
                 foreach ($this->recoveryActions as $item1) {
-                    $res['RecoveryActions'][$n1++] = $item1;
+                    $res['RecoveryActions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +71,8 @@ class RecoveryContent extends Model
                 $model->recoveryActions = [];
                 $n1 = 0;
                 foreach ($map['RecoveryActions'] as $item1) {
-                    $model->recoveryActions[$n1++] = $item1;
+                    $model->recoveryActions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

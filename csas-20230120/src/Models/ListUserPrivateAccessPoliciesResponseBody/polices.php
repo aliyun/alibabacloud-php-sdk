@@ -45,6 +45,16 @@ class polices extends Model
     public $priority;
 
     /**
+     * @var string[]
+     */
+    public $trustedProcessGroupIds;
+
+    /**
+     * @var string[]
+     */
+    public $trustedSoftwareIds;
+
+    /**
      * @var string
      */
     public $userGroupMode;
@@ -56,6 +66,8 @@ class polices extends Model
         'policyAction' => 'PolicyAction',
         'policyId' => 'PolicyId',
         'priority' => 'Priority',
+        'trustedProcessGroupIds' => 'TrustedProcessGroupIds',
+        'trustedSoftwareIds' => 'TrustedSoftwareIds',
         'userGroupMode' => 'UserGroupMode',
     ];
 
@@ -63,6 +75,12 @@ class polices extends Model
     {
         if (\is_array($this->customUserAttributes)) {
             Model::validateArray($this->customUserAttributes);
+        }
+        if (\is_array($this->trustedProcessGroupIds)) {
+            Model::validateArray($this->trustedProcessGroupIds);
+        }
+        if (\is_array($this->trustedSoftwareIds)) {
+            Model::validateArray($this->trustedSoftwareIds);
         }
         parent::validate();
     }
@@ -75,7 +93,8 @@ class polices extends Model
                 $res['CustomUserAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->customUserAttributes as $item1) {
-                    $res['CustomUserAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomUserAttributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,6 +123,28 @@ class polices extends Model
             $res['Priority'] = $this->priority;
         }
 
+        if (null !== $this->trustedProcessGroupIds) {
+            if (\is_array($this->trustedProcessGroupIds)) {
+                $res['TrustedProcessGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->trustedProcessGroupIds as $item1) {
+                    $res['TrustedProcessGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->trustedSoftwareIds) {
+            if (\is_array($this->trustedSoftwareIds)) {
+                $res['TrustedSoftwareIds'] = [];
+                $n1 = 0;
+                foreach ($this->trustedSoftwareIds as $item1) {
+                    $res['TrustedSoftwareIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->userGroupMode) {
             $res['UserGroupMode'] = $this->userGroupMode;
         }
@@ -124,7 +165,8 @@ class polices extends Model
                 $model->customUserAttributes = [];
                 $n1 = 0;
                 foreach ($map['CustomUserAttributes'] as $item1) {
-                    $model->customUserAttributes[$n1++] = customUserAttributes::fromMap($item1);
+                    $model->customUserAttributes[$n1] = customUserAttributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -151,6 +193,28 @@ class polices extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['TrustedProcessGroupIds'])) {
+            if (!empty($map['TrustedProcessGroupIds'])) {
+                $model->trustedProcessGroupIds = [];
+                $n1 = 0;
+                foreach ($map['TrustedProcessGroupIds'] as $item1) {
+                    $model->trustedProcessGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TrustedSoftwareIds'])) {
+            if (!empty($map['TrustedSoftwareIds'])) {
+                $model->trustedSoftwareIds = [];
+                $n1 = 0;
+                foreach ($map['TrustedSoftwareIds'] as $item1) {
+                    $model->trustedSoftwareIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UserGroupMode'])) {

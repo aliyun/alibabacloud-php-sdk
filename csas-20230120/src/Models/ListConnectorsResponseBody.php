@@ -45,7 +45,8 @@ class ListConnectorsResponseBody extends Model
                 $res['Connectors'] = [];
                 $n1 = 0;
                 foreach ($this->connectors as $item1) {
-                    $res['Connectors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Connectors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListConnectorsResponseBody extends Model
                 $model->connectors = [];
                 $n1 = 0;
                 foreach ($map['Connectors'] as $item1) {
-                    $model->connectors[$n1++] = connectors::fromMap($item1);
+                    $model->connectors[$n1] = connectors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

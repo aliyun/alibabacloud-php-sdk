@@ -39,7 +39,8 @@ class trafficData extends Model
                 $res['Datapoints'] = [];
                 $n1 = 0;
                 foreach ($this->datapoints as $item1) {
-                    $res['Datapoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Datapoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class trafficData extends Model
                 $model->datapoints = [];
                 $n1 = 0;
                 foreach ($map['Datapoints'] as $item1) {
-                    $model->datapoints[$n1++] = datapoints::fromMap($item1);
+                    $model->datapoints[$n1] = datapoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

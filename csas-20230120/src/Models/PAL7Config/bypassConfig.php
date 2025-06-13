@@ -48,7 +48,8 @@ class bypassConfig extends Model
                 $res['AppBypassFroms'] = [];
                 $n1 = 0;
                 foreach ($this->appBypassFroms as $item1) {
-                    $res['AppBypassFroms'][$n1++] = $item1;
+                    $res['AppBypassFroms'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class bypassConfig extends Model
                 $res['UrlBypassRules'] = [];
                 $n1 = 0;
                 foreach ($this->urlBypassRules as $item1) {
-                    $res['UrlBypassRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UrlBypassRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class bypassConfig extends Model
                 $model->appBypassFroms = [];
                 $n1 = 0;
                 foreach ($map['AppBypassFroms'] as $item1) {
-                    $model->appBypassFroms[$n1++] = $item1;
+                    $model->appBypassFroms[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class bypassConfig extends Model
                 $model->urlBypassRules = [];
                 $n1 = 0;
                 foreach ($map['UrlBypassRules'] as $item1) {
-                    $model->urlBypassRules[$n1++] = urlBypassRules::fromMap($item1);
+                    $model->urlBypassRules[$n1] = urlBypassRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

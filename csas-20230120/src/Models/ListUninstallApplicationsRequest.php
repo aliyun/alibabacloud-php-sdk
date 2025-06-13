@@ -77,7 +77,8 @@ class ListUninstallApplicationsRequest extends Model
                 $res['ApplicationIds'] = [];
                 $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1++] = $item1;
+                    $res['ApplicationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class ListUninstallApplicationsRequest extends Model
                 $res['Statuses'] = [];
                 $n1 = 0;
                 foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class ListUninstallApplicationsRequest extends Model
                 $model->applicationIds = [];
                 $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1++] = $item1;
+                    $model->applicationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +165,8 @@ class ListUninstallApplicationsRequest extends Model
                 $model->statuses = [];
                 $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

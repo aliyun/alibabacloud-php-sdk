@@ -71,7 +71,8 @@ class tags extends Model
                 $res['ApplicationIds'] = [];
                 $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
-                    $res['ApplicationIds'][$n1++] = $item1;
+                    $res['ApplicationIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class tags extends Model
                 $res['PolicyIds'] = [];
                 $n1 = 0;
                 foreach ($this->policyIds as $item1) {
-                    $res['PolicyIds'][$n1++] = $item1;
+                    $res['PolicyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class tags extends Model
                 $model->applicationIds = [];
                 $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
-                    $model->applicationIds[$n1++] = $item1;
+                    $model->applicationIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class tags extends Model
                 $model->policyIds = [];
                 $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
-                    $model->policyIds[$n1++] = $item1;
+                    $model->policyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -68,7 +68,8 @@ class ListApprovalSchemasRequest extends Model
                 $res['SchemaIds'] = [];
                 $n1 = 0;
                 foreach ($this->schemaIds as $item1) {
-                    $res['SchemaIds'][$n1++] = $item1;
+                    $res['SchemaIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListApprovalSchemasRequest extends Model
                 $model->schemaIds = [];
                 $n1 = 0;
                 foreach ($map['SchemaIds'] as $item1) {
-                    $model->schemaIds[$n1++] = $item1;
+                    $model->schemaIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

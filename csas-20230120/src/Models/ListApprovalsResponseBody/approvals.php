@@ -137,7 +137,8 @@ class approvals extends Model
                 $res['ApprovalProgresses'] = [];
                 $n1 = 0;
                 foreach ($this->approvalProgresses as $item1) {
-                    $res['ApprovalProgresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApprovalProgresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +223,8 @@ class approvals extends Model
                 $model->approvalProgresses = [];
                 $n1 = 0;
                 foreach ($map['ApprovalProgresses'] as $item1) {
-                    $model->approvalProgresses[$n1++] = approvalProgresses::fromMap($item1);
+                    $model->approvalProgresses[$n1] = approvalProgresses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

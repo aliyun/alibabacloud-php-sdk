@@ -49,7 +49,8 @@ class ListSoftwareForUserDeviceResponseBody extends Model
                 $res['Software'] = [];
                 $n1 = 0;
                 foreach ($this->software as $item1) {
-                    $res['Software'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Software'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSoftwareForUserDeviceResponseBody extends Model
                 $model->software = [];
                 $n1 = 0;
                 foreach ($map['Software'] as $item1) {
-                    $model->software[$n1++] = software::fromMap($item1);
+                    $model->software[$n1] = software::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

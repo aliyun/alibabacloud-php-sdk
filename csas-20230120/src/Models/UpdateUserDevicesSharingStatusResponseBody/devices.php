@@ -259,7 +259,8 @@ class devices extends Model
                 $res['NetInterfaceInfo'] = [];
                 $n1 = 0;
                 foreach ($this->netInterfaceInfo as $item1) {
-                    $res['NetInterfaceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetInterfaceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -380,7 +381,8 @@ class devices extends Model
                 $model->netInterfaceInfo = [];
                 $n1 = 0;
                 foreach ($map['NetInterfaceInfo'] as $item1) {
-                    $model->netInterfaceInfo[$n1++] = netInterfaceInfo::fromMap($item1);
+                    $model->netInterfaceInfo[$n1] = netInterfaceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class UpdateNacUserCertStatusRequest extends Model
                 $res['IdList'] = [];
                 $n1 = 0;
                 foreach ($this->idList as $item1) {
-                    $res['IdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IdList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class UpdateNacUserCertStatusRequest extends Model
                 $model->idList = [];
                 $n1 = 0;
                 foreach ($map['IdList'] as $item1) {
-                    $model->idList[$n1++] = idList::fromMap($item1);
+                    $model->idList[$n1] = idList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

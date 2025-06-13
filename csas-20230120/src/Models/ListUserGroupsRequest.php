@@ -82,7 +82,8 @@ class ListUserGroupsRequest extends Model
                 $res['UserGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
-                    $res['UserGroupIds'][$n1++] = $item1;
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class ListUserGroupsRequest extends Model
                 $model->userGroupIds = [];
                 $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
-                    $model->userGroupIds[$n1++] = $item1;
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

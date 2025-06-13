@@ -182,7 +182,8 @@ class ListUserDevicesRequest extends Model
                 $res['AppStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->appStatuses as $item1) {
-                    $res['AppStatuses'][$n1++] = $item1;
+                    $res['AppStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +193,8 @@ class ListUserDevicesRequest extends Model
                 $res['AppVersions'] = [];
                 $n1 = 0;
                 foreach ($this->appVersions as $item1) {
-                    $res['AppVersions'][$n1++] = $item1;
+                    $res['AppVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +220,8 @@ class ListUserDevicesRequest extends Model
                 $res['DeviceStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->deviceStatuses as $item1) {
-                    $res['DeviceStatuses'][$n1++] = $item1;
+                    $res['DeviceStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +231,8 @@ class ListUserDevicesRequest extends Model
                 $res['DeviceTags'] = [];
                 $n1 = 0;
                 foreach ($this->deviceTags as $item1) {
-                    $res['DeviceTags'][$n1++] = $item1;
+                    $res['DeviceTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +242,8 @@ class ListUserDevicesRequest extends Model
                 $res['DeviceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->deviceTypes as $item1) {
-                    $res['DeviceTypes'][$n1++] = $item1;
+                    $res['DeviceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +253,8 @@ class ListUserDevicesRequest extends Model
                 $res['DlpStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->dlpStatuses as $item1) {
-                    $res['DlpStatuses'][$n1++] = $item1;
+                    $res['DlpStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -262,7 +268,8 @@ class ListUserDevicesRequest extends Model
                 $res['IaStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->iaStatuses as $item1) {
-                    $res['IaStatuses'][$n1++] = $item1;
+                    $res['IaStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +287,8 @@ class ListUserDevicesRequest extends Model
                 $res['NacStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->nacStatuses as $item1) {
-                    $res['NacStatuses'][$n1++] = $item1;
+                    $res['NacStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -290,7 +298,8 @@ class ListUserDevicesRequest extends Model
                 $res['PaStatuses'] = [];
                 $n1 = 0;
                 foreach ($this->paStatuses as $item1) {
-                    $res['PaStatuses'][$n1++] = $item1;
+                    $res['PaStatuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +344,8 @@ class ListUserDevicesRequest extends Model
                 $model->appStatuses = [];
                 $n1 = 0;
                 foreach ($map['AppStatuses'] as $item1) {
-                    $model->appStatuses[$n1++] = $item1;
+                    $model->appStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -345,7 +355,8 @@ class ListUserDevicesRequest extends Model
                 $model->appVersions = [];
                 $n1 = 0;
                 foreach ($map['AppVersions'] as $item1) {
-                    $model->appVersions[$n1++] = $item1;
+                    $model->appVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -371,7 +382,8 @@ class ListUserDevicesRequest extends Model
                 $model->deviceStatuses = [];
                 $n1 = 0;
                 foreach ($map['DeviceStatuses'] as $item1) {
-                    $model->deviceStatuses[$n1++] = $item1;
+                    $model->deviceStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -381,7 +393,8 @@ class ListUserDevicesRequest extends Model
                 $model->deviceTags = [];
                 $n1 = 0;
                 foreach ($map['DeviceTags'] as $item1) {
-                    $model->deviceTags[$n1++] = $item1;
+                    $model->deviceTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -391,7 +404,8 @@ class ListUserDevicesRequest extends Model
                 $model->deviceTypes = [];
                 $n1 = 0;
                 foreach ($map['DeviceTypes'] as $item1) {
-                    $model->deviceTypes[$n1++] = $item1;
+                    $model->deviceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -401,7 +415,8 @@ class ListUserDevicesRequest extends Model
                 $model->dlpStatuses = [];
                 $n1 = 0;
                 foreach ($map['DlpStatuses'] as $item1) {
-                    $model->dlpStatuses[$n1++] = $item1;
+                    $model->dlpStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -415,7 +430,8 @@ class ListUserDevicesRequest extends Model
                 $model->iaStatuses = [];
                 $n1 = 0;
                 foreach ($map['IaStatuses'] as $item1) {
-                    $model->iaStatuses[$n1++] = $item1;
+                    $model->iaStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +449,8 @@ class ListUserDevicesRequest extends Model
                 $model->nacStatuses = [];
                 $n1 = 0;
                 foreach ($map['NacStatuses'] as $item1) {
-                    $model->nacStatuses[$n1++] = $item1;
+                    $model->nacStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -443,7 +460,8 @@ class ListUserDevicesRequest extends Model
                 $model->paStatuses = [];
                 $n1 = 0;
                 foreach ($map['PaStatuses'] as $item1) {
-                    $model->paStatuses[$n1++] = $item1;
+                    $model->paStatuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

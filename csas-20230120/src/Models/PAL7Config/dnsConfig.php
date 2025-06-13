@@ -32,7 +32,8 @@ class dnsConfig extends Model
                 $res['DnsServers'] = [];
                 $n1 = 0;
                 foreach ($this->dnsServers as $item1) {
-                    $res['DnsServers'][$n1++] = $item1;
+                    $res['DnsServers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class dnsConfig extends Model
                 $model->dnsServers = [];
                 $n1 = 0;
                 foreach ($map['DnsServers'] as $item1) {
-                    $model->dnsServers[$n1++] = $item1;
+                    $model->dnsServers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

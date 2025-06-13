@@ -1057,6 +1057,18 @@ class Csas extends OpenApiClient
             @$body['TriggerTemplateId'] = $request->triggerTemplateId;
         }
 
+        if (null !== $request->trustedProcessGroupIds) {
+            @$bodyFlat['TrustedProcessGroupIds'] = $request->trustedProcessGroupIds;
+        }
+
+        if (null !== $request->trustedProcessStatus) {
+            @$body['TrustedProcessStatus'] = $request->trustedProcessStatus;
+        }
+
+        if (null !== $request->trustedSoftwareIds) {
+            @$bodyFlat['TrustedSoftwareIds'] = $request->trustedSoftwareIds;
+        }
+
         if (null !== $request->userGroupIds) {
             @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
@@ -6979,6 +6991,18 @@ class Csas extends OpenApiClient
 
         if (null !== $request->triggerTemplateId) {
             @$body['TriggerTemplateId'] = $request->triggerTemplateId;
+        }
+
+        if (null !== $request->trustedProcessGroupIds) {
+            @$bodyFlat['TrustedProcessGroupIds'] = $request->trustedProcessGroupIds;
+        }
+
+        if (null !== $request->trustedProcessStatus) {
+            @$body['TrustedProcessStatus'] = $request->trustedProcessStatus;
+        }
+
+        if (null !== $request->trustedSoftwareIds) {
+            @$bodyFlat['TrustedSoftwareIds'] = $request->trustedSoftwareIds;
         }
 
         if (null !== $request->userGroupIds) {

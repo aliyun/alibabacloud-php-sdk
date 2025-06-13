@@ -63,7 +63,8 @@ class OpenStructSaseUserSimple extends Model
                 $res['Departments'] = [];
                 $n1 = 0;
                 foreach ($this->departments as $item1) {
-                    $res['Departments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Departments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class OpenStructSaseUserSimple extends Model
                 $model->departments = [];
                 $n1 = 0;
                 foreach ($map['Departments'] as $item1) {
-                    $model->departments[$n1++] = departments::fromMap($item1);
+                    $model->departments[$n1] = departments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

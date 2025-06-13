@@ -99,7 +99,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
                 $res['Addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['Addresses'][$n1++] = $item1;
+                    $res['Addresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
                 $res['PortRanges'] = [];
                 $n1 = 0;
                 foreach ($this->portRanges as $item1) {
-                    $res['PortRanges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PortRanges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
                 $res['TagIds'] = [];
                 $n1 = 0;
                 foreach ($this->tagIds as $item1) {
-                    $res['TagIds'][$n1++] = $item1;
+                    $res['TagIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
-                    $model->addresses[$n1++] = $item1;
+                    $model->addresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +210,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
                 $model->portRanges = [];
                 $n1 = 0;
                 foreach ($map['PortRanges'] as $item1) {
-                    $model->portRanges[$n1++] = portRanges::fromMap($item1);
+                    $model->portRanges[$n1] = portRanges::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +229,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
                 $model->tagIds = [];
                 $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
-                    $model->tagIds[$n1++] = $item1;
+                    $model->tagIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

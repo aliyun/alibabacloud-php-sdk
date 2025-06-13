@@ -276,7 +276,8 @@ class devices extends Model
                 $res['MatchDeviceGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->matchDeviceGroupIds as $item1) {
-                    $res['MatchDeviceGroupIds'][$n1++] = $item1;
+                    $res['MatchDeviceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +295,8 @@ class devices extends Model
                 $res['NetInterfaceInfo'] = [];
                 $n1 = 0;
                 foreach ($this->netInterfaceInfo as $item1) {
-                    $res['NetInterfaceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetInterfaceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -415,7 +417,8 @@ class devices extends Model
                 $model->matchDeviceGroupIds = [];
                 $n1 = 0;
                 foreach ($map['MatchDeviceGroupIds'] as $item1) {
-                    $model->matchDeviceGroupIds[$n1++] = $item1;
+                    $model->matchDeviceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -433,7 +436,8 @@ class devices extends Model
                 $model->netInterfaceInfo = [];
                 $n1 = 0;
                 foreach ($map['NetInterfaceInfo'] as $item1) {
-                    $model->netInterfaceInfo[$n1++] = netInterfaceInfo::fromMap($item1);
+                    $model->netInterfaceInfo[$n1] = netInterfaceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
