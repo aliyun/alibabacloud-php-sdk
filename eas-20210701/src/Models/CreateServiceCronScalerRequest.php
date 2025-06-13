@@ -42,7 +42,8 @@ class CreateServiceCronScalerRequest extends Model
                 $res['ExcludeDates'] = [];
                 $n1 = 0;
                 foreach ($this->excludeDates as $item1) {
-                    $res['ExcludeDates'][$n1++] = $item1;
+                    $res['ExcludeDates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,7 +53,8 @@ class CreateServiceCronScalerRequest extends Model
                 $res['ScaleJobs'] = [];
                 $n1 = 0;
                 foreach ($this->scaleJobs as $item1) {
-                    $res['ScaleJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScaleJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class CreateServiceCronScalerRequest extends Model
                 $model->excludeDates = [];
                 $n1 = 0;
                 foreach ($map['ExcludeDates'] as $item1) {
-                    $model->excludeDates[$n1++] = $item1;
+                    $model->excludeDates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +86,8 @@ class CreateServiceCronScalerRequest extends Model
                 $model->scaleJobs = [];
                 $n1 = 0;
                 foreach ($map['ScaleJobs'] as $item1) {
-                    $model->scaleJobs[$n1++] = scaleJobs::fromMap($item1);
+                    $model->scaleJobs[$n1] = scaleJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

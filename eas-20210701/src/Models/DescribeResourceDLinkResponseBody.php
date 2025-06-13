@@ -62,7 +62,8 @@ class DescribeResourceDLinkResponseBody extends Model
                 $res['AuxVSwitchList'] = [];
                 $n1 = 0;
                 foreach ($this->auxVSwitchList as $item1) {
-                    $res['AuxVSwitchList'][$n1++] = $item1;
+                    $res['AuxVSwitchList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class DescribeResourceDLinkResponseBody extends Model
                 $model->auxVSwitchList = [];
                 $n1 = 0;
                 foreach ($map['AuxVSwitchList'] as $item1) {
-                    $model->auxVSwitchList[$n1++] = $item1;
+                    $model->auxVSwitchList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

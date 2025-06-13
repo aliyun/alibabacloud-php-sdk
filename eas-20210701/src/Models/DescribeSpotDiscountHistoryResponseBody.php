@@ -43,7 +43,8 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
                 $res['SpotDiscounts'] = [];
                 $n1 = 0;
                 foreach ($this->spotDiscounts as $item1) {
-                    $res['SpotDiscounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpotDiscounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
                 $model->spotDiscounts = [];
                 $n1 = 0;
                 foreach ($map['SpotDiscounts'] as $item1) {
-                    $model->spotDiscounts[$n1++] = spotDiscounts::fromMap($item1);
+                    $model->spotDiscounts[$n1] = spotDiscounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

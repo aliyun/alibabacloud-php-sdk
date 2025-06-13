@@ -47,7 +47,8 @@ class diagnosis extends Model
                 $res['Advices'] = [];
                 $n1 = 0;
                 foreach ($this->advices as $item1) {
-                    $res['Advices'][$n1++] = $item1;
+                    $res['Advices'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class diagnosis extends Model
                 $res['Causes'] = [];
                 $n1 = 0;
                 foreach ($this->causes as $item1) {
-                    $res['Causes'][$n1++] = $item1;
+                    $res['Causes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class diagnosis extends Model
                 $model->advices = [];
                 $n1 = 0;
                 foreach ($map['Advices'] as $item1) {
-                    $model->advices[$n1++] = $item1;
+                    $model->advices[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class diagnosis extends Model
                 $model->causes = [];
                 $n1 = 0;
                 foreach ($map['Causes'] as $item1) {
-                    $model->causes[$n1++] = $item1;
+                    $model->causes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

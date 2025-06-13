@@ -51,7 +51,8 @@ class selfManagedResourceOptions extends Model
                 $res['NodeTolerations'] = [];
                 $n1 = 0;
                 foreach ($this->nodeTolerations as $item1) {
-                    $res['NodeTolerations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeTolerations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class selfManagedResourceOptions extends Model
                 $model->nodeTolerations = [];
                 $n1 = 0;
                 foreach ($map['NodeTolerations'] as $item1) {
-                    $model->nodeTolerations[$n1++] = nodeTolerations::fromMap($item1);
+                    $model->nodeTolerations[$n1] = nodeTolerations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

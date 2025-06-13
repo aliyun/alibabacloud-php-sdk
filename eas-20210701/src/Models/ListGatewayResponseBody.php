@@ -57,7 +57,8 @@ class ListGatewayResponseBody extends Model
                 $res['Gateways'] = [];
                 $n1 = 0;
                 foreach ($this->gateways as $item1) {
-                    $res['Gateways'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Gateways'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListGatewayResponseBody extends Model
                 $model->gateways = [];
                 $n1 = 0;
                 foreach ($map['Gateways'] as $item1) {
-                    $model->gateways[$n1++] = gateways::fromMap($item1);
+                    $model->gateways[$n1] = gateways::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
                 $res['PeerVpcList'] = [];
                 $n1 = 0;
                 foreach ($this->peerVpcList as $item1) {
-                    $res['PeerVpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PeerVpcList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
                 $model->peerVpcList = [];
                 $n1 = 0;
                 foreach ($map['PeerVpcList'] as $item1) {
-                    $model->peerVpcList[$n1++] = peerVpcList::fromMap($item1);
+                    $model->peerVpcList[$n1] = peerVpcList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

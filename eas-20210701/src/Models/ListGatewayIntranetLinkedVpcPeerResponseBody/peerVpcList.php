@@ -39,7 +39,8 @@ class peerVpcList extends Model
                 $res['PeerVpcs'] = [];
                 $n1 = 0;
                 foreach ($this->peerVpcs as $item1) {
-                    $res['PeerVpcs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PeerVpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class peerVpcList extends Model
                 $model->peerVpcs = [];
                 $n1 = 0;
                 foreach ($map['PeerVpcs'] as $item1) {
-                    $model->peerVpcs[$n1++] = peerVpcs::fromMap($item1);
+                    $model->peerVpcs[$n1] = peerVpcs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

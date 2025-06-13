@@ -73,7 +73,8 @@ class endpoints extends Model
                 $res['InternetEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->internetEndpoints as $item1) {
-                    $res['InternetEndpoints'][$n1++] = $item1;
+                    $res['InternetEndpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class endpoints extends Model
                 $res['IntranetEndpoints'] = [];
                 $n1 = 0;
                 foreach ($this->intranetEndpoints as $item1) {
-                    $res['IntranetEndpoints'][$n1++] = $item1;
+                    $res['IntranetEndpoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +122,8 @@ class endpoints extends Model
                 $model->internetEndpoints = [];
                 $n1 = 0;
                 foreach ($map['InternetEndpoints'] as $item1) {
-                    $model->internetEndpoints[$n1++] = $item1;
+                    $model->internetEndpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +133,8 @@ class endpoints extends Model
                 $model->intranetEndpoints = [];
                 $n1 = 0;
                 foreach ($map['IntranetEndpoints'] as $item1) {
-                    $model->intranetEndpoints[$n1++] = $item1;
+                    $model->intranetEndpoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -11,6 +11,11 @@ class DescribeGatewayResponseBody extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -83,6 +88,7 @@ class DescribeGatewayResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
         'externalClusterId' => 'ExternalClusterId',
         'gatewayId' => 'GatewayId',
@@ -108,6 +114,10 @@ class DescribeGatewayResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -179,6 +189,10 @@ class DescribeGatewayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

@@ -85,7 +85,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
                 $res['CurrentMetrics'] = [];
                 $n1 = 0;
                 foreach ($this->currentMetrics as $item1) {
-                    $res['CurrentMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CurrentMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
                 $res['ScaleStrategies'] = [];
                 $n1 = 0;
                 foreach ($this->scaleStrategies as $item1) {
-                    $res['ScaleStrategies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScaleStrategies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +143,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
                 $model->currentMetrics = [];
                 $n1 = 0;
                 foreach ($map['CurrentMetrics'] as $item1) {
-                    $model->currentMetrics[$n1++] = currentMetrics::fromMap($item1);
+                    $model->currentMetrics[$n1] = currentMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +166,8 @@ class DescribeServiceAutoScalerResponseBody extends Model
                 $model->scaleStrategies = [];
                 $n1 = 0;
                 foreach ($map['ScaleStrategies'] as $item1) {
-                    $model->scaleStrategies[$n1++] = scaleStrategies::fromMap($item1);
+                    $model->scaleStrategies[$n1] = scaleStrategies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

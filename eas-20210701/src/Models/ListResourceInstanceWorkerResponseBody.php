@@ -64,7 +64,8 @@ class ListResourceInstanceWorkerResponseBody extends Model
                 $res['Pods'] = [];
                 $n1 = 0;
                 foreach ($this->pods as $item1) {
-                    $res['Pods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Pods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class ListResourceInstanceWorkerResponseBody extends Model
                 $model->pods = [];
                 $n1 = 0;
                 foreach ($map['Pods'] as $item1) {
-                    $model->pods[$n1++] = ResourceInstanceWorker::fromMap($item1);
+                    $model->pods[$n1] = ResourceInstanceWorker::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

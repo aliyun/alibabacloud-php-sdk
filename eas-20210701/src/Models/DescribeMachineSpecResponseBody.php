@@ -49,7 +49,8 @@ class DescribeMachineSpecResponseBody extends Model
                 $res['InstanceMetas'] = [];
                 $n1 = 0;
                 foreach ($this->instanceMetas as $item1) {
-                    $res['InstanceMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceMetas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeMachineSpecResponseBody extends Model
                 $res['Types'] = [];
                 $n1 = 0;
                 foreach ($this->types as $item1) {
-                    $res['Types'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Types'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class DescribeMachineSpecResponseBody extends Model
                 $model->instanceMetas = [];
                 $n1 = 0;
                 foreach ($map['InstanceMetas'] as $item1) {
-                    $model->instanceMetas[$n1++] = instanceMetas::fromMap($item1);
+                    $model->instanceMetas[$n1] = instanceMetas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class DescribeMachineSpecResponseBody extends Model
                 $model->types = [];
                 $n1 = 0;
                 foreach ($map['Types'] as $item1) {
-                    $model->types[$n1++] = types::fromMap($item1);
+                    $model->types[$n1] = types::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

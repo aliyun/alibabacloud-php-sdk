@@ -62,7 +62,8 @@ class UpdateResourceDLinkRequest extends Model
                 $res['VSwitchIdList'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIdList as $item1) {
-                    $res['VSwitchIdList'][$n1++] = $item1;
+                    $res['VSwitchIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class UpdateResourceDLinkRequest extends Model
                 $model->vSwitchIdList = [];
                 $n1 = 0;
                 foreach ($map['VSwitchIdList'] as $item1) {
-                    $model->vSwitchIdList[$n1++] = $item1;
+                    $model->vSwitchIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

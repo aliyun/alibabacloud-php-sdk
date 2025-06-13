@@ -16,9 +16,15 @@ class peerVpcs extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $vpcId;
     protected $_name = [
         'region' => 'Region',
+        'status' => 'Status',
         'vpcId' => 'VpcId',
     ];
 
@@ -32,6 +38,10 @@ class peerVpcs extends Model
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->vpcId) {
@@ -51,6 +61,10 @@ class peerVpcs extends Model
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['VpcId'])) {

@@ -67,7 +67,8 @@ class CreateServiceAutoScalerRequest extends Model
                 $res['scaleStrategies'] = [];
                 $n1 = 0;
                 foreach ($this->scaleStrategies as $item1) {
-                    $res['scaleStrategies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['scaleStrategies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +101,8 @@ class CreateServiceAutoScalerRequest extends Model
                 $model->scaleStrategies = [];
                 $n1 = 0;
                 foreach ($map['scaleStrategies'] as $item1) {
-                    $model->scaleStrategies[$n1++] = scaleStrategies::fromMap($item1);
+                    $model->scaleStrategies[$n1] = scaleStrategies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

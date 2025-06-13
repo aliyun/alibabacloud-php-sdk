@@ -11,7 +11,32 @@ class customDomains extends Model
     /**
      * @var string
      */
+    public $certificateEndDate;
+
+    /**
+     * @var string
+     */
     public $certificateId;
+
+    /**
+     * @var string
+     */
+    public $certificateName;
+
+    /**
+     * @var string
+     */
+    public $certificateStartDate;
+
+    /**
+     * @var string
+     */
+    public $certificateStatus;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -22,10 +47,21 @@ class customDomains extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
+        'certificateEndDate' => 'CertificateEndDate',
         'certificateId' => 'CertificateId',
+        'certificateName' => 'CertificateName',
+        'certificateStartDate' => 'CertificateStartDate',
+        'certificateStatus' => 'CertificateStatus',
+        'createTime' => 'CreateTime',
         'domain' => 'Domain',
         'type' => 'Type',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -36,8 +72,28 @@ class customDomains extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->certificateEndDate) {
+            $res['CertificateEndDate'] = $this->certificateEndDate;
+        }
+
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
+        }
+
+        if (null !== $this->certificateName) {
+            $res['CertificateName'] = $this->certificateName;
+        }
+
+        if (null !== $this->certificateStartDate) {
+            $res['CertificateStartDate'] = $this->certificateStartDate;
+        }
+
+        if (null !== $this->certificateStatus) {
+            $res['CertificateStatus'] = $this->certificateStatus;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->domain) {
@@ -46,6 +102,10 @@ class customDomains extends Model
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -59,8 +119,28 @@ class customDomains extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertificateEndDate'])) {
+            $model->certificateEndDate = $map['CertificateEndDate'];
+        }
+
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
+        }
+
+        if (isset($map['CertificateName'])) {
+            $model->certificateName = $map['CertificateName'];
+        }
+
+        if (isset($map['CertificateStartDate'])) {
+            $model->certificateStartDate = $map['CertificateStartDate'];
+        }
+
+        if (isset($map['CertificateStatus'])) {
+            $model->certificateStatus = $map['CertificateStatus'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['Domain'])) {
@@ -69,6 +149,10 @@ class customDomains extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

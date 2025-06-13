@@ -33,7 +33,8 @@ class internetAclPolicyList extends Model
                 $res['AclPolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->aclPolicyList as $item1) {
-                    $res['AclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AclPolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class internetAclPolicyList extends Model
                 $model->aclPolicyList = [];
                 $n1 = 0;
                 foreach ($map['AclPolicyList'] as $item1) {
-                    $model->aclPolicyList[$n1++] = aclPolicyList::fromMap($item1);
+                    $model->aclPolicyList[$n1] = aclPolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

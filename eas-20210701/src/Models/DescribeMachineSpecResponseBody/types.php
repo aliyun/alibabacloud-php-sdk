@@ -42,7 +42,8 @@ class types extends Model
                 $res['Memory'] = [];
                 $n1 = 0;
                 foreach ($this->memory as $item1) {
-                    $res['Memory'][$n1++] = $item1;
+                    $res['Memory'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class types extends Model
                 $model->memory = [];
                 $n1 = 0;
                 foreach ($map['Memory'] as $item1) {
-                    $model->memory[$n1++] = $item1;
+                    $model->memory[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

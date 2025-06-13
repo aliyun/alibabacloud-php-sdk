@@ -59,7 +59,8 @@ class ListAclPolicyResponseBody extends Model
                 $res['InternetAclPolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->internetAclPolicyList as $item1) {
-                    $res['InternetAclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InternetAclPolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class ListAclPolicyResponseBody extends Model
                 $res['IntranetVpcAclPolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->intranetVpcAclPolicyList as $item1) {
-                    $res['IntranetVpcAclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IntranetVpcAclPolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class ListAclPolicyResponseBody extends Model
                 $model->internetAclPolicyList = [];
                 $n1 = 0;
                 foreach ($map['InternetAclPolicyList'] as $item1) {
-                    $model->internetAclPolicyList[$n1++] = internetAclPolicyList::fromMap($item1);
+                    $model->internetAclPolicyList[$n1] = internetAclPolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class ListAclPolicyResponseBody extends Model
                 $model->intranetVpcAclPolicyList = [];
                 $n1 = 0;
                 foreach ($map['IntranetVpcAclPolicyList'] as $item1) {
-                    $model->intranetVpcAclPolicyList[$n1++] = intranetVpcAclPolicyList::fromMap($item1);
+                    $model->intranetVpcAclPolicyList[$n1] = intranetVpcAclPolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

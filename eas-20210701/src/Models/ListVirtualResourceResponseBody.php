@@ -73,7 +73,8 @@ class ListVirtualResourceResponseBody extends Model
                 $res['VirtualResources'] = [];
                 $n1 = 0;
                 foreach ($this->virtualResources as $item1) {
-                    $res['VirtualResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VirtualResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class ListVirtualResourceResponseBody extends Model
                 $model->virtualResources = [];
                 $n1 = 0;
                 foreach ($map['VirtualResources'] as $item1) {
-                    $model->virtualResources[$n1++] = virtualResources::fromMap($item1);
+                    $model->virtualResources[$n1] = virtualResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

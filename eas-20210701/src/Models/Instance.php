@@ -227,11 +227,12 @@ class Instance extends Model
                 $n1 = 0;
                 foreach ($this->lastState as $item1) {
                     if (\is_array($item1)) {
-                        $res['LastState'][$n1++] = [];
+                        $res['LastState'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['LastState'][$n1++][$key2] = $value2;
+                            $res['LastState'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -353,11 +354,12 @@ class Instance extends Model
                 $n1 = 0;
                 foreach ($map['LastState'] as $item1) {
                     if (!empty($item1)) {
-                        $model->lastState[$n1++] = [];
+                        $model->lastState[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->lastState[$n1++][$key2] = $value2;
+                            $model->lastState[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

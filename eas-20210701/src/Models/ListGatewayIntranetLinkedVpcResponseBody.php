@@ -49,7 +49,8 @@ class ListGatewayIntranetLinkedVpcResponseBody extends Model
                 $res['IntranetLinkedVpcList'] = [];
                 $n1 = 0;
                 foreach ($this->intranetLinkedVpcList as $item1) {
-                    $res['IntranetLinkedVpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IntranetLinkedVpcList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListGatewayIntranetLinkedVpcResponseBody extends Model
                 $model->intranetLinkedVpcList = [];
                 $n1 = 0;
                 foreach ($map['IntranetLinkedVpcList'] as $item1) {
-                    $model->intranetLinkedVpcList[$n1++] = intranetLinkedVpcList::fromMap($item1);
+                    $model->intranetLinkedVpcList[$n1] = intranetLinkedVpcList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

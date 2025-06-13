@@ -39,7 +39,8 @@ class ListTenantAddonsResponseBody extends Model
                 $res['Addons'] = [];
                 $n1 = 0;
                 foreach ($this->addons as $item1) {
-                    $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListTenantAddonsResponseBody extends Model
                 $model->addons = [];
                 $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
-                    $model->addons[$n1++] = addons::fromMap($item1);
+                    $model->addons[$n1] = addons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
