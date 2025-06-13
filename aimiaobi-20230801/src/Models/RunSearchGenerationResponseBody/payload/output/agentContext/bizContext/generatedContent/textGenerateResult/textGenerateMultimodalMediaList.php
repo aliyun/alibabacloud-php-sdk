@@ -49,7 +49,8 @@ class textGenerateMultimodalMediaList extends Model
                 $res['MultimodalMediaList'] = [];
                 $n1 = 0;
                 foreach ($this->multimodalMediaList as $item1) {
-                    $res['MultimodalMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MultimodalMediaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class textGenerateMultimodalMediaList extends Model
                 $model->multimodalMediaList = [];
                 $n1 = 0;
                 foreach ($map['MultimodalMediaList'] as $item1) {
-                    $model->multimodalMediaList[$n1++] = multimodalMediaList::fromMap($item1);
+                    $model->multimodalMediaList[$n1] = multimodalMediaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

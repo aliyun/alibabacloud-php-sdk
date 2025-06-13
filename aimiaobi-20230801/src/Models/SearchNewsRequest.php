@@ -92,7 +92,8 @@ class SearchNewsRequest extends Model
                 $res['SearchSources'] = [];
                 $n1 = 0;
                 foreach ($this->searchSources as $item1) {
-                    $res['SearchSources'][$n1++] = $item1;
+                    $res['SearchSources'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class SearchNewsRequest extends Model
                 $model->searchSources = [];
                 $n1 = 0;
                 foreach ($map['SearchSources'] as $item1) {
-                    $model->searchSources[$n1++] = $item1;
+                    $model->searchSources[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

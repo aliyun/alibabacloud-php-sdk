@@ -172,7 +172,8 @@ class data extends Model
                 $res['Images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +187,8 @@ class data extends Model
                 $res['Locations'] = [];
                 $n1 = 0;
                 foreach ($this->locations as $item1) {
-                    $res['Locations'][$n1++] = $item1;
+                    $res['Locations'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +198,8 @@ class data extends Model
                 $res['News'] = [];
                 $n1 = 0;
                 foreach ($this->news as $item1) {
-                    $res['News'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['News'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -269,7 +272,8 @@ class data extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['Images'] as $item1) {
-                    $model->images[$n1++] = images::fromMap($item1);
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +287,8 @@ class data extends Model
                 $model->locations = [];
                 $n1 = 0;
                 foreach ($map['Locations'] as $item1) {
-                    $model->locations[$n1++] = $item1;
+                    $model->locations[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -293,7 +298,8 @@ class data extends Model
                 $model->news = [];
                 $n1 = 0;
                 foreach ($map['News'] as $item1) {
-                    $model->news[$n1++] = news::fromMap($item1);
+                    $model->news[$n1] = news::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

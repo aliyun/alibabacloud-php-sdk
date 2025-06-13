@@ -149,7 +149,8 @@ class ListMaterialDocumentsRequest extends Model
                 $res['DocTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->docTypeList as $item1) {
-                    $res['DocTypeList'][$n1++] = $item1;
+                    $res['DocTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class ListMaterialDocumentsRequest extends Model
                 $res['Keywords'] = [];
                 $n1 = 0;
                 foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1++] = $item1;
+                    $res['Keywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -236,7 +238,8 @@ class ListMaterialDocumentsRequest extends Model
                 $model->docTypeList = [];
                 $n1 = 0;
                 foreach ($map['DocTypeList'] as $item1) {
-                    $model->docTypeList[$n1++] = $item1;
+                    $model->docTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +257,8 @@ class ListMaterialDocumentsRequest extends Model
                 $model->keywords = [];
                 $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1++] = $item1;
+                    $model->keywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

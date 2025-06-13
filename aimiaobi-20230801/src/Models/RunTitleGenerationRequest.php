@@ -60,7 +60,8 @@ class RunTitleGenerationRequest extends Model
                 $res['DeduplicatedTitles'] = [];
                 $n1 = 0;
                 foreach ($this->deduplicatedTitles as $item1) {
-                    $res['DeduplicatedTitles'][$n1++] = $item1;
+                    $res['DeduplicatedTitles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class RunTitleGenerationRequest extends Model
                 $model->deduplicatedTitles = [];
                 $n1 = 0;
                 foreach ($map['DeduplicatedTitles'] as $item1) {
-                    $model->deduplicatedTitles[$n1++] = $item1;
+                    $model->deduplicatedTitles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

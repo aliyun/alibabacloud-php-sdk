@@ -38,7 +38,8 @@ class DeleteDocsRequest extends Model
                 $res['DocIds'] = [];
                 $n1 = 0;
                 foreach ($this->docIds as $item1) {
-                    $res['DocIds'][$n1++] = $item1;
+                    $res['DocIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteDocsRequest extends Model
                 $model->docIds = [];
                 $n1 = 0;
                 foreach ($map['DocIds'] as $item1) {
-                    $model->docIds[$n1++] = $item1;
+                    $model->docIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class stepForNewsBroadcastContentConfig extends Model
                 $res['Categories'] = [];
                 $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class stepForNewsBroadcastContentConfig extends Model
                 $res['CustomHotValueWeights'] = [];
                 $n1 = 0;
                 foreach ($this->customHotValueWeights as $item1) {
-                    $res['CustomHotValueWeights'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomHotValueWeights'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class stepForNewsBroadcastContentConfig extends Model
                 $model->categories = [];
                 $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class stepForNewsBroadcastContentConfig extends Model
                 $model->customHotValueWeights = [];
                 $n1 = 0;
                 foreach ($map['CustomHotValueWeights'] as $item1) {
-                    $model->customHotValueWeights[$n1++] = customHotValueWeights::fromMap($item1);
+                    $model->customHotValueWeights[$n1] = customHotValueWeights::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

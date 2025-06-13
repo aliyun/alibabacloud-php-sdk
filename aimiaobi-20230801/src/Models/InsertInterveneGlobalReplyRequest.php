@@ -43,7 +43,8 @@ class InsertInterveneGlobalReplyRequest extends Model
                 $res['ReplyMessagList'] = [];
                 $n1 = 0;
                 foreach ($this->replyMessagList as $item1) {
-                    $res['ReplyMessagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReplyMessagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class InsertInterveneGlobalReplyRequest extends Model
                 $model->replyMessagList = [];
                 $n1 = 0;
                 foreach ($map['ReplyMessagList'] as $item1) {
-                    $model->replyMessagList[$n1++] = replyMessagList::fromMap($item1);
+                    $model->replyMessagList[$n1] = replyMessagList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class UploadDocRequest extends Model
                 $res['Docs'] = [];
                 $n1 = 0;
                 foreach ($this->docs as $item1) {
-                    $res['Docs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Docs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class UploadDocRequest extends Model
                 $model->docs = [];
                 $n1 = 0;
                 foreach ($map['Docs'] as $item1) {
-                    $model->docs[$n1++] = docs::fromMap($item1);
+                    $model->docs[$n1] = docs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

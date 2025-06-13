@@ -98,7 +98,8 @@ class ListDocsRequest extends Model
                 $res['Statuses'] = [];
                 $n1 = 0;
                 foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
+                    $res['Statuses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class ListDocsRequest extends Model
                 $model->statuses = [];
                 $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
+                    $model->statuses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

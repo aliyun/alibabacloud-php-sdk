@@ -51,7 +51,8 @@ class jqNodes extends Model
                 $res['JqNodes'] = [];
                 $n1 = 0;
                 foreach ($this->jqNodes as $item1) {
-                    $res['JqNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JqNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class jqNodes extends Model
                 $model->jqNodes = [];
                 $n1 = 0;
                 foreach ($map['JqNodes'] as $item1) {
-                    $model->jqNodes[$n1++] = self::fromMap($item1);
+                    $model->jqNodes[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

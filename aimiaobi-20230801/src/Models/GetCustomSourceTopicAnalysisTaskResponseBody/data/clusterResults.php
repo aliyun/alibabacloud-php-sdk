@@ -39,7 +39,8 @@ class clusterResults extends Model
                 $res['ClusterNews'] = [];
                 $n1 = 0;
                 foreach ($this->clusterNews as $item1) {
-                    $res['ClusterNews'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterNews'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class clusterResults extends Model
                 $model->clusterNews = [];
                 $n1 = 0;
                 foreach ($map['ClusterNews'] as $item1) {
-                    $model->clusterNews[$n1++] = clusterNews::fromMap($item1);
+                    $model->clusterNews[$n1] = clusterNews::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

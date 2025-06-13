@@ -97,7 +97,8 @@ class ListPlanningProposalRequest extends Model
                 $res['CustomViewPointIds'] = [];
                 $n1 = 0;
                 foreach ($this->customViewPointIds as $item1) {
-                    $res['CustomViewPointIds'][$n1++] = $item1;
+                    $res['CustomViewPointIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class ListPlanningProposalRequest extends Model
                 $res['Titles'] = [];
                 $n1 = 0;
                 foreach ($this->titles as $item1) {
-                    $res['Titles'][$n1++] = $item1;
+                    $res['Titles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +162,8 @@ class ListPlanningProposalRequest extends Model
                 $model->customViewPointIds = [];
                 $n1 = 0;
                 foreach ($map['CustomViewPointIds'] as $item1) {
-                    $model->customViewPointIds[$n1++] = $item1;
+                    $model->customViewPointIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class ListPlanningProposalRequest extends Model
                 $model->titles = [];
                 $n1 = 0;
                 foreach ($map['Titles'] as $item1) {
-                    $model->titles[$n1++] = $item1;
+                    $model->titles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

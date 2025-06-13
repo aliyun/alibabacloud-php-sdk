@@ -83,7 +83,8 @@ class output extends Model
                 $res['MediaUrlList'] = [];
                 $n1 = 0;
                 foreach ($this->mediaUrlList as $item1) {
-                    $res['MediaUrlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaUrlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class output extends Model
                 $res['Recommends'] = [];
                 $n1 = 0;
                 foreach ($this->recommends as $item1) {
-                    $res['Recommends'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Recommends'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +105,8 @@ class output extends Model
                 $res['References'] = [];
                 $n1 = 0;
                 foreach ($this->references as $item1) {
-                    $res['References'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['References'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class output extends Model
                 $model->mediaUrlList = [];
                 $n1 = 0;
                 foreach ($map['MediaUrlList'] as $item1) {
-                    $model->mediaUrlList[$n1++] = mediaUrlList::fromMap($item1);
+                    $model->mediaUrlList[$n1] = mediaUrlList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +150,8 @@ class output extends Model
                 $model->recommends = [];
                 $n1 = 0;
                 foreach ($map['Recommends'] as $item1) {
-                    $model->recommends[$n1++] = recommends::fromMap($item1);
+                    $model->recommends[$n1] = recommends::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +161,8 @@ class output extends Model
                 $model->references = [];
                 $n1 = 0;
                 foreach ($map['References'] as $item1) {
-                    $model->references[$n1++] = references::fromMap($item1);
+                    $model->references[$n1] = references::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

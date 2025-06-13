@@ -136,7 +136,8 @@ class searchResult extends Model
                 $res['Chunks'] = [];
                 $n1 = 0;
                 foreach ($this->chunks as $item1) {
-                    $res['Chunks'][$n1++] = $item1;
+                    $res['Chunks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +163,8 @@ class searchResult extends Model
                 $res['MultimodalMedias'] = [];
                 $n1 = 0;
                 foreach ($this->multimodalMedias as $item1) {
-                    $res['MultimodalMedias'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MultimodalMedias'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +202,8 @@ class searchResult extends Model
                 $res['TextGenerateMultimodalMediaList'] = [];
                 $n1 = 0;
                 foreach ($this->textGenerateMultimodalMediaList as $item1) {
-                    $res['TextGenerateMultimodalMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextGenerateMultimodalMediaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +236,8 @@ class searchResult extends Model
                 $model->chunks = [];
                 $n1 = 0;
                 foreach ($map['Chunks'] as $item1) {
-                    $model->chunks[$n1++] = $item1;
+                    $model->chunks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +263,8 @@ class searchResult extends Model
                 $model->multimodalMedias = [];
                 $n1 = 0;
                 foreach ($map['MultimodalMedias'] as $item1) {
-                    $model->multimodalMedias[$n1++] = multimodalMedias::fromMap($item1);
+                    $model->multimodalMedias[$n1] = multimodalMedias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -297,7 +302,8 @@ class searchResult extends Model
                 $model->textGenerateMultimodalMediaList = [];
                 $n1 = 0;
                 foreach ($map['TextGenerateMultimodalMediaList'] as $item1) {
-                    $model->textGenerateMultimodalMediaList[$n1++] = textGenerateMultimodalMediaList::fromMap($item1);
+                    $model->textGenerateMultimodalMediaList[$n1] = textGenerateMultimodalMediaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -81,7 +81,8 @@ class RunDocQaRequest extends Model
                 $res['CategoryIds'] = [];
                 $n1 = 0;
                 foreach ($this->categoryIds as $item1) {
-                    $res['CategoryIds'][$n1++] = $item1;
+                    $res['CategoryIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class RunDocQaRequest extends Model
                 $res['ConversationContexts'] = [];
                 $n1 = 0;
                 foreach ($this->conversationContexts as $item1) {
-                    $res['ConversationContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConversationContexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +103,8 @@ class RunDocQaRequest extends Model
                 $res['DocIds'] = [];
                 $n1 = 0;
                 foreach ($this->docIds as $item1) {
-                    $res['DocIds'][$n1++] = $item1;
+                    $res['DocIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class RunDocQaRequest extends Model
                 $model->categoryIds = [];
                 $n1 = 0;
                 foreach ($map['CategoryIds'] as $item1) {
-                    $model->categoryIds[$n1++] = $item1;
+                    $model->categoryIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +156,8 @@ class RunDocQaRequest extends Model
                 $model->conversationContexts = [];
                 $n1 = 0;
                 foreach ($map['ConversationContexts'] as $item1) {
-                    $model->conversationContexts[$n1++] = conversationContexts::fromMap($item1);
+                    $model->conversationContexts[$n1] = conversationContexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +167,8 @@ class RunDocQaRequest extends Model
                 $model->docIds = [];
                 $n1 = 0;
                 foreach ($map['DocIds'] as $item1) {
-                    $model->docIds[$n1++] = $item1;
+                    $model->docIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

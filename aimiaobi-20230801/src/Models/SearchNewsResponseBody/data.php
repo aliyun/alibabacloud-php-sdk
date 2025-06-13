@@ -116,7 +116,8 @@ class data extends Model
                 $res['ImageUrls'] = [];
                 $n1 = 0;
                 foreach ($this->imageUrls as $item1) {
-                    $res['ImageUrls'][$n1++] = $item1;
+                    $res['ImageUrls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +186,8 @@ class data extends Model
                 $model->imageUrls = [];
                 $n1 = 0;
                 foreach ($map['ImageUrls'] as $item1) {
-                    $model->imageUrls[$n1++] = $item1;
+                    $model->imageUrls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

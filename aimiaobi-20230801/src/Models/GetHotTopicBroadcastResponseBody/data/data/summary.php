@@ -53,7 +53,8 @@ class summary extends Model
                 $res['Summaries'] = [];
                 $n1 = 0;
                 foreach ($this->summaries as $item1) {
-                    $res['Summaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Summaries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class summary extends Model
                 $model->summaries = [];
                 $n1 = 0;
                 foreach ($map['Summaries'] as $item1) {
-                    $model->summaries[$n1++] = summaries::fromMap($item1);
+                    $model->summaries[$n1] = summaries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

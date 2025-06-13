@@ -49,7 +49,8 @@ class miaosouConfig extends Model
                 $res['ModelInfos'] = [];
                 $n1 = 0;
                 foreach ($this->modelInfos as $item1) {
-                    $res['ModelInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModelInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class miaosouConfig extends Model
                 $model->modelInfos = [];
                 $n1 = 0;
                 foreach ($map['ModelInfos'] as $item1) {
-                    $model->modelInfos[$n1++] = modelInfos::fromMap($item1);
+                    $model->modelInfos[$n1] = modelInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

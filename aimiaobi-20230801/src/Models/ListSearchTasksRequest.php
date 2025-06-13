@@ -50,7 +50,8 @@ class ListSearchTasksRequest extends Model
                 $res['DialogueTypes'] = [];
                 $n1 = 0;
                 foreach ($this->dialogueTypes as $item1) {
-                    $res['DialogueTypes'][$n1++] = $item1;
+                    $res['DialogueTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class ListSearchTasksRequest extends Model
                 $model->dialogueTypes = [];
                 $n1 = 0;
                 foreach ($map['DialogueTypes'] as $item1) {
-                    $model->dialogueTypes[$n1++] = $item1;
+                    $model->dialogueTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

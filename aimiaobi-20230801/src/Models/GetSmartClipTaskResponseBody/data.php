@@ -53,7 +53,8 @@ class data extends Model
                 $res['SubJobs'] = [];
                 $n1 = 0;
                 foreach ($this->subJobs as $item1) {
-                    $res['SubJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class data extends Model
                 $model->subJobs = [];
                 $n1 = 0;
                 foreach ($map['SubJobs'] as $item1) {
-                    $model->subJobs[$n1++] = subJobs::fromMap($item1);
+                    $model->subJobs[$n1] = subJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -61,7 +61,8 @@ class referenceData extends Model
                 $res['Articles'] = [];
                 $n1 = 0;
                 foreach ($this->articles as $item1) {
-                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class referenceData extends Model
                 $res['MiniDoc'] = [];
                 $n1 = 0;
                 foreach ($this->miniDoc as $item1) {
-                    $res['MiniDoc'][$n1++] = $item1;
+                    $res['MiniDoc'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +83,8 @@ class referenceData extends Model
                 $res['Outlines'] = [];
                 $n1 = 0;
                 foreach ($this->outlines as $item1) {
-                    $res['Outlines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outlines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class referenceData extends Model
                 $res['Summarization'] = [];
                 $n1 = 0;
                 foreach ($this->summarization as $item1) {
-                    $res['Summarization'][$n1++] = $item1;
+                    $res['Summarization'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +116,8 @@ class referenceData extends Model
                 $model->articles = [];
                 $n1 = 0;
                 foreach ($map['Articles'] as $item1) {
-                    $model->articles[$n1++] = articles::fromMap($item1);
+                    $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +127,8 @@ class referenceData extends Model
                 $model->miniDoc = [];
                 $n1 = 0;
                 foreach ($map['MiniDoc'] as $item1) {
-                    $model->miniDoc[$n1++] = $item1;
+                    $model->miniDoc[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +138,8 @@ class referenceData extends Model
                 $model->outlines = [];
                 $n1 = 0;
                 foreach ($map['Outlines'] as $item1) {
-                    $model->outlines[$n1++] = outlines::fromMap($item1);
+                    $model->outlines[$n1] = outlines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +149,8 @@ class referenceData extends Model
                 $model->summarization = [];
                 $n1 = 0;
                 foreach ($map['Summarization'] as $item1) {
-                    $model->summarization[$n1++] = $item1;
+                    $model->summarization[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

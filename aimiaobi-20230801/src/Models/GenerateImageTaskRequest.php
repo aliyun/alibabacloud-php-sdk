@@ -65,7 +65,8 @@ class GenerateImageTaskRequest extends Model
                 $res['ParagraphList'] = [];
                 $n1 = 0;
                 foreach ($this->paragraphList as $item1) {
-                    $res['ParagraphList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParagraphList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class GenerateImageTaskRequest extends Model
                 $model->paragraphList = [];
                 $n1 = 0;
                 foreach ($map['ParagraphList'] as $item1) {
-                    $model->paragraphList[$n1++] = paragraphList::fromMap($item1);
+                    $model->paragraphList[$n1] = paragraphList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

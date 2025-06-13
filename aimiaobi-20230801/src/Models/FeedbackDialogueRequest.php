@@ -94,7 +94,8 @@ class FeedbackDialogueRequest extends Model
                 $res['RatingTags'] = [];
                 $n1 = 0;
                 foreach ($this->ratingTags as $item1) {
-                    $res['RatingTags'][$n1++] = $item1;
+                    $res['RatingTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class FeedbackDialogueRequest extends Model
                 $model->ratingTags = [];
                 $n1 = 0;
                 foreach ($map['RatingTags'] as $item1) {
-                    $model->ratingTags[$n1++] = $item1;
+                    $model->ratingTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

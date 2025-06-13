@@ -39,7 +39,8 @@ class output extends Model
                 $res['KeyPoints'] = [];
                 $n1 = 0;
                 foreach ($this->keyPoints as $item1) {
-                    $res['KeyPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KeyPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class output extends Model
                 $model->keyPoints = [];
                 $n1 = 0;
                 foreach ($map['KeyPoints'] as $item1) {
-                    $model->keyPoints[$n1++] = keyPoints::fromMap($item1);
+                    $model->keyPoints[$n1] = keyPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

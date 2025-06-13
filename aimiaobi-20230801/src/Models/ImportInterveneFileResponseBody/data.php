@@ -48,7 +48,8 @@ class data extends Model
                 $res['FailIdList'] = [];
                 $n1 = 0;
                 foreach ($this->failIdList as $item1) {
-                    $res['FailIdList'][$n1++] = $item1;
+                    $res['FailIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class data extends Model
                 $model->failIdList = [];
                 $n1 = 0;
                 foreach ($map['FailIdList'] as $item1) {
-                    $model->failIdList[$n1++] = $item1;
+                    $model->failIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

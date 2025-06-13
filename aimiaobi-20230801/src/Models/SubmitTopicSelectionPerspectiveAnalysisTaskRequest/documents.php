@@ -79,7 +79,8 @@ class documents extends Model
                 $res['Comments'] = [];
                 $n1 = 0;
                 foreach ($this->comments as $item1) {
-                    $res['Comments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Comments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +129,8 @@ class documents extends Model
                 $model->comments = [];
                 $n1 = 0;
                 foreach ($map['Comments'] as $item1) {
-                    $model->comments[$n1++] = comments::fromMap($item1);
+                    $model->comments[$n1] = comments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

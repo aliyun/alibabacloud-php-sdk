@@ -68,7 +68,8 @@ class ListHotNewsWithTypeRequest extends Model
                 $res['NewsTypes'] = [];
                 $n1 = 0;
                 foreach ($this->newsTypes as $item1) {
-                    $res['NewsTypes'][$n1++] = $item1;
+                    $res['NewsTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListHotNewsWithTypeRequest extends Model
                 $model->newsTypes = [];
                 $n1 = 0;
                 foreach ($map['NewsTypes'] as $item1) {
-                    $model->newsTypes[$n1++] = $item1;
+                    $model->newsTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

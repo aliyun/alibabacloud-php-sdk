@@ -113,7 +113,8 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $res['Articles'] = [];
                 $n1 = 0;
                 foreach ($this->articles as $item1) {
-                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $res['Images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +175,8 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $res['Videos'] = [];
                 $n1 = 0;
                 foreach ($this->videos as $item1) {
-                    $res['Videos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Videos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +197,8 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $model->articles = [];
                 $n1 = 0;
                 foreach ($map['Articles'] as $item1) {
-                    $model->articles[$n1++] = articles::fromMap($item1);
+                    $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +216,8 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['Images'] as $item1) {
-                    $model->images[$n1++] = images::fromMap($item1);
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +259,8 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $model->videos = [];
                 $n1 = 0;
                 foreach ($map['Videos'] as $item1) {
-                    $model->videos[$n1++] = videos::fromMap($item1);
+                    $model->videos[$n1] = videos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

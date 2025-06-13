@@ -32,7 +32,8 @@ class extraOutput extends Model
                 $res['summarization'] = [];
                 $n1 = 0;
                 foreach ($this->summarization as $item1) {
-                    $res['summarization'][$n1++] = $item1;
+                    $res['summarization'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class extraOutput extends Model
                 $model->summarization = [];
                 $n1 = 0;
                 foreach ($map['summarization'] as $item1) {
-                    $model->summarization[$n1++] = $item1;
+                    $model->summarization[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

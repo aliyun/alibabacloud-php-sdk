@@ -33,7 +33,8 @@ class data extends Model
                 $res['TaskInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->taskInfoList as $item1) {
-                    $res['TaskInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TaskInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->taskInfoList = [];
                 $n1 = 0;
                 foreach ($map['TaskInfoList'] as $item1) {
-                    $model->taskInfoList[$n1++] = taskInfoList::fromMap($item1);
+                    $model->taskInfoList[$n1] = taskInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

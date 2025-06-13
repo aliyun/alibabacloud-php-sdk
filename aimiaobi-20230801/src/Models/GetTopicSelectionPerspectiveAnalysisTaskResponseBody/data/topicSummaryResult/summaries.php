@@ -45,7 +45,8 @@ class summaries extends Model
                 $res['DocList'] = [];
                 $n1 = 0;
                 foreach ($this->docList as $item1) {
-                    $res['DocList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DocList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class summaries extends Model
                 $model->docList = [];
                 $n1 = 0;
                 foreach ($map['DocList'] as $item1) {
-                    $model->docList[$n1++] = docList::fromMap($item1);
+                    $model->docList[$n1] = docList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class output extends Model
                 $res['Introductions'] = [];
                 $n1 = 0;
                 foreach ($this->introductions as $item1) {
-                    $res['Introductions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Introductions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class output extends Model
                 $model->introductions = [];
                 $n1 = 0;
                 foreach ($map['Introductions'] as $item1) {
-                    $model->introductions[$n1++] = introductions::fromMap($item1);
+                    $model->introductions[$n1] = introductions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class clusterTopicResult extends Model
                 $res['ClusterTopics'] = [];
                 $n1 = 0;
                 foreach ($this->clusterTopics as $item1) {
-                    $res['ClusterTopics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterTopics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class clusterTopicResult extends Model
                 $model->clusterTopics = [];
                 $n1 = 0;
                 foreach ($map['ClusterTopics'] as $item1) {
-                    $model->clusterTopics[$n1++] = clusterTopics::fromMap($item1);
+                    $model->clusterTopics[$n1] = clusterTopics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

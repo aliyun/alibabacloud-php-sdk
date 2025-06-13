@@ -99,7 +99,8 @@ class textGenerateResult extends Model
                 $res['MultimodalSearchResultList'] = [];
                 $n1 = 0;
                 foreach ($this->multimodalSearchResultList as $item1) {
-                    $res['MultimodalSearchResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MultimodalSearchResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class textGenerateResult extends Model
                 $res['ReferenceList'] = [];
                 $n1 = 0;
                 foreach ($this->referenceList as $item1) {
-                    $res['ReferenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReferenceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +129,8 @@ class textGenerateResult extends Model
                 $res['TextGenerateMultimodalMediaList'] = [];
                 $n1 = 0;
                 foreach ($this->textGenerateMultimodalMediaList as $item1) {
-                    $res['TextGenerateMultimodalMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextGenerateMultimodalMediaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +163,8 @@ class textGenerateResult extends Model
                 $model->multimodalSearchResultList = [];
                 $n1 = 0;
                 foreach ($map['MultimodalSearchResultList'] as $item1) {
-                    $model->multimodalSearchResultList[$n1++] = multimodalSearchResultList::fromMap($item1);
+                    $model->multimodalSearchResultList[$n1] = multimodalSearchResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +178,8 @@ class textGenerateResult extends Model
                 $model->referenceList = [];
                 $n1 = 0;
                 foreach ($map['ReferenceList'] as $item1) {
-                    $model->referenceList[$n1++] = referenceList::fromMap($item1);
+                    $model->referenceList[$n1] = referenceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +193,8 @@ class textGenerateResult extends Model
                 $model->textGenerateMultimodalMediaList = [];
                 $n1 = 0;
                 foreach ($map['TextGenerateMultimodalMediaList'] as $item1) {
-                    $model->textGenerateMultimodalMediaList[$n1++] = textGenerateMultimodalMediaList::fromMap($item1);
+                    $model->textGenerateMultimodalMediaList[$n1] = textGenerateMultimodalMediaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

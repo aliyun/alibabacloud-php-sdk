@@ -77,7 +77,8 @@ class multimodalSearchResultList extends Model
                 $res['SearchResult'] = [];
                 $n1 = 0;
                 foreach ($this->searchResult as $item1) {
-                    $res['SearchResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class multimodalSearchResultList extends Model
                 $model->searchResult = [];
                 $n1 = 0;
                 foreach ($map['SearchResult'] as $item1) {
-                    $model->searchResult[$n1++] = searchResult::fromMap($item1);
+                    $model->searchResult[$n1] = searchResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

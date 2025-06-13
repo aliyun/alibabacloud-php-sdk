@@ -128,7 +128,8 @@ class WritingStyleTemplateField extends Model
                 $res['CascadingFields'] = [];
                 $n1 = 0;
                 foreach ($this->cascadingFields as $item1) {
-                    $res['CascadingFields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CascadingFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class WritingStyleTemplateField extends Model
                 $res['Enums'] = [];
                 $n1 = 0;
                 foreach ($this->enums as $item1) {
-                    $res['Enums'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Enums'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +213,8 @@ class WritingStyleTemplateField extends Model
                 $model->cascadingFields = [];
                 $n1 = 0;
                 foreach ($map['CascadingFields'] as $item1) {
-                    $model->cascadingFields[$n1++] = self::fromMap($item1);
+                    $model->cascadingFields[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -221,7 +224,8 @@ class WritingStyleTemplateField extends Model
                 $model->enums = [];
                 $n1 = 0;
                 foreach ($map['Enums'] as $item1) {
-                    $model->enums[$n1++] = enums::fromMap($item1);
+                    $model->enums[$n1] = enums::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

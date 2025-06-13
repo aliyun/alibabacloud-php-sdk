@@ -33,7 +33,8 @@ class datasetConfig extends Model
                 $res['SearchSourceConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->searchSourceConfigs as $item1) {
-                    $res['SearchSourceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSourceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class datasetConfig extends Model
                 $model->searchSourceConfigs = [];
                 $n1 = 0;
                 foreach ($map['SearchSourceConfigs'] as $item1) {
-                    $model->searchSourceConfigs[$n1++] = searchSourceConfigs::fromMap($item1);
+                    $model->searchSourceConfigs[$n1] = searchSourceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

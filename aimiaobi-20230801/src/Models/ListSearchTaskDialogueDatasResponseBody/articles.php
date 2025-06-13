@@ -153,7 +153,8 @@ class articles extends Model
                 $res['MultimodalMedias'] = [];
                 $n1 = 0;
                 foreach ($this->multimodalMedias as $item1) {
-                    $res['MultimodalMedias'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MultimodalMedias'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +231,8 @@ class articles extends Model
                 $model->multimodalMedias = [];
                 $n1 = 0;
                 foreach ($map['MultimodalMedias'] as $item1) {
-                    $model->multimodalMedias[$n1++] = multimodalMedias::fromMap($item1);
+                    $model->multimodalMedias[$n1] = multimodalMedias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

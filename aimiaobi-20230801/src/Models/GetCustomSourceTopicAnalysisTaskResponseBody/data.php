@@ -67,7 +67,8 @@ class data extends Model
                 $res['ClusterResults'] = [];
                 $n1 = 0;
                 foreach ($this->clusterResults as $item1) {
-                    $res['ClusterResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClusterResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class data extends Model
                 $model->clusterResults = [];
                 $n1 = 0;
                 foreach ($map['ClusterResults'] as $item1) {
-                    $model->clusterResults[$n1++] = clusterResults::fromMap($item1);
+                    $model->clusterResults[$n1] = clusterResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -72,7 +72,8 @@ class interveneRuleList extends Model
                 $res['AnswerConfig'] = [];
                 $n1 = 0;
                 foreach ($this->answerConfig as $item1) {
-                    $res['AnswerConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AnswerConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class interveneRuleList extends Model
                 $res['NamespaceList'] = [];
                 $n1 = 0;
                 foreach ($this->namespaceList as $item1) {
-                    $res['NamespaceList'][$n1++] = $item1;
+                    $res['NamespaceList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +125,8 @@ class interveneRuleList extends Model
                 $model->answerConfig = [];
                 $n1 = 0;
                 foreach ($map['AnswerConfig'] as $item1) {
-                    $model->answerConfig[$n1++] = answerConfig::fromMap($item1);
+                    $model->answerConfig[$n1] = answerConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +148,8 @@ class interveneRuleList extends Model
                 $model->namespaceList = [];
                 $n1 = 0;
                 foreach ($map['NamespaceList'] as $item1) {
-                    $model->namespaceList[$n1++] = $item1;
+                    $model->namespaceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

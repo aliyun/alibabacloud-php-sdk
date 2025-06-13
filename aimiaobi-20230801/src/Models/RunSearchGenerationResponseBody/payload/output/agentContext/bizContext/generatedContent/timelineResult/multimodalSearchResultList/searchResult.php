@@ -65,7 +65,8 @@ class searchResult extends Model
                 $res['ClipInfos'] = [];
                 $n1 = 0;
                 foreach ($this->clipInfos as $item1) {
-                    $res['ClipInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ClipInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class searchResult extends Model
                 $model->clipInfos = [];
                 $n1 = 0;
                 foreach ($map['ClipInfos'] as $item1) {
-                    $model->clipInfos[$n1++] = clipInfos::fromMap($item1);
+                    $model->clipInfos[$n1] = clipInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -105,7 +105,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
                 $res['ContentTags'] = [];
                 $n1 = 0;
                 foreach ($this->contentTags as $item1) {
-                    $res['ContentTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ContentTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +116,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
                 $res['Contents'] = [];
                 $n1 = 0;
                 foreach ($this->contents as $item1) {
-                    $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Contents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +131,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
                 $res['FilterTags'] = [];
                 $n1 = 0;
                 foreach ($this->filterTags as $item1) {
-                    $res['FilterTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FilterTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +181,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
                 $model->contentTags = [];
                 $n1 = 0;
                 foreach ($map['ContentTags'] as $item1) {
-                    $model->contentTags[$n1++] = contentTags::fromMap($item1);
+                    $model->contentTags[$n1] = contentTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +192,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
                 $model->contents = [];
                 $n1 = 0;
                 foreach ($map['Contents'] as $item1) {
-                    $model->contents[$n1++] = contents::fromMap($item1);
+                    $model->contents[$n1] = contents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +207,8 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
                 $model->filterTags = [];
                 $n1 = 0;
                 foreach ($map['FilterTags'] as $item1) {
-                    $model->filterTags[$n1++] = filterTags::fromMap($item1);
+                    $model->filterTags[$n1] = filterTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

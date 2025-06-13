@@ -111,7 +111,8 @@ class ListDatasetDocumentsRequest extends Model
                 $res['ExcludeFields'] = [];
                 $n1 = 0;
                 foreach ($this->excludeFields as $item1) {
-                    $res['ExcludeFields'][$n1++] = $item1;
+                    $res['ExcludeFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +122,8 @@ class ListDatasetDocumentsRequest extends Model
                 $res['IncludeFields'] = [];
                 $n1 = 0;
                 foreach ($this->includeFields as $item1) {
-                    $res['IncludeFields'][$n1++] = $item1;
+                    $res['IncludeFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -178,7 +180,8 @@ class ListDatasetDocumentsRequest extends Model
                 $model->excludeFields = [];
                 $n1 = 0;
                 foreach ($map['ExcludeFields'] as $item1) {
-                    $model->excludeFields[$n1++] = $item1;
+                    $model->excludeFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +191,8 @@ class ListDatasetDocumentsRequest extends Model
                 $model->includeFields = [];
                 $n1 = 0;
                 foreach ($map['IncludeFields'] as $item1) {
-                    $model->includeFields[$n1++] = $item1;
+                    $model->includeFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

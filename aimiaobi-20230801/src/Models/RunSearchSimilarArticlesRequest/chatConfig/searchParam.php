@@ -33,7 +33,8 @@ class searchParam extends Model
                 $res['SearchSources'] = [];
                 $n1 = 0;
                 foreach ($this->searchSources as $item1) {
-                    $res['SearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class searchParam extends Model
                 $model->searchSources = [];
                 $n1 = 0;
                 foreach ($map['SearchSources'] as $item1) {
-                    $model->searchSources[$n1++] = searchSources::fromMap($item1);
+                    $model->searchSources[$n1] = searchSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class DocumentExtractionRequest extends Model
                 $res['Urls'] = [];
                 $n1 = 0;
                 foreach ($this->urls as $item1) {
-                    $res['Urls'][$n1++] = $item1;
+                    $res['Urls'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DocumentExtractionRequest extends Model
                 $model->urls = [];
                 $n1 = 0;
                 foreach ($map['Urls'] as $item1) {
-                    $model->urls[$n1++] = $item1;
+                    $model->urls[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

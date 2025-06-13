@@ -45,7 +45,8 @@ class data extends Model
                 $res['Outlines'] = [];
                 $n1 = 0;
                 foreach ($this->outlines as $item1) {
-                    $res['Outlines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outlines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class data extends Model
                 $model->outlines = [];
                 $n1 = 0;
                 foreach ($map['Outlines'] as $item1) {
-                    $model->outlines[$n1++] = outlines::fromMap($item1);
+                    $model->outlines[$n1] = outlines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

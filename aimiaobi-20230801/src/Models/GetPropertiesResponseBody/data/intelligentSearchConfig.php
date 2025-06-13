@@ -59,7 +59,8 @@ class intelligentSearchConfig extends Model
                 $res['CopilotPreciseSearchSources'] = [];
                 $n1 = 0;
                 foreach ($this->copilotPreciseSearchSources as $item1) {
-                    $res['CopilotPreciseSearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CopilotPreciseSearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class intelligentSearchConfig extends Model
                 $res['SearchSamples'] = [];
                 $n1 = 0;
                 foreach ($this->searchSamples as $item1) {
-                    $res['SearchSamples'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSamples'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class intelligentSearchConfig extends Model
                 $res['SearchSources'] = [];
                 $n1 = 0;
                 foreach ($this->searchSources as $item1) {
-                    $res['SearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +107,8 @@ class intelligentSearchConfig extends Model
                 $model->copilotPreciseSearchSources = [];
                 $n1 = 0;
                 foreach ($map['CopilotPreciseSearchSources'] as $item1) {
-                    $model->copilotPreciseSearchSources[$n1++] = copilotPreciseSearchSources::fromMap($item1);
+                    $model->copilotPreciseSearchSources[$n1] = copilotPreciseSearchSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +122,8 @@ class intelligentSearchConfig extends Model
                 $model->searchSamples = [];
                 $n1 = 0;
                 foreach ($map['SearchSamples'] as $item1) {
-                    $model->searchSamples[$n1++] = searchSamples::fromMap($item1);
+                    $model->searchSamples[$n1] = searchSamples::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +133,8 @@ class intelligentSearchConfig extends Model
                 $model->searchSources = [];
                 $n1 = 0;
                 foreach ($map['SearchSources'] as $item1) {
-                    $model->searchSources[$n1++] = searchSources::fromMap($item1);
+                    $model->searchSources[$n1] = searchSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

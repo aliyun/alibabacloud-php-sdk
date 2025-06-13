@@ -97,7 +97,8 @@ class bizContext extends Model
                 $res['AskUserKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->askUserKeywords as $item1) {
-                    $res['AskUserKeywords'][$n1++] = $item1;
+                    $res['AskUserKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,7 +136,8 @@ class bizContext extends Model
                 $res['UserBackKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->userBackKeywords as $item1) {
-                    $res['UserBackKeywords'][$n1++] = $item1;
+                    $res['UserBackKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +162,8 @@ class bizContext extends Model
                 $model->askUserKeywords = [];
                 $n1 = 0;
                 foreach ($map['AskUserKeywords'] as $item1) {
-                    $model->askUserKeywords[$n1++] = $item1;
+                    $model->askUserKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +201,8 @@ class bizContext extends Model
                 $model->userBackKeywords = [];
                 $n1 = 0;
                 foreach ($map['UserBackKeywords'] as $item1) {
-                    $model->userBackKeywords[$n1++] = $item1;
+                    $model->userBackKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

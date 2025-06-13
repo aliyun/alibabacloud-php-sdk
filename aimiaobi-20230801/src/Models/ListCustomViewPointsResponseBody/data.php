@@ -113,7 +113,8 @@ class data extends Model
                 $res['ViewPoints'] = [];
                 $n1 = 0;
                 foreach ($this->viewPoints as $item1) {
-                    $res['ViewPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ViewPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +167,8 @@ class data extends Model
                 $model->viewPoints = [];
                 $n1 = 0;
                 foreach ($map['ViewPoints'] as $item1) {
-                    $model->viewPoints[$n1++] = viewPoints::fromMap($item1);
+                    $model->viewPoints[$n1] = viewPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

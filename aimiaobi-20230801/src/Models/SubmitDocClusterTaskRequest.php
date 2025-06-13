@@ -61,7 +61,8 @@ class SubmitDocClusterTaskRequest extends Model
                 $res['Documents'] = [];
                 $n1 = 0;
                 foreach ($this->documents as $item1) {
-                    $res['Documents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Documents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class SubmitDocClusterTaskRequest extends Model
                 $model->documents = [];
                 $n1 = 0;
                 foreach ($map['Documents'] as $item1) {
-                    $model->documents[$n1++] = documents::fromMap($item1);
+                    $model->documents[$n1] = documents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

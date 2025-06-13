@@ -32,7 +32,8 @@ class referenceData extends Model
                 $res['MiniDoc'] = [];
                 $n1 = 0;
                 foreach ($this->miniDoc as $item1) {
-                    $res['MiniDoc'][$n1++] = $item1;
+                    $res['MiniDoc'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class referenceData extends Model
                 $model->miniDoc = [];
                 $n1 = 0;
                 foreach ($map['MiniDoc'] as $item1) {
-                    $model->miniDoc[$n1++] = $item1;
+                    $model->miniDoc[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -157,7 +157,8 @@ class data extends Model
                 $res['SearchSourceList'] = [];
                 $n1 = 0;
                 foreach ($this->searchSourceList as $item1) {
-                    $res['SearchSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class data extends Model
                 $res['SearchSources'] = [];
                 $n1 = 0;
                 foreach ($this->searchSources as $item1) {
-                    $res['SearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +187,8 @@ class data extends Model
                 $res['WanxiangImageSizeConfig'] = [];
                 $n1 = 0;
                 foreach ($this->wanxiangImageSizeConfig as $item1) {
-                    $res['WanxiangImageSizeConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WanxiangImageSizeConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +198,8 @@ class data extends Model
                 $res['WanxiangImageStyleConfig'] = [];
                 $n1 = 0;
                 foreach ($this->wanxiangImageStyleConfig as $item1) {
-                    $res['WanxiangImageStyleConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WanxiangImageStyleConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -246,7 +250,8 @@ class data extends Model
                 $model->searchSourceList = [];
                 $n1 = 0;
                 foreach ($map['SearchSourceList'] as $item1) {
-                    $model->searchSourceList[$n1++] = searchSourceList::fromMap($item1);
+                    $model->searchSourceList[$n1] = searchSourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -256,7 +261,8 @@ class data extends Model
                 $model->searchSources = [];
                 $n1 = 0;
                 foreach ($map['SearchSources'] as $item1) {
-                    $model->searchSources[$n1++] = searchSources::fromMap($item1);
+                    $model->searchSources[$n1] = searchSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -274,7 +280,8 @@ class data extends Model
                 $model->wanxiangImageSizeConfig = [];
                 $n1 = 0;
                 foreach ($map['WanxiangImageSizeConfig'] as $item1) {
-                    $model->wanxiangImageSizeConfig[$n1++] = wanxiangImageSizeConfig::fromMap($item1);
+                    $model->wanxiangImageSizeConfig[$n1] = wanxiangImageSizeConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +291,8 @@ class data extends Model
                 $model->wanxiangImageStyleConfig = [];
                 $n1 = 0;
                 foreach ($map['WanxiangImageStyleConfig'] as $item1) {
-                    $model->wanxiangImageStyleConfig[$n1++] = wanxiangImageStyleConfig::fromMap($item1);
+                    $model->wanxiangImageStyleConfig[$n1] = wanxiangImageStyleConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

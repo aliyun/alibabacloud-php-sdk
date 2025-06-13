@@ -72,7 +72,8 @@ class chatConfig extends Model
                 $res['SearchModels'] = [];
                 $n1 = 0;
                 foreach ($this->searchModels as $item1) {
-                    $res['SearchModels'][$n1++] = $item1;
+                    $res['SearchModels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class chatConfig extends Model
                 $model->searchModels = [];
                 $n1 = 0;
                 foreach ($map['SearchModels'] as $item1) {
-                    $model->searchModels[$n1++] = $item1;
+                    $model->searchModels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

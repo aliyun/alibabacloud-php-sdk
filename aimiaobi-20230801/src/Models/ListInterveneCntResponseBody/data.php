@@ -56,7 +56,8 @@ class data extends Model
                 $res['CntList'] = [];
                 $n1 = 0;
                 foreach ($this->cntList as $item1) {
-                    $res['CntList'][$n1++] = $item1;
+                    $res['CntList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class data extends Model
                 $model->cntList = [];
                 $n1 = 0;
                 foreach ($map['CntList'] as $item1) {
-                    $model->cntList[$n1++] = $item1;
+                    $model->cntList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

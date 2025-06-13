@@ -50,7 +50,8 @@ class event extends Model
                 $res['CauseList'] = [];
                 $n1 = 0;
                 foreach ($this->causeList as $item1) {
-                    $res['CauseList'][$n1++] = $item1;
+                    $res['CauseList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class event extends Model
                 $res['ProcessList'] = [];
                 $n1 = 0;
                 foreach ($this->processList as $item1) {
-                    $res['ProcessList'][$n1++] = $item1;
+                    $res['ProcessList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class event extends Model
                 $res['ResultList'] = [];
                 $n1 = 0;
                 foreach ($this->resultList as $item1) {
-                    $res['ResultList'][$n1++] = $item1;
+                    $res['ResultList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class event extends Model
                 $model->causeList = [];
                 $n1 = 0;
                 foreach ($map['CauseList'] as $item1) {
-                    $model->causeList[$n1++] = $item1;
+                    $model->causeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class event extends Model
                 $model->processList = [];
                 $n1 = 0;
                 foreach ($map['ProcessList'] as $item1) {
-                    $model->processList[$n1++] = $item1;
+                    $model->processList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class event extends Model
                 $model->resultList = [];
                 $n1 = 0;
                 foreach ($map['ResultList'] as $item1) {
-                    $model->resultList[$n1++] = $item1;
+                    $model->resultList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

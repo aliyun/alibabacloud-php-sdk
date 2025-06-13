@@ -33,7 +33,8 @@ class hotViewPointsResult extends Model
                 $res['Attitudes'] = [];
                 $n1 = 0;
                 foreach ($this->attitudes as $item1) {
-                    $res['Attitudes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Attitudes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class hotViewPointsResult extends Model
                 $model->attitudes = [];
                 $n1 = 0;
                 foreach ($map['Attitudes'] as $item1) {
-                    $model->attitudes[$n1++] = attitudes::fromMap($item1);
+                    $model->attitudes[$n1] = attitudes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

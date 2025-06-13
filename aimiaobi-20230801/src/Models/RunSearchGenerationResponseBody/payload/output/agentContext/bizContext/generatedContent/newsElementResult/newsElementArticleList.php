@@ -53,7 +53,8 @@ class newsElementArticleList extends Model
                 $res['NewsElementList'] = [];
                 $n1 = 0;
                 foreach ($this->newsElementList as $item1) {
-                    $res['NewsElementList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NewsElementList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class newsElementArticleList extends Model
                 $model->newsElementList = [];
                 $n1 = 0;
                 foreach ($map['NewsElementList'] as $item1) {
-                    $model->newsElementList[$n1++] = newsElementList::fromMap($item1);
+                    $model->newsElementList[$n1] = newsElementList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

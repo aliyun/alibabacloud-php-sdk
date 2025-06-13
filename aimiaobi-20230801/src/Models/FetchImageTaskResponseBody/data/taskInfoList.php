@@ -55,7 +55,8 @@ class taskInfoList extends Model
                 $res['ImageList'] = [];
                 $n1 = 0;
                 foreach ($this->imageList as $item1) {
-                    $res['ImageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class taskInfoList extends Model
                 $model->imageList = [];
                 $n1 = 0;
                 foreach ($map['ImageList'] as $item1) {
-                    $model->imageList[$n1++] = imageList::fromMap($item1);
+                    $model->imageList[$n1] = imageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

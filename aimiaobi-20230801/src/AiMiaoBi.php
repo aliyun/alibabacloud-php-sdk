@@ -61,9 +61,13 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchExportWordTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchExportWordTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateExportWordTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateExportWordTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateFileUrlByKeyRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateFileUrlByKeyResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateImageTaskRequest;
@@ -2053,6 +2057,69 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 获取异步导出文档任务结果.
+     *
+     * @param request - FetchExportWordTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchExportWordTaskResponse
+     *
+     * @param FetchExportWordTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FetchExportWordTaskResponse
+     */
+    public function fetchExportWordTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FetchExportWordTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FetchExportWordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取异步导出文档任务结果.
+     *
+     * @param request - FetchExportWordTaskRequest
+     *
+     * @returns FetchExportWordTaskResponse
+     *
+     * @param FetchExportWordTaskRequest $request
+     *
+     * @return FetchExportWordTaskResponse
+     */
+    public function fetchExportWordTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fetchExportWordTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取图片任务执行结果.
      *
      * @param tmpReq - FetchImageTaskRequest
@@ -2123,6 +2190,69 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fetchImageTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成内容导出文档任务
+     *
+     * @param request - GenerateExportWordTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateExportWordTaskResponse
+     *
+     * @param GenerateExportWordTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateExportWordTaskResponse
+     */
+    public function generateExportWordTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        $body = [];
+        if (null !== $request->generatedContentId) {
+            @$body['GeneratedContentId'] = $request->generatedContentId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateExportWordTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateExportWordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成内容导出文档任务
+     *
+     * @param request - GenerateExportWordTaskRequest
+     *
+     * @returns GenerateExportWordTaskResponse
+     *
+     * @param GenerateExportWordTaskRequest $request
+     *
+     * @return GenerateExportWordTaskResponse
+     */
+    public function generateExportWordTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateExportWordTaskWithOptions($request, $runtime);
     }
 
     /**

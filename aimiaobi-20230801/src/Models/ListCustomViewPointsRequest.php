@@ -91,7 +91,8 @@ class ListCustomViewPointsRequest extends Model
                 $res['Attitudes'] = [];
                 $n1 = 0;
                 foreach ($this->attitudes as $item1) {
-                    $res['Attitudes'][$n1++] = $item1;
+                    $res['Attitudes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class ListCustomViewPointsRequest extends Model
                 $res['CustomViewPointIds'] = [];
                 $n1 = 0;
                 foreach ($this->customViewPointIds as $item1) {
-                    $res['CustomViewPointIds'][$n1++] = $item1;
+                    $res['CustomViewPointIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +152,8 @@ class ListCustomViewPointsRequest extends Model
                 $model->attitudes = [];
                 $n1 = 0;
                 foreach ($map['Attitudes'] as $item1) {
-                    $model->attitudes[$n1++] = $item1;
+                    $model->attitudes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +167,8 @@ class ListCustomViewPointsRequest extends Model
                 $model->customViewPointIds = [];
                 $n1 = 0;
                 foreach ($map['CustomViewPointIds'] as $item1) {
-                    $model->customViewPointIds[$n1++] = $item1;
+                    $model->customViewPointIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

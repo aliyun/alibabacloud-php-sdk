@@ -80,7 +80,8 @@ class interveneRuleConfig extends Model
                 $res['AnswerConfig'] = [];
                 $n1 = 0;
                 foreach ($this->answerConfig as $item1) {
-                    $res['AnswerConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AnswerConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class interveneRuleConfig extends Model
                 $res['InterveneConfigList'] = [];
                 $n1 = 0;
                 foreach ($this->interveneConfigList as $item1) {
-                    $res['InterveneConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InterveneConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +110,8 @@ class interveneRuleConfig extends Model
                 $res['NamespaceList'] = [];
                 $n1 = 0;
                 foreach ($this->namespaceList as $item1) {
-                    $res['NamespaceList'][$n1++] = $item1;
+                    $res['NamespaceList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +140,8 @@ class interveneRuleConfig extends Model
                 $model->answerConfig = [];
                 $n1 = 0;
                 foreach ($map['AnswerConfig'] as $item1) {
-                    $model->answerConfig[$n1++] = answerConfig::fromMap($item1);
+                    $model->answerConfig[$n1] = answerConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +155,8 @@ class interveneRuleConfig extends Model
                 $model->interveneConfigList = [];
                 $n1 = 0;
                 foreach ($map['InterveneConfigList'] as $item1) {
-                    $model->interveneConfigList[$n1++] = interveneConfigList::fromMap($item1);
+                    $model->interveneConfigList[$n1] = interveneConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +170,8 @@ class interveneRuleConfig extends Model
                 $model->namespaceList = [];
                 $n1 = 0;
                 foreach ($map['NamespaceList'] as $item1) {
-                    $model->namespaceList[$n1++] = $item1;
+                    $model->namespaceList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -169,7 +169,8 @@ class RunWritingV2Request extends Model
                 $res['Articles'] = [];
                 $n1 = 0;
                 foreach ($this->articles as $item1) {
-                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +192,8 @@ class RunWritingV2Request extends Model
                 $res['Keywords'] = [];
                 $n1 = 0;
                 foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1++] = $item1;
+                    $res['Keywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +207,8 @@ class RunWritingV2Request extends Model
                 $res['MiniDocs'] = [];
                 $n1 = 0;
                 foreach ($this->miniDocs as $item1) {
-                    $res['MiniDocs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MiniDocs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +218,8 @@ class RunWritingV2Request extends Model
                 $res['Outlines'] = [];
                 $n1 = 0;
                 foreach ($this->outlines as $item1) {
-                    $res['Outlines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Outlines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +237,8 @@ class RunWritingV2Request extends Model
                 $res['SearchSources'] = [];
                 $n1 = 0;
                 foreach ($this->searchSources as $item1) {
-                    $res['SearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SearchSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -251,7 +256,8 @@ class RunWritingV2Request extends Model
                 $res['Summarization'] = [];
                 $n1 = 0;
                 foreach ($this->summarization as $item1) {
-                    $res['Summarization'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Summarization'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -301,7 +307,8 @@ class RunWritingV2Request extends Model
                 $model->articles = [];
                 $n1 = 0;
                 foreach ($map['Articles'] as $item1) {
-                    $model->articles[$n1++] = articles::fromMap($item1);
+                    $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -323,7 +330,8 @@ class RunWritingV2Request extends Model
                 $model->keywords = [];
                 $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1++] = $item1;
+                    $model->keywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -337,7 +345,8 @@ class RunWritingV2Request extends Model
                 $model->miniDocs = [];
                 $n1 = 0;
                 foreach ($map['MiniDocs'] as $item1) {
-                    $model->miniDocs[$n1++] = miniDocs::fromMap($item1);
+                    $model->miniDocs[$n1] = miniDocs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -347,7 +356,8 @@ class RunWritingV2Request extends Model
                 $model->outlines = [];
                 $n1 = 0;
                 foreach ($map['Outlines'] as $item1) {
-                    $model->outlines[$n1++] = outlines::fromMap($item1);
+                    $model->outlines[$n1] = outlines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -365,7 +375,8 @@ class RunWritingV2Request extends Model
                 $model->searchSources = [];
                 $n1 = 0;
                 foreach ($map['SearchSources'] as $item1) {
-                    $model->searchSources[$n1++] = searchSources::fromMap($item1);
+                    $model->searchSources[$n1] = searchSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +394,8 @@ class RunWritingV2Request extends Model
                 $model->summarization = [];
                 $n1 = 0;
                 foreach ($map['Summarization'] as $item1) {
-                    $model->summarization[$n1++] = summarization::fromMap($item1);
+                    $model->summarization[$n1] = summarization::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

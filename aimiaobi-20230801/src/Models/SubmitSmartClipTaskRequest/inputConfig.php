@@ -71,7 +71,8 @@ class inputConfig extends Model
                 $res['BackgroundMusics'] = [];
                 $n1 = 0;
                 foreach ($this->backgroundMusics as $item1) {
-                    $res['BackgroundMusics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BackgroundMusics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class inputConfig extends Model
                 $res['SpeechTexts'] = [];
                 $n1 = 0;
                 foreach ($this->speechTexts as $item1) {
-                    $res['SpeechTexts'][$n1++] = $item1;
+                    $res['SpeechTexts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +93,8 @@ class inputConfig extends Model
                 $res['Stickers'] = [];
                 $n1 = 0;
                 foreach ($this->stickers as $item1) {
-                    $res['Stickers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Stickers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +104,8 @@ class inputConfig extends Model
                 $res['Titles'] = [];
                 $n1 = 0;
                 foreach ($this->titles as $item1) {
-                    $res['Titles'][$n1++] = $item1;
+                    $res['Titles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +115,8 @@ class inputConfig extends Model
                 $res['VideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->videoIds as $item1) {
-                    $res['VideoIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +137,8 @@ class inputConfig extends Model
                 $model->backgroundMusics = [];
                 $n1 = 0;
                 foreach ($map['BackgroundMusics'] as $item1) {
-                    $model->backgroundMusics[$n1++] = backgroundMusics::fromMap($item1);
+                    $model->backgroundMusics[$n1] = backgroundMusics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +148,8 @@ class inputConfig extends Model
                 $model->speechTexts = [];
                 $n1 = 0;
                 foreach ($map['SpeechTexts'] as $item1) {
-                    $model->speechTexts[$n1++] = $item1;
+                    $model->speechTexts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +159,8 @@ class inputConfig extends Model
                 $model->stickers = [];
                 $n1 = 0;
                 foreach ($map['Stickers'] as $item1) {
-                    $model->stickers[$n1++] = stickers::fromMap($item1);
+                    $model->stickers[$n1] = stickers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +170,8 @@ class inputConfig extends Model
                 $model->titles = [];
                 $n1 = 0;
                 foreach ($map['Titles'] as $item1) {
-                    $model->titles[$n1++] = $item1;
+                    $model->titles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +181,8 @@ class inputConfig extends Model
                 $model->videoIds = [];
                 $n1 = 0;
                 foreach ($map['VideoIds'] as $item1) {
-                    $model->videoIds[$n1++] = videoIds::fromMap($item1);
+                    $model->videoIds[$n1] = videoIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

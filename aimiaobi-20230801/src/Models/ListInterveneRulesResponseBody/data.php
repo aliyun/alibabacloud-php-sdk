@@ -65,7 +65,8 @@ class data extends Model
                 $res['InterveneRuleList'] = [];
                 $n1 = 0;
                 foreach ($this->interveneRuleList as $item1) {
-                    $res['InterveneRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InterveneRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class data extends Model
                 $model->interveneRuleList = [];
                 $n1 = 0;
                 foreach ($map['InterveneRuleList'] as $item1) {
-                    $model->interveneRuleList[$n1++] = interveneRuleList::fromMap($item1);
+                    $model->interveneRuleList[$n1] = interveneRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

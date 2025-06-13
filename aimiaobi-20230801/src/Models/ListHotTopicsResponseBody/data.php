@@ -119,7 +119,8 @@ class data extends Model
                 $res['StructureSummary'] = [];
                 $n1 = 0;
                 foreach ($this->structureSummary as $item1) {
-                    $res['StructureSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StructureSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +185,8 @@ class data extends Model
                 $model->structureSummary = [];
                 $n1 = 0;
                 foreach ($map['StructureSummary'] as $item1) {
-                    $model->structureSummary[$n1++] = structureSummary::fromMap($item1);
+                    $model->structureSummary[$n1] = structureSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

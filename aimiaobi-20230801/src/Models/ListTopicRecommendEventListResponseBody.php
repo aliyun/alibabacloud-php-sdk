@@ -84,7 +84,8 @@ class ListTopicRecommendEventListResponseBody extends Model
                 $res['Data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = $item1;
+                    $res['Data'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class ListTopicRecommendEventListResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = $item1;
+                    $model->data[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

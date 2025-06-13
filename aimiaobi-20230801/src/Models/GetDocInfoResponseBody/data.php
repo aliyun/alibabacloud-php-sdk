@@ -92,7 +92,8 @@ class data extends Model
                 $res['VideoContents'] = [];
                 $n1 = 0;
                 foreach ($this->videoContents as $item1) {
-                    $res['VideoContents'][$n1++] = $item1;
+                    $res['VideoContents'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class data extends Model
                 $model->videoContents = [];
                 $n1 = 0;
                 foreach ($map['VideoContents'] as $item1) {
-                    $model->videoContents[$n1++] = $item1;
+                    $model->videoContents[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

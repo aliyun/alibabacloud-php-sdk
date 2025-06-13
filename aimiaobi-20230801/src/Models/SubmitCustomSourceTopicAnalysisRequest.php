@@ -69,7 +69,8 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
                 $res['News'] = [];
                 $n1 = 0;
                 foreach ($this->news as $item1) {
-                    $res['News'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['News'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
                 $model->news = [];
                 $n1 = 0;
                 foreach ($map['News'] as $item1) {
-                    $model->news[$n1++] = news::fromMap($item1);
+                    $model->news[$n1] = news::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

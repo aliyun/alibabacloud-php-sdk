@@ -43,7 +43,8 @@ class data extends Model
                 $res['UserConfigDataSourceList'] = [];
                 $n1 = 0;
                 foreach ($this->userConfigDataSourceList as $item1) {
-                    $res['UserConfigDataSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserConfigDataSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class data extends Model
                 $model->userConfigDataSourceList = [];
                 $n1 = 0;
                 foreach ($map['UserConfigDataSourceList'] as $item1) {
-                    $model->userConfigDataSourceList[$n1++] = userConfigDataSourceList::fromMap($item1);
+                    $model->userConfigDataSourceList[$n1] = userConfigDataSourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

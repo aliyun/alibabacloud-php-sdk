@@ -58,7 +58,8 @@ class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends Model
                 $res['Documents'] = [];
                 $n1 = 0;
                 foreach ($this->documents as $item1) {
-                    $res['Documents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Documents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends Model
                 $res['PerspectiveTypes'] = [];
                 $n1 = 0;
                 foreach ($this->perspectiveTypes as $item1) {
-                    $res['PerspectiveTypes'][$n1++] = $item1;
+                    $res['PerspectiveTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends Model
                 $model->documents = [];
                 $n1 = 0;
                 foreach ($map['Documents'] as $item1) {
-                    $model->documents[$n1++] = documents::fromMap($item1);
+                    $model->documents[$n1] = documents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +110,8 @@ class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends Model
                 $model->perspectiveTypes = [];
                 $n1 = 0;
                 foreach ($map['PerspectiveTypes'] as $item1) {
-                    $model->perspectiveTypes[$n1++] = $item1;
+                    $model->perspectiveTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

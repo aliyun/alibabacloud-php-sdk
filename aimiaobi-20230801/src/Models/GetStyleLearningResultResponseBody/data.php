@@ -95,7 +95,8 @@ class data extends Model
                 $res['ContentList'] = [];
                 $n1 = 0;
                 foreach ($this->contentList as $item1) {
-                    $res['ContentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ContentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class data extends Model
                 $res['CustomTextIdList'] = [];
                 $n1 = 0;
                 foreach ($this->customTextIdList as $item1) {
-                    $res['CustomTextIdList'][$n1++] = $item1;
+                    $res['CustomTextIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +121,8 @@ class data extends Model
                 $res['MaterialIdList'] = [];
                 $n1 = 0;
                 foreach ($this->materialIdList as $item1) {
-                    $res['MaterialIdList'][$n1++] = $item1;
+                    $res['MaterialIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +132,8 @@ class data extends Model
                 $res['MaterialInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->materialInfoList as $item1) {
-                    $res['MaterialInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MaterialInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +170,8 @@ class data extends Model
                 $model->contentList = [];
                 $n1 = 0;
                 foreach ($map['ContentList'] as $item1) {
-                    $model->contentList[$n1++] = contentList::fromMap($item1);
+                    $model->contentList[$n1] = contentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +181,8 @@ class data extends Model
                 $model->customTextIdList = [];
                 $n1 = 0;
                 foreach ($map['CustomTextIdList'] as $item1) {
-                    $model->customTextIdList[$n1++] = $item1;
+                    $model->customTextIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +196,8 @@ class data extends Model
                 $model->materialIdList = [];
                 $n1 = 0;
                 foreach ($map['MaterialIdList'] as $item1) {
-                    $model->materialIdList[$n1++] = $item1;
+                    $model->materialIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +207,8 @@ class data extends Model
                 $model->materialInfoList = [];
                 $n1 = 0;
                 foreach ($map['MaterialInfoList'] as $item1) {
-                    $model->materialInfoList[$n1++] = materialInfoList::fromMap($item1);
+                    $model->materialInfoList[$n1] = materialInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

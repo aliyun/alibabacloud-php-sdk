@@ -79,7 +79,8 @@ class SaveStyleLearningResultRequest extends Model
                 $res['CustomTextIdList'] = [];
                 $n1 = 0;
                 foreach ($this->customTextIdList as $item1) {
-                    $res['CustomTextIdList'][$n1++] = $item1;
+                    $res['CustomTextIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class SaveStyleLearningResultRequest extends Model
                 $res['MaterialIdList'] = [];
                 $n1 = 0;
                 foreach ($this->materialIdList as $item1) {
-                    $res['MaterialIdList'][$n1++] = $item1;
+                    $res['MaterialIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class SaveStyleLearningResultRequest extends Model
                 $model->customTextIdList = [];
                 $n1 = 0;
                 foreach ($map['CustomTextIdList'] as $item1) {
-                    $model->customTextIdList[$n1++] = $item1;
+                    $model->customTextIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class SaveStyleLearningResultRequest extends Model
                 $model->materialIdList = [];
                 $n1 = 0;
                 foreach ($map['MaterialIdList'] as $item1) {
-                    $model->materialIdList[$n1++] = $item1;
+                    $model->materialIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class generateTraceability extends Model
                 $res['Coordinates'] = [];
                 $n1 = 0;
                 foreach ($this->coordinates as $item1) {
-                    $res['Coordinates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Coordinates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class generateTraceability extends Model
                 $model->coordinates = [];
                 $n1 = 0;
                 foreach ($map['Coordinates'] as $item1) {
-                    $model->coordinates[$n1++] = coordinates::fromMap($item1);
+                    $model->coordinates[$n1] = coordinates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

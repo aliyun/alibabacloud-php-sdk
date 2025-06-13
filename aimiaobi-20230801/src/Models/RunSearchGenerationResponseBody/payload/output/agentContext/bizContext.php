@@ -119,7 +119,8 @@ class bizContext extends Model
                 $res['AskUserKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->askUserKeywords as $item1) {
-                    $res['AskUserKeywords'][$n1++] = $item1;
+                    $res['AskUserKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class bizContext extends Model
                 $res['RecommendSearchQueryList'] = [];
                 $n1 = 0;
                 foreach ($this->recommendSearchQueryList as $item1) {
-                    $res['RecommendSearchQueryList'][$n1++] = $item1;
+                    $res['RecommendSearchQueryList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +157,8 @@ class bizContext extends Model
                 $res['SearchKeywords'] = [];
                 $n1 = 0;
                 foreach ($this->searchKeywords as $item1) {
-                    $res['SearchKeywords'][$n1++] = $item1;
+                    $res['SearchKeywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +168,8 @@ class bizContext extends Model
                 $res['SearchQueryList'] = [];
                 $n1 = 0;
                 foreach ($this->searchQueryList as $item1) {
-                    $res['SearchQueryList'][$n1++] = $item1;
+                    $res['SearchQueryList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +206,8 @@ class bizContext extends Model
                 $model->askUserKeywords = [];
                 $n1 = 0;
                 foreach ($map['AskUserKeywords'] as $item1) {
-                    $model->askUserKeywords[$n1++] = $item1;
+                    $model->askUserKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -228,7 +233,8 @@ class bizContext extends Model
                 $model->recommendSearchQueryList = [];
                 $n1 = 0;
                 foreach ($map['RecommendSearchQueryList'] as $item1) {
-                    $model->recommendSearchQueryList[$n1++] = $item1;
+                    $model->recommendSearchQueryList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +244,8 @@ class bizContext extends Model
                 $model->searchKeywords = [];
                 $n1 = 0;
                 foreach ($map['SearchKeywords'] as $item1) {
-                    $model->searchKeywords[$n1++] = $item1;
+                    $model->searchKeywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +255,8 @@ class bizContext extends Model
                 $model->searchQueryList = [];
                 $n1 = 0;
                 foreach ($map['SearchQueryList'] as $item1) {
-                    $model->searchQueryList[$n1++] = $item1;
+                    $model->searchQueryList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

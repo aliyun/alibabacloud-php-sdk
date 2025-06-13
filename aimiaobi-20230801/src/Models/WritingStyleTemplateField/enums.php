@@ -44,7 +44,8 @@ class enums extends Model
                 $res['CascadingFields'] = [];
                 $n1 = 0;
                 foreach ($this->cascadingFields as $item1) {
-                    $res['CascadingFields'][$n1++] = $item1;
+                    $res['CascadingFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class enums extends Model
                 $model->cascadingFields = [];
                 $n1 = 0;
                 foreach ($map['CascadingFields'] as $item1) {
-                    $model->cascadingFields[$n1++] = $item1;
+                    $model->cascadingFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

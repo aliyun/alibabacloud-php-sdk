@@ -95,7 +95,8 @@ class ListHotTopicsRequest extends Model
                 $res['TopicIds'] = [];
                 $n1 = 0;
                 foreach ($this->topicIds as $item1) {
-                    $res['TopicIds'][$n1++] = $item1;
+                    $res['TopicIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class ListHotTopicsRequest extends Model
                 $res['Topics'] = [];
                 $n1 = 0;
                 foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1++] = $item1;
+                    $res['Topics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class ListHotTopicsRequest extends Model
                 $model->topicIds = [];
                 $n1 = 0;
                 foreach ($map['TopicIds'] as $item1) {
-                    $model->topicIds[$n1++] = $item1;
+                    $model->topicIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +179,8 @@ class ListHotTopicsRequest extends Model
                 $model->topics = [];
                 $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1++] = $item1;
+                    $model->topics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

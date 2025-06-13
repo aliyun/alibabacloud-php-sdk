@@ -45,7 +45,8 @@ class searchSamples extends Model
                 $res['Articles'] = [];
                 $n1 = 0;
                 foreach ($this->articles as $item1) {
-                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class searchSamples extends Model
                 $model->articles = [];
                 $n1 = 0;
                 foreach ($map['Articles'] as $item1) {
-                    $model->articles[$n1++] = articles::fromMap($item1);
+                    $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

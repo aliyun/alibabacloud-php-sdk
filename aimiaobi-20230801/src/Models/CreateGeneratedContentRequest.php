@@ -96,7 +96,8 @@ class CreateGeneratedContentRequest extends Model
                 $res['Keywords'] = [];
                 $n1 = 0;
                 foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1++] = $item1;
+                    $res['Keywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -149,7 +150,8 @@ class CreateGeneratedContentRequest extends Model
                 $model->keywords = [];
                 $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1++] = $item1;
+                    $model->keywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

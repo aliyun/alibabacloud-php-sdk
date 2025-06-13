@@ -127,7 +127,8 @@ class ListAsyncTasksRequest extends Model
                 $res['TaskStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->taskStatusList as $item1) {
-                    $res['TaskStatusList'][$n1++] = $item1;
+                    $res['TaskStatusList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class ListAsyncTasksRequest extends Model
                 $res['TaskTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->taskTypeList as $item1) {
-                    $res['TaskTypeList'][$n1++] = $item1;
+                    $res['TaskTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +196,8 @@ class ListAsyncTasksRequest extends Model
                 $model->taskStatusList = [];
                 $n1 = 0;
                 foreach ($map['TaskStatusList'] as $item1) {
-                    $model->taskStatusList[$n1++] = $item1;
+                    $model->taskStatusList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +211,8 @@ class ListAsyncTasksRequest extends Model
                 $model->taskTypeList = [];
                 $n1 = 0;
                 foreach ($map['TaskTypeList'] as $item1) {
-                    $model->taskTypeList[$n1++] = $item1;
+                    $model->taskTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

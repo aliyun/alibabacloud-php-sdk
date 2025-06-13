@@ -129,7 +129,8 @@ class GetHotTopicBroadcastRequest extends Model
                 $res['Locations'] = [];
                 $n1 = 0;
                 foreach ($this->locations as $item1) {
-                    $res['Locations'][$n1++] = $item1;
+                    $res['Locations'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,7 +156,8 @@ class GetHotTopicBroadcastRequest extends Model
                 $res['Topics'] = [];
                 $n1 = 0;
                 foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1++] = $item1;
+                    $res['Topics'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +202,8 @@ class GetHotTopicBroadcastRequest extends Model
                 $model->locations = [];
                 $n1 = 0;
                 foreach ($map['Locations'] as $item1) {
-                    $model->locations[$n1++] = $item1;
+                    $model->locations[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +229,8 @@ class GetHotTopicBroadcastRequest extends Model
                 $model->topics = [];
                 $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1++] = $item1;
+                    $model->topics[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -104,7 +104,8 @@ class searchResult extends Model
                 $res['Chunks'] = [];
                 $n1 = 0;
                 foreach ($this->chunks as $item1) {
-                    $res['Chunks'][$n1++] = $item1;
+                    $res['Chunks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class searchResult extends Model
                 $model->chunks = [];
                 $n1 = 0;
                 foreach ($map['Chunks'] as $item1) {
-                    $model->chunks[$n1++] = $item1;
+                    $model->chunks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

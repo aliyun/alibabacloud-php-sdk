@@ -51,7 +51,8 @@ class introductions extends Model
                 $res['Blocks'] = [];
                 $n1 = 0;
                 foreach ($this->blocks as $item1) {
-                    $res['Blocks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Blocks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class introductions extends Model
                 $model->blocks = [];
                 $n1 = 0;
                 foreach ($map['Blocks'] as $item1) {
-                    $model->blocks[$n1++] = blocks::fromMap($item1);
+                    $model->blocks[$n1] = blocks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
