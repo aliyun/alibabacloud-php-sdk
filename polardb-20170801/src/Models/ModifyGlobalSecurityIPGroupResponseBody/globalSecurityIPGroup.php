@@ -56,7 +56,8 @@ class globalSecurityIPGroup extends Model
                 $res['DBInstances'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstances as $item1) {
-                    $res['DBInstances'][$n1++] = $item1;
+                    $res['DBInstances'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class globalSecurityIPGroup extends Model
                 $model->DBInstances = [];
                 $n1 = 0;
                 foreach ($map['DBInstances'] as $item1) {
-                    $model->DBInstances[$n1++] = $item1;
+                    $model->DBInstances[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

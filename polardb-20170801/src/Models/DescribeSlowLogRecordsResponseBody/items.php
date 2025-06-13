@@ -33,7 +33,8 @@ class items extends Model
                 $res['SQLSlowRecord'] = [];
                 $n1 = 0;
                 foreach ($this->SQLSlowRecord as $item1) {
-                    $res['SQLSlowRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SQLSlowRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->SQLSlowRecord = [];
                 $n1 = 0;
                 foreach ($map['SQLSlowRecord'] as $item1) {
-                    $model->SQLSlowRecord[$n1++] = SQLSlowRecord::fromMap($item1);
+                    $model->SQLSlowRecord[$n1] = SQLSlowRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class variables extends Model
                 $res['Variable'] = [];
                 $n1 = 0;
                 foreach ($this->variable as $item1) {
-                    $res['Variable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Variable'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class variables extends Model
                 $model->variable = [];
                 $n1 = 0;
                 foreach ($map['Variable'] as $item1) {
-                    $model->variable[$n1++] = variable::fromMap($item1);
+                    $model->variable[$n1] = variable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

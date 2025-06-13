@@ -131,7 +131,8 @@ class DescribeDBClusterVersionResponseBody extends Model
                 $res['DBRevisionVersionList'] = [];
                 $n1 = 0;
                 foreach ($this->DBRevisionVersionList as $item1) {
-                    $res['DBRevisionVersionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBRevisionVersionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -165,7 +166,8 @@ class DescribeDBClusterVersionResponseBody extends Model
                 $res['ProxyRevisionVersionList'] = [];
                 $n1 = 0;
                 foreach ($this->proxyRevisionVersionList as $item1) {
-                    $res['ProxyRevisionVersionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProxyRevisionVersionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +212,8 @@ class DescribeDBClusterVersionResponseBody extends Model
                 $model->DBRevisionVersionList = [];
                 $n1 = 0;
                 foreach ($map['DBRevisionVersionList'] as $item1) {
-                    $model->DBRevisionVersionList[$n1++] = DBRevisionVersionList::fromMap($item1);
+                    $model->DBRevisionVersionList[$n1] = DBRevisionVersionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +247,8 @@ class DescribeDBClusterVersionResponseBody extends Model
                 $model->proxyRevisionVersionList = [];
                 $n1 = 0;
                 foreach ($map['ProxyRevisionVersionList'] as $item1) {
-                    $model->proxyRevisionVersionList[$n1++] = proxyRevisionVersionList::fromMap($item1);
+                    $model->proxyRevisionVersionList[$n1] = proxyRevisionVersionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class DBNodeIds extends Model
                 $res['RunningParameters'] = [];
                 $n1 = 0;
                 foreach ($this->runningParameters as $item1) {
-                    $res['RunningParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RunningParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DBNodeIds extends Model
                 $model->runningParameters = [];
                 $n1 = 0;
                 foreach ($map['RunningParameters'] as $item1) {
-                    $model->runningParameters[$n1++] = runningParameters::fromMap($item1);
+                    $model->runningParameters[$n1] = runningParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

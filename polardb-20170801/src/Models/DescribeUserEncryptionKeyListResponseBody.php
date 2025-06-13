@@ -48,7 +48,8 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
                 $res['KeyList'] = [];
                 $n1 = 0;
                 foreach ($this->keyList as $item1) {
-                    $res['KeyList'][$n1++] = $item1;
+                    $res['KeyList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
                 $model->keyList = [];
                 $n1 = 0;
                 foreach ($map['KeyList'] as $item1) {
-                    $model->keyList[$n1++] = $item1;
+                    $model->keyList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

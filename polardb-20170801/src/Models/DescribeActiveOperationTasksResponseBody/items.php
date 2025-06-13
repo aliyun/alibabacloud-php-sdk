@@ -226,7 +226,8 @@ class items extends Model
                 $res['DBNodeIds'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodeIds as $item1) {
-                    $res['DBNodeIds'][$n1++] = $item1;
+                    $res['DBNodeIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -355,7 +356,8 @@ class items extends Model
                 $model->DBNodeIds = [];
                 $n1 = 0;
                 foreach ($map['DBNodeIds'] as $item1) {
-                    $model->DBNodeIds[$n1++] = $item1;
+                    $model->DBNodeIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

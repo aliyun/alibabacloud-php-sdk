@@ -487,7 +487,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 $res['DBNodes'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodes as $item1) {
-                    $res['DBNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -681,7 +682,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -774,7 +776,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 $model->DBNodes = [];
                 $n1 = 0;
                 foreach ($map['DBNodes'] as $item1) {
-                    $model->DBNodes[$n1++] = DBNodes::fromMap($item1);
+                    $model->DBNodes[$n1] = DBNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -968,7 +971,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

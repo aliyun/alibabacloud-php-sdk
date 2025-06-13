@@ -33,7 +33,8 @@ class points extends Model
                 $res['PerformanceItemValue'] = [];
                 $n1 = 0;
                 foreach ($this->performanceItemValue as $item1) {
-                    $res['PerformanceItemValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PerformanceItemValue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class points extends Model
                 $model->performanceItemValue = [];
                 $n1 = 0;
                 foreach ($map['PerformanceItemValue'] as $item1) {
-                    $model->performanceItemValue[$n1++] = performanceItemValue::fromMap($item1);
+                    $model->performanceItemValue[$n1] = performanceItemValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

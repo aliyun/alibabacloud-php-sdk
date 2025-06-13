@@ -38,7 +38,8 @@ class data extends Model
                 $res['RuleList'] = [];
                 $n1 = 0;
                 foreach ($this->ruleList as $item1) {
-                    $res['RuleList'][$n1++] = $item1;
+                    $res['RuleList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class data extends Model
                 $model->ruleList = [];
                 $n1 = 0;
                 foreach ($map['RuleList'] as $item1) {
-                    $model->ruleList[$n1++] = $item1;
+                    $model->ruleList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

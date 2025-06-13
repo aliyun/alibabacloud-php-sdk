@@ -133,7 +133,8 @@ class CreateDBEndpointAddressRequest extends Model
                 $res['ZoneInfo'] = [];
                 $n1 = 0;
                 foreach ($this->zoneInfo as $item1) {
-                    $res['ZoneInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ZoneInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +195,8 @@ class CreateDBEndpointAddressRequest extends Model
                 $model->zoneInfo = [];
                 $n1 = 0;
                 foreach ($map['ZoneInfo'] as $item1) {
-                    $model->zoneInfo[$n1++] = zoneInfo::fromMap($item1);
+                    $model->zoneInfo[$n1] = zoneInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

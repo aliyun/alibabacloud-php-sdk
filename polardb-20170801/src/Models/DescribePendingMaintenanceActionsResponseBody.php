@@ -43,7 +43,8 @@ class DescribePendingMaintenanceActionsResponseBody extends Model
                 $res['TypeList'] = [];
                 $n1 = 0;
                 foreach ($this->typeList as $item1) {
-                    $res['TypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribePendingMaintenanceActionsResponseBody extends Model
                 $model->typeList = [];
                 $n1 = 0;
                 foreach ($map['TypeList'] as $item1) {
-                    $model->typeList[$n1++] = typeList::fromMap($item1);
+                    $model->typeList[$n1] = typeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,7 +49,8 @@ class DescribeDBLinksResponseBody extends Model
                 $res['DBLinkInfos'] = [];
                 $n1 = 0;
                 foreach ($this->DBLinkInfos as $item1) {
-                    $res['DBLinkInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBLinkInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeDBLinksResponseBody extends Model
                 $model->DBLinkInfos = [];
                 $n1 = 0;
                 foreach ($map['DBLinkInfos'] as $item1) {
-                    $model->DBLinkInfos[$n1++] = DBLinkInfos::fromMap($item1);
+                    $model->DBLinkInfos[$n1] = DBLinkInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

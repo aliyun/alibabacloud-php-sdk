@@ -33,7 +33,8 @@ class DBClusterSecurityGroups extends Model
                 $res['DBClusterSecurityGroup'] = [];
                 $n1 = 0;
                 foreach ($this->DBClusterSecurityGroup as $item1) {
-                    $res['DBClusterSecurityGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBClusterSecurityGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBClusterSecurityGroups extends Model
                 $model->DBClusterSecurityGroup = [];
                 $n1 = 0;
                 foreach ($map['DBClusterSecurityGroup'] as $item1) {
-                    $model->DBClusterSecurityGroup[$n1++] = DBClusterSecurityGroup::fromMap($item1);
+                    $model->DBClusterSecurityGroup[$n1] = DBClusterSecurityGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

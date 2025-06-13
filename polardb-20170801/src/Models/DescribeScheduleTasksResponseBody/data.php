@@ -59,7 +59,8 @@ class data extends Model
                 $res['TimerInfos'] = [];
                 $n1 = 0;
                 foreach ($this->timerInfos as $item1) {
-                    $res['TimerInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimerInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class data extends Model
                 $model->timerInfos = [];
                 $n1 = 0;
                 foreach ($map['TimerInfos'] as $item1) {
-                    $model->timerInfos[$n1++] = timerInfos::fromMap($item1);
+                    $model->timerInfos[$n1] = timerInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

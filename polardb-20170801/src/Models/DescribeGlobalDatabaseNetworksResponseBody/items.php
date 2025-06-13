@@ -83,7 +83,8 @@ class items extends Model
                 $res['DBClusters'] = [];
                 $n1 = 0;
                 foreach ($this->DBClusters as $item1) {
-                    $res['DBClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class items extends Model
                 $model->DBClusters = [];
                 $n1 = 0;
                 foreach ($map['DBClusters'] as $item1) {
-                    $model->DBClusters[$n1++] = DBClusters::fromMap($item1);
+                    $model->DBClusters[$n1] = DBClusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

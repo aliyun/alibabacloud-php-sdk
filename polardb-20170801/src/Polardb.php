@@ -163,6 +163,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelat
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHALogsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHALogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsRequest;
@@ -293,6 +295,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNRequest;
@@ -7426,6 +7430,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询实例高可用相关日志.
+     *
+     * @param request - DescribeHALogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHALogsResponse
+     *
+     * @param DescribeHALogsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeHALogsResponse
+     */
+    public function describeHALogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeId) {
+            @$query['DBNodeId'] = $request->DBNodeId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHALogs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHALogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例高可用相关日志.
+     *
+     * @param request - DescribeHALogsRequest
+     *
+     * @returns DescribeHALogsResponse
+     *
+     * @param DescribeHALogsRequest $request
+     *
+     * @return DescribeHALogsResponse
+     */
+    public function describeHALogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHALogsWithOptions($request, $runtime);
+    }
+
+    /**
      * 任务中心任务列表.
      *
      * @param request - DescribeHistoryTasksRequest
@@ -13406,6 +13491,63 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openAITaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Reactivates the backup feature.
+     *
+     * @param request - ReactivateDBClusterBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReactivateDBClusterBackupResponse
+     *
+     * @param ReactivateDBClusterBackupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ReactivateDBClusterBackupResponse
+     */
+    public function reactivateDBClusterBackupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReactivateDBClusterBackup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReactivateDBClusterBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Reactivates the backup feature.
+     *
+     * @param request - ReactivateDBClusterBackupRequest
+     *
+     * @returns ReactivateDBClusterBackupResponse
+     *
+     * @param ReactivateDBClusterBackupRequest $request
+     *
+     * @return ReactivateDBClusterBackupResponse
+     */
+    public function reactivateDBClusterBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reactivateDBClusterBackupWithOptions($request, $runtime);
     }
 
     /**

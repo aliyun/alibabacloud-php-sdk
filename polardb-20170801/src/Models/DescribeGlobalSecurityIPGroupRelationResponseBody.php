@@ -49,7 +49,8 @@ class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
                 $res['GlobalSecurityIPGroupRel'] = [];
                 $n1 = 0;
                 foreach ($this->globalSecurityIPGroupRel as $item1) {
-                    $res['GlobalSecurityIPGroupRel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GlobalSecurityIPGroupRel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
                 $model->globalSecurityIPGroupRel = [];
                 $n1 = 0;
                 foreach ($map['GlobalSecurityIPGroupRel'] as $item1) {
-                    $model->globalSecurityIPGroupRel[$n1++] = globalSecurityIPGroupRel::fromMap($item1);
+                    $model->globalSecurityIPGroupRel[$n1] = globalSecurityIPGroupRel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

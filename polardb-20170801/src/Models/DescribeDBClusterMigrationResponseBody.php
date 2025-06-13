@@ -119,7 +119,8 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 $res['DBClusterEndpointList'] = [];
                 $n1 = 0;
                 foreach ($this->DBClusterEndpointList as $item1) {
-                    $res['DBClusterEndpointList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBClusterEndpointList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +154,8 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 $res['RdsEndpointList'] = [];
                 $n1 = 0;
                 foreach ($this->rdsEndpointList as $item1) {
-                    $res['RdsEndpointList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RdsEndpointList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +200,8 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 $model->DBClusterEndpointList = [];
                 $n1 = 0;
                 foreach ($map['DBClusterEndpointList'] as $item1) {
-                    $model->DBClusterEndpointList[$n1++] = DBClusterEndpointList::fromMap($item1);
+                    $model->DBClusterEndpointList[$n1] = DBClusterEndpointList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +235,8 @@ class DescribeDBClusterMigrationResponseBody extends Model
                 $model->rdsEndpointList = [];
                 $n1 = 0;
                 foreach ($map['RdsEndpointList'] as $item1) {
-                    $model->rdsEndpointList[$n1++] = rdsEndpointList::fromMap($item1);
+                    $model->rdsEndpointList[$n1] = rdsEndpointList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
