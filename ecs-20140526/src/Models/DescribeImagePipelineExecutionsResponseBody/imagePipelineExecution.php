@@ -33,7 +33,8 @@ class imagePipelineExecution extends Model
                 $res['ImagePipelineExecutionSet'] = [];
                 $n1 = 0;
                 foreach ($this->imagePipelineExecutionSet as $item1) {
-                    $res['ImagePipelineExecutionSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImagePipelineExecutionSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class imagePipelineExecution extends Model
                 $model->imagePipelineExecutionSet = [];
                 $n1 = 0;
                 foreach ($map['ImagePipelineExecutionSet'] as $item1) {
-                    $model->imagePipelineExecutionSet[$n1++] = imagePipelineExecutionSet::fromMap($item1);
+                    $model->imagePipelineExecutionSet[$n1] = imagePipelineExecutionSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

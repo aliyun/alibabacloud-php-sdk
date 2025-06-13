@@ -33,7 +33,8 @@ class accountAttributeItems extends Model
                 $res['AccountAttributeItem'] = [];
                 $n1 = 0;
                 foreach ($this->accountAttributeItem as $item1) {
-                    $res['AccountAttributeItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccountAttributeItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class accountAttributeItems extends Model
                 $model->accountAttributeItem = [];
                 $n1 = 0;
                 foreach ($map['AccountAttributeItem'] as $item1) {
-                    $model->accountAttributeItem[$n1++] = accountAttributeItem::fromMap($item1);
+                    $model->accountAttributeItem[$n1] = accountAttributeItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

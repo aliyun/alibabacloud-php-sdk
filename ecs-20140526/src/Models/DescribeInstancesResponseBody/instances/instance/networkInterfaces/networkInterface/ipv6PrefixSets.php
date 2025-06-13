@@ -33,7 +33,8 @@ class ipv6PrefixSets extends Model
                 $res['Ipv6PrefixSet'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6PrefixSet as $item1) {
-                    $res['Ipv6PrefixSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6PrefixSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6PrefixSets extends Model
                 $model->ipv6PrefixSet = [];
                 $n1 = 0;
                 foreach ($map['Ipv6PrefixSet'] as $item1) {
-                    $model->ipv6PrefixSet[$n1++] = ipv6PrefixSet::fromMap($item1);
+                    $model->ipv6PrefixSet[$n1] = ipv6PrefixSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

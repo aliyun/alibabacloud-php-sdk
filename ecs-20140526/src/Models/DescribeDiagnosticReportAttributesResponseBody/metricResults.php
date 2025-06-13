@@ -33,7 +33,8 @@ class metricResults extends Model
                 $res['MetricResult'] = [];
                 $n1 = 0;
                 foreach ($this->metricResult as $item1) {
-                    $res['MetricResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MetricResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class metricResults extends Model
                 $model->metricResult = [];
                 $n1 = 0;
                 foreach ($map['MetricResult'] as $item1) {
-                    $model->metricResult[$n1++] = metricResult::fromMap($item1);
+                    $model->metricResult[$n1] = metricResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -384,7 +384,8 @@ class CreateLaunchTemplateRequest extends Model
                 $res['DataDisk'] = [];
                 $n1 = 0;
                 foreach ($this->dataDisk as $item1) {
-                    $res['DataDisk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -474,7 +475,8 @@ class CreateLaunchTemplateRequest extends Model
                 $res['NetworkInterface'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterface as $item1) {
-                    $res['NetworkInterface'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkInterface'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -540,7 +542,8 @@ class CreateLaunchTemplateRequest extends Model
                 $res['SecurityGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -562,7 +565,8 @@ class CreateLaunchTemplateRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -576,7 +580,8 @@ class CreateLaunchTemplateRequest extends Model
                 $res['TemplateTag'] = [];
                 $n1 = 0;
                 foreach ($this->templateTag as $item1) {
-                    $res['TemplateTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TemplateTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -637,7 +642,8 @@ class CreateLaunchTemplateRequest extends Model
                 $model->dataDisk = [];
                 $n1 = 0;
                 foreach ($map['DataDisk'] as $item1) {
-                    $model->dataDisk[$n1++] = dataDisk::fromMap($item1);
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -727,7 +733,8 @@ class CreateLaunchTemplateRequest extends Model
                 $model->networkInterface = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterface'] as $item1) {
-                    $model->networkInterface[$n1++] = networkInterface::fromMap($item1);
+                    $model->networkInterface[$n1] = networkInterface::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -793,7 +800,8 @@ class CreateLaunchTemplateRequest extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -815,7 +823,8 @@ class CreateLaunchTemplateRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -829,7 +838,8 @@ class CreateLaunchTemplateRequest extends Model
                 $model->templateTag = [];
                 $n1 = 0;
                 foreach ($map['TemplateTag'] as $item1) {
-                    $model->templateTag[$n1++] = templateTag::fromMap($item1);
+                    $model->templateTag[$n1] = templateTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

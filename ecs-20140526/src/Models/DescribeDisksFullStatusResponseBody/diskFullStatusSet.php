@@ -33,7 +33,8 @@ class diskFullStatusSet extends Model
                 $res['DiskFullStatusType'] = [];
                 $n1 = 0;
                 foreach ($this->diskFullStatusType as $item1) {
-                    $res['DiskFullStatusType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiskFullStatusType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class diskFullStatusSet extends Model
                 $model->diskFullStatusType = [];
                 $n1 = 0;
                 foreach ($map['DiskFullStatusType'] as $item1) {
-                    $model->diskFullStatusType[$n1++] = diskFullStatusType::fromMap($item1);
+                    $model->diskFullStatusType[$n1] = diskFullStatusType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

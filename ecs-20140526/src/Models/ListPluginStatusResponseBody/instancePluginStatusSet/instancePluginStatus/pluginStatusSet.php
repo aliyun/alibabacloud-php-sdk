@@ -33,7 +33,8 @@ class pluginStatusSet extends Model
                 $res['PluginStatus'] = [];
                 $n1 = 0;
                 foreach ($this->pluginStatus as $item1) {
-                    $res['PluginStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PluginStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class pluginStatusSet extends Model
                 $model->pluginStatus = [];
                 $n1 = 0;
                 foreach ($map['PluginStatus'] as $item1) {
-                    $model->pluginStatus[$n1++] = pluginStatus::fromMap($item1);
+                    $model->pluginStatus[$n1] = pluginStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

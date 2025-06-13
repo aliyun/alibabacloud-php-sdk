@@ -126,7 +126,8 @@ class DescribeLaunchTemplateVersionsRequest extends Model
                 $res['LaunchTemplateVersion'] = [];
                 $n1 = 0;
                 foreach ($this->launchTemplateVersion as $item1) {
-                    $res['LaunchTemplateVersion'][$n1++] = $item1;
+                    $res['LaunchTemplateVersion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +200,8 @@ class DescribeLaunchTemplateVersionsRequest extends Model
                 $model->launchTemplateVersion = [];
                 $n1 = 0;
                 foreach ($map['LaunchTemplateVersion'] as $item1) {
-                    $model->launchTemplateVersion[$n1++] = $item1;
+                    $model->launchTemplateVersion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

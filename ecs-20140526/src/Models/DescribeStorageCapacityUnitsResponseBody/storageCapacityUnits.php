@@ -33,7 +33,8 @@ class storageCapacityUnits extends Model
                 $res['StorageCapacityUnit'] = [];
                 $n1 = 0;
                 foreach ($this->storageCapacityUnit as $item1) {
-                    $res['StorageCapacityUnit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StorageCapacityUnit'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class storageCapacityUnits extends Model
                 $model->storageCapacityUnit = [];
                 $n1 = 0;
                 foreach ($map['StorageCapacityUnit'] as $item1) {
-                    $model->storageCapacityUnit[$n1++] = storageCapacityUnit::fromMap($item1);
+                    $model->storageCapacityUnit[$n1] = storageCapacityUnit::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

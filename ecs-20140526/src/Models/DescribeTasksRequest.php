@@ -128,7 +128,8 @@ class DescribeTasksRequest extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +198,8 @@ class DescribeTasksRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

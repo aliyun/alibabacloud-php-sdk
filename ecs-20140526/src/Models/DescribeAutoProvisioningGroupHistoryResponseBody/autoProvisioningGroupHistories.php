@@ -33,7 +33,8 @@ class autoProvisioningGroupHistories extends Model
                 $res['AutoProvisioningGroupHistory'] = [];
                 $n1 = 0;
                 foreach ($this->autoProvisioningGroupHistory as $item1) {
-                    $res['AutoProvisioningGroupHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoProvisioningGroupHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class autoProvisioningGroupHistories extends Model
                 $model->autoProvisioningGroupHistory = [];
                 $n1 = 0;
                 foreach ($map['AutoProvisioningGroupHistory'] as $item1) {
-                    $model->autoProvisioningGroupHistory[$n1++] = autoProvisioningGroupHistory::fromMap($item1);
+                    $model->autoProvisioningGroupHistory[$n1] = autoProvisioningGroupHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

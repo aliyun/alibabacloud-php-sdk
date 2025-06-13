@@ -33,7 +33,8 @@ class clusters extends Model
                 $res['Cluster'] = [];
                 $n1 = 0;
                 foreach ($this->cluster as $item1) {
-                    $res['Cluster'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cluster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class clusters extends Model
                 $model->cluster = [];
                 $n1 = 0;
                 foreach ($map['Cluster'] as $item1) {
-                    $model->cluster[$n1++] = cluster::fromMap($item1);
+                    $model->cluster[$n1] = cluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

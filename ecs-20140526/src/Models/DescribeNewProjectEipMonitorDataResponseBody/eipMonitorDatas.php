@@ -33,7 +33,8 @@ class eipMonitorDatas extends Model
                 $res['EipMonitorData'] = [];
                 $n1 = 0;
                 foreach ($this->eipMonitorData as $item1) {
-                    $res['EipMonitorData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EipMonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class eipMonitorDatas extends Model
                 $model->eipMonitorData = [];
                 $n1 = 0;
                 foreach ($map['EipMonitorData'] as $item1) {
-                    $model->eipMonitorData[$n1++] = eipMonitorData::fromMap($item1);
+                    $model->eipMonitorData[$n1] = eipMonitorData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

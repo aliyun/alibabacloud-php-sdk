@@ -33,7 +33,8 @@ class localStorageCapacities extends Model
                 $res['LocalStorageCapacity'] = [];
                 $n1 = 0;
                 foreach ($this->localStorageCapacity as $item1) {
-                    $res['LocalStorageCapacity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LocalStorageCapacity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class localStorageCapacities extends Model
                 $model->localStorageCapacity = [];
                 $n1 = 0;
                 foreach ($map['LocalStorageCapacity'] as $item1) {
-                    $model->localStorageCapacity[$n1++] = localStorageCapacity::fromMap($item1);
+                    $model->localStorageCapacity[$n1] = localStorageCapacity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

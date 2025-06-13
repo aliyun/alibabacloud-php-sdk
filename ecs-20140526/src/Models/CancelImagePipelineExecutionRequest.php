@@ -93,7 +93,8 @@ class CancelImagePipelineExecutionRequest extends Model
                 $res['TemplateTag'] = [];
                 $n1 = 0;
                 foreach ($this->templateTag as $item1) {
-                    $res['TemplateTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TemplateTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class CancelImagePipelineExecutionRequest extends Model
                 $model->templateTag = [];
                 $n1 = 0;
                 foreach ($map['TemplateTag'] as $item1) {
-                    $model->templateTag[$n1++] = templateTag::fromMap($item1);
+                    $model->templateTag[$n1] = templateTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

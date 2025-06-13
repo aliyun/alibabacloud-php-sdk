@@ -33,7 +33,8 @@ class elasticityAssuranceUsages extends Model
                 $res['ElasticityAssuranceUsage'] = [];
                 $n1 = 0;
                 foreach ($this->elasticityAssuranceUsage as $item1) {
-                    $res['ElasticityAssuranceUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElasticityAssuranceUsage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class elasticityAssuranceUsages extends Model
                 $model->elasticityAssuranceUsage = [];
                 $n1 = 0;
                 foreach ($map['ElasticityAssuranceUsage'] as $item1) {
-                    $model->elasticityAssuranceUsage[$n1++] = elasticityAssuranceUsage::fromMap($item1);
+                    $model->elasticityAssuranceUsage[$n1] = elasticityAssuranceUsage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

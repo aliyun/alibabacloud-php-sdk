@@ -178,7 +178,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $res['Ipv6Address'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Address as $item1) {
-                    $res['Ipv6Address'][$n1++] = $item1;
+                    $res['Ipv6Address'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +193,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $res['NetworkInterfaceId'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfaceId as $item1) {
-                    $res['NetworkInterfaceId'][$n1++] = $item1;
+                    $res['NetworkInterfaceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,7 +232,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $res['PrivateIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddress as $item1) {
-                    $res['PrivateIpAddress'][$n1++] = $item1;
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +271,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -305,7 +309,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $model->ipv6Address = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Address'] as $item1) {
-                    $model->ipv6Address[$n1++] = $item1;
+                    $model->ipv6Address[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +324,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $model->networkInterfaceId = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfaceId'] as $item1) {
-                    $model->networkInterfaceId[$n1++] = $item1;
+                    $model->networkInterfaceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -357,7 +363,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $model->privateIpAddress = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddress'] as $item1) {
-                    $model->privateIpAddress[$n1++] = $item1;
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -395,7 +402,8 @@ class DescribeNetworkInterfacesRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

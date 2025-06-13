@@ -89,7 +89,8 @@ class DeleteRouteEntryRequest extends Model
                 $res['NextHopList'] = [];
                 $n1 = 0;
                 foreach ($this->nextHopList as $item1) {
-                    $res['NextHopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NextHopList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class DeleteRouteEntryRequest extends Model
                 $model->nextHopList = [];
                 $n1 = 0;
                 foreach ($map['NextHopList'] as $item1) {
-                    $model->nextHopList[$n1++] = nextHopList::fromMap($item1);
+                    $model->nextHopList[$n1] = nextHopList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

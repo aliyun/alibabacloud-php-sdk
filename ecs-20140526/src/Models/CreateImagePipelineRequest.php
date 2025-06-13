@@ -213,7 +213,8 @@ class CreateImagePipelineRequest extends Model
                 $res['AddAccount'] = [];
                 $n1 = 0;
                 foreach ($this->addAccount as $item1) {
-                    $res['AddAccount'][$n1++] = $item1;
+                    $res['AddAccount'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -315,7 +316,8 @@ class CreateImagePipelineRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -329,7 +331,8 @@ class CreateImagePipelineRequest extends Model
                 $res['ToRegionId'] = [];
                 $n1 = 0;
                 foreach ($this->toRegionId as $item1) {
-                    $res['ToRegionId'][$n1++] = $item1;
+                    $res['ToRegionId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +357,8 @@ class CreateImagePipelineRequest extends Model
                 $model->addAccount = [];
                 $n1 = 0;
                 foreach ($map['AddAccount'] as $item1) {
-                    $model->addAccount[$n1++] = $item1;
+                    $model->addAccount[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -456,7 +460,8 @@ class CreateImagePipelineRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -470,7 +475,8 @@ class CreateImagePipelineRequest extends Model
                 $model->toRegionId = [];
                 $n1 = 0;
                 foreach ($map['ToRegionId'] as $item1) {
-                    $model->toRegionId[$n1++] = $item1;
+                    $model->toRegionId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

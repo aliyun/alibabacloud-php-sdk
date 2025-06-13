@@ -77,7 +77,8 @@ class ModifyImageShareGroupPermissionRequest extends Model
                 $res['AddGroup'] = [];
                 $n1 = 0;
                 foreach ($this->addGroup as $item1) {
-                    $res['AddGroup'][$n1++] = $item1;
+                    $res['AddGroup'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class ModifyImageShareGroupPermissionRequest extends Model
                 $res['RemoveGroup'] = [];
                 $n1 = 0;
                 foreach ($this->removeGroup as $item1) {
-                    $res['RemoveGroup'][$n1++] = $item1;
+                    $res['RemoveGroup'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class ModifyImageShareGroupPermissionRequest extends Model
                 $model->addGroup = [];
                 $n1 = 0;
                 foreach ($map['AddGroup'] as $item1) {
-                    $model->addGroup[$n1++] = $item1;
+                    $model->addGroup[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class ModifyImageShareGroupPermissionRequest extends Model
                 $model->removeGroup = [];
                 $n1 = 0;
                 foreach ($map['RemoveGroup'] as $item1) {
-                    $model->removeGroup[$n1++] = $item1;
+                    $model->removeGroup[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

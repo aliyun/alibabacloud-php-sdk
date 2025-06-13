@@ -32,7 +32,8 @@ class supportedValues extends Model
                 $res['SupportedValue'] = [];
                 $n1 = 0;
                 foreach ($this->supportedValue as $item1) {
-                    $res['SupportedValue'][$n1++] = $item1;
+                    $res['SupportedValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class supportedValues extends Model
                 $model->supportedValue = [];
                 $n1 = 0;
                 foreach ($map['SupportedValue'] as $item1) {
-                    $model->supportedValue[$n1++] = $item1;
+                    $model->supportedValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

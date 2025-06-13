@@ -33,7 +33,8 @@ class imageTags extends Model
                 $res['ImageTag'] = [];
                 $n1 = 0;
                 foreach ($this->imageTag as $item1) {
-                    $res['ImageTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class imageTags extends Model
                 $model->imageTag = [];
                 $n1 = 0;
                 foreach ($map['ImageTag'] as $item1) {
-                    $model->imageTag[$n1++] = imageTag::fromMap($item1);
+                    $model->imageTag[$n1] = imageTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

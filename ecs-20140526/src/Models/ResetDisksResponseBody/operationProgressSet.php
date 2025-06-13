@@ -33,7 +33,8 @@ class operationProgressSet extends Model
                 $res['OperationProgress'] = [];
                 $n1 = 0;
                 foreach ($this->operationProgress as $item1) {
-                    $res['OperationProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperationProgress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class operationProgressSet extends Model
                 $model->operationProgress = [];
                 $n1 = 0;
                 foreach ($map['OperationProgress'] as $item1) {
-                    $model->operationProgress[$n1++] = operationProgress::fromMap($item1);
+                    $model->operationProgress[$n1] = operationProgress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

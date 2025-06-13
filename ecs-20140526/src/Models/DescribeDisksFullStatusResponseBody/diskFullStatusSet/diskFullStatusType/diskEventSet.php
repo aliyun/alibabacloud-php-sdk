@@ -33,7 +33,8 @@ class diskEventSet extends Model
                 $res['DiskEventType'] = [];
                 $n1 = 0;
                 foreach ($this->diskEventType as $item1) {
-                    $res['DiskEventType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiskEventType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class diskEventSet extends Model
                 $model->diskEventType = [];
                 $n1 = 0;
                 foreach ($map['DiskEventType'] as $item1) {
-                    $model->diskEventType[$n1++] = diskEventType::fromMap($item1);
+                    $model->diskEventType[$n1] = diskEventType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

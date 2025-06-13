@@ -33,7 +33,8 @@ class links extends Model
                 $res['Link'] = [];
                 $n1 = 0;
                 foreach ($this->link as $item1) {
-                    $res['Link'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Link'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class links extends Model
                 $model->link = [];
                 $n1 = 0;
                 foreach ($map['Link'] as $item1) {
-                    $model->link[$n1++] = link::fromMap($item1);
+                    $model->link[$n1] = link::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

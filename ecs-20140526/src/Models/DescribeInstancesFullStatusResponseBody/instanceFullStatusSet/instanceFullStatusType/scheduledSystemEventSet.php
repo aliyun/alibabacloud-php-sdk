@@ -33,7 +33,8 @@ class scheduledSystemEventSet extends Model
                 $res['ScheduledSystemEventType'] = [];
                 $n1 = 0;
                 foreach ($this->scheduledSystemEventType as $item1) {
-                    $res['ScheduledSystemEventType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ScheduledSystemEventType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class scheduledSystemEventSet extends Model
                 $model->scheduledSystemEventType = [];
                 $n1 = 0;
                 foreach ($map['ScheduledSystemEventType'] as $item1) {
-                    $model->scheduledSystemEventType[$n1++] = scheduledSystemEventType::fromMap($item1);
+                    $model->scheduledSystemEventType[$n1] = scheduledSystemEventType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

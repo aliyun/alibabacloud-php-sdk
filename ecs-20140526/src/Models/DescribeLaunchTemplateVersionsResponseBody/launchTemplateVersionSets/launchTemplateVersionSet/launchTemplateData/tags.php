@@ -33,7 +33,8 @@ class tags extends Model
                 $res['InstanceTag'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTag as $item1) {
-                    $res['InstanceTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class tags extends Model
                 $model->instanceTag = [];
                 $n1 = 0;
                 foreach ($map['InstanceTag'] as $item1) {
-                    $model->instanceTag[$n1++] = instanceTag::fromMap($item1);
+                    $model->instanceTag[$n1] = instanceTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

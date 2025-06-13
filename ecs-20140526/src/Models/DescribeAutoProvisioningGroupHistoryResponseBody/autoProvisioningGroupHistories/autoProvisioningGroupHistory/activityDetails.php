@@ -33,7 +33,8 @@ class activityDetails extends Model
                 $res['ActivityDetail'] = [];
                 $n1 = 0;
                 foreach ($this->activityDetail as $item1) {
-                    $res['ActivityDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ActivityDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class activityDetails extends Model
                 $model->activityDetail = [];
                 $n1 = 0;
                 foreach ($map['ActivityDetail'] as $item1) {
-                    $model->activityDetail[$n1++] = activityDetail::fromMap($item1);
+                    $model->activityDetail[$n1] = activityDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -199,7 +199,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $res['InstanceType'] = [];
                 $n1 = 0;
                 foreach ($this->instanceType as $item1) {
-                    $res['InstanceType'][$n1++] = $item1;
+                    $res['InstanceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +226,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $res['RecurrenceRules'] = [];
                 $n1 = 0;
                 foreach ($this->recurrenceRules as $item1) {
-                    $res['RecurrenceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecurrenceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +257,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +268,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $res['ZoneId'] = [];
                 $n1 = 0;
                 foreach ($this->zoneId as $item1) {
-                    $res['ZoneId'][$n1++] = $item1;
+                    $res['ZoneId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +322,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $model->instanceType = [];
                 $n1 = 0;
                 foreach ($map['InstanceType'] as $item1) {
-                    $model->instanceType[$n1++] = $item1;
+                    $model->instanceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +349,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $model->recurrenceRules = [];
                 $n1 = 0;
                 foreach ($map['RecurrenceRules'] as $item1) {
-                    $model->recurrenceRules[$n1++] = recurrenceRules::fromMap($item1);
+                    $model->recurrenceRules[$n1] = recurrenceRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -374,7 +380,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -384,7 +391,8 @@ class CreateElasticityAssuranceRequest extends Model
                 $model->zoneId = [];
                 $n1 = 0;
                 foreach ($map['ZoneId'] as $item1) {
-                    $model->zoneId[$n1++] = $item1;
+                    $model->zoneId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

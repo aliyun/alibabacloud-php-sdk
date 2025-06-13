@@ -33,7 +33,8 @@ class commands extends Model
                 $res['Command'] = [];
                 $n1 = 0;
                 foreach ($this->command as $item1) {
-                    $res['Command'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Command'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class commands extends Model
                 $model->command = [];
                 $n1 = 0;
                 foreach ($map['Command'] as $item1) {
-                    $model->command[$n1++] = command::fromMap($item1);
+                    $model->command[$n1] = command::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

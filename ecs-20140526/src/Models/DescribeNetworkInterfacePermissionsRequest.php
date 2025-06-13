@@ -84,7 +84,8 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
                 $res['NetworkInterfacePermissionId'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfacePermissionId as $item1) {
-                    $res['NetworkInterfacePermissionId'][$n1++] = $item1;
+                    $res['NetworkInterfacePermissionId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
                 $model->networkInterfacePermissionId = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfacePermissionId'] as $item1) {
-                    $model->networkInterfacePermissionId[$n1++] = $item1;
+                    $model->networkInterfacePermissionId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

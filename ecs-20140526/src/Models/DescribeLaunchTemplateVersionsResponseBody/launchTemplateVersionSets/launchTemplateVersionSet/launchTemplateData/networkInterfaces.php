@@ -33,7 +33,8 @@ class networkInterfaces extends Model
                 $res['NetworkInterface'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterface as $item1) {
-                    $res['NetworkInterface'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkInterface'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class networkInterfaces extends Model
                 $model->networkInterface = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterface'] as $item1) {
-                    $model->networkInterface[$n1++] = networkInterface::fromMap($item1);
+                    $model->networkInterface[$n1] = networkInterface::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -105,7 +105,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $res['AutoProvisioningGroupId'] = [];
                 $n1 = 0;
                 foreach ($this->autoProvisioningGroupId as $item1) {
-                    $res['AutoProvisioningGroupId'][$n1++] = $item1;
+                    $res['AutoProvisioningGroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +120,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $res['AutoProvisioningGroupStatus'] = [];
                 $n1 = 0;
                 foreach ($this->autoProvisioningGroupStatus as $item1) {
-                    $res['AutoProvisioningGroupStatus'][$n1++] = $item1;
+                    $res['AutoProvisioningGroupStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +163,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +185,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $model->autoProvisioningGroupId = [];
                 $n1 = 0;
                 foreach ($map['AutoProvisioningGroupId'] as $item1) {
-                    $model->autoProvisioningGroupId[$n1++] = $item1;
+                    $model->autoProvisioningGroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +200,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $model->autoProvisioningGroupStatus = [];
                 $n1 = 0;
                 foreach ($map['AutoProvisioningGroupStatus'] as $item1) {
-                    $model->autoProvisioningGroupStatus[$n1++] = $item1;
+                    $model->autoProvisioningGroupStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +243,8 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

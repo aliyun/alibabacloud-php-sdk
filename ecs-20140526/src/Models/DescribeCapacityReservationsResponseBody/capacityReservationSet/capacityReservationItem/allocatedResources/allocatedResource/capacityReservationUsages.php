@@ -33,7 +33,8 @@ class capacityReservationUsages extends Model
                 $res['CapacityReservationUsage'] = [];
                 $n1 = 0;
                 foreach ($this->capacityReservationUsage as $item1) {
-                    $res['CapacityReservationUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CapacityReservationUsage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class capacityReservationUsages extends Model
                 $model->capacityReservationUsage = [];
                 $n1 = 0;
                 foreach ($map['CapacityReservationUsage'] as $item1) {
-                    $model->capacityReservationUsage[$n1++] = capacityReservationUsage::fromMap($item1);
+                    $model->capacityReservationUsage[$n1] = capacityReservationUsage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

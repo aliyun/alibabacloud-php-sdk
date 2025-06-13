@@ -38,7 +38,8 @@ class resourcePoolOptions extends Model
                 $res['PrivatePoolIds'] = [];
                 $n1 = 0;
                 foreach ($this->privatePoolIds as $item1) {
-                    $res['PrivatePoolIds'][$n1++] = $item1;
+                    $res['PrivatePoolIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class resourcePoolOptions extends Model
                 $model->privatePoolIds = [];
                 $n1 = 0;
                 foreach ($map['PrivatePoolIds'] as $item1) {
-                    $model->privatePoolIds[$n1++] = $item1;
+                    $model->privatePoolIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

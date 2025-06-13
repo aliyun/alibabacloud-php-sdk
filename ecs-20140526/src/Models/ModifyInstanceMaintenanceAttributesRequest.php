@@ -88,7 +88,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 $res['InstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1++] = $item1;
+                    $res['InstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 $res['MaintenanceWindow'] = [];
                 $n1 = 0;
                 foreach ($this->maintenanceWindow as $item1) {
-                    $res['MaintenanceWindow'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MaintenanceWindow'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +149,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 $model->instanceId = [];
                 $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1++] = $item1;
+                    $model->instanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +160,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 $model->maintenanceWindow = [];
                 $n1 = 0;
                 foreach ($map['MaintenanceWindow'] as $item1) {
-                    $model->maintenanceWindow[$n1++] = maintenanceWindow::fromMap($item1);
+                    $model->maintenanceWindow[$n1] = maintenanceWindow::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

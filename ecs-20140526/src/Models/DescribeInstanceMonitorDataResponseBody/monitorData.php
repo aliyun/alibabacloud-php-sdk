@@ -33,7 +33,8 @@ class monitorData extends Model
                 $res['InstanceMonitorData'] = [];
                 $n1 = 0;
                 foreach ($this->instanceMonitorData as $item1) {
-                    $res['InstanceMonitorData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceMonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class monitorData extends Model
                 $model->instanceMonitorData = [];
                 $n1 = 0;
                 foreach ($map['InstanceMonitorData'] as $item1) {
-                    $model->instanceMonitorData[$n1++] = instanceMonitorData::fromMap($item1);
+                    $model->instanceMonitorData[$n1] = instanceMonitorData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

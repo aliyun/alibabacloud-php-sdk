@@ -32,7 +32,8 @@ class memberNetworkInterfaceIds extends Model
                 $res['MemberNetworkInterfaceId'] = [];
                 $n1 = 0;
                 foreach ($this->memberNetworkInterfaceId as $item1) {
-                    $res['MemberNetworkInterfaceId'][$n1++] = $item1;
+                    $res['MemberNetworkInterfaceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class memberNetworkInterfaceIds extends Model
                 $model->memberNetworkInterfaceId = [];
                 $n1 = 0;
                 foreach ($map['MemberNetworkInterfaceId'] as $item1) {
-                    $model->memberNetworkInterfaceId[$n1++] = $item1;
+                    $model->memberNetworkInterfaceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

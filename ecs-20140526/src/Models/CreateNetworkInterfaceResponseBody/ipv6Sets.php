@@ -33,7 +33,8 @@ class ipv6Sets extends Model
                 $res['Ipv6Set'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Set as $item1) {
-                    $res['Ipv6Set'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ipv6Set'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ipv6Sets extends Model
                 $model->ipv6Set = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Set'] as $item1) {
-                    $model->ipv6Set[$n1++] = ipv6Set::fromMap($item1);
+                    $model->ipv6Set[$n1] = ipv6Set::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

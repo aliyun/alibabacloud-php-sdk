@@ -99,7 +99,8 @@ class AssignIpv6AddressesRequest extends Model
                 $res['Ipv6Address'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Address as $item1) {
-                    $res['Ipv6Address'][$n1++] = $item1;
+                    $res['Ipv6Address'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class AssignIpv6AddressesRequest extends Model
                 $res['Ipv6Prefix'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Prefix as $item1) {
-                    $res['Ipv6Prefix'][$n1++] = $item1;
+                    $res['Ipv6Prefix'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class AssignIpv6AddressesRequest extends Model
                 $model->ipv6Address = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Address'] as $item1) {
-                    $model->ipv6Address[$n1++] = $item1;
+                    $model->ipv6Address[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +183,8 @@ class AssignIpv6AddressesRequest extends Model
                 $model->ipv6Prefix = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Prefix'] as $item1) {
-                    $model->ipv6Prefix[$n1++] = $item1;
+                    $model->ipv6Prefix[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

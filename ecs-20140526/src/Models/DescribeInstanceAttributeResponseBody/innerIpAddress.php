@@ -32,7 +32,8 @@ class innerIpAddress extends Model
                 $res['IpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddress as $item1) {
-                    $res['IpAddress'][$n1++] = $item1;
+                    $res['IpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class innerIpAddress extends Model
                 $model->ipAddress = [];
                 $n1 = 0;
                 foreach ($map['IpAddress'] as $item1) {
-                    $model->ipAddress[$n1++] = $item1;
+                    $model->ipAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

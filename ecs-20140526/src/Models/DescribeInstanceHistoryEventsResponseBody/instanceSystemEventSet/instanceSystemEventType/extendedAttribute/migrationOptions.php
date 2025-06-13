@@ -32,7 +32,8 @@ class migrationOptions extends Model
                 $res['MigrationOption'] = [];
                 $n1 = 0;
                 foreach ($this->migrationOption as $item1) {
-                    $res['MigrationOption'][$n1++] = $item1;
+                    $res['MigrationOption'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class migrationOptions extends Model
                 $model->migrationOption = [];
                 $n1 = 0;
                 foreach ($map['MigrationOption'] as $item1) {
-                    $model->migrationOption[$n1++] = $item1;
+                    $model->migrationOption[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

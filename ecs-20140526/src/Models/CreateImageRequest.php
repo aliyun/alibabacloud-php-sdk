@@ -181,7 +181,8 @@ class CreateImageRequest extends Model
                 $res['DiskDeviceMapping'] = [];
                 $n1 = 0;
                 foreach ($this->diskDeviceMapping as $item1) {
-                    $res['DiskDeviceMapping'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiskDeviceMapping'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -247,7 +248,8 @@ class CreateImageRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +290,8 @@ class CreateImageRequest extends Model
                 $model->diskDeviceMapping = [];
                 $n1 = 0;
                 foreach ($map['DiskDeviceMapping'] as $item1) {
-                    $model->diskDeviceMapping[$n1++] = diskDeviceMapping::fromMap($item1);
+                    $model->diskDeviceMapping[$n1] = diskDeviceMapping::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +357,8 @@ class CreateImageRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class autoProvisioningGroups extends Model
                 $res['AutoProvisioningGroup'] = [];
                 $n1 = 0;
                 foreach ($this->autoProvisioningGroup as $item1) {
-                    $res['AutoProvisioningGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoProvisioningGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class autoProvisioningGroups extends Model
                 $model->autoProvisioningGroup = [];
                 $n1 = 0;
                 foreach ($map['AutoProvisioningGroup'] as $item1) {
-                    $model->autoProvisioningGroup[$n1++] = autoProvisioningGroup::fromMap($item1);
+                    $model->autoProvisioningGroup[$n1] = autoProvisioningGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

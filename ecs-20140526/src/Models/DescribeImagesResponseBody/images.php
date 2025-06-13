@@ -33,7 +33,8 @@ class images extends Model
                 $res['Image'] = [];
                 $n1 = 0;
                 foreach ($this->image as $item1) {
-                    $res['Image'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Image'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class images extends Model
                 $model->image = [];
                 $n1 = 0;
                 foreach ($map['Image'] as $item1) {
-                    $model->image[$n1++] = image::fromMap($item1);
+                    $model->image[$n1] = image::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

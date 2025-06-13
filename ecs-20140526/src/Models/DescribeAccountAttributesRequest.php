@@ -62,7 +62,8 @@ class DescribeAccountAttributesRequest extends Model
                 $res['AttributeName'] = [];
                 $n1 = 0;
                 foreach ($this->attributeName as $item1) {
-                    $res['AttributeName'][$n1++] = $item1;
+                    $res['AttributeName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class DescribeAccountAttributesRequest extends Model
                 $model->attributeName = [];
                 $n1 = 0;
                 foreach ($map['AttributeName'] as $item1) {
-                    $model->attributeName[$n1++] = $item1;
+                    $model->attributeName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

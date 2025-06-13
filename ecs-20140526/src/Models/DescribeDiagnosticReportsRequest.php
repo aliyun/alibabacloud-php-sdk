@@ -83,7 +83,8 @@ class DescribeDiagnosticReportsRequest extends Model
                 $res['ReportIds'] = [];
                 $n1 = 0;
                 foreach ($this->reportIds as $item1) {
-                    $res['ReportIds'][$n1++] = $item1;
+                    $res['ReportIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class DescribeDiagnosticReportsRequest extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +136,8 @@ class DescribeDiagnosticReportsRequest extends Model
                 $model->reportIds = [];
                 $n1 = 0;
                 foreach ($map['ReportIds'] as $item1) {
-                    $model->reportIds[$n1++] = $item1;
+                    $model->reportIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class DescribeDiagnosticReportsRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

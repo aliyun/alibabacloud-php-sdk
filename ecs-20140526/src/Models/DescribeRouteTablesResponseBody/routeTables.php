@@ -33,7 +33,8 @@ class routeTables extends Model
                 $res['RouteTable'] = [];
                 $n1 = 0;
                 foreach ($this->routeTable as $item1) {
-                    $res['RouteTable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RouteTable'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class routeTables extends Model
                 $model->routeTable = [];
                 $n1 = 0;
                 foreach ($map['RouteTable'] as $item1) {
-                    $model->routeTable[$n1++] = routeTable::fromMap($item1);
+                    $model->routeTable[$n1] = routeTable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

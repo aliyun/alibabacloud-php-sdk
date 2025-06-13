@@ -124,7 +124,8 @@ class RenewReservedInstancesRequest extends Model
                 $res['ReservedInstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->reservedInstanceId as $item1) {
-                    $res['ReservedInstanceId'][$n1++] = $item1;
+                    $res['ReservedInstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +186,8 @@ class RenewReservedInstancesRequest extends Model
                 $model->reservedInstanceId = [];
                 $n1 = 0;
                 foreach ($map['ReservedInstanceId'] as $item1) {
-                    $model->reservedInstanceId[$n1++] = $item1;
+                    $model->reservedInstanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

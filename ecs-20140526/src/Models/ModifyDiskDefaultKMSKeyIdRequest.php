@@ -14,6 +14,11 @@ class ModifyDiskDefaultKMSKeyIdRequest extends Model
     public $KMSKeyId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -24,6 +29,7 @@ class ModifyDiskDefaultKMSKeyIdRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'KMSKeyId' => 'KMSKeyId',
+        'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -38,6 +44,10 @@ class ModifyDiskDefaultKMSKeyIdRequest extends Model
         $res = [];
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         if (null !== $this->regionId) {
@@ -61,6 +71,10 @@ class ModifyDiskDefaultKMSKeyIdRequest extends Model
         $model = new self();
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         if (isset($map['RegionId'])) {

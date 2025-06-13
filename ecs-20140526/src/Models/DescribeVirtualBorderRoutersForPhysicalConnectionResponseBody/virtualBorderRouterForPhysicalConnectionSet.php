@@ -33,7 +33,8 @@ class virtualBorderRouterForPhysicalConnectionSet extends Model
                 $res['VirtualBorderRouterForPhysicalConnectionType'] = [];
                 $n1 = 0;
                 foreach ($this->virtualBorderRouterForPhysicalConnectionType as $item1) {
-                    $res['VirtualBorderRouterForPhysicalConnectionType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VirtualBorderRouterForPhysicalConnectionType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class virtualBorderRouterForPhysicalConnectionSet extends Model
                 $model->virtualBorderRouterForPhysicalConnectionType = [];
                 $n1 = 0;
                 foreach ($map['VirtualBorderRouterForPhysicalConnectionType'] as $item1) {
-                    $model->virtualBorderRouterForPhysicalConnectionType[$n1++] = virtualBorderRouterForPhysicalConnectionType::fromMap($item1);
+                    $model->virtualBorderRouterForPhysicalConnectionType[$n1] = virtualBorderRouterForPhysicalConnectionType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

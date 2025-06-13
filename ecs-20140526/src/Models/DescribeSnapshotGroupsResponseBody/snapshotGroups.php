@@ -33,7 +33,8 @@ class snapshotGroups extends Model
                 $res['SnapshotGroup'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotGroup as $item1) {
-                    $res['SnapshotGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SnapshotGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class snapshotGroups extends Model
                 $model->snapshotGroup = [];
                 $n1 = 0;
                 foreach ($map['SnapshotGroup'] as $item1) {
-                    $model->snapshotGroup[$n1++] = snapshotGroup::fromMap($item1);
+                    $model->snapshotGroup[$n1] = snapshotGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

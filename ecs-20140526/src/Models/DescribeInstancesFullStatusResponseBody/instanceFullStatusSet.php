@@ -33,7 +33,8 @@ class instanceFullStatusSet extends Model
                 $res['InstanceFullStatusType'] = [];
                 $n1 = 0;
                 foreach ($this->instanceFullStatusType as $item1) {
-                    $res['InstanceFullStatusType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceFullStatusType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceFullStatusSet extends Model
                 $model->instanceFullStatusType = [];
                 $n1 = 0;
                 foreach ($map['InstanceFullStatusType'] as $item1) {
-                    $model->instanceFullStatusType[$n1++] = instanceFullStatusType::fromMap($item1);
+                    $model->instanceFullStatusType[$n1] = instanceFullStatusType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

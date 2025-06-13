@@ -226,7 +226,8 @@ class RevokeSecurityGroupEgressRequest extends Model
                 $res['Permissions'] = [];
                 $n1 = 0;
                 foreach ($this->permissions as $item1) {
-                    $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Permissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -264,7 +265,8 @@ class RevokeSecurityGroupEgressRequest extends Model
                 $res['SecurityGroupRuleId'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupRuleId as $item1) {
-                    $res['SecurityGroupRuleId'][$n1++] = $item1;
+                    $res['SecurityGroupRuleId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -345,7 +347,8 @@ class RevokeSecurityGroupEgressRequest extends Model
                 $model->permissions = [];
                 $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
-                    $model->permissions[$n1++] = permissions::fromMap($item1);
+                    $model->permissions[$n1] = permissions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +386,8 @@ class RevokeSecurityGroupEgressRequest extends Model
                 $model->securityGroupRuleId = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupRuleId'] as $item1) {
-                    $model->securityGroupRuleId[$n1++] = $item1;
+                    $model->securityGroupRuleId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

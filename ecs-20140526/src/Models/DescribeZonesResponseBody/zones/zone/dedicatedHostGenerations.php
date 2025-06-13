@@ -32,7 +32,8 @@ class dedicatedHostGenerations extends Model
                 $res['DedicatedHostGeneration'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedHostGeneration as $item1) {
-                    $res['DedicatedHostGeneration'][$n1++] = $item1;
+                    $res['DedicatedHostGeneration'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class dedicatedHostGenerations extends Model
                 $model->dedicatedHostGeneration = [];
                 $n1 = 0;
                 foreach ($map['DedicatedHostGeneration'] as $item1) {
-                    $model->dedicatedHostGeneration[$n1++] = $item1;
+                    $model->dedicatedHostGeneration[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

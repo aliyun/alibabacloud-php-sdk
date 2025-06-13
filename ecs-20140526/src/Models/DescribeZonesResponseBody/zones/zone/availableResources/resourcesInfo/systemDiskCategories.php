@@ -32,7 +32,8 @@ class systemDiskCategories extends Model
                 $res['supportedSystemDiskCategory'] = [];
                 $n1 = 0;
                 foreach ($this->supportedSystemDiskCategory as $item1) {
-                    $res['supportedSystemDiskCategory'][$n1++] = $item1;
+                    $res['supportedSystemDiskCategory'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class systemDiskCategories extends Model
                 $model->supportedSystemDiskCategory = [];
                 $n1 = 0;
                 foreach ($map['supportedSystemDiskCategory'] as $item1) {
-                    $model->supportedSystemDiskCategory[$n1++] = $item1;
+                    $model->supportedSystemDiskCategory[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

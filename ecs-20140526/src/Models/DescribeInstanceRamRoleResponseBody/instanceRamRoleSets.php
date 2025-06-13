@@ -33,7 +33,8 @@ class instanceRamRoleSets extends Model
                 $res['InstanceRamRoleSet'] = [];
                 $n1 = 0;
                 foreach ($this->instanceRamRoleSet as $item1) {
-                    $res['InstanceRamRoleSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceRamRoleSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceRamRoleSets extends Model
                 $model->instanceRamRoleSet = [];
                 $n1 = 0;
                 foreach ($map['InstanceRamRoleSet'] as $item1) {
-                    $model->instanceRamRoleSet[$n1++] = instanceRamRoleSet::fromMap($item1);
+                    $model->instanceRamRoleSet[$n1] = instanceRamRoleSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

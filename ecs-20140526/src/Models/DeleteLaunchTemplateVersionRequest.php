@@ -74,7 +74,8 @@ class DeleteLaunchTemplateVersionRequest extends Model
                 $res['DeleteVersion'] = [];
                 $n1 = 0;
                 foreach ($this->deleteVersion as $item1) {
-                    $res['DeleteVersion'][$n1++] = $item1;
+                    $res['DeleteVersion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class DeleteLaunchTemplateVersionRequest extends Model
                 $model->deleteVersion = [];
                 $n1 = 0;
                 foreach ($map['DeleteVersion'] as $item1) {
-                    $model->deleteVersion[$n1++] = $item1;
+                    $model->deleteVersion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

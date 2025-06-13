@@ -33,7 +33,8 @@ class availableSpotResources extends Model
                 $res['AvailableSpotResource'] = [];
                 $n1 = 0;
                 foreach ($this->availableSpotResource as $item1) {
-                    $res['AvailableSpotResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableSpotResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class availableSpotResources extends Model
                 $model->availableSpotResource = [];
                 $n1 = 0;
                 foreach ($map['AvailableSpotResource'] as $item1) {
-                    $model->availableSpotResource[$n1++] = availableSpotResource::fromMap($item1);
+                    $model->availableSpotResource[$n1] = availableSpotResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

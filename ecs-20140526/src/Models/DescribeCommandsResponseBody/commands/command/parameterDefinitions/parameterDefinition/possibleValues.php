@@ -32,7 +32,8 @@ class possibleValues extends Model
                 $res['PossibleValue'] = [];
                 $n1 = 0;
                 foreach ($this->possibleValue as $item1) {
-                    $res['PossibleValue'][$n1++] = $item1;
+                    $res['PossibleValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class possibleValues extends Model
                 $model->possibleValue = [];
                 $n1 = 0;
                 foreach ($map['PossibleValue'] as $item1) {
-                    $model->possibleValue[$n1++] = $item1;
+                    $model->possibleValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

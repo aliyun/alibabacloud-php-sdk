@@ -32,7 +32,8 @@ class ipv6Sets extends Model
                 $res['Ipv6Address'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Address as $item1) {
-                    $res['Ipv6Address'][$n1++] = $item1;
+                    $res['Ipv6Address'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ipv6Sets extends Model
                 $model->ipv6Address = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Address'] as $item1) {
-                    $model->ipv6Address[$n1++] = $item1;
+                    $model->ipv6Address[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -87,7 +87,8 @@ class importImageOptions extends Model
                 $res['DiskDeviceMappings'] = [];
                 $n1 = 0;
                 foreach ($this->diskDeviceMappings as $item1) {
-                    $res['DiskDeviceMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DiskDeviceMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class importImageOptions extends Model
                 $model->diskDeviceMappings = [];
                 $n1 = 0;
                 foreach ($map['DiskDeviceMappings'] as $item1) {
-                    $model->diskDeviceMappings[$n1++] = diskDeviceMappings::fromMap($item1);
+                    $model->diskDeviceMappings[$n1] = diskDeviceMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

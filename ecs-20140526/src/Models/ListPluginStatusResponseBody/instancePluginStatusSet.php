@@ -33,7 +33,8 @@ class instancePluginStatusSet extends Model
                 $res['InstancePluginStatus'] = [];
                 $n1 = 0;
                 foreach ($this->instancePluginStatus as $item1) {
-                    $res['InstancePluginStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstancePluginStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instancePluginStatusSet extends Model
                 $model->instancePluginStatus = [];
                 $n1 = 0;
                 foreach ($map['InstancePluginStatus'] as $item1) {
-                    $model->instancePluginStatus[$n1++] = instancePluginStatus::fromMap($item1);
+                    $model->instancePluginStatus[$n1] = instancePluginStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

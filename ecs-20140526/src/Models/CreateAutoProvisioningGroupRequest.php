@@ -277,7 +277,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $res['DataDiskConfig'] = [];
                 $n1 = 0;
                 foreach ($this->dataDiskConfig as $item1) {
-                    $res['DataDiskConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDiskConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -303,7 +304,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $res['LaunchTemplateConfig'] = [];
                 $n1 = 0;
                 foreach ($this->launchTemplateConfig as $item1) {
-                    $res['LaunchTemplateConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LaunchTemplateConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -385,7 +387,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $res['SystemDiskConfig'] = [];
                 $n1 = 0;
                 foreach ($this->systemDiskConfig as $item1) {
-                    $res['SystemDiskConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SystemDiskConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -395,7 +398,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -452,7 +456,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $model->dataDiskConfig = [];
                 $n1 = 0;
                 foreach ($map['DataDiskConfig'] as $item1) {
-                    $model->dataDiskConfig[$n1++] = dataDiskConfig::fromMap($item1);
+                    $model->dataDiskConfig[$n1] = dataDiskConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -478,7 +483,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $model->launchTemplateConfig = [];
                 $n1 = 0;
                 foreach ($map['LaunchTemplateConfig'] as $item1) {
-                    $model->launchTemplateConfig[$n1++] = launchTemplateConfig::fromMap($item1);
+                    $model->launchTemplateConfig[$n1] = launchTemplateConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -560,7 +566,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $model->systemDiskConfig = [];
                 $n1 = 0;
                 foreach ($map['SystemDiskConfig'] as $item1) {
-                    $model->systemDiskConfig[$n1++] = systemDiskConfig::fromMap($item1);
+                    $model->systemDiskConfig[$n1] = systemDiskConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -570,7 +577,8 @@ class CreateAutoProvisioningGroupRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

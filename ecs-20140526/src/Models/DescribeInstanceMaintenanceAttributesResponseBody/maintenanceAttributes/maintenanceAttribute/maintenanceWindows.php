@@ -33,7 +33,8 @@ class maintenanceWindows extends Model
                 $res['MaintenanceWindow'] = [];
                 $n1 = 0;
                 foreach ($this->maintenanceWindow as $item1) {
-                    $res['MaintenanceWindow'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MaintenanceWindow'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class maintenanceWindows extends Model
                 $model->maintenanceWindow = [];
                 $n1 = 0;
                 foreach ($map['MaintenanceWindow'] as $item1) {
-                    $model->maintenanceWindow[$n1++] = maintenanceWindow::fromMap($item1);
+                    $model->maintenanceWindow[$n1] = maintenanceWindow::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

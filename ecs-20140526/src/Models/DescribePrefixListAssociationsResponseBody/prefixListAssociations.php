@@ -33,7 +33,8 @@ class prefixListAssociations extends Model
                 $res['PrefixListAssociation'] = [];
                 $n1 = 0;
                 foreach ($this->prefixListAssociation as $item1) {
-                    $res['PrefixListAssociation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrefixListAssociation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class prefixListAssociations extends Model
                 $model->prefixListAssociation = [];
                 $n1 = 0;
                 foreach ($map['PrefixListAssociation'] as $item1) {
-                    $model->prefixListAssociation[$n1++] = prefixListAssociation::fromMap($item1);
+                    $model->prefixListAssociation[$n1] = prefixListAssociation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

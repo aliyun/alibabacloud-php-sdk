@@ -138,7 +138,8 @@ class DescribeInstancesFullStatusRequest extends Model
                 $res['EventId'] = [];
                 $n1 = 0;
                 foreach ($this->eventId as $item1) {
-                    $res['EventId'][$n1++] = $item1;
+                    $res['EventId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +157,8 @@ class DescribeInstancesFullStatusRequest extends Model
                 $res['InstanceEventType'] = [];
                 $n1 = 0;
                 foreach ($this->instanceEventType as $item1) {
-                    $res['InstanceEventType'][$n1++] = $item1;
+                    $res['InstanceEventType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class DescribeInstancesFullStatusRequest extends Model
                 $res['InstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1++] = $item1;
+                    $res['InstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +230,8 @@ class DescribeInstancesFullStatusRequest extends Model
                 $model->eventId = [];
                 $n1 = 0;
                 foreach ($map['EventId'] as $item1) {
-                    $model->eventId[$n1++] = $item1;
+                    $model->eventId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +249,8 @@ class DescribeInstancesFullStatusRequest extends Model
                 $model->instanceEventType = [];
                 $n1 = 0;
                 foreach ($map['InstanceEventType'] as $item1) {
-                    $model->instanceEventType[$n1++] = $item1;
+                    $model->instanceEventType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +260,8 @@ class DescribeInstancesFullStatusRequest extends Model
                 $model->instanceId = [];
                 $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1++] = $item1;
+                    $model->instanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

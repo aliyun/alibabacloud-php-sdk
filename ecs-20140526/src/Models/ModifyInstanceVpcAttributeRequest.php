@@ -104,7 +104,8 @@ class ModifyInstanceVpcAttributeRequest extends Model
                 $res['SecurityGroupId'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupId as $item1) {
-                    $res['SecurityGroupId'][$n1++] = $item1;
+                    $res['SecurityGroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +158,8 @@ class ModifyInstanceVpcAttributeRequest extends Model
                 $model->securityGroupId = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupId'] as $item1) {
-                    $model->securityGroupId[$n1++] = $item1;
+                    $model->securityGroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

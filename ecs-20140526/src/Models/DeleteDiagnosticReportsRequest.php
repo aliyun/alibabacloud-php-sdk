@@ -42,7 +42,8 @@ class DeleteDiagnosticReportsRequest extends Model
                 $res['ReportIds'] = [];
                 $n1 = 0;
                 foreach ($this->reportIds as $item1) {
-                    $res['ReportIds'][$n1++] = $item1;
+                    $res['ReportIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class DeleteDiagnosticReportsRequest extends Model
                 $model->reportIds = [];
                 $n1 = 0;
                 foreach ($map['ReportIds'] as $item1) {
-                    $model->reportIds[$n1++] = $item1;
+                    $model->reportIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

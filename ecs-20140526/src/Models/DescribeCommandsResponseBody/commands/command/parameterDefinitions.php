@@ -33,7 +33,8 @@ class parameterDefinitions extends Model
                 $res['ParameterDefinition'] = [];
                 $n1 = 0;
                 foreach ($this->parameterDefinition as $item1) {
-                    $res['ParameterDefinition'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ParameterDefinition'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class parameterDefinitions extends Model
                 $model->parameterDefinition = [];
                 $n1 = 0;
                 foreach ($map['ParameterDefinition'] as $item1) {
-                    $model->parameterDefinition[$n1++] = parameterDefinition::fromMap($item1);
+                    $model->parameterDefinition[$n1] = parameterDefinition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

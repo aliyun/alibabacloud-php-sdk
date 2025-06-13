@@ -33,7 +33,8 @@ class prePaidOptions extends Model
                 $res['SpecifyCapacityDistribution'] = [];
                 $n1 = 0;
                 foreach ($this->specifyCapacityDistribution as $item1) {
-                    $res['SpecifyCapacityDistribution'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpecifyCapacityDistribution'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class prePaidOptions extends Model
                 $model->specifyCapacityDistribution = [];
                 $n1 = 0;
                 foreach ($map['SpecifyCapacityDistribution'] as $item1) {
-                    $model->specifyCapacityDistribution[$n1++] = specifyCapacityDistribution::fromMap($item1);
+                    $model->specifyCapacityDistribution[$n1] = specifyCapacityDistribution::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

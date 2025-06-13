@@ -33,7 +33,8 @@ class instanceStatuses extends Model
                 $res['InstanceStatus'] = [];
                 $n1 = 0;
                 foreach ($this->instanceStatus as $item1) {
-                    $res['InstanceStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceStatuses extends Model
                 $model->instanceStatus = [];
                 $n1 = 0;
                 foreach ($map['InstanceStatus'] as $item1) {
-                    $model->instanceStatus[$n1++] = instanceStatus::fromMap($item1);
+                    $model->instanceStatus[$n1] = instanceStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

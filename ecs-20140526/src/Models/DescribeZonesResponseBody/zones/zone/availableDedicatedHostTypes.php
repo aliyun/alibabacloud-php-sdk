@@ -32,7 +32,8 @@ class availableDedicatedHostTypes extends Model
                 $res['DedicatedHostType'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedHostType as $item1) {
-                    $res['DedicatedHostType'][$n1++] = $item1;
+                    $res['DedicatedHostType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class availableDedicatedHostTypes extends Model
                 $model->dedicatedHostType = [];
                 $n1 = 0;
                 foreach ($map['DedicatedHostType'] as $item1) {
-                    $model->dedicatedHostType[$n1++] = $item1;
+                    $model->dedicatedHostType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

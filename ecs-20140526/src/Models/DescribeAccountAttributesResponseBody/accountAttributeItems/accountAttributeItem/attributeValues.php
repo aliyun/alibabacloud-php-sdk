@@ -33,7 +33,8 @@ class attributeValues extends Model
                 $res['ValueItem'] = [];
                 $n1 = 0;
                 foreach ($this->valueItem as $item1) {
-                    $res['ValueItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ValueItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class attributeValues extends Model
                 $model->valueItem = [];
                 $n1 = 0;
                 foreach ($map['ValueItem'] as $item1) {
-                    $model->valueItem[$n1++] = valueItem::fromMap($item1);
+                    $model->valueItem[$n1] = valueItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

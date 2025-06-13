@@ -63,7 +63,8 @@ class DescribeActivationsResponseBody extends Model
                 $res['ActivationList'] = [];
                 $n1 = 0;
                 foreach ($this->activationList as $item1) {
-                    $res['ActivationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ActivationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeActivationsResponseBody extends Model
                 $model->activationList = [];
                 $n1 = 0;
                 foreach ($map['ActivationList'] as $item1) {
-                    $model->activationList[$n1++] = activationList::fromMap($item1);
+                    $model->activationList[$n1] = activationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

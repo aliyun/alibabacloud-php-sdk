@@ -32,7 +32,8 @@ class storageCapacityUnitIds extends Model
                 $res['StorageCapacityUnitId'] = [];
                 $n1 = 0;
                 foreach ($this->storageCapacityUnitId as $item1) {
-                    $res['StorageCapacityUnitId'][$n1++] = $item1;
+                    $res['StorageCapacityUnitId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class storageCapacityUnitIds extends Model
                 $model->storageCapacityUnitId = [];
                 $n1 = 0;
                 foreach ($map['StorageCapacityUnitId'] as $item1) {
-                    $model->storageCapacityUnitId[$n1++] = $item1;
+                    $model->storageCapacityUnitId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -162,7 +162,8 @@ class DescribeRecommendInstanceTypeRequest extends Model
                 $res['InstanceTypeFamily'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypeFamily as $item1) {
-                    $res['InstanceTypeFamily'][$n1++] = $item1;
+                    $res['InstanceTypeFamily'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,7 +260,8 @@ class DescribeRecommendInstanceTypeRequest extends Model
                 $model->instanceTypeFamily = [];
                 $n1 = 0;
                 foreach ($map['InstanceTypeFamily'] as $item1) {
-                    $model->instanceTypeFamily[$n1++] = $item1;
+                    $model->instanceTypeFamily[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

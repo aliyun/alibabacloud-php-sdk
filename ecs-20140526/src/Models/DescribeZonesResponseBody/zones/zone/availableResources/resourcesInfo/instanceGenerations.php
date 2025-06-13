@@ -32,7 +32,8 @@ class instanceGenerations extends Model
                 $res['supportedInstanceGeneration'] = [];
                 $n1 = 0;
                 foreach ($this->supportedInstanceGeneration as $item1) {
-                    $res['supportedInstanceGeneration'][$n1++] = $item1;
+                    $res['supportedInstanceGeneration'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class instanceGenerations extends Model
                 $model->supportedInstanceGeneration = [];
                 $n1 = 0;
                 foreach ($map['supportedInstanceGeneration'] as $item1) {
-                    $model->supportedInstanceGeneration[$n1++] = $item1;
+                    $model->supportedInstanceGeneration[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

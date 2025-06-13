@@ -33,7 +33,8 @@ class privateIpSets extends Model
                 $res['PrivateIpSet'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpSet as $item1) {
-                    $res['PrivateIpSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrivateIpSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class privateIpSets extends Model
                 $model->privateIpSet = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpSet'] as $item1) {
-                    $model->privateIpSet[$n1++] = privateIpSet::fromMap($item1);
+                    $model->privateIpSet[$n1] = privateIpSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

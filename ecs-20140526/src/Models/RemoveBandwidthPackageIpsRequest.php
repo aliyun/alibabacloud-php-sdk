@@ -94,7 +94,8 @@ class RemoveBandwidthPackageIpsRequest extends Model
                 $res['RemovedIpAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->removedIpAddresses as $item1) {
-                    $res['RemovedIpAddresses'][$n1++] = $item1;
+                    $res['RemovedIpAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class RemoveBandwidthPackageIpsRequest extends Model
                 $model->removedIpAddresses = [];
                 $n1 = 0;
                 foreach ($map['RemovedIpAddresses'] as $item1) {
-                    $model->removedIpAddresses[$n1++] = $item1;
+                    $model->removedIpAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

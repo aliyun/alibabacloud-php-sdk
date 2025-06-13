@@ -330,7 +330,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['CpuArchitectures'] = [];
                 $n1 = 0;
                 foreach ($this->cpuArchitectures as $item1) {
-                    $res['CpuArchitectures'][$n1++] = $item1;
+                    $res['CpuArchitectures'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -344,7 +345,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['GpuSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->gpuSpecs as $item1) {
-                    $res['GpuSpecs'][$n1++] = $item1;
+                    $res['GpuSpecs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -354,7 +356,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['InstanceCategories'] = [];
                 $n1 = 0;
                 foreach ($this->instanceCategories as $item1) {
-                    $res['InstanceCategories'][$n1++] = $item1;
+                    $res['InstanceCategories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -372,7 +375,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['InstanceTypeFamilies'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypeFamilies as $item1) {
-                    $res['InstanceTypeFamilies'][$n1++] = $item1;
+                    $res['InstanceTypeFamilies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -386,7 +390,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['InstanceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1++] = $item1;
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -396,7 +401,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['LocalStorageCategories'] = [];
                 $n1 = 0;
                 foreach ($this->localStorageCategories as $item1) {
-                    $res['LocalStorageCategories'][$n1++] = $item1;
+                    $res['LocalStorageCategories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -538,7 +544,8 @@ class DescribeInstanceTypesRequest extends Model
                 $res['PhysicalProcessorModels'] = [];
                 $n1 = 0;
                 foreach ($this->physicalProcessorModels as $item1) {
-                    $res['PhysicalProcessorModels'][$n1++] = $item1;
+                    $res['PhysicalProcessorModels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -571,7 +578,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->cpuArchitectures = [];
                 $n1 = 0;
                 foreach ($map['CpuArchitectures'] as $item1) {
-                    $model->cpuArchitectures[$n1++] = $item1;
+                    $model->cpuArchitectures[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -585,7 +593,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->gpuSpecs = [];
                 $n1 = 0;
                 foreach ($map['GpuSpecs'] as $item1) {
-                    $model->gpuSpecs[$n1++] = $item1;
+                    $model->gpuSpecs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -595,7 +604,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->instanceCategories = [];
                 $n1 = 0;
                 foreach ($map['InstanceCategories'] as $item1) {
-                    $model->instanceCategories[$n1++] = $item1;
+                    $model->instanceCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -613,7 +623,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->instanceTypeFamilies = [];
                 $n1 = 0;
                 foreach ($map['InstanceTypeFamilies'] as $item1) {
-                    $model->instanceTypeFamilies[$n1++] = $item1;
+                    $model->instanceTypeFamilies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -627,7 +638,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->instanceTypes = [];
                 $n1 = 0;
                 foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -637,7 +649,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->localStorageCategories = [];
                 $n1 = 0;
                 foreach ($map['LocalStorageCategories'] as $item1) {
-                    $model->localStorageCategories[$n1++] = $item1;
+                    $model->localStorageCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -779,7 +792,8 @@ class DescribeInstanceTypesRequest extends Model
                 $model->physicalProcessorModels = [];
                 $n1 = 0;
                 foreach ($map['PhysicalProcessorModels'] as $item1) {
-                    $model->physicalProcessorModels[$n1++] = $item1;
+                    $model->physicalProcessorModels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

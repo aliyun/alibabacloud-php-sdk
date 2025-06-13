@@ -32,7 +32,8 @@ class supportedInstanceTypeFamilies extends Model
                 $res['SupportedInstanceTypeFamily'] = [];
                 $n1 = 0;
                 foreach ($this->supportedInstanceTypeFamily as $item1) {
-                    $res['SupportedInstanceTypeFamily'][$n1++] = $item1;
+                    $res['SupportedInstanceTypeFamily'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class supportedInstanceTypeFamilies extends Model
                 $model->supportedInstanceTypeFamily = [];
                 $n1 = 0;
                 foreach ($map['SupportedInstanceTypeFamily'] as $item1) {
-                    $model->supportedInstanceTypeFamily[$n1++] = $item1;
+                    $model->supportedInstanceTypeFamily[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

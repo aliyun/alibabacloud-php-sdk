@@ -33,7 +33,8 @@ class storageSets extends Model
                 $res['StorageSet'] = [];
                 $n1 = 0;
                 foreach ($this->storageSet as $item1) {
-                    $res['StorageSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StorageSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class storageSets extends Model
                 $model->storageSet = [];
                 $n1 = 0;
                 foreach ($map['StorageSet'] as $item1) {
-                    $model->storageSet[$n1++] = storageSet::fromMap($item1);
+                    $model->storageSet[$n1] = storageSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

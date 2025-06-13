@@ -33,7 +33,8 @@ class availableZones extends Model
                 $res['AvailableZone'] = [];
                 $n1 = 0;
                 foreach ($this->availableZone as $item1) {
-                    $res['AvailableZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class availableZones extends Model
                 $model->availableZone = [];
                 $n1 = 0;
                 foreach ($map['AvailableZone'] as $item1) {
-                    $model->availableZone[$n1++] = availableZone::fromMap($item1);
+                    $model->availableZone[$n1] = availableZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

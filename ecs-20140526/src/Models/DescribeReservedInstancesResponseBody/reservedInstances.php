@@ -33,7 +33,8 @@ class reservedInstances extends Model
                 $res['ReservedInstance'] = [];
                 $n1 = 0;
                 foreach ($this->reservedInstance as $item1) {
-                    $res['ReservedInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReservedInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class reservedInstances extends Model
                 $model->reservedInstance = [];
                 $n1 = 0;
                 foreach ($map['ReservedInstance'] as $item1) {
-                    $model->reservedInstance[$n1++] = reservedInstance::fromMap($item1);
+                    $model->reservedInstance[$n1] = reservedInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

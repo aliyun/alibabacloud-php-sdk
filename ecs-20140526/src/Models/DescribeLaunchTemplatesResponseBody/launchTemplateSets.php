@@ -33,7 +33,8 @@ class launchTemplateSets extends Model
                 $res['LaunchTemplateSet'] = [];
                 $n1 = 0;
                 foreach ($this->launchTemplateSet as $item1) {
-                    $res['LaunchTemplateSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LaunchTemplateSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class launchTemplateSets extends Model
                 $model->launchTemplateSet = [];
                 $n1 = 0;
                 foreach ($map['LaunchTemplateSet'] as $item1) {
-                    $model->launchTemplateSet[$n1++] = launchTemplateSet::fromMap($item1);
+                    $model->launchTemplateSet[$n1] = launchTemplateSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

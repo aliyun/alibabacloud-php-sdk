@@ -33,7 +33,8 @@ class socketCapacities extends Model
                 $res['SocketCapacity'] = [];
                 $n1 = 0;
                 foreach ($this->socketCapacity as $item1) {
-                    $res['SocketCapacity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SocketCapacity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class socketCapacities extends Model
                 $model->socketCapacity = [];
                 $n1 = 0;
                 foreach ($map['SocketCapacity'] as $item1) {
-                    $model->socketCapacity[$n1++] = socketCapacity::fromMap($item1);
+                    $model->socketCapacity[$n1] = socketCapacity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -121,7 +121,8 @@ class CreatePrefixListRequest extends Model
                 $res['Entry'] = [];
                 $n1 = 0;
                 foreach ($this->entry as $item1) {
-                    $res['Entry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Entry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class CreatePrefixListRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +198,8 @@ class CreatePrefixListRequest extends Model
                 $model->entry = [];
                 $n1 = 0;
                 foreach ($map['Entry'] as $item1) {
-                    $model->entry[$n1++] = entry::fromMap($item1);
+                    $model->entry[$n1] = entry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -238,7 +241,8 @@ class CreatePrefixListRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -113,7 +113,8 @@ class launchTemplateConfig extends Model
                 $res['Architectures'] = [];
                 $n1 = 0;
                 foreach ($this->architectures as $item1) {
-                    $res['Architectures'][$n1++] = $item1;
+                    $res['Architectures'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,7 +128,8 @@ class launchTemplateConfig extends Model
                 $res['Cores'] = [];
                 $n1 = 0;
                 foreach ($this->cores as $item1) {
-                    $res['Cores'][$n1++] = $item1;
+                    $res['Cores'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +139,8 @@ class launchTemplateConfig extends Model
                 $res['ExcludedInstanceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->excludedInstanceTypes as $item1) {
-                    $res['ExcludedInstanceTypes'][$n1++] = $item1;
+                    $res['ExcludedInstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +170,8 @@ class launchTemplateConfig extends Model
                 $res['Memories'] = [];
                 $n1 = 0;
                 foreach ($this->memories as $item1) {
-                    $res['Memories'][$n1++] = $item1;
+                    $res['Memories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +204,8 @@ class launchTemplateConfig extends Model
                 $model->architectures = [];
                 $n1 = 0;
                 foreach ($map['Architectures'] as $item1) {
-                    $model->architectures[$n1++] = $item1;
+                    $model->architectures[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +219,8 @@ class launchTemplateConfig extends Model
                 $model->cores = [];
                 $n1 = 0;
                 foreach ($map['Cores'] as $item1) {
-                    $model->cores[$n1++] = $item1;
+                    $model->cores[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +230,8 @@ class launchTemplateConfig extends Model
                 $model->excludedInstanceTypes = [];
                 $n1 = 0;
                 foreach ($map['ExcludedInstanceTypes'] as $item1) {
-                    $model->excludedInstanceTypes[$n1++] = $item1;
+                    $model->excludedInstanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -254,7 +261,8 @@ class launchTemplateConfig extends Model
                 $model->memories = [];
                 $n1 = 0;
                 foreach ($map['Memories'] as $item1) {
-                    $model->memories[$n1++] = $item1;
+                    $model->memories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

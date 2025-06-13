@@ -42,7 +42,8 @@ class tagFilter extends Model
                 $res['TagValues'] = [];
                 $n1 = 0;
                 foreach ($this->tagValues as $item1) {
-                    $res['TagValues'][$n1++] = $item1;
+                    $res['TagValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class tagFilter extends Model
                 $model->tagValues = [];
                 $n1 = 0;
                 foreach ($map['TagValues'] as $item1) {
-                    $model->tagValues[$n1++] = $item1;
+                    $model->tagValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

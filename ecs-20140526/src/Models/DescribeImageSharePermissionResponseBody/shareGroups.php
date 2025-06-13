@@ -33,7 +33,8 @@ class shareGroups extends Model
                 $res['ShareGroup'] = [];
                 $n1 = 0;
                 foreach ($this->shareGroup as $item1) {
-                    $res['ShareGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ShareGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class shareGroups extends Model
                 $model->shareGroup = [];
                 $n1 = 0;
                 foreach ($map['ShareGroup'] as $item1) {
-                    $model->shareGroup[$n1++] = shareGroup::fromMap($item1);
+                    $model->shareGroup[$n1] = shareGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

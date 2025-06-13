@@ -33,7 +33,8 @@ class securityGroupReferences extends Model
                 $res['SecurityGroupReference'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupReference as $item1) {
-                    $res['SecurityGroupReference'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityGroupReference'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class securityGroupReferences extends Model
                 $model->securityGroupReference = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupReference'] as $item1) {
-                    $model->securityGroupReference[$n1++] = securityGroupReference::fromMap($item1);
+                    $model->securityGroupReference[$n1] = securityGroupReference::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class feeOfInstances extends Model
                 $res['FeeOfInstance'] = [];
                 $n1 = 0;
                 foreach ($this->feeOfInstance as $item1) {
-                    $res['FeeOfInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FeeOfInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class feeOfInstances extends Model
                 $model->feeOfInstance = [];
                 $n1 = 0;
                 foreach ($map['FeeOfInstance'] as $item1) {
-                    $model->feeOfInstance[$n1++] = feeOfInstance::fromMap($item1);
+                    $model->feeOfInstance[$n1] = feeOfInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class bandwidths extends Model
                 $res['Bandwidth'] = [];
                 $n1 = 0;
                 foreach ($this->bandwidth as $item1) {
-                    $res['Bandwidth'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Bandwidth'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class bandwidths extends Model
                 $model->bandwidth = [];
                 $n1 = 0;
                 foreach ($map['Bandwidth'] as $item1) {
-                    $model->bandwidth[$n1++] = bandwidth::fromMap($item1);
+                    $model->bandwidth[$n1] = bandwidth::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -115,7 +115,8 @@ class ModifyElasticityAssuranceRequest extends Model
                 $res['RecurrenceRules'] = [];
                 $n1 = 0;
                 foreach ($this->recurrenceRules as $item1) {
-                    $res['RecurrenceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecurrenceRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +173,8 @@ class ModifyElasticityAssuranceRequest extends Model
                 $model->recurrenceRules = [];
                 $n1 = 0;
                 foreach ($map['RecurrenceRules'] as $item1) {
-                    $model->recurrenceRules[$n1++] = recurrenceRules::fromMap($item1);
+                    $model->recurrenceRules[$n1] = recurrenceRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

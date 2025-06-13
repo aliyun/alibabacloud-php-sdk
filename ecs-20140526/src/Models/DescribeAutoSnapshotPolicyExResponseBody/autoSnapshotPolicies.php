@@ -33,7 +33,8 @@ class autoSnapshotPolicies extends Model
                 $res['AutoSnapshotPolicy'] = [];
                 $n1 = 0;
                 foreach ($this->autoSnapshotPolicy as $item1) {
-                    $res['AutoSnapshotPolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AutoSnapshotPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class autoSnapshotPolicies extends Model
                 $model->autoSnapshotPolicy = [];
                 $n1 = 0;
                 foreach ($map['AutoSnapshotPolicy'] as $item1) {
-                    $model->autoSnapshotPolicy[$n1++] = autoSnapshotPolicy::fromMap($item1);
+                    $model->autoSnapshotPolicy[$n1] = autoSnapshotPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class nextHops extends Model
                 $res['NextHop'] = [];
                 $n1 = 0;
                 foreach ($this->nextHop as $item1) {
-                    $res['NextHop'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NextHop'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class nextHops extends Model
                 $model->nextHop = [];
                 $n1 = 0;
                 foreach ($map['NextHop'] as $item1) {
-                    $model->nextHop[$n1++] = nextHop::fromMap($item1);
+                    $model->nextHop[$n1] = nextHop::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

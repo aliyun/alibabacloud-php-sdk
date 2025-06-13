@@ -33,7 +33,8 @@ class reports extends Model
                 $res['Report'] = [];
                 $n1 = 0;
                 foreach ($this->report as $item1) {
-                    $res['Report'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Report'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class reports extends Model
                 $model->report = [];
                 $n1 = 0;
                 foreach ($map['Report'] as $item1) {
-                    $model->report[$n1++] = report::fromMap($item1);
+                    $model->report[$n1] = report::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

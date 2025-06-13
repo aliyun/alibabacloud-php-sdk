@@ -32,7 +32,8 @@ class addAccounts extends Model
                 $res['AddAccount'] = [];
                 $n1 = 0;
                 foreach ($this->addAccount as $item1) {
-                    $res['AddAccount'][$n1++] = $item1;
+                    $res['AddAccount'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class addAccounts extends Model
                 $model->addAccount = [];
                 $n1 = 0;
                 foreach ($map['AddAccount'] as $item1) {
-                    $model->addAccount[$n1++] = $item1;
+                    $model->addAccount[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

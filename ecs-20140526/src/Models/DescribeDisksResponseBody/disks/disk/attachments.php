@@ -33,7 +33,8 @@ class attachments extends Model
                 $res['Attachment'] = [];
                 $n1 = 0;
                 foreach ($this->attachment as $item1) {
-                    $res['Attachment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Attachment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class attachments extends Model
                 $model->attachment = [];
                 $n1 = 0;
                 foreach ($map['Attachment'] as $item1) {
-                    $model->attachment[$n1++] = attachment::fromMap($item1);
+                    $model->attachment[$n1] = attachment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

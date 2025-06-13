@@ -33,7 +33,8 @@ class invocationResults extends Model
                 $res['InvocationResult'] = [];
                 $n1 = 0;
                 foreach ($this->invocationResult as $item1) {
-                    $res['InvocationResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InvocationResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class invocationResults extends Model
                 $model->invocationResult = [];
                 $n1 = 0;
                 foreach ($map['InvocationResult'] as $item1) {
-                    $model->invocationResult[$n1++] = invocationResult::fromMap($item1);
+                    $model->invocationResult[$n1] = invocationResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

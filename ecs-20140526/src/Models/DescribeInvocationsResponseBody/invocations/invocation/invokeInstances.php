@@ -33,7 +33,8 @@ class invokeInstances extends Model
                 $res['InvokeInstance'] = [];
                 $n1 = 0;
                 foreach ($this->invokeInstance as $item1) {
-                    $res['InvokeInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InvokeInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class invokeInstances extends Model
                 $model->invokeInstance = [];
                 $n1 = 0;
                 foreach ($map['InvokeInstance'] as $item1) {
-                    $model->invokeInstance[$n1++] = invokeInstance::fromMap($item1);
+                    $model->invokeInstance[$n1] = invokeInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

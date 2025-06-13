@@ -33,7 +33,8 @@ class availableInstanceTypes extends Model
                 $res['AvailableInstanceType'] = [];
                 $n1 = 0;
                 foreach ($this->availableInstanceType as $item1) {
-                    $res['AvailableInstanceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableInstanceType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class availableInstanceTypes extends Model
                 $model->availableInstanceType = [];
                 $n1 = 0;
                 foreach ($map['AvailableInstanceType'] as $item1) {
-                    $model->availableInstanceType[$n1++] = availableInstanceType::fromMap($item1);
+                    $model->availableInstanceType[$n1] = availableInstanceType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -32,7 +32,8 @@ class launchTemplateVersionNumbers extends Model
                 $res['versionNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->versionNumbers as $item1) {
-                    $res['versionNumbers'][$n1++] = $item1;
+                    $res['versionNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class launchTemplateVersionNumbers extends Model
                 $model->versionNumbers = [];
                 $n1 = 0;
                 foreach ($map['versionNumbers'] as $item1) {
-                    $model->versionNumbers[$n1++] = $item1;
+                    $model->versionNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

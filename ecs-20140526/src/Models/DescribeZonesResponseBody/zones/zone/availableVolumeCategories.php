@@ -32,7 +32,8 @@ class availableVolumeCategories extends Model
                 $res['VolumeCategories'] = [];
                 $n1 = 0;
                 foreach ($this->volumeCategories as $item1) {
-                    $res['VolumeCategories'][$n1++] = $item1;
+                    $res['VolumeCategories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class availableVolumeCategories extends Model
                 $model->volumeCategories = [];
                 $n1 = 0;
                 foreach ($map['VolumeCategories'] as $item1) {
-                    $model->volumeCategories[$n1++] = $item1;
+                    $model->volumeCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

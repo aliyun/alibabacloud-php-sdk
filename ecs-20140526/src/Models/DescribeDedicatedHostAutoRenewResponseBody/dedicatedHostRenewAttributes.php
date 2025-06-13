@@ -33,7 +33,8 @@ class dedicatedHostRenewAttributes extends Model
                 $res['DedicatedHostRenewAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedHostRenewAttribute as $item1) {
-                    $res['DedicatedHostRenewAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DedicatedHostRenewAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dedicatedHostRenewAttributes extends Model
                 $model->dedicatedHostRenewAttribute = [];
                 $n1 = 0;
                 foreach ($map['DedicatedHostRenewAttribute'] as $item1) {
-                    $model->dedicatedHostRenewAttribute[$n1++] = dedicatedHostRenewAttribute::fromMap($item1);
+                    $model->dedicatedHostRenewAttribute[$n1] = dedicatedHostRenewAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -77,7 +77,8 @@ class imageOptions extends Model
                 $res['ImageTags'] = [];
                 $n1 = 0;
                 foreach ($this->imageTags as $item1) {
-                    $res['ImageTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class imageOptions extends Model
                 $model->imageTags = [];
                 $n1 = 0;
                 foreach ($map['ImageTags'] as $item1) {
-                    $model->imageTags[$n1++] = imageTags::fromMap($item1);
+                    $model->imageTags[$n1] = imageTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

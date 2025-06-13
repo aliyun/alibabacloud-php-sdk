@@ -33,7 +33,8 @@ class networkInterfacePermissions extends Model
                 $res['NetworkInterfacePermission'] = [];
                 $n1 = 0;
                 foreach ($this->networkInterfacePermission as $item1) {
-                    $res['NetworkInterfacePermission'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkInterfacePermission'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class networkInterfacePermissions extends Model
                 $model->networkInterfacePermission = [];
                 $n1 = 0;
                 foreach ($map['NetworkInterfacePermission'] as $item1) {
-                    $model->networkInterfacePermission[$n1++] = networkInterfacePermission::fromMap($item1);
+                    $model->networkInterfacePermission[$n1] = networkInterfacePermission::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

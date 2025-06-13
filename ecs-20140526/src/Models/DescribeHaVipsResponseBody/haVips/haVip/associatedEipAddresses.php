@@ -32,7 +32,8 @@ class associatedEipAddresses extends Model
                 $res['associatedEipAddresse'] = [];
                 $n1 = 0;
                 foreach ($this->associatedEipAddresse as $item1) {
-                    $res['associatedEipAddresse'][$n1++] = $item1;
+                    $res['associatedEipAddresse'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class associatedEipAddresses extends Model
                 $model->associatedEipAddresse = [];
                 $n1 = 0;
                 foreach ($map['associatedEipAddresse'] as $item1) {
-                    $model->associatedEipAddresse[$n1++] = $item1;
+                    $model->associatedEipAddresse[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

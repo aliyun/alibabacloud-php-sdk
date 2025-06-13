@@ -33,7 +33,8 @@ class snapshotPackages extends Model
                 $res['SnapshotPackage'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotPackage as $item1) {
-                    $res['SnapshotPackage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SnapshotPackage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class snapshotPackages extends Model
                 $model->snapshotPackage = [];
                 $n1 = 0;
                 foreach ($map['SnapshotPackage'] as $item1) {
-                    $model->snapshotPackage[$n1++] = snapshotPackage::fromMap($item1);
+                    $model->snapshotPackage[$n1] = snapshotPackage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

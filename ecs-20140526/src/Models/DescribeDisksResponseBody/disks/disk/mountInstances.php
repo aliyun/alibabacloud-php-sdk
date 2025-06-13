@@ -33,7 +33,8 @@ class mountInstances extends Model
                 $res['MountInstance'] = [];
                 $n1 = 0;
                 foreach ($this->mountInstance as $item1) {
-                    $res['MountInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MountInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mountInstances extends Model
                 $model->mountInstance = [];
                 $n1 = 0;
                 foreach ($map['MountInstance'] as $item1) {
-                    $model->mountInstance[$n1++] = mountInstance::fromMap($item1);
+                    $model->mountInstance[$n1] = mountInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

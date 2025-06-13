@@ -32,7 +32,8 @@ class supportedTopologyTypes extends Model
                 $res['SupportedTopologyType'] = [];
                 $n1 = 0;
                 foreach ($this->supportedTopologyType as $item1) {
-                    $res['SupportedTopologyType'][$n1++] = $item1;
+                    $res['SupportedTopologyType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class supportedTopologyTypes extends Model
                 $model->supportedTopologyType = [];
                 $n1 = 0;
                 foreach ($map['SupportedTopologyType'] as $item1) {
-                    $model->supportedTopologyType[$n1++] = $item1;
+                    $model->supportedTopologyType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

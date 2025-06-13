@@ -124,7 +124,8 @@ class ModifyDiskAttributeRequest extends Model
                 $res['DiskIds'] = [];
                 $n1 = 0;
                 foreach ($this->diskIds as $item1) {
-                    $res['DiskIds'][$n1++] = $item1;
+                    $res['DiskIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -193,7 +194,8 @@ class ModifyDiskAttributeRequest extends Model
                 $model->diskIds = [];
                 $n1 = 0;
                 foreach ($map['DiskIds'] as $item1) {
-                    $model->diskIds[$n1++] = $item1;
+                    $model->diskIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

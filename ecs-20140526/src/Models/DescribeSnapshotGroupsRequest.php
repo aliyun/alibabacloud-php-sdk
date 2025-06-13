@@ -120,7 +120,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $res['AdditionalAttributes'] = [];
                 $n1 = 0;
                 foreach ($this->additionalAttributes as $item1) {
-                    $res['AdditionalAttributes'][$n1++] = $item1;
+                    $res['AdditionalAttributes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +171,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $res['SnapshotGroupId'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotGroupId as $item1) {
-                    $res['SnapshotGroupId'][$n1++] = $item1;
+                    $res['SnapshotGroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +182,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +193,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +215,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $model->additionalAttributes = [];
                 $n1 = 0;
                 foreach ($map['AdditionalAttributes'] as $item1) {
-                    $model->additionalAttributes[$n1++] = $item1;
+                    $model->additionalAttributes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -261,7 +266,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $model->snapshotGroupId = [];
                 $n1 = 0;
                 foreach ($map['SnapshotGroupId'] as $item1) {
-                    $model->snapshotGroupId[$n1++] = $item1;
+                    $model->snapshotGroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -271,7 +277,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +288,8 @@ class DescribeSnapshotGroupsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

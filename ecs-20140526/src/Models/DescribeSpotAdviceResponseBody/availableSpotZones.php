@@ -33,7 +33,8 @@ class availableSpotZones extends Model
                 $res['AvailableSpotZone'] = [];
                 $n1 = 0;
                 foreach ($this->availableSpotZone as $item1) {
-                    $res['AvailableSpotZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AvailableSpotZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class availableSpotZones extends Model
                 $model->availableSpotZone = [];
                 $n1 = 0;
                 foreach ($map['AvailableSpotZone'] as $item1) {
-                    $model->availableSpotZone[$n1++] = availableSpotZone::fromMap($item1);
+                    $model->availableSpotZone[$n1] = availableSpotZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class prefixLists extends Model
                 $res['PrefixList'] = [];
                 $n1 = 0;
                 foreach ($this->prefixList as $item1) {
-                    $res['PrefixList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PrefixList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class prefixLists extends Model
                 $model->prefixList = [];
                 $n1 = 0;
                 foreach ($map['PrefixList'] as $item1) {
-                    $model->prefixList[$n1++] = prefixList::fromMap($item1);
+                    $model->prefixList[$n1] = prefixList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

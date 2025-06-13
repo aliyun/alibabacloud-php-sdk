@@ -33,7 +33,8 @@ class inactiveDisks extends Model
                 $res['InactiveDisk'] = [];
                 $n1 = 0;
                 foreach ($this->inactiveDisk as $item1) {
-                    $res['InactiveDisk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InactiveDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class inactiveDisks extends Model
                 $model->inactiveDisk = [];
                 $n1 = 0;
                 foreach ($map['InactiveDisk'] as $item1) {
-                    $model->inactiveDisk[$n1++] = inactiveDisk::fromMap($item1);
+                    $model->inactiveDisk[$n1] = inactiveDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

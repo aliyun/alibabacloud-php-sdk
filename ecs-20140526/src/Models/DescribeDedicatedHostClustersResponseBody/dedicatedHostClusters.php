@@ -33,7 +33,8 @@ class dedicatedHostClusters extends Model
                 $res['DedicatedHostCluster'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedHostCluster as $item1) {
-                    $res['DedicatedHostCluster'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DedicatedHostCluster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dedicatedHostClusters extends Model
                 $model->dedicatedHostCluster = [];
                 $n1 = 0;
                 foreach ($map['DedicatedHostCluster'] as $item1) {
-                    $model->dedicatedHostCluster[$n1++] = dedicatedHostCluster::fromMap($item1);
+                    $model->dedicatedHostCluster[$n1] = dedicatedHostCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

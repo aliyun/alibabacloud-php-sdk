@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeDiskDefaultKMSKeyIdRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,6 +23,7 @@ class DescribeDiskDefaultKMSKeyIdRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -30,6 +36,10 @@ class DescribeDiskDefaultKMSKeyIdRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,6 +59,10 @@ class DescribeDiskDefaultKMSKeyIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

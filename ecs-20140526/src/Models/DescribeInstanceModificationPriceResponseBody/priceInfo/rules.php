@@ -33,7 +33,8 @@ class rules extends Model
                 $res['Rule'] = [];
                 $n1 = 0;
                 foreach ($this->rule as $item1) {
-                    $res['Rule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class rules extends Model
                 $model->rule = [];
                 $n1 = 0;
                 foreach ($map['Rule'] as $item1) {
-                    $model->rule[$n1++] = rule::fromMap($item1);
+                    $model->rule[$n1] = rule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

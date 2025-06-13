@@ -38,7 +38,8 @@ class DeleteDiagnosticMetricSetsRequest extends Model
                 $res['MetricSetIds'] = [];
                 $n1 = 0;
                 foreach ($this->metricSetIds as $item1) {
-                    $res['MetricSetIds'][$n1++] = $item1;
+                    $res['MetricSetIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteDiagnosticMetricSetsRequest extends Model
                 $model->metricSetIds = [];
                 $n1 = 0;
                 foreach ($map['MetricSetIds'] as $item1) {
-                    $model->metricSetIds[$n1++] = $item1;
+                    $model->metricSetIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

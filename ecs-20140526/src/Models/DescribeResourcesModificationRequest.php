@@ -110,7 +110,8 @@ class DescribeResourcesModificationRequest extends Model
                 $res['Conditions'] = [];
                 $n1 = 0;
                 foreach ($this->conditions as $item1) {
-                    $res['Conditions'][$n1++] = $item1;
+                    $res['Conditions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class DescribeResourcesModificationRequest extends Model
                 $model->conditions = [];
                 $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
-                    $model->conditions[$n1++] = $item1;
+                    $model->conditions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

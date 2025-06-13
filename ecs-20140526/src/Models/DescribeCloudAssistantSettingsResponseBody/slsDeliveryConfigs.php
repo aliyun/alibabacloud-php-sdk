@@ -33,7 +33,8 @@ class slsDeliveryConfigs extends Model
                 $res['SlsDeliveryConfig'] = [];
                 $n1 = 0;
                 foreach ($this->slsDeliveryConfig as $item1) {
-                    $res['SlsDeliveryConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlsDeliveryConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class slsDeliveryConfigs extends Model
                 $model->slsDeliveryConfig = [];
                 $n1 = 0;
                 foreach ($map['SlsDeliveryConfig'] as $item1) {
-                    $model->slsDeliveryConfig[$n1++] = slsDeliveryConfig::fromMap($item1);
+                    $model->slsDeliveryConfig[$n1] = slsDeliveryConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

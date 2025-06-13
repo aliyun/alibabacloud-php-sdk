@@ -99,7 +99,8 @@ class DescribeLaunchTemplatesRequest extends Model
                 $res['LaunchTemplateId'] = [];
                 $n1 = 0;
                 foreach ($this->launchTemplateId as $item1) {
-                    $res['LaunchTemplateId'][$n1++] = $item1;
+                    $res['LaunchTemplateId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class DescribeLaunchTemplatesRequest extends Model
                 $res['LaunchTemplateName'] = [];
                 $n1 = 0;
                 foreach ($this->launchTemplateName as $item1) {
-                    $res['LaunchTemplateName'][$n1++] = $item1;
+                    $res['LaunchTemplateName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +153,8 @@ class DescribeLaunchTemplatesRequest extends Model
                 $res['TemplateTag'] = [];
                 $n1 = 0;
                 foreach ($this->templateTag as $item1) {
-                    $res['TemplateTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TemplateTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +175,8 @@ class DescribeLaunchTemplatesRequest extends Model
                 $model->launchTemplateId = [];
                 $n1 = 0;
                 foreach ($map['LaunchTemplateId'] as $item1) {
-                    $model->launchTemplateId[$n1++] = $item1;
+                    $model->launchTemplateId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +186,8 @@ class DescribeLaunchTemplatesRequest extends Model
                 $model->launchTemplateName = [];
                 $n1 = 0;
                 foreach ($map['LaunchTemplateName'] as $item1) {
-                    $model->launchTemplateName[$n1++] = $item1;
+                    $model->launchTemplateName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +229,8 @@ class DescribeLaunchTemplatesRequest extends Model
                 $model->templateTag = [];
                 $n1 = 0;
                 foreach ($map['TemplateTag'] as $item1) {
-                    $model->templateTag[$n1++] = templateTag::fromMap($item1);
+                    $model->templateTag[$n1] = templateTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

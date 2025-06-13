@@ -32,7 +32,8 @@ class instanceTypes extends Model
                 $res['supportedInstanceType'] = [];
                 $n1 = 0;
                 foreach ($this->supportedInstanceType as $item1) {
-                    $res['supportedInstanceType'][$n1++] = $item1;
+                    $res['supportedInstanceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class instanceTypes extends Model
                 $model->supportedInstanceType = [];
                 $n1 = 0;
                 foreach ($map['supportedInstanceType'] as $item1) {
-                    $model->supportedInstanceType[$n1++] = $item1;
+                    $model->supportedInstanceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

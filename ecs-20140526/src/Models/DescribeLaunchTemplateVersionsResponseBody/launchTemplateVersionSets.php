@@ -33,7 +33,8 @@ class launchTemplateVersionSets extends Model
                 $res['LaunchTemplateVersionSet'] = [];
                 $n1 = 0;
                 foreach ($this->launchTemplateVersionSet as $item1) {
-                    $res['LaunchTemplateVersionSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LaunchTemplateVersionSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class launchTemplateVersionSets extends Model
                 $model->launchTemplateVersionSet = [];
                 $n1 = 0;
                 foreach ($map['LaunchTemplateVersionSet'] as $item1) {
-                    $model->launchTemplateVersionSet[$n1++] = launchTemplateVersionSet::fromMap($item1);
+                    $model->launchTemplateVersionSet[$n1] = launchTemplateVersionSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

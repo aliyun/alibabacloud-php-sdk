@@ -60,7 +60,8 @@ class CreateDiagnosticMetricSetRequest extends Model
                 $res['MetricIds'] = [];
                 $n1 = 0;
                 foreach ($this->metricIds as $item1) {
-                    $res['MetricIds'][$n1++] = $item1;
+                    $res['MetricIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class CreateDiagnosticMetricSetRequest extends Model
                 $model->metricIds = [];
                 $n1 = 0;
                 foreach ($map['MetricIds'] as $item1) {
-                    $model->metricIds[$n1++] = $item1;
+                    $model->metricIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

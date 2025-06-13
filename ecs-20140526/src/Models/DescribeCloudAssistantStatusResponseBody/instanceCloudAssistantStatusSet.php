@@ -33,7 +33,8 @@ class instanceCloudAssistantStatusSet extends Model
                 $res['InstanceCloudAssistantStatus'] = [];
                 $n1 = 0;
                 foreach ($this->instanceCloudAssistantStatus as $item1) {
-                    $res['InstanceCloudAssistantStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceCloudAssistantStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceCloudAssistantStatusSet extends Model
                 $model->instanceCloudAssistantStatus = [];
                 $n1 = 0;
                 foreach ($map['InstanceCloudAssistantStatus'] as $item1) {
-                    $model->instanceCloudAssistantStatus[$n1++] = instanceCloudAssistantStatus::fromMap($item1);
+                    $model->instanceCloudAssistantStatus[$n1] = instanceCloudAssistantStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

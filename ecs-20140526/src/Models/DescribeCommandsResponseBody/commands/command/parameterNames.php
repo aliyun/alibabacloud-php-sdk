@@ -32,7 +32,8 @@ class parameterNames extends Model
                 $res['ParameterName'] = [];
                 $n1 = 0;
                 foreach ($this->parameterName as $item1) {
-                    $res['ParameterName'][$n1++] = $item1;
+                    $res['ParameterName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class parameterNames extends Model
                 $model->parameterName = [];
                 $n1 = 0;
                 foreach ($map['ParameterName'] as $item1) {
-                    $model->parameterName[$n1++] = $item1;
+                    $model->parameterName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

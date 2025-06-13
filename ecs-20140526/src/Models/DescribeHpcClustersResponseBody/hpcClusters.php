@@ -33,7 +33,8 @@ class hpcClusters extends Model
                 $res['HpcCluster'] = [];
                 $n1 = 0;
                 foreach ($this->hpcCluster as $item1) {
-                    $res['HpcCluster'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HpcCluster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class hpcClusters extends Model
                 $model->hpcCluster = [];
                 $n1 = 0;
                 foreach ($map['HpcCluster'] as $item1) {
-                    $model->hpcCluster[$n1++] = hpcCluster::fromMap($item1);
+                    $model->hpcCluster[$n1] = hpcCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

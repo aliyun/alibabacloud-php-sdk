@@ -32,7 +32,8 @@ class networkTypes extends Model
                 $res['NetworkType'] = [];
                 $n1 = 0;
                 foreach ($this->networkType as $item1) {
-                    $res['NetworkType'][$n1++] = $item1;
+                    $res['NetworkType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class networkTypes extends Model
                 $model->networkType = [];
                 $n1 = 0;
                 foreach ($map['NetworkType'] as $item1) {
-                    $model->networkType[$n1++] = $item1;
+                    $model->networkType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class data extends Model
                 $res['RecommendInstanceType'] = [];
                 $n1 = 0;
                 foreach ($this->recommendInstanceType as $item1) {
-                    $res['RecommendInstanceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecommendInstanceType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->recommendInstanceType = [];
                 $n1 = 0;
                 foreach ($map['RecommendInstanceType'] as $item1) {
-                    $model->recommendInstanceType[$n1++] = recommendInstanceType::fromMap($item1);
+                    $model->recommendInstanceType[$n1] = recommendInstanceType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

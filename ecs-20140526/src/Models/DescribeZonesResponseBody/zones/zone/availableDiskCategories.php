@@ -32,7 +32,8 @@ class availableDiskCategories extends Model
                 $res['DiskCategories'] = [];
                 $n1 = 0;
                 foreach ($this->diskCategories as $item1) {
-                    $res['DiskCategories'][$n1++] = $item1;
+                    $res['DiskCategories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class availableDiskCategories extends Model
                 $model->diskCategories = [];
                 $n1 = 0;
                 foreach ($map['DiskCategories'] as $item1) {
-                    $model->diskCategories[$n1++] = $item1;
+                    $model->diskCategories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

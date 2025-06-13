@@ -243,7 +243,8 @@ class RunCommandRequest extends Model
                 $res['InstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1++] = $item1;
+                    $res['InstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -302,7 +303,8 @@ class RunCommandRequest extends Model
                 $res['ResourceTag'] = [];
                 $n1 = 0;
                 foreach ($this->resourceTag as $item1) {
-                    $res['ResourceTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -312,7 +314,8 @@ class RunCommandRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -393,7 +396,8 @@ class RunCommandRequest extends Model
                 $model->instanceId = [];
                 $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1++] = $item1;
+                    $model->instanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -452,7 +456,8 @@ class RunCommandRequest extends Model
                 $model->resourceTag = [];
                 $n1 = 0;
                 foreach ($map['ResourceTag'] as $item1) {
-                    $model->resourceTag[$n1++] = resourceTag::fromMap($item1);
+                    $model->resourceTag[$n1] = resourceTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -462,7 +467,8 @@ class RunCommandRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

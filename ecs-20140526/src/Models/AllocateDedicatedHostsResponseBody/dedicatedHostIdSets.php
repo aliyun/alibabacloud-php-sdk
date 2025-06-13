@@ -32,7 +32,8 @@ class dedicatedHostIdSets extends Model
                 $res['DedicatedHostId'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedHostId as $item1) {
-                    $res['DedicatedHostId'][$n1++] = $item1;
+                    $res['DedicatedHostId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class dedicatedHostIdSets extends Model
                 $model->dedicatedHostId = [];
                 $n1 = 0;
                 foreach ($map['DedicatedHostId'] as $item1) {
-                    $model->dedicatedHostId[$n1++] = $item1;
+                    $model->dedicatedHostId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

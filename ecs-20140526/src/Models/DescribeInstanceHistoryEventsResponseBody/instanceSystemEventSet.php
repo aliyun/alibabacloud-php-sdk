@@ -33,7 +33,8 @@ class instanceSystemEventSet extends Model
                 $res['InstanceSystemEventType'] = [];
                 $n1 = 0;
                 foreach ($this->instanceSystemEventType as $item1) {
-                    $res['InstanceSystemEventType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceSystemEventType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceSystemEventSet extends Model
                 $model->instanceSystemEventType = [];
                 $n1 = 0;
                 foreach ($map['InstanceSystemEventType'] as $item1) {
-                    $model->instanceSystemEventType[$n1++] = instanceSystemEventType::fromMap($item1);
+                    $model->instanceSystemEventType[$n1] = instanceSystemEventType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

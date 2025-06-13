@@ -33,7 +33,8 @@ class maintenanceAttributes extends Model
                 $res['MaintenanceAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->maintenanceAttribute as $item1) {
-                    $res['MaintenanceAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MaintenanceAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class maintenanceAttributes extends Model
                 $model->maintenanceAttribute = [];
                 $n1 = 0;
                 foreach ($map['MaintenanceAttribute'] as $item1) {
-                    $model->maintenanceAttribute[$n1++] = maintenanceAttribute::fromMap($item1);
+                    $model->maintenanceAttribute[$n1] = maintenanceAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

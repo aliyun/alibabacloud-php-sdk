@@ -33,7 +33,8 @@ class imageComponent extends Model
                 $res['ImageComponentSet'] = [];
                 $n1 = 0;
                 foreach ($this->imageComponentSet as $item1) {
-                    $res['ImageComponentSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageComponentSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class imageComponent extends Model
                 $model->imageComponentSet = [];
                 $n1 = 0;
                 foreach ($map['ImageComponentSet'] as $item1) {
-                    $model->imageComponentSet[$n1++] = imageComponentSet::fromMap($item1);
+                    $model->imageComponentSet[$n1] = imageComponentSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

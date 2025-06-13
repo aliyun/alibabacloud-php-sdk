@@ -112,7 +112,8 @@ class DescribePortRangeListsRequest extends Model
                 $res['PortRangeListId'] = [];
                 $n1 = 0;
                 foreach ($this->portRangeListId as $item1) {
-                    $res['PortRangeListId'][$n1++] = $item1;
+                    $res['PortRangeListId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class DescribePortRangeListsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +181,8 @@ class DescribePortRangeListsRequest extends Model
                 $model->portRangeListId = [];
                 $n1 = 0;
                 foreach ($map['PortRangeListId'] as $item1) {
-                    $model->portRangeListId[$n1++] = $item1;
+                    $model->portRangeListId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +212,8 @@ class DescribePortRangeListsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

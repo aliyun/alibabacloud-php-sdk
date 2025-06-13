@@ -33,7 +33,8 @@ class sessions extends Model
                 $res['Session'] = [];
                 $n1 = 0;
                 foreach ($this->session as $item1) {
-                    $res['Session'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Session'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sessions extends Model
                 $model->session = [];
                 $n1 = 0;
                 foreach ($map['Session'] as $item1) {
-                    $model->session[$n1++] = session::fromMap($item1);
+                    $model->session[$n1] = session::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

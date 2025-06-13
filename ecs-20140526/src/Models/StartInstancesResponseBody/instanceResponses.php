@@ -33,7 +33,8 @@ class instanceResponses extends Model
                 $res['InstanceResponse'] = [];
                 $n1 = 0;
                 foreach ($this->instanceResponse as $item1) {
-                    $res['InstanceResponse'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceResponse'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class instanceResponses extends Model
                 $model->instanceResponse = [];
                 $n1 = 0;
                 foreach ($map['InstanceResponse'] as $item1) {
-                    $model->instanceResponse[$n1++] = instanceResponse::fromMap($item1);
+                    $model->instanceResponse[$n1] = instanceResponse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

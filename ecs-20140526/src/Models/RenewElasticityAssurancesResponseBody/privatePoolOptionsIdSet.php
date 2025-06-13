@@ -32,7 +32,8 @@ class privatePoolOptionsIdSet extends Model
                 $res['PrivatePoolOptionsId'] = [];
                 $n1 = 0;
                 foreach ($this->privatePoolOptionsId as $item1) {
-                    $res['PrivatePoolOptionsId'][$n1++] = $item1;
+                    $res['PrivatePoolOptionsId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class privatePoolOptionsIdSet extends Model
                 $model->privatePoolOptionsId = [];
                 $n1 = 0;
                 foreach ($map['PrivatePoolOptionsId'] as $item1) {
-                    $model->privatePoolOptionsId[$n1++] = $item1;
+                    $model->privatePoolOptionsId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

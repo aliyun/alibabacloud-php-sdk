@@ -33,7 +33,8 @@ class haVips extends Model
                 $res['HaVip'] = [];
                 $n1 = 0;
                 foreach ($this->haVip as $item1) {
-                    $res['HaVip'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HaVip'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class haVips extends Model
                 $model->haVip = [];
                 $n1 = 0;
                 foreach ($map['HaVip'] as $item1) {
-                    $model->haVip[$n1++] = haVip::fromMap($item1);
+                    $model->haVip[$n1] = haVip::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class spotPrices extends Model
                 $res['SpotPriceType'] = [];
                 $n1 = 0;
                 foreach ($this->spotPriceType as $item1) {
-                    $res['SpotPriceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SpotPriceType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class spotPrices extends Model
                 $model->spotPriceType = [];
                 $n1 = 0;
                 foreach ($map['SpotPriceType'] as $item1) {
-                    $model->spotPriceType[$n1++] = spotPriceType::fromMap($item1);
+                    $model->spotPriceType[$n1] = spotPriceType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class issues extends Model
                 $res['Issue'] = [];
                 $n1 = 0;
                 foreach ($this->issue as $item1) {
-                    $res['Issue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Issue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class issues extends Model
                 $model->issue = [];
                 $n1 = 0;
                 foreach ($map['Issue'] as $item1) {
-                    $model->issue[$n1++] = issue::fromMap($item1);
+                    $model->issue[$n1] = issue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

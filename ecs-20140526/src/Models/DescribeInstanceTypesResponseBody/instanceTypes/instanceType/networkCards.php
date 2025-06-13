@@ -33,7 +33,8 @@ class networkCards extends Model
                 $res['NetworkCardInfo'] = [];
                 $n1 = 0;
                 foreach ($this->networkCardInfo as $item1) {
-                    $res['NetworkCardInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkCardInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class networkCards extends Model
                 $model->networkCardInfo = [];
                 $n1 = 0;
                 foreach ($map['NetworkCardInfo'] as $item1) {
-                    $model->networkCardInfo[$n1++] = networkCardInfo::fromMap($item1);
+                    $model->networkCardInfo[$n1] = networkCardInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class permissions extends Model
                 $res['Permission'] = [];
                 $n1 = 0;
                 foreach ($this->permission as $item1) {
-                    $res['Permission'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Permission'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class permissions extends Model
                 $model->permission = [];
                 $n1 = 0;
                 foreach ($map['Permission'] as $item1) {
-                    $model->permission[$n1++] = permission::fromMap($item1);
+                    $model->permission[$n1] = permission::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

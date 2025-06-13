@@ -33,7 +33,8 @@ class snapshotLinks extends Model
                 $res['SnapshotLink'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotLink as $item1) {
-                    $res['SnapshotLink'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SnapshotLink'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class snapshotLinks extends Model
                 $model->snapshotLink = [];
                 $n1 = 0;
                 foreach ($map['SnapshotLink'] as $item1) {
-                    $model->snapshotLink[$n1++] = snapshotLink::fromMap($item1);
+                    $model->snapshotLink[$n1] = snapshotLink::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class capacityReservationSet extends Model
                 $res['CapacityReservationItem'] = [];
                 $n1 = 0;
                 foreach ($this->capacityReservationItem as $item1) {
-                    $res['CapacityReservationItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CapacityReservationItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class capacityReservationSet extends Model
                 $model->capacityReservationItem = [];
                 $n1 = 0;
                 foreach ($map['CapacityReservationItem'] as $item1) {
-                    $model->capacityReservationItem[$n1++] = capacityReservationItem::fromMap($item1);
+                    $model->capacityReservationItem[$n1] = capacityReservationItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

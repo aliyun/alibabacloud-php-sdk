@@ -15177,6 +15177,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -15238,6 +15242,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -25904,6 +25912,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -29474,6 +29486,10 @@ class Ecs extends OpenApiClient
         $query = [];
         if (null !== $request->KMSKeyId) {
             @$query['KMSKeyId'] = $request->KMSKeyId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
 
         if (null !== $request->regionId) {
@@ -37317,6 +37333,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }

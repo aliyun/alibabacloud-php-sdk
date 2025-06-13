@@ -77,7 +77,8 @@ class UnassignPrivateIpAddressesRequest extends Model
                 $res['Ipv4Prefix'] = [];
                 $n1 = 0;
                 foreach ($this->ipv4Prefix as $item1) {
-                    $res['Ipv4Prefix'][$n1++] = $item1;
+                    $res['Ipv4Prefix'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class UnassignPrivateIpAddressesRequest extends Model
                 $res['PrivateIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddress as $item1) {
-                    $res['PrivateIpAddress'][$n1++] = $item1;
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class UnassignPrivateIpAddressesRequest extends Model
                 $model->ipv4Prefix = [];
                 $n1 = 0;
                 foreach ($map['Ipv4Prefix'] as $item1) {
-                    $model->ipv4Prefix[$n1++] = $item1;
+                    $model->ipv4Prefix[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +157,8 @@ class UnassignPrivateIpAddressesRequest extends Model
                 $model->privateIpAddress = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddress'] as $item1) {
-                    $model->privateIpAddress[$n1++] = $item1;
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

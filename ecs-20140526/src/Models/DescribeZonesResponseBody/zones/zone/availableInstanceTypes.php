@@ -32,7 +32,8 @@ class availableInstanceTypes extends Model
                 $res['InstanceTypes'] = [];
                 $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1++] = $item1;
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class availableInstanceTypes extends Model
                 $model->instanceTypes = [];
                 $n1 = 0;
                 foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

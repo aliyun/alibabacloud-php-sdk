@@ -91,7 +91,8 @@ class ModifyPrefixListRequest extends Model
                 $res['AddEntry'] = [];
                 $n1 = 0;
                 foreach ($this->addEntry as $item1) {
-                    $res['AddEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +126,8 @@ class ModifyPrefixListRequest extends Model
                 $res['RemoveEntry'] = [];
                 $n1 = 0;
                 foreach ($this->removeEntry as $item1) {
-                    $res['RemoveEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RemoveEntry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +156,8 @@ class ModifyPrefixListRequest extends Model
                 $model->addEntry = [];
                 $n1 = 0;
                 foreach ($map['AddEntry'] as $item1) {
-                    $model->addEntry[$n1++] = addEntry::fromMap($item1);
+                    $model->addEntry[$n1] = addEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +191,8 @@ class ModifyPrefixListRequest extends Model
                 $model->removeEntry = [];
                 $n1 = 0;
                 foreach ($map['RemoveEntry'] as $item1) {
-                    $model->removeEntry[$n1++] = removeEntry::fromMap($item1);
+                    $model->removeEntry[$n1] = removeEntry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

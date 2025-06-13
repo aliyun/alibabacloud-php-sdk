@@ -33,7 +33,8 @@ class securityGroups extends Model
                 $res['SecurityGroup'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroup as $item1) {
-                    $res['SecurityGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class securityGroups extends Model
                 $model->securityGroup = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroup'] as $item1) {
-                    $model->securityGroup[$n1++] = securityGroup::fromMap($item1);
+                    $model->securityGroup[$n1] = securityGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

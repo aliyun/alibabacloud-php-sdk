@@ -33,7 +33,8 @@ class elasticityAssuranceSet extends Model
                 $res['ElasticityAssuranceItem'] = [];
                 $n1 = 0;
                 foreach ($this->elasticityAssuranceItem as $item1) {
-                    $res['ElasticityAssuranceItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElasticityAssuranceItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class elasticityAssuranceSet extends Model
                 $model->elasticityAssuranceItem = [];
                 $n1 = 0;
                 foreach ($map['ElasticityAssuranceItem'] as $item1) {
-                    $model->elasticityAssuranceItem[$n1++] = elasticityAssuranceItem::fromMap($item1);
+                    $model->elasticityAssuranceItem[$n1] = elasticityAssuranceItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class reservedInstanceRenewAttributes extends Model
                 $res['ReservedInstanceRenewAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->reservedInstanceRenewAttribute as $item1) {
-                    $res['ReservedInstanceRenewAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReservedInstanceRenewAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class reservedInstanceRenewAttributes extends Model
                 $model->reservedInstanceRenewAttribute = [];
                 $n1 = 0;
                 foreach ($map['ReservedInstanceRenewAttribute'] as $item1) {
-                    $model->reservedInstanceRenewAttribute[$n1++] = reservedInstanceRenewAttribute::fromMap($item1);
+                    $model->reservedInstanceRenewAttribute[$n1] = reservedInstanceRenewAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class elasticityAssuranceRenewAttributes extends Model
                 $res['ElasticityAssuranceRenewAttribute'] = [];
                 $n1 = 0;
                 foreach ($this->elasticityAssuranceRenewAttribute as $item1) {
-                    $res['ElasticityAssuranceRenewAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElasticityAssuranceRenewAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class elasticityAssuranceRenewAttributes extends Model
                 $model->elasticityAssuranceRenewAttribute = [];
                 $n1 = 0;
                 foreach ($map['ElasticityAssuranceRenewAttribute'] as $item1) {
-                    $model->elasticityAssuranceRenewAttribute[$n1++] = elasticityAssuranceRenewAttribute::fromMap($item1);
+                    $model->elasticityAssuranceRenewAttribute[$n1] = elasticityAssuranceRenewAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

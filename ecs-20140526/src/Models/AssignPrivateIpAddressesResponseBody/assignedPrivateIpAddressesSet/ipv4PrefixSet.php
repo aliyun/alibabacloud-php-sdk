@@ -32,7 +32,8 @@ class ipv4PrefixSet extends Model
                 $res['Ipv4Prefixes'] = [];
                 $n1 = 0;
                 foreach ($this->ipv4Prefixes as $item1) {
-                    $res['Ipv4Prefixes'][$n1++] = $item1;
+                    $res['Ipv4Prefixes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ipv4PrefixSet extends Model
                 $model->ipv4Prefixes = [];
                 $n1 = 0;
                 foreach ($map['Ipv4Prefixes'] as $item1) {
-                    $model->ipv4Prefixes[$n1++] = $item1;
+                    $model->ipv4Prefixes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

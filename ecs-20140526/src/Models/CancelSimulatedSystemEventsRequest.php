@@ -62,7 +62,8 @@ class CancelSimulatedSystemEventsRequest extends Model
                 $res['EventId'] = [];
                 $n1 = 0;
                 foreach ($this->eventId as $item1) {
-                    $res['EventId'][$n1++] = $item1;
+                    $res['EventId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class CancelSimulatedSystemEventsRequest extends Model
                 $model->eventId = [];
                 $n1 = 0;
                 foreach ($map['EventId'] as $item1) {
-                    $model->eventId[$n1++] = $item1;
+                    $model->eventId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

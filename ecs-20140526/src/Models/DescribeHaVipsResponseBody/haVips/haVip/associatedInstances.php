@@ -32,7 +32,8 @@ class associatedInstances extends Model
                 $res['associatedInstance'] = [];
                 $n1 = 0;
                 foreach ($this->associatedInstance as $item1) {
-                    $res['associatedInstance'][$n1++] = $item1;
+                    $res['associatedInstance'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class associatedInstances extends Model
                 $model->associatedInstance = [];
                 $n1 = 0;
                 foreach ($map['associatedInstance'] as $item1) {
-                    $model->associatedInstance[$n1++] = $item1;
+                    $model->associatedInstance[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

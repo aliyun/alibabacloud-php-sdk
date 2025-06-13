@@ -33,7 +33,8 @@ class slaveInterfaceSpecification extends Model
                 $res['SlaveInterfaceSpecificationSet'] = [];
                 $n1 = 0;
                 foreach ($this->slaveInterfaceSpecificationSet as $item1) {
-                    $res['SlaveInterfaceSpecificationSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlaveInterfaceSpecificationSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class slaveInterfaceSpecification extends Model
                 $model->slaveInterfaceSpecificationSet = [];
                 $n1 = 0;
                 foreach ($map['SlaveInterfaceSpecificationSet'] as $item1) {
-                    $model->slaveInterfaceSpecificationSet[$n1++] = slaveInterfaceSpecificationSet::fromMap($item1);
+                    $model->slaveInterfaceSpecificationSet[$n1] = slaveInterfaceSpecificationSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

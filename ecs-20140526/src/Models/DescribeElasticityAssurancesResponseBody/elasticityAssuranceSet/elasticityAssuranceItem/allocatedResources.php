@@ -33,7 +33,8 @@ class allocatedResources extends Model
                 $res['AllocatedResource'] = [];
                 $n1 = 0;
                 foreach ($this->allocatedResource as $item1) {
-                    $res['AllocatedResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AllocatedResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class allocatedResources extends Model
                 $model->allocatedResource = [];
                 $n1 = 0;
                 foreach ($map['AllocatedResource'] as $item1) {
-                    $model->allocatedResource[$n1++] = allocatedResource::fromMap($item1);
+                    $model->allocatedResource[$n1] = allocatedResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

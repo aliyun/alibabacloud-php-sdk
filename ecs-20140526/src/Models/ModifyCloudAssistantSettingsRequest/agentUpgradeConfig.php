@@ -44,7 +44,8 @@ class agentUpgradeConfig extends Model
                 $res['AllowedUpgradeWindow'] = [];
                 $n1 = 0;
                 foreach ($this->allowedUpgradeWindow as $item1) {
-                    $res['AllowedUpgradeWindow'][$n1++] = $item1;
+                    $res['AllowedUpgradeWindow'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class agentUpgradeConfig extends Model
                 $model->allowedUpgradeWindow = [];
                 $n1 = 0;
                 foreach ($map['AllowedUpgradeWindow'] as $item1) {
-                    $model->allowedUpgradeWindow[$n1++] = $item1;
+                    $model->allowedUpgradeWindow[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class relatedItemSet extends Model
                 $res['RelatedItem'] = [];
                 $n1 = 0;
                 foreach ($this->relatedItem as $item1) {
-                    $res['RelatedItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class relatedItemSet extends Model
                 $model->relatedItem = [];
                 $n1 = 0;
                 foreach ($map['RelatedItem'] as $item1) {
-                    $model->relatedItem[$n1++] = relatedItem::fromMap($item1);
+                    $model->relatedItem[$n1] = relatedItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

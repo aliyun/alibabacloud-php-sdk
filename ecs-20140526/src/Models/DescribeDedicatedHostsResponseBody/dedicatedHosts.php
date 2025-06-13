@@ -33,7 +33,8 @@ class dedicatedHosts extends Model
                 $res['DedicatedHost'] = [];
                 $n1 = 0;
                 foreach ($this->dedicatedHost as $item1) {
-                    $res['DedicatedHost'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DedicatedHost'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dedicatedHosts extends Model
                 $model->dedicatedHost = [];
                 $n1 = 0;
                 foreach ($map['DedicatedHost'] as $item1) {
-                    $model->dedicatedHost[$n1++] = dedicatedHost::fromMap($item1);
+                    $model->dedicatedHost[$n1] = dedicatedHost::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

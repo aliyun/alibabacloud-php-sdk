@@ -89,7 +89,8 @@ class DescribeInstanceModificationPriceRequest extends Model
                 $res['DataDisk'] = [];
                 $n1 = 0;
                 foreach ($this->dataDisk as $item1) {
-                    $res['DataDisk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class DescribeInstanceModificationPriceRequest extends Model
                 $model->dataDisk = [];
                 $n1 = 0;
                 foreach ($map['DataDisk'] as $item1) {
-                    $model->dataDisk[$n1++] = dataDisk::fromMap($item1);
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

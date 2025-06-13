@@ -33,7 +33,8 @@ class operationLocks extends Model
                 $res['OperationLock'] = [];
                 $n1 = 0;
                 foreach ($this->operationLock as $item1) {
-                    $res['OperationLock'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperationLock'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class operationLocks extends Model
                 $model->operationLock = [];
                 $n1 = 0;
                 foreach ($map['OperationLock'] as $item1) {
-                    $model->operationLock[$n1++] = operationLock::fromMap($item1);
+                    $model->operationLock[$n1] = operationLock::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

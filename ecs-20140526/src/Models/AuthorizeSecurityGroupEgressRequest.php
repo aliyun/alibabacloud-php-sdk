@@ -217,7 +217,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
                 $res['Permissions'] = [];
                 $n1 = 0;
                 foreach ($this->permissions as $item1) {
-                    $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Permissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -326,7 +327,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
                 $model->permissions = [];
                 $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
-                    $model->permissions[$n1++] = permissions::fromMap($item1);
+                    $model->permissions[$n1] = permissions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

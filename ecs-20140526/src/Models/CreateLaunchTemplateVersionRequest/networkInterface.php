@@ -108,7 +108,8 @@ class networkInterface extends Model
                 $res['SecurityGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class networkInterface extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

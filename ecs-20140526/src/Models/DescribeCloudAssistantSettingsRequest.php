@@ -82,7 +82,8 @@ class DescribeCloudAssistantSettingsRequest extends Model
                 $res['SettingType'] = [];
                 $n1 = 0;
                 foreach ($this->settingType as $item1) {
-                    $res['SettingType'][$n1++] = $item1;
+                    $res['SettingType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class DescribeCloudAssistantSettingsRequest extends Model
                 $model->settingType = [];
                 $n1 = 0;
                 foreach ($map['SettingType'] as $item1) {
-                    $model->settingType[$n1++] = $item1;
+                    $model->settingType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

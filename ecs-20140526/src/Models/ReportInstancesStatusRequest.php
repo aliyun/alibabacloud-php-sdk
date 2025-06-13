@@ -114,7 +114,8 @@ class ReportInstancesStatusRequest extends Model
                 $res['Device'] = [];
                 $n1 = 0;
                 foreach ($this->device as $item1) {
-                    $res['Device'][$n1++] = $item1;
+                    $res['Device'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class ReportInstancesStatusRequest extends Model
                 $res['DiskId'] = [];
                 $n1 = 0;
                 foreach ($this->diskId as $item1) {
-                    $res['DiskId'][$n1++] = $item1;
+                    $res['DiskId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +140,8 @@ class ReportInstancesStatusRequest extends Model
                 $res['InstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1++] = $item1;
+                    $res['InstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,7 +198,8 @@ class ReportInstancesStatusRequest extends Model
                 $model->device = [];
                 $n1 = 0;
                 foreach ($map['Device'] as $item1) {
-                    $model->device[$n1++] = $item1;
+                    $model->device[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -205,7 +209,8 @@ class ReportInstancesStatusRequest extends Model
                 $model->diskId = [];
                 $n1 = 0;
                 foreach ($map['DiskId'] as $item1) {
-                    $model->diskId[$n1++] = $item1;
+                    $model->diskId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +224,8 @@ class ReportInstancesStatusRequest extends Model
                 $model->instanceId = [];
                 $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1++] = $item1;
+                    $model->instanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

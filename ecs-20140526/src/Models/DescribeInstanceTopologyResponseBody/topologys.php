@@ -33,7 +33,8 @@ class topologys extends Model
                 $res['Topology'] = [];
                 $n1 = 0;
                 foreach ($this->topology as $item1) {
-                    $res['Topology'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Topology'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class topologys extends Model
                 $model->topology = [];
                 $n1 = 0;
                 foreach ($map['Topology'] as $item1) {
-                    $model->topology[$n1++] = topology::fromMap($item1);
+                    $model->topology[$n1] = topology::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

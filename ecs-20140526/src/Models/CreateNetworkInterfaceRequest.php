@@ -292,7 +292,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $res['Ipv4Prefix'] = [];
                 $n1 = 0;
                 foreach ($this->ipv4Prefix as $item1) {
-                    $res['Ipv4Prefix'][$n1++] = $item1;
+                    $res['Ipv4Prefix'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -306,7 +307,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $res['Ipv6Address'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Address as $item1) {
-                    $res['Ipv6Address'][$n1++] = $item1;
+                    $res['Ipv6Address'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -320,7 +322,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $res['Ipv6Prefix'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6Prefix as $item1) {
-                    $res['Ipv6Prefix'][$n1++] = $item1;
+                    $res['Ipv6Prefix'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -358,7 +361,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $res['PrivateIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddress as $item1) {
-                    $res['PrivateIpAddress'][$n1++] = $item1;
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -404,7 +408,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $res['SecurityGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -418,7 +423,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -479,7 +485,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $model->ipv4Prefix = [];
                 $n1 = 0;
                 foreach ($map['Ipv4Prefix'] as $item1) {
-                    $model->ipv4Prefix[$n1++] = $item1;
+                    $model->ipv4Prefix[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -493,7 +500,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $model->ipv6Address = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Address'] as $item1) {
-                    $model->ipv6Address[$n1++] = $item1;
+                    $model->ipv6Address[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -507,7 +515,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $model->ipv6Prefix = [];
                 $n1 = 0;
                 foreach ($map['Ipv6Prefix'] as $item1) {
-                    $model->ipv6Prefix[$n1++] = $item1;
+                    $model->ipv6Prefix[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -545,7 +554,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $model->privateIpAddress = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddress'] as $item1) {
-                    $model->privateIpAddress[$n1++] = $item1;
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -591,7 +601,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -605,7 +616,8 @@ class CreateNetworkInterfaceRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

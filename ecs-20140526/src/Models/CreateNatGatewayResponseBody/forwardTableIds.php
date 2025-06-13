@@ -32,7 +32,8 @@ class forwardTableIds extends Model
                 $res['ForwardTableId'] = [];
                 $n1 = 0;
                 foreach ($this->forwardTableId as $item1) {
-                    $res['ForwardTableId'][$n1++] = $item1;
+                    $res['ForwardTableId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class forwardTableIds extends Model
                 $model->forwardTableId = [];
                 $n1 = 0;
                 foreach ($map['ForwardTableId'] as $item1) {
-                    $model->forwardTableId[$n1++] = $item1;
+                    $model->forwardTableId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

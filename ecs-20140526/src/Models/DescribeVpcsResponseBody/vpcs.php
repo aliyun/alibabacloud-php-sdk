@@ -33,7 +33,8 @@ class vpcs extends Model
                 $res['Vpc'] = [];
                 $n1 = 0;
                 foreach ($this->vpc as $item1) {
-                    $res['Vpc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Vpc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class vpcs extends Model
                 $model->vpc = [];
                 $n1 = 0;
                 foreach ($map['Vpc'] as $item1) {
-                    $model->vpc[$n1++] = vpc::fromMap($item1);
+                    $model->vpc[$n1] = vpc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

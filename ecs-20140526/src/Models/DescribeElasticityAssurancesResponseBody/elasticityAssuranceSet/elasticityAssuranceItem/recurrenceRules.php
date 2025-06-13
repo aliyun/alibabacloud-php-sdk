@@ -33,7 +33,8 @@ class recurrenceRules extends Model
                 $res['RecurrenceRule'] = [];
                 $n1 = 0;
                 foreach ($this->recurrenceRule as $item1) {
-                    $res['RecurrenceRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RecurrenceRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class recurrenceRules extends Model
                 $model->recurrenceRule = [];
                 $n1 = 0;
                 foreach ($map['RecurrenceRule'] as $item1) {
-                    $model->recurrenceRule[$n1++] = recurrenceRule::fromMap($item1);
+                    $model->recurrenceRule[$n1] = recurrenceRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

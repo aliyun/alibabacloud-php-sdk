@@ -39,7 +39,8 @@ class DescribePortRangeListEntriesResponseBody extends Model
                 $res['Entries'] = [];
                 $n1 = 0;
                 foreach ($this->entries as $item1) {
-                    $res['Entries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Entries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribePortRangeListEntriesResponseBody extends Model
                 $model->entries = [];
                 $n1 = 0;
                 foreach ($map['Entries'] as $item1) {
-                    $model->entries[$n1++] = entries::fromMap($item1);
+                    $model->entries[$n1] = entries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

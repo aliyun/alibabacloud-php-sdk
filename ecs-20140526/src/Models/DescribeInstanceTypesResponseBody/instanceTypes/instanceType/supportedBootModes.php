@@ -32,7 +32,8 @@ class supportedBootModes extends Model
                 $res['SupportedBootMode'] = [];
                 $n1 = 0;
                 foreach ($this->supportedBootMode as $item1) {
-                    $res['SupportedBootMode'][$n1++] = $item1;
+                    $res['SupportedBootMode'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class supportedBootModes extends Model
                 $model->supportedBootMode = [];
                 $n1 = 0;
                 foreach ($map['SupportedBootMode'] as $item1) {
-                    $model->supportedBootMode[$n1++] = $item1;
+                    $model->supportedBootMode[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class keyPairs extends Model
                 $res['KeyPair'] = [];
                 $n1 = 0;
                 foreach ($this->keyPair as $item1) {
-                    $res['KeyPair'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['KeyPair'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class keyPairs extends Model
                 $model->keyPair = [];
                 $n1 = 0;
                 foreach ($map['KeyPair'] as $item1) {
-                    $model->keyPair[$n1++] = keyPair::fromMap($item1);
+                    $model->keyPair[$n1] = keyPair::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

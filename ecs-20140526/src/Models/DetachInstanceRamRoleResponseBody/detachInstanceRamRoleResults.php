@@ -33,7 +33,8 @@ class detachInstanceRamRoleResults extends Model
                 $res['DetachInstanceRamRoleResult'] = [];
                 $n1 = 0;
                 foreach ($this->detachInstanceRamRoleResult as $item1) {
-                    $res['DetachInstanceRamRoleResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DetachInstanceRamRoleResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class detachInstanceRamRoleResults extends Model
                 $model->detachInstanceRamRoleResult = [];
                 $n1 = 0;
                 foreach ($map['DetachInstanceRamRoleResult'] as $item1) {
-                    $model->detachInstanceRamRoleResult[$n1++] = detachInstanceRamRoleResult::fromMap($item1);
+                    $model->detachInstanceRamRoleResult[$n1] = detachInstanceRamRoleResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

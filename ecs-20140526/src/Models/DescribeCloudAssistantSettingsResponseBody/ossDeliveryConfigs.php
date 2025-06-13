@@ -33,7 +33,8 @@ class ossDeliveryConfigs extends Model
                 $res['OssDeliveryConfig'] = [];
                 $n1 = 0;
                 foreach ($this->ossDeliveryConfig as $item1) {
-                    $res['OssDeliveryConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OssDeliveryConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class ossDeliveryConfigs extends Model
                 $model->ossDeliveryConfig = [];
                 $n1 = 0;
                 foreach ($map['OssDeliveryConfig'] as $item1) {
-                    $model->ossDeliveryConfig[$n1++] = ossDeliveryConfig::fromMap($item1);
+                    $model->ossDeliveryConfig[$n1] = ossDeliveryConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
